@@ -12,9 +12,10 @@ the strong one. Same results, a fraction of the bill.**
 ![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)
 ![Status: alpha](https://img.shields.io/badge/status-alpha-orange)
 [![Paper](https://img.shields.io/badge/paper-PDF-b31b1b)](paper/JevAgentHarness.pdf)
+[![Project page](https://img.shields.io/badge/project-page-7C5CFF)](https://jevagentharness.github.io/)
 [![Hugging Face](https://img.shields.io/badge/Hugging%20Face-models%20%26%20data-FFD21E?logo=huggingface&logoColor=black)](https://huggingface.co/JevAgentHarness)
 
-[Results](#results) · [Quickstart](#quickstart) · [Harnesses](#connect-your-harness) · [How it works](#how-routing-works) ·
+[Project page](https://jevagentharness.github.io/) · [Results](#results) · [Quickstart](#quickstart) · [Harnesses](#connect-your-harness) · [How it works](#how-routing-works) ·
 [Decision points](#decision-points-and-modes) · [Reproduce](bench/README.md) · [Models and data](#models-and-data) ·
 [Paper (PDF)](paper/JevAgentHarness.pdf) · [Citation](#citation)
 

@@ -65,8 +65,8 @@
     <text x="470" y="270" font-size="16" font-weight="700">Decision model</text>
     <text x="470" y="298" font-size="15.5" font-style="italic">“Is the next step</text>
     <text x="470" y="319" font-size="15.5" font-style="italic">routine or hard?”</text>
-    <text x="470" y="352" font-size="14" fill="#59636e">Jev: ~0.2 s and</text>
-    <text x="470" y="372" font-size="14" fill="#59636e">~$0.00002 per call</text>
+    <text x="470" y="352" font-size="14" fill="#59636e">Jev: ~0.15 s and</text>
+    <text x="470" y="372" font-size="14" fill="#59636e">~$0.0001 per call</text>
     <text x="470" y="392" font-size="14" fill="#59636e">→ p(hard)</text>
 
     <line x1="654" y1="324" x2="692" y2="324" stroke="#c27c0e" stroke-width="2" marker-end="url(#ah-gate)"/>
