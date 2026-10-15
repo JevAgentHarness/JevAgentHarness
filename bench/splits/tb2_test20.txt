@@ -1,0 +1,21 @@
+# first 20 tasks of tb2_test.txt (OpenAI-pair Codex row, kept small to limit OpenAI spend)
+adaptive-rejection-sampler
+bn-fit-modify
+break-filter-js-from-html
+build-cython-ext
+build-pmars
+caffe-cifar-10
+cancel-async-tasks
+circuit-fibsqrt
+cobol-modernization
+code-from-image
+compile-compcert
+configure-git-webserver
+crack-7z-hash
+custom-memory-heap-crash
+db-wal-recovery
+distribution-search
+dna-assembly
+dna-insert
+feal-differential-cryptanalysis
+feal-linear-cryptanalysis

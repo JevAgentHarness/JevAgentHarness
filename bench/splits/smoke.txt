@@ -1,0 +1,2 @@
+regex-log
+sqlite-db-truncate

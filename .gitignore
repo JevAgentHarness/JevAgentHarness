@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# Tool caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Secrets: provider keys belong in the environment, never in the repo
+.env
+.env.*
+!.env.example
+
+# Run outputs: proxy logs (steps.jsonl, states.jsonl), Harbor jobs, summaries
+runs/
+jobs/
+logs/
+*.log
+steps.jsonl
+states.jsonl
+
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store

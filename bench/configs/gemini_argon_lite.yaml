@@ -1,0 +1,32 @@
+# Benchmark config: Gemini 4 Argon (strong, high thinking) and Gemini 3.5 Flash-Lite (fast, low thinking), Jev on
+# OpenRouter. Per token, Flash-Lite costs 4-7x less than Argon (Gemini 3.8 Flash: ~2.7x less). Used for the "lite"
+# test row in PROTOCOL.md (arm jah-auto-t75).
+listen: {host: 0.0.0.0, port: 8787}
+log_dir: runs/proxy
+budget_usd: null
+log_states: true              # keep the decision model's input states (states.jsonl; holds task text)
+
+upstreams:
+  gemini: {type: gemini, base_url: "https://generativelanguage.googleapis.com/v1beta", key_env: GEMINI_API_KEY,
+           retries: 4, timeout_s: 900}
+
+tiers:
+  strong: {upstream: gemini, model: gemini-4-argon, effort: high}
+  fast:   {upstream: gemini, model: gemini-3.5-flash-lite, effort: low}
+
+router:
+  decision: {type: jev, provider: openrouter}
+  tau: 0.5
+  first_steps_strong: 1
+  stick_strong: 0
+  max_fast_streak: 0
+  verify_finish: true
+  on_error: strong
+  decision_timeout_s: 8
+
+models:
+  jah-auto: {policy: route}
+  jah-auto-t75: {policy: route, tau: 0.75}
+  jah-strong: {tier: strong}
+  jah-fast: {tier: fast}
+default_model: jah-auto

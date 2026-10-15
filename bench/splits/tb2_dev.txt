@@ -1,0 +1,15 @@
+build-pov-ray
+chess-best-move
+constraints-scheduling
+count-dataset-tokens
+extract-elf
+extract-moves-from-video
+fix-ocaml-gc
+kv-store-grpc
+log-summary-date-ranges
+pypi-server
+pytorch-model-cli
+query-optimize
+regex-log
+sparql-university
+sqlite-db-truncate

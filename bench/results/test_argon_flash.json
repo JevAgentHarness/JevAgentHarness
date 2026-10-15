@@ -1,0 +1,118 @@
+{
+ "dsh:jah-auto": {
+  "n": 74,
+  "success": 0.7027027027027027,
+  "cost_per_task": 0.8818495847297296,
+  "agent_s_per_task": 629.0847851351351,
+  "strong_share": 0.5035077949158693,
+  "infra_errors": 7,
+  "timeouts": 11,
+  "vs": "jah-strong",
+  "paired_n": 74,
+  "delta_pt": 4.054054054054054,
+  "delta_ci_pt": [
+   -5.405405405405405,
+   13.513513513513514
+  ],
+  "wins": 8,
+  "losses": 5,
+  "cost_saving": 0.06630943582002657,
+  "time_saving": 0.21848867513809256
+ },
+ "dsh:jah-strong": {
+  "n": 74,
+  "success": 0.6621621621621622,
+  "cost_per_task": 0.944477344594594,
+  "agent_s_per_task": 804.9592694594593,
+  "strong_share": 1.0,
+  "infra_errors": 6,
+  "timeouts": 16
+ },
+ "mswe:jah-auto": {
+  "n": 74,
+  "success": 0.7432432432432432,
+  "cost_per_task": 0.7881114602702701,
+  "agent_s_per_task": 686.0418654729727,
+  "strong_share": 0.522843147551415,
+  "infra_errors": 3,
+  "timeouts": 9,
+  "vs": "jah-strong",
+  "paired_n": 74,
+  "delta_pt": 8.108108108108109,
+  "delta_ci_pt": [
+   0.0,
+   17.56756756756757
+  ],
+  "wins": 9,
+  "losses": 3,
+  "cost_saving": 0.13322094859500577,
+  "time_saving": 0.1671540874408477
+ },
+ "mswe:jah-strong": {
+  "n": 74,
+  "success": 0.6621621621621622,
+  "cost_per_task": 0.9092414716216216,
+  "agent_s_per_task": 823.7320434999999,
+  "strong_share": 1.0,
+  "infra_errors": 3,
+  "timeouts": 16
+ },
+ "pi:jah-auto": {
+  "n": 74,
+  "success": 0.5945945945945946,
+  "cost_per_task": 0.5536130917567568,
+  "agent_s_per_task": 563.1531817027027,
+  "strong_share": 0.5654949372973315,
+  "infra_errors": 4,
+  "timeouts": 9,
+  "vs": "jah-strong",
+  "paired_n": 74,
+  "delta_pt": 6.756756756756757,
+  "delta_ci_pt": [
+   -2.7027027027027026,
+   17.56756756756757
+  ],
+  "wins": 10,
+  "losses": 5,
+  "cost_saving": 0.10074388008346358,
+  "time_saving": 0.17235636914641905
+ },
+ "pi:jah-strong": {
+  "n": 74,
+  "success": 0.527027027027027,
+  "cost_per_task": 0.6156344999999999,
+  "agent_s_per_task": 680.4295480675673,
+  "strong_share": 1.0,
+  "infra_errors": 4,
+  "timeouts": 17
+ },
+ "t2:jah-auto": {
+  "n": 74,
+  "success": 0.33783783783783783,
+  "cost_per_task": 0.19234971432432432,
+  "agent_s_per_task": 1262.7118713918917,
+  "strong_share": 0.5174124492775015,
+  "infra_errors": 0,
+  "timeouts": 46,
+  "vs": "jah-strong",
+  "paired_n": 74,
+  "delta_pt": 6.756756756756757,
+  "delta_ci_pt": [
+   0.0,
+   13.513513513513514
+  ],
+  "wins": 6,
+  "losses": 1,
+  "cost_saving": -0.8183530642416159,
+  "time_saving": 0.06948140929413349
+ },
+ "t2:jah-strong": {
+  "n": 74,
+  "success": 0.2702702702702703,
+  "cost_per_task": 0.10578237972972976,
+  "agent_s_per_task": 1356.9980052027033,
+  "strong_share": 1.0,
+  "infra_errors": 0,
+  "timeouts": 53
+ }
+}

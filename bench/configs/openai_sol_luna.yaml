@@ -1,0 +1,30 @@
+# Benchmark config: GPT-6.1 Sol (strong, medium reasoning) and GPT-6 Luna (fast, low reasoning) on OpenAI's
+# Responses API; Jev on OpenRouter decides per step.
+listen: {host: 0.0.0.0, port: 8787}
+log_dir: runs/proxy
+budget_usd: null
+log_states: true
+
+upstreams:
+  openai: {type: openai_responses, base_url: "https://api.openai.com/v1", key_env: OPENAI_API_KEY, retries: 4,
+           timeout_s: 900}
+
+tiers:
+  strong: {upstream: openai, model: gpt-6.1-sol, effort: medium}
+  fast:   {upstream: openai, model: gpt-6-luna, effort: low}
+  fast_med: {upstream: openai, model: gpt-6-luna, effort: medium}
+
+router:
+  decision: {type: jev, provider: openrouter}
+  tau: 0.5
+  first_steps_strong: 1
+  verify_finish: true
+  on_error: strong
+  decision_timeout_s: 8
+
+models:
+  jah-auto: {policy: route}
+  jah-auto-m: {policy: route, fast: fast_med}
+  jah-strong: {tier: strong}
+  jah-fast: {tier: fast}
+default_model: jah-auto

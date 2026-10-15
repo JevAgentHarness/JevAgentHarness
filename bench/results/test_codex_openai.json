@@ -1,0 +1,31 @@
+{
+ "codex:jah-auto": {
+  "n": 20,
+  "success": 0.85,
+  "cost_per_task": 0.1580649185,
+  "agent_s_per_task": 272.94254635000004,
+  "strong_share": 0.5288985140676317,
+  "infra_errors": 0,
+  "timeouts": 1,
+  "vs": "jah-strong",
+  "paired_n": 20,
+  "delta_pt": 0.0,
+  "delta_ci_pt": [
+   -15.0,
+   15.0
+  ],
+  "wins": 1,
+  "losses": 1,
+  "cost_saving": 0.06522068881499166,
+  "time_saving": -0.46866787083322725
+ },
+ "codex:jah-strong": {
+  "n": 20,
+  "success": 0.85,
+  "cost_per_task": 0.16909330000000006,
+  "agent_s_per_task": 185.843615,
+  "strong_share": 1.0,
+  "infra_errors": 0,
+  "timeouts": 0
+ }
+}
