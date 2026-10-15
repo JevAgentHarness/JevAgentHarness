@@ -17,8 +17,9 @@ jah serve -c ~/.jah/config.yaml --set router.tau=0.75 --set budget_usd=20 \
     --set tiers.fast.model=gemini-3.5-flash-lite --set 'router.decision={type: rules}'
 ```
 
-`--host`, `--port` and `--log-dir` override `listen.host`, `listen.port` and `log_dir`. Keys are never written in the
-config: it names environment variables (`key_env`), and the proxy reads them at startup.
+`--host`, `--port` and `--log-dir` override `listen.host`, `listen.port` and `log_dir`, and `--preset` overrides
+`preset`. Keys are never written in the config: it names environment variables (`key_env`), and the proxy reads them
+at startup.
 
 A complete example with every section:
 
@@ -49,10 +50,16 @@ router:
   on_error: strong
   decision_timeout_s: 8
 
+preset: null                  # route | paper | safe | shadow (docs/modes.md)
+decisions:                    # decision points x modes; unset points keep the router's behaviour
+  tool_select: {mode: shadow}
+  action: {mode: guard}
+
 models:
   jah-auto: {policy: route}
   jah-auto-t75: {policy: route, tau: 0.75}
   jah-auto-lite: {policy: route, fast: lite}
+  jah-auto-tools: {policy: route, decisions: {routing: off, tool_select: {mode: cascade, tau: 0.97}}}
   jah-strong: {tier: strong}
   jah-fast: {tier: fast}
 default_model: jah-auto
@@ -73,6 +80,8 @@ prices:
 | `upstreams` | | the LLM providers, see [Upstreams](#upstreams) |
 | `tiers` | | named LLM settings (upstream + model + effort), see [Tiers](#tiers) |
 | `router` | | the routing policy, see [Router](#router) |
+| `preset` | `null` | a set of decision-point modes: `route` (the default behaviour), `paper`, `safe`, `shadow`; see [Decision points](#decision-points) |
+| `decisions` | `{}` | the mode and settings of each decision point (`routing`, `tool_select`, `stop`, `reflection`, `action`); see [Decision points](#decision-points) |
 | `models` | `{jah-auto: {policy: route}}` | the model names clients may ask for, see [Model names](#model-names) |
 | `default_model` | `jah-auto` | the name used for an unknown model name; must be a key of `models` |
 | `prices` | `{}` | added or corrected token prices, see [Prices](#prices) |
@@ -137,15 +146,18 @@ in full. `implicit` relies on the provider's automatic caching.
 | Key | Default | Meaning |
 |---|---|---|
 | `decision` | `{type: rules}` in code; `{type: jev, provider: openrouter}` in the starter config | the decision model, see [Decision models](#decision-models) |
-| `tau` | `0.5` in code; `0.75` in the starter config | a step goes to the strong tier when p(hard) >= `tau`. Higher values send fewer steps to the strong tier |
+| `tau` | `0.5` in code; `0.75` in the starter config | a step goes to the strong tier when p(hard) >= `tau`. Higher values send fewer steps to the strong tier. The routing decision point's threshold (`decisions.routing.tau`, when set, wins) |
 | `first_steps_strong` | `1` | the first N steps of a session go to the strong tier (the agent reads the task and plans) |
 | `stick_strong` | `0` | after the decision model escalates a step, keep the next N steps on the strong tier |
 | `max_fast_streak` | `0` | when > 0, force a strong step after N fast steps in a row |
-| `verify_finish` | `true` | when a fast-tier reply has no tool call (the agent wants to end its turn) and the request offered tools, the strong tier re-does that step |
+| `verify_finish` | `true` | when a fast-tier reply has no tool call (the agent wants to end its turn) and the request offered tools, the strong tier re-does that step. The same as `decisions.stop: strong` (`false`: `off`); a preset or `decisions.stop` wins |
 | `on_error` | `strong` | the tier used when the decision model fails or times out |
 | `decision_timeout_s` | `8` | time limit for one decision |
 | `strong` | `strong` | the tier name that plays the strong role |
 | `fast` | `fast` | the tier name that plays the fast role |
+
+The router is the `routing` decision point in its default `cascade` mode. Its other modes (`guard`, `shadow`, `off`)
+are set with `decisions.routing`; see [docs/modes.md](modes.md#routing).
 
 A step's index is the number of assistant turns already in the request, so step 0 is the first request of an agent
 session. The decision model is asked only for steps that could go to the fast tier (not for the first steps, a
@@ -164,8 +176,38 @@ A routed name may override these router settings for its own requests: `tau`, `f
 side by side, for example `jah-auto-t75: {policy: route, tau: 0.75}` or `jah-auto-lite: {policy: route, fast: lite}`.
 The decision model and `decision_timeout_s` are shared by all names. Unknown keys are rejected at startup.
 
+Any name may also set its own `preset` and `decisions` (merged over the top-level ones, point by point), for example
+`jah-auto-safe: {policy: route, preset: safe}`. A pinned name (`tier:`) is a baseline: the top-level `preset` and
+`decisions` do not apply to it, only its own (and it has no routing point). See
+[docs/modes.md](modes.md#per-model-name).
+
 Besides the names in `models`, `jah-<tier>` works for every tier (for example `jah-lite` pins the `lite` tier). Any
 other name is served as `default_model`. `GET /v1/models` lists the accepted names.
+
+## Decision points
+
+Besides routing, the proxy can ask the decision model at four more decision points of each step, each in a mode that
+says who decides: the next tool (`tool_select`), ending the turn (`stop`), pausing to re-check (`reflection`) and
+risky calls (`action`). The defaults keep the behaviour of the router above, and every point has a `shadow` mode that
+only logs. [docs/modes.md](modes.md) describes every mode, what the paper found for it, and how to evaluate it.
+
+```yaml
+preset: shadow                       # route | paper | safe | shadow
+decisions:
+  routing:     {mode: cascade}       # off | shadow | cascade | guard; tau defaults to router.tau
+  tool_select: {mode: cascade, tau: 0.97, tier: fast, k: 5, min_tools: 12, max_options: 100, force: true}
+  stop:        {mode: strong}        # off | shadow | strong | guard | trigger; tau 0.9, scope: fast | all
+  reflection:  {mode: off}           # off | shadow | trigger | always; tau 0.8, every: 5
+  action:      {mode: guard}         # off | shadow | guard; tau 0.5, prefilter: risky | command | all,
+                                     # patterns: [...], tools: [...], on_error: accept | recheck
+```
+
+A string is a shorthand for the mode (`action: guard`). Unknown points, modes and keys are rejected at startup, with
+the reason for points the proxy does not offer (`tool_params`, `memory_write`, `memory_read`). `--set` works on these
+keys too, for example `--set decisions.tool_select.mode=shadow`.
+
+`jah fit <log_dir>` fits the thresholds of `tool_select` and `stop` on logged runs and prints a config snippet; see
+[docs/modes.md](modes.md#fitting-thresholds).
 
 ## Decision models
 
@@ -176,7 +218,7 @@ other name is served as `default_model`. `GET /v1/models` lists the accepted nam
 | `{type: jev, provider: openrouter}` | Jev through OpenRouter; key in `OPENROUTER_API_KEY`; default model `typesafe/jev-1.13` |
 | `{type: jev, provider: typesafe}` | Jev from TypeSafe; key in `TYPESAFE_API_KEY`; default model `jev-latest` |
 | `{type: jev, provider: local, base_url: http://host:8090, model: <name>}` | a self-hosted model that speaks the Jev wire format (below); no key by default |
-| `{type: rules}` | no model, no key: `hard` when the last tool result shows an error or failing tests, or the agent repeats its last action |
+| `{type: rules}` | no model, no key: `hard` when the last tool result shows an error or failing tests, or the agent repeats its last action. It also answers the reflection question (the same signals) and the action question (the risky patterns), but not the tool-choice or finish questions: those points then fall back to their LLM-only behaviour |
 | `{type: none}` | never answers, so every routed step goes to the `on_error` tier |
 
 Options of `type: jev`: `provider`, `model`, `base_url`, `key_env` (each overrides the provider's default),
@@ -192,7 +234,9 @@ For each step the decision model gets a text state and one multiple-choice quest
 `routine` or `hard`? The state has the task (the first user message, up to 3,000 characters), the number of steps so
 far, and the last six steps, each an action (tool calls, up to 400 characters) and its result (up to 300 characters;
 the latest result up to its last 2,500 characters). The exact question text is `QUESTION` in
-`src/jevagentharness/router.py`.
+`src/jevagentharness/router.py`. The other decision points ask their questions about the same state (with the
+proposed reply, final answer or call appended for the checks after the call); their texts are in
+`src/jevagentharness/points.py`.
 
 ### Jev wire format (self-hosting)
 
@@ -266,11 +310,20 @@ keys:
 | `n_tool_calls`, `finish` | tool calls in the reply, finish reason |
 | `finish_check`, `fast_error`, `error` | present when the finish check re-did the step, when a fast call failed, or when the step failed |
 
-Records with `kind: cache` are context-cache writes (cost only, not steps).
+Records with `kind: cache` are context-cache writes (cost only, not steps). The reasons above are those of the
+default decision points. Other modes add `tool_cascade`, `reflection`, `stop_trigger`, `stop_guard`, `tool_guard`,
+`route_guard`, `action_guard`, `guard`, `shadow` and `routing_off`, and the fields `points` and `redo`
+([docs/modes.md](modes.md#logs)). `decision_cost_usd` covers every decision call of the step.
+
+`<log_dir>/decisions.jsonl` gets one line per decision call: the decision point and mode, the question, the options,
+the probabilities, what the point did, the LLM's own choice when known, latency and cost (fields in
+[docs/modes.md](modes.md#logs)). It holds no prompt text. `jah fit` reads it, and `jah report` prints a summary of it.
 
 With `log_states: true` the proxy also writes `<log_dir>/states.jsonl`: per decided step, the exact state text the
-decision model saw, with its p(hard), tier and reason. This is training data for your own decision model. It contains
+decision model saw, with its p(hard), tier and reason, and one line per question of the other decision points (with
+a `point` field). This is training data for your own decision model. It contains
 task text and tool output, so it is off by default.
 
 `jah report <log_dir>` summarizes `steps.jsonl` by model name (`--by <field>` for another field, `--json` for every
-number); `GET /stats` shows spend, steps and tier shares of the running proxy.
+number) and, when `decisions.jsonl` exists, the decision calls per decision point and mode. `GET /stats` shows spend,
+steps and tier shares of the running proxy, the default model name's decision points and the decision calls so far.

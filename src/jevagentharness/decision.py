@@ -5,7 +5,8 @@ Backends:
 ``jev``    any server that speaks the Jev System-One wire format (``POST {base}/v1/systemone``): TypeSafe's hosted Jev,
            Jev through OpenRouter, or a self-hosted decision model. The answer is a probability per option.
 ``rules``  no model at all: transparent heuristics over the agent's last tool result (errors, failing tests, repeated
-           actions). Useful as a baseline and when no decision-model key is available.
+           actions) and the action pre-filter's risky patterns. Useful as a baseline and when no decision-model key
+           is available; it answers the routing, reflection and action questions only.
 ``none``   never answers (the router then falls back to its ``on_error`` tier).
 
 A backend returns a :class:`Decision` with ``p``: the probability of every option. Failures raise; the router turns
@@ -158,15 +159,21 @@ _ERR = re.compile("|".join(ERROR_PATTERNS))
 
 @dataclass
 class StepView:
-    """What the rules backend looks at: the last action and its result, and the action before it."""
+    """What the rules backend looks at: the last action and its result, the action before it, and (for the action
+    question) whether the proposed call matched a risky pattern of the action pre-filter."""
     last_action: str = ""
     last_output: str = ""
     prev_action: str = ""
+    risky: bool = False
 
 
 class RulesBackend(DecisionBackend):
-    """``hard`` when the last tool result shows an error or failing tests, or the agent repeats its last action."""
+    """No model: ``hard`` (routing) and ``yes`` (reflection) when the last tool result shows an error or failing tests,
+    or the agent repeats its last action; ``risky`` (action) when the proposed call matched a risky pattern. Other
+    questions (tool choice, the finish check) need a decision model: the rules backend refuses them, so those decision
+    points fall back to their LLM-only behaviour."""
     name = "rules"
+    ANSWERS = ("next_step", "needs_reflection", "action_risk")
 
     def __init__(self, hard_option: str = "hard", easy_option: str = "routine") -> None:
         self.hard, self.easy = hard_option, easy_option
@@ -179,8 +186,22 @@ class RulesBackend(DecisionBackend):
         return 0.1, "no_signal"
 
     async def decide(self, state: str, q: Question, view: StepView | None = None) -> Decision:
-        p_hard, why = self.judge(view or StepView())
+        v = view or StepView()
+        if q.id == "action_risk":
+            p = 0.9 if v.risky else 0.1
+            return Decision(p={"risky": p, "safe": 1.0 - p}, model="rules",
+                            why="risky_pattern" if v.risky else "no_pattern")
+        if q.id == "needs_reflection":
+            p, why = self.judge(v)
+            return Decision(p={"yes": p, "no": 1.0 - p}, model="rules", why=why)
+        if q.id in _NOT_RULES:
+            raise RuntimeError(f"the rules backend cannot answer the {q.id!r} question; use a decision model")
+        p_hard, why = self.judge(v)
         return Decision(p={self.hard: p_hard, self.easy: 1.0 - p_hard}, model="rules", why=why)
+
+
+# questions of the other decision points (points.py): they need a model, not a rule
+_NOT_RULES = {"next_tool", "task_done", "already_done", "fast_step_ok"}
 
 
 class NoneBackend(DecisionBackend):

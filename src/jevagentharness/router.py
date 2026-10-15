@@ -11,6 +11,11 @@ Policy (``route``), for step t of a session (t = the number of assistant turns a
 
 ``verify_finish`` is applied by the server after the call: a fast-tier response with no tool call ends the agent's
 turn, so the strong tier re-does that step from the same request.
+
+This is the routing decision point in ``cascade`` mode (the default). Its other modes (points.py, docs/modes.md):
+``shadow`` asks the same question and logs it while every step runs on the strong tier, ``guard`` lets the fast tier
+write every routable step and has the decision model check the reply (server.py), ``off`` sends every step to the
+strong tier without asking.
 """
 
 from __future__ import annotations
@@ -117,6 +122,7 @@ class Session:
     fast_streak: int = 0
     stick_left: int = 0
     decided: dict[int, dict[str, Any]] = field(default_factory=dict)   # step -> route record (reused on a retry)
+    plans: dict[int, Any] = field(default_factory=dict)       # step -> the other decision points' pre-call effects
     lock: asyncio.Lock = field(default_factory=asyncio.Lock)
     cost_usd: float = 0.0
     calls: int = 0
@@ -128,9 +134,27 @@ class Router:
         self.cfg = cfg
         self.backend = backend
 
-    async def route(self, sess: Session, req: Request, cfg: RouterCfg | None = None) -> dict[str, Any]:
+    def forced(self, sess: Session, step: int, cfg: RouterCfg | None = None) -> str | None:
+        """The reason a step goes to the strong tier without asking (``first_steps``, ``stick``, ``fast_streak``),
+        else None. No side effects: the server uses it to skip decision calls that cannot change the step."""
+        c = cfg or self.cfg
+        if step < c.first_steps_strong:
+            return "first_steps"
+        if sess.stick_left > 0:
+            return "stick"
+        if c.max_fast_streak > 0 and sess.fast_streak >= c.max_fast_streak:
+            return "fast_streak"
+        return None
+
+    async def route(self, sess: Session, req: Request, cfg: RouterCfg | None = None, mode: str = "cascade",
+                    commit: bool = True) -> dict[str, Any]:
         """The route record for this request: {step, tier, reason, p_hard, decision{...}}. ``cfg``: the router
-        settings of the client's model name (e.g. another ``tau`` or fast tier); default: the configured router."""
+        settings of the client's model name (e.g. another ``tau`` or fast tier); default: the configured router.
+
+        ``mode`` is the routing decision point's mode (points.py): ``cascade`` (the policy above), ``shadow`` (ask and
+        log, every step on the strong tier), ``guard`` (the fast tier writes every routable step; the server has the
+        decision model check the reply) and ``off`` (every step on the strong tier, no question). With
+        ``commit=False`` the caller commits the final tier (other decision points may still change it)."""
         step = req.step_index()
         if step in sess.decided:
             rec = dict(sess.decided[step])
@@ -138,13 +162,15 @@ class Router:
             return rec
         c = cfg or self.cfg
         rec: dict[str, Any] = {"step": step, "p_hard": None}
-        if step < c.first_steps_strong:
-            tier, reason = c.strong, "first_steps"
-        elif sess.stick_left > 0:
-            tier, reason = c.strong, "stick"
-            sess.stick_left -= 1
-        elif c.max_fast_streak > 0 and sess.fast_streak >= c.max_fast_streak:
-            tier, reason = c.strong, "fast_streak"
+        forced = self.forced(sess, step, c)
+        if forced:
+            tier, reason = c.strong, forced
+            if forced == "stick":
+                sess.stick_left -= 1
+        elif mode == "off":
+            tier, reason = c.strong, "routing_off"
+        elif mode == "guard":
+            tier, reason = c.fast, "guard"            # checked after the call (server.py)
         else:
             state, view = render_state(req)
             rec["_state"] = state                     # kept only in memory; the server logs it when log_states is on
@@ -158,16 +184,19 @@ class Router:
                 rec.update({"p_hard": round(p_hard, 4), "decision": {
                     "model": d.model, "cost_usd": d.cost_usd, "latency_s": round(time.monotonic() - t0, 4),
                     "input_tokens": d.input_tokens, "why": d.why or None, "state_chars": len(state)}})
-                if p_hard >= c.tau:
+                if mode == "shadow":
+                    tier, reason = c.strong, "shadow"
+                elif p_hard >= c.tau:
                     tier, reason = c.strong, "hard"
                     sess.stick_left = c.stick_strong
                 else:
                     tier, reason = c.fast, "routine"
             except Exception as e:  # noqa: BLE001 - fail safe: a decision-model failure never stops the agent
-                tier, reason = c.on_error, "decision_error"
+                tier, reason = (c.strong, "shadow") if mode == "shadow" else (c.on_error, "decision_error")
                 rec["decision"] = {"error": f"{type(e).__name__}: {str(e)[:200]}",
                                    "latency_s": round(time.monotonic() - t0, 4)}
-        self.commit(sess, step, tier, c)
+        if commit:
+            self.commit(sess, step, tier, c)
         rec.update({"tier": tier, "reason": reason})
         sess.decided[step] = rec
         for old in [s for s in sess.decided if s < step - 4]:
@@ -178,8 +207,14 @@ class Router:
         sess.fast_streak = sess.fast_streak + 1 if tier == (cfg or self.cfg).fast else 0
         sess.last_tier = tier
 
+    def settle(self, sess: Session, step: int, tier: str, reason: str, cfg: RouterCfg | None = None) -> None:
+        """Commit the step's final tier after the other decision points had their say (``route(commit=False)``)."""
+        self.commit(sess, step, tier, cfg)
+        if step in sess.decided:
+            sess.decided[step] = {**sess.decided[step], "tier": tier, "reason": reason}
+
     def escalated(self, sess: Session, step: int, reason: str, cfg: RouterCfg | None = None) -> None:
-        """The server re-did a fast step on the strong tier (finish check, fast-tier error)."""
+        """The server re-did a step on the strong tier (finish check, a guard, a fast-tier error)."""
         sess.fast_streak = 0
         strong = (cfg or self.cfg).strong
         sess.last_tier = strong

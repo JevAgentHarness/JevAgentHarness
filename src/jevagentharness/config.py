@@ -1,4 +1,4 @@
-"""Configuration: upstreams, the two tiers, the router and the model names clients may ask for."""
+"""Configuration: upstreams, the two tiers, the router, the decision points and the model names clients may ask for."""
 
 from __future__ import annotations
 
@@ -9,6 +9,8 @@ from pathlib import Path
 from typing import Any, Mapping
 
 import yaml
+
+from . import points as P
 
 DEFAULT_CONFIG = """\
 # JevAgentHarness configuration. Keys are read from the environment (never write them here).
@@ -37,6 +39,17 @@ router:
   verify_finish: true         # a fast-tier final answer (no tool call) is re-done by the strong tier
   on_error: strong            # tier when the decision model fails or times out
   decision_timeout_s: 8
+
+# Decision points x modes (docs/modes.md). A point set under `decisions` wins over the preset. Unset points keep the
+# behaviour above: routing in cascade mode at router.tau, and the finish check (stop: strong) while verify_finish is
+# true. `jah fit <log_dir>` fits the thresholds (tau) from logged runs.
+preset: null                  # route (this default) | paper | safe | shadow
+decisions:
+  # routing:     {mode: cascade}   # off | shadow | cascade | guard
+  # tool_select: {mode: off}       # off | shadow | assist | cascade | guard (cascade: fit tau with `jah fit` first)
+  # stop:        {mode: strong}    # off | shadow | strong | guard | trigger
+  # reflection:  {mode: off}       # off | shadow | trigger | always
+  # action:      {mode: off}       # off | shadow | guard (a second look at risky shell and write calls)
 
 models:                       # the model names a client can use (any other name -> `default`)
   jah-auto: {policy: route}
@@ -109,6 +122,8 @@ class Config:
     budget_usd: float | None = None
     prices: dict[str, dict[str, Any]] = field(default_factory=dict)
     log_states: bool = False      # also write each decision's input state to states.jsonl (holds task text)
+    preset: str | None = None     # a decision-point preset (points.PRESETS)
+    decisions: dict[str, Any] = field(default_factory=dict)   # the `decisions:` block (points.py)
 
     @classmethod
     def from_dict(cls, d: Mapping[str, Any]) -> "Config":
@@ -131,12 +146,22 @@ class Config:
             if "tier" not in m and m.get("policy", "route") != "route":
                 raise ValueError(f"model {name}: policy must be 'route' (or give a tier)")
             bad = set(m) - {"tier", "policy", "tau", "first_steps_strong", "stick_strong", "max_fast_streak",
-                            "verify_finish", "on_error", "strong", "fast"}
+                            "verify_finish", "on_error", "strong", "fast", "preset", "decisions"}
             if bad:
                 raise ValueError(f"model {name}: unknown keys {sorted(bad)}")
             for role in ("strong", "fast", "on_error"):
                 if role in m and m[role] not in tiers:
                     raise ValueError(f"model {name}: {role} refers to unknown tier {m[role]!r}")
+            m["preset"] = P.check_preset(m.get("preset"), f"model {name}: preset")
+            if m["preset"] is None:
+                m.pop("preset")
+            if "decisions" in m:
+                m["decisions"] = P.validate(m["decisions"], f"model {name}: decisions")
+                if "tier" in m and "routing" in m["decisions"]:
+                    raise ValueError(f"model {name}: a pinned tier has no routing decision point")
+                _check_tier(m["decisions"], tiers, f"model {name}: decisions")
+        decisions = P.validate(d.get("decisions"))
+        _check_tier(decisions, tiers, "decisions")
         listen = d.get("listen") or {}
         default_model = str(d.get("default_model", "jah-auto"))
         if default_model not in models:
@@ -145,7 +170,8 @@ class Config:
                    host=str(listen.get("host", "127.0.0.1")), port=int(listen.get("port", 8787)),
                    log_dir=str(d.get("log_dir", "~/.jah/logs")),
                    budget_usd=(None if d.get("budget_usd") is None else float(d["budget_usd"])),
-                   prices=dict(d.get("prices") or {}), log_states=bool(d.get("log_states", False)))
+                   prices=dict(d.get("prices") or {}), log_states=bool(d.get("log_states", False)),
+                   preset=P.check_preset(d.get("preset")), decisions=decisions)
 
     def model_spec(self, name: str) -> tuple[str, dict[str, Any]]:
         """The client's model name -> (resolved name, spec). Unknown names use ``default_model``."""
@@ -155,6 +181,17 @@ class Config:
             return name, {"tier": name[4:]}
         return self.default_model, self.models[self.default_model]
 
+    def decisions_for(self, spec: Mapping[str, Any], router_tau: float | None = None) -> P.Decisions:
+        """The decision points of a model name (its spec from :meth:`model_spec`); see :func:`points.resolve`."""
+        return P.resolve(self.router.tau if router_tau is None else router_tau, self.router.verify_finish,
+                         self.preset, self.decisions, spec, pinned="tier" in spec)
+
+
+def _check_tier(decisions: Mapping[str, Any], tiers: Mapping[str, Tier], where: str) -> None:
+    t = (decisions.get("tool_select") or {}).get("tier")
+    if t is not None and t not in ("strong", "fast") and t not in tiers:
+        raise ValueError(f"{where}.tool_select.tier: unknown tier {t!r}")
+
 
 def load_config(path: str | Path | None = None, overrides: list[str] | None = None) -> Config:
     d = yaml.safe_load(Path(path).expanduser().read_text()) if path else yaml.safe_load(DEFAULT_CONFIG)
@@ -163,6 +200,10 @@ def load_config(path: str | Path | None = None, overrides: list[str] | None = No
         cur: Any = d
         parts = k.split(".")
         for p in parts[:-1]:
-            cur = cur.setdefault(p, {})
+            if cur.get(p) is None:                 # a missing key, or a block holding only comments
+                cur[p] = {}
+            cur = cur[p]
+            if not isinstance(cur, dict):
+                raise ValueError(f"--set {k}: {p!r} is not a mapping in the config")
         cur[parts[-1]] = yaml.safe_load(v)
     return Config.from_dict(d)

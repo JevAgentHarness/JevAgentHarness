@@ -1,4 +1,5 @@
-"""Summaries of a proxy log (``steps.jsonl``): per model name, sessions, steps, tier shares, cost and latency."""
+"""Summaries of a proxy log (``steps.jsonl``): per model name, sessions, steps, tier shares, cost and latency; and of
+the decision calls per decision point (``decisions.jsonl``)."""
 
 from __future__ import annotations
 
@@ -64,4 +65,13 @@ def table(summary: dict[str, dict[str, Any]]) -> str:
         strong = s["tier_share"].get("strong", 0.0)
         rows.append(f"| {g} | {s['sessions']} | {s['steps_per_session']} | {strong:.0%} | "
                     f"{s['cost_per_session_usd']:.4f} | {s['llm_seconds_per_session']} | {s['errors']} |")
+    return "\n".join(rows)
+
+
+def decisions_table(described: dict[str, dict[str, Any]]) -> str:
+    """Decision calls per point and mode (from decisions.jsonl, via fit.describe)."""
+    rows = ["| decision point:mode | calls | errors | acted | p50 latency s | cost $ |", "|---|---|---|---|---|---|"]
+    for g, d in described.items():
+        lat = "-" if d["latency_p50_s"] is None else round(d["latency_p50_s"], 3)
+        rows.append(f"| {g} | {d['calls']} | {d['errors']} | {d['acted']} | {lat} | {d['cost_usd']} |")
     return "\n".join(rows)

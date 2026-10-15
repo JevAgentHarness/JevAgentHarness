@@ -1,4 +1,4 @@
-"""``jah``: run the proxy, write a starter config, print harness setup snippets, summarize logs."""
+"""``jah``: run the proxy, write a starter config, print harness setup snippets, summarize logs, fit thresholds."""
 
 from __future__ import annotations
 
@@ -44,7 +44,7 @@ def _config_path(a: argparse.Namespace) -> str | None:
 
 def cmd_serve(a: argparse.Namespace) -> int:
     from .server import run
-    cfg = load_config(_config_path(a), a.set)
+    cfg = load_config(_config_path(a), a.set + ([f"preset={a.preset}"] if a.preset else []))
     if a.port:
         cfg.port = a.port
     if a.host:
@@ -63,6 +63,15 @@ def cmd_serve(a: argparse.Namespace) -> int:
         print(f"jah {__version__} on http://{cfg.host}:{cfg.port}/v1  "
               f"strong={t[cfg.router.strong].model}  fast={t[cfg.router.fast].model}  "
               f"decision={proxy.backend.describe()}  tau={cfg.router.tau}  logs={proxy.log_dir}", flush=True)
+        dc = cfg.decisions_for(cfg.models[cfg.default_model])
+        on = {p: m for p, m in dc.modes().items() if m != "off"}
+        print(f"decision points ({cfg.default_model}): " + "  ".join(f"{p}={m}" for p, m in on.items()), flush=True)
+        if proxy.backend.name == "rules":
+            need = [p for p, m in on.items() if p == "tool_select" or (p == "stop" and m in ("guard", "trigger"))
+                    or (p == "routing" and m == "guard")]
+            if need:
+                print(f"warning: the rules backend cannot answer {', '.join(need)}: those points fall back to their "
+                      "LLM-only behaviour (use a decision model, docs/modes.md)", file=sys.stderr, flush=True)
     run(cfg, banner)
     return 0
 
@@ -73,9 +82,36 @@ def cmd_setup(a: argparse.Namespace) -> int:
 
 
 def cmd_report(a: argparse.Namespace) -> int:
-    from .report import read_steps, summarize, table
+    from .report import decisions_table, read_steps, summarize, table
     s = summarize(read_steps(a.log), by=a.by)
     print(json.dumps(s, indent=1) if a.json else table(s))
+    d = Path(a.log).expanduser()
+    if not a.json and d.is_dir() and (d / "decisions.jsonl").exists():
+        from .fit import describe, read_decisions
+        print("\n" + decisions_table(describe(read_decisions(d))))
+    return 0
+
+
+def cmd_fit(a: argparse.Namespace) -> int:
+    """Fit each decision point's threshold on logged runs (docs/modes.md, "Fitting thresholds")."""
+    from .fit import fit, read_decisions, snippet, table
+    try:
+        recs = read_decisions(a.log)
+    except FileNotFoundError as e:
+        print(str(e), file=sys.stderr)
+        return 1
+    res = fit(recs, target=a.target, min_count=a.min_count, z=a.z, model=a.model)
+    if a.json:
+        print(json.dumps(res, indent=1))
+    else:
+        print(table(res))
+        print()
+    text = snippet(res, a.log)
+    if not a.json:
+        print(text, end="")
+    if a.out:
+        Path(a.out).expanduser().write_text(text)
+        print(f"wrote {a.out}", file=sys.stderr)
     return 0
 
 
@@ -127,6 +163,8 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--host")
     p.add_argument("--port", type=int)
     p.add_argument("--log-dir")
+    p.add_argument("--preset", choices=("route", "paper", "safe", "shadow"),
+                   help="decision-point preset (docs/modes.md); overrides `preset:` in the config")
     p.set_defaults(fn=cmd_serve)
 
     p = sub.add_parser("setup", help="print the setup for a harness")
@@ -139,6 +177,17 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--by", default="model_name")
     p.add_argument("--json", action="store_true")
     p.set_defaults(fn=cmd_report)
+
+    p = sub.add_parser("fit", help="fit the decision points' thresholds on a proxy log (decisions.jsonl)")
+    p.add_argument("log", nargs="?", default="~/.jah/logs")
+    p.add_argument("--target", type=float, default=0.95, help="agreement with the LLM to reach (default 0.95)")
+    p.add_argument("--min-count", type=int, default=30, help="decisions the point must act on, at least (30)")
+    p.add_argument("--z", type=float, default=1.645,
+                   help="one-sided Wilson bound on the agreement (1.645 ~ 95%%; 0 = the raw rate)")
+    p.add_argument("--model", help="fit the records of one model name only")
+    p.add_argument("--out", help="also write the config snippet to this file")
+    p.add_argument("--json", action="store_true")
+    p.set_defaults(fn=cmd_fit)
 
     p = sub.add_parser("ask", help="send one chat request through a running proxy")
     p.add_argument("prompt")

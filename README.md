@@ -14,7 +14,8 @@ the strong one. Same results, a fraction of the bill.**
 [![Paper](https://img.shields.io/badge/paper-PDF-b31b1b)](paper/JevAgentHarness.pdf)
 
 [Results](#results) · [Quickstart](#quickstart) · [Harnesses](#connect-your-harness) · [How it works](#how-routing-works) ·
-[Reproduce](bench/README.md) · [Paper (PDF)](paper/JevAgentHarness.pdf) · [Citation](#citation)
+[Decision points](#decision-points-and-modes) · [Reproduce](bench/README.md) · [Paper (PDF)](paper/JevAgentHarness.pdf) ·
+[Citation](#citation)
 
 </div>
 
@@ -252,6 +253,33 @@ Sessions are identified by the client's session id when it sends one (Codex does
 prompt and the task, plus the model name. Name them explicitly with the header `X-JAH-Session: <id>` or the base URL
 `http://127.0.0.1:8787/s/<id>/v1`.
 
+## Decision points and modes
+
+Routing is one **decision point**. The paper studies several, each with **modes** that say who decides, and the proxy
+offers the ones it can act on from between the harness and the provider:
+
+| Point | Modes | What an acting mode does |
+|---|---|---|
+| `routing` | `cascade` (default), `guard`, `shadow`, `off` | picks the tier that writes the step (above), or lets the fast tier write it and has the decision model check the result |
+| `tool_select` | `cascade`, `assist`, `guard`, `shadow` | forces a confidently predicted tool and lets the fast tier fill in the arguments, shortlists the tools sent to the LLM, or has the strong tier redo a step whose tool it doubts |
+| `stop` | `strong` (default), `guard`, `trigger`, `shadow` | the finish check above, or accepts the fast tier's final answer when the decision model is confident the task is done |
+| `reflection` | `trigger`, `always`, `shadow` | sends a step to the strong tier with a note to re-check when the agent looks stuck |
+| `action` | `guard`, `shadow` | gives risky calls (`rm -rf`, `git push --force`, `DROP TABLE`, deploys, ...) a second look on the strong tier |
+
+```bash
+jah serve --preset shadow       # every point logs its answer next to what the agent did; nothing changes
+jah fit ~/.jah/logs             # fit each point's threshold on those logs and print a config snippet
+jah serve --preset paper        # the paper's tool-choice cascade (put the fitted tau in the config first)
+jah serve --preset safe         # the default plus the action guard
+```
+
+The results above use the default (routing cascade and the finish check). The other modes are new in the proxy and
+have not been benchmarked here. In the paper's own agent loop, only the cascades at tool and argument choices, with
+fitted thresholds, saved cost without losing success (the proxy offers the first), and the modes at yes/no points
+(stop, reflection) kept an LLM call in the loop and did not save cost. If the decision model fails, every point falls
+back to its LLM-only behaviour. [docs/modes.md](docs/modes.md) maps the paper's design space to the proxy, says what
+to expect from each mode, and shows how to evaluate one on your tasks with side-by-side model names.
+
 ## Configuration
 
 `jah init` writes a commented starter config to `~/.jah/config.yaml`; `jah serve -c <file>` uses it, and
@@ -294,12 +322,14 @@ explicit Gemini context caching and per-model router overrides, are in [docs/con
 ## Logs and reports
 
 Every step is one JSON line in `<log_dir>/steps.jsonl`: session, step, tier, why it was routed there, p(hard),
-tokens (cached and thinking included), cost and latency of every call. Prompts, outputs, headers and keys are never
-logged.
+tokens (cached and thinking included), cost and latency of every call. Every decision call is one line in
+`<log_dir>/decisions.jsonl`: the decision point, its mode, the probabilities, what it did and the LLM's own choice
+(what `jah fit` reads). Prompts, outputs, headers and keys are never logged.
 
 ```bash
 jah report ~/.jah/logs            # per model name: sessions, steps, strong share, $ and LLM seconds per session
 jah report ~/.jah/logs --json
+jah fit ~/.jah/logs               # thresholds for the decision points (docs/modes.md)
 curl localhost:8787/stats          # live: spend, tier shares, sessions
 ```
 
@@ -316,14 +346,6 @@ the billed amount. Add or correct prices under `prices:` in the config. Calls to
 [`bench/`](bench) holds everything used for the results above: Harbor agents for the five harnesses
 (`bench/harbor_agents.py`), the run script, the configs, the fixed dev/test split of Terminal-Bench 2.0, the summary
 script and the protocol. [`bench/README.md`](bench/README.md) walks through a full run.
-
-## Paper experiments
-
-[`research/`](research) holds the code behind every experiment in the paper: the benchmark (AgentDecisionBench, with
-DecisionGym), the harness with fitted thresholds, the registered Stage-1 and Stage-2 studies, the training of
-AgentDecision-4B and -0.8B, and the appendix experiments, with their configurations, registrations and result
-summaries. [`research/README.md`](research/README.md) maps each section, table and figure of the paper to the commands
-that produce it, with the keys, hardware and cost each one needs.
 
 ## Security
 
@@ -350,6 +372,14 @@ that produce it, with the keys, hardware and cost each one needs.
 pip install -e ".[dev]"
 pytest -q                 # offline: a scripted fake upstream, no keys, no network
 ```
+
+## Paper experiments
+
+[`research/`](research) holds the code behind every experiment in the paper: the benchmark (AgentDecisionBench, with
+DecisionGym), the harness with fitted thresholds, the registered Stage-1 and Stage-2 studies, the training of
+AgentDecision-4B and -0.8B, and the appendix experiments, with their configurations, registrations and result
+summaries. [`research/README.md`](research/README.md) maps each section, table and figure of the paper to the commands
+that produce it, with the keys, hardware and cost each one needs.
 
 ## Citation
 

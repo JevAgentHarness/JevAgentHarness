@@ -81,6 +81,7 @@ class Request:
     parallel_tool_calls: bool | None = None
     response_format: Any = None
     session: str | None = None           # a client-supplied session key, when there is one
+    modified: bool = False               # a decision point changed it (tools, tool_choice, a note): points.py
 
     @property
     def system(self) -> str:

@@ -146,7 +146,9 @@ class Upstreams:
                 except (json.JSONDecodeError, ValueError, TypeError) as e:
                     raise UpstreamError(502, f"unparseable upstream reply: {e}: {text[:200]}") from e
                 cost, priced = self.prices.cost(tier.model, resp.usage)
-                if cache is not None and session:
+                if cache is not None and session and not req.modified:
+                    # a request a decision point changed (forced or filtered tools, a note) is a one-off: a cache
+                    # made from it would not be a prefix of the next ordinary request
                     cache.after(session, tier.model, full, self.prices)
                 return resp, CallInfo(tier=tier_name, model=tier.model, latency_s=time.monotonic() - t0,
                                       attempts=attempt + 1, cost_usd=cost, priced=priced, signature_fix=sig_fix)

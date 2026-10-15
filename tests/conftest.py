@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import time
 from typing import Any, Callable
 
 import pytest
@@ -84,14 +85,52 @@ class FixedDecision(DecisionBackend):
         return Decision(p={"hard": p, "routine": 1 - p}, model="fixed", cost_usd=0.0001)
 
 
-def make_cfg(base_url: str, tmp_path: Any, **router: Any) -> Any:
-    sets = [f"upstreams.gemini.base_url={base_url}/v1beta", "upstreams.gemini.key_env=FAKE_GEMINI_KEY",
+class ScriptedDecision(DecisionBackend):
+    """Answers per question id: ``answers[qid]`` is an option name (probability 1), a {option: p} dict, a list of
+    those (consumed in order, the last one repeats) or a callable (state, question) -> one of those. Unscripted:
+    routine for the routing question, uniform otherwise. ``fail``: question ids that raise; ``delay``: seconds per
+    question id (or "*") before answering."""
+    name = "scripted"
+
+    def __init__(self, answers: dict[str, Any] | None = None, fail: set[str] | None = None,
+                 delay: dict[str, float] | None = None) -> None:
+        self.answers = dict(answers or {})
+        self.fail = set(fail or ())
+        self.delay = dict(delay or {})
+        self.asked: list[tuple[str, str, list[str]]] = []          # (question id, state, options)
+        self.events: list[tuple[str, str, float]] = []             # (question id, "start" | "end", time)
+
+    async def decide(self, state: str, q: Question) -> Decision:
+        self.asked.append((q.id, state, list(q.options)))
+        self.events.append((q.id, "start", time.monotonic()))
+        d = self.delay.get(q.id, self.delay.get("*", 0.0))
+        if d:
+            await asyncio.sleep(d)
+        self.events.append((q.id, "end", time.monotonic()))
+        if q.id in self.fail:
+            raise RuntimeError(f"boom {q.id}")
+        a = self.answers.get(q.id)
+        if callable(a):
+            a = a(state, q)
+        if isinstance(a, list):
+            a = a.pop(0) if len(a) > 1 else a[0]
+        if a is None:
+            a = {"routine": 0.9, "hard": 0.1} if q.id == "next_step" else {o: 1 / len(q.options) for o in q.options}
+        if isinstance(a, str):
+            a = {a: 1.0}
+        return Decision(p={o: float(a.get(o, 0.0)) for o in q.options}, model="scripted", cost_usd=0.0001)
+
+    def ids(self) -> list[str]:
+        return [q for q, _, _ in self.asked]
+
+
+def make_cfg(base_url: str, tmp_path: Any, sets: list[str] | None = None, **router: Any) -> Any:
+    base = [f"upstreams.gemini.base_url={base_url}/v1beta", "upstreams.gemini.key_env=FAKE_GEMINI_KEY",
             f"log_dir={tmp_path}", "upstreams.gemini.retries=1",
             # the tests were written for this pair; pin it so a change of the built-in default does not move them
             'tiers.fast={"upstream": "gemini", "model": "gemini-3.8-flash", "effort": "low", "cache": "explicit"}',
             "router.tau=0.5"]
-    sets += [f"router.{k}={json.dumps(v)}" for k, v in router.items()]
-    return load_config(None, sets)
+    return load_config(None, base + [f"router.{k}={json.dumps(v)}" for k, v in router.items()] + list(sets or []))
 
 
 @pytest.fixture
@@ -101,11 +140,11 @@ def run() -> Callable[..., Any]:
     return _run
 
 
-async def start(fake: FakeGemini, tmp_path: Any, backend: DecisionBackend | None = None, **router: Any
-                ) -> tuple[TestClient, TestServer, Proxy]:
+async def start(fake: FakeGemini, tmp_path: Any, backend: DecisionBackend | None = None,
+                sets: list[str] | None = None, **router: Any) -> tuple[TestClient, TestServer, Proxy]:
     upstream = TestServer(fake.app())
     await upstream.start_server()
-    cfg = make_cfg(str(upstream.make_url("")).rstrip("/"), tmp_path, **router)
+    cfg = make_cfg(str(upstream.make_url("")).rstrip("/"), tmp_path, sets, **router)
     proxy = Proxy(cfg, backend=backend or FixedDecision())
     client = TestClient(TestServer(proxy.app()))
     await client.start_server()
