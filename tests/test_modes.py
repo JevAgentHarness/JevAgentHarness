@@ -277,6 +277,44 @@ def test_reflection_trigger_and_always(run, tmp_path):
     assert steps(tmp2)[1]["mark_reflection"] == "always"
 
 
+def test_stop_submit_pattern_covers_a_finish_through_a_tool(run, tmp_path):
+    # mini-swe-agent ends with a bash call, not a text reply: without `submit` the stop point never sees it
+    sub = "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT"
+    one = [fn("bash")]
+
+    def script(model, b):
+        return 200, call_reply("bash", {"command": sub if model == FAST else "pytest -q"})
+
+    fake = FakeGemini(script)
+    run(serve(fake, tmp_path, ScriptedDecision(), [], [body(1, tools=one)]))
+    assert models(fake) == [FAST]                                   # the default: a fast submit goes through
+
+    tmp2 = tmp_path / "strong"
+    tmp2.mkdir()
+    fake2 = FakeGemini(script)
+    out = run(serve(fake2, tmp2, ScriptedDecision(), ["decisions.stop={submit: [COMPLETE_TASK_AND_SUBMIT]}"],
+                    [body(1, tools=one)]))
+    assert models(fake2) == [FAST, STRONG] and steps(tmp2)[0]["finish_check"] is True
+    assert "pytest" in out[0][1]["choices"][0]["message"]["tool_calls"][0]["function"]["arguments"]
+
+    tmp3 = tmp_path / "shadow"
+    tmp3.mkdir()
+    fake3 = FakeGemini(lambda m, b: (200, call_reply("bash", {"command": sub})))
+    dec = ScriptedDecision({"task_done": {"done": 0.95}})
+    run(serve(fake3, tmp3, dec, ["decisions.stop={mode: shadow, submit: ['COMPLETE_TASK_AND_SUBMIT']}"],
+              [body(1, tools=one)]))
+    d = decisions(tmp3, "stop")[0]
+    assert models(fake3) == [FAST, STRONG] and d["label"] == "done" and d["fit_ok"]   # the strong tier submits too
+    assert "COMPLETE_TASK_AND_SUBMIT" in [s for q, s, _ in dec.asked if q == "task_done"][0]
+
+    tmp4 = tmp_path / "guard"
+    tmp4.mkdir()
+    fake4 = FakeGemini(lambda m, b: (200, call_reply("bash", {"command": sub})))
+    run(serve(fake4, tmp4, ScriptedDecision({"task_done": {"done": 0.95}}),
+              ["decisions.stop={mode: guard, tau: 0.9, submit: ['COMPLETE_TASK_AND_SUBMIT']}"], [body(1, tools=one)]))
+    assert models(fake4) == [FAST] and decisions(tmp4, "stop")[0]["effect"] == "accepted"
+
+
 # ------------------------------------------------------------------------------------------------ action
 def test_action_guard_rechecks_a_risky_call(run, tmp_path):
     def script(model, b):
@@ -293,6 +331,31 @@ def test_action_guard_rechecks_a_risky_call(run, tmp_path):
     d = decisions(tmp_path, "action")[0]
     assert d["acted"] and d["recheck"] == "changed" and d["tool"] == "bash" and d["pattern"] is True
     assert "PROPOSED ACTION: bash(" in [s for q, s, _ in dec.asked if q == "action_risk"][0]
+
+
+def test_action_recheck_labels(run, tmp_path):
+    # the same call re-generated with other whitespace is "same" and still risky; a text reply is "no_call"
+    def script(model, b):
+        return 200, call_reply("bash", {"command": "rm -rf build" if model == FAST else "rm  -rf   build"})
+
+    fake = FakeGemini(script)
+    run(serve(fake, tmp_path, ScriptedDecision({"action_risk": {"risky": 0.9}}), ["decisions.action=guard"],
+              [body(1)]))
+    d = decisions(tmp_path, "action")
+    assert models(fake) == [FAST, STRONG]               # the action guard's own redo is not re-checked
+    assert d[0]["recheck"] == "same" and d[0]["recheck_risky"] is True
+
+    tmp2 = tmp_path / "text"
+    tmp2.mkdir()
+    fake2 = FakeGemini(lambda m, b: (200, call_reply("bash", {"command": "git push --force"}) if m == FAST
+                                     else text_reply("I will not force-push.")))
+    run(serve(fake2, tmp2, ScriptedDecision({"action_risk": {"risky": 0.9}}), ["decisions.action=guard"], [body(1)]))
+    d2 = decisions(tmp2, "action")[0]
+    assert d2["recheck"] == "no_call" and d2["recheck_risky"] is False
+    assert P.same_calls([P.ToolCall("a", "bash", '{"command": "ls  -la"}')],
+                        [P.ToolCall("b", "bash", '{"command":"ls -la"}')])
+    assert not P.same_calls([P.ToolCall("a", "bash", '{"command": "ls"}')],
+                            [P.ToolCall("b", "bash", '{"command": "ls -a"}')])
 
 
 def test_action_prefilter_skips_safe_calls_and_errors_accept(run, tmp_path):
@@ -363,6 +426,15 @@ def test_routing_guard_shadow_and_off(run, tmp_path):
     assert models(fake) == [FAST, STRONG, FAST] and "next_step" not in dec.ids()
     assert [s["reason"] for s in steps(tmp_path)] == ["route_guard", "guard"]
     assert "PROPOSED NEXT STEP: bash(" in [s for q, s, _ in dec.asked if q == "fast_step_ok"][0]
+    g = [d for d in decisions(tmp_path, "routing")]
+    assert g[0]["acted"] and g[0]["recheck"] == "same" and "recheck" not in g[1]     # the redo wrote the same call
+
+    tmp1 = tmp_path / "changed"
+    tmp1.mkdir()
+    fake1 = FakeGemini(lambda m, b: (200, call_reply("bash", {"command": "make" if m == FAST else "make test"})))
+    run(serve(fake1, tmp1, ScriptedDecision({"fast_step_ok": {"redo": 0.9}}), ["decisions.routing=guard"],
+              [body(1)]))
+    assert decisions(tmp1, "routing")[0]["recheck"] == "changed"
 
     tmp2 = tmp_path / "shadow"
     tmp2.mkdir()

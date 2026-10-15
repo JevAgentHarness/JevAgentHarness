@@ -78,3 +78,9 @@ each run.
   harness's `jah-strong` arm of the main test rows: the same strong tier (Gemini 4 Argon, high thinking), harness
   version and task set, run on 2026-10-14. The claim criteria above apply unchanged. The main test rows stay as they
   are and are reported next to this row.
+- **2026-10-15, dev only, no test run.** The decision-point modes of `docs/modes.md` (the shadow preset, the stop
+  guard, a finish check on mini-swe-agent's submit command, the action guard, the reflection trigger and the routing
+  guard) were run on the 15 dev tasks with mini-swe-agent and pi on the Flash-Lite pair
+  (`configs/gemini_argon_lite_modes.yaml`, rows dev-modes, dev-modes2, dev-modes3, $53.2; `results/dev_modes.md`).
+  No registered row changed. The reflection trigger (tau 0.8) is the only candidate for a later test row, which
+  would be registered here before it starts.

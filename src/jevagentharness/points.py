@@ -49,7 +49,7 @@ NOT_OFFERED = {
 KEYS: dict[str, set[str]] = {
     "routing": {"mode", "tau"},
     "tool_select": {"mode", "tau", "k", "min_tools", "max_options", "tier", "force"},
-    "stop": {"mode", "tau", "scope"},
+    "stop": {"mode", "tau", "scope", "submit"},
     "reflection": {"mode", "tau", "every"},
     "action": {"mode", "tau", "prefilter", "tools", "patterns", "on_error"},
 }
@@ -82,6 +82,7 @@ class PointCfg:
     prefilter: str = "risky"        # action: risky (pattern match) | command (command-like tools) | all
     tools: tuple[str, ...] = ()     # action: extra regexes for command-like tool names
     patterns: tuple[str, ...] = ()  # action: extra regexes for risky call text
+    submit: tuple[str, ...] = ()    # stop: regexes on a call's text that mark it as the agent ending its turn
     on_error: str = "accept"        # action guard: what a decision-model failure does (accept | recheck)
 
     @property
@@ -149,7 +150,7 @@ def _norm_point(point: str, v: Any, where: str) -> dict[str, Any]:
                        ("on_error", ("accept", "recheck"))):
         if k in d and d[k] not in allowed:
             raise ValueError(f"{where}.{point}.{k} must be one of {', '.join(allowed)}, got {d[k]!r}")
-    for k in ("tools", "patterns"):
+    for k in ("tools", "patterns", "submit"):
         if k in d:
             vals = d[k] if isinstance(d[k], (list, tuple)) else [d[k]]
             for r in vals:
@@ -317,6 +318,43 @@ def proposal_text(resp: Response) -> str:
     if len(s) > CHARS_PROPOSAL:     # keep the head and the tail: agents end long replies with the answer
         s = s[:300] + " ... " + s[-(CHARS_PROPOSAL - 305):]
     return s
+
+
+def _canon(v: Any) -> Any:
+    if isinstance(v, str):
+        return " ".join(v.split())
+    if isinstance(v, dict):
+        return {str(k): _canon(x) for k, x in sorted(v.items())}
+    if isinstance(v, list):
+        return [_canon(x) for x in v]
+    return v
+
+
+def same_calls(a: list[ToolCall], b: list[ToolCall]) -> bool:
+    """Two replies make the same calls: equal names and arguments, up to JSON formatting and runs of whitespace (a
+    re-generated call rarely matches byte for byte)."""
+    return len(a) == len(b) and all(x.name == y.name and _canon(x.args_obj()) == _canon(y.args_obj())
+                                    for x, y in zip(a, b))
+
+
+def ends_turn(resp: Response, submit: re.Pattern[str] | None) -> bool:
+    """The reply ends the agent's turn: no tool call, or a call matching a ``stop.submit`` pattern (harnesses that
+    finish through a tool, e.g. mini-swe-agent's `echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`)."""
+    if not resp.tool_calls:
+        return True
+    return submit is not None and any(submit.search(f"{c.name}({c.arguments})") for c in resp.tool_calls)
+
+
+def submit_re(cfg: PointCfg) -> re.Pattern[str] | None:
+    return re.compile("|".join(f"(?:{p})" for p in cfg.submit)) if cfg.submit else None
+
+
+def recheck_kind(before: Response | None, after: Response) -> str:
+    """What a strong redo did with a checked reply: ``same`` calls (up to formatting), ``changed`` calls, or
+    ``no_call`` (the redo replied without a tool call)."""
+    if not after.tool_calls:
+        return "no_call"
+    return "same" if before is not None and same_calls(before.tool_calls, after.tool_calls) else "changed"
 
 
 def llm_choice(resp: Response) -> str:

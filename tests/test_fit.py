@@ -64,6 +64,21 @@ def test_fit_is_robust_to_small_and_biased_samples():
     assert f["tau"] is None and "no threshold" in f["note"]
 
 
+def test_fit_leaves_out_single_tool_requests():
+    # mini-swe-agent offers one tool (bash): "agreement" there only says the agent calls it
+    one = [tool_rec(1.0, True, options=["bash", "reply_without_tool"], n_options=2) for _ in range(200)]
+    f = F.fit(one)["points"]["tool_select"]
+    assert f["tau"] is None and f["n_labelled"] == 0 and f["single_tool"] == 200 and "single tool" in f["note"]
+    many = [tool_rec(1.0, True, options=["read", "bash", "edit", "reply_without_tool"], n_options=4)
+            for _ in range(100)]
+    f = F.fit(one + many)["points"]["tool_select"]
+    assert f["tau"] == 1.0 and f["n_labelled"] == 100 and f["single_tool"] == 200
+    assert f["note"] == "200 single-tool decisions left out"
+    # with tool_choice required, two tools are a real choice
+    req = [tool_rec(1.0, True, options=["bash", "edit"], n_options=2) for _ in range(40)]
+    assert F.fit(req)["points"]["tool_select"]["n_labelled"] == 40
+
+
 def test_fit_stop():
     recs = [stop_rec(0.97, True) for _ in range(80)] + [stop_rec(0.7, i % 2 == 0) for i in range(80)]
     f = F.fit(recs)["points"]["stop"]

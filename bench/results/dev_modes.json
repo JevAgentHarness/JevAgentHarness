@@ -1,0 +1,1722 @@
+{
+ "note": "Terminal-Bench 2.0 DEV split (15 tasks), one trial per task, 2026-10-15: for choosing settings, not a claim. P1/P2/P3 = rows dev-modes / dev-modes2 / dev-modes3 (run side by side within a row).",
+ "arms": {
+  "mswe:jah-shadow P1": {
+   "n": 15,
+   "success": 0.8,
+   "cost_per_task": 0.18500169466666663,
+   "agent_s_per_task": 279.82748920000006,
+   "strong_share": 0.3638542991231848,
+   "infra_errors": 0,
+   "timeouts": 0,
+   "steps_per_task": 21.7,
+   "decision_calls_per_task": 63.5,
+   "decision_cost_usd": 0.1008,
+   "decision_cost_share": 0.0363,
+   "llm_calls_per_step": 1.003,
+   "proxy_s_per_task": 194.9,
+   "reasons": {
+    "routine": 184,
+    "hard": 125,
+    "first_steps": 15,
+    "finish_check": 1
+   },
+   "redo": {},
+   "points": {
+    "routing": {
+     "modes": {
+      "cascade": 310
+     },
+     "calls": 310,
+     "calls_per_task": 20.67,
+     "errors": 0,
+     "acted": 310,
+     "acted_per_task": 20.67,
+     "effects": {
+      "routine": 185,
+      "hard": 125
+     },
+     "cost_usd": 0.03391,
+     "fires_at_tau": 0.4032
+    },
+    "tool_select": {
+     "modes": {
+      "shadow": 325
+     },
+     "calls": 325,
+     "calls_per_task": 21.67,
+     "errors": 0,
+     "acted": 0,
+     "acted_per_task": 0.0,
+     "effects": {
+      "logged": 325
+     },
+     "cost_usd": 0.03318,
+     "choices": {
+      "bash": 315,
+      "reply_without_tool": 10
+     },
+     "labels": {
+      "bash": 324,
+      "reply_without_tool": 1
+     },
+     "agreement": 0.9662,
+     "would_force_at_0.9": {
+      "share": 0.8554,
+      "agree": 0.9964,
+      "non_bash_share": 0.0,
+      "non_bash_agree": null
+     },
+     "would_force_at_0.95": {
+      "share": 0.8,
+      "agree": 0.9962,
+      "non_bash_share": 0.0,
+      "non_bash_agree": null
+     },
+     "would_force_at_0.99": {
+      "share": 0.6523,
+      "agree": 0.9953,
+      "non_bash_share": 0.0,
+      "non_bash_agree": null
+     }
+    },
+    "stop": {
+     "modes": {
+      "shadow": 1
+     },
+     "calls": 1,
+     "calls_per_task": 0.07,
+     "errors": 0,
+     "acted": 0,
+     "acted_per_task": 0.0,
+     "effects": {
+      "logged": 1
+     },
+     "cost_usd": 6e-05,
+     "fires_at_tau": 0.0,
+     "labels_by_effect": {
+      "logged": {
+       "not_done": 1
+      }
+     }
+    },
+    "reflection": {
+     "modes": {
+      "shadow": 310
+     },
+     "calls": 310,
+     "calls_per_task": 20.67,
+     "errors": 0,
+     "acted": 0,
+     "acted_per_task": 0.0,
+     "effects": {
+      "logged": 310
+     },
+     "cost_usd": 0.03279,
+     "fires_at_tau": 0.171
+    },
+    "action": {
+     "modes": {
+      "shadow": 7
+     },
+     "calls": 7,
+     "calls_per_task": 0.47,
+     "errors": 0,
+     "acted": 0,
+     "acted_per_task": 0.0,
+     "effects": {
+      "logged": 7
+     },
+     "cost_usd": 0.00083,
+     "fires_at_tau": 0.1429,
+     "rechecks": {},
+     "recheck_still_risky": 0,
+     "prefilter_steps": 7
+    }
+   },
+   "tasks_ok": [
+    "build-pov-ray",
+    "chess-best-move",
+    "constraints-scheduling",
+    "count-dataset-tokens",
+    "fix-ocaml-gc",
+    "kv-store-grpc",
+    "log-summary-date-ranges",
+    "pypi-server",
+    "pytorch-model-cli",
+    "regex-log",
+    "sparql-university",
+    "sqlite-db-truncate"
+   ],
+   "row": "dev-modes",
+   "phase": "P1"
+  },
+  "mswe:jah-safe P1": {
+   "n": 15,
+   "success": 0.8,
+   "cost_per_task": 0.4113786726666667,
+   "agent_s_per_task": 420.33989299999996,
+   "strong_share": 0.48311629486803115,
+   "infra_errors": 0,
+   "timeouts": 2,
+   "steps_per_task": 26.1,
+   "decision_calls_per_task": 25.5,
+   "decision_cost_usd": 0.0436,
+   "decision_cost_share": 0.0071,
+   "llm_calls_per_step": 1.0,
+   "proxy_s_per_task": 354.3,
+   "reasons": {
+    "hard": 193,
+    "routine": 182,
+    "first_steps": 15,
+    "repeat:hard": 1
+   },
+   "redo": {},
+   "points": {
+    "routing": {
+     "modes": {
+      "cascade": 375
+     },
+     "calls": 375,
+     "calls_per_task": 25.0,
+     "errors": 0,
+     "acted": 375,
+     "acted_per_task": 25.0,
+     "effects": {
+      "hard": 193,
+      "routine": 182
+     },
+     "cost_usd": 0.04249,
+     "fires_at_tau": 0.5147
+    },
+    "action": {
+     "modes": {
+      "guard": 8
+     },
+     "calls": 8,
+     "calls_per_task": 0.53,
+     "errors": 0,
+     "acted": 0,
+     "acted_per_task": 0.0,
+     "effects": {
+      "accepted": 8
+     },
+     "cost_usd": 0.00096,
+     "fires_at_tau": 0.0,
+     "rechecks": {},
+     "recheck_still_risky": 0,
+     "prefilter_steps": 8
+    }
+   },
+   "tasks_ok": [
+    "build-pov-ray",
+    "chess-best-move",
+    "constraints-scheduling",
+    "count-dataset-tokens",
+    "fix-ocaml-gc",
+    "kv-store-grpc",
+    "log-summary-date-ranges",
+    "pypi-server",
+    "pytorch-model-cli",
+    "regex-log",
+    "sparql-university",
+    "sqlite-db-truncate"
+   ],
+   "row": "dev-modes",
+   "phase": "P1"
+  },
+  "mswe:jah-auto-t75 P2": {
+   "n": 15,
+   "success": 0.6666666666666666,
+   "cost_per_task": 0.24559588933333337,
+   "agent_s_per_task": 310.8762117333334,
+   "strong_share": 0.40944888048939737,
+   "infra_errors": 0,
+   "timeouts": 0,
+   "steps_per_task": 23.7,
+   "decision_calls_per_task": 22.7,
+   "decision_cost_usd": 0.0374,
+   "decision_cost_share": 0.0102,
+   "llm_calls_per_step": 1.0,
+   "proxy_s_per_task": 217.9,
+   "reasons": {
+    "routine": 186,
+    "hard": 155,
+    "first_steps": 15
+   },
+   "redo": {},
+   "points": {
+    "routing": {
+     "modes": {
+      "cascade": 341
+     },
+     "calls": 341,
+     "calls_per_task": 22.73,
+     "errors": 0,
+     "acted": 341,
+     "acted_per_task": 22.73,
+     "effects": {
+      "routine": 186,
+      "hard": 155
+     },
+     "cost_usd": 0.03741,
+     "fires_at_tau": 0.4545
+    }
+   },
+   "tasks_ok": [
+    "build-pov-ray",
+    "chess-best-move",
+    "constraints-scheduling",
+    "count-dataset-tokens",
+    "fix-ocaml-gc",
+    "log-summary-date-ranges",
+    "pytorch-model-cli",
+    "regex-log",
+    "sparql-university",
+    "sqlite-db-truncate"
+   ],
+   "row": "dev-modes2",
+   "phase": "P2"
+  },
+  "mswe:jah-auto-t75 P3": {
+   "n": 15,
+   "success": 0.7333333333333333,
+   "cost_per_task": 0.2844312893333333,
+   "agent_s_per_task": 358.4119016666667,
+   "strong_share": 0.4825139902819932,
+   "infra_errors": 1,
+   "timeouts": 1,
+   "steps_per_task": 24.8,
+   "decision_calls_per_task": 23.8,
+   "decision_cost_usd": 0.0407,
+   "decision_cost_share": 0.0095,
+   "llm_calls_per_step": 1.003,
+   "proxy_s_per_task": 277.2,
+   "reasons": {
+    "hard": 196,
+    "routine": 160,
+    "first_steps": 15,
+    "finish_check": 1
+   },
+   "redo": {},
+   "points": {
+    "routing": {
+     "modes": {
+      "cascade": 357
+     },
+     "calls": 357,
+     "calls_per_task": 23.8,
+     "errors": 0,
+     "acted": 357,
+     "acted_per_task": 23.8,
+     "effects": {
+      "hard": 196,
+      "routine": 161
+     },
+     "cost_usd": 0.04073,
+     "fires_at_tau": 0.549
+    }
+   },
+   "tasks_ok": [
+    "build-pov-ray",
+    "chess-best-move",
+    "constraints-scheduling",
+    "count-dataset-tokens",
+    "fix-ocaml-gc",
+    "log-summary-date-ranges",
+    "pytorch-model-cli",
+    "query-optimize",
+    "regex-log",
+    "sparql-university",
+    "sqlite-db-truncate"
+   ],
+   "row": "dev-modes3",
+   "phase": "P3"
+  },
+  "mswe:jah-submit P2": {
+   "n": 15,
+   "success": 0.8,
+   "cost_per_task": 0.43035735399999997,
+   "agent_s_per_task": 438.3726656,
+   "strong_share": 0.5631139325341293,
+   "infra_errors": 0,
+   "timeouts": 1,
+   "steps_per_task": 28.8,
+   "decision_calls_per_task": 31.3,
+   "decision_cost_usd": 0.0523,
+   "decision_cost_share": 0.0081,
+   "llm_calls_per_step": 1.127,
+   "proxy_s_per_task": 349.2,
+   "reasons": {
+    "hard": 187,
+    "routine": 172,
+    "finish_check": 55,
+    "first_steps": 15,
+    "repeat:hard": 2,
+    "decision_error": 1
+   },
+   "redo": {},
+   "points": {
+    "routing": {
+     "modes": {
+      "cascade": 415
+     },
+     "calls": 415,
+     "calls_per_task": 27.67,
+     "errors": 1,
+     "acted": 414,
+     "acted_per_task": 27.6,
+     "effects": {
+      "routine": 227,
+      "hard": 187,
+      "decision_error": 1
+     },
+     "cost_usd": 0.04634,
+     "fires_at_tau": 0.4517
+    },
+    "stop": {
+     "modes": {
+      "shadow": 55
+     },
+     "calls": 55,
+     "calls_per_task": 3.67,
+     "errors": 0,
+     "acted": 0,
+     "acted_per_task": 0.0,
+     "effects": {
+      "logged": 55
+     },
+     "cost_usd": 0.00575,
+     "fires_at_tau": 0.0,
+     "labels_by_effect": {
+      "logged": {
+       "not_done": 44,
+       "done": 11
+      }
+     }
+    }
+   },
+   "tasks_ok": [
+    "build-pov-ray",
+    "chess-best-move",
+    "constraints-scheduling",
+    "count-dataset-tokens",
+    "fix-ocaml-gc",
+    "log-summary-date-ranges",
+    "pypi-server",
+    "pytorch-model-cli",
+    "query-optimize",
+    "regex-log",
+    "sparql-university",
+    "sqlite-db-truncate"
+   ],
+   "row": "dev-modes2",
+   "phase": "P2"
+  },
+  "mswe:jah-reflect P2": {
+   "n": 15,
+   "success": 0.8666666666666667,
+   "cost_per_task": 0.23146996466666664,
+   "agent_s_per_task": 288.24209740000003,
+   "strong_share": 0.4129890014454563,
+   "infra_errors": 0,
+   "timeouts": 0,
+   "steps_per_task": 21.1,
+   "decision_calls_per_task": 40.1,
+   "decision_cost_usd": 0.0664,
+   "decision_cost_share": 0.0191,
+   "llm_calls_per_step": 1.0,
+   "proxy_s_per_task": 202.0,
+   "reasons": {
+    "routine": 166,
+    "hard": 85,
+    "reflection": 50,
+    "first_steps": 15
+   },
+   "redo": {},
+   "points": {
+    "routing": {
+     "modes": {
+      "cascade": 301
+     },
+     "calls": 301,
+     "calls_per_task": 20.07,
+     "errors": 0,
+     "acted": 301,
+     "acted_per_task": 20.07,
+     "effects": {
+      "routine": 172,
+      "hard": 129
+     },
+     "cost_usd": 0.03373,
+     "fires_at_tau": 0.4286
+    },
+    "reflection": {
+     "modes": {
+      "trigger": 301
+     },
+     "calls": 301,
+     "calls_per_task": 20.07,
+     "errors": 0,
+     "acted": 50,
+     "acted_per_task": 3.33,
+     "effects": {
+      "no": 251,
+      "reflect_on_strong": 50
+     },
+     "cost_usd": 0.03264,
+     "fires_at_tau": 0.1661
+    }
+   },
+   "tasks_ok": [
+    "build-pov-ray",
+    "chess-best-move",
+    "constraints-scheduling",
+    "count-dataset-tokens",
+    "extract-elf",
+    "extract-moves-from-video",
+    "fix-ocaml-gc",
+    "log-summary-date-ranges",
+    "pytorch-model-cli",
+    "query-optimize",
+    "regex-log",
+    "sparql-university",
+    "sqlite-db-truncate"
+   ],
+   "row": "dev-modes2",
+   "phase": "P2"
+  },
+  "mswe:jah-reflect P3": {
+   "n": 15,
+   "success": 0.8666666666666667,
+   "cost_per_task": 0.30352248066666665,
+   "agent_s_per_task": 379.5258925333334,
+   "strong_share": 0.4789522604815074,
+   "infra_errors": 0,
+   "timeouts": 1,
+   "steps_per_task": 21.9,
+   "decision_calls_per_task": 41.9,
+   "decision_cost_usd": 0.0699,
+   "decision_cost_share": 0.0154,
+   "llm_calls_per_step": 1.003,
+   "proxy_s_per_task": 308.9,
+   "reasons": {
+    "routine": 151,
+    "hard": 91,
+    "reflection": 71,
+    "first_steps": 15,
+    "finish_check": 1
+   },
+   "redo": {},
+   "points": {
+    "routing": {
+     "modes": {
+      "cascade": 314
+     },
+     "calls": 314,
+     "calls_per_task": 20.93,
+     "errors": 0,
+     "acted": 314,
+     "acted_per_task": 20.93,
+     "effects": {
+      "routine": 158,
+      "hard": 156
+     },
+     "cost_usd": 0.03553,
+     "fires_at_tau": 0.4968
+    },
+    "reflection": {
+     "modes": {
+      "trigger": 314
+     },
+     "calls": 314,
+     "calls_per_task": 20.93,
+     "errors": 0,
+     "acted": 71,
+     "acted_per_task": 4.73,
+     "effects": {
+      "no": 243,
+      "reflect_on_strong": 71
+     },
+     "cost_usd": 0.03439,
+     "fires_at_tau": 0.2261
+    }
+   },
+   "tasks_ok": [
+    "build-pov-ray",
+    "chess-best-move",
+    "constraints-scheduling",
+    "extract-moves-from-video",
+    "fix-ocaml-gc",
+    "kv-store-grpc",
+    "log-summary-date-ranges",
+    "pypi-server",
+    "pytorch-model-cli",
+    "query-optimize",
+    "regex-log",
+    "sparql-university",
+    "sqlite-db-truncate"
+   ],
+   "row": "dev-modes3",
+   "phase": "P3"
+  },
+  "mswe:jah-routeguard P2": {
+   "n": 15,
+   "success": 0.8666666666666667,
+   "cost_per_task": 0.39039821733333324,
+   "agent_s_per_task": 415.36162273333326,
+   "strong_share": 0.3552060600985444,
+   "infra_errors": 0,
+   "timeouts": 2,
+   "steps_per_task": 28.8,
+   "decision_calls_per_task": 27.5,
+   "decision_cost_usd": 0.0493,
+   "decision_cost_share": 0.0084,
+   "llm_calls_per_step": 1.34,
+   "proxy_s_per_task": 286.0,
+   "reasons": {
+    "guard": 268,
+    "route_guard": 145,
+    "first_steps": 15,
+    "finish_check": 2,
+    "repeat:route_guard": 2
+   },
+   "redo": {
+    "route_guard": 145
+   },
+   "points": {
+    "routing": {
+     "modes": {
+      "guard": 413
+     },
+     "calls": 413,
+     "calls_per_task": 27.53,
+     "errors": 0,
+     "acted": 145,
+     "acted_per_task": 9.67,
+     "effects": {
+      "accepted": 268,
+      "redo": 145
+     },
+     "cost_usd": 0.04927,
+     "fires_at_tau": 0.3511
+    }
+   },
+   "tasks_ok": [
+    "build-pov-ray",
+    "chess-best-move",
+    "constraints-scheduling",
+    "count-dataset-tokens",
+    "extract-elf",
+    "fix-ocaml-gc",
+    "kv-store-grpc",
+    "log-summary-date-ranges",
+    "pytorch-model-cli",
+    "query-optimize",
+    "regex-log",
+    "sparql-university",
+    "sqlite-db-truncate"
+   ],
+   "row": "dev-modes2",
+   "phase": "P2"
+  },
+  "pi:jah-shadow P1": {
+   "n": 15,
+   "success": 0.7333333333333333,
+   "cost_per_task": 0.3888712266666666,
+   "agent_s_per_task": 563.9967872,
+   "strong_share": 0.4866162002217245,
+   "infra_errors": 1,
+   "timeouts": 4,
+   "steps_per_task": 27.1,
+   "decision_calls_per_task": 84.1,
+   "decision_cost_usd": 0.0978,
+   "decision_cost_share": 0.0168,
+   "llm_calls_per_step": 1.147,
+   "proxy_s_per_task": 362.6,
+   "reasons": {
+    "routine": 198,
+    "hard": 133,
+    "finish_check": 60,
+    "first_steps": 16
+   },
+   "redo": {},
+   "points": {
+    "routing": {
+     "modes": {
+      "cascade": 391
+     },
+     "calls": 391,
+     "calls_per_task": 26.07,
+     "errors": 0,
+     "acted": 391,
+     "acted_per_task": 26.07,
+     "effects": {
+      "routine": 258,
+      "hard": 133
+     },
+     "cost_usd": 0.03061,
+     "fires_at_tau": 0.3402
+    },
+    "tool_select": {
+     "modes": {
+      "shadow": 406
+     },
+     "calls": 406,
+     "calls_per_task": 27.07,
+     "errors": 0,
+     "acted": 0,
+     "acted_per_task": 0.0,
+     "effects": {
+      "logged": 406
+     },
+     "cost_usd": 0.03211,
+     "choices": {
+      "bash": 250,
+      "reply_without_tool": 62,
+      "read": 50,
+      "write": 43,
+      "edit": 1
+     },
+     "labels": {
+      "bash": 292,
+      "reply_without_tool": 61,
+      "read": 30,
+      "write": 22,
+      "edit": 1
+     },
+     "agreement": 0.67,
+     "would_force_at_0.9": {
+      "share": 0.2586,
+      "agree": 0.8381,
+      "non_bash_share": 0.0567,
+      "non_bash_agree": 0.4348
+     },
+     "would_force_at_0.95": {
+      "share": 0.1749,
+      "agree": 0.8592,
+      "non_bash_share": 0.032,
+      "non_bash_agree": 0.5385
+     },
+     "would_force_at_0.99": {
+      "share": 0.069,
+      "agree": 0.9643,
+      "non_bash_share": 0.0074,
+      "non_bash_agree": 0.6667
+     }
+    },
+    "stop": {
+     "modes": {
+      "shadow": 60
+     },
+     "calls": 60,
+     "calls_per_task": 4.0,
+     "errors": 0,
+     "acted": 0,
+     "acted_per_task": 0.0,
+     "effects": {
+      "logged": 60
+     },
+     "cost_usd": 0.00487,
+     "fires_at_tau": 0.0,
+     "labels_by_effect": {
+      "logged": {
+       "not_done": 51,
+       "done": 9
+      }
+     }
+    },
+    "reflection": {
+     "modes": {
+      "shadow": 391
+     },
+     "calls": 391,
+     "calls_per_task": 26.07,
+     "errors": 0,
+     "acted": 0,
+     "acted_per_task": 0.0,
+     "effects": {
+      "logged": 391
+     },
+     "cost_usd": 0.0292,
+     "fires_at_tau": 0.1739
+    },
+    "action": {
+     "modes": {
+      "shadow": 13
+     },
+     "calls": 13,
+     "calls_per_task": 0.87,
+     "errors": 0,
+     "acted": 0,
+     "acted_per_task": 0.0,
+     "effects": {
+      "logged": 13
+     },
+     "cost_usd": 0.00099,
+     "fires_at_tau": 0.0769,
+     "rechecks": {},
+     "recheck_still_risky": 0,
+     "prefilter_steps": 13
+    }
+   },
+   "tasks_ok": [
+    "build-pov-ray",
+    "chess-best-move",
+    "count-dataset-tokens",
+    "extract-elf",
+    "fix-ocaml-gc",
+    "log-summary-date-ranges",
+    "pypi-server",
+    "query-optimize",
+    "regex-log",
+    "sparql-university",
+    "sqlite-db-truncate"
+   ],
+   "row": "dev-modes",
+   "phase": "P1"
+  },
+  "pi:jah-stopguard P1": {
+   "n": 15,
+   "success": 0.6,
+   "cost_per_task": 0.3507986253333334,
+   "agent_s_per_task": 567.4762542666666,
+   "strong_share": 0.5735535342463682,
+   "infra_errors": 0,
+   "timeouts": 4,
+   "steps_per_task": 28.1,
+   "decision_calls_per_task": 31.7,
+   "decision_cost_usd": 0.0364,
+   "decision_cost_share": 0.0069,
+   "llm_calls_per_step": 1.162,
+   "proxy_s_per_task": 353.9,
+   "reasons": {
+    "routine": 197,
+    "hard": 140,
+    "stop_guard": 68,
+    "first_steps": 16
+   },
+   "redo": {
+    "stop_guard": 68
+   },
+   "points": {
+    "routing": {
+     "modes": {
+      "cascade": 405
+     },
+     "calls": 405,
+     "calls_per_task": 27.0,
+     "errors": 0,
+     "acted": 405,
+     "acted_per_task": 27.0,
+     "effects": {
+      "routine": 265,
+      "hard": 140
+     },
+     "cost_usd": 0.03076,
+     "fires_at_tau": 0.3457
+    },
+    "stop": {
+     "modes": {
+      "guard": 70
+     },
+     "calls": 70,
+     "calls_per_task": 4.67,
+     "errors": 0,
+     "acted": 68,
+     "acted_per_task": 4.53,
+     "effects": {
+      "redo": 68,
+      "accepted": 2
+     },
+     "cost_usd": 0.00569,
+     "fires_at_tau": 0.0286,
+     "labels_by_effect": {
+      "accepted": {
+       "None": 2
+      },
+      "redo": {
+       "not_done": 58,
+       "done": 10
+      }
+     }
+    }
+   },
+   "tasks_ok": [
+    "build-pov-ray",
+    "chess-best-move",
+    "count-dataset-tokens",
+    "fix-ocaml-gc",
+    "log-summary-date-ranges",
+    "pypi-server",
+    "regex-log",
+    "sparql-university",
+    "sqlite-db-truncate"
+   ],
+   "row": "dev-modes",
+   "phase": "P1"
+  },
+  "pi:jah-reflect P3": {
+   "n": 15,
+   "success": 0.8666666666666667,
+   "cost_per_task": 0.32331592000000003,
+   "agent_s_per_task": 460.6718905333334,
+   "strong_share": 0.5897641267901734,
+   "infra_errors": 0,
+   "timeouts": 2,
+   "steps_per_task": 22.7,
+   "decision_calls_per_task": 43.3,
+   "decision_cost_usd": 0.0474,
+   "decision_cost_share": 0.0098,
+   "llm_calls_per_step": 1.141,
+   "proxy_s_per_task": 299.8,
+   "reasons": {
+    "routine": 149,
+    "hard": 72,
+    "reflection": 56,
+    "finish_check": 48,
+    "first_steps": 16
+   },
+   "redo": {},
+   "points": {
+    "routing": {
+     "modes": {
+      "cascade": 325
+     },
+     "calls": 325,
+     "calls_per_task": 21.67,
+     "errors": 0,
+     "acted": 325,
+     "acted_per_task": 21.67,
+     "effects": {
+      "routine": 201,
+      "hard": 124
+     },
+     "cost_usd": 0.0243,
+     "fires_at_tau": 0.3815
+    },
+    "reflection": {
+     "modes": {
+      "trigger": 325
+     },
+     "calls": 325,
+     "calls_per_task": 21.67,
+     "errors": 0,
+     "acted": 56,
+     "acted_per_task": 3.73,
+     "effects": {
+      "no": 269,
+      "reflect_on_strong": 56
+     },
+     "cost_usd": 0.02313,
+     "fires_at_tau": 0.1723
+    }
+   },
+   "tasks_ok": [
+    "build-pov-ray",
+    "chess-best-move",
+    "constraints-scheduling",
+    "count-dataset-tokens",
+    "fix-ocaml-gc",
+    "kv-store-grpc",
+    "log-summary-date-ranges",
+    "pypi-server",
+    "pytorch-model-cli",
+    "query-optimize",
+    "regex-log",
+    "sparql-university",
+    "sqlite-db-truncate"
+   ],
+   "row": "dev-modes3",
+   "phase": "P3"
+  }
+ },
+ "fits": {
+  "pi:jah-shadow P1": {
+   "target": 0.95,
+   "min_count": 30,
+   "z": 1.645,
+   "model_names": [
+    "jah-shadow"
+   ],
+   "model": null,
+   "n_records": 1261,
+   "points": {
+    "tool_select": {
+     "point": "tool_select",
+     "n_records": 406,
+     "n_labelled": 406,
+     "tau": null,
+     "single_tool": 0,
+     "note": "no threshold reached 95% agreement on >= 30 decisions",
+     "at_logged_tau": {
+      "tau": 0.99,
+      "n_accepted": 28,
+      "coverage": 0.069,
+      "agreement": 0.9643,
+      "lower": 0.8547
+     }
+    },
+    "stop": {
+     "point": "stop",
+     "n_records": 60,
+     "n_labelled": 60,
+     "tau": null,
+     "note": "no threshold reached 95% agreement on >= 30 decisions",
+     "at_logged_tau": {
+      "tau": 0.9,
+      "n_accepted": 0,
+      "coverage": 0.0,
+      "agreement": null,
+      "lower": null
+     }
+    }
+   },
+   "describe": {
+    "action:shadow": {
+     "calls": 13,
+     "errors": 0,
+     "acted": 0,
+     "would_fire_at_logged_tau": 0.0769,
+     "latency_p50_s": 0.143,
+     "cost_usd": 0.000995
+    },
+    "reflection:shadow": {
+     "calls": 391,
+     "errors": 0,
+     "acted": 0,
+     "would_fire_at_logged_tau": 0.1739,
+     "latency_p50_s": 0.1436,
+     "cost_usd": 0.029196
+    },
+    "routing:cascade": {
+     "calls": 391,
+     "errors": 0,
+     "acted": 391,
+     "would_fire_at_logged_tau": 0.3402,
+     "latency_p50_s": 0.1435,
+     "cost_usd": 0.030609
+    },
+    "stop:shadow": {
+     "calls": 60,
+     "errors": 0,
+     "acted": 0,
+     "would_fire_at_logged_tau": 0.0,
+     "latency_p50_s": 0.1369,
+     "cost_usd": 0.004875
+    },
+    "tool_select:shadow": {
+     "calls": 406,
+     "errors": 0,
+     "acted": 0,
+     "would_fire_at_logged_tau": null,
+     "latency_p50_s": 0.1439,
+     "cost_usd": 0.032105
+    }
+   }
+  },
+  "mswe:jah-shadow P1": {
+   "target": 0.95,
+   "min_count": 30,
+   "z": 1.645,
+   "model_names": [
+    "jah-shadow"
+   ],
+   "model": null,
+   "n_records": 953,
+   "points": {
+    "tool_select": {
+     "point": "tool_select",
+     "n_records": 325,
+     "n_labelled": 0,
+     "tau": null,
+     "single_tool": 325,
+     "note": "325 decisions offered a single tool (left out: not a choice of tool); 0 labelled decisions with two or more tools"
+    },
+    "stop": {
+     "point": "stop",
+     "n_records": 1,
+     "n_labelled": 1,
+     "tau": null,
+     "note": "too few labelled decisions (1 < 30)",
+     "at_logged_tau": {
+      "tau": 0.9,
+      "n_accepted": 0,
+      "coverage": 0.0,
+      "agreement": null,
+      "lower": null
+     }
+    }
+   },
+   "describe": {
+    "action:shadow": {
+     "calls": 7,
+     "errors": 0,
+     "acted": 0,
+     "would_fire_at_logged_tau": 0.1429,
+     "latency_p50_s": 0.1502,
+     "cost_usd": 0.000826
+    },
+    "reflection:shadow": {
+     "calls": 310,
+     "errors": 0,
+     "acted": 0,
+     "would_fire_at_logged_tau": 0.171,
+     "latency_p50_s": 0.1501,
+     "cost_usd": 0.032786
+    },
+    "routing:cascade": {
+     "calls": 310,
+     "errors": 0,
+     "acted": 310,
+     "would_fire_at_logged_tau": 0.4032,
+     "latency_p50_s": 0.1469,
+     "cost_usd": 0.033906
+    },
+    "stop:shadow": {
+     "calls": 1,
+     "errors": 0,
+     "acted": 0,
+     "would_fire_at_logged_tau": 0.0,
+     "latency_p50_s": 0.1512,
+     "cost_usd": 5.6e-05
+    },
+    "tool_select:shadow": {
+     "calls": 325,
+     "errors": 0,
+     "acted": 0,
+     "would_fire_at_logged_tau": null,
+     "latency_p50_s": 0.1456,
+     "cost_usd": 0.033184
+    }
+   }
+  },
+  "pi:jah-stopguard P1": {
+   "target": 0.95,
+   "min_count": 30,
+   "z": 1.645,
+   "model_names": [
+    "jah-stopguard"
+   ],
+   "model": null,
+   "n_records": 475,
+   "points": {
+    "tool_select": {
+     "point": "tool_select",
+     "n_records": 0,
+     "n_labelled": 0,
+     "tau": null,
+     "single_tool": 0,
+     "note": "too few labelled decisions (0 < 30)"
+    },
+    "stop": {
+     "point": "stop",
+     "n_records": 70,
+     "n_labelled": 68,
+     "tau": null,
+     "note": "no threshold reached 95% agreement on >= 30 decisions",
+     "at_logged_tau": {
+      "tau": 0.9,
+      "n_accepted": 0,
+      "coverage": 0.0,
+      "agreement": null,
+      "lower": null
+     }
+    }
+   },
+   "describe": {
+    "routing:cascade": {
+     "calls": 405,
+     "errors": 0,
+     "acted": 405,
+     "would_fire_at_logged_tau": 0.3457,
+     "latency_p50_s": 0.1425,
+     "cost_usd": 0.030756
+    },
+    "stop:guard": {
+     "calls": 70,
+     "errors": 0,
+     "acted": 68,
+     "would_fire_at_logged_tau": 0.0286,
+     "latency_p50_s": 0.1456,
+     "cost_usd": 0.005689
+    }
+   }
+  },
+  "mswe:jah-submit P2": {
+   "target": 0.95,
+   "min_count": 30,
+   "z": 1.645,
+   "model_names": [
+    "jah-submit"
+   ],
+   "model": null,
+   "n_records": 470,
+   "points": {
+    "tool_select": {
+     "point": "tool_select",
+     "n_records": 0,
+     "n_labelled": 0,
+     "tau": null,
+     "single_tool": 0,
+     "note": "too few labelled decisions (0 < 30)"
+    },
+    "stop": {
+     "point": "stop",
+     "n_records": 55,
+     "n_labelled": 55,
+     "tau": null,
+     "note": "no threshold reached 95% agreement on >= 30 decisions",
+     "at_logged_tau": {
+      "tau": 0.9,
+      "n_accepted": 0,
+      "coverage": 0.0,
+      "agreement": null,
+      "lower": null
+     }
+    }
+   },
+   "describe": {
+    "routing:cascade": {
+     "calls": 415,
+     "errors": 1,
+     "acted": 414,
+     "would_fire_at_logged_tau": 0.4517,
+     "latency_p50_s": 0.1505,
+     "cost_usd": 0.046345
+    },
+    "stop:shadow": {
+     "calls": 55,
+     "errors": 0,
+     "acted": 0,
+     "would_fire_at_logged_tau": 0.0,
+     "latency_p50_s": 0.1497,
+     "cost_usd": 0.005746
+    }
+   }
+  }
+ },
+ "counterfactuals": {
+  "mswe P1": {
+   "stop_labels": {
+    "not_done": 1
+   },
+   "stop_guard_at": {
+    "0.5": {
+     "accept": 0,
+     "of": 1,
+     "wrong_accept": 0,
+     "right_redo": 1
+    },
+    "0.7": {
+     "accept": 0,
+     "of": 1,
+     "wrong_accept": 0,
+     "right_redo": 1
+    },
+    "0.8": {
+     "accept": 0,
+     "of": 1,
+     "wrong_accept": 0,
+     "right_redo": 1
+    },
+    "0.9": {
+     "accept": 0,
+     "of": 1,
+     "wrong_accept": 0,
+     "right_redo": 1
+    },
+    "0.95": {
+     "accept": 0,
+     "of": 1,
+     "wrong_accept": 0,
+     "right_redo": 1
+    },
+    "0.99": {
+     "accept": 0,
+     "of": 1,
+     "wrong_accept": 0,
+     "right_redo": 1
+    }
+   },
+   "p_done_by_label": {
+    "done": [],
+    "not_done": [
+     0.0
+    ]
+   },
+   "fast_text_replies": 1,
+   "fast_text_jev": {
+    "0.9": 1,
+    "0.95": 1,
+    "0.99": 1
+   },
+   "fast_tool_steps": 184,
+   "fast_tool_forced_other": {
+    "0.9": 0,
+    "0.95": 0,
+    "0.99": 0
+   },
+   "reflection_fires_per_task_ok": 2.83,
+   "reflection_fires_per_task_fail": 6.33,
+   "reflection_p_yes_quantiles": [
+    0.47,
+    0.9,
+    0.95,
+    0.98
+   ],
+   "action_asks": 7,
+   "action_p_risky": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.01,
+    0.01,
+    0.74
+   ]
+  },
+  "pi P1": {
+   "stop_labels": {
+    "not_done": 109,
+    "done": 19
+   },
+   "stop_guard_at": {
+    "0.5": {
+     "accept": 63,
+     "of": 128,
+     "wrong_accept": 51,
+     "right_redo": 58
+    },
+    "0.7": {
+     "accept": 27,
+     "of": 128,
+     "wrong_accept": 22,
+     "right_redo": 87
+    },
+    "0.8": {
+     "accept": 11,
+     "of": 128,
+     "wrong_accept": 10,
+     "right_redo": 99
+    },
+    "0.9": {
+     "accept": 0,
+     "of": 128,
+     "wrong_accept": 0,
+     "right_redo": 109
+    },
+    "0.95": {
+     "accept": 0,
+     "of": 128,
+     "wrong_accept": 0,
+     "right_redo": 109
+    },
+    "0.99": {
+     "accept": 0,
+     "of": 128,
+     "wrong_accept": 0,
+     "right_redo": 109
+    }
+   },
+   "p_done_by_label": {
+    "done": [
+     0.25,
+     0.31,
+     0.35,
+     0.36,
+     0.41,
+     0.45,
+     0.46,
+     0.52,
+     0.54,
+     0.56,
+     0.58,
+     0.63,
+     0.66,
+     0.69,
+     0.71,
+     0.71,
+     0.71,
+     0.75,
+     0.8
+    ],
+    "not_done": [
+     0.0,
+     0.0,
+     0.0,
+     0.01,
+     0.01,
+     0.01,
+     0.01,
+     0.01,
+     0.01,
+     0.01,
+     0.01,
+     0.01,
+     0.01,
+     0.02,
+     0.02,
+     0.04,
+     0.04,
+     0.07,
+     0.08,
+     0.09,
+     0.17,
+     0.18,
+     0.18,
+     0.19,
+     0.19,
+     0.21,
+     0.23,
+     0.27,
+     0.3,
+     0.31,
+     0.31,
+     0.33,
+     0.34,
+     0.34,
+     0.34,
+     0.36,
+     0.36,
+     0.36,
+     0.37,
+     0.38,
+     0.39,
+     0.39,
+     0.39,
+     0.4,
+     0.41,
+     0.41,
+     0.42,
+     0.42,
+     0.42,
+     0.43,
+     0.44,
+     0.44,
+     0.45,
+     0.46,
+     0.46,
+     0.47,
+     0.49,
+     0.49,
+     0.5,
+     0.5,
+     0.51,
+     0.51,
+     0.51,
+     0.51,
+     0.52,
+     0.52,
+     0.52,
+     0.52,
+     0.55,
+     0.56,
+     0.56,
+     0.57,
+     0.59,
+     0.59,
+     0.59,
+     0.61,
+     0.61,
+     0.61,
+     0.61,
+     0.63,
+     0.63,
+     0.64,
+     0.65,
+     0.66,
+     0.66,
+     0.68,
+     0.68,
+     0.7,
+     0.72,
+     0.73,
+     0.74,
+     0.74,
+     0.74,
+     0.74,
+     0.75,
+     0.75,
+     0.76,
+     0.78,
+     0.78,
+     0.8,
+     0.81,
+     0.82,
+     0.82,
+     0.83,
+     0.83,
+     0.85,
+     0.87,
+     0.88,
+     0.89
+    ]
+   },
+   "fast_text_replies": 60,
+   "fast_text_jev": {
+    "0.9": 1,
+    "0.95": 1,
+    "0.99": 0
+   },
+   "fast_tool_steps": 198,
+   "fast_tool_forced_other": {
+    "0.9": 9,
+    "0.95": 5,
+    "0.99": 1
+   },
+   "reflection_fires_per_task_ok": 3.55,
+   "reflection_fires_per_task_fail": 7.25,
+   "reflection_p_yes_quantiles": [
+    0.43,
+    0.88,
+    0.93,
+    0.97
+   ],
+   "action_asks": 13,
+   "action_p_risky": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.01,
+    0.02,
+    0.02,
+    0.03,
+    0.03,
+    0.5
+   ]
+  },
+  "mswe P2": {
+   "stop_labels": {
+    "not_done": 44,
+    "done": 11
+   },
+   "stop_guard_at": {
+    "0.5": {
+     "accept": 20,
+     "of": 55,
+     "wrong_accept": 13,
+     "right_redo": 31
+    },
+    "0.7": {
+     "accept": 12,
+     "of": 55,
+     "wrong_accept": 8,
+     "right_redo": 36
+    },
+    "0.8": {
+     "accept": 7,
+     "of": 55,
+     "wrong_accept": 5,
+     "right_redo": 39
+    },
+    "0.9": {
+     "accept": 0,
+     "of": 55,
+     "wrong_accept": 0,
+     "right_redo": 44
+    },
+    "0.95": {
+     "accept": 0,
+     "of": 55,
+     "wrong_accept": 0,
+     "right_redo": 44
+    },
+    "0.99": {
+     "accept": 0,
+     "of": 55,
+     "wrong_accept": 0,
+     "right_redo": 44
+    }
+   },
+   "p_done_by_label": {
+    "done": [
+     0.28,
+     0.36,
+     0.44,
+     0.49,
+     0.58,
+     0.62,
+     0.68,
+     0.75,
+     0.76,
+     0.82,
+     0.87
+    ],
+    "not_done": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.01,
+     0.01,
+     0.01,
+     0.01,
+     0.02,
+     0.02,
+     0.03,
+     0.04,
+     0.07,
+     0.08,
+     0.09,
+     0.12,
+     0.15,
+     0.24,
+     0.28,
+     0.28,
+     0.28,
+     0.3,
+     0.35,
+     0.36,
+     0.37,
+     0.39,
+     0.41,
+     0.41,
+     0.45,
+     0.48,
+     0.49,
+     0.53,
+     0.55,
+     0.56,
+     0.6,
+     0.66,
+     0.74,
+     0.79,
+     0.79,
+     0.8,
+     0.82,
+     0.82,
+     0.86,
+     0.88
+    ]
+   },
+   "fast_text_replies": 0,
+   "fast_text_jev": {
+    "0.9": 0,
+    "0.95": 0,
+    "0.99": 0
+   },
+   "fast_tool_steps": 0,
+   "fast_tool_forced_other": {
+    "0.9": 0,
+    "0.95": 0,
+    "0.99": 0
+   }
+  }
+ },
+ "summary": {
+  "spend_usd_by_row": {
+   "dev-modes": 20.04,
+   "dev-modes2": 19.47,
+   "dev-modes3": 13.67
+  },
+  "decision_model_usd_by_row": {
+   "dev-modes": 0.279,
+   "dev-modes2": 0.205,
+   "dev-modes3": 0.158
+  },
+  "spend_usd_total": 53.18,
+  "host": "one m7i.8xlarge (jah-oss3), about 3.1 h (07:59-11:03 UTC), stopped",
+  "paired_within_phase": {
+   "mswe:jah-safe P1 vs jah-shadow P1": {
+    "n": 15,
+    "wins": [],
+    "losses": [],
+    "cost_change": 1.224,
+    "time_change": 0.502
+   },
+   "mswe:jah-submit P2 vs jah-auto-t75 P2": {
+    "n": 15,
+    "wins": [
+     "pypi-server",
+     "query-optimize"
+    ],
+    "losses": [],
+    "cost_change": 0.752,
+    "time_change": 0.41
+   },
+   "mswe:jah-reflect P2 vs jah-auto-t75 P2": {
+    "n": 15,
+    "wins": [
+     "extract-elf",
+     "extract-moves-from-video",
+     "query-optimize"
+    ],
+    "losses": [],
+    "cost_change": -0.058,
+    "time_change": -0.073
+   },
+   "mswe:jah-routeguard P2 vs jah-auto-t75 P2": {
+    "n": 15,
+    "wins": [
+     "extract-elf",
+     "kv-store-grpc",
+     "query-optimize"
+    ],
+    "losses": [],
+    "cost_change": 0.59,
+    "time_change": 0.336
+   },
+   "mswe:jah-reflect P3 vs jah-auto-t75 P3": {
+    "n": 15,
+    "wins": [
+     "extract-moves-from-video",
+     "kv-store-grpc",
+     "pypi-server"
+    ],
+    "losses": [
+     "count-dataset-tokens"
+    ],
+    "cost_change": 0.067,
+    "time_change": 0.059
+   },
+   "pi:jah-stopguard P1 vs jah-shadow P1": {
+    "n": 15,
+    "wins": [],
+    "losses": [
+     "extract-elf",
+     "query-optimize"
+    ],
+    "cost_change": -0.098,
+    "time_change": 0.006
+   },
+   "pi:jah-reflect P3 vs jah-shadow P1": {
+    "n": 15,
+    "wins": [
+     "constraints-scheduling",
+     "kv-store-grpc",
+     "pytorch-model-cli"
+    ],
+    "losses": [
+     "extract-elf"
+    ],
+    "cost_change": -0.169,
+    "time_change": -0.183
+   }
+  },
+  "reflection_trigger": {
+   "mswe P2": {
+    "asks": 301,
+    "fired": 50,
+    "fire_rate": 0.166,
+    "moved_off_fast": 6
+   },
+   "mswe P3": {
+    "asks": 314,
+    "fired": 71,
+    "fire_rate": 0.226,
+    "moved_off_fast": 6
+   },
+   "pi P3": {
+    "asks": 325,
+    "fired": 56,
+    "fire_rate": 0.172,
+    "moved_off_fast": 4
+   }
+  }
+ }
+}

@@ -48,9 +48,11 @@ of their success rate on the strong model alone while spending **28–64% less o
 1. Your harness (Codex, pi, DeepSeek Harness, mini-swe-agent, Terminus-2, or any OpenAI-compatible client) sends
    each model call to the proxy instead of the provider.
 2. The proxy asks a decision model one question about the agent's current state: *is the next step `routine` or
-   `hard`?* With [Jev](https://openrouter.ai/typesafe/jev-1.13) this takes about 0.2 s and costs about $0.00002.
+   `hard`?* With [Jev](https://openrouter.ai/typesafe/jev-1.13) this takes about 0.15 s and costs about $0.0001
+   (a Terminal-Bench state is about 2,000 tokens).
 3. Routine steps go to the fast model, hard steps to the strong model. The first step and the decision that the task
-   is finished always go to the strong model, and any error falls back to it.
+   is finished always go to the strong model, and any error falls back to it. (mini-swe-agent finishes with a shell
+   command rather than a text reply: set `stop.submit` to cover it, see [docs/modes.md](docs/modes.md#stop).)
 4. Every step is logged with its tier, tokens, cost and latency, so you can check the savings on your own tasks with
    `jah report`.
 
@@ -273,8 +275,12 @@ jah serve --preset paper        # the paper's tool-choice cascade (put the fitte
 jah serve --preset safe         # the default plus the action guard
 ```
 
-The results above use the default (routing cascade and the finish check). The other modes are new in the proxy and
-have not been benchmarked here. In the paper's own agent loop, only the cascades at tool and argument choices, with
+The results above use the default (routing cascade and the finish check). The other modes were run only on the
+15-task development split ([measurements](docs/modes.md#dev-split-measurements)). None of them clearly beat the
+default there: the tool-choice cascade had nothing reliable to act on with one to four tools, the stop guard found
+no usable threshold, the routing guard cost more than the cascade, and the action guard never fired. The reflection
+trigger kept the default's cost and was ahead in each of its three samples, too few tasks to call. In the paper's own
+agent loop, only the cascades at tool and argument choices, with
 fitted thresholds, saved cost without losing success (the proxy offers the first), and the modes at yes/no points
 (stop, reflection) kept an LLM call in the loop and did not save cost. If the decision model fails, every point falls
 back to its LLM-only behaviour. [docs/modes.md](docs/modes.md) maps the paper's design space to the proxy, says what

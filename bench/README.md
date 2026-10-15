@@ -15,6 +15,7 @@ The comparison is per harness: success rate, cost per task and agent time per ta
 | `splits/*.txt` | task lists: dev, test, a 20-task test subset, a two-task smoke list |
 | `codex_catalog.json` | Codex model metadata for the `jah-*` model names (see [Codex](#codex)) |
 | `summarize.py` | joins Harbor results with the proxy log and compares each arm with the baseline |
+| `analyze_modes.py`, `render_dev_modes.py` | per-arm analysis of the decision-point modes on the dev split (`results/dev_modes.*`, `configs/gemini_argon_lite_modes.yaml`) |
 | `PROTOCOL.md` | the protocol written before the runs, with dated changes |
 
 ### The reported runs

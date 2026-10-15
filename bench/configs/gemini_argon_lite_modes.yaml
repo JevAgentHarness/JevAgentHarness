@@ -1,0 +1,48 @@
+# Dev-split evaluation of the decision-point modes (docs/modes.md, "Dev-split measurements"): one proxy, one model
+# name per arm, run side by side on the 15 dev tasks. Same tiers, router and decision model as gemini_argon_lite.yaml
+# (strong Gemini 4 Argon, fast Gemini 3.5 Flash-Lite, Jev on OpenRouter, the README's jah-auto-t75 at tau 0.75).
+# Dev only: these arms choose settings, they are not results (bench/results/dev_modes.md).
+listen: {host: 0.0.0.0, port: 8787}
+log_dir: runs/proxy
+budget_usd: null
+log_states: true              # keep the decision model's input states (states.jsonl; holds task text)
+
+upstreams:
+  gemini: {type: gemini, base_url: "https://generativelanguage.googleapis.com/v1beta", key_env: GEMINI_API_KEY,
+           retries: 4, timeout_s: 900}
+
+tiers:
+  strong: {upstream: gemini, model: gemini-4-argon, effort: high}
+  fast:   {upstream: gemini, model: gemini-3.5-flash-lite, effort: low}
+
+router:
+  decision: {type: jev, provider: openrouter}
+  tau: 0.5
+  first_steps_strong: 1
+  stick_strong: 0
+  max_fast_streak: 0
+  verify_finish: true
+  on_error: strong
+  decision_timeout_s: 8
+
+models:
+  jah-auto-t75: {policy: route, tau: 0.75}                                  # the README setting (reference)
+  # = jah-auto-t75 (the same LLM calls), plus tool_select / stop / reflection / action asked and logged (jah fit)
+  jah-shadow: {policy: route, tau: 0.75, preset: shadow}
+  # the stop guard: a fast-tier final reply is accepted when p(done) >= tau, else the strong tier redoes it
+  jah-stopguard: {policy: route, tau: 0.75, decisions: {stop: {mode: guard, tau: 0.9}}}
+  # the safe preset: risky calls (pre-filter) get a decision-model look; flagged ones a strong re-check
+  jah-safe: {policy: route, tau: 0.75, preset: safe}
+  # the tool-choice cascade without routing: strong by default, confident tool choices filled in by the fast tier
+  jah-tools: {policy: route, tau: 0.75, decisions: {routing: off, tool_select: {mode: cascade, tau: 0.99}}}
+  # the reflection trigger: a step the decision model flags goes to the strong tier with a re-check note
+  jah-reflect: {policy: route, tau: 0.75, decisions: {reflection: {mode: trigger, tau: 0.8}}}
+  # mini-swe-agent finishes with a bash call: `submit` lets the stop point see it. Shadow = the finish check (the
+  # strong tier redoes a fast-tier submission) + the guard question asked and labelled
+  jah-submit: {policy: route, tau: 0.75,
+               decisions: {stop: {mode: shadow, submit: ['COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT']}}}
+  # the routing guard: the fast tier writes every step after the first, the decision model reads it (keep / redo)
+  jah-routeguard: {policy: route, decisions: {routing: {mode: guard, tau: 0.5}}}
+  jah-strong: {tier: strong}
+  jah-fast: {tier: fast}
+default_model: jah-auto-t75

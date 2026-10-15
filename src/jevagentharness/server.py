@@ -106,6 +106,7 @@ class Proxy:
         self.asker = P.Asker(self.backend)
         self.point_counts: Counter[str] = Counter()
         self._filters: dict[P.PointCfg, P.ActionFilter] = {}
+        self._submits: dict[tuple[str, ...], Any] = {}
 
     # ------------------------------------------------------------------ bookkeeping
     def _spent_in_logs(self) -> float:
@@ -237,7 +238,7 @@ class Proxy:
                         rec["reason"] = "action_guard"
                         resp2, _ = await self._call_or_log(sess, rec, calls, t0, tier,
                                                            P.with_notes(st.req_base, [v2.note or ""]), st)
-                        self._label_action(v2.asks, resp, resp2)
+                        self._label_action(v2.asks, resp, resp2, self._action_filter(st.dc.action))
                         resp = resp2
         st.final_tier = tier
         return resp
@@ -390,7 +391,7 @@ class Proxy:
         """The post-call checks that apply to this reply, run concurrently. A check that fails internally accepts the
         reply (the step goes on as without the decision point)."""
         jobs = []
-        final = bool(st.req.tools) and not resp.tool_calls
+        final = bool(st.req.tools) and P.ends_turn(resp, self._submit(st.dc.stop))
         if final and st.dc.stop.on:
             jobs.append(self._stop_check(st, resp, tier))
         if "tool_select" in st.pending and st.dc.tool_select.mode == "guard":
@@ -462,11 +463,23 @@ class Proxy:
         a.effect = "accepted"
         return _Verdict(False, "route_guard", asks=[a])
 
-    async def _action_check(self, st: _Step, resp: Response, tier: str) -> _Verdict | None:
-        c = st.dc.action
+    def _submit(self, c: P.PointCfg) -> Any:
+        if not c.submit:
+            return None
+        rx = self._submits.get(c.submit)
+        if rx is None:
+            rx = self._submits[c.submit] = P.submit_re(c)
+        return rx
+
+    def _action_filter(self, c: P.PointCfg) -> P.ActionFilter:
         flt = self._filters.get(c)
         if flt is None:
             flt = self._filters[c] = P.ActionFilter(c)
+        return flt
+
+    async def _action_check(self, st: _Step, resp: Response, tier: str) -> _Verdict | None:
+        c = st.dc.action
+        flt = self._action_filter(c)
         cands = flt.candidates(resp.tool_calls)[:MAX_ACTION_ASKS]
         if not cands:
             return None
@@ -495,21 +508,27 @@ class Proxy:
         for v in verdicts:
             for a in v.asks:
                 if a.point == "stop" and a.extra.get("tier") != st.rc.strong:
-                    a.label = "not_done" if resp.tool_calls else "done"
+                    a.label = "done" if P.ends_turn(resp, self._submit(st.dc.stop)) else "not_done"
                     a.label_tier, a.fit_ok = tier, not noted
                 elif a.point == "action" and a.acted:
-                    self._label_action([a], st.first_resp, resp)
+                    self._label_action([a], st.first_resp, resp, self._action_filter(st.dc.action))
+                elif a.point == "routing" and a.acted:          # the routing guard: did the strong redo differ?
+                    a.extra["recheck"] = P.recheck_kind(st.first_resp, resp)
         if "tool_select" in st.pending and st.dc.tool_select.mode == "guard":
             a = st.pending["tool_select"].result()
             a.extra["after"] = P.llm_choice(resp)
 
     @staticmethod
-    def _label_action(asks: list[P.Ask], before: Response | None, after: Response) -> None:
-        same = before is not None and [(c.name, c.arguments) for c in before.tool_calls] == \
-            [(c.name, c.arguments) for c in after.tool_calls]
+    def _label_action(asks: list[P.Ask], before: Response | None, after: Response, flt: P.ActionFilter) -> None:
+        """What the strong re-check did with a flagged call: ``recheck`` = ``same`` (the same calls, up to formatting),
+        ``changed`` (other calls) or ``no_call`` (a reply without a tool call); ``recheck_risky``: whether the reply
+        that reaches the harness still makes a call the pre-filter matches."""
+        what = P.recheck_kind(before, after)
+        risky = any(flt.is_risky(c) for c in after.tool_calls)
         for a in asks:
             if a.acted:
-                a.extra["recheck"] = "same" if same else "changed"
+                a.extra["recheck"] = what
+                a.extra["recheck_risky"] = risky
 
     async def _settle_pending(self, st: _Step, resp: Response) -> None:
         """Collect the pre-call questions that did not decide anything (shadow, guard) and label them with the LLM's

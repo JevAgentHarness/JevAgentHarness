@@ -25,7 +25,9 @@ from typing import Any, Mapping
 
 from aiohttp import ClientSession, ClientTimeout
 
-RETRY_STATUS = {408, 429, 500, 502, 503, 504, 529}
+# 499: OpenRouter's "internal_error" for a request the provider could not complete (about 1 decision call in 5,000 on
+# Terminal-Bench); a retry usually succeeds, where the fail-safe would send the step to the strong tier
+RETRY_STATUS = {408, 429, 499, 500, 502, 503, 504, 529}
 
 PROVIDERS: dict[str, dict[str, str]] = {
     "openrouter": {"base_url": "https://openrouter.ai/api", "key_env": "OPENROUTER_API_KEY",

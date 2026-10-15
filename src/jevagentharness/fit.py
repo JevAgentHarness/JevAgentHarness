@@ -10,7 +10,9 @@ decisions the point would act on agree with the LLM at the target rate (default 
 does not pass. If no threshold qualifies, the LLM should keep that decision (mode ``off`` or ``shadow``).
 
 ``tool_select``  would act when its top option is a tool with p >= tau; agrees when that is the tool the LLM called.
-                 Labels: ``shadow`` and ``guard`` logs, and ``cascade`` steps it did not take.
+                 Labels: ``shadow`` and ``guard`` logs, and ``cascade`` steps it did not take. Requests that offered
+                 a single tool are left out: there "agreement" only says that the agent calls its one tool, and a
+                 cascade fitted on them would move almost every step to the fast tier, whatever the step needs.
 ``stop``         would accept the fast tier's final reply when p(done) >= tau; agrees when the strong tier also ended
                  the turn. Labels: ``stop: shadow`` logs (every fast-tier final reply is redone by the strong tier).
 
@@ -77,6 +79,20 @@ def _agrees(r: dict[str, Any], point: str) -> bool:
     return r.get("label") == "done"
 
 
+def n_tools(r: dict[str, Any]) -> int | None:
+    """The number of tools a tool-choice question offered (its options without "no tool"), when logged."""
+    opts = r.get("options")
+    if not isinstance(opts, list):
+        return None
+    n = int(r.get("n_options") or len(opts))
+    return n - (1 if NO_TOOL in opts else 0)
+
+
+def single_tool(r: dict[str, Any]) -> bool:
+    k = n_tools(r)
+    return k is not None and k < 2
+
+
 def labelled(records: Iterable[dict[str, Any]], point: str) -> list[dict[str, Any]]:
     out = []
     for r in records:
@@ -84,7 +100,7 @@ def labelled(records: Iterable[dict[str, Any]], point: str) -> list[dict[str, An
             continue
         if point == "stop" and (r.get("question") != "task_done" or r.get("label") not in ("done", "not_done")):
             continue
-        if point == "tool_select" and r.get("confidence") is None:
+        if point == "tool_select" and (r.get("confidence") is None or single_tool(r)):
             continue
         out.append(r)
     return out
@@ -103,6 +119,8 @@ def fit_point(records: list[dict[str, Any]], point: str, target: float = 0.95, m
     recs = labelled(records, point)
     out: dict[str, Any] = {"point": point, "n_records": sum(1 for r in records if r.get("point") == point),
                            "n_labelled": len(recs), "tau": None}
+    if point == "tool_select":
+        out["single_tool"] = sum(1 for r in records if r.get("point") == point and single_tool(r))
     scores = sorted({round(float(s), 4) for r in recs if (s := _score(r, point)) is not None})
     for t in scores:
         st = _at(recs, point, t, z)
@@ -114,10 +132,16 @@ def fit_point(records: list[dict[str, Any]], point: str, target: float = 0.95, m
             out.update({"tau": t, **st})
             break
     if out["tau"] is None:
-        if len(recs) < min_count:
+        if out.get("single_tool") and len(recs) < min_count:
+            out["note"] = (f"{out['single_tool']} decisions offered a single tool (left out: not a choice of tool); "
+                           f"{len(recs)} labelled decisions with two or more tools")
+        elif len(recs) < min_count:
             out["note"] = f"too few labelled decisions ({len(recs)} < {min_count})"
         else:
             out["note"] = f"no threshold reached {target:.0%} agreement on >= {min_count} decisions"
+    if out.get("single_tool") and "single tool" not in out.get("note", ""):
+        out["note"] = (out.get("note", "") + "; " if out.get("note") else "") + \
+            f"{out['single_tool']} single-tool decisions left out"
     logged = sorted({r.get("tau") for r in recs if r.get("tau") is not None})
     if len(logged) == 1:
         out["at_logged_tau"] = {"tau": logged[0], **_at(recs, point, float(logged[0]), z)}
@@ -142,7 +166,8 @@ def describe(records: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
              "cost_usd": round(sum(float(r.get("cost_usd") or 0) for r in rs), 6)}
         rechecks = [r for r in rs if r.get("recheck")]
         if rechecks:
-            d["rechecks_changed"] = round(sum(1 for r in rechecks if r["recheck"] == "changed") / len(rechecks), 4)
+            d["rechecks_changed"] = round(sum(1 for r in rechecks if r["recheck"] != "same") / len(rechecks), 4)
+            d["rechecks_still_risky"] = round(sum(1 for r in rechecks if r.get("recheck_risky")) / len(rechecks), 4)
         out[g] = d
     return out
 
