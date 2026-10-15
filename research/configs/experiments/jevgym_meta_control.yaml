@@ -1,0 +1,88 @@
+# E2b (RQ1/RQ2) -- meta-level decision points on JevGym (with observation noise so memory/reflection
+# matter): reflection trigger, stop guard/trigger, memory write/read gates, small/large model routing.
+# 2026-10-01 (docs/META_GOLD_SPEC.md §5.1, amendment A4): + the two MEASUREMENT arms `meta_shadow` (Flash, n = 200)
+# and `meta_shadow_s2lite` (Flash-Lite, n = 500). They behave exactly like LLM-only (every System-1 decision point in
+# shadow), log the meta-decision golds (H2 AUROC / J, C5 secondary, C6 probe FAR) and, after each episode, run the
+# counterfactual branches and the wrong-proposal probes (ledger-tagged measurement: out of the episode cost; the
+# score card treats them as shadow-only arms -- never in Holm, iso-quality, Pareto or as a reference). They run on
+# the main task list (seeds 200000..200000+N-1 since amendment A6.13), so they pair with every live arm; run them after the main arms. Other System-1
+# backends are scored by replay: python -m jevharness.bench.meta_gold replay RUN --arm meta_shadow_s2lite --s1 SPEC
+name: e2b_jevgym_meta_control
+# Suite = the calibrated JevGym v2 setting shared by E2a / E2b / E2c (identical tasks, so controls pair up).
+# The suite holds 500 tasks (evaluation seeds 200000..200499 (A6.13; 100000..100499 is retired: exposed by an n = 50 pilot resume), A6.4); arms run the first `n_tasks` (default 200; meta_shadow_s2lite 500; amendment A5 (P0-3,
+# 2026-10-01): the C6L pair llm_only_s2lite / jev_stop_guard_s2lite 500 as well -- Flash-Lite is a co-primary System-2).
+suite: {name: jevgym, n: 500, seed0: 200000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # evaluation seeds 200000..200499 (A6.13; 100000..100499 is retired: exposed by an n = 50 pilot resume) (PREREGISTRATION A6.4)
+n_tasks: 200
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+small_llm: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+llms:
+  small_only: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+  # measurement LLMs: the large model of the routing counterfactual, the transplant generator (Flash arms: Flash-Lite
+  # at T = 0; Flash-Lite arms: Flash-Lite at T = 1, set by probes.transplant_temperature)
+  flash: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+  lite: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}
+s1_cache: cache/s1.sqlite
+s1_backends:
+  lite: {type: llm_generative, llm: {provider: gemini, model: gemini-3.5-flash-lite}, reasoning_effort: minimal}
+workers: 8
+arms:
+  - {name: llm_only, n_tasks: 500}                                   # C6F reference (A2 signed off 2026-10-01)
+  - {name: small_only, llm: small_only, n_tasks: 500}   # C4 reference (A6.15)
+  - {name: reflect_always, reflection: {mode: always}}
+  - {name: jev_reflect_trigger, reflection: {mode: trigger, tau: 0.5}}
+  - {name: jev_stop_guard, n_tasks: 500, stop: {mode: guard, tau: 0.5}}   # C6F
+  - {name: jev_stop_trigger, stop: {mode: trigger, tau: 0.9}}
+  - {name: mem_always, memory_write: {mode: always}, memory_read: {mode: always}}
+  - {name: mem_llm_gate, memory_write: {mode: llm}, memory_read: {mode: always}}
+  - {name: jev_mem, memory_write: {mode: trigger, tau: 0.5}, memory_read: {mode: assist, k: 3}}
+  - {name: lite_route, s1: lite, routing: {mode: trigger, tau: 0.5}}
+  - {name: lite_stop_guard, s1: lite, stop: {mode: guard, tau: 0.5}}
+  # weaker System-2 (Flash-Lite, 77% LLM-only on this suite): room for reflection / stop checks to help
+  - {name: llm_only_s2lite, llm: small_only, n_tasks: 500}          # C6L reference (A5)
+  - {name: reflect_always_s2lite, llm: small_only, reflection: {mode: always}}
+  # named *_e2b: the C5 arm `jev_reflect_trigger_s2lite` (n = 500, fired-step CF) lives in baselines_jevgym.yaml; a
+  # merged view of the two runs (scorecard / meta_gold --measure-run) must never pick this one by mistake
+  - {name: jev_reflect_trigger_s2lite_e2b, llm: small_only, reflection: {mode: trigger, tau: 0.5}}
+  - {name: jev_stop_guard_s2lite, llm: small_only, n_tasks: 500, stop: {mode: guard, tau: 0.5}}   # C6L (A5)
+  # ---------------- measurement arms (shadow-only; golds + counterfactual branches + guard probes)
+  - name: meta_shadow                     # Flash: no positives expected (labels still logged), no CF branches
+    reflection: {mode: shadow, extra: {wordings: [v2, v1]}}         # v1 = the pre-A4 wording, as a probe-list ablation
+    stop: {mode: shadow, extra: {augment_trigger: true}}
+    memory_write: {mode: shadow}
+    measure:
+      seed: 0
+      probes:
+        stop: [forced_premature, transplant, T5, T6]
+        tool_select: [natural, transplant, T1, T2, T3, T4]
+        rho_edit: 0.5
+        rho_t5: 0.25
+        rho_transplant: 0.25
+        transplant_llm: lite              # Flash-Lite, T = 0
+        transplant_temperature: 0.0
+        tau_ref: 0.5                      # tau of the live guard arms whose FAR / FRR is reported
+  - name: meta_shadow_s2lite              # Flash-Lite: the C5 / H2 measurement arm (routing shadowed here only)
+    llm: small_only
+    n_tasks: 500
+    reflection: {mode: shadow, extra: {wordings: [v2, v1]}}
+    routing: {mode: shadow}               # default resolver = the arm's own LLM (the small model): routing gold free
+    stop: {mode: shadow, extra: {augment_trigger: true}}
+    memory_write: {mode: shadow}
+    measure:
+      seed: 0
+      cf: {reflection: true, large_llm: flash, stop_reject: true, placebo: true, sample_negatives: 0.2,
+           fired_steps: false}
+      probes:
+        stop: [forced_premature, transplant, T5, T6]
+        tool_select: [natural, transplant, T1, T2, T3, T4]
+        rho_edit: 0.5
+        rho_t5: 0.25
+        rho_transplant: 0.25
+        transplant_llm: lite              # Flash-Lite at T = 1
+        transplant_temperature: 1.0
+        tau_ref: 0.5
+  - {name: jev_route_tau0.4, n_tasks: 500, routing: {mode: trigger, tau: 0.4}}   # C4 live arm (A6.15): tau fixed before the main runs; the sweep keeps 0.2 / 0.6 / 0.8 at n = 200
+sweeps:
+  - base: {name: jev_route, routing: {mode: trigger}}
+    set: routing.tau
+    values: [0.2, 0.6, 0.8]

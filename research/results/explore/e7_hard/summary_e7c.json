@@ -1,0 +1,560 @@
+{
+ "meta": {
+  "generated": "2026-10-06T22:38:24+00:00",
+  "git": "4c7028846a99187c0d3c6d79e18cab774cba226d",
+  "script": "scripts/explore_e7_hard.py",
+  "run": "runs/e7cj_hard",
+  "label": "exploratory (E7)",
+  "n_boot": 10000,
+  "seed": 0,
+  "suite": {
+   "name": "jevgym",
+   "n": 100,
+   "seed0": 310400,
+   "families": "multi",
+   "multi_customers": 12,
+   "multi_rule": "tier",
+   "distractor_style": "near",
+   "n_distractors": 60,
+   "noise_lines": 20,
+   "strict": true
+  },
+  "max_steps": 45,
+  "llm": {
+   "provider": "gemini",
+   "model": "gemini-3.5-flash",
+   "temperature": 0,
+   "reasoning_effort": "minimal"
+  },
+  "workers": 16,
+  "spend": {
+   "by_run": {},
+   "prior": 0.0,
+   "s2": 0,
+   "s1": 0,
+   "total": 0,
+   "records": 0,
+   "total_with_prior": 0.0
+  },
+  "cap": 90.0,
+  "exp": "e7c",
+  "title": "E7c: JevGym-Hard (12 customers) with refitted thresholds, Jev row (local)",
+  "entry": "E7c Jev row, local",
+  "arms": [
+   "llm_only",
+   "jev_refit"
+  ],
+  "calibration": {
+   "generated": "2026-10-06T19:47:44+00:00",
+   "git": "dfd239c2a5591c575b6589f5f2dad92383fd1ddd",
+   "run": "runs/e7c_cal",
+   "estimator": "threshold_theory --calibration-arm --task-value 1.0 --lam-per-hour 0 --v-fallback W (A6.5 / A6.11)",
+   "fits": {
+    "jev_shadow_cal": {
+     "sha256": "08326b220f4a5afce1b43e5ada1a79626b911bf41e130733a6f093c06e19dd63",
+     "eval_arm": "jev_refit",
+     "n_tasks": 100,
+     "errored": 0,
+     "tool_select": {
+      "tau_hat": 0.91,
+      "always_defer": false,
+      "n_paired": 3699,
+      "tau_rule": "projection",
+      "V": 1.0,
+      "delta_c": 0.001991415486486487,
+      "path": "results/explore/e7_hard/cal_e7c/tauhat_jev_shadow_cal_tool_select.json",
+      "sha256": "5d4457c072541f709f4166a57fa0fe8db46576bf87c997fdb3bf8bd81089f5b7",
+      "notes": [
+       "100 task seed(s) outside the calibration range 5000-5149 (e.g. [5300, 5301, 5302, 5303, 5304]): not a registered calibration arm"
+      ],
+      "at_tau": {
+       "n": 3699,
+       "coverage": 0.9005136523384698,
+       "s1_acc_taken": 1.0,
+       "llm_acc_taken": 1.0,
+       "s1_acc_all": 0.9981075966477426,
+       "llm_acc_all": 1.0
+      },
+      "op_at_tau": {
+       "n": 1200,
+       "coverage": 0.995,
+       "s1_acc_taken": 1.0,
+       "llm_acc_taken": 1.0,
+       "s1_acc_all": 1.0,
+       "llm_acc_all": 1.0
+      }
+     },
+     "tool_params": {
+      "tau_hat": 0.87,
+      "always_defer": false,
+      "n_paired": 5998,
+      "tau_rule": "projection",
+      "V": 1.0,
+      "delta_c": 0.001136279225,
+      "path": "results/explore/e7_hard/cal_e7c/tauhat_jev_shadow_cal_tool_params.json",
+      "sha256": "620106882827c0dc35da94f43d68f4f65218497839b360a9f83d9bd672264918",
+      "notes": [
+       "100 task seed(s) outside the calibration range 5000-5149 (e.g. [5300, 5301, 5302, 5303, 5304]): not a registered calibration arm"
+      ],
+      "at_tau": {
+       "n": 5998,
+       "coverage": 0.802267422474158,
+       "s1_acc_taken": 1.0,
+       "llm_acc_taken": 1.0,
+       "s1_acc_all": 0.9744914971657219,
+       "llm_acc_all": 1.0
+      }
+     }
+    },
+    "rl_shadow_cal": {
+     "sha256": "6fd651974c30cfd2cac814633b6272777bb1a7e9f787e5e2f7ad56cf00551595",
+     "eval_arm": "rl_refit",
+     "n_tasks": 100,
+     "errored": 9,
+     "tool_select": {
+      "tau_hat": null,
+      "always_defer": true,
+      "n_paired": 3561,
+      "tau_rule": "projection",
+      "V": 1.0,
+      "delta_c": 0.001839197851727043,
+      "path": "results/explore/e7_hard/cal_e7c/tauhat_rl_shadow_cal_tool_select.json",
+      "sha256": "faedc985ade159eee579ec81f7325df15eeab3f4e68f22e2c787f7fd38ac2945",
+      "notes": [
+       "100 task seed(s) outside the calibration range 5000-5149 (e.g. [5300, 5301, 5302, 5303, 5304]): not a registered calibration arm"
+      ],
+      "at_tau": {
+       "n": 3561,
+       "coverage": 0.0,
+       "s1_acc_taken": null,
+       "llm_acc_taken": null,
+       "s1_acc_all": 0.8652064026958719,
+       "llm_acc_all": 1.0
+      },
+      "op_at_tau": {
+       "n": 1153,
+       "coverage": 0.0,
+       "s1_acc_taken": null,
+       "llm_acc_taken": null,
+       "s1_acc_all": 0.810928013876843,
+       "llm_acc_all": 1.0
+      }
+     },
+     "tool_params": {
+      "tau_hat": 1.0,
+      "always_defer": false,
+      "n_paired": 5781,
+      "tau_rule": "projection",
+      "V": 1.0,
+      "delta_c": 0.001052616554229372,
+      "path": "results/explore/e7_hard/cal_e7c/tauhat_rl_shadow_cal_tool_params.json",
+      "sha256": "2855bb689316585b04db278bb8470f6b8d2f56033150a1813fcc758f6d0b8d09",
+      "notes": [
+       "100 task seed(s) outside the calibration range 5000-5149 (e.g. [5300, 5301, 5302, 5303, 5304]): not a registered calibration arm"
+      ],
+      "at_tau": {
+       "n": 5781,
+       "coverage": 0.628956927867151,
+       "s1_acc_taken": 0.9997249724972497,
+       "llm_acc_taken": 1.0,
+       "s1_acc_all": 0.9484518249437813,
+       "llm_acc_all": 1.0
+      }
+     }
+    }
+   },
+   "spend": {
+    "s2": 13.917620850000008,
+    "s1": 1.0482512459999997,
+    "total": 14.96587209600001,
+    "records": 200
+   }
+  },
+  "not_run": {
+   "rl_refit": "not run live: its calibration turns its tool choice off (the reported result)"
+  },
+  "note": "Flash on the direct Gemini API in both arms, Jev on OpenRouter with the author's Jev-only key (the org's OpenRouter budget is exhausted): dollars compare within this row only; the thresholds were fitted on E7c's calibration arm (OpenRouter route)",
+  "pilot_spend": null,
+  "projection": {
+   "smoke_per_episode": {
+    "llm_only": 0.264678075,
+    "jev_refit": 0.194421756
+   },
+   "smoke_wall_s": {
+    "llm_only": 62.95035093100004,
+    "jev_refit": 102.82312417199998
+   },
+   "smoke_n": {
+    "llm_only": 2,
+    "jev_refit": 2
+   },
+   "smoke_errors": {
+    "llm_only": 0,
+    "jev_refit": 0
+   },
+   "missing_arms": [],
+   "spent_so_far": 16.968199662,
+   "prior": 16.05,
+   "safety": 1.2,
+   "cap": 90.0,
+   "per_task_all_arms": 0.459099831,
+   "projected_100": 55.09197972,
+   "fits_100": true,
+   "decision": "run all 100"
+  },
+  "stopped_by_watchdog": false,
+  "pilot_chosen": {
+   "candidates": [
+    "e7_pilot_tier_k12",
+    "e7_pilot_tier_k12b"
+   ],
+   "n": 60,
+   "success": 0.4666666666666667,
+   "band": [
+    0.6,
+    0.8
+   ]
+  }
+ },
+ "tariff": {
+  "q_usd_per_episode": null,
+  "state": "no window record",
+  "sensitivity": {
+   "s2_4": 0.00196182,
+   "zero": 0.0
+  }
+ },
+ "arms": {
+  "llm_only": {
+   "state": "run",
+   "n_ok": 100,
+   "n_records": 100,
+   "success_all": 0.42,
+   "cost_mean": 0.26287422,
+   "per_episode": {
+    "wall_s_mean": 66.60809942813,
+    "wall_s_median": 64.87777152299995,
+    "steps": 37.0,
+    "llm_calls": 37.0,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.26287422,
+    "s1_s": 0.0
+   },
+   "failure_types": {
+    "n_failed": 58,
+    "types": {
+     "wrong_total": 58
+    },
+    "classes": {
+     "wrong_total": 58,
+     "wrong_write": 0,
+     "ask_finish": 0,
+     "other": 0
+    }
+   },
+   "answer_forms": {
+    "itemized": {
+     "n": 51,
+     "share": 0.51,
+     "n_success": 42,
+     "success": 0.8235294117647058
+    },
+    "sentence": {
+     "n": 18,
+     "share": 0.18,
+     "n_success": 0,
+     "success": 0.0
+    },
+    "number": {
+     "n": 31,
+     "share": 0.31,
+     "n_success": 0,
+     "success": 0.0
+    },
+    "none": {
+     "n": 0,
+     "share": 0.0,
+     "n_success": 0,
+     "success": null
+    }
+   },
+   "provenance": {
+    "path": "runs/e7cj_hard/llm_only.jsonl",
+    "sha256": "db587f0c11d2e3ba4cec63a39bbfe4d78fc48862c21b6713769064094133e4db",
+    "n_records": 100
+   }
+  },
+  "jev_refit": {
+   "state": "run",
+   "n_ok": 100,
+   "n_records": 100,
+   "success_all": 0.19,
+   "cost_mean": 0.18138994068,
+   "per_episode": {
+    "wall_s_mean": 118.26924785440002,
+    "wall_s_median": 114.39732598450001,
+    "steps": 37.4,
+    "llm_calls": 25.23,
+    "s1_calls": 133.46,
+    "s1_cost": 0.013534900680000003,
+    "s2_cost": 0.16785503999999998,
+    "s1_s": 37.93168878167003
+   },
+   "failure_types": {
+    "n_failed": 81,
+    "types": {
+     "wrong_total": 81
+    },
+    "classes": {
+     "wrong_total": 81,
+     "wrong_write": 0,
+     "ask_finish": 0,
+     "other": 0
+    }
+   },
+   "answer_forms": {
+    "itemized": {
+     "n": 26,
+     "share": 0.26,
+     "n_success": 16,
+     "success": 0.6153846153846154
+    },
+    "sentence": {
+     "n": 0,
+     "share": 0.0,
+     "n_success": 0,
+     "success": null
+    },
+    "number": {
+     "n": 74,
+     "share": 0.74,
+     "n_success": 3,
+     "success": 0.04054054054054054
+    },
+    "none": {
+     "n": 0,
+     "share": 0.0,
+     "n_success": 0,
+     "success": null
+    }
+   },
+   "provenance": {
+    "path": "runs/e7cj_hard/jev_refit.jsonl",
+    "sha256": "05e2e95c3dc843640b8cb1bc440f268acf6de62a7b97c2a85fd20f2a42139af0",
+    "n_records": 100
+   },
+   "paired_per_episode": {
+    "wall_s_mean": 118.2692478544,
+    "wall_s_median": 114.39732598450001,
+    "steps": 37.4,
+    "llm_calls": 25.23,
+    "s1_calls": 133.46,
+    "s1_cost": 0.013534900680000003,
+    "s2_cost": 0.16785503999999998,
+    "s1_s": 37.93168878167003
+   },
+   "ref_paired_per_episode": {
+    "wall_s_mean": 66.60809942813,
+    "wall_s_median": 64.87777152299995,
+    "steps": 37.0,
+    "llm_calls": 37.0,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.26287422,
+    "s1_s": 0.0
+   },
+   "points": {
+    "tool_select": {
+     "n": 3740,
+     "coverage": 0.9665775401069518,
+     "n_gold": 3740,
+     "acc": 0.990909090909091,
+     "acc_accepted": 0.9941908713692946,
+     "llm_acc_deferred": 1.0,
+     "n_accepted": 3615
+    },
+    "tool_params": {
+     "n": 5966,
+     "coverage": 0.6406302380154207,
+     "n_gold": 5925,
+     "acc": 0.969957805907173,
+     "acc_accepted": 0.9949762030671603,
+     "llm_acc_deferred": null,
+     "n_accepted": 3822
+    },
+    "tool": {
+     "n": 9706,
+     "coverage": 0.766227076035442,
+     "n_gold": 9665,
+     "acc": 0.9780651836523538,
+     "acc_accepted": 0.994592402325267,
+     "llm_acc_deferred": 1.0,
+     "n_accepted": 7437
+    },
+    "op": {
+     "n": 1200,
+     "coverage": 0.9933333333333333,
+     "acc": 0.9991666666666666,
+     "acc_accepted": 1.0,
+     "accepted_wrong": 0,
+     "llm_acc_deferred": 1.0,
+     "s1_said_other_op": 1
+    },
+    "reflection": {
+     "n": 3640,
+     "fired": 0.05302197802197802,
+     "acc": 0.9834638816362054,
+     "gold_positive_rate": 0.016536118363794605
+    }
+   },
+   "cmp": {
+    "n_expected": 100,
+    "n": 100,
+    "n_dropped": 0,
+    "dropped": {
+     "missing_arm": 0,
+     "missing_ref": 0,
+     "errored_arm": 0,
+     "errored_ref": 0
+    },
+    "success": 0.19,
+    "success_ref": 0.42,
+    "delta": -0.23,
+    "delta_ci": [
+     -0.35,
+     -0.11
+    ],
+    "wins": 11,
+    "losses": 34,
+    "cost": 0.18138994068,
+    "cost_ref": 0.26287422,
+    "saving": 0.30997440266299214,
+    "saving_ci": [
+     0.30272217431451576,
+     0.3171294167550382
+    ],
+    "newcombe_pt": [
+     -34.74612066504176,
+     -10.282378854631066
+    ],
+    "api": {
+     "cost": 0.18138994068,
+     "saving": 0.30997440266299214,
+     "saving_ci": [
+      0.30272217431451576,
+      0.3171294167550382
+     ]
+    }
+   }
+  }
+ },
+ "latency": {
+  "llm_only": {
+   "n_episodes": 100,
+   "wall_mean": 66.60809942813,
+   "s1_per_episode": 0.0,
+   "s2_per_episode": 62.047525639389896,
+   "tail_per_episode": 14.192870349659994,
+   "s2_tail_per_episode": 14.192870349659994,
+   "groups": {
+    "s2/tool_select/gemini": {
+     "n": 3700,
+     "p50": 1.196505309000031,
+     "p90": 2.341466624800021,
+     "mean": 1.6769601524159459,
+     "n_over": 147,
+     "share_of_wall": 0.9315312427783522,
+     "tail_share_of_wall": 0.213080248070643,
+     "per_episode_s": 62.047525639389995,
+     "tail_per_episode_s": 14.192870349659994
+    }
+   }
+  },
+  "jev_refit": {
+   "n_episodes": 100,
+   "wall_mean": 118.26924785440002,
+   "s1_per_episode": 37.93168878167013,
+   "s2_per_episode": 64.05642687559003,
+   "tail_per_episode": 35.89269438096999,
+   "s2_tail_per_episode": 35.89269438096999,
+   "groups": {
+    "s2/tool_params/1tool/gemini": {
+     "n": 2205,
+     "p50": 1.0509029810000357,
+     "p90": 6.971481055000005,
+     "mean": 2.4572374868535145,
+     "n_over": 345,
+     "share_of_wall": 0.45812489356339664,
+     "tail_share_of_wall": 0.25543799868586087,
+     "per_episode_s": 54.18208658512,
+     "tail_per_episode_s": 30.21045997800999
+    },
+    "s1/tool_params/typesafe/jev-1.13-20260917": {
+     "n": 5966,
+     "p50": 0.24384134999991147,
+     "p90": 0.4059601109999562,
+     "mean": 0.27898507435534586,
+     "n_over": 0,
+     "share_of_wall": 0.14073184566566693,
+     "tail_share_of_wall": 0.0,
+     "per_episode_s": 16.644249536039936,
+     "tail_per_episode_s": 0.0
+    },
+    "s1/tool_select/typesafe/jev-1.13-20260917": {
+     "n": 3740,
+     "p50": 0.2534449525001037,
+     "p90": 0.40713243659996573,
+     "mean": 0.2871249719179148,
+     "n_over": 0,
+     "share_of_wall": 0.09079683979177774,
+     "tail_share_of_wall": 0.0,
+     "per_episode_s": 10.738473949730015,
+     "tail_per_episode_s": 0.0
+    },
+    "s1/reflection/typesafe/jev-1.13-20260917": {
+     "n": 3640,
+     "p50": 0.2455128845000445,
+     "p90": 0.4386105361999967,
+     "mean": 0.289806738898354,
+     "n_over": 0,
+     "share_of_wall": 0.08919449042989434,
+     "tail_share_of_wall": 0.0,
+     "per_episode_s": 10.548965295900086,
+     "tail_per_episode_s": 0.0
+    },
+    "s2/reflection/gemini": {
+     "n": 193,
+     "p50": 1.4001256870000134,
+     "p90": 8.19441617939995,
+     "mean": 2.9952053288808327,
+     "n_over": 33,
+     "share_of_wall": 0.048877847704389056,
+     "tail_share_of_wall": 0.028016456667748452,
+     "per_episode_s": 5.780746284740007,
+     "tail_per_episode_s": 3.3134852576400005
+    },
+    "s2/tool_select/gemini": {
+     "n": 125,
+     "p50": 1.4548375839999608,
+     "p90": 8.721509092799923,
+     "mean": 3.2748752045840033,
+     "n_over": 21,
+     "share_of_wall": 0.03461249716214973,
+     "tail_share_of_wall": 0.02002844516468172,
+     "per_episode_s": 4.093594005730004,
+     "tail_per_episode_s": 2.368749145320002
+    }
+   }
+  }
+ },
+ "latency_cmp": {
+  "jev_refit": {
+   "extra_wall_s": 51.66114842627002,
+   "extra_s2_tail_s": 21.699824031309998,
+   "extra_s1_s": 37.93168878167013,
+   "extra_s2_s": 2.0089012362001384,
+   "tail_share_of_extra": 0.4200414565363301
+  }
+ }
+}

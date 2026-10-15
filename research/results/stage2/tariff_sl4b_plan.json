@@ -1,0 +1,41 @@
+{
+ "what": "S2-4S provisioned per-episode tariff q_S for StartLux-Decision-4B (docs/PREREG_A7_STAGE2.md A7.18 (e) 5, measured exactly as A7.13 (iii))",
+ "committed_before_measurement": true,
+ "configuration": {
+  "arm": "jevagent_best_sl4b",
+  "config": "configs/experiments/stage2_jevgym.yaml",
+  "profile": "configs/harness/jevagent_best.yaml (Flash section with the fitted backends.startlux_4b block)",
+  "system1": "StartLux-Decision-4B, vendor server (startlux_decision.server, original weights, bf16) on :8090, one request at a time",
+  "system2": "gemini-3.5-flash (temperature 0, minimal reasoning)",
+  "workers": 4,
+  "system1_cache": "cache/s1_dev_tariff_sl4b.sqlite (fresh; same per-backend cache policy as the evaluation)"
+ },
+ "warmup": {
+  "seed0": 590,
+  "n": 10,
+  "run_name": "stage2_dev_tariff_sl4b_warmup",
+  "purpose": "covers the input lengths first seen by the server (first request at a new padded length compiles kernels, ~10 s); outside the window, not counted"
+ },
+ "workload": {
+  "suite": "jevgym (Stage-1 suite settings), development seeds",
+  "seed0": 600,
+  "n": 100,
+  "task_seeds": "600-699",
+  "run_name": "stage2_dev_tariff_sl4b"
+ },
+ "window": {
+  "start": "the UTC time the workload command is launched (after the warm-up)",
+  "end": "the UTC time the workload command exits",
+  "recorded_in": "results/stage2/startlux/tariff_window.json (written by the box, scripts/aws/stage2_startlux.sh stage tariff)",
+  "contents": "only the workload: no other job runs on the GPU host inside the window; executor waiting and provisioned idle time inside it are included"
+ },
+ "host": {
+  "instance_type": "g6e.2xlarge (1x NVIDIA L40S 48 GB, 8 vCPU)",
+  "region": "us-east-1",
+  "usd_per_hour": 2.24208,
+  "price_source": "AWS Price List API (AmazonEC2, Linux, shared tenancy, on demand), read 2026-10-03"
+ },
+ "formula": "q_S = host $/h x (window end - window start) / completed development episodes (latest record without an infrastructure error); scripts/stage2_tariff.py --arm jevagent_best_sl4b --served-model StartLux-Decision-4B --out results/stage2/tariff_sl4b.json",
+ "served_model_price": "StartLux-Decision-4B is an exact 0 per-token entry in configs/prices/models.yaml (nothing charged twice)",
+ "sensitivity": "busy-throughput tariff, Jev's API price, $0 and the realised evaluation-host bill reported beside it (A7.13 (iii))"
+}

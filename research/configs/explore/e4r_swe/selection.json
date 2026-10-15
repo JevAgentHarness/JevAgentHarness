@@ -1,0 +1,66 @@
+{
+ "rule": "replicate = E4's eval list (configs/explore/e4_swe/eval_ids.txt, unchanged); extension = SWE-bench Verified test (500) minus every instance used before (h5_eval, h5_smoke, e4_dev, e4_eval, dev_adapter; 250 distinct), ordered by sha256('jev-explore-E4r-swe-2026-10-07' + newline + id), the first 200; reserve = the rest (never run); eval (the run list) = the extension in that order (minimum-spend amendment: the replicate is not run again; E4's own run on it enters the pooled readout); smoke = scikit-learn__scikit-learn-13496 (one instance of the H5 smoke pair = E4's smoke; development only)",
+ "superseded": {
+  "eval": {
+   "n": 300,
+   "sha256": "99831a6c3dc0babb9288369a26478af4aa5392432894f7f4d2d8406b71cf652f",
+   "what": "replicate and extension interleaved (e4448cc); never run"
+  },
+  "smoke": {
+   "n": 2,
+   "sha256": "7b474a955d1beddc839dd909e9f4753286a3eb279bce6f4fbeecfe2f461e1614",
+   "what": "the H5 smoke pair (e4448cc); never run in E4r"
+  }
+ },
+ "salt": "jev-explore-E4r-swe-2026-10-07",
+ "pool_sha256": "a6b0fd7c8c2969a0eef892e032250adcfa6d32362d395c246930e61b575ac9b9",
+ "n_pool_after_exclusion": 250,
+ "excluded": {
+  "h5_eval": {
+   "n": 100,
+   "sha256": "7ced229b3b99185d6b73c7c40dafc4c3479c5afcd80287ba1b41b2f6200d8d94"
+  },
+  "h5_smoke": {
+   "n": 2,
+   "sha256": "7b474a955d1beddc839dd909e9f4753286a3eb279bce6f4fbeecfe2f461e1614"
+  },
+  "e4_dev": {
+   "n": 45,
+   "sha256": "c5d0a510cab2b4094c5ea71deed85e84adafdd7682e4c0c21fbe3c077b742d24"
+  },
+  "e4_eval": {
+   "n": 100,
+   "sha256": "8d67497edcc71e78e2c0d49496f0bb9333dc87959addf7a3cf20eb440b89a1ee"
+  },
+  "dev_adapter": {
+   "n": 3,
+   "sha256": "b54d0504bbb20fbb65a15b7a63c8919e15379100e296d8dd52ae8feca1ea9ac8"
+  }
+ },
+ "excluded_distinct": 250,
+ "smoke": {
+  "file": "configs/explore/e4r_swe/smoke_ids.txt",
+  "n": 1,
+  "sha256": "14365ae2c3d2657942d00aac41bb5ccf77741b85e2725bb903b538e350191ae9"
+ },
+ "replicate": {
+  "file": "configs/explore/e4r_swe/replicate_ids.txt",
+  "n": 100,
+  "sha256": "8d67497edcc71e78e2c0d49496f0bb9333dc87959addf7a3cf20eb440b89a1ee"
+ },
+ "extension": {
+  "file": "configs/explore/e4r_swe/extension_ids.txt",
+  "n": 200,
+  "sha256": "46fe87bf1d22ca302f5da0081d0f1dd11fd02e8e0bb0706accbf77c5fac0bea9"
+ },
+ "eval": {
+  "file": "configs/explore/e4r_swe/eval_ids.txt",
+  "n": 200,
+  "sha256": "46fe87bf1d22ca302f5da0081d0f1dd11fd02e8e0bb0706accbf77c5fac0bea9"
+ },
+ "reserve": {
+  "file": "configs/explore/e4r_swe/reserve_ids.txt",
+  "n": 50,
+  "sha256": "a0330697b1245749f3225db65e4cac2efa61476780c88e38077b57c076751e4d"
+ }
+}

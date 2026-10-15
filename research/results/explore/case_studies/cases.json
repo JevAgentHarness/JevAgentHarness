@@ -1,0 +1,721 @@
+{
+ "label": "post hoc, descriptive; stored logs only (no API call, no GPU); revises no result",
+ "cases": {
+  "take": {
+   "task_id": "jevgym-clarify-300500-d60-near-strict",
+   "rank": 1,
+   "n_tasks": 200,
+   "task": "Ship Alice Smith's pending order.",
+   "seed": 300500,
+   "tau_tool": 0.44503032941063925,
+   "tau_arg": 0.9958731532096863,
+   "sources": {
+    "run": "runs/e21b_e12_in/e12_final_in.jsonl",
+    "run_sha16": "d333ba27c1739229",
+    "ref": "runs/harness_final_dedicated/llm_only.jsonl",
+    "ref_sha16": "4042b40dca9aba98"
+   },
+   "runs": {
+    "run": {
+     "rows": [
+      {
+       "step": 1,
+       "tool": "ask_user",
+       "by": "dm",
+       "llm_calls": 1,
+       "conf": 0.9600314136675845,
+       "alt": "find_user",
+       "altp": 0.02933820449445181,
+       "ok": true,
+       "must": false,
+       "irr": false,
+       "m": [],
+       "l": [
+        {
+         "k": "missing",
+         "v": "shipping_speed",
+         "c": 0.993061363697052,
+         "free": false
+        },
+        {
+         "k": "question",
+         "v": "Could you please specify the\u2026",
+         "c": null,
+         "free": true
+        }
+       ],
+       "obs": "Express shipping, please.",
+       "obsk": "user",
+       "obs_lines": 1
+      },
+      {
+       "step": 2,
+       "tool": "find_user",
+       "by": "dm",
+       "llm_calls": 0,
+       "conf": 0.8406125864308077,
+       "alt": "ship_order",
+       "altp": 0.12105943733307485,
+       "ok": true,
+       "must": false,
+       "irr": false,
+       "m": [
+        {
+         "k": "name",
+         "v": "Alice Smith",
+         "c": 0.9995502829551697
+        }
+       ],
+       "l": [],
+       "obs": "",
+       "obsk": "",
+       "obs_lines": 0
+      },
+      {
+       "step": 3,
+       "tool": "get_orders",
+       "by": "dm",
+       "llm_calls": 0,
+       "conf": 0.9414018748319585,
+       "alt": "ship_order",
+       "altp": 0.04823270913468886,
+       "ok": true,
+       "must": false,
+       "irr": false,
+       "m": [
+        {
+         "k": "user_id",
+         "v": "U4140",
+         "c": 1.0
+        },
+        {
+         "k": "status",
+         "v": "pending",
+         "c": 0.9999040365219116
+        }
+       ],
+       "l": [],
+       "obs": "",
+       "obsk": "",
+       "obs_lines": 0
+      },
+      {
+       "step": 4,
+       "tool": "ship_order",
+       "by": "dm",
+       "llm_calls": 0,
+       "conf": 0.9718588458051559,
+       "alt": "get_shipping_quote",
+       "altp": 0.026100393634572925,
+       "ok": true,
+       "must": false,
+       "irr": true,
+       "m": [
+        {
+         "k": "order_id",
+         "v": "ORD-3381",
+         "c": 1.0
+        },
+        {
+         "k": "speed",
+         "v": "express",
+         "c": 0.9999805688858032
+        }
+       ],
+       "l": [],
+       "obs": "Order ORD-3381 shipped (express).",
+       "obsk": "env",
+       "obs_lines": 1
+      },
+      {
+       "step": 5,
+       "tool": "finish",
+       "by": "dm",
+       "llm_calls": 1,
+       "conf": 0.9911063492611587,
+       "alt": "send_message",
+       "altp": 0.008321923527568791,
+       "ok": true,
+       "must": false,
+       "irr": false,
+       "m": [],
+       "l": [
+        {
+         "k": "answer",
+         "v": "Alice Smith's pending order\u2026",
+         "c": null,
+         "free": true
+        }
+       ],
+       "obs": "",
+       "obsk": "",
+       "obs_lines": 0
+      }
+     ],
+     "success": true,
+     "steps": 5,
+     "llm_calls": 2,
+     "dm_calls": 9,
+     "api_usd": 0.002466,
+     "gpu_usd": 0.0016876535912442243,
+     "cost_usd": 0.004153653591244224,
+     "wall_s": 3.7411040199995114
+    },
+    "ref": {
+     "rows": null,
+     "success": true,
+     "steps": 5,
+     "llm_calls": 5,
+     "dm_calls": 0,
+     "api_usd": 0.030052799999999998,
+     "gpu_usd": 0.0,
+     "cost_usd": 0.030052799999999998,
+     "wall_s": 4.385961689000396
+    }
+   },
+   "tariff_usd_h": 1.624,
+   "layout": [
+    {
+     "y": -0.0,
+     "h": 13.4,
+     "obs": 1
+    },
+    {
+     "y": -13.4,
+     "h": 9.8,
+     "obs": 0
+    },
+    {
+     "y": -23.2,
+     "h": 13.4,
+     "obs": 0
+    },
+    {
+     "y": -36.6,
+     "h": 17.0,
+     "obs": 1
+    },
+    {
+     "y": -53.6,
+     "h": 6.2,
+     "obs": 0
+    }
+   ]
+  },
+  "ask": {
+   "task_id": "jevgym-clarify-300026-d60-near-strict",
+   "rank": 27,
+   "n_tasks": 200,
+   "task": "Refund the full amount of Mateo Smith's most recent delivered order (highest order id).",
+   "seed": 300026,
+   "first_wrong_step": 3,
+   "sources": {
+    "jev": "runs/stage2_rl_states/jev_ts_replace_f.jsonl",
+    "jev_sha16": "c4051d8652571fa4",
+    "ours": "runs/e12_live/e12_ts_replace_f.jsonl",
+    "ours_sha16": "d39d62bae53c5e8c",
+    "ref": "runs/stage2_jevgym/llm_only.jsonl",
+    "ref_sha16": "fba5397498f8d4a0"
+   },
+   "runs": {
+    "jev": {
+     "rows": [
+      {
+       "step": 1,
+       "tool": "find_user",
+       "by": "dm",
+       "llm_calls": 1,
+       "conf": 0.55,
+       "alt": "ask_user",
+       "altp": 0.409972941785843,
+       "ok": true,
+       "must": false,
+       "irr": false,
+       "m": [],
+       "l": [
+        {
+         "k": "name",
+         "v": "Mateo Smith",
+         "c": null,
+         "free": false
+        }
+       ],
+       "obs": "",
+       "obsk": "",
+       "obs_lines": 0
+      },
+      {
+       "step": 2,
+       "tool": "get_orders",
+       "by": "dm",
+       "llm_calls": 1,
+       "conf": 0.99,
+       "alt": "notify_warehouse",
+       "altp": 9.999320046236875e-07,
+       "ok": true,
+       "must": false,
+       "irr": false,
+       "m": [],
+       "l": [
+        {
+         "k": "user_id",
+         "v": "U4937",
+         "c": null,
+         "free": false
+        },
+        {
+         "k": "status",
+         "v": "delivered",
+         "c": null,
+         "free": false
+        }
+       ],
+       "obs": "",
+       "obsk": "",
+       "obs_lines": 0
+      },
+      {
+       "step": 3,
+       "tool": "refund",
+       "by": "dm",
+       "llm_calls": 1,
+       "conf": 0.98,
+       "alt": "get_order",
+       "altp": 0.009999330044886994,
+       "ok": false,
+       "must": true,
+       "irr": true,
+       "m": [],
+       "l": [
+        {
+         "k": "order_id",
+         "v": "ORD-3726",
+         "c": null,
+         "free": false
+        },
+        {
+         "k": "method",
+         "v": "original_payment",
+         "c": null,
+         "free": false
+        },
+        {
+         "k": "amount",
+         "v": "291.29",
+         "c": null,
+         "free": false
+        }
+       ],
+       "obs": "Irreversible error: refund(\u2026) was applied incorrectly.",
+       "obsk": "err",
+       "obs_lines": 1
+      }
+     ],
+     "success": false,
+     "steps": 3,
+     "llm_calls": 3,
+     "dm_calls": 3,
+     "api_usd": 0.0034246679999999996,
+     "gpu_usd": 0.0,
+     "cost_usd": 0.0034246679999999996,
+     "wall_s": 2.4926088159991195
+    },
+    "ours": {
+     "rows": [
+      {
+       "step": 1,
+       "tool": "ask_user",
+       "by": "dm",
+       "llm_calls": 1,
+       "conf": 0.89254512508234,
+       "alt": "find_user",
+       "altp": 0.09927148643828525,
+       "ok": true,
+       "must": false,
+       "irr": false,
+       "m": [],
+       "l": [
+        {
+         "k": "question",
+         "v": "Would you like\u2026",
+         "c": null,
+         "free": true
+        },
+        {
+         "k": "missing",
+         "v": "refund_method",
+         "c": null,
+         "free": false
+        }
+       ],
+       "obs": "Please refund it to my original payment method.",
+       "obsk": "user",
+       "obs_lines": 1
+      },
+      {
+       "step": 2,
+       "tool": "find_user",
+       "by": "dm",
+       "llm_calls": 1,
+       "conf": 0.7950157323231377,
+       "alt": "get_orders",
+       "altp": 0.1482479248493531,
+       "ok": true,
+       "must": false,
+       "irr": false,
+       "m": [],
+       "l": [
+        {
+         "k": "name",
+         "v": "Mateo Smith",
+         "c": null,
+         "free": false
+        }
+       ],
+       "obs": "",
+       "obsk": "",
+       "obs_lines": 0
+      },
+      {
+       "step": 3,
+       "tool": "get_orders",
+       "by": "dm",
+       "llm_calls": 1,
+       "conf": 0.9874445482752471,
+       "alt": "refund",
+       "altp": 0.007286369041468379,
+       "ok": true,
+       "must": false,
+       "irr": false,
+       "m": [],
+       "l": [
+        {
+         "k": "user_id",
+         "v": "U4937",
+         "c": null,
+         "free": false
+        },
+        {
+         "k": "status",
+         "v": "delivered",
+         "c": null,
+         "free": false
+        }
+       ],
+       "obs": "",
+       "obsk": "",
+       "obs_lines": 0
+      },
+      {
+       "step": 4,
+       "tool": "refund",
+       "by": "dm",
+       "llm_calls": 1,
+       "conf": 0.9910683408068426,
+       "alt": "get_orders",
+       "altp": 0.003368792635780532,
+       "ok": true,
+       "must": false,
+       "irr": true,
+       "m": [],
+       "l": [
+        {
+         "k": "order_id",
+         "v": "ORD-3726",
+         "c": null,
+         "free": false
+        },
+        {
+         "k": "amount",
+         "v": "291.29",
+         "c": null,
+         "free": false
+        },
+        {
+         "k": "method",
+         "v": "original_payment",
+         "c": null,
+         "free": false
+        }
+       ],
+       "obs": "Refunded 291.29 via original_payment.",
+       "obsk": "env",
+       "obs_lines": 1
+      },
+      {
+       "step": 5,
+       "tool": "finish",
+       "by": "dm",
+       "llm_calls": 1,
+       "conf": 0.9914569646792258,
+       "alt": "send_message",
+       "altp": 0.005650201245928177,
+       "ok": true,
+       "must": false,
+       "irr": false,
+       "m": [],
+       "l": [
+        {
+         "k": "answer",
+         "v": "I have\u2026",
+         "c": null,
+         "free": true
+        }
+       ],
+       "obs": "",
+       "obsk": "",
+       "obs_lines": 0
+      }
+     ],
+     "success": true,
+     "steps": 5,
+     "llm_calls": 5,
+     "dm_calls": 5,
+     "api_usd": 0.0060675,
+     "gpu_usd": 0.0,
+     "cost_usd": 0.0060675,
+     "wall_s": 45.0248358989993
+    },
+    "ref": {
+     "rows": null,
+     "success": true,
+     "steps": 5,
+     "llm_calls": 5,
+     "dm_calls": 0,
+     "api_usd": 0.03044145,
+     "gpu_usd": 0.0,
+     "cost_usd": 0.03044145,
+     "wall_s": 3.5263218020008935,
+     "first_ask": 3
+    }
+   },
+   "layout": [
+    {
+     "y": -0.0,
+     "h": 13.4,
+     "obs": 1
+    },
+    {
+     "y": -13.4,
+     "h": 9.8,
+     "obs": 0
+    },
+    {
+     "y": -23.2,
+     "h": 17.0,
+     "obs": 1
+    },
+    {
+     "y": -40.2,
+     "h": 17.0,
+     "obs": 1
+    },
+    {
+     "y": -57.2,
+     "h": 9.8,
+     "obs": 0
+    }
+   ]
+  },
+  "alf": {
+   "task_id": "alfworld/valid_seen/look_at_obj_in_light-AlarmClock-None-DeskLamp-323/trial_T20190909_044715_250790",
+   "rank": 1,
+   "n_tasks": 140,
+   "task": "look at alarmclock under the desklamp.",
+   "tau": 0.120764,
+   "sources": {
+    "run": "runs/e11_alfworld_eval/e11_action_cascade_tauhat.jsonl",
+    "run_sha16": "23ea903818d5a461",
+    "ref": "runs/e11_alfworld_eval/llm_only.jsonl",
+    "ref_sha16": "70964b63d4af7447",
+    "tariff": "results/explore/e11_alfworld/summary.json"
+   },
+   "runs": {
+    "run": {
+     "rows": [
+      {
+       "step": 1,
+       "tool": "go to sidetable 1",
+       "by": "dm",
+       "llm_calls": 0,
+       "conf": 0.3536233603954315,
+       "alt": "go to sidetable 2",
+       "altp": 0.2912962550560634,
+       "ok": null,
+       "must": false,
+       "irr": false,
+       "m": [],
+       "l": [],
+       "obs": "You arrive at sidetable 1. On the sidetable 1, you see a alarmclock 3, a cd 3, a cellphone 2, and a pen 3.",
+       "obsk": "env",
+       "obs_lines": 2
+      },
+      {
+       "step": 2,
+       "tool": "take alarmclock 3 from sidetable 1",
+       "by": "dm",
+       "llm_calls": 0,
+       "conf": 0.9857044219970703,
+       "alt": "look",
+       "altp": 0.002194193703595028,
+       "ok": null,
+       "must": false,
+       "irr": false,
+       "m": [],
+       "l": [],
+       "obs": "You pick up the alarmclock 3 from the sidetable 1.",
+       "obsk": "env",
+       "obs_lines": 1
+      },
+      {
+       "step": 3,
+       "tool": "go to desk 1",
+       "by": "dm",
+       "llm_calls": 0,
+       "conf": 0.415172815322876,
+       "alt": "go to safe 1",
+       "altp": 0.2320665362908226,
+       "ok": null,
+       "must": false,
+       "irr": false,
+       "m": [],
+       "l": [],
+       "obs": "You arrive at desk 1. On the desk 1, you see a alarmclock 2, a book 1, a bowl 1, a cd 2, a desklamp 1, a mug 2, a\u2026",
+       "obsk": "env",
+       "obs_lines": 2
+      },
+      {
+       "step": 4,
+       "tool": "use desklamp 1",
+       "by": "dm",
+       "llm_calls": 0,
+       "conf": 0.9768905639648438,
+       "alt": "go to sidetable 1",
+       "altp": 0.00695996299149408,
+       "ok": null,
+       "must": false,
+       "irr": false,
+       "m": [],
+       "l": [],
+       "obs": "You turn on the desklamp 1.",
+       "obsk": "env",
+       "obs_lines": 1
+      }
+     ],
+     "success": true,
+     "steps": 4,
+     "llm_calls": 0,
+     "dm_calls": 4,
+     "api_usd": 0.0,
+     "gpu_usd": 0.0021315,
+     "cost_usd": 0.0021315,
+     "wall_s": 14.168713496001146
+    },
+    "ref": {
+     "rows": [
+      {
+       "step": 1,
+       "tool": "go to desk 1",
+       "by": "llm",
+       "llm_calls": 1,
+       "conf": null,
+       "alt": null,
+       "altp": null,
+       "ok": null,
+       "must": false,
+       "irr": false,
+       "m": [],
+       "l": [],
+       "obs": "You arrive at desk 1. On the desk 1, you see a alarmclock 2, a book 1, a bowl 1, a cd 2, a desklamp 1, a mug 2, a\u2026",
+       "obsk": "env",
+       "obs_lines": 2
+      },
+      {
+       "step": 2,
+       "tool": "use desklamp 1",
+       "by": "llm",
+       "llm_calls": 1,
+       "conf": null,
+       "alt": null,
+       "altp": null,
+       "ok": null,
+       "must": false,
+       "irr": false,
+       "m": [],
+       "l": [],
+       "obs": "You turn on the desklamp 1.",
+       "obsk": "env",
+       "obs_lines": 1
+      },
+      {
+       "step": 3,
+       "tool": "examine desk 1",
+       "by": "llm",
+       "llm_calls": 1,
+       "conf": null,
+       "alt": null,
+       "altp": null,
+       "ok": null,
+       "must": false,
+       "irr": false,
+       "m": [],
+       "l": [],
+       "obs": "On the desk 1, you see a alarmclock 2, a book 1, a bowl 1, a cd 2, a desklamp 1, a mug 2, a mug 1, a pen 2, and a\u2026",
+       "obsk": "env",
+       "obs_lines": 2
+      },
+      {
+       "step": 4,
+       "tool": "take alarmclock 2 from desk 1",
+       "by": "llm",
+       "llm_calls": 1,
+       "conf": null,
+       "alt": null,
+       "altp": null,
+       "ok": null,
+       "must": false,
+       "irr": false,
+       "m": [],
+       "l": [],
+       "obs": "You pick up the alarmclock 2 from the desk 1.",
+       "obsk": "env",
+       "obs_lines": 1
+      }
+     ],
+     "success": true,
+     "steps": 4,
+     "llm_calls": 4,
+     "dm_calls": 0,
+     "api_usd": 0.0035790000000000006,
+     "gpu_usd": 0.0,
+     "cost_usd": 0.0035790000000000006,
+     "wall_s": 24.070023046000642
+    }
+   },
+   "q_usd_per_episode": 0.0021315,
+   "layout": [
+    {
+     "y": -0.0,
+     "h": 17.0,
+     "obs": 2
+    },
+    {
+     "y": -17.0,
+     "h": 13.4,
+     "obs": 1
+    },
+    {
+     "y": -30.4,
+     "h": 17.0,
+     "obs": 2
+    },
+    {
+     "y": -47.4,
+     "h": 13.4,
+     "obs": 1
+    }
+   ]
+  }
+ },
+ "generated": "2026-10-10T15:42:11+00:00"
+}

@@ -1,0 +1,80 @@
+{
+ "run": "e21_live_local_smoke",
+ "arms": {
+  "jev_ts_replace_f": {
+   "jevgym-shift-sdt-clarify.method-339002-d120-near-strict": {
+    "success": false,
+    "error": false,
+    "error_text": null,
+    "cost": 0.004840230000000001,
+    "s1_cost": 0.00049623,
+    "s2_cost": 0.004344000000000001,
+    "wall_s": 4.0006898520000505,
+    "steps": 3,
+    "s1_calls": 3,
+    "s2_calls": 3,
+    "attempts": 1,
+    "refusals": 0,
+    "own_acc": 0.6666666666666666
+   },
+   "jevgym-shift-sdt-multi-339003-d120-near-strict": {
+    "success": true,
+    "error": false,
+    "error_text": null,
+    "cost": 0.036786096,
+    "s1_cost": 0.0018705960000000002,
+    "s2_cost": 0.0349155,
+    "wall_s": 10.763932117999957,
+    "steps": 10,
+    "s1_calls": 10,
+    "s2_calls": 10,
+    "attempts": 1,
+    "refusals": 0,
+    "own_acc": 1.0
+   }
+  },
+  "llm_only": {
+   "jevgym-shift-sdt-clarify.method-339002-d120-near-strict": {
+    "success": true,
+    "error": false,
+    "error_text": null,
+    "cost": 0.03875115,
+    "s1_cost": 0.0,
+    "s2_cost": 0.03875115,
+    "wall_s": 7.59345455599987,
+    "steps": 5,
+    "s1_calls": 0,
+    "s2_calls": 5,
+    "attempts": 1,
+    "refusals": 0,
+    "own_acc": null
+   },
+   "jevgym-shift-sdt-multi-339003-d120-near-strict": {
+    "success": true,
+    "error": false,
+    "error_text": null,
+    "cost": 0.08232105,
+    "s1_cost": 0.0,
+    "s2_cost": 0.08232105,
+    "wall_s": 10.67922321299966,
+    "steps": 10,
+    "s1_calls": 0,
+    "s2_calls": 10,
+    "attempts": 1,
+    "refusals": 0,
+    "own_acc": null
+   }
+  }
+ },
+ "spend": {
+  "total": 0.162698526,
+  "s2": 0.16033170000000002,
+  "s1": 0.0023668260000000003,
+  "records": 4,
+  "s1_by_arm": {
+   "jev_ts_replace_f": 0.0023668260000000003,
+   "llm_only": 0.0
+  }
+ },
+ "written": "2026-10-08T21:46:57+00:00"
+}

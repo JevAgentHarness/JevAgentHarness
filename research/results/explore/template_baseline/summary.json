@@ -1,0 +1,1555 @@
+{
+ "generated": "2026-10-08T20:45:25+00:00",
+ "git": "a7981f803c7d",
+ "label": "post hoc, descriptive; stored data only (no API call, no GPU, no model call); baselines fitted on the training rows only; revises no registered result; no registration entry (the convention of scripts/benchmark_difficulty.py / scripts/explore_drift.py)",
+ "train": {
+  "path": "data/train_v1/train.jsonl.gz",
+  "rows": 4493,
+  "tasks": 587,
+  "with_augmented": false,
+  "labels": {
+   "get_orders": 1228,
+   "find_user": 1181,
+   "ship_order": 554,
+   "finish": 492,
+   "ask_user": 470,
+   "cancel_order": 469,
+   "refund": 89,
+   "check_stock": 10
+  },
+  "families": {
+   "ship:no_speed": 463,
+   "refund:no_method": 457,
+   "ship:no_name": 439,
+   "cancel": 425,
+   "multi:cancel,ship,cancel": 370,
+   "multi:cancel,ship,ship": 369,
+   "multi:ship,cancel,cancel": 357,
+   "multi:ship,cancel,ship": 340,
+   "multi:cancel,cancel,cancel": 301,
+   "multi:ship,ship,cancel": 300,
+   "multi:cancel,cancel,ship": 279,
+   "multi:ship,ship,ship": 253,
+   "ship": 44,
+   "total": 40,
+   "refund": 36,
+   "stock": 20
+  },
+  "keys_lookup": 1220,
+  "keys_lookup_last": 220
+ },
+ "c_families": {
+  "multi:ship,ship,ship": 617,
+  "multi:ship,cancel,cancel": 604,
+  "multi:cancel,ship,cancel": 521,
+  "ship:no_name": 505,
+  "refund:no_method": 480,
+  "multi:cancel,cancel,ship": 450,
+  "ship:no_speed": 405,
+  "cancel": 404,
+  "multi:cancel,cancel,cancel": 385,
+  "multi:ship,cancel,ship": 372,
+  "multi:cancel,ship,ship": 358,
+  "multi:ship,ship,cancel": 213
+ },
+ "refs": {
+  "rl": "AgentDecision-4B",
+  "sft_v1": "SFT v1 (the SFT stage of AgentDecision-4B)",
+  "e14a": "0.8B scoring head (E14 A)",
+  "jev": "Jev",
+  "sl27b": "StartLux-27B",
+  "base": "Qwen3-4B (untrained)"
+ },
+ "baselines": {
+  "prior": "(a) most frequent training label",
+  "lookup": "(b) template lookup: family + executed-tool sequence",
+  "lookup_last": "(c) template lookup: family + last executed tool",
+  "lookup_backoff": "(b+) lookup (b), backing off to (c), then (a)",
+  "key_ceiling": "(e) best tool per (b)-key, chosen on the scored set itself (bound, in-sample)"
+ },
+ "subsets": {
+  "all": "every occurrence",
+  "must_ask": "the acceptable set is exactly {ask_user}",
+  "after_off_plan": "after an earlier executed tool outside its acceptable set",
+  "ask_gold": "the canonical next tool is ask_user",
+  "hard": "after an off-plan step, or ask_user next",
+  "state_change_trap": "the next tool changes the world and a state-changing look-alike is offered",
+  "finish_gold": "the next tool is finish",
+  "long_history": "step >= 8 (history window full)",
+  "llm_states": "occurrences of the LLM-only (Flash) trajectories"
+ },
+ "c": {
+  "n": 5314,
+  "tasks": 200,
+  "questions": 3939,
+  "subsets": {
+   "all": {
+    "n": 5314,
+    "tasks": 200,
+    "rows": {
+     "prior": {
+      "acc": 0.26557198240787505,
+      "pooled": 0.28735415882574333,
+      "n": 5314,
+      "tasks": 200
+     },
+     "lookup": {
+      "acc": 0.9493555877562008,
+      "pooled": 0.9420398946179902,
+      "n": 5314,
+      "tasks": 200
+     },
+     "lookup_last": {
+      "acc": 0.852093485890768,
+      "pooled": 0.8383515242754986,
+      "n": 5314,
+      "tasks": 200
+     },
+     "lookup_backoff": {
+      "acc": 0.9751433361223928,
+      "pooled": 0.9676326684230335,
+      "n": 5314,
+      "tasks": 200
+     },
+     "key_ceiling": {
+      "acc": 0.9989024390243902,
+      "pooled": 0.9983063605570192,
+      "n": 5314,
+      "tasks": 200
+     },
+     "rl": {
+      "acc": 0.9920083177147069,
+      "pooled": 0.988709070380128,
+      "n": 5314,
+      "tasks": 200
+     },
+     "sft_v1": {
+      "acc": 0.991909314748326,
+      "pooled": 0.9885208882197968,
+      "n": 5314,
+      "tasks": 200
+     },
+     "e14a": {
+      "acc": 0.9920231248583251,
+      "pooled": 0.9881445238991343,
+      "n": 5314,
+      "tasks": 200
+     },
+     "jev": {
+      "acc": 0.9147102984693024,
+      "pooled": 0.9341362438840798,
+      "n": 5314,
+      "tasks": 200
+     },
+     "sl27b": {
+      "acc": 0.939450833690428,
+      "pooled": 0.9552126458411743,
+      "n": 5314,
+      "tasks": 200
+     },
+     "base": {
+      "acc": 0.5010455808575047,
+      "pooled": 0.4619872036130975,
+      "n": 5314,
+      "tasks": 200
+     }
+    }
+   },
+   "must_ask": {
+    "n": 267,
+    "tasks": 100,
+    "rows": {
+     "prior": {
+      "acc": 0.0,
+      "pooled": 0.0,
+      "n": 267,
+      "tasks": 100
+     },
+     "lookup": {
+      "acc": 0.9933333333333333,
+      "pooled": 0.9925093632958801,
+      "n": 267,
+      "tasks": 100
+     },
+     "lookup_last": {
+      "acc": 0.5,
+      "pooled": 0.6067415730337079,
+      "n": 267,
+      "tasks": 100
+     },
+     "lookup_backoff": {
+      "acc": 0.9933333333333333,
+      "pooled": 0.9925093632958801,
+      "n": 267,
+      "tasks": 100
+     },
+     "key_ceiling": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 267,
+      "tasks": 100
+     },
+     "rl": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 267,
+      "tasks": 100
+     },
+     "sft_v1": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 267,
+      "tasks": 100
+     },
+     "e14a": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 267,
+      "tasks": 100
+     },
+     "jev": {
+      "acc": 0.27,
+      "pooled": 0.39325842696629215,
+      "n": 267,
+      "tasks": 100
+     },
+     "sl27b": {
+      "acc": 0.26,
+      "pooled": 0.38202247191011235,
+      "n": 267,
+      "tasks": 100
+     },
+     "base": {
+      "acc": 0.24,
+      "pooled": 0.3595505617977528,
+      "n": 267,
+      "tasks": 100
+     }
+    }
+   },
+   "after_off_plan": {
+    "n": 386,
+    "tasks": 57,
+    "rows": {
+     "prior": {
+      "acc": 0.18605452200989958,
+      "pooled": 0.23834196891191708,
+      "n": 386,
+      "tasks": 57
+     },
+     "lookup": {
+      "acc": 0.3897445359115839,
+      "pooled": 0.38860103626943004,
+      "n": 386,
+      "tasks": 57
+     },
+     "lookup_last": {
+      "acc": 0.5092514464940094,
+      "pooled": 0.6113989637305699,
+      "n": 386,
+      "tasks": 57
+     },
+     "lookup_backoff": {
+      "acc": 0.6294586674449375,
+      "pooled": 0.6735751295336787,
+      "n": 386,
+      "tasks": 57
+     },
+     "key_ceiling": {
+      "acc": 0.9939271255060729,
+      "pooled": 0.9766839378238342,
+      "n": 386,
+      "tasks": 57
+     },
+     "rl": {
+      "acc": 0.9471677445361657,
+      "pooled": 0.8497409326424871,
+      "n": 386,
+      "tasks": 57
+     },
+     "sft_v1": {
+      "acc": 0.9379700708648077,
+      "pooled": 0.8419689119170984,
+      "n": 386,
+      "tasks": 57
+     },
+     "e14a": {
+      "acc": 0.9414161861530284,
+      "pooled": 0.8471502590673575,
+      "n": 386,
+      "tasks": 57
+     },
+     "jev": {
+      "acc": 0.8147447581658108,
+      "pooled": 0.7772020725388601,
+      "n": 386,
+      "tasks": 57
+     },
+     "sl27b": {
+      "acc": 0.8507970100075364,
+      "pooled": 0.805699481865285,
+      "n": 386,
+      "tasks": 57
+     },
+     "base": {
+      "acc": 0.2669717772692602,
+      "pooled": 0.266839378238342,
+      "n": 386,
+      "tasks": 57
+     }
+    }
+   },
+   "ask_gold": {
+    "n": 582,
+    "tasks": 100,
+    "rows": {
+     "prior": {
+      "acc": 0.12660209235209235,
+      "pooled": 0.18556701030927836,
+      "n": 582,
+      "tasks": 100
+     },
+     "lookup": {
+      "acc": 0.990820707070707,
+      "pooled": 0.9862542955326461,
+      "n": 582,
+      "tasks": 100
+     },
+     "lookup_last": {
+      "acc": 0.8726926406926406,
+      "pooled": 0.8144329896907216,
+      "n": 582,
+      "tasks": 100
+     },
+     "lookup_backoff": {
+      "acc": 0.9954797979797979,
+      "pooled": 0.993127147766323,
+      "n": 582,
+      "tasks": 100
+     },
+     "key_ceiling": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 582,
+      "tasks": 100
+     },
+     "rl": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 582,
+      "tasks": 100
+     },
+     "sft_v1": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 582,
+      "tasks": 100
+     },
+     "e14a": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 582,
+      "tasks": 100
+     },
+     "jev": {
+      "acc": 0.6439426406926407,
+      "pooled": 0.718213058419244,
+      "n": 582,
+      "tasks": 100
+     },
+     "sl27b": {
+      "acc": 0.6339426406926407,
+      "pooled": 0.7130584192439863,
+      "n": 582,
+      "tasks": 100
+     },
+     "base": {
+      "acc": 0.47303751803751803,
+      "pooled": 0.5,
+      "n": 582,
+      "tasks": 100
+     }
+    }
+   },
+   "hard": {
+    "n": 957,
+    "tasks": 135,
+    "rows": {
+     "prior": {
+      "acc": 0.15354146254878684,
+      "pooled": 0.20689655172413793,
+      "n": 957,
+      "tasks": 135
+     },
+     "lookup": {
+      "acc": 0.8181325902149497,
+      "pooled": 0.7533960292580982,
+      "n": 957,
+      "tasks": 135
+     },
+     "lookup_last": {
+      "acc": 0.7585849429834159,
+      "pooled": 0.735632183908046,
+      "n": 957,
+      "tasks": 135
+     },
+     "lookup_backoff": {
+      "acc": 0.8936023101965128,
+      "pooled": 0.8683385579937304,
+      "n": 957,
+      "tasks": 135
+     },
+     "key_ceiling": {
+      "acc": 0.9981481481481481,
+      "pooled": 0.9905956112852664,
+      "n": 957,
+      "tasks": 135
+     },
+     "rl": {
+      "acc": 0.9818274570245897,
+      "pooled": 0.9393939393939394,
+      "n": 957,
+      "tasks": 135
+     },
+     "sft_v1": {
+      "acc": 0.9798521483826141,
+      "pooled": 0.9362591431556949,
+      "n": 957,
+      "tasks": 135
+     },
+     "e14a": {
+      "acc": 0.9790325166669251,
+      "pooled": 0.9383490073145245,
+      "n": 957,
+      "tasks": 135
+     },
+     "jev": {
+      "acc": 0.6939565306590397,
+      "pooled": 0.7429467084639498,
+      "n": 957,
+      "tasks": 135
+     },
+     "sl27b": {
+      "acc": 0.7116876479421281,
+      "pooled": 0.7513061650992685,
+      "n": 957,
+      "tasks": 135
+     },
+     "base": {
+      "acc": 0.3989167377448505,
+      "pooled": 0.4106583072100313,
+      "n": 957,
+      "tasks": 135
+     }
+    }
+   },
+   "state_change_trap": {
+    "n": 1339,
+    "tasks": 200,
+    "rows": {
+     "prior": {
+      "acc": 0.03995743145743145,
+      "pooled": 0.06796116504854369,
+      "n": 1339,
+      "tasks": 200
+     },
+     "lookup": {
+      "acc": 0.9552831890331891,
+      "pooled": 0.9432412247946228,
+      "n": 1339,
+      "tasks": 200
+     },
+     "lookup_last": {
+      "acc": 0.7291147186147187,
+      "pooled": 0.7296489917849142,
+      "n": 1339,
+      "tasks": 200
+     },
+     "lookup_backoff": {
+      "acc": 0.97862012987013,
+      "pooled": 0.9753547423450336,
+      "n": 1339,
+      "tasks": 200
+     },
+     "key_ceiling": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 1339,
+      "tasks": 200
+     },
+     "rl": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 1339,
+      "tasks": 200
+     },
+     "sft_v1": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 1339,
+      "tasks": 200
+     },
+     "e14a": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 1339,
+      "tasks": 200
+     },
+     "jev": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 1339,
+      "tasks": 200
+     },
+     "sl27b": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 1339,
+      "tasks": 200
+     },
+     "base": {
+      "acc": 0.9098380230880229,
+      "pooled": 0.878267363704257,
+      "n": 1339,
+      "tasks": 200
+     }
+    }
+   },
+   "finish_gold": {
+    "n": 603,
+    "tasks": 200,
+    "rows": {
+     "prior": {
+      "acc": 0.0,
+      "pooled": 0.0,
+      "n": 603,
+      "tasks": 200
+     },
+     "lookup": {
+      "acc": 0.9406547619047617,
+      "pooled": 0.9087893864013267,
+      "n": 603,
+      "tasks": 200
+     },
+     "lookup_last": {
+      "acc": 0.6,
+      "pooled": 0.5323383084577115,
+      "n": 603,
+      "tasks": 200
+     },
+     "lookup_backoff": {
+      "acc": 0.9573214285714284,
+      "pooled": 0.9286898839137645,
+      "n": 603,
+      "tasks": 200
+     },
+     "key_ceiling": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 603,
+      "tasks": 200
+     },
+     "rl": {
+      "acc": 0.9925,
+      "pooled": 0.9817578772802653,
+      "n": 603,
+      "tasks": 200
+     },
+     "sft_v1": {
+      "acc": 0.9925,
+      "pooled": 0.9817578772802653,
+      "n": 603,
+      "tasks": 200
+     },
+     "e14a": {
+      "acc": 0.9903571428571428,
+      "pooled": 0.9767827529021559,
+      "n": 603,
+      "tasks": 200
+     },
+     "jev": {
+      "acc": 0.9772916666666667,
+      "pooled": 0.9552238805970149,
+      "n": 603,
+      "tasks": 200
+     },
+     "sl27b": {
+      "acc": 0.9860714285714286,
+      "pooled": 0.9718076285240465,
+      "n": 603,
+      "tasks": 200
+     },
+     "base": {
+      "acc": 0.9944642857142858,
+      "pooled": 0.9867330016583747,
+      "n": 603,
+      "tasks": 200
+     }
+    }
+   },
+   "long_history": {
+    "n": 770,
+    "tasks": 104,
+    "rows": {
+     "prior": {
+      "acc": 0.033666760589837516,
+      "pooled": 0.05844155844155844,
+      "n": 770,
+      "tasks": 104
+     },
+     "lookup": {
+      "acc": 0.8800695031464263,
+      "pooled": 0.8376623376623377,
+      "n": 770,
+      "tasks": 104
+     },
+     "lookup_last": {
+      "acc": 0.46417033036094124,
+      "pooled": 0.4701298701298701,
+      "n": 770,
+      "tasks": 104
+     },
+     "lookup_backoff": {
+      "acc": 0.9183458023248748,
+      "pooled": 0.8896103896103896,
+      "n": 770,
+      "tasks": 104
+     },
+     "key_ceiling": {
+      "acc": 0.9956730769230769,
+      "pooled": 0.9883116883116884,
+      "n": 770,
+      "tasks": 104
+     },
+     "rl": {
+      "acc": 0.9704832968690436,
+      "pooled": 0.935064935064935,
+      "n": 770,
+      "tasks": 104
+     },
+     "sft_v1": {
+      "acc": 0.9703136136111249,
+      "pooled": 0.935064935064935,
+      "n": 770,
+      "tasks": 104
+     },
+     "e14a": {
+      "acc": 0.9653362380455142,
+      "pooled": 0.9246753246753247,
+      "n": 770,
+      "tasks": 104
+     },
+     "jev": {
+      "acc": 0.9653493596649706,
+      "pooled": 0.935064935064935,
+      "n": 770,
+      "tasks": 104
+     },
+     "sl27b": {
+      "acc": 0.9679205409974642,
+      "pooled": 0.9311688311688312,
+      "n": 770,
+      "tasks": 104
+     },
+     "base": {
+      "acc": 0.8121639311543156,
+      "pooled": 0.7649350649350649,
+      "n": 770,
+      "tasks": 104
+     }
+    }
+   },
+   "llm_states": {
+    "n": 1498,
+    "tasks": 200,
+    "rows": {
+     "prior": {
+      "acc": 0.30462500000000026,
+      "pooled": 0.3391188251001335,
+      "n": 1498,
+      "tasks": 200
+     },
+     "lookup": {
+      "acc": 0.982,
+      "pooled": 0.9759679572763685,
+      "n": 1498,
+      "tasks": 200
+     },
+     "lookup_last": {
+      "acc": 0.7863749999999996,
+      "pooled": 0.7817089452603472,
+      "n": 1498,
+      "tasks": 200
+     },
+     "lookup_backoff": {
+      "acc": 0.9784999999999998,
+      "pooled": 0.9712950600801068,
+      "n": 1498,
+      "tasks": 200
+     },
+     "key_ceiling": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 1498,
+      "tasks": 200
+     },
+     "rl": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 1498,
+      "tasks": 200
+     },
+     "sft_v1": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 1498,
+      "tasks": 200
+     },
+     "e14a": {
+      "acc": 0.9980000000000001,
+      "pooled": 0.9973297730307076,
+      "n": 1498,
+      "tasks": 200
+     },
+     "jev": {
+      "acc": 0.919500000000001,
+      "pooled": 0.9419225634178905,
+      "n": 1498,
+      "tasks": 200
+     },
+     "sl27b": {
+      "acc": 0.9260000000000008,
+      "pooled": 0.9506008010680908,
+      "n": 1498,
+      "tasks": 200
+     },
+     "base": {
+      "acc": 0.5438749999999997,
+      "pooled": 0.5120160213618158,
+      "n": 1498,
+      "tasks": 200
+     }
+    }
+   }
+  },
+  "routes": {
+   "lookup": {
+    "key": 4874,
+    "unseen": 440
+   },
+   "lookup_last": {
+    "key": 5293,
+    "unseen": 21
+   },
+   "lookup_backoff": {
+    "key": 4874,
+    "backoff_last": 419,
+    "prior": 21
+   }
+  },
+  "coverage": {
+   "lookup": {
+    "keys_train": 1220,
+    "covered_n": 4874,
+    "uncovered_n": 440,
+    "share": 0.9171998494542717,
+    "question_share": 0.8888042650418888,
+    "keys_scored": 412,
+    "keys_scored_seen": 187,
+    "covered": {
+     "prior": {
+      "acc": 0.26508625231363814,
+      "pooled": 0.28621255642183013,
+      "n": 4874,
+      "tasks": 200
+     },
+     "lookup": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 4874,
+      "tasks": 200
+     },
+     "lookup_last": {
+      "acc": 0.8679481685677043,
+      "pooled": 0.859048009848174,
+      "n": 4874,
+      "tasks": 200
+     },
+     "lookup_backoff": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 4874,
+      "tasks": 200
+     },
+     "key_ceiling": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 4874,
+      "tasks": 200
+     },
+     "rl": {
+      "acc": 0.9992857142857143,
+      "pooled": 0.9995896594173164,
+      "n": 4874,
+      "tasks": 200
+     },
+     "sft_v1": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 4874,
+      "tasks": 200
+     },
+     "e14a": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 4874,
+      "tasks": 200
+     },
+     "jev": {
+      "acc": 0.9181810555095195,
+      "pooled": 0.9441936807550266,
+      "n": 4874,
+      "tasks": 200
+     },
+     "sl27b": {
+      "acc": 0.9465735855239535,
+      "pooled": 0.9663520722199426,
+      "n": 4874,
+      "tasks": 200
+     },
+     "base": {
+      "acc": 0.5029135032666177,
+      "pooled": 0.46778826425933523,
+      "n": 4874,
+      "tasks": 200
+     }
+    },
+    "uncovered": {
+     "prior": {
+      "acc": 0.2053827573371164,
+      "pooled": 0.3,
+      "n": 440,
+      "tasks": 81
+     },
+     "lookup": {
+      "acc": 0.2053827573371164,
+      "pooled": 0.3,
+      "n": 440,
+      "tasks": 81
+     },
+     "lookup_last": {
+      "acc": 0.6735454075996525,
+      "pooled": 0.6090909090909091,
+      "n": 440,
+      "tasks": 81
+     },
+     "lookup_backoff": {
+      "acc": 0.6735454075996525,
+      "pooled": 0.6090909090909091,
+      "n": 440,
+      "tasks": 81
+     },
+     "key_ceiling": {
+      "acc": 0.9961685823754789,
+      "pooled": 0.9795454545454545,
+      "n": 440,
+      "tasks": 81
+     },
+     "rl": {
+      "acc": 0.9627165653985579,
+      "pooled": 0.8681818181818182,
+      "n": 440,
+      "tasks": 81
+     },
+     "sft_v1": {
+      "acc": 0.9558519421546243,
+      "pooled": 0.8613636363636363,
+      "n": 440,
+      "tasks": 81
+     },
+     "e14a": {
+      "acc": 0.950687867546105,
+      "pooled": 0.8568181818181818,
+      "n": 440,
+      "tasks": 81
+     },
+     "jev": {
+      "acc": 0.9022646127942895,
+      "pooled": 0.8227272727272728,
+      "n": 440,
+      "tasks": 81
+     },
+     "sl27b": {
+      "acc": 0.907841030456477,
+      "pooled": 0.8318181818181818,
+      "n": 440,
+      "tasks": 81
+     },
+     "base": {
+      "acc": 0.5556073535555289,
+      "pooled": 0.3977272727272727,
+      "n": 440,
+      "tasks": 81
+     }
+    },
+    "share_must_ask": 0.9925093632958801,
+    "uncovered_share_must_ask": 0.004545454545454545,
+    "share_after_off_plan": 0.17875647668393782,
+    "uncovered_share_after_off_plan": 0.7204545454545455,
+    "share_long_history": 0.7792207792207793,
+    "uncovered_share_long_history": 0.38636363636363635
+   },
+   "lookup_last": {
+    "keys_train": 220,
+    "covered_n": 5293,
+    "uncovered_n": 21,
+    "share": 0.9960481746330447,
+    "question_share": 0.9946686976389947,
+    "keys_scored": 90,
+    "keys_scored_seen": 84,
+    "covered": {
+     "prior": {
+      "acc": 0.26580942806289043,
+      "pooled": 0.28773852257698845,
+      "n": 5293,
+      "tasks": 200
+     },
+     "lookup": {
+      "acc": 0.9529969475028237,
+      "pooled": 0.945021726808993,
+      "n": 5293,
+      "tasks": 200
+     },
+     "lookup_last": {
+      "acc": 0.855935499313664,
+      "pooled": 0.840921972416399,
+      "n": 5293,
+      "tasks": 200
+     },
+     "lookup_backoff": {
+      "acc": 0.9790296217586785,
+      "pooled": 0.9707160400529,
+      "n": 5293,
+      "tasks": 200
+     },
+     "key_ceiling": {
+      "acc": 0.9989024390243902,
+      "pooled": 0.9982996410353296,
+      "n": 5293,
+      "tasks": 200
+     },
+     "rl": {
+      "acc": 0.9921096690660582,
+      "pooled": 0.9888532023427168,
+      "n": 5293,
+      "tasks": 200
+     },
+     "sft_v1": {
+      "acc": 0.9919862469436792,
+      "pooled": 0.9886642735688645,
+      "n": 5293,
+      "tasks": 200
+     },
+     "e14a": {
+      "acc": 0.9921094611946615,
+      "pooled": 0.9882864160211601,
+      "n": 5293,
+      "tasks": 200
+     },
+     "jev": {
+      "acc": 0.9146015340353638,
+      "pooled": 0.9338749291517098,
+      "n": 5293,
+      "tasks": 200
+     },
+     "sl27b": {
+      "acc": 0.9396317641082006,
+      "pooled": 0.9554128093708671,
+      "n": 5293,
+      "tasks": 200
+     },
+     "base": {
+      "acc": 0.503640561867927,
+      "pooled": 0.46306442471188364,
+      "n": 5293,
+      "tasks": 200
+     }
+    },
+    "uncovered": {
+     "prior": {
+      "acc": 0.14285714285714285,
+      "pooled": 0.19047619047619047,
+      "n": 21,
+      "tasks": 14
+     },
+     "lookup": {
+      "acc": 0.14285714285714285,
+      "pooled": 0.19047619047619047,
+      "n": 21,
+      "tasks": 14
+     },
+     "lookup_last": {
+      "acc": 0.14285714285714285,
+      "pooled": 0.19047619047619047,
+      "n": 21,
+      "tasks": 14
+     },
+     "lookup_backoff": {
+      "acc": 0.14285714285714285,
+      "pooled": 0.19047619047619047,
+      "n": 21,
+      "tasks": 14
+     },
+     "key_ceiling": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 21,
+      "tasks": 14
+     },
+     "rl": {
+      "acc": 0.9285714285714286,
+      "pooled": 0.9523809523809523,
+      "n": 21,
+      "tasks": 14
+     },
+     "sft_v1": {
+      "acc": 0.9285714285714286,
+      "pooled": 0.9523809523809523,
+      "n": 21,
+      "tasks": 14
+     },
+     "e14a": {
+      "acc": 0.9285714285714286,
+      "pooled": 0.9523809523809523,
+      "n": 21,
+      "tasks": 14
+     },
+     "jev": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 21,
+      "tasks": 14
+     },
+     "sl27b": {
+      "acc": 0.8928571428571429,
+      "pooled": 0.9047619047619048,
+      "n": 21,
+      "tasks": 14
+     },
+     "base": {
+      "acc": 0.17857142857142858,
+      "pooled": 0.19047619047619047,
+      "n": 21,
+      "tasks": 14
+     }
+    },
+    "share_must_ask": 1.0,
+    "uncovered_share_must_ask": 0.0,
+    "share_after_off_plan": 0.9455958549222798,
+    "uncovered_share_after_off_plan": 1.0,
+    "share_long_history": 0.9987012987012988,
+    "uncovered_share_long_history": 0.047619047619047616
+   }
+  },
+  "disagreement": {
+   "lookup": {
+    "lookup_wrong_rl_right": 270,
+    "lookup_right_rl_wrong": 22,
+    "lookup_wrong_rl_right_by_gold": {
+     "find_user": 142,
+     "ship_order": 45,
+     "finish": 44,
+     "cancel_order": 27,
+     "ask_user": 8,
+     "refund": 4
+    },
+    "lookup_wrong_rl_right_by_family": {
+     "multi": 171,
+     "cancel": 38,
+     "ship:no_speed": 27,
+     "ship:no_name": 22,
+     "refund:no_method": 12
+    },
+    "lookup_wrong_rl_right_covered": 0,
+    "lookup_wrong_rl_right_strata": {
+     "all": 270,
+     "must_ask": 2,
+     "after_off_plan": 198,
+     "ask_gold": 8,
+     "hard": 198,
+     "state_change_trap": 76,
+     "finish_gold": 44,
+     "long_history": 92,
+     "llm_states": 36
+    },
+    "lookup_wrong_answer_was": {
+     "get_orders (gold find_user)": 142,
+     "get_orders (gold ship_order)": 45,
+     "get_orders (gold finish)": 44,
+     "get_orders (gold cancel_order)": 27,
+     "get_orders (gold ask_user)": 8,
+     "get_orders (gold refund)": 4
+    }
+   },
+   "lookup_backoff": {
+    "lookup_wrong_rl_right": 140,
+    "lookup_right_rl_wrong": 28,
+    "lookup_wrong_rl_right_by_gold": {
+     "find_user": 50,
+     "finish": 32,
+     "ship_order": 27,
+     "get_orders": 21,
+     "cancel_order": 6,
+     "ask_user": 4
+    },
+    "lookup_wrong_rl_right_by_family": {
+     "multi": 106,
+     "ship:no_name": 15,
+     "ship:no_speed": 12,
+     "refund:no_method": 6,
+     "cancel": 1
+    },
+    "lookup_wrong_rl_right_covered": 0,
+    "lookup_wrong_rl_right_strata": {
+     "all": 140,
+     "must_ask": 2,
+     "after_off_plan": 94,
+     "ask_gold": 4,
+     "hard": 94,
+     "state_change_trap": 33,
+     "finish_gold": 32,
+     "long_history": 56,
+     "llm_states": 43
+    },
+    "lookup_wrong_answer_was": {
+     "ship_order (gold find_user)": 29,
+     "find_user (gold finish)": 28,
+     "find_user (gold get_orders)": 20,
+     "get_orders (gold ship_order)": 15,
+     "cancel_order (gold find_user)": 13,
+     "find_user (gold ship_order)": 11,
+     "get_orders (gold find_user)": 7,
+     "ship_order (gold cancel_order)": 6,
+     "ship_order (gold ask_user)": 3,
+     "cancel_order (gold finish)": 2,
+     "get_orders (gold finish)": 2,
+     "refund (gold ask_user)": 1
+    }
+   },
+   "lookup_last": {
+    "lookup_wrong_rl_right": 827,
+    "lookup_right_rl_wrong": 28,
+    "lookup_wrong_rl_right_by_gold": {
+     "finish": 271,
+     "ship_order": 208,
+     "cancel_order": 125,
+     "ask_user": 108,
+     "find_user": 63,
+     "refund": 29,
+     "get_orders": 23
+    },
+    "lookup_wrong_rl_right_by_family": {
+     "multi": 632,
+     "refund:no_method": 96,
+     "ship:no_speed": 83,
+     "ship:no_name": 15,
+     "cancel": 1
+    },
+    "lookup_wrong_rl_right_covered": 811,
+    "lookup_wrong_rl_right_strata": {
+     "all": 827,
+     "must_ask": 105,
+     "after_off_plan": 118,
+     "ask_gold": 108,
+     "hard": 221,
+     "state_change_trap": 362,
+     "finish_gold": 271,
+     "long_history": 379,
+     "llm_states": 327
+    },
+    "lookup_wrong_answer_was": {
+     "find_user (gold finish)": 267,
+     "cancel_order (gold ship_order)": 142,
+     "ship_order (gold cancel_order)": 79,
+     "refund (gold ask_user)": 59,
+     "find_user (gold ship_order)": 51,
+     "ship_order (gold ask_user)": 49,
+     "find_user (gold cancel_order)": 46,
+     "ship_order (gold find_user)": 30,
+     "find_user (gold refund)": 29,
+     "cancel_order (gold find_user)": 22,
+     "find_user (gold get_orders)": 22,
+     "get_orders (gold ship_order)": 15
+    }
+   }
+  },
+  "gap_rl_minus_lookup": {
+   "diff": 0.04265272995850594,
+   "lo": 0.03187513955213569,
+   "hi": 0.05354717948812956,
+   "tasks": 200
+  },
+  "gap_rl_minus_lookup_last": {
+   "diff": 0.13991483182393882,
+   "lo": 0.1265558598758694,
+   "hi": 0.15327724539291113,
+   "tasks": 200
+  },
+  "gap_rl_minus_lookup_backoff": {
+   "diff": 0.01686498159231406,
+   "lo": 0.00789059288386983,
+   "hi": 0.024852803723992577,
+   "tasks": 200
+  },
+  "lookup_coarse": {
+   "acc": {
+    "acc": 0.8837018053909809,
+    "pooled": 0.8566051938276251,
+    "n": 5314,
+    "tasks": 200
+   },
+   "share": 0.9345126082047422,
+   "keys_train": 993
+  }
+ },
+ "shift": {
+  "n": 1250,
+  "tasks": 100,
+  "questions": 1093,
+  "subsets": {
+   "all": {
+    "n": 1250,
+    "tasks": 100,
+    "rows": {
+     "prior": {
+      "acc": 0.15914357864357842,
+      "pooled": 0.1448,
+      "n": 1250,
+      "tasks": 100
+     },
+     "lookup": {
+      "acc": 0.15914357864357842,
+      "pooled": 0.1448,
+      "n": 1250,
+      "tasks": 100
+     },
+     "lookup_last": {
+      "acc": 0.15914357864357842,
+      "pooled": 0.1448,
+      "n": 1250,
+      "tasks": 100
+     },
+     "lookup_backoff": {
+      "acc": 0.15914357864357842,
+      "pooled": 0.1448,
+      "n": 1250,
+      "tasks": 100
+     },
+     "key_ceiling": {
+      "acc": 0.9522380952380951,
+      "pooled": 0.9552,
+      "n": 1250,
+      "tasks": 100
+     }
+    }
+   },
+   "must_ask": {
+    "n": 100,
+    "tasks": 60,
+    "rows": {
+     "prior": {
+      "acc": 0.0,
+      "pooled": 0.0,
+      "n": 100,
+      "tasks": 60
+     },
+     "lookup": {
+      "acc": 0.0,
+      "pooled": 0.0,
+      "n": 100,
+      "tasks": 60
+     },
+     "lookup_last": {
+      "acc": 0.0,
+      "pooled": 0.0,
+      "n": 100,
+      "tasks": 60
+     },
+     "lookup_backoff": {
+      "acc": 0.0,
+      "pooled": 0.0,
+      "n": 100,
+      "tasks": 60
+     },
+     "key_ceiling": {
+      "acc": 0.7722222222222223,
+      "pooled": 0.77,
+      "n": 100,
+      "tasks": 60
+     }
+    }
+   },
+   "after_off_plan": {
+    "n": 81,
+    "tasks": 25,
+    "rows": {
+     "prior": {
+      "acc": 0.39799999999999996,
+      "pooled": 0.2962962962962963,
+      "n": 81,
+      "tasks": 25
+     },
+     "lookup": {
+      "acc": 0.39799999999999996,
+      "pooled": 0.2962962962962963,
+      "n": 81,
+      "tasks": 25
+     },
+     "lookup_last": {
+      "acc": 0.39799999999999996,
+      "pooled": 0.2962962962962963,
+      "n": 81,
+      "tasks": 25
+     },
+     "lookup_backoff": {
+      "acc": 0.39799999999999996,
+      "pooled": 0.2962962962962963,
+      "n": 81,
+      "tasks": 25
+     },
+     "key_ceiling": {
+      "acc": 0.992,
+      "pooled": 0.9753086419753086,
+      "n": 81,
+      "tasks": 25
+     }
+    }
+   },
+   "renamed": {
+    "n": 1069,
+    "tasks": 100,
+    "rows": {
+     "prior": {
+      "acc": 0.0,
+      "pooled": 0.0,
+      "n": 1069,
+      "tasks": 100
+     },
+     "lookup": {
+      "acc": 0.0,
+      "pooled": 0.0,
+      "n": 1069,
+      "tasks": 100
+     },
+     "lookup_last": {
+      "acc": 0.0,
+      "pooled": 0.0,
+      "n": 1069,
+      "tasks": 100
+     },
+     "lookup_backoff": {
+      "acc": 0.0,
+      "pooled": 0.0,
+      "n": 1069,
+      "tasks": 100
+     },
+     "key_ceiling": {
+      "acc": 0.9430772765246448,
+      "pooled": 0.9476145930776426,
+      "n": 1069,
+      "tasks": 100
+     }
+    }
+   }
+  },
+  "routes": {
+   "lookup": {
+    "key_not_offered": 114,
+    "unseen": 1136
+   },
+   "lookup_last": {
+    "key_not_offered": 122,
+    "unseen": 1128
+   },
+   "lookup_backoff": {
+    "prior": 1250
+   }
+  },
+  "coverage": {
+   "lookup": {
+    "keys_train": 1220,
+    "covered_n": 114,
+    "uncovered_n": 1136,
+    "share": 0.0912,
+    "question_share": 0.05215004574565416,
+    "keys_scored": 125,
+    "keys_scored_seen": 3,
+    "covered": {
+     "prior": {
+      "acc": 0.0,
+      "pooled": 0.0,
+      "n": 114,
+      "tasks": 57
+     },
+     "lookup": {
+      "acc": 0.0,
+      "pooled": 0.0,
+      "n": 114,
+      "tasks": 57
+     },
+     "lookup_last": {
+      "acc": 0.0,
+      "pooled": 0.0,
+      "n": 114,
+      "tasks": 57
+     },
+     "lookup_backoff": {
+      "acc": 0.0,
+      "pooled": 0.0,
+      "n": 114,
+      "tasks": 57
+     },
+     "key_ceiling": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 114,
+      "tasks": 57
+     }
+    },
+    "uncovered": {
+     "prior": {
+      "acc": 0.18026179084073807,
+      "pooled": 0.15933098591549297,
+      "n": 1136,
+      "tasks": 100
+     },
+     "lookup": {
+      "acc": 0.18026179084073807,
+      "pooled": 0.15933098591549297,
+      "n": 1136,
+      "tasks": 100
+     },
+     "lookup_last": {
+      "acc": 0.18026179084073807,
+      "pooled": 0.15933098591549297,
+      "n": 1136,
+      "tasks": 100
+     },
+     "lookup_backoff": {
+      "acc": 0.18026179084073807,
+      "pooled": 0.15933098591549297,
+      "n": 1136,
+      "tasks": 100
+     },
+     "key_ceiling": {
+      "acc": 0.9481645781119464,
+      "pooled": 0.9507042253521126,
+      "n": 1136,
+      "tasks": 100
+     }
+    },
+    "share_must_ask": 0.0,
+    "uncovered_share_must_ask": 0.0880281690140845,
+    "share_after_off_plan": 0.0,
+    "uncovered_share_after_off_plan": 0.07130281690140845,
+    "share_renamed": 0.10664172123479888,
+    "uncovered_share_renamed": 0.840669014084507
+   },
+   "lookup_last": {
+    "keys_train": 220,
+    "covered_n": 122,
+    "uncovered_n": 1128,
+    "share": 0.0976,
+    "question_share": 0.059469350411710885,
+    "keys_scored": 25,
+    "keys_scored_seen": 4,
+    "covered": {
+     "prior": {
+      "acc": 0.0,
+      "pooled": 0.0,
+      "n": 122,
+      "tasks": 57
+     },
+     "lookup": {
+      "acc": 0.0,
+      "pooled": 0.0,
+      "n": 122,
+      "tasks": 57
+     },
+     "lookup_last": {
+      "acc": 0.0,
+      "pooled": 0.0,
+      "n": 122,
+      "tasks": 57
+     },
+     "lookup_backoff": {
+      "acc": 0.0,
+      "pooled": 0.0,
+      "n": 122,
+      "tasks": 57
+     },
+     "key_ceiling": {
+      "acc": 1.0,
+      "pooled": 1.0,
+      "n": 122,
+      "tasks": 57
+     }
+    },
+    "uncovered": {
+     "prior": {
+      "acc": 0.18407131465026189,
+      "pooled": 0.16046099290780141,
+      "n": 1128,
+      "tasks": 100
+     },
+     "lookup": {
+      "acc": 0.18407131465026189,
+      "pooled": 0.16046099290780141,
+      "n": 1128,
+      "tasks": 100
+     },
+     "lookup_last": {
+      "acc": 0.18407131465026189,
+      "pooled": 0.16046099290780141,
+      "n": 1128,
+      "tasks": 100
+     },
+     "lookup_backoff": {
+      "acc": 0.18407131465026189,
+      "pooled": 0.16046099290780141,
+      "n": 1128,
+      "tasks": 100
+     },
+     "key_ceiling": {
+      "acc": 0.9462598162071842,
+      "pooled": 0.950354609929078,
+      "n": 1128,
+      "tasks": 100
+     }
+    },
+    "share_must_ask": 0.0,
+    "uncovered_share_must_ask": 0.08865248226950355,
+    "share_after_off_plan": 0.09876543209876543,
+    "uncovered_share_after_off_plan": 0.06471631205673758,
+    "share_renamed": 0.11412535079513564,
+    "uncovered_share_renamed": 0.8395390070921985
+   }
+  },
+  "lookup_coarse": {
+   "acc": {
+    "acc": 0.15914357864357842,
+    "pooled": 0.1448,
+    "n": 1250,
+    "tasks": 100
+   },
+   "share": 0.0912,
+   "keys_train": 993
+  }
+ },
+ "shift_subsets": {
+  "all": "every occurrence",
+  "must_ask": "the acceptable set is exactly {request_clarification}",
+  "after_off_plan": "after an off-plan step",
+  "renamed": "the acceptable set holds a tool other than finish (a renamed tool)"
+ }
+}

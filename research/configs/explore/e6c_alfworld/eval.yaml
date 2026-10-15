@@ -1,0 +1,22 @@
+# E6c (exploratory, descriptive; docs/PREREG_A7_STAGE2.md, Deviations 2026-10-06 "Exploratory row E6c"): the action
+# GUARD on ALFWorld valid_seen, the last meaningful cell of the module map. Not the registered S2-L3b; revises no
+# registered result. Games, order, models and harness settings exactly as E6a (configs/explore/e6a_alfworld/eval.yaml):
+# the 140 games of configs/explore/e6a_alfworld/eval_games.json (stratified order), agent LLM Gemini 3.5 Flash
+# (temperature 0, minimal reasoning), decision model Jev via OpenRouter, 50 steps, history 12, no System-1 cache.
+# GUARD: the LLM proposes an admissible action, Jev answers the tool guard's question about it and vetoes when
+# p_yes < tau; the LLM regenerates once with the rejection note and the rewrite is executed unchecked (agent.py
+# _guard_action). tau = 0.5, the fixed tau of the Stage-1 tool guard on Flash (jev_ts_guard, E2a); nothing fitted.
+# One invocation, task-major interleaved (seed 732, 16 workers); a second invocation re-runs infrastructure errors once.
+#   python -m jevharness.bench.runner configs/explore/e6c_alfworld/eval.yaml --out runs
+name: e6c_alfworld_eval
+suite: {name: alfworld, split: eval_in_distribution, data_dir: data/raw/alfworld, n: 140, stratify: true,
+        max_episode_steps: 50}
+n_tasks: 140
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}
+harness_defaults: {max_steps: 50, history_window: 12}
+workers: 16
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}
+  - {name: jev_action_guard, action: {mode: guard, tau: 0.5}}

@@ -1,0 +1,37 @@
+# JevAgentRL-v2, stage 1: SFT v2 on the Miles framework (FSDP2, full fine-tuning; docs/MILES_PORT.md §3).
+# Rules / budgets: results/gpu_round6_miles/TRAINING_MANIFEST.md. Same data, target and objective as v1's SFT v1
+# (scripts/train/12_sft_v1.sh): data v1 train + 0.45 x the decontaminated When2Call replay, soft CE + 0.5 Brier over
+# the presented option codes, a fresh option permutation per row and epoch, 2 epochs, 64 rows per optimizer step.
+# Differences: full fine-tuning (Miles' FSDP backend has no LoRA) at LR 1e-5, and the base chosen by the base rule.
+name: sft_v2
+stage: sft
+base: auto                      # runs/gpu_round6_miles/base.json (the base rule, manifest §3)
+init: null                      # = base
+out: checkpoints/r6/sft
+max_len: 4096
+seed: 0
+sft:
+  train: [data/train_v1/train.jsonl.gz]
+  replay: data/train_v1/replay_when2call.jsonl.gz
+  replay_frac: 0.45
+  epochs: 2
+  batch_rows: 64
+  permute: true
+  brier_weight: 0.5
+miles:
+  actor_gpus: 8                 # g5.48xlarge: 8 x A10G 24 GB, no engine (--debug-train-only)
+  rollout_gpus: 0
+  lr: 1.0e-5
+  min_lr: 1.0e-6
+  lr_decay_style: cosine
+  warmup_fraction: 0.03
+  weight_decay: 0.0
+  adam_beta1: 0.9
+  adam_beta2: 0.98
+  clip_grad: 1.0
+  global_batch_size: 64
+  max_tokens_per_gpu: 16384     # rows-only LM head: one micro-batch per rank per step (manifest §9, 2026-10-03 ~05:35 UTC)
+  gradient_checkpointing: true
+  attn_implementation: flash_attention_2
+  save_interval: 250            # crash-resume points (~75 GB each with optimizer state); the final rollout is always saved
+  seed: 1234

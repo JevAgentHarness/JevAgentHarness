@@ -1,0 +1,70 @@
+{
+ "coverage": {
+  "airline_test/tool_params": {
+   "coverage": 0.5082,
+   "distinct_labelled_questions": 1639,
+   "jev_logged": 1709,
+   "labelled": 1709,
+   "logged": 3363,
+   "no_state": 0,
+   "not_asked": 0,
+   "occurrences": 3363,
+   "tasks": 29
+  },
+  "airline_test/tool_select": {
+   "coverage": 1.0,
+   "distinct_labelled_questions": 10991,
+   "jev_logged": 11992,
+   "labelled": 11992,
+   "logged": 14636,
+   "no_state": 0,
+   "not_asked": 2644,
+   "occurrences": 11992,
+   "tasks": 35
+  },
+  "retail/tool_params": {
+   "coverage": 0.5824,
+   "distinct_labelled_questions": 2283,
+   "jev_logged": 2314,
+   "labelled": 2314,
+   "logged": 3973,
+   "no_state": 0,
+   "not_asked": 0,
+   "occurrences": 3973,
+   "tasks": 108
+  },
+  "retail/tool_select": {
+   "coverage": 1.0,
+   "distinct_labelled_questions": 7791,
+   "jev_logged": 7942,
+   "labelled": 7942,
+   "logged": 11921,
+   "no_state": 0,
+   "not_asked": 3979,
+   "occurrences": 7942,
+   "tasks": 114
+  }
+ },
+ "labels": "reference-agreement labels, A6.22 (b) 1-2: tool_select = the reference next step (singleton; respond_to_user when no reference action is pending and grounded); tool_params = the reference action's value in the option-label space (OTHER outside the candidates), only when the executed tool is the reference next step",
+ "n_questions": 22704,
+ "occurrences_sha256": "9fefe8fe1f2ccc3fcfc718841a7efec5bea2e13a824fb848bd3a9c879b458043",
+ "option_list_mismatches": {},
+ "questions_sha256": "30601beb201edbdd6a3cfcdbddac81dcd035e6d9a2fe480dca7e8f53b0c730d3",
+ "registered": "PREREG_A7_STAGE2 A7.13 (iv)",
+ "sources_sha256": {
+  "airline_test/jev_guard.jsonl": "927a7642ea0d7e7d9f5095df50c62950135782cfc9f30a1a2572655467423db1",
+  "airline_test/jev_ts_assist_k3.jsonl": "d0ab56f2e35458fd3596f23efd2f0b0c4621221323fa93253526376db34e0921",
+  "airline_test/jev_ts_cascade_tau0.5.jsonl": "5a9dbb5875ef02408e2cfa2d18a48d213f444dc9e1da89076f5e73f6719f6014",
+  "airline_test/jev_ts_cascade_tau0.7.jsonl": "9d377e687ae476f9e0c988b93649182b03e7ce2b6fc13b13740980fb0108788e",
+  "airline_test/jev_ts_cascade_tau0.8.jsonl": "8866e71074748036aa1048e13829fa7bbea5bb6ddbad2f93436df186203029fc",
+  "airline_test/jev_ts_cascade_tau0.9.jsonl": "699c62fc51b7752d136664bddd53347497a169b4d9a19c9aa692be1fbb18c7f7",
+  "airline_test/jev_ts_cascade_tau0.95.jsonl": "8d178452e4de5a1666f1b7a51533d919532f98edb3cbdde892e10db13e133a40",
+  "airline_test/jev_ts_cascade_tau0.99.jsonl": "03a11f5587af8ed7c61075b3e209d7d525958f0d72fb82b57853ed157d128880",
+  "airline_test/jev_ts_cascade_tauhat_e2.jsonl": "43a85298689389ee1069c84789fbcea8046b3bce336a99875c106307b75476ba",
+  "airline_test/jev_ts_cascade_tauhat_refit.jsonl": "43b705260e73375bc25c6c98c6e229e9396671fa2a3d4b0c75d7bce72a694873",
+  "airline_test/llm_only.jsonl": "5cd8207a7b4e9791a807af394cd09222a0187de059e43e5bd61abc627aefdc1c",
+  "retail/jev_ts_cascade_tauhat_e2.jsonl": "be03fb6872969dc58b649648672a4e5a1fcfccd7e3954cab4c3fdc2a2b239295",
+  "retail/jev_ts_cascade_tauhat_refit.jsonl": "ababe709333ec51a2feb52827ddff44a7ccc73a216bf707edde7ac2b431a00f4",
+  "retail/llm_only.jsonl": "25b4ea4d6d9f75a4561b92e97081e0c816960a30397f84f5b8f39f25d839ef38"
+ }
+}

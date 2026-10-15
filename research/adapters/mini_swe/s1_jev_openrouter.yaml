@@ -1,0 +1,11 @@
+# Overlay for swebench_jev.yaml: real Jev through OpenRouter as System-1 (the registered H5 System-1,
+# {"type": "jev", "provider": "openrouter"}; reads OPENROUTER_API_KEY). List it AFTER the base config and gemini.yaml:
+#
+#   CONFIG_OVERLAY="adapters/mini_swe/gemini.yaml adapters/mini_swe/s1_jev_openrouter.yaml" \
+#       adapters/mini_swe/run_swebench.sh baseline action_guard stop_guard route
+#
+# `model: null` clears the base config's `jev-latest` (a TypeSafe model id) so that JevBackend takes the OpenRouter
+# preset's model (typesafe/jev-1.13) and its price key (jev-1.13.0, configs/prices/models.yaml). A bare
+# `-c jev.s1.provider=openrouter` would keep `model: jev-latest`, which OpenRouter does not serve.
+jev:
+  s1: {type: jev, provider: openrouter, model: null}

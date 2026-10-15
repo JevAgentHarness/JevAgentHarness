@@ -1,0 +1,67 @@
+# JevAgentRL-v2, stage 2: on-policy distillation from Jev inside the harness, on Miles rollouts (docs/MILES_PORT.md §3).
+# Rules / budgets: results/gpu_round6_miles/TRAINING_MANIFEST.md. Mirrors v1's configs/train/opd_round5.yaml (arms,
+# target rule, executor, iterations x tasks) with a fresh training-seed pool (60000-63999; v1 used 40000-43999).
+# Student = the SGLang engine of Miles (weights synced after every update); the decision loss is the exact forward KL
+# from the teacher's option distribution (target 0.7 Jev + 0.3 oracle gold; the gold one-hot where Jev's argmax is not
+# the gold); gold never reaches the teacher (Question.meta is not on the wire).
+name: opd_v2
+stage: opd
+base: auto
+init: auto                      # runs/gpu_round6_miles/init_opd.txt = the exported SFT v2 (HF dir)
+out: checkpoints/r6/opd
+max_len: 4096
+seed: 0
+rollout:
+  suite: {families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+  seed0: 60000
+  n_tasks: 4000
+  tasks_per_iter: 36            # 6 per arm
+  group_size: 1
+  iterations: 24
+  temperature: 1.0              # the student's sampled policy drives the agent
+  arms:
+    - {name: opd_ts_params_replace, tool_select: {mode: replace}, tool_params: {mode: replace}, stop: {mode: guard, tau: 0.5}}
+    - {name: opd_ts_replace, tool_select: {mode: replace}}
+    - {name: opd_ts_assist_k3, tool_select: {mode: assist, k: 3}}
+    - {name: opd_cascade, tool_select: {mode: cascade, tau: 0.9}, tool_params: {mode: cascade, tau: 0.9}}
+    - {name: opd_guard, tool_select: {mode: guard, tau: 0.5}, stop: {mode: guard, tau: 0.5}}
+    - {name: opd_shadow_flash, llm: flash, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}
+  executor: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0.7, reasoning_effort: minimal}
+  executors:
+    flash: {provider: gemini, model: gemini-3.5-flash, temperature: 0.3, reasoning_effort: minimal}
+  max_steps: 20
+  workers: 36                   # concurrent episodes: one wave of 36 (manifest §9, 2026-10-03 ~06:20 UTC)
+  decider_batch: 32
+opd:
+  teacher: jev-openrouter
+  teacher_cache: cache/opd_teacher_r6.sqlite
+  teacher_temperature: 1.0
+  gold_alpha: 0.3
+  gold_fallback: true
+  loss: forward_kl
+  fresh_rows: 512
+  replay_rows: 256
+  questions_per_request: 16
+  teacher_workers: 8
+  budget_usd: 8.0
+miles:
+  actor_gpus: 8                 # g5.48xlarge: 8 x A10G 24 GB, FSDP over 8 ranks (64 rows / 16 episodes divide evenly)
+  rollout_gpus: 0
+  colocate: true                # one SGLang engine per GPU between updates (trainer offloaded to host RAM meanwhile)
+  lr: 3.0e-6
+  min_lr: 3.0e-6
+  lr_decay_style: constant
+  warmup_fraction: 0.03
+  weight_decay: 0.0
+  adam_beta1: 0.9
+  adam_beta2: 0.98
+  clip_grad: 1.0
+  global_batch_size: 64         # 768 rows per iteration -> 12 optimizer steps
+  max_tokens_per_gpu: 16384     # rows-only LM head: one micro-batch per rank per step (manifest §9, 2026-10-03 ~05:35 UTC)
+  gradient_checkpointing: true
+  attn_implementation: flash_attention_2
+  sglang_mem_fraction: 0.65
+  sglang_attention_backend: flashinfer
+  save_interval: 12             # continuations opd_i12 and opd (iteration 24)
+  keep_steps: [12, 24]
+  seed: 1234

@@ -1,0 +1,39 @@
+{
+ "model": "/opt/jev/models/StartLux-Decision-4B",
+ "n": 32,
+ "codes_single_token": true,
+ "prompt_tokens_mean": 877.09375,
+ "sglang_cmd": "/opt/sglang/bin/python -m sglang.launch_server --model-path /opt/jev/models/StartLux-Decision-4B --host 127.0.0.1 --port 30011 --tp 1 --mem-fraction-static 0.6 --attention-backend flashinfer --dtype bfloat16 --log-level warning",
+ "sglang_s": 4.97,
+ "hf_s": 125.45,
+ "sglang_vs_hf_fp32": {
+  "max_abs_dlogp_all": 0.10530852703626081,
+  "max_abs_dlogp_p>=0.01": 0.10530852703626081,
+  "mean_abs_dlogp_p>=0.01": 0.02020411286448582,
+  "tv_mean": 0.0011941483231960508,
+  "tv_max": 0.007786495464994672,
+  "argmax_agree": 1.0
+ },
+ "hf_bf16_vs_hf_fp32": {
+  "max_abs_dlogp_all": 0.14018443519015733,
+  "max_abs_dlogp_p>=0.01": 0.11670957864176312,
+  "mean_abs_dlogp_p>=0.01": 0.022975597681330878,
+  "tv_mean": 0.001481278079614057,
+  "tv_max": 0.011112427407589838,
+  "argmax_agree": 1.0
+ },
+ "sglang_vs_hf_bf16": {
+  "max_abs_dlogp_all": 0.12487856226331306,
+  "max_abs_dlogp_p>=0.01": 0.12133368283030022,
+  "mean_abs_dlogp_p>=0.01": 0.02544387971566374,
+  "tv_mean": 0.0017347511370400166,
+  "tv_max": 0.012464186059148757,
+  "argmax_agree": 1.0
+ },
+ "acc_sglang": 0.9375,
+ "acc_hf_fp32": 0.9375,
+ "acc_hf_bf16": 0.9375,
+ "max_abs_dlogp": 0.12487856226331306,
+ "pass_s2_as_written": false,
+ "pass_s2": true
+}

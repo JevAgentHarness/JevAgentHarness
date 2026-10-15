@@ -1,0 +1,22 @@
+# Offline plumbing check: no API keys, no downloads. The "offline" LLMs are heuristic stand-ins
+# (lexical reader / containment judge) -- accuracy numbers are meaningless, only the pipeline is exercised.
+#   python -m jevharness.bench.suites.memory_qa --config configs/memory/synthetic_smoke.yaml --out runs/memory
+name: synthetic_smoke
+dataset: {name: synthetic, n: 3, sessions: 4, filler: 8}
+granularity: turn
+llm: {provider: offline, model: lexical-reader}
+judge: {provider: offline, model: containment-judge}
+s1: {type: simulated, accuracy: 0.85, seed: 0}
+s1_backends:
+  oracle: {type: oracle}
+embedder: {type: hashing}
+workers: 3
+arms:
+  - {name: full_context, read: {policy: full_context}}
+  - {name: all_recency_k5, write: {mode: always}, read: {policy: recency, k: 5}}
+  - {name: all_bm25_k3, write: {mode: always}, read: {policy: bm25, k: 3}}
+  - {name: all_embed_k3, write: {mode: always}, read: {policy: embedding, k: 3}}
+  - {name: all_simread_k3, write: {mode: always}, read: {policy: s1, k: 3}}
+  - {name: simwrite_simread_k3, write: {mode: trigger, tau: 0.5}, read: {policy: s1, k: 3}}
+  - {name: oraclewrite_oracleread_k3, s1: oracle, write: {mode: trigger, tau: 0.5}, read: {policy: s1, k: 3}}
+  - {name: llmwrite_bm25_k3, write: {mode: llm}, read: {policy: bm25, k: 3}}

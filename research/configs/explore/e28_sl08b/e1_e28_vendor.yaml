@@ -1,0 +1,32 @@
+# Exploratory row E28, amendment "E28: L1 cost on the untrained model's serving engine" (docs/PREREG_A7_STAGE2.md,
+# Deviations 2026-10-09; timing only): E1's 3,991 decisions answered by StartLux-0.8B (mixed) merged into the base's
+# original layout and served by the vendor's server (pinned commit, port 8092) on the E28 host, with E9's StartLux
+# ladder settings (configs/decision/explore_bfcl_when2call_startlux_ladder.yaml: pools, exclusions, batching, workers)
+# and a new cache; cost per decision by E9's rule, the basis of e9/sl0.8b. Its accuracy is only a check.
+#   python -m jevharness.bench.decision_eval configs/explore/e28_sl08b/e1_e28_vendor.yaml --out runs --only e28v
+name: e1_bfcl_when2call_e28_vendor
+suites:
+- name: bfcl
+  categories:
+  - simple_python
+  - multiple
+  - live_simple
+  - live_multiple
+  - irrelevance
+  - live_irrelevance
+  max_per_cat: 200
+- name: when2call
+  max_items: 1000
+exclude_ids_file: configs/eval/e1_dev_prefix_ids.json
+batch_by_state: true
+s1_cache: cache/s1_e28_vendor_e1.sqlite
+workers: 4
+backends:
+  e28v:
+    type: jev
+    name: startlux-0.8b-e28-vendor
+    base_url: http://127.0.0.1:8092
+    model: StartLux-Decision-0.8B-e28
+    api_key: ''
+    price_model: StartLux-Decision-0.8B
+    timeout: 60.0

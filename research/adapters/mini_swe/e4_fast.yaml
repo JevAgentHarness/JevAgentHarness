@@ -1,0 +1,7 @@
+# Overlay for the E4 arm `always_fast` (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-05, Exploratory row E4): list it
+# AFTER e4_deepseek.yaml. Every step on the fast path: deepseek/deepseek-v4-flash with OpenRouter reasoning off, the same
+# provider pin, templates and caps as the deep path (run with the `llm_only` arm: no System-1 call).
+model:
+  model_name: "deepseek/deepseek-v4-flash"
+  model_kwargs:
+    reasoning: {enabled: false}

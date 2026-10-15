@@ -1,0 +1,21 @@
+# Stage 2, A7.12 (i) under A7.12 (b): eligibility smoke of the optional closed-family pair on DEVELOPMENT seeds 0..49
+# (never a paper number). Both members LLM-only through the OpenAI Responses API (`provider: openai_responses`,
+# stateless: store false, no previous_response_id chaining -- the provider's default). Eligible iff each member's
+# malformed responses are <= 5 % of steps (a legitimate final-text answer is not malformed), no infrastructure error
+# remains after the A6.22 (e) retries, the context fits, and every System-2 call's served model (ledger call meta
+# `served_model`, as the API returned it) is the requested id. No success threshold selects anything. Its token
+# accounting sets n by A7.12 (c)'s rule against the Sol row's own envelope (scripts/sol_eligibility.py gate).
+# Request settings (results/stage2/sol_capability_manifest.json): gpt-6.1-sol accepts reasoning effort low..max only
+# (none / minimal are rejected with a 400), so `low`, its lowest, stands for A7.12 (a)'s "reasoning off or minimal";
+# at an effort other than none the API rejects sampling parameters, so no temperature is sent. gpt-6-luna takes
+# `none`, so it runs with reasoning off and temperature 0, as X-small did.
+#   for pass in 1 2 3; do jevbench run configs/dev/sol_eligibility.yaml --out runs/stage2_dev -o workers=4; done
+name: sol_eligibility
+suite: {name: jevgym, n: 50, seed0: 0, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # development seeds 0..49
+llm: {provider: openai_responses, model: gpt-6.1-sol, reasoning_effort: low}
+llms:
+  solsmall: {provider: openai_responses, model: gpt-6-luna, reasoning_effort: none, temperature: 0}
+workers: 4
+arms:
+  - {name: llm_only_sol}
+  - {name: llm_only_solsmall, llm: solsmall}

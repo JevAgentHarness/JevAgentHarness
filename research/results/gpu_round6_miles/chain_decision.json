@@ -1,0 +1,284 @@
+{
+ "stages": {
+  "sft_v2": {
+   "kept": true,
+   "retained": "sft_v2"
+  },
+  "opd": {
+   "kept": false,
+   "retained": null,
+   "against": "sft_v2",
+   "continuations": {
+    "opd_i12": {
+     "pass": false,
+     "keep": {
+      "V>=sft-0.005": false,
+      "Rc>=sft-0.01": false,
+      "E<=sft+0.01": true,
+      "S>=sft-0.015": false,
+      "A>=sft-0.01": true
+     },
+     "gain": {
+      "V>=sft+0.01&Rc>=sft": false,
+      "S>=sft+0.03": false,
+      "A>=sft+0.02": false
+     }
+    },
+    "opd": {
+     "pass": false,
+     "keep": {
+      "V>=sft-0.005": false,
+      "Rc>=sft-0.01": false,
+      "E<=sft+0.01": true,
+      "S>=sft-0.015": false,
+      "A>=sft-0.01": false
+     },
+     "gain": {
+      "V>=sft+0.01&Rc>=sft": false,
+      "S>=sft+0.03": false,
+      "A>=sft+0.02": false
+     }
+    }
+   }
+  },
+  "grpo": {
+   "kept": false,
+   "retained": null,
+   "against": "sft_v2",
+   "continuations": {
+    "grpo_i15": {
+     "pass": false,
+     "rule": {
+      "validity_tests_passed": true,
+      "replay_check_passed": true,
+      "V>=init-0.01": true,
+      "Rc>=init-0.01": true,
+      "E<=init+0.02": true,
+      "R>init+0.01": false,
+      "S>=init-0.01": false
+     }
+    },
+    "grpo": {
+     "pass": false,
+     "rule": {
+      "validity_tests_passed": true,
+      "replay_check_passed": true,
+      "V>=init-0.01": true,
+      "Rc>=init-0.01": true,
+      "E<=init+0.02": true,
+      "R>init+0.01": false,
+      "S>=init-0.01": false
+     }
+    }
+   }
+  }
+ },
+ "decision_level": {
+  "sft_v2": {
+   "acc": 0.99621,
+   "recovery": 0.9967,
+   "knockout": 1.0,
+   "ece": 0.02722,
+   "gate_acc": 0.99524,
+   "by_dp": {
+    "tool_select": 0.99548,
+    "tool_params": 1.0,
+    "stop": 0.99253
+   },
+   "intern_reference": "v1 dev",
+   "go_g1_g5": true,
+   "gates": {
+    "G1_min_gate": true,
+    "G2_static_vs_intern": true,
+    "G3_in_harness_vs_intern": true,
+    "G4_vs_teacher": true,
+    "G5_calibration": true
+   }
+  },
+  "opd_i12": {
+   "acc": 0.98654,
+   "recovery": 0.97855,
+   "knockout": 1.0,
+   "ece": 0.01717,
+   "gate_acc": 0.99048,
+   "by_dp": {
+    "tool_select": 0.97285,
+    "tool_params": 1.0,
+    "stop": 0.98804
+   },
+   "intern_reference": "v1 dev",
+   "go_g1_g5": true,
+   "gates": {
+    "G1_min_gate": true,
+    "G2_static_vs_intern": true,
+    "G3_in_harness_vs_intern": true,
+    "G4_vs_teacher": true,
+    "G5_calibration": true
+   }
+  },
+  "opd": {
+   "acc": 0.98948,
+   "recovery": 0.9769,
+   "knockout": 0.99848,
+   "ece": 0.02091,
+   "gate_acc": 1.0,
+   "by_dp": {
+    "tool_select": 0.98077,
+    "tool_params": 1.0,
+    "stop": 0.98804
+   },
+   "intern_reference": "v1 dev",
+   "go_g1_g5": true,
+   "gates": {
+    "G1_min_gate": true,
+    "G2_static_vs_intern": true,
+    "G3_in_harness_vs_intern": true,
+    "G4_vs_teacher": true,
+    "G5_calibration": true
+   }
+  },
+  "grpo_i15": {
+   "acc": 0.99621,
+   "recovery": 0.9967,
+   "knockout": 1.0,
+   "ece": 0.00606,
+   "gate_acc": 0.99524,
+   "by_dp": {
+    "tool_select": 0.99661,
+    "tool_params": 1.0,
+    "stop": 0.99103
+   },
+   "intern_reference": "v1 dev",
+   "go_g1_g5": true,
+   "gates": {
+    "G1_min_gate": true,
+    "G2_static_vs_intern": true,
+    "G3_in_harness_vs_intern": true,
+    "G4_vs_teacher": true,
+    "G5_calibration": true
+   }
+  },
+  "grpo": {
+   "acc": 0.99621,
+   "recovery": 0.9967,
+   "knockout": 1.0,
+   "ece": 0.00197,
+   "gate_acc": 0.99524,
+   "by_dp": {
+    "tool_select": 0.99548,
+    "tool_params": 1.0,
+    "stop": 0.99253
+   },
+   "intern_reference": "v1 dev",
+   "go_g1_g5": true,
+   "gates": {
+    "G1_min_gate": true,
+    "G2_static_vs_intern": true,
+    "G3_in_harness_vs_intern": true,
+    "G4_vs_teacher": true,
+    "G5_calibration": true
+   }
+  }
+ },
+ "stress": {
+  "sft_v2": {
+   "S": 0.715,
+   "A": 0.9539656128674432,
+   "P": 0.9325946445060018,
+   "R": 0.5025,
+   "C": 0.8344828064337215,
+   "n": 200,
+   "A_n": 1803,
+   "cost_usd": 0.0249726555,
+   "errors": 0
+  },
+  "opd_i12": {
+   "S": 0.665,
+   "A": 0.9468599033816425,
+   "P": 0.9276729559748428,
+   "R": 0.473,
+   "C": 0.8059299516908213,
+   "n": 200,
+   "A_n": 1656,
+   "cost_usd": 0.02177267025,
+   "errors": 0
+  },
+  "opd": {
+   "S": 0.65,
+   "A": 0.9387755102040817,
+   "P": 0.962043795620438,
+   "R": 0.45325000000000004,
+   "C": 0.7943877551020408,
+   "n": 200,
+   "A_n": 1666,
+   "cost_usd": 0.021868016249999997,
+   "errors": 0
+  },
+  "grpo_i15": {
+   "S": 0.625,
+   "A": 0.9493006993006993,
+   "P": 0.9231155778894472,
+   "R": 0.41025,
+   "C": 0.7871503496503496,
+   "n": 200,
+   "A_n": 1716,
+   "cost_usd": 0.02318010225,
+   "errors": 0
+  },
+  "grpo": {
+   "S": 0.6,
+   "A": 0.93885949441505,
+   "P": 0.9092391304347827,
+   "R": 0.40399999999999997,
+   "C": 0.769429747207525,
+   "n": 200,
+   "A_n": 1701,
+   "cost_usd": 0.02236621875,
+   "errors": 0
+  }
+ },
+ "stress_intern": {
+  "S": 0.115,
+  "A": 0.6105263157894737,
+  "P": 0.5676229508196722,
+  "R": -0.04574999999999999,
+  "C": 0.36276315789473684,
+  "n": 200,
+  "A_n": 855,
+  "cost_usd": 0.0045376003,
+  "errors": 0
+ },
+ "grpo_init": "sft_v2",
+ "kept": [
+  "sft_v2"
+ ],
+ "gates": {
+  "sft_v2": {
+   "G1_G5": true,
+   "G6": {
+    "A>=intern+0.05": true,
+    "S>=intern": true,
+    "pass": true,
+    "intern": {
+     "S": 0.115,
+     "A": 0.6105263157894737,
+     "P": 0.5676229508196722,
+     "R": -0.04574999999999999,
+     "C": 0.36276315789473684,
+     "n": 200,
+     "A_n": 855,
+     "cost_usd": 0.0045376003,
+     "errors": 0
+    }
+   }
+  }
+ },
+ "frozen": "sft_v2",
+ "go": true,
+ "rl_claim": false,
+ "label": "GO: the frozen JevAgentRL-v2 passes G1-G6 (development; generator-adapted vs off-the-shelf)",
+ "inputs": {
+  "grpo_validity_ok": true,
+  "replay_check_ok": true
+ }
+}

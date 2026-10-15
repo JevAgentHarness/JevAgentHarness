@@ -1,0 +1,187 @@
+{
+ "build": {
+  "runs": [
+   "data/cache/train_v1/train_v1_jevgym"
+  ],
+  "episodes": {
+   "data/cache/train_v1/train_v1_jevgym": {
+    "run": "data/cache/train_v1/train_v1_jevgym",
+    "arms": {
+     "lite_guard": {
+      "episodes": 150,
+      "superseded_or_errored_records": 0,
+      "system1_behaviour": [
+       {
+        "backend": "nearmiss",
+        "eps_gate": 0.1,
+        "eps_param": 0.15,
+        "eps_tool": 0.2,
+        "param_modes": {
+         "confusable": 0.6,
+         "other": 0.2,
+         "random": 0.2
+        },
+        "seed": 0,
+        "tool_modes": {
+         "near": 0.35,
+         "over_ask": 0.1,
+         "random": 0.15,
+         "skip": 0.4
+        }
+       }
+      ],
+      "executor": [
+       "gemini-3.5-flash-lite"
+      ],
+      "success": 127,
+      "cost_usd": 1.87121,
+      "decisions": 1362,
+      "wrong_proposal_rows": 0,
+      "off_plan_episodes": 72
+     },
+     "lite_shadow": {
+      "episodes": 250,
+      "superseded_or_errored_records": 0,
+      "system1_behaviour": [
+       {
+        "backend": "nearmiss",
+        "eps_gate": 0.1,
+        "eps_param": 0.15,
+        "eps_tool": 0.2,
+        "param_modes": {
+         "confusable": 0.6,
+         "other": 0.2,
+         "random": 0.2
+        },
+        "seed": 0,
+        "tool_modes": {
+         "near": 0.35,
+         "over_ask": 0.1,
+         "random": 0.15,
+         "skip": 0.4
+        }
+       }
+      ],
+      "executor": [
+       "gemini-3.5-flash-lite"
+      ],
+      "success": 207,
+      "cost_usd": 2.436614,
+      "decisions": 6246,
+      "wrong_proposal_rows": 16,
+      "off_plan_episodes": 66
+     },
+     "nearmiss_replace": {
+      "episodes": 600,
+      "superseded_or_errored_records": 0,
+      "system1_behaviour": [
+       {
+        "backend": "nearmiss",
+        "eps_gate": 0.1,
+        "eps_param": 0.15,
+        "eps_tool": 0.2,
+        "param_modes": {
+         "confusable": 0.6,
+         "other": 0.2,
+         "random": 0.2
+        },
+        "seed": 0,
+        "tool_modes": {
+         "near": 0.35,
+         "over_ask": 0.1,
+         "random": 0.15,
+         "skip": 0.4
+        }
+       }
+      ],
+      "executor": [
+       "gemini-3.5-flash-lite"
+      ],
+      "success": 160,
+      "cost_usd": 0.34553,
+      "decisions": 10487,
+      "wrong_proposal_rows": 652,
+      "off_plan_episodes": 432
+     }
+    },
+    "cost_usd": 4.653354,
+    "nearmiss_counts": {
+     "stop:flip": 529,
+     "stop:gold": 4829,
+     "tool_params:confusable": 345,
+     "tool_params:gold": 5370,
+     "tool_params:no_gold": 1078,
+     "tool_params:other": 236,
+     "tool_params:random": 388,
+     "tool_select:flip": 133,
+     "tool_select:gold": 5252,
+     "tool_select:near": 327,
+     "tool_select:over_ask": 115,
+     "tool_select:random": 203,
+     "tool_select:skip": 368
+    }
+   }
+  },
+  "rows_raw": 18763,
+  "duplicates_removed": 1496,
+  "exclusions": {
+   "dropped": {},
+   "kept": 17267
+  },
+  "balance": {
+   "before": {
+    "tool_guard:yes": 1167,
+    "stop_guard:yes": 506,
+    "tool_guard:no": 617,
+    "stop_guard:no": 162,
+    "tool_select": 4790,
+    "stop_trigger:no": 4127,
+    "tool_params": 5815,
+    "tool_params:OTHER": 38,
+    "stop_trigger:yes": 45
+   },
+   "after": {
+    "tool_guard:yes": 1167,
+    "stop_guard:yes": 506,
+    "tool_guard:no": 617,
+    "stop_guard:no": 162,
+    "tool_select": 4790,
+    "stop_trigger:no": 1138,
+    "tool_params": 5815,
+    "tool_params:OTHER": 38,
+    "stop_trigger:yes": 45
+   }
+  },
+  "dev_frac": 0.15,
+  "seed": 0,
+  "train_rows_gold": 15694,
+  "dev_rows": 2377,
+  "dev_tasks": 90,
+  "extra_train": {
+   "v0_train": {
+    "path": "data/train_v0/train.jsonl",
+    "rows": 1225,
+    "dropped": {},
+    "kept": 1225
+   }
+  },
+  "replay": {
+   "path": "data/train_v0/replay_when2call.jsonl.gz",
+   "dropped": {
+    "ngram_overlap_eval": 15
+   },
+   "kept": 2685
+  },
+  "knockout_final_variants": {
+   "frac": 0.5,
+   "rows": 2133
+  },
+  "decontamination": {
+   "ngram": 8,
+   "eval_texts": 6687,
+   "sources": "BFCL v4 six tool categories (all items) + When2Call test"
+  },
+  "gate_dev_tasks_excluded": 13,
+  "e1_dev_prefix_ids": 299
+ }
+}

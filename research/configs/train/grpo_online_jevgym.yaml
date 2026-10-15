@@ -1,0 +1,69 @@
+# T7 / recipe R8 -- episode-level GRPO of the System-1 decider INSIDE the JevAgent harness on JevGym.
+#   python -m jevharness.training.grpo_online --config configs/train/grpo_online_jevgym.yaml \
+#       --set model=Qwen/Qwen3-4B init=checkpoints/r4 out=checkpoints/r8
+# or scripts/train/70_grpo_online.sh (EXECUTOR=sim|gemini-lite|gemini-flash|vllm, SEEDS, GPUS).
+# Every field is documented in src/jevharness/training/grpo_online.py (class Config); `--print-config` shows
+# the resolved config. Budget at the defaults: 150 it x 8 tasks x G=8 = 9.6k training episodes
+# (+ 3 arms x 64 eval episodes every 10 it). With the Gemini Flash-Lite executor this is roughly
+# $15-30; with EXECUTOR=vllm (self-hosted Qwen3-8B) it is GPU time only; EXECUTOR=sim is free (pipeline only).
+name: r8_grpo_online_jevgym
+model: Qwen/Qwen3-4B
+init: checkpoints/r4            # warm start is REQUIRED for cascade arms (a cold policy never reaches tau)
+ref: init                       # KL anchor = frozen copy of the init adapter; `base` = LoRA disabled
+out: checkpoints/r8
+lora: {r: 32, alpha: 64, dropout: 0.0, target_modules: all-linear}
+
+# training tasks are disjoint from the E2 evaluation seeds (0..199) and from the dev seeds below
+suite: {name: jevgym, n: 512, seed0: 10000, n_distractors: 30, distractor_style: mixed, families: all, strict: true}
+eval_suite: {name: jevgym, n: 64, seed0: 5000, n_distractors: 30, distractor_style: mixed, families: all, strict: true}
+
+# System-2 executor: the LLM the decider shares control with (it is NOT trained)
+executor: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0.7, reasoning_effort: minimal}
+harness_defaults: {max_steps: 20}
+
+# arms are assigned round-robin to task groups; each trains a different WHERE x HOW cell with one policy
+arms:
+  - {name: ts_cascade, tool_select: {mode: cascade, tau: 0.8}, tool_params: {mode: cascade, tau: 0.9}}
+  - {name: ts_assist_k3, tool_select: {mode: assist, k: 3}}
+  - {name: meta_gates, stop: {mode: guard, tau: 0.5}, reflection: {mode: trigger, tau: 0.5}}
+
+decider:
+  temperature: 1.0              # rollout sampling temperature (KL / confidence always at T=1)
+  max_len: 4096
+  batch_size: 32                # prompts per forward (rollout inference + reference pass)
+  max_wait_ms: 5.0              # cross-thread micro-batching window
+  price_model: Qwen/Qwen3-4B    # prices the decider's input tokens (configs/prices/models.yaml)
+  name: ours-r8
+
+grpo:
+  iterations: 150
+  tasks_per_iter: 8
+  group_size: 8                 # G rollouts per task
+  inner_epochs: 2               # mu
+  minibatch_size: 64            # decisions per optimizer step
+  micro_batch_size: 8           # decisions per forward/backward (raise on 80GB for short states)
+  clip_eps: 0.2
+  clip_eps_high: 0.28           # DAPO clip-higher
+  kl_beta: 0.02                 # exact KL(pi || pi_ref) over the option set
+  entropy_coef: 0.0
+  adv_scale: group
+  drop_zero_std_groups: true
+  drop_error_episodes: true
+  loss_agg: decision
+  gigpo: {enabled: true, omega: 1.0, gamma: 0.95, scale: std}
+
+reward:
+  kind: gated                   # R = 1[success] * (1 - lambda_gate * min(1, calls / cost_scale)): cheap failures earn 0
+  lambda_gate: 0.5
+  cost_unit: calls              # System-2 calls (stable across price changes); `usd` uses the ledger
+  cost_scale: 10.0
+  irreversible_penalty: 0.2     # strict JevGym: an irreversible wrong call is worse than a benign failure
+
+optim: {lr: 1.0e-5, weight_decay: 0.0, grad_clip: 1.0, warmup_steps: 5}
+
+workers: 16                     # concurrent episodes (executor calls overlap; decider prefills are micro-batched)
+eval_every: 10
+save_every: 25
+seed: 0
+gradient_checkpointing: false
+log_rollouts: true

@@ -1,0 +1,19 @@
+{
+ "rule": "E4b shares E4's instances: smoke = E4's smoke pair; dev = the first 30 of E4's dev list (configs/explore/e4_swe/dev_ids.txt); eval = E4's 100-instance eval list, unchanged",
+ "source": "configs/explore/e4_swe/selection.json",
+ "smoke": {
+  "file": "configs/explore/e4b_swe/smoke_ids.txt",
+  "n": 2,
+  "sha256": "7b474a955d1beddc839dd909e9f4753286a3eb279bce6f4fbeecfe2f461e1614"
+ },
+ "dev": {
+  "file": "configs/explore/e4b_swe/dev_ids.txt",
+  "n": 30,
+  "sha256": "37cf9ace347ed3d8c50b2b2b65c5277335ac77b4633d3bfbd60593ea1bb1c528"
+ },
+ "eval": {
+  "file": "configs/explore/e4b_swe/eval_ids.txt",
+  "n": 100,
+  "sha256": "8d67497edcc71e78e2c0d49496f0bb9333dc87959addf7a3cf20eb440b89a1ee"
+ }
+}

@@ -1,0 +1,106 @@
+{
+ "label": "exploratory (E20), descriptive; PREREG_A7_STAGE2 Deviations 2026-10-08 'E20: decision-model ensembles and a hosted decision API behind the gate'; outside every Holm table",
+ "at": "2026-10-08T15:42:47+00:00",
+ "rows": {
+  "oaidec": {
+   "fits": {
+    "tool_select": {
+     "tau_hat": Infinity,
+     "n_paired": 1125,
+     "tau_rule": "projection",
+     "path": "results/explore/e20_ensembles/cal/tauhat_e20cal_oaidec_tool_select.json"
+    },
+    "tool_params": {
+     "tau_hat": Infinity,
+     "n_paired": 1328,
+     "tau_rule": "projection",
+     "path": "results/explore/e20_ensembles/cal/tauhat_e20cal_oaidec_tool_params.json"
+    }
+   },
+   "coverage": {
+    "tool_select": {
+     "n": 1125,
+     "answered": 1125,
+     "acc": 0.9368888888888889,
+     "tau": Infinity,
+     "accepted": 0,
+     "coverage": 0.0,
+     "accepted_errors": 0,
+     "accepted_acc": null
+    },
+    "tool_params": {
+     "n": 1328,
+     "answered": 1328,
+     "acc": 0.8682228915662651,
+     "tau": Infinity,
+     "accepted": 0,
+     "coverage": 0.0,
+     "accepted_errors": 0,
+     "accepted_acc": null
+    }
+   },
+   "answers": 2719,
+   "no_answer": 266
+  },
+  "agree": {
+   "fits": {
+    "tool_select": {
+     "tau_hat": Infinity,
+     "n_paired": 1125,
+     "tau_rule": "projection",
+     "path": "results/explore/e20_ensembles/cal/tauhat_e20cal_agree_tool_select.json"
+    },
+    "tool_params": {
+     "tau_hat": 0.99,
+     "n_paired": 1328,
+     "tau_rule": "projection",
+     "path": "results/explore/e20_ensembles/cal/tauhat_e20cal_agree_tool_params.json"
+    }
+   },
+   "coverage": {
+    "tool_select": {
+     "n": 1125,
+     "answered": 1125,
+     "acc": 0.9493333333333334,
+     "tau": Infinity,
+     "accepted": 0,
+     "coverage": 0.0,
+     "accepted_errors": 0,
+     "accepted_acc": null
+    },
+    "tool_params": {
+     "n": 1328,
+     "answered": 1328,
+     "acc": 0.9186746987951807,
+     "tau": 0.99,
+     "accepted": 666,
+     "coverage": 0.5015060240963856,
+     "accepted_errors": 0,
+     "accepted_acc": 1.0
+    }
+   },
+   "answers": 2719,
+   "no_answer": 0,
+   "agree_share": {
+    "tool_select": 0.8951111111111111,
+    "tool_params": 0.7565872020075283
+   }
+  }
+ },
+ "members": {
+  "oaidec": {
+   "answers": 2453,
+   "errors": 0,
+   "refusals": 0,
+   "cost_usd": 0.3318113000000002,
+   "sha256": "5edf78036b5a113bbc079313e55471246b846991557cda78f6a14cd80f23be48"
+  },
+  "jev": {
+   "answers": 2453,
+   "errors": 0,
+   "refusals": 0,
+   "cost_usd": 0.209339256,
+   "sha256": "7124ce15fcfbc6b1ba7e28296418819064c359cece6e7b8ef7f85f89b207c909"
+  }
+ }
+}

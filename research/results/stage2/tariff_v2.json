@@ -1,0 +1,28 @@
+{
+ "registered": "PREREG_A7_STAGE2 A7.13 (iii)",
+ "frozen_at": "2026-10-04T21:23:39+00:00",
+ "served_model": "jevagentrl-v2",
+ "hardware": "1x NVIDIA L40S 48 GB (g6e.16xlarge, us-east-1, on demand)",
+ "precision": "bf16",
+ "concurrency": 4,
+ "workload_matches": true,
+ "q_usd_per_episode": 0.01235502925,
+ "host_usd_per_hour": 7.57719,
+ "serving_hours": 0.16305555555555556,
+ "episodes": 100,
+ "episodes_errored": 0,
+ "window": {
+  "start": "2026-10-04T21:13:50Z",
+  "end": "2026-10-04T21:23:37Z"
+ },
+ "workload": {
+  "run": "runs/stage2_dev_tariff_v2",
+  "arm": "jevagent_best_v2"
+ },
+ "sensitivity": {
+  "busy_throughput": 0.012018881527010382,
+  "jev_api_price": 0.00088375182,
+  "zero": 0.0,
+  "reference_host": 0.003655836
+ }
+}

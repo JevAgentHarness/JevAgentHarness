@@ -1,0 +1,54 @@
+{
+ "always_deep_resolved": 36,
+ "always_fast_resolved": 34,
+ "margin": 2,
+ "candidates": {
+  "jevagent_t050": {
+   "tau": 0.5,
+   "resolved": 38,
+   "fast_share": 0.21397139713971397,
+   "eligible": true
+  },
+  "jevagent_t060": {
+   "tau": 0.6,
+   "resolved": 38,
+   "fast_share": 0.3904709748083242,
+   "eligible": true
+  },
+  "jevagent_t070": {
+   "tau": 0.7,
+   "resolved": 33,
+   "fast_share": 0.7282296650717703,
+   "eligible": false
+  }
+ },
+ "tau": 0.5,
+ "case": "not_separable",
+ "reason": "always_fast (34) is within 2 of always_deep (36) on dev: dev cannot separate the settings, so the registered route tau 0.5 is used",
+ "phase": "dev",
+ "n_dev": 45,
+ "dev_ids_sha256": "c5d0a510cab2b4094c5ea71deed85e84adafdd7682e4c0c21fbe3c077b742d24",
+ "eval_ids_sha256": "8d67497edcc71e78e2c0d49496f0bb9333dc87959addf7a3cf20eb440b89a1ee",
+ "resolved": {
+  "always_deep": 36,
+  "always_fast": 34,
+  "jevagent_t050": 38,
+  "jevagent_t060": 38,
+  "jevagent_t070": 33
+ },
+ "fast_share": {
+  "always_deep": 0.0,
+  "always_fast": 1.0,
+  "jevagent_t050": 0.21397139713971397,
+  "jevagent_t060": 0.3904709748083242,
+  "jevagent_t070": 0.7282296650717703
+ },
+ "errors": {
+  "always_deep": 0,
+  "always_fast": 0,
+  "jevagent_t050": 0,
+  "jevagent_t060": 0,
+  "jevagent_t070": 0
+ },
+ "written": "2026-10-05T23:11:03+00:00"
+}

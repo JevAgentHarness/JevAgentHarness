@@ -1,0 +1,22 @@
+{
+ "stress_sft_v2::ours_stress_ts_params_replace": {
+  "run": "stress_sft_v2",
+  "n": 200,
+  "success": 0.715,
+  "reward_ccps": 0.5025,
+  "irreversible_rate": 0.135,
+  "cost_usd": 0.0249726555,
+  "llm_calls": 5.775,
+  "s1_calls": 22.36,
+  "errors": 0,
+  "s1_latency_ms_per_call": 2537.5929303651483,
+  "s1_latency_ms_p50": 2498.3356250013458,
+  "s1_latency_ms_p95": 4371.4978092009915,
+  "tool_params/replace/s1_acc": 0.9325946445060018,
+  "tool_params/replace/n": 2166,
+  "tool_params/replace/ece": 0.040382569007375996,
+  "tool_select/replace/s1_acc": 0.9539656128674432,
+  "tool_select/replace/n": 1803,
+  "tool_select/replace/ece": 0.04020657760086739
+ }
+}

@@ -1,0 +1,28 @@
+# Stage 2, A7.18 (e) 3 (docs/PREREG_A7_STAGE2.md): StartLux-Decision live tool_select REPLACE arms on the first 200
+# fresh Stage-2 tasks (seeds 300000..300199; the suite block of configs/experiments/stage2_jevgym.yaml), Flash, three
+# passes; descriptive, paired task by task with `jev_ts_replace_f` / `intern_ts_replace_f` of
+# configs/experiments/stage2_rl_states.yaml. These trajectories never enter S2-3's common-state corpus.
+#
+# Backends: the vendor's server (`python -m startlux_decision.server`, started by scripts/aws/serve_startlux.sh), which
+# speaks the Jev wire format: 4B on port 8090 (the Stage-2 L4 host), 27B on port 8091 (a >= 64 GB GPU at original
+# precision, else the Q8_0 GGUF on >= 40 GB labelled "27B (Q8_0)", else not run -- A7.18 (g)). Both PLACEHOLDERS until
+# the smoke test confirms the endpoint; a new System-1 cache:
+#   for pass in 1 2 3; do JEV_EVAL_RUNS=1 jevbench run configs/experiments/stage2_startlux_states.yaml --out runs -o workers=4 \
+#     -o 's1_backends.startlux_4b={type: jev, name: startlux-4b, base_url: http://localhost:8090, model: StartLux-Decision-4B, api_key: "", price_model: StartLux-Decision-4B, timeout: 60.0}'; done
+#   (27B: the same with startlux_27b, port 8091 and model StartLux-Decision-27B, or StartLux-Decision-27B-Q8_0)
+# The server answers one request at a time per GPU, so latency includes queueing (descriptive only).
+name: stage2_startlux_states
+suite: {name: jevgym, n: 500, seed0: 300000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # Stage-2 fresh seeds (A7.2 (a))
+n_tasks: 200
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}          # unused (every arm binds a StartLux backend)
+s1_cache: cache/s1_stage2_startlux.sqlite
+s1_backends:
+  startlux_4b: {type: jev, name: startlux-4b, base_url: "http://localhost:8090", model: StartLux-Decision-4B, api_key: "",
+                price_model: StartLux-Decision-4B, timeout: 60.0, placeholder: true}
+  startlux_27b: {type: jev, name: startlux-27b, base_url: "http://localhost:8091", model: StartLux-Decision-27B, api_key: "",
+                 price_model: StartLux-Decision-27B, timeout: 120.0, placeholder: true}
+workers: 4
+arms:
+  - {name: sl4b_ts_replace_f, s1: startlux_4b, tool_select: {mode: replace}}
+  - {name: sl27b_ts_replace_f, s1: startlux_27b, tool_select: {mode: replace}}

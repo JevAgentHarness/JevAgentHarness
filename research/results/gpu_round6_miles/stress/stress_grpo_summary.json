@@ -1,0 +1,22 @@
+{
+ "stress_grpo::ours_stress_ts_params_replace": {
+  "run": "stress_grpo",
+  "n": 200,
+  "success": 0.6,
+  "reward_ccps": 0.40399999999999997,
+  "irreversible_rate": 0.215,
+  "cost_usd": 0.02236621875,
+  "llm_calls": 5.34,
+  "s1_calls": 21.36,
+  "errors": 0,
+  "s1_latency_ms_per_call": 2115.588689550557,
+  "s1_latency_ms_p50": 1954.7055110015208,
+  "s1_latency_ms_p95": 4059.743387401431,
+  "tool_params/replace/s1_acc": 0.9092391304347827,
+  "tool_params/replace/n": 1840,
+  "tool_params/replace/ece": 0.07922883087202262,
+  "tool_select/replace/s1_acc": 0.93885949441505,
+  "tool_select/replace/n": 1701,
+  "tool_select/replace/ece": 0.04686640893829638
+ }
+}

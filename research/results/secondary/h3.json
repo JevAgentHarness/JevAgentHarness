@@ -1,0 +1,5572 @@
+{
+ "generated": "2026-10-03T13:08:22+00:00",
+ "git": "cf3dbb4fb9b90f8057dc31fbfb84e59cf38c740e",
+ "registered": "PREREGISTRATION \u00a73 H3 made mechanical by A6.22 (c); A6.20 (e) (5 % rule); A6.18 (c) (noninferior qualifier)",
+ "readings": [
+  "reference: the arm's own run's LLM-only arm of its System-2 model (score card `family_references`: the episodes' main LLM decides, so routing arms count as Flash, as in the E2b score card)",
+  "front: pooled per suite x System-2 in paired relative coordinates (1 - savings, Delta-success vs the arm's own reference; the reference at (1, 0)); the within-run absolute (cost, success) front is a sensitivity column",
+  "bounded-recoverable is credited when either of its decision points reaches 5 % (tool choices / tool-selection opportunities, bounded arguments / argument slots); assist / guard / trigger whenever the arm has an opportunity",
+  "tau^2: the A5.4 (e) configurations on the 35 airline test tasks x 3 (majority pass for NI and the front); irreversible = WRITE tools of tau2-bench's airline toolkit + transfer_to_human_agents; ALFWorld (E6) not run",
+  "Kendall tau-b over the four class medians; exact permutation p over the 24 orderings (two-sided; p_less = P(tau <= observed) as the reversal side); tau-b undefined when a vector is constant"
+ ],
+ "verdict": {
+  "verdict": "falsified",
+  "counterexamples": [
+   "E2a/jev_ts_cascade_tauhat"
+  ],
+  "negative_tau_b": {},
+  "reasons": [
+   "E2a/jev_ts_cascade_tauhat (credited bounded-recoverable, copy-dependent, irreversible; n = 500) is NI and on the front"
+  ],
+  "candidates": [
+   {
+    "id": "E2a/jev_ts_cascade_tau0.5",
+    "credited": [
+     "bounded-recoverable",
+     "copy-dependent",
+     "irreversible"
+    ],
+    "ni": false,
+    "front": null,
+    "front_within_run": null,
+    "n": 200
+   },
+   {
+    "id": "E2a/jev_ts_cascade_tau0.7",
+    "credited": [
+     "bounded-recoverable",
+     "copy-dependent",
+     "irreversible"
+    ],
+    "ni": false,
+    "front": null,
+    "front_within_run": null,
+    "n": 200
+   },
+   {
+    "id": "E2a/jev_ts_cascade_tau0.8",
+    "credited": [
+     "bounded-recoverable",
+     "copy-dependent",
+     "irreversible"
+    ],
+    "ni": false,
+    "front": null,
+    "front_within_run": null,
+    "n": 200
+   },
+   {
+    "id": "E2a/jev_ts_cascade_tau0.9",
+    "credited": [
+     "bounded-recoverable",
+     "copy-dependent",
+     "irreversible"
+    ],
+    "ni": false,
+    "front": null,
+    "front_within_run": null,
+    "n": 200
+   },
+   {
+    "id": "E2a/jev_ts_cascade_tau0.95",
+    "credited": [
+     "bounded-recoverable",
+     "copy-dependent",
+     "irreversible"
+    ],
+    "ni": false,
+    "front": null,
+    "front_within_run": null,
+    "n": 200
+   },
+   {
+    "id": "E2a/jev_ts_cascade_tau0.99",
+    "credited": [
+     "bounded-recoverable",
+     "copy-dependent",
+     "irreversible"
+    ],
+    "ni": false,
+    "front": null,
+    "front_within_run": null,
+    "n": 200
+   },
+   {
+    "id": "E2a/jev_ts_cascade_tauhat",
+    "credited": [
+     "bounded-recoverable",
+     "copy-dependent",
+     "irreversible"
+    ],
+    "ni": true,
+    "front": true,
+    "front_within_run": true,
+    "n": 500
+   },
+   {
+    "id": "E2a/jev_ts_params_replace",
+    "credited": [
+     "bounded-recoverable",
+     "copy-dependent",
+     "irreversible"
+    ],
+    "ni": false,
+    "front": null,
+    "front_within_run": null,
+    "n": 200
+   },
+   {
+    "id": "E2a/jev_ts_replace",
+    "credited": [
+     "bounded-recoverable",
+     "irreversible"
+    ],
+    "ni": false,
+    "front": null,
+    "front_within_run": null,
+    "n": 200
+   },
+   {
+    "id": "E2a_intern/intern_ts_cascade_tau0.5",
+    "credited": [
+     "bounded-recoverable",
+     "irreversible"
+    ],
+    "ni": false,
+    "front": null,
+    "front_within_run": null,
+    "n": 200
+   },
+   {
+    "id": "E2a_intern/intern_ts_cascade_tau0.7",
+    "credited": [
+     "bounded-recoverable",
+     "irreversible"
+    ],
+    "ni": false,
+    "front": null,
+    "front_within_run": null,
+    "n": 200
+   },
+   {
+    "id": "E2a_intern/intern_ts_cascade_tau0.8",
+    "credited": [
+     "bounded-recoverable",
+     "irreversible"
+    ],
+    "ni": false,
+    "front": null,
+    "front_within_run": null,
+    "n": 200
+   },
+   {
+    "id": "E2a_intern/intern_ts_cascade_tau0.9",
+    "credited": [
+     "bounded-recoverable",
+     "irreversible"
+    ],
+    "ni": false,
+    "front": null,
+    "front_within_run": null,
+    "n": 200
+   },
+   {
+    "id": "E2a_intern/intern_ts_cascade_tau0.95",
+    "credited": [
+     "bounded-recoverable",
+     "irreversible"
+    ],
+    "ni": false,
+    "front": null,
+    "front_within_run": null,
+    "n": 200
+   },
+   {
+    "id": "E2a_intern/intern_ts_params_replace",
+    "credited": [
+     "bounded-recoverable",
+     "copy-dependent",
+     "irreversible"
+    ],
+    "ni": false,
+    "front": null,
+    "front_within_run": null,
+    "n": 200
+   },
+   {
+    "id": "E2a_intern/intern_ts_replace",
+    "credited": [
+     "bounded-recoverable",
+     "irreversible"
+    ],
+    "ni": false,
+    "front": null,
+    "front_within_run": null,
+    "n": 200
+   },
+   {
+    "id": "E2a_intern/jev_ts_replace",
+    "credited": [
+     "bounded-recoverable",
+     "irreversible"
+    ],
+    "ni": false,
+    "front": null,
+    "front_within_run": null,
+    "n": 200
+   },
+   {
+    "id": "E2c/jev_ts_params_replace_answercopy",
+    "credited": [
+     "bounded-recoverable",
+     "copy-dependent",
+     "irreversible"
+    ],
+    "ni": false,
+    "front": null,
+    "front_within_run": null,
+    "n": 200
+   },
+   {
+    "id": "E2c/jev_ts_replace",
+    "credited": [
+     "bounded-recoverable",
+     "irreversible"
+    ],
+    "ni": false,
+    "front": null,
+    "front_within_run": null,
+    "n": 200
+   },
+   {
+    "id": "tau2/jev_ts_cascade_tau0.5",
+    "credited": [
+     "bounded-recoverable",
+     "copy-dependent"
+    ],
+    "ni": false,
+    "front": null,
+    "front_within_run": null,
+    "n": 35
+   },
+   {
+    "id": "tau2/jev_ts_cascade_tau0.7",
+    "credited": [
+     "bounded-recoverable",
+     "copy-dependent",
+     "irreversible"
+    ],
+    "ni": false,
+    "front": null,
+    "front_within_run": null,
+    "n": 35
+   },
+   {
+    "id": "tau2/jev_ts_cascade_tau0.8",
+    "credited": [
+     "bounded-recoverable",
+     "copy-dependent"
+    ],
+    "ni": false,
+    "front": null,
+    "front_within_run": null,
+    "n": 35
+   },
+   {
+    "id": "tau2/jev_ts_cascade_tau0.9",
+    "credited": [
+     "bounded-recoverable",
+     "copy-dependent"
+    ],
+    "ni": false,
+    "front": null,
+    "front_within_run": null,
+    "n": 35
+   },
+   {
+    "id": "tau2/jev_ts_cascade_tau0.95",
+    "credited": [
+     "bounded-recoverable",
+     "copy-dependent"
+    ],
+    "ni": false,
+    "front": null,
+    "front_within_run": null,
+    "n": 35
+   }
+  ],
+  "sensitivity_within_run_front": {
+   "counterexamples": [
+    "E2a/jev_ts_cascade_tauhat"
+   ],
+   "verdict": "falsified"
+  },
+  "note": "'no registered counterexample' does not establish the ordering (A6.22 (c)); the cross-family clause is untested while only one System-2 family (Gemini) runs (\u00a75, A3)"
+ },
+ "kendall": {
+  "flash_vs_lite_L2": {
+   "x": "L2/flash",
+   "y": "L2/lite",
+   "x_medians": [
+    -0.029695499111880186,
+    0.002367895331018055,
+    0.0,
+    0.14184199927022678
+   ],
+   "y_medians": [
+    -0.12847883795579007,
+    -0.06726511814359104,
+    0.0,
+    0.0
+   ],
+   "n": 4,
+   "tau_b": 0.5477225575051661,
+   "p_greater": 0.25,
+   "p_less": 0.9166666666666666,
+   "p_two_sided": 0.5,
+   "method": "exact",
+   "n_permutations": 24
+  },
+  "L2_vs_L3_flash": {
+   "x": "L2/flash",
+   "y": "L3/flash",
+   "x_medians": [
+    -0.029695499111880186,
+    0.002367895331018055,
+    0.0,
+    0.14184199927022678
+   ],
+   "y_medians": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "n": 4,
+   "tau_b": null,
+   "p_greater": null,
+   "p_less": null,
+   "p_two_sided": null,
+   "method": null,
+   "note": "tau-b undefined: a ranking is constant"
+  }
+ },
+ "ranking": {
+  "L2/flash": {
+   "meta": {
+    "median": -0.029695499111880186,
+    "n_qualifying": 8,
+    "arms": [
+     "E2a_intern/intern_stop_guard",
+     "E2b/jev_mem",
+     "E2b/jev_reflect_trigger",
+     "E2b/jev_stop_guard",
+     "E2b/jev_stop_trigger",
+     "E2c/jev_reflect_trigger",
+     "E2c/jev_stop_guard",
+     "E2c/jev_stop_trigger"
+    ],
+    "n_credited": 18
+   },
+   "bounded-recoverable": {
+    "median": 0.002367895331018055,
+    "n_qualifying": 4,
+    "arms": [
+     "E2a/jev_ts_guard",
+     "E2a_intern/intern4b_uncal_ts_guard",
+     "E2a_intern/intern_ts_guard",
+     "E2a_intern/jev_ts_guard"
+    ],
+    "n_credited": 11
+   },
+   "copy-dependent": {
+    "median": 0.0,
+    "n_qualifying": 0,
+    "arms": [],
+    "n_credited": 0
+   },
+   "irreversible": {
+    "median": 0.14184199927022678,
+    "n_qualifying": 1,
+    "arms": [
+     "E2a/jev_ts_cascade_tauhat"
+    ],
+    "n_credited": 19
+   }
+  },
+  "L2/lite": {
+   "meta": {
+    "median": -0.12847883795579007,
+    "n_qualifying": 4,
+    "arms": [
+     "E2b/jev_reflect_trigger_s2lite_e2b",
+     "E2b/jev_stop_guard_s2lite",
+     "E2c/jev_reflect_trigger_s2lite",
+     "E2c/jev_stop_guard_s2lite"
+    ],
+    "n_credited": 5
+   },
+   "bounded-recoverable": {
+    "median": -0.06726511814359104,
+    "n_qualifying": 1,
+    "arms": [
+     "E2a/jev_ts_guard_s2lite"
+    ],
+    "n_credited": 4
+   },
+   "copy-dependent": {
+    "median": 0.0,
+    "n_qualifying": 0,
+    "arms": [],
+    "n_credited": 0
+   },
+   "irreversible": {
+    "median": 0.0,
+    "n_qualifying": 0,
+    "arms": [],
+    "n_credited": 0
+   }
+  },
+  "L3/flash": {
+   "meta": {
+    "median": 0.0,
+    "n_qualifying": 0,
+    "arms": [],
+    "n_credited": 0
+   },
+   "bounded-recoverable": {
+    "median": 0.0,
+    "n_qualifying": 0,
+    "arms": [],
+    "n_credited": 3
+   },
+   "copy-dependent": {
+    "median": 0.0,
+    "n_qualifying": 0,
+    "arms": [],
+    "n_credited": 4
+   },
+   "irreversible": {
+    "median": 0.0,
+    "n_qualifying": 0,
+    "arms": [],
+    "n_credited": 1
+   }
+  }
+ },
+ "arms": [
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "run_dir": "runs/e2a_jevgym_tool_decisions",
+   "arm": "jev_ts_assist_k3",
+   "id": "E2a/jev_ts_assist_k3",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "assist"
+   },
+   "n": 500,
+   "n_dropped": 0,
+   "delta": -0.078,
+   "delta_ci": [
+    -0.102,
+    -0.054
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.5372917643397359,
+   "cost_arm": 0.019631143199999996,
+   "cost_ref": 0.042426612899999994,
+   "success_arm": 0.92,
+   "success_ref": 0.998,
+   "abs_ref": {
+    "cost": 0.042426612899999994,
+    "success": 0.998,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions/jev_ts_assist_k3.jsonl",
+   "sha256": "9065c8675fedc24253051aa115f82779ba18b868af206d85f315ea93f54269fd",
+   "n_episodes": 500,
+   "tool_opportunities": 4052,
+   "arg_slots": 6507,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "bounded-recoverable": 4052
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "bounded-recoverable"
+   ],
+   "riskiest": "bounded-recoverable",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "run_dir": "runs/e2a_jevgym_tool_decisions",
+   "arm": "jev_ts_assist_k3_s2lite",
+   "id": "E2a/jev_ts_assist_k3_s2lite",
+   "s1": "Jev",
+   "s2": "lite",
+   "s2_model": "gemini-3.5-flash-lite",
+   "reference": "llm_only_s2lite",
+   "modes": {
+    "tool_select": "assist"
+   },
+   "n": 500,
+   "n_dropped": 0,
+   "delta": -0.034,
+   "delta_ci": [
+    -0.072,
+    0.006
+   ],
+   "ni": false,
+   "p_decisive": 0.5905344994885369,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.5198340734338618,
+   "cost_arm": 0.0047042429719999996,
+   "cost_ref": 0.00979711952,
+   "success_arm": 0.768,
+   "success_ref": 0.802,
+   "abs_ref": {
+    "cost": 0.00979711952,
+    "success": 0.802,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions/jev_ts_assist_k3_s2lite.jsonl",
+   "sha256": "d98f2bf7390be4594674a164deeef93a870be139c3e18a7d3782c071740fa1de",
+   "n_episodes": 500,
+   "tool_opportunities": 4021,
+   "arg_slots": 6442,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "bounded-recoverable": 4021
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "bounded-recoverable"
+   ],
+   "riskiest": "bounded-recoverable",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "run_dir": "runs/e2a_jevgym_tool_decisions",
+   "arm": "jev_ts_assist_k5",
+   "id": "E2a/jev_ts_assist_k5",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "assist"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.1,
+   "delta_ci": [
+    -0.145,
+    -0.06
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.48269468743984745,
+   "cost_arm": 0.02221390242,
+   "cost_ref": 0.042941570250000005,
+   "success_arm": 0.9,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.042426612899999994,
+    "success": 0.998,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions/jev_ts_assist_k5.jsonl",
+   "sha256": "d71dbfaacd5bc8b7f7e4fd0c5320ca687391be6b7329bcb05366dfa322d70e82",
+   "n_episodes": 200,
+   "tool_opportunities": 1674,
+   "arg_slots": 2679,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "bounded-recoverable": 1674
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "bounded-recoverable"
+   ],
+   "riskiest": "bounded-recoverable",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "run_dir": "runs/e2a_jevgym_tool_decisions",
+   "arm": "jev_ts_cascade_tau0.5",
+   "id": "E2a/jev_ts_cascade_tau0.5",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "cascade",
+    "tool_params": "cascade"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.215,
+   "delta_ci": [
+    -0.275,
+    -0.16
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.8454844855143601,
+   "cost_arm": 0.006635138820000001,
+   "cost_ref": 0.042941570250000005,
+   "success_arm": 0.785,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.042426612899999994,
+    "success": 0.998,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions/jev_ts_cascade_tau0.5.jsonl",
+   "sha256": "e67717a961f6f47ed23cf2a808ead87bd779d8349f0cde56aec39e8ad6fdb3c3",
+   "n_episodes": 200,
+   "tool_opportunities": 1422,
+   "arg_slots": 2349,
+   "counts": {
+    "irreversible_tool": 550,
+    "bounded_tool": 833,
+    "bounded_arg": 848,
+    "copy_arg": 987,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "ship_order": 201,
+    "cancel_order": 167,
+    "finish": 157,
+    "refund": 25
+   },
+   "shares": {
+    "irreversible_tool": 0.38677918424753865,
+    "bounded_tool": 0.5857946554149086,
+    "bounded_arg": 0.3610046828437633,
+    "copy_arg": 0.42017879948914433
+   },
+   "credited": [
+    "bounded-recoverable",
+    "copy-dependent",
+    "irreversible"
+   ],
+   "riskiest": "irreversible",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "run_dir": "runs/e2a_jevgym_tool_decisions",
+   "arm": "jev_ts_cascade_tau0.7",
+   "id": "E2a/jev_ts_cascade_tau0.7",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "cascade",
+    "tool_params": "cascade"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.24,
+   "delta_ci": [
+    -0.305,
+    -0.185
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.8096085165865587,
+   "cost_arm": 0.00817570926,
+   "cost_ref": 0.042941570250000005,
+   "success_arm": 0.76,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.042426612899999994,
+    "success": 0.998,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions/jev_ts_cascade_tau0.7.jsonl",
+   "sha256": "59cba2fc40cc148de7ce3f7a4c918e172576784ccbe7aab306095df68dda44cf",
+   "n_episodes": 200,
+   "tool_opportunities": 1379,
+   "arg_slots": 2255,
+   "counts": {
+    "irreversible_tool": 541,
+    "bounded_tool": 718,
+    "bounded_arg": 806,
+    "copy_arg": 936,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "refund": 25,
+    "ship_order": 201,
+    "cancel_order": 167,
+    "finish": 148
+   },
+   "shares": {
+    "irreversible_tool": 0.39231327048585934,
+    "bounded_tool": 0.5206671501087745,
+    "bounded_arg": 0.3574279379157428,
+    "copy_arg": 0.4150776053215078
+   },
+   "credited": [
+    "bounded-recoverable",
+    "copy-dependent",
+    "irreversible"
+   ],
+   "riskiest": "irreversible",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "run_dir": "runs/e2a_jevgym_tool_decisions",
+   "arm": "jev_ts_cascade_tau0.8",
+   "id": "E2a/jev_ts_cascade_tau0.8",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "cascade",
+    "tool_params": "cascade"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.235,
+   "delta_ci": [
+    -0.3,
+    -0.18
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.7648481322128643,
+   "cost_arm": 0.010097790450000001,
+   "cost_ref": 0.042941570250000005,
+   "success_arm": 0.765,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.042426612899999994,
+    "success": 0.998,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions/jev_ts_cascade_tau0.8.jsonl",
+   "sha256": "eec8555f9d3613a078015d955c08ce76990bc8127c0d28bceb74413c4827ebc7",
+   "n_episodes": 200,
+   "tool_opportunities": 1396,
+   "arg_slots": 2274,
+   "counts": {
+    "irreversible_tool": 530,
+    "bounded_tool": 677,
+    "bounded_arg": 796,
+    "copy_arg": 901,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "refund": 25,
+    "ship_order": 201,
+    "cancel_order": 163,
+    "finish": 141
+   },
+   "shares": {
+    "irreversible_tool": 0.37965616045845274,
+    "bounded_tool": 0.48495702005730656,
+    "bounded_arg": 0.3500439753737907,
+    "copy_arg": 0.39621811785400174
+   },
+   "credited": [
+    "bounded-recoverable",
+    "copy-dependent",
+    "irreversible"
+   ],
+   "riskiest": "irreversible",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "run_dir": "runs/e2a_jevgym_tool_decisions",
+   "arm": "jev_ts_cascade_tau0.9",
+   "id": "E2a/jev_ts_cascade_tau0.9",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "cascade",
+    "tool_params": "cascade"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.205,
+   "delta_ci": [
+    -0.265,
+    -0.15
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.719713233122862,
+   "cost_arm": 0.01203595389,
+   "cost_ref": 0.042941570250000005,
+   "success_arm": 0.795,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.042426612899999994,
+    "success": 0.998,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions/jev_ts_cascade_tau0.9.jsonl",
+   "sha256": "e9bd115d95f88b8cde334a76d6fe8371c4bbb257a01ff9a3d8885a1888b9c5ff",
+   "n_episodes": 200,
+   "tool_opportunities": 1404,
+   "arg_slots": 2281,
+   "counts": {
+    "irreversible_tool": 500,
+    "bounded_tool": 642,
+    "bounded_arg": 772,
+    "copy_arg": 896,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "refund": 25,
+    "ship_order": 196,
+    "cancel_order": 166,
+    "finish": 113
+   },
+   "shares": {
+    "irreversible_tool": 0.3561253561253561,
+    "bounded_tool": 0.45726495726495725,
+    "bounded_arg": 0.33844804910127135,
+    "copy_arg": 0.39281017097764137
+   },
+   "credited": [
+    "bounded-recoverable",
+    "copy-dependent",
+    "irreversible"
+   ],
+   "riskiest": "irreversible",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "run_dir": "runs/e2a_jevgym_tool_decisions",
+   "arm": "jev_ts_cascade_tau0.95",
+   "id": "E2a/jev_ts_cascade_tau0.95",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "cascade",
+    "tool_params": "cascade"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.205,
+   "delta_ci": [
+    -0.265,
+    -0.155
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.6679134154392037,
+   "cost_arm": 0.0142603194,
+   "cost_ref": 0.042941570250000005,
+   "success_arm": 0.795,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.042426612899999994,
+    "success": 0.998,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions/jev_ts_cascade_tau0.95.jsonl",
+   "sha256": "4894df1f752e863fb050f3717605f220231c2bb28ea2f8cde1f4cd70b2ef839d",
+   "n_episodes": 200,
+   "tool_opportunities": 1418,
+   "arg_slots": 2302,
+   "counts": {
+    "irreversible_tool": 466,
+    "bounded_tool": 588,
+    "bounded_arg": 727,
+    "copy_arg": 854,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "refund": 25,
+    "ship_order": 189,
+    "cancel_order": 174,
+    "finish": 78
+   },
+   "shares": {
+    "irreversible_tool": 0.32863187588152326,
+    "bounded_tool": 0.4146685472496474,
+    "bounded_arg": 0.3158123370981755,
+    "copy_arg": 0.37098175499565594
+   },
+   "credited": [
+    "bounded-recoverable",
+    "copy-dependent",
+    "irreversible"
+   ],
+   "riskiest": "irreversible",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "run_dir": "runs/e2a_jevgym_tool_decisions",
+   "arm": "jev_ts_cascade_tau0.99",
+   "id": "E2a/jev_ts_cascade_tau0.99",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "cascade",
+    "tool_params": "cascade"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.08,
+   "delta_ci": [
+    -0.12,
+    -0.045
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.39320689163666533,
+   "cost_arm": 0.02605664889,
+   "cost_ref": 0.042941570250000005,
+   "success_arm": 0.92,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.042426612899999994,
+    "success": 0.998,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions/jev_ts_cascade_tau0.99.jsonl",
+   "sha256": "e9c00020314ca37af60bfb2b1b16d51ce1d29e5bd352078dd5130feefcf349ca",
+   "n_episodes": 200,
+   "tool_opportunities": 1471,
+   "arg_slots": 2381,
+   "counts": {
+    "irreversible_tool": 302,
+    "bounded_tool": 361,
+    "bounded_arg": 461,
+    "copy_arg": 518,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "refund": 21,
+    "cancel_order": 150,
+    "ship_order": 111,
+    "finish": 20
+   },
+   "shares": {
+    "irreversible_tool": 0.2053025152957172,
+    "bounded_tool": 0.24541128484024474,
+    "bounded_arg": 0.19361612767744646,
+    "copy_arg": 0.21755564888702225
+   },
+   "credited": [
+    "bounded-recoverable",
+    "copy-dependent",
+    "irreversible"
+   ],
+   "riskiest": "irreversible",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "run_dir": "runs/e2a_jevgym_tool_decisions",
+   "arm": "jev_ts_cascade_tau0.9_s2lite",
+   "id": "E2a/jev_ts_cascade_tau0.9_s2lite",
+   "s1": "Jev",
+   "s2": "lite",
+   "s2_model": "gemini-3.5-flash-lite",
+   "reference": "llm_only_s2lite",
+   "modes": {
+    "tool_select": "cascade",
+    "tool_params": "cascade"
+   },
+   "n": 500,
+   "n_dropped": 0,
+   "delta": 0.01,
+   "delta_ci": [
+    -0.01,
+    0.032
+   ],
+   "ni": true,
+   "p_decisive": 0.00041151291107290787,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.002016698883755219,
+   "cost_arm": 0.009777361679999999,
+   "cost_ref": 0.00979711952,
+   "success_arm": 0.812,
+   "success_ref": 0.802,
+   "abs_ref": {
+    "cost": 0.00979711952,
+    "success": 0.802,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions/jev_ts_cascade_tau0.9_s2lite.jsonl",
+   "sha256": "37a604be802b30208fe1fb3f590f36e3260434ea5aef60131b573c7d6e63f436",
+   "n_episodes": 500,
+   "tool_opportunities": 3783,
+   "arg_slots": 6103,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [],
+   "riskiest": null,
+   "negligible": true,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "run_dir": "runs/e2a_jevgym_tool_decisions",
+   "arm": "jev_ts_cascade_tauhat",
+   "id": "E2a/jev_ts_cascade_tauhat",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "cascade",
+    "tool_params": "cascade"
+   },
+   "n": 500,
+   "n_dropped": 0,
+   "delta": 0.0,
+   "delta_ci": [
+    0.0,
+    0.0
+   ],
+   "ni": true,
+   "p_decisive": 0.00010024314737847021,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.14184199927022678,
+   "cost_arm": 0.036408737304,
+   "cost_ref": 0.042426612899999994,
+   "success_arm": 0.998,
+   "success_ref": 0.998,
+   "abs_ref": {
+    "cost": 0.042426612899999994,
+    "success": 0.998,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions/jev_ts_cascade_tauhat.jsonl",
+   "sha256": "752dd92afc9e01a5d0c5693be17f40b2a65cb59ab80f97007d1b323b0dbd7909",
+   "n_episodes": 500,
+   "tool_opportunities": 3756,
+   "arg_slots": 6072,
+   "counts": {
+    "irreversible_tool": 528,
+    "bounded_tool": 493,
+    "bounded_arg": 673,
+    "copy_arg": 591,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "cancel_order": 300,
+    "ship_order": 201,
+    "refund": 25,
+    "finish": 2
+   },
+   "shares": {
+    "irreversible_tool": 0.14057507987220447,
+    "bounded_tool": 0.1312566560170394,
+    "bounded_arg": 0.11083662714097496,
+    "copy_arg": 0.09733201581027667
+   },
+   "credited": [
+    "bounded-recoverable",
+    "copy-dependent",
+    "irreversible"
+   ],
+   "riskiest": "irreversible",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": true,
+   "front_within_run": true,
+   "front_group": "L2/flash: 13 qualifying credited arm(s) + the reference"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "run_dir": "runs/e2a_jevgym_tool_decisions",
+   "arm": "jev_ts_guard",
+   "id": "E2a/jev_ts_guard",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "guard"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": 0.0,
+   "delta_ci": [
+    0.0,
+    0.0
+   ],
+   "ni": true,
+   "p_decisive": 0.002363326299121377,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": -0.0020221803602999966,
+   "cost_arm": 0.04302840585,
+   "cost_ref": 0.042941570250000005,
+   "success_arm": 1.0,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.042426612899999994,
+    "success": 0.998,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions/jev_ts_guard.jsonl",
+   "sha256": "ac9567ef11cc6465c710505c72d137e8c6cdee060182eb8cbcbad99d28539448",
+   "n_episodes": 200,
+   "tool_opportunities": 1501,
+   "arg_slots": 2426,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "bounded-recoverable": 1501
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "bounded-recoverable"
+   ],
+   "riskiest": "bounded-recoverable",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": false,
+   "front_within_run": true,
+   "front_group": "L2/flash: 13 qualifying credited arm(s) + the reference"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "run_dir": "runs/e2a_jevgym_tool_decisions",
+   "arm": "jev_ts_guard_s2lite",
+   "id": "E2a/jev_ts_guard_s2lite",
+   "s1": "Jev",
+   "s2": "lite",
+   "s2_model": "gemini-3.5-flash-lite",
+   "reference": "llm_only_s2lite",
+   "modes": {
+    "tool_select": "guard"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": 0.045,
+   "delta_ci": [
+    0.0,
+    0.09
+   ],
+   "ni": true,
+   "p_decisive": 0.001058939439074962,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": -0.06726511814359104,
+   "cost_arm": 0.01042260121,
+   "cost_ref": 0.009765709599999998,
+   "success_arm": 0.865,
+   "success_ref": 0.82,
+   "abs_ref": {
+    "cost": 0.00979711952,
+    "success": 0.802,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions/jev_ts_guard_s2lite.jsonl",
+   "sha256": "19cfdc1183cf21d51bda524f063897604fa60d7a2f4e7f8c4b0fcc03bd8e4af1",
+   "n_episodes": 200,
+   "tool_opportunities": 1514,
+   "arg_slots": 2439,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "bounded-recoverable": 1514
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "bounded-recoverable"
+   ],
+   "riskiest": "bounded-recoverable",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": true,
+   "front_within_run": true,
+   "front_group": "L2/lite: 5 qualifying credited arm(s) + the reference"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "run_dir": "runs/e2a_jevgym_tool_decisions",
+   "arm": "jev_ts_params_replace",
+   "id": "E2a/jev_ts_params_replace",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "replace",
+    "tool_params": "replace"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.2,
+   "delta_ci": [
+    -0.255125,
+    -0.14987500000000067
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.881399430660084,
+   "cost_arm": 0.0050928946800000005,
+   "cost_ref": 0.042941570250000005,
+   "success_arm": 0.8,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.042426612899999994,
+    "success": 0.998,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions/jev_ts_params_replace.jsonl",
+   "sha256": "d245d3b529bdc6be31593d4adc47ae04fb50d76eca773fb6cbf951aec93949e0",
+   "n_episodes": 200,
+   "tool_opportunities": 1516,
+   "arg_slots": 2527,
+   "counts": {
+    "irreversible_tool": 554,
+    "bounded_tool": 962,
+    "bounded_arg": 986,
+    "copy_arg": 1180,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "ship_order": 201,
+    "cancel_order": 168,
+    "finish": 160,
+    "refund": 25
+   },
+   "shares": {
+    "irreversible_tool": 0.3654353562005277,
+    "bounded_tool": 0.6345646437994723,
+    "bounded_arg": 0.39018599129402454,
+    "copy_arg": 0.4669568658488326
+   },
+   "credited": [
+    "bounded-recoverable",
+    "copy-dependent",
+    "irreversible"
+   ],
+   "riskiest": "irreversible",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "run_dir": "runs/e2a_jevgym_tool_decisions",
+   "arm": "jev_ts_replace",
+   "id": "E2a/jev_ts_replace",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "replace"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.19,
+   "delta_ci": [
+    -0.245,
+    -0.135
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.6703675059483881,
+   "cost_arm": 0.0141549369,
+   "cost_ref": 0.042941570250000005,
+   "success_arm": 0.81,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.042426612899999994,
+    "success": 0.998,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions/jev_ts_replace.jsonl",
+   "sha256": "13a3743485e57a0d2c03ae8122e4fb7454d29d14271eb4ae0a5c2b51b6df8982",
+   "n_episodes": 200,
+   "tool_opportunities": 1373,
+   "arg_slots": 2258,
+   "counts": {
+    "irreversible_tool": 562,
+    "bounded_tool": 811,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "ship_order": 201,
+    "finish": 162,
+    "refund": 25,
+    "cancel_order": 174
+   },
+   "shares": {
+    "irreversible_tool": 0.4093226511289148,
+    "bounded_tool": 0.5906773488710853,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "bounded-recoverable",
+    "irreversible"
+   ],
+   "riskiest": "irreversible",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "run_dir": "runs/e2a_jevgym_tool_decisions_intern",
+   "arm": "intern4b_uncal_ts_guard",
+   "id": "E2a_intern/intern4b_uncal_ts_guard",
+   "s1": "Intern-Decision-4B",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "guard"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": 0.0,
+   "delta_ci": [
+    0.0,
+    0.0
+   ],
+   "ni": true,
+   "p_decisive": 0.002363326299121377,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": -0.0239032180586225,
+   "cost_arm": 0.044554935049999994,
+   "cost_ref": 0.0435147915,
+   "success_arm": 1.0,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.043633296599999996,
+    "success": 0.996,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions_intern/intern4b_uncal_ts_guard.jsonl",
+   "sha256": "76b22be3d5eea8d0416fc02857142911a622019aa7ae45af788a4b3234121fc3",
+   "n_episodes": 200,
+   "tool_opportunities": 1526,
+   "arg_slots": 2451,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "bounded-recoverable": 1526
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "bounded-recoverable"
+   ],
+   "riskiest": "bounded-recoverable",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": false,
+   "front_within_run": false,
+   "front_group": "L2/flash: 13 qualifying credited arm(s) + the reference"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "run_dir": "runs/e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_stop_guard",
+   "id": "E2a_intern/intern_stop_guard",
+   "s1": "Intern-Decision-4B",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "stop": "guard"
+   },
+   "n": 500,
+   "n_dropped": 0,
+   "delta": -0.004,
+   "delta_ci": [
+    -0.01,
+    0.0
+   ],
+   "ni": true,
+   "p_decisive": 0.00013301711229553315,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": -0.02998542631317025,
+   "cost_arm": 0.0449416596,
+   "cost_ref": 0.0436332966,
+   "success_arm": 0.992,
+   "success_ref": 0.996,
+   "abs_ref": {
+    "cost": 0.043633296599999996,
+    "success": 0.996,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions_intern/intern_stop_guard.jsonl",
+   "sha256": "3e07503e55fd2dd5d73fe26c758a88e7dd950262c33a01250d1cf2c599c2ed05",
+   "n_episodes": 500,
+   "tool_opportunities": 3957,
+   "arg_slots": 6077,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "meta": 695
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "meta"
+   ],
+   "riskiest": "meta",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": false,
+   "front_within_run": false,
+   "front_group": "L2/flash: 13 qualifying credited arm(s) + the reference"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "run_dir": "runs/e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_stop_guard_s2lite",
+   "id": "E2a_intern/intern_stop_guard_s2lite",
+   "s1": "Intern-Decision-4B",
+   "s2": "lite",
+   "s2_model": "gemini-3.5-flash-lite",
+   "reference": "llm_only_s2lite",
+   "modes": {
+    "stop": "guard"
+   },
+   "n": 500,
+   "n_dropped": 0,
+   "delta": -0.06,
+   "delta_ci": [
+    -0.092,
+    -0.03
+   ],
+   "ni": false,
+   "p_decisive": 0.9745667153469798,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": -0.4531569778791886,
+   "cost_arm": 0.01435050764,
+   "cost_ref": 0.00987540084,
+   "success_arm": 0.774,
+   "success_ref": 0.834,
+   "abs_ref": {
+    "cost": 0.009875400840000001,
+    "success": 0.834,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions_intern/intern_stop_guard_s2lite.jsonl",
+   "sha256": "e4fcab0f32ce97b75d3a6a4dc915148ed30f34a03b2e97b47049f8c53096d2e8",
+   "n_episodes": 500,
+   "tool_opportunities": 5537,
+   "arg_slots": 6105,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "meta": 2199
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "meta"
+   ],
+   "riskiest": "meta",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "run_dir": "runs/e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_ts_assist_k3",
+   "id": "E2a_intern/intern_ts_assist_k3",
+   "s1": "Intern-Decision-4B",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "assist"
+   },
+   "n": 500,
+   "n_dropped": 0,
+   "delta": -0.036,
+   "delta_ci": [
+    -0.054,
+    -0.02
+   ],
+   "ni": false,
+   "p_decisive": 0.7665711859637123,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.5295676119048955,
+   "cost_arm": 0.020526515920000002,
+   "cost_ref": 0.0436332966,
+   "success_arm": 0.96,
+   "success_ref": 0.996,
+   "abs_ref": {
+    "cost": 0.043633296599999996,
+    "success": 0.996,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions_intern/intern_ts_assist_k3.jsonl",
+   "sha256": "42c5a7047e6aba784ef8d94ffb49c738b691cf7a8567cb7530719d64f9dc9e9b",
+   "n_episodes": 500,
+   "tool_opportunities": 4279,
+   "arg_slots": 6481,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "bounded-recoverable": 4279
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "bounded-recoverable"
+   ],
+   "riskiest": "bounded-recoverable",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "run_dir": "runs/e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_ts_assist_k3_s2lite",
+   "id": "E2a_intern/intern_ts_assist_k3_s2lite",
+   "s1": "Intern-Decision-4B",
+   "s2": "lite",
+   "s2_model": "gemini-3.5-flash-lite",
+   "reference": "llm_only_s2lite",
+   "modes": {
+    "tool_select": "assist"
+   },
+   "n": 500,
+   "n_dropped": 0,
+   "delta": -0.148,
+   "delta_ci": [
+    -0.192,
+    -0.108
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.5365481994956671,
+   "cost_arm": 0.0045767723,
+   "cost_ref": 0.00987540084,
+   "success_arm": 0.686,
+   "success_ref": 0.834,
+   "abs_ref": {
+    "cost": 0.009875400840000001,
+    "success": 0.834,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions_intern/intern_ts_assist_k3_s2lite.jsonl",
+   "sha256": "052a9d72b19e044e19b791f173e77f9625d533ee6ed7d8445750a6eb64621c03",
+   "n_episodes": 500,
+   "tool_opportunities": 4298,
+   "arg_slots": 6567,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "bounded-recoverable": 4298
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "bounded-recoverable"
+   ],
+   "riskiest": "bounded-recoverable",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "run_dir": "runs/e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_ts_assist_k5",
+   "id": "E2a_intern/intern_ts_assist_k5",
+   "s1": "Intern-Decision-4B",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "assist"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.025,
+   "delta_ci": [
+    -0.05,
+    -0.005
+   ],
+   "ni": false,
+   "p_decisive": 0.458527968743023,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.5297166734672278,
+   "cost_arm": 0.0204642809,
+   "cost_ref": 0.0435147915,
+   "success_arm": 0.975,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.043633296599999996,
+    "success": 0.996,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions_intern/intern_ts_assist_k5.jsonl",
+   "sha256": "28b4ca74e5cc2a315be3d78f8c803e4fcf918004094d2a80dac3fe777df3296d",
+   "n_episodes": 200,
+   "tool_opportunities": 1612,
+   "arg_slots": 2528,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "bounded-recoverable": 1612
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "bounded-recoverable"
+   ],
+   "riskiest": "bounded-recoverable",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "run_dir": "runs/e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_ts_cascade_tau0.5",
+   "id": "E2a_intern/intern_ts_cascade_tau0.5",
+   "s1": "Intern-Decision-4B",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "cascade",
+    "tool_params": "cascade"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.715,
+   "delta_ci": [
+    -0.775,
+    -0.65
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.8078310038553213,
+   "cost_arm": 0.008362193799999999,
+   "cost_ref": 0.0435147915,
+   "success_arm": 0.285,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.043633296599999996,
+    "success": 0.996,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions_intern/intern_ts_cascade_tau0.5.jsonl",
+   "sha256": "7d5a4484716d7d31e2be54a755194bd2d483874ed15bac477694d5678f1d7036",
+   "n_episodes": 200,
+   "tool_opportunities": 906,
+   "arg_slots": 1492,
+   "counts": {
+    "irreversible_tool": 333,
+    "bounded_tool": 537,
+    "bounded_arg": 279,
+    "copy_arg": 73,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "cancel_order": 117,
+    "ship_order": 133,
+    "refund": 23,
+    "finish": 60
+   },
+   "shares": {
+    "irreversible_tool": 0.3675496688741722,
+    "bounded_tool": 0.5927152317880795,
+    "bounded_arg": 0.18699731903485256,
+    "copy_arg": 0.048927613941018765
+   },
+   "credited": [
+    "bounded-recoverable",
+    "irreversible"
+   ],
+   "riskiest": "irreversible",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "run_dir": "runs/e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_ts_cascade_tau0.7",
+   "id": "E2a_intern/intern_ts_cascade_tau0.7",
+   "s1": "Intern-Decision-4B",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "cascade",
+    "tool_params": "cascade"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.64,
+   "delta_ci": [
+    -0.705,
+    -0.575
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.6301242647571919,
+   "cost_arm": 0.0160950655,
+   "cost_ref": 0.0435147915,
+   "success_arm": 0.36,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.043633296599999996,
+    "success": 0.996,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions_intern/intern_ts_cascade_tau0.7.jsonl",
+   "sha256": "88a4a1b292a5c76dc1899f93849c5e13e82d91c27974167169239f8dcde8ce34",
+   "n_episodes": 200,
+   "tool_opportunities": 994,
+   "arg_slots": 1626,
+   "counts": {
+    "irreversible_tool": 355,
+    "bounded_tool": 360,
+    "bounded_arg": 298,
+    "copy_arg": 66,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "refund": 25,
+    "cancel_order": 135,
+    "ship_order": 132,
+    "finish": 63
+   },
+   "shares": {
+    "irreversible_tool": 0.35714285714285715,
+    "bounded_tool": 0.36217303822937624,
+    "bounded_arg": 0.18327183271832717,
+    "copy_arg": 0.04059040590405904
+   },
+   "credited": [
+    "bounded-recoverable",
+    "irreversible"
+   ],
+   "riskiest": "irreversible",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "run_dir": "runs/e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_ts_cascade_tau0.8",
+   "id": "E2a_intern/intern_ts_cascade_tau0.8",
+   "s1": "Intern-Decision-4B",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "cascade",
+    "tool_params": "cascade"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.505,
+   "delta_ci": [
+    -0.57,
+    -0.435
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.5041020499891399,
+   "cost_arm": 0.0215788959,
+   "cost_ref": 0.0435147915,
+   "success_arm": 0.495,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.043633296599999996,
+    "success": 0.996,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions_intern/intern_ts_cascade_tau0.8.jsonl",
+   "sha256": "b55365c79483fa0e54337cb3ef92ca2f9113cd7d0824da29f19cad35d186f75d",
+   "n_episodes": 200,
+   "tool_opportunities": 1125,
+   "arg_slots": 1836,
+   "counts": {
+    "irreversible_tool": 390,
+    "bounded_tool": 232,
+    "bounded_arg": 299,
+    "copy_arg": 54,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "cancel_order": 147,
+    "refund": 25,
+    "ship_order": 141,
+    "finish": 77
+   },
+   "shares": {
+    "irreversible_tool": 0.3466666666666667,
+    "bounded_tool": 0.20622222222222222,
+    "bounded_arg": 0.16285403050108932,
+    "copy_arg": 0.029411764705882353
+   },
+   "credited": [
+    "bounded-recoverable",
+    "irreversible"
+   ],
+   "riskiest": "irreversible",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "run_dir": "runs/e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_ts_cascade_tau0.9",
+   "id": "E2a_intern/intern_ts_cascade_tau0.9",
+   "s1": "Intern-Decision-4B",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "cascade",
+    "tool_params": "cascade"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.32,
+   "delta_ci": [
+    -0.385,
+    -0.255
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.35412493014013413,
+   "cost_arm": 0.028105118999999998,
+   "cost_ref": 0.0435147915,
+   "success_arm": 0.68,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.043633296599999996,
+    "success": 0.996,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions_intern/intern_ts_cascade_tau0.9.jsonl",
+   "sha256": "d049cf7b461036c4bed6a4315d9b6ca75be5b06d31b3958f559873b543a9afb0",
+   "n_episodes": 200,
+   "tool_opportunities": 1292,
+   "arg_slots": 2099,
+   "counts": {
+    "irreversible_tool": 339,
+    "bounded_tool": 135,
+    "bounded_arg": 259,
+    "copy_arg": 38,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "cancel_order": 139,
+    "refund": 24,
+    "ship_order": 102,
+    "finish": 74
+   },
+   "shares": {
+    "irreversible_tool": 0.26238390092879255,
+    "bounded_tool": 0.1044891640866873,
+    "bounded_arg": 0.12339209147212958,
+    "copy_arg": 0.01810385898046689
+   },
+   "credited": [
+    "bounded-recoverable",
+    "irreversible"
+   ],
+   "riskiest": "irreversible",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "run_dir": "runs/e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_ts_cascade_tau0.95",
+   "id": "E2a_intern/intern_ts_cascade_tau0.95",
+   "s1": "Intern-Decision-4B",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "cascade",
+    "tool_params": "cascade"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.14,
+   "delta_ci": [
+    -0.19,
+    -0.095
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.19160184072121766,
+   "cost_arm": 0.03517727735,
+   "cost_ref": 0.0435147915,
+   "success_arm": 0.86,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.043633296599999996,
+    "success": 0.996,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions_intern/intern_ts_cascade_tau0.95.jsonl",
+   "sha256": "cde1c5f70c060c74fbae9d64cdb66b1129a1269495b9dfdf71dd27855967f9e7",
+   "n_episodes": 200,
+   "tool_opportunities": 1412,
+   "arg_slots": 2287,
+   "counts": {
+    "irreversible_tool": 165,
+    "bounded_tool": 68,
+    "bounded_arg": 138,
+    "copy_arg": 29,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "refund": 18,
+    "cancel_order": 94,
+    "ship_order": 20,
+    "finish": 33
+   },
+   "shares": {
+    "irreversible_tool": 0.11685552407932011,
+    "bounded_tool": 0.04815864022662889,
+    "bounded_arg": 0.06034105815478793,
+    "copy_arg": 0.012680367293397464
+   },
+   "credited": [
+    "bounded-recoverable",
+    "irreversible"
+   ],
+   "riskiest": "irreversible",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "run_dir": "runs/e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_ts_cascade_tau0.99",
+   "id": "E2a_intern/intern_ts_cascade_tau0.99",
+   "s1": "Intern-Decision-4B",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "cascade",
+    "tool_params": "cascade"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": 0.0,
+   "delta_ci": [
+    0.0,
+    0.0
+   ],
+   "ni": true,
+   "p_decisive": 0.002363326299121377,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.05285376467907488,
+   "cost_arm": 0.04121487094999999,
+   "cost_ref": 0.0435147915,
+   "success_arm": 1.0,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.043633296599999996,
+    "success": 0.996,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions_intern/intern_ts_cascade_tau0.99.jsonl",
+   "sha256": "eb50af49ece990a720b2e23b21e64bf4f6758e618dce39a43476f970b5c80d6a",
+   "n_episodes": 200,
+   "tool_opportunities": 1500,
+   "arg_slots": 2425,
+   "counts": {
+    "irreversible_tool": 1,
+    "bounded_tool": 1,
+    "bounded_arg": 1,
+    "copy_arg": 1,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "cancel_order": 1
+   },
+   "shares": {
+    "irreversible_tool": 0.0006666666666666666,
+    "bounded_tool": 0.0006666666666666666,
+    "bounded_arg": 0.0004123711340206186,
+    "copy_arg": 0.0004123711340206186
+   },
+   "credited": [],
+   "riskiest": null,
+   "negligible": true,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "run_dir": "runs/e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_ts_cascade_tau0.9_s2lite",
+   "id": "E2a_intern/intern_ts_cascade_tau0.9_s2lite",
+   "s1": "Intern-Decision-4B",
+   "s2": "lite",
+   "s2_model": "gemini-3.5-flash-lite",
+   "reference": "llm_only_s2lite",
+   "modes": {
+    "tool_select": "cascade",
+    "tool_params": "cascade"
+   },
+   "n": 500,
+   "n_dropped": 0,
+   "delta": -0.006,
+   "delta_ci": [
+    -0.028,
+    0.016
+   ],
+   "ni": true,
+   "p_decisive": 0.024044487205049286,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.009547644852864412,
+   "cost_arm": 0.00978111402,
+   "cost_ref": 0.00987540084,
+   "success_arm": 0.828,
+   "success_ref": 0.834,
+   "abs_ref": {
+    "cost": 0.009875400840000001,
+    "success": 0.834,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions_intern/intern_ts_cascade_tau0.9_s2lite.jsonl",
+   "sha256": "66684b6e76063ef60608974e04f6bd03721f83eb64a204d0a8de1d05258e0e2a",
+   "n_episodes": 500,
+   "tool_opportunities": 3786,
+   "arg_slots": 6107,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [],
+   "riskiest": null,
+   "negligible": true,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "run_dir": "runs/e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_ts_cascade_tauhat",
+   "id": "E2a_intern/intern_ts_cascade_tauhat",
+   "s1": "Intern-Decision-4B",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "cascade",
+    "tool_params": "cascade"
+   },
+   "n": 500,
+   "n_dropped": 0,
+   "delta": 0.002,
+   "delta_ci": [
+    0.0,
+    0.008
+   ],
+   "ni": true,
+   "p_decisive": 0.00010024314737847021,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": -0.0015422465237244776,
+   "cost_arm": 0.043700589899999996,
+   "cost_ref": 0.0436332966,
+   "success_arm": 0.998,
+   "success_ref": 0.996,
+   "abs_ref": {
+    "cost": 0.043633296599999996,
+    "success": 0.996,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions_intern/intern_ts_cascade_tauhat.jsonl",
+   "sha256": "f05da80182d5b687dbec4a1136570f24f4496f3b13fadbbb1f7ef40287ae03a2",
+   "n_episodes": 500,
+   "tool_opportunities": 3759,
+   "arg_slots": 6076,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [],
+   "riskiest": null,
+   "negligible": true,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "run_dir": "runs/e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_ts_guard",
+   "id": "E2a_intern/intern_ts_guard",
+   "s1": "Intern-Decision-4B",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "guard"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": 0.0,
+   "delta_ci": [
+    0.0,
+    0.0
+   ],
+   "ni": true,
+   "p_decisive": 0.002363326299121377,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.006757971022336107,
+   "cost_arm": 0.0432207198,
+   "cost_ref": 0.0435147915,
+   "success_arm": 1.0,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.043633296599999996,
+    "success": 0.996,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions_intern/intern_ts_guard.jsonl",
+   "sha256": "0264a311969d21de5fb2244b4d526f8f8cbbb85eb8c3e4e3acec79ce8359f868",
+   "n_episodes": 200,
+   "tool_opportunities": 1532,
+   "arg_slots": 2457,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "bounded-recoverable": 1532
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "bounded-recoverable"
+   ],
+   "riskiest": "bounded-recoverable",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": false,
+   "front_within_run": false,
+   "front_group": "L2/flash: 13 qualifying credited arm(s) + the reference"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "run_dir": "runs/e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_ts_guard_s2lite",
+   "id": "E2a_intern/intern_ts_guard_s2lite",
+   "s1": "Intern-Decision-4B",
+   "s2": "lite",
+   "s2_model": "gemini-3.5-flash-lite",
+   "reference": "llm_only_s2lite",
+   "modes": {
+    "tool_select": "guard"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.005,
+   "delta_ci": [
+    -0.045,
+    0.035
+   ],
+   "ni": false,
+   "p_decisive": 0.1386517487389798,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": -0.043700961988151876,
+   "cost_arm": 0.01031297745,
+   "cost_ref": 0.009881161199999999,
+   "success_arm": 0.845,
+   "success_ref": 0.85,
+   "abs_ref": {
+    "cost": 0.009875400840000001,
+    "success": 0.834,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions_intern/intern_ts_guard_s2lite.jsonl",
+   "sha256": "311d7494a97174131f70bef5d04dd72f8cd28b3f5c8718290d243fe0c00c2038",
+   "n_episodes": 200,
+   "tool_opportunities": 1510,
+   "arg_slots": 2435,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "bounded-recoverable": 1510
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "bounded-recoverable"
+   ],
+   "riskiest": "bounded-recoverable",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "run_dir": "runs/e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_ts_params_replace",
+   "id": "E2a_intern/intern_ts_params_replace",
+   "s1": "Intern-Decision-4B",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "replace",
+    "tool_params": "replace"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.86,
+   "delta_ci": [
+    -0.905,
+    -0.81
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.9510554497313861,
+   "cost_arm": 0.0021298119,
+   "cost_ref": 0.0435147915,
+   "success_arm": 0.14,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.043633296599999996,
+    "success": 0.996,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions_intern/intern_ts_params_replace.jsonl",
+   "sha256": "2722b51d06a193bd4e9929a2f5a6ff55d5de675bbfad9e29e4c07b2dcac64ae1",
+   "n_episodes": 200,
+   "tool_opportunities": 878,
+   "arg_slots": 1439,
+   "counts": {
+    "irreversible_tool": 259,
+    "bounded_tool": 619,
+    "bounded_arg": 532,
+    "copy_arg": 687,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "cancel_order": 79,
+    "ship_order": 89,
+    "refund": 23,
+    "finish": 68
+   },
+   "shares": {
+    "irreversible_tool": 0.2949886104783599,
+    "bounded_tool": 0.7050113895216401,
+    "bounded_arg": 0.36970118137595553,
+    "copy_arg": 0.477414871438499
+   },
+   "credited": [
+    "bounded-recoverable",
+    "copy-dependent",
+    "irreversible"
+   ],
+   "riskiest": "irreversible",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "run_dir": "runs/e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_ts_replace",
+   "id": "E2a_intern/intern_ts_replace",
+   "s1": "Intern-Decision-4B",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "replace"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.735,
+   "delta_ci": [
+    -0.795,
+    -0.67
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.8179613810168435,
+   "cost_arm": 0.00792137255,
+   "cost_ref": 0.0435147915,
+   "success_arm": 0.265,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.043633296599999996,
+    "success": 0.996,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions_intern/intern_ts_replace.jsonl",
+   "sha256": "a1a941343fc3f76127b23be0f2c631e24b050635df3f0153366aee08e8677e6c",
+   "n_episodes": 200,
+   "tool_opportunities": 911,
+   "arg_slots": 1503,
+   "counts": {
+    "irreversible_tool": 337,
+    "bounded_tool": 574,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "cancel_order": 114,
+    "ship_order": 135,
+    "refund": 23,
+    "finish": 65
+   },
+   "shares": {
+    "irreversible_tool": 0.3699231613611416,
+    "bounded_tool": 0.6300768386388584,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "bounded-recoverable",
+    "irreversible"
+   ],
+   "riskiest": "irreversible",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "run_dir": "runs/e2a_jevgym_tool_decisions_intern",
+   "arm": "jev_ts_assist_k3",
+   "id": "E2a_intern/jev_ts_assist_k3",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "assist"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.085,
+   "delta_ci": [
+    -0.125,
+    -0.045
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.552102073153677,
+   "cost_arm": 0.0194901849,
+   "cost_ref": 0.0435147915,
+   "success_arm": 0.915,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.043633296599999996,
+    "success": 0.996,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions_intern/jev_ts_assist_k3.jsonl",
+   "sha256": "503cfc078776c9022be12e29ef7d8b1a51fbdc55ed220da69d1a3dc30fdef866",
+   "n_episodes": 200,
+   "tool_opportunities": 1611,
+   "arg_slots": 2589,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "bounded-recoverable": 1611
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "bounded-recoverable"
+   ],
+   "riskiest": "bounded-recoverable",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "run_dir": "runs/e2a_jevgym_tool_decisions_intern",
+   "arm": "jev_ts_guard",
+   "id": "E2a_intern/jev_ts_guard",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "guard"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": 0.0,
+   "delta_ci": [
+    0.0,
+    0.0
+   ],
+   "ni": true,
+   "p_decisive": 0.002363326299121377,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.031463531659114086,
+   "cost_arm": 0.04214566248,
+   "cost_ref": 0.0435147915,
+   "success_arm": 1.0,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.043633296599999996,
+    "success": 0.996,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions_intern/jev_ts_guard.jsonl",
+   "sha256": "c00c94efd1ad8402c3bce87c52c5689a7679162a98092986f3728798c8286e24",
+   "n_episodes": 200,
+   "tool_opportunities": 1500,
+   "arg_slots": 2425,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "bounded-recoverable": 1500
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "bounded-recoverable"
+   ],
+   "riskiest": "bounded-recoverable",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": false,
+   "front_within_run": true,
+   "front_group": "L2/flash: 13 qualifying credited arm(s) + the reference"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "run_dir": "runs/e2a_jevgym_tool_decisions_intern",
+   "arm": "jev_ts_replace",
+   "id": "E2a_intern/jev_ts_replace",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "replace"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.21,
+   "delta_ci": [
+    -0.265,
+    -0.155
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.6778895128108335,
+   "cost_arm": 0.01401657069,
+   "cost_ref": 0.0435147915,
+   "success_arm": 0.79,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.043633296599999996,
+    "success": 0.996,
+    "n": 500
+   },
+   "file": "runs/e2a_jevgym_tool_decisions_intern/jev_ts_replace.jsonl",
+   "sha256": "159abffb469f27e9e4551b4a9c8409363177adc461aea55b8f61238c61414548",
+   "n_episodes": 200,
+   "tool_opportunities": 1361,
+   "arg_slots": 2241,
+   "counts": {
+    "irreversible_tool": 556,
+    "bounded_tool": 805,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "cancel_order": 174,
+    "finish": 158,
+    "ship_order": 199,
+    "refund": 25
+   },
+   "shares": {
+    "irreversible_tool": 0.4085231447465099,
+    "bounded_tool": 0.59147685525349,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "bounded-recoverable",
+    "irreversible"
+   ],
+   "riskiest": "irreversible",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2b",
+   "run_dir": "runs/e2b_jevgym_meta_control",
+   "arm": "jev_mem",
+   "id": "E2b/jev_mem",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "memory_write": "trigger",
+    "memory_read": "assist"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": 0.0,
+   "delta_ci": [
+    0.0,
+    0.0
+   ],
+   "ni": true,
+   "p_decisive": 0.002363326299121377,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": -0.04782270784270559,
+   "cost_arm": 0.04255068237000001,
+   "cost_ref": 0.040608665999999995,
+   "success_arm": 1.0,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.0408178521,
+    "success": 0.998,
+    "n": 500
+   },
+   "file": "runs/e2b_jevgym_meta_control/jev_mem.jsonl",
+   "sha256": "cb49d6cf5b22b315ac71aa16f4b0d0063a57b56a7b7dcfa705c3c7efb582ba49",
+   "n_episodes": 200,
+   "tool_opportunities": 1501,
+   "arg_slots": 2426,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "meta": 2002
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "meta"
+   ],
+   "riskiest": "meta",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": false,
+   "front_within_run": false,
+   "front_group": "L2/flash: 13 qualifying credited arm(s) + the reference"
+  },
+  {
+   "suite": "L2",
+   "run": "E2b",
+   "run_dir": "runs/e2b_jevgym_meta_control",
+   "arm": "jev_reflect_trigger",
+   "id": "E2b/jev_reflect_trigger",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "reflection": "trigger"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": 0.0,
+   "delta_ci": [
+    0.0,
+    0.0
+   ],
+   "ni": true,
+   "p_decisive": 0.002363326299121377,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.008747570038375563,
+   "cost_arm": 0.040253438849999996,
+   "cost_ref": 0.040608665999999995,
+   "success_arm": 1.0,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.0408178521,
+    "success": 0.998,
+    "n": 500
+   },
+   "file": "runs/e2b_jevgym_meta_control/jev_reflect_trigger.jsonl",
+   "sha256": "b5fb53077f54977b5f0810f35263ac31acc53ca4b21d7b3b2f5e529cadfb2aa6",
+   "n_episodes": 200,
+   "tool_opportunities": 1504,
+   "arg_slots": 2429,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "meta": 1304
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "meta"
+   ],
+   "riskiest": "meta",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": false,
+   "front_within_run": true,
+   "front_group": "L2/flash: 13 qualifying credited arm(s) + the reference"
+  },
+  {
+   "suite": "L2",
+   "run": "E2b",
+   "run_dir": "runs/e2b_jevgym_meta_control",
+   "arm": "jev_reflect_trigger_s2lite_e2b",
+   "id": "E2b/jev_reflect_trigger_s2lite_e2b",
+   "s1": "Jev",
+   "s2": "lite",
+   "s2_model": "gemini-3.5-flash-lite",
+   "reference": "llm_only_s2lite",
+   "modes": {
+    "reflection": "trigger"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": 0.035,
+   "delta_ci": [
+    -0.005,
+    0.075
+   ],
+   "ni": true,
+   "p_decisive": 0.0017658881301847909,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": -0.0020471819861405116,
+   "cost_arm": 0.009770638259999999,
+   "cost_ref": 0.00975067685,
+   "success_arm": 0.845,
+   "success_ref": 0.81,
+   "abs_ref": {
+    "cost": 0.009803186279999999,
+    "success": 0.804,
+    "n": 500
+   },
+   "file": "runs/e2b_jevgym_meta_control/jev_reflect_trigger_s2lite_e2b.jsonl",
+   "sha256": "ab6cb4b09b4a8ef5699e94eae6e4547c41e1757321cc2f4ba438d5cec8634fc0",
+   "n_episodes": 200,
+   "tool_opportunities": 1514,
+   "arg_slots": 2443,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "meta": 1314
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "meta"
+   ],
+   "riskiest": "meta",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": true,
+   "front_within_run": true,
+   "front_group": "L2/lite: 5 qualifying credited arm(s) + the reference"
+  },
+  {
+   "suite": "L2",
+   "run": "E2b",
+   "run_dir": "runs/e2b_jevgym_meta_control",
+   "arm": "jev_route_tau0.2",
+   "id": "E2b/jev_route_tau0.2",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "routing": "trigger"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.03,
+   "delta_ci": [
+    -0.055,
+    -0.01
+   ],
+   "ni": false,
+   "p_decisive": 0.6310358177046081,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.2841707666536004,
+   "cost_arm": 0.02906887025,
+   "cost_ref": 0.040608665999999995,
+   "success_arm": 0.97,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.0408178521,
+    "success": 0.998,
+    "n": 500
+   },
+   "file": "runs/e2b_jevgym_meta_control/jev_route_tau0.2.jsonl",
+   "sha256": "092bee214c801a728ce1a8f070367392a4d1101f3aa3b36208fadac70fc501f1",
+   "n_episodes": 200,
+   "tool_opportunities": 1509,
+   "arg_slots": 2436,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "meta": 1509
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "meta"
+   ],
+   "riskiest": "meta",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2b",
+   "run_dir": "runs/e2b_jevgym_meta_control",
+   "arm": "jev_route_tau0.4",
+   "id": "E2b/jev_route_tau0.4",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "routing": "trigger"
+   },
+   "n": 500,
+   "n_dropped": 0,
+   "delta": -0.184,
+   "delta_ci": [
+    -0.22,
+    -0.14995000000000028
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.6726860047591774,
+   "cost_arm": 0.013360254248,
+   "cost_ref": 0.040817852099999996,
+   "success_arm": 0.814,
+   "success_ref": 0.998,
+   "abs_ref": {
+    "cost": 0.0408178521,
+    "success": 0.998,
+    "n": 500
+   },
+   "file": "runs/e2b_jevgym_meta_control/jev_route_tau0.4.jsonl",
+   "sha256": "3e63174d0ed6a92de7a4bc2c4a9f55c59d8629058128fde53032cd9144f8920b",
+   "n_episodes": 500,
+   "tool_opportunities": 3784,
+   "arg_slots": 6105,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "meta": 3784
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "meta"
+   ],
+   "riskiest": "meta",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2b",
+   "run_dir": "runs/e2b_jevgym_meta_control",
+   "arm": "jev_route_tau0.6",
+   "id": "E2b/jev_route_tau0.6",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "routing": "trigger"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.17,
+   "delta_ci": [
+    -0.22,
+    -0.12
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.7517594709956736,
+   "cost_arm": 0.01008071673,
+   "cost_ref": 0.040608665999999995,
+   "success_arm": 0.83,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.0408178521,
+    "success": 0.998,
+    "n": 500
+   },
+   "file": "runs/e2b_jevgym_meta_control/jev_route_tau0.6.jsonl",
+   "sha256": "b15284a6c294d96b17c05902a254be89afb1258baf4e922afc6da9d3058ffbf9",
+   "n_episodes": 200,
+   "tool_opportunities": 1509,
+   "arg_slots": 2436,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "meta": 1509
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "meta"
+   ],
+   "riskiest": "meta",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2b",
+   "run_dir": "runs/e2b_jevgym_meta_control",
+   "arm": "jev_route_tau0.8",
+   "id": "E2b/jev_route_tau0.8",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "routing": "trigger"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.16,
+   "delta_ci": [
+    -0.21,
+    -0.11
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.7515556130309723,
+   "cost_arm": 0.010088995129999999,
+   "cost_ref": 0.040608665999999995,
+   "success_arm": 0.84,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.0408178521,
+    "success": 0.998,
+    "n": 500
+   },
+   "file": "runs/e2b_jevgym_meta_control/jev_route_tau0.8.jsonl",
+   "sha256": "0fd8bd1cba3a13641809a6bf3eefcd90b25e92aff5412c2b2b5d8256938b7db4",
+   "n_episodes": 200,
+   "tool_opportunities": 1509,
+   "arg_slots": 2435,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "meta": 1509
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "meta"
+   ],
+   "riskiest": "meta",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2b",
+   "run_dir": "runs/e2b_jevgym_meta_control",
+   "arm": "jev_stop_guard",
+   "id": "E2b/jev_stop_guard",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "stop": "guard"
+   },
+   "n": 500,
+   "n_dropped": 0,
+   "delta": -0.006,
+   "delta_ci": [
+    -0.014,
+    0.0
+   ],
+   "ni": true,
+   "p_decisive": 0.0002821190265498436,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": -0.06164767596872167,
+   "cost_arm": 0.04333417782,
+   "cost_ref": 0.040817852099999996,
+   "success_arm": 0.992,
+   "success_ref": 0.998,
+   "abs_ref": {
+    "cost": 0.0408178521,
+    "success": 0.998,
+    "n": 500
+   },
+   "file": "runs/e2b_jevgym_meta_control/jev_stop_guard.jsonl",
+   "sha256": "ae755cc7cfffa9b4c018d69ee8518147370b035fe4a170d7a2cab319908d6d96",
+   "n_episodes": 500,
+   "tool_opportunities": 3860,
+   "arg_slots": 6073,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "meta": 600
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "meta"
+   ],
+   "riskiest": "meta",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": false,
+   "front_within_run": false,
+   "front_group": "L2/flash: 13 qualifying credited arm(s) + the reference"
+  },
+  {
+   "suite": "L2",
+   "run": "E2b",
+   "run_dir": "runs/e2b_jevgym_meta_control",
+   "arm": "jev_stop_guard_s2lite",
+   "id": "E2b/jev_stop_guard_s2lite",
+   "s1": "Jev",
+   "s2": "lite",
+   "s2_model": "gemini-3.5-flash-lite",
+   "reference": "llm_only_s2lite",
+   "modes": {
+    "stop": "guard"
+   },
+   "n": 500,
+   "n_dropped": 0,
+   "delta": 0.016,
+   "delta_ci": [
+    -0.008,
+    0.04
+   ],
+   "ni": true,
+   "p_decisive": 0.0003340971500440929,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": -0.3210495724661475,
+   "cost_arm": 0.012950495044000001,
+   "cost_ref": 0.009803186279999999,
+   "success_arm": 0.82,
+   "success_ref": 0.804,
+   "abs_ref": {
+    "cost": 0.009803186279999999,
+    "success": 0.804,
+    "n": 500
+   },
+   "file": "runs/e2b_jevgym_meta_control/jev_stop_guard_s2lite.jsonl",
+   "sha256": "d9e853e54ef99435529482a8f472dde506a70adfc2f3677181958b7d1b9ced24",
+   "n_episodes": 500,
+   "tool_opportunities": 4956,
+   "arg_slots": 6090,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "meta": 1639
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "meta"
+   ],
+   "riskiest": "meta",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": false,
+   "front_within_run": false,
+   "front_group": "L2/lite: 5 qualifying credited arm(s) + the reference"
+  },
+  {
+   "suite": "L2",
+   "run": "E2b",
+   "run_dir": "runs/e2b_jevgym_meta_control",
+   "arm": "jev_stop_trigger",
+   "id": "E2b/jev_stop_trigger",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "stop": "trigger"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": 0.0,
+   "delta_ci": [
+    0.0,
+    0.0
+   ],
+   "ni": true,
+   "p_decisive": 0.002363326299121377,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": -0.0009283890290807673,
+   "cost_arm": 0.04064636664,
+   "cost_ref": 0.040608665999999995,
+   "success_arm": 1.0,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.0408178521,
+    "success": 0.998,
+    "n": 500
+   },
+   "file": "runs/e2b_jevgym_meta_control/jev_stop_trigger.jsonl",
+   "sha256": "67028e3f764b2e14acb2fb205fb671ed853e92eefbf7d0d13a02ff6725a273fa",
+   "n_episodes": 200,
+   "tool_opportunities": 1501,
+   "arg_slots": 2426,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "meta": 1301
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "meta"
+   ],
+   "riskiest": "meta",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": false,
+   "front_within_run": false,
+   "front_group": "L2/flash: 13 qualifying credited arm(s) + the reference"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "run_dir": "runs/e2c_jevgym_baselines",
+   "arm": "jev_memw",
+   "id": "E2c/jev_memw",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "memory_write": "trigger"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.01,
+   "delta_ci": [
+    -0.025,
+    0.0
+   ],
+   "ni": false,
+   "p_decisive": 0.059434274662800116,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": -0.3893798002498421,
+   "cost_arm": 0.056875182239999995,
+   "cost_ref": 0.04093566225,
+   "success_arm": 0.99,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.04093566225,
+    "success": 1.0,
+    "n": 200
+   },
+   "file": "runs/e2c_jevgym_baselines/jev_memw.jsonl",
+   "sha256": "943231b19f6e866f91d9ac4265c756dd39e403eb4c99dcdcd9a5dd575b9e5514",
+   "n_episodes": 200,
+   "tool_opportunities": 1510,
+   "arg_slots": 2441,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "meta": 1312
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "meta"
+   ],
+   "riskiest": "meta",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "run_dir": "runs/e2c_jevgym_baselines",
+   "arm": "jev_reflect_trigger",
+   "id": "E2c/jev_reflect_trigger",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "reflection": "trigger"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": 0.0,
+   "delta_ci": [
+    0.0,
+    0.0
+   ],
+   "ni": true,
+   "p_decisive": 0.002363326299121377,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": -0.047707253838308095,
+   "cost_arm": 0.04288859027999999,
+   "cost_ref": 0.04093566225,
+   "success_arm": 1.0,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.04093566225,
+    "success": 1.0,
+    "n": 200
+   },
+   "file": "runs/e2c_jevgym_baselines/jev_reflect_trigger.jsonl",
+   "sha256": "421e64ae98d00c4fd15c1ac2279efbca5f8fa05c475b906b67fbeac3d680028e",
+   "n_episodes": 200,
+   "tool_opportunities": 1506,
+   "arg_slots": 2431,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "meta": 1306
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "meta"
+   ],
+   "riskiest": "meta",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": false,
+   "front_within_run": false,
+   "front_group": "L2/flash: 13 qualifying credited arm(s) + the reference"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "run_dir": "runs/e2c_jevgym_baselines",
+   "arm": "jev_reflect_trigger_s2lite",
+   "id": "E2c/jev_reflect_trigger_s2lite",
+   "s1": "Jev",
+   "s2": "lite",
+   "s2_model": "gemini-3.5-flash-lite",
+   "reference": "llm_only_s2lite",
+   "modes": {
+    "reflection": "trigger"
+   },
+   "n": 500,
+   "n_dropped": 0,
+   "delta": 0.018,
+   "delta_ci": [
+    -0.016,
+    0.048049999999999725
+   ],
+   "ni": true,
+   "p_decisive": 0.0024127561037745743,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": -0.01879736943469701,
+   "cost_arm": 0.009914041536000002,
+   "cost_ref": 0.009731122039999998,
+   "success_arm": 0.83,
+   "success_ref": 0.812,
+   "abs_ref": {
+    "cost": 0.009731122039999998,
+    "success": 0.812,
+    "n": 500
+   },
+   "file": "runs/e2c_jevgym_baselines/jev_reflect_trigger_s2lite.jsonl",
+   "sha256": "044c0d35a44050e14d5445c16336100c2aca3b31fc353d6ca97ddf6324156b5e",
+   "n_episodes": 500,
+   "tool_opportunities": 3810,
+   "arg_slots": 6141,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "meta": 3310
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "meta"
+   ],
+   "riskiest": "meta",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": false,
+   "front_within_run": true,
+   "front_group": "L2/lite: 5 qualifying credited arm(s) + the reference"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "run_dir": "runs/e2c_jevgym_baselines",
+   "arm": "jev_route_tau0.2",
+   "id": "E2c/jev_route_tau0.2",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "routing": "trigger"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.04,
+   "delta_ci": [
+    -0.07,
+    -0.015
+   ],
+   "ni": false,
+   "p_decisive": 0.8555227157191303,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.24615536517917214,
+   "cost_arm": 0.030859129359999998,
+   "cost_ref": 0.04093566225,
+   "success_arm": 0.96,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.04093566225,
+    "success": 1.0,
+    "n": 200
+   },
+   "file": "runs/e2c_jevgym_baselines/jev_route_tau0.2.jsonl",
+   "sha256": "c5be62c26d7afa6471c2fd1ab5a30d881dbe984fad527444ce6d4fbb3d37c7f7",
+   "n_episodes": 200,
+   "tool_opportunities": 1508,
+   "arg_slots": 2435,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "meta": 1508
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "meta"
+   ],
+   "riskiest": "meta",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "run_dir": "runs/e2c_jevgym_baselines",
+   "arm": "jev_route_tau0.4",
+   "id": "E2c/jev_route_tau0.4",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "routing": "trigger"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.17,
+   "delta_ci": [
+    -0.22,
+    -0.12
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.6837871252467644,
+   "cost_arm": 0.01294438344,
+   "cost_ref": 0.04093566225,
+   "success_arm": 0.83,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.04093566225,
+    "success": 1.0,
+    "n": 200
+   },
+   "file": "runs/e2c_jevgym_baselines/jev_route_tau0.4.jsonl",
+   "sha256": "4aa94db33c240b2d1c3fa6f1d5da852b31ff1b2005fa82c60d036b1228c5abb2",
+   "n_episodes": 200,
+   "tool_opportunities": 1509,
+   "arg_slots": 2436,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "meta": 1509
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "meta"
+   ],
+   "riskiest": "meta",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "run_dir": "runs/e2c_jevgym_baselines",
+   "arm": "jev_route_tau0.5",
+   "id": "E2c/jev_route_tau0.5",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "routing": "trigger"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.155,
+   "delta_ci": [
+    -0.205,
+    -0.105
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.7183171568208842,
+   "cost_arm": 0.01153087373,
+   "cost_ref": 0.04093566225,
+   "success_arm": 0.845,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.04093566225,
+    "success": 1.0,
+    "n": 200
+   },
+   "file": "runs/e2c_jevgym_baselines/jev_route_tau0.5.jsonl",
+   "sha256": "de4c7a5aa7685ecf6dbcece3430d3b67d92d6d431d6af57f2837eec2b06c7647",
+   "n_episodes": 200,
+   "tool_opportunities": 1510,
+   "arg_slots": 2436,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "meta": 1510
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "meta"
+   ],
+   "riskiest": "meta",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "run_dir": "runs/e2c_jevgym_baselines",
+   "arm": "jev_route_tau0.6",
+   "id": "E2c/jev_route_tau0.6",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "routing": "trigger"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.18,
+   "delta_ci": [
+    -0.23,
+    -0.13
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.7535329127355207,
+   "cost_arm": 0.010089293440000001,
+   "cost_ref": 0.04093566225,
+   "success_arm": 0.82,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.04093566225,
+    "success": 1.0,
+    "n": 200
+   },
+   "file": "runs/e2c_jevgym_baselines/jev_route_tau0.6.jsonl",
+   "sha256": "34acf542e683a7d479dcf5dec5fd0531bd53b97631245ce2f54e08bbe0ee835a",
+   "n_episodes": 200,
+   "tool_opportunities": 1510,
+   "arg_slots": 2437,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "meta": 1510
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "meta"
+   ],
+   "riskiest": "meta",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "run_dir": "runs/e2c_jevgym_baselines",
+   "arm": "jev_route_tau0.8",
+   "id": "E2c/jev_route_tau0.8",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "routing": "trigger"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.16,
+   "delta_ci": [
+    -0.21,
+    -0.11
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.7541355078480501,
+   "cost_arm": 0.01006462581,
+   "cost_ref": 0.04093566225,
+   "success_arm": 0.84,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.04093566225,
+    "success": 1.0,
+    "n": 200
+   },
+   "file": "runs/e2c_jevgym_baselines/jev_route_tau0.8.jsonl",
+   "sha256": "b97569fd7af4fa8ca33017b04d91c2a9c7f6782f97c789ef36499bef9c6db41d",
+   "n_episodes": 200,
+   "tool_opportunities": 1510,
+   "arg_slots": 2437,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "meta": 1510
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "meta"
+   ],
+   "riskiest": "meta",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "run_dir": "runs/e2c_jevgym_baselines",
+   "arm": "jev_stop_guard",
+   "id": "E2c/jev_stop_guard",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "stop": "guard"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": 0.0,
+   "delta_ci": [
+    0.0,
+    0.0
+   ],
+   "ni": true,
+   "p_decisive": 0.002363326299121377,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": -0.029405571910590123,
+   "cost_arm": 0.04213939881,
+   "cost_ref": 0.04093566225,
+   "success_arm": 1.0,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.04093566225,
+    "success": 1.0,
+    "n": 200
+   },
+   "file": "runs/e2c_jevgym_baselines/jev_stop_guard.jsonl",
+   "sha256": "821b829c239ee963c961a98fe8f2bc0c22cef8ff3a5a4192dd3b2fde0458507a",
+   "n_episodes": 200,
+   "tool_opportunities": 1525,
+   "arg_slots": 2426,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "meta": 224
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "meta"
+   ],
+   "riskiest": "meta",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": false,
+   "front_within_run": false,
+   "front_group": "L2/flash: 13 qualifying credited arm(s) + the reference"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "run_dir": "runs/e2c_jevgym_baselines",
+   "arm": "jev_stop_guard_s2lite",
+   "id": "E2c/jev_stop_guard_s2lite",
+   "s1": "Jev",
+   "s2": "lite",
+   "s2_model": "gemini-3.5-flash-lite",
+   "reference": "llm_only_s2lite",
+   "modes": {
+    "stop": "guard"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": 0.03,
+   "delta_ci": [
+    -0.005,
+    0.07
+   ],
+   "ni": true,
+   "p_decisive": 0.0010818751322550911,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": -0.23816030647688313,
+   "cost_arm": 0.01202120122,
+   "cost_ref": 0.0097089215,
+   "success_arm": 0.845,
+   "success_ref": 0.815,
+   "abs_ref": {
+    "cost": 0.009731122039999998,
+    "success": 0.812,
+    "n": 500
+   },
+   "file": "runs/e2c_jevgym_baselines/jev_stop_guard_s2lite.jsonl",
+   "sha256": "8c17c28116680657ba280aa09bc63e0ce2f8d63b6d0758456418b2341473070c",
+   "n_episodes": 200,
+   "tool_opportunities": 1846,
+   "arg_slots": 2427,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "meta": 530
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "meta"
+   ],
+   "riskiest": "meta",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": false,
+   "front_within_run": true,
+   "front_group": "L2/lite: 5 qualifying credited arm(s) + the reference"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "run_dir": "runs/e2c_jevgym_baselines",
+   "arm": "jev_stop_trigger",
+   "id": "E2c/jev_stop_trigger",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "stop": "trigger"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": 0.0,
+   "delta_ci": [
+    0.0,
+    0.0
+   ],
+   "ni": true,
+   "p_decisive": 0.002363326299121377,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.008266531708546965,
+   "cost_arm": 0.040597266300000004,
+   "cost_ref": 0.04093566225,
+   "success_arm": 1.0,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.04093566225,
+    "success": 1.0,
+    "n": 200
+   },
+   "file": "runs/e2c_jevgym_baselines/jev_stop_trigger.jsonl",
+   "sha256": "4cb96c900dbcf3d74ebe5fd1dcfc86f784f4a9d92bdc75756e39653a61af5030",
+   "n_episodes": 200,
+   "tool_opportunities": 1500,
+   "arg_slots": 2425,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "meta": 1300
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "meta"
+   ],
+   "riskiest": "meta",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": false,
+   "front_within_run": true,
+   "front_group": "L2/flash: 13 qualifying credited arm(s) + the reference"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "run_dir": "runs/e2c_jevgym_baselines",
+   "arm": "jev_ts_assist_k3",
+   "id": "E2c/jev_ts_assist_k3",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "assist"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.095,
+   "delta_ci": [
+    -0.14,
+    -0.055
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.5230366287771488,
+   "cost_arm": 0.01952481147,
+   "cost_ref": 0.04093566225,
+   "success_arm": 0.905,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.04093566225,
+    "success": 1.0,
+    "n": 200
+   },
+   "file": "runs/e2c_jevgym_baselines/jev_ts_assist_k3.jsonl",
+   "sha256": "0c096df56da6b8acb4f395c1502de72043b949620c56b53fa09a8da46d8a9f92",
+   "n_episodes": 200,
+   "tool_opportunities": 1619,
+   "arg_slots": 2603,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "bounded-recoverable": 1619
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "bounded-recoverable"
+   ],
+   "riskiest": "bounded-recoverable",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "run_dir": "runs/e2c_jevgym_baselines",
+   "arm": "jev_ts_assist_k5",
+   "id": "E2c/jev_ts_assist_k5",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "assist"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.08,
+   "delta_ci": [
+    -0.12,
+    -0.045
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.45160403286256834,
+   "cost_arm": 0.02244895209,
+   "cost_ref": 0.04093566225,
+   "success_arm": 0.92,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.04093566225,
+    "success": 1.0,
+    "n": 200
+   },
+   "file": "runs/e2c_jevgym_baselines/jev_ts_assist_k5.jsonl",
+   "sha256": "eef8b48e119b37defde20bbf3e2d97d69ff9156d45077806a5a175f4c99cb48f",
+   "n_episodes": 200,
+   "tool_opportunities": 1688,
+   "arg_slots": 2693,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "bounded-recoverable": 1688
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "bounded-recoverable"
+   ],
+   "riskiest": "bounded-recoverable",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "run_dir": "runs/e2c_jevgym_baselines",
+   "arm": "jev_ts_params_replace_answercopy",
+   "id": "E2c/jev_ts_params_replace_answercopy",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "replace",
+    "tool_params": "replace"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.2,
+   "delta_ci": [
+    -0.255,
+    -0.15
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.8661011856477294,
+   "cost_arm": 0.0054812366400000005,
+   "cost_ref": 0.04093566225,
+   "success_arm": 0.8,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.04093566225,
+    "success": 1.0,
+    "n": 200
+   },
+   "file": "runs/e2c_jevgym_baselines/jev_ts_params_replace_answercopy.jsonl",
+   "sha256": "983d954c74f8a1e56761c1bd0981eec719da20d37c5d6e3a8651b5c201efaec2",
+   "n_episodes": 200,
+   "tool_opportunities": 1522,
+   "arg_slots": 2538,
+   "counts": {
+    "irreversible_tool": 555,
+    "bounded_tool": 967,
+    "bounded_arg": 986,
+    "copy_arg": 1170,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "ship_order": 201,
+    "cancel_order": 168,
+    "finish": 161,
+    "refund": 25
+   },
+   "shares": {
+    "irreversible_tool": 0.36465177398160314,
+    "bounded_tool": 0.6353482260183968,
+    "bounded_arg": 0.38849487785658,
+    "copy_arg": 0.46099290780141844
+   },
+   "credited": [
+    "bounded-recoverable",
+    "copy-dependent",
+    "irreversible"
+   ],
+   "riskiest": "irreversible",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "run_dir": "runs/e2c_jevgym_baselines",
+   "arm": "jev_ts_replace",
+   "id": "E2c/jev_ts_replace",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "replace"
+   },
+   "n": 200,
+   "n_dropped": 0,
+   "delta": -0.185,
+   "delta_ci": [
+    -0.24,
+    -0.13
+   ],
+   "ni": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "margin": 0.03,
+   "cost_savings": 0.6537827385460216,
+   "cost_arm": 0.014172632880000001,
+   "cost_ref": 0.04093566225,
+   "success_arm": 0.815,
+   "success_ref": 1.0,
+   "abs_ref": {
+    "cost": 0.04093566225,
+    "success": 1.0,
+    "n": 200
+   },
+   "file": "runs/e2c_jevgym_baselines/jev_ts_replace.jsonl",
+   "sha256": "85825d03d27c8c741dc257a5a343b2bb594eebea7b22dcd1c0733b97b090c0e2",
+   "n_episodes": 200,
+   "tool_opportunities": 1376,
+   "arg_slots": 2262,
+   "counts": {
+    "irreversible_tool": 563,
+    "bounded_tool": 813,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "ship_order": 201,
+    "cancel_order": 174,
+    "finish": 163,
+    "refund": 25
+   },
+   "shares": {
+    "irreversible_tool": 0.40915697674418605,
+    "bounded_tool": 0.590843023255814,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "bounded-recoverable",
+    "irreversible"
+   ],
+   "riskiest": "irreversible",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L3",
+   "run": "tau2_airline_test",
+   "run_dir": "runs/tau2/airline (35 test tasks x 3)",
+   "arm": "jev_ts_cascade_tau0.5",
+   "id": "tau2/jev_ts_cascade_tau0.5",
+   "configuration": "CASCADE tau=0.5",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini/gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "cascade",
+    "tool_params": "cascade"
+   },
+   "n": 35,
+   "n_dropped": 0,
+   "delta": -0.17142857142857143,
+   "delta_ci": [
+    -0.3142857142857143,
+    -0.02857142857142857
+   ],
+   "ni": false,
+   "p_decisive": 0.9501287947451315,
+   "rule": "bb_ordered",
+   "margin": 0.05,
+   "endpoint": "majority pass (>= 2 of 3)",
+   "cost_savings": -0.24376699664965407,
+   "cost_arm": 0.10007868794285717,
+   "cost_ref": 0.08046417714285714,
+   "success_arm": 0.5428571428571428,
+   "success_ref": 0.7142857142857143,
+   "abs_ref": {
+    "cost": 0.08046417714285714,
+    "success": 0.7142857142857143,
+    "n": 35
+   },
+   "file": "runs/tau2/airline/jev_ts_cascade_tau0.5.jsonl",
+   "sha256": "3fd7f94394c8436365bd8641833caa5ff613f861617d3dbc600c3e19ed21cc54",
+   "n_episodes": 105,
+   "tool_opportunities": 1599,
+   "arg_slots": 2225,
+   "counts": {
+    "irreversible_tool": 73,
+    "bounded_tool": 850,
+    "bounded_arg": 30,
+    "copy_arg": 744,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "send_certificate": 2,
+    "transfer_to_human_agents": 30,
+    "book_reservation": 5,
+    "update_reservation_flights": 15,
+    "cancel_reservation": 14,
+    "update_reservation_passengers": 3,
+    "update_reservation_baggages": 4
+   },
+   "shares": {
+    "irreversible_tool": 0.045653533458411506,
+    "bounded_tool": 0.5315822388993121,
+    "bounded_arg": 0.01348314606741573,
+    "copy_arg": 0.3343820224719101
+   },
+   "credited": [
+    "bounded-recoverable",
+    "copy-dependent"
+   ],
+   "riskiest": "copy-dependent",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L3",
+   "run": "tau2_airline_test",
+   "run_dir": "runs/tau2/airline (35 test tasks x 3)",
+   "arm": "jev_ts_cascade_tau0.7",
+   "id": "tau2/jev_ts_cascade_tau0.7",
+   "configuration": "CASCADE tau=0.7",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini/gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "cascade",
+    "tool_params": "cascade"
+   },
+   "n": 35,
+   "n_dropped": 0,
+   "delta": -0.14285714285714285,
+   "delta_ci": [
+    -0.3142857142857143,
+    0.02857142857142857
+   ],
+   "ni": false,
+   "p_decisive": 0.8746518547749207,
+   "rule": "bb_ordered",
+   "margin": 0.05,
+   "endpoint": "majority pass (>= 2 of 3)",
+   "cost_savings": -0.05826883814348349,
+   "cost_arm": 0.08515273125714287,
+   "cost_ref": 0.08046417714285714,
+   "success_arm": 0.5714285714285714,
+   "success_ref": 0.7142857142857143,
+   "abs_ref": {
+    "cost": 0.08046417714285714,
+    "success": 0.7142857142857143,
+    "n": 35
+   },
+   "file": "runs/tau2/airline/jev_ts_cascade_tau0.7.jsonl",
+   "sha256": "9e494d61c7cc4fef7decd82c0e5b08d8c0d407653f031fec6085c0f358b17e6e",
+   "n_episodes": 105,
+   "tool_opportunities": 1293,
+   "arg_slots": 1598,
+   "counts": {
+    "irreversible_tool": 73,
+    "bounded_tool": 635,
+    "bounded_arg": 57,
+    "copy_arg": 437,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "transfer_to_human_agents": 11,
+    "book_reservation": 13,
+    "update_reservation_flights": 18,
+    "cancel_reservation": 17,
+    "update_reservation_passengers": 6,
+    "update_reservation_baggages": 6,
+    "send_certificate": 2
+   },
+   "shares": {
+    "irreversible_tool": 0.05645784996133024,
+    "bounded_tool": 0.4911059551430781,
+    "bounded_arg": 0.03566958698372966,
+    "copy_arg": 0.2734668335419274
+   },
+   "credited": [
+    "bounded-recoverable",
+    "copy-dependent",
+    "irreversible"
+   ],
+   "riskiest": "irreversible",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L3",
+   "run": "tau2_airline_test",
+   "run_dir": "runs/tau2/airline (35 test tasks x 3)",
+   "arm": "jev_ts_cascade_tau0.8",
+   "id": "tau2/jev_ts_cascade_tau0.8",
+   "configuration": "CASCADE tau=0.8",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini/gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "cascade",
+    "tool_params": "cascade"
+   },
+   "n": 35,
+   "n_dropped": 0,
+   "delta": -0.08571428571428572,
+   "delta_ci": [
+    -0.2571428571428571,
+    0.08571428571428572
+   ],
+   "ni": false,
+   "p_decisive": 0.6866259599665662,
+   "rule": "bb_ordered",
+   "margin": 0.05,
+   "endpoint": "majority pass (>= 2 of 3)",
+   "cost_savings": -0.07243670954620374,
+   "cost_arm": 0.08629273737142856,
+   "cost_ref": 0.08046417714285714,
+   "success_arm": 0.6285714285714286,
+   "success_ref": 0.7142857142857143,
+   "abs_ref": {
+    "cost": 0.08046417714285714,
+    "success": 0.7142857142857143,
+    "n": 35
+   },
+   "file": "runs/tau2/airline/jev_ts_cascade_tau0.8.jsonl",
+   "sha256": "b0a20ac249bd411dee3c448284512a75d104ee119c8a33d61efbd85127ffdbaf",
+   "n_episodes": 105,
+   "tool_opportunities": 1267,
+   "arg_slots": 1637,
+   "counts": {
+    "irreversible_tool": 60,
+    "bounded_tool": 495,
+    "bounded_arg": 49,
+    "copy_arg": 323,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "transfer_to_human_agents": 11,
+    "book_reservation": 11,
+    "update_reservation_flights": 16,
+    "update_reservation_baggages": 5,
+    "cancel_reservation": 10,
+    "send_certificate": 3,
+    "update_reservation_passengers": 4
+   },
+   "shares": {
+    "irreversible_tool": 0.0473559589581689,
+    "bounded_tool": 0.39068666140489344,
+    "bounded_arg": 0.029932803909590716,
+    "copy_arg": 0.1973121563836286
+   },
+   "credited": [
+    "bounded-recoverable",
+    "copy-dependent"
+   ],
+   "riskiest": "copy-dependent",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L3",
+   "run": "tau2_airline_test",
+   "run_dir": "runs/tau2/airline (35 test tasks x 3)",
+   "arm": "jev_ts_cascade_tau0.9",
+   "id": "tau2/jev_ts_cascade_tau0.9",
+   "configuration": "CASCADE tau=0.9",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini/gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "cascade",
+    "tool_params": "cascade"
+   },
+   "n": 35,
+   "n_dropped": 0,
+   "delta": -0.02857142857142857,
+   "delta_ci": [
+    -0.14285714285714285,
+    0.05714285714285714
+   ],
+   "ni": false,
+   "p_decisive": 0.736249653269693,
+   "rule": "bb_ordered",
+   "margin": 0.05,
+   "endpoint": "majority pass (>= 2 of 3)",
+   "cost_savings": -0.18104610740353588,
+   "cost_arm": 0.09503190319999999,
+   "cost_ref": 0.08046417714285714,
+   "success_arm": 0.6857142857142857,
+   "success_ref": 0.7142857142857143,
+   "abs_ref": {
+    "cost": 0.08046417714285714,
+    "success": 0.7142857142857143,
+    "n": 35
+   },
+   "file": "runs/tau2/airline/jev_ts_cascade_tau0.9.jsonl",
+   "sha256": "28ecb2d7d20c3ad68c74ab70f441ec1b99fdef148b27737b074e2b603cd41588",
+   "n_episodes": 105,
+   "tool_opportunities": 1283,
+   "arg_slots": 1680,
+   "counts": {
+    "irreversible_tool": 47,
+    "bounded_tool": 329,
+    "bounded_arg": 53,
+    "copy_arg": 213,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "send_certificate": 1,
+    "book_reservation": 14,
+    "update_reservation_flights": 12,
+    "update_reservation_baggages": 3,
+    "cancel_reservation": 9,
+    "update_reservation_passengers": 4,
+    "transfer_to_human_agents": 4
+   },
+   "shares": {
+    "irreversible_tool": 0.036632891660171474,
+    "bounded_tool": 0.2564302416212003,
+    "bounded_arg": 0.03154761904761905,
+    "copy_arg": 0.12678571428571428
+   },
+   "credited": [
+    "bounded-recoverable",
+    "copy-dependent"
+   ],
+   "riskiest": "copy-dependent",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L3",
+   "run": "tau2_airline_test",
+   "run_dir": "runs/tau2/airline (35 test tasks x 3)",
+   "arm": "jev_ts_cascade_tau0.95",
+   "id": "tau2/jev_ts_cascade_tau0.95",
+   "configuration": "CASCADE tau=0.95",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini/gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "cascade",
+    "tool_params": "cascade"
+   },
+   "n": 35,
+   "n_dropped": 0,
+   "delta": -0.05714285714285714,
+   "delta_ci": [
+    -0.17142857142857143,
+    0.05714285714285714
+   ],
+   "ni": false,
+   "p_decisive": 0.7362497729492283,
+   "rule": "bb_ordered",
+   "margin": 0.05,
+   "endpoint": "majority pass (>= 2 of 3)",
+   "cost_savings": -0.19160940900692558,
+   "cost_arm": 0.09588187057142857,
+   "cost_ref": 0.08046417714285714,
+   "success_arm": 0.6571428571428571,
+   "success_ref": 0.7142857142857143,
+   "abs_ref": {
+    "cost": 0.08046417714285714,
+    "success": 0.7142857142857143,
+    "n": 35
+   },
+   "file": "runs/tau2/airline/jev_ts_cascade_tau0.95.jsonl",
+   "sha256": "7196537ea2188a46dc8ccb4b449550a73a09493c44d341d0ebcbe16717e29d95",
+   "n_episodes": 105,
+   "tool_opportunities": 1311,
+   "arg_slots": 1716,
+   "counts": {
+    "irreversible_tool": 41,
+    "bounded_tool": 199,
+    "bounded_arg": 43,
+    "copy_arg": 138,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "update_reservation_flights": 14,
+    "cancel_reservation": 12,
+    "update_reservation_baggages": 1,
+    "book_reservation": 10,
+    "update_reservation_passengers": 3,
+    "transfer_to_human_agents": 1
+   },
+   "shares": {
+    "irreversible_tool": 0.031273836765827616,
+    "bounded_tool": 0.15179252479023647,
+    "bounded_arg": 0.02505827505827506,
+    "copy_arg": 0.08041958041958042
+   },
+   "credited": [
+    "bounded-recoverable",
+    "copy-dependent"
+   ],
+   "riskiest": "copy-dependent",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L3",
+   "run": "tau2_airline_test",
+   "run_dir": "runs/tau2/airline (35 test tasks x 3)",
+   "arm": "jev_ts_cascade_tau0.99",
+   "id": "tau2/jev_ts_cascade_tau0.99",
+   "configuration": "CASCADE tau=0.99",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini/gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "cascade",
+    "tool_params": "cascade"
+   },
+   "n": 35,
+   "n_dropped": 0,
+   "delta": -0.02857142857142857,
+   "delta_ci": [
+    -0.14285714285714285,
+    0.08571428571428572
+   ],
+   "ni": false,
+   "p_decisive": 0.37845458698986173,
+   "rule": "bb_ordered",
+   "margin": 0.05,
+   "endpoint": "majority pass (>= 2 of 3)",
+   "cost_savings": -0.054901811496452346,
+   "cost_arm": 0.08488180622857143,
+   "cost_ref": 0.08046417714285714,
+   "success_arm": 0.6857142857142857,
+   "success_ref": 0.7142857142857143,
+   "abs_ref": {
+    "cost": 0.08046417714285714,
+    "success": 0.7142857142857143,
+    "n": 35
+   },
+   "file": "runs/tau2/airline/jev_ts_cascade_tau0.99.jsonl",
+   "sha256": "57625b097a5a224dfa585f3fcdb9005c5dc38c6f656c72dc011f97f9a9c7006c",
+   "n_episodes": 105,
+   "tool_opportunities": 1327,
+   "arg_slots": 1643,
+   "counts": {
+    "irreversible_tool": 24,
+    "bounded_tool": 103,
+    "bounded_arg": 21,
+    "copy_arg": 75,
+    "every_opportunity": {}
+   },
+   "irreversible_tools": {
+    "book_reservation": 5,
+    "update_reservation_flights": 7,
+    "cancel_reservation": 5,
+    "update_reservation_passengers": 3,
+    "transfer_to_human_agents": 4
+   },
+   "shares": {
+    "irreversible_tool": 0.01808590806330068,
+    "bounded_tool": 0.07761868877166542,
+    "bounded_arg": 0.01278149726110773,
+    "copy_arg": 0.04564820450395618
+   },
+   "credited": [
+    "bounded-recoverable"
+   ],
+   "riskiest": "bounded-recoverable",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L3",
+   "run": "tau2_airline_test",
+   "run_dir": "runs/tau2/airline (35 test tasks x 3)",
+   "arm": "jev_ts_assist_k3",
+   "id": "tau2/jev_ts_assist_k3",
+   "configuration": "ASSIST k=3",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini/gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "tool_select": "assist"
+   },
+   "n": 35,
+   "n_dropped": 0,
+   "delta": -0.08571428571428572,
+   "delta_ci": [
+    -0.22857142857142856,
+    0.05714285714285714
+   ],
+   "ni": false,
+   "p_decisive": 0.7011281920588088,
+   "rule": "bb_ordered",
+   "margin": 0.05,
+   "endpoint": "majority pass (>= 2 of 3)",
+   "cost_savings": -0.09171355047012586,
+   "cost_arm": 0.08784383251428571,
+   "cost_ref": 0.08046417714285714,
+   "success_arm": 0.6285714285714286,
+   "success_ref": 0.7142857142857143,
+   "abs_ref": {
+    "cost": 0.08046417714285714,
+    "success": 0.7142857142857143,
+    "n": 35
+   },
+   "file": "runs/tau2/airline/jev_ts_assist_k3.jsonl",
+   "sha256": "526e6aa0f74aab25c19290b76bf2391c9d388e0dc11cb1208428d6910bf7298c",
+   "n_episodes": 105,
+   "tool_opportunities": 1344,
+   "arg_slots": 1744,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "bounded-recoverable": 1344
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "bounded-recoverable"
+   ],
+   "riskiest": "bounded-recoverable",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  },
+  {
+   "suite": "L3",
+   "run": "tau2_airline_test",
+   "run_dir": "runs/tau2/airline (35 test tasks x 3)",
+   "arm": "jev_guard",
+   "id": "tau2/jev_guard",
+   "configuration": "policy GUARD",
+   "s1": "Jev",
+   "s2": "flash",
+   "s2_model": "gemini/gemini-3.5-flash",
+   "reference": "llm_only",
+   "modes": {
+    "stop": "guard",
+    "policy": "guard"
+   },
+   "n": 35,
+   "n_dropped": 0,
+   "delta": 0.0,
+   "delta_ci": [
+    -0.11428571428571428,
+    0.11428571428571428
+   ],
+   "ni": false,
+   "p_decisive": 0.3737114010154121,
+   "rule": "bb_ordered",
+   "margin": 0.05,
+   "endpoint": "majority pass (>= 2 of 3)",
+   "cost_savings": -0.03895311709608351,
+   "cost_arm": 0.08359850765714286,
+   "cost_ref": 0.08046417714285714,
+   "success_arm": 0.7142857142857143,
+   "success_ref": 0.7142857142857143,
+   "abs_ref": {
+    "cost": 0.08046417714285714,
+    "success": 0.7142857142857143,
+    "n": 35
+   },
+   "file": "runs/tau2/airline/jev_guard.jsonl",
+   "sha256": "3a2735d22a9060bb19df1bdc2442df1ee4084f99bb5e873acfe33a570e3da634",
+   "n_episodes": 105,
+   "tool_opportunities": 1324,
+   "arg_slots": 1646,
+   "counts": {
+    "irreversible_tool": 0,
+    "bounded_tool": 0,
+    "bounded_arg": 0,
+    "copy_arg": 0,
+    "every_opportunity": {
+     "meta": 21,
+     "bounded-recoverable": 103
+    }
+   },
+   "irreversible_tools": {},
+   "shares": {
+    "irreversible_tool": 0.0,
+    "bounded_tool": 0.0,
+    "bounded_arg": 0.0,
+    "copy_arg": 0.0
+   },
+   "credited": [
+    "meta",
+    "bounded-recoverable"
+   ],
+   "riskiest": "bounded-recoverable",
+   "negligible": false,
+   "unclassified_modes": {},
+   "front": null,
+   "front_within_run": null
+  }
+ ],
+ "excluded": [
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "arm": "bm25_ts_assist_k3_s2lite",
+   "reason": "System-1 bm25 bm25 (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "arm": "embed_ts_assist_k3",
+   "reason": "System-1 embedding gemini-embedding-001 (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "arm": "jev_shadow",
+   "reason": "shadow / measurement arm"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "arm": "jev_shadow_s2lite",
+   "reason": "shadow / measurement arm"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "arm": "lite_ts_assist_k3",
+   "reason": "System-1 llm_generative gemini-3.5-flash-lite (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "arm": "lite_ts_cascade_tau0.7",
+   "reason": "System-1 llm_generative gemini-3.5-flash-lite (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "arm": "lite_ts_cascade_tau0.9",
+   "reason": "System-1 llm_generative gemini-3.5-flash-lite (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "arm": "lite_ts_cascade_tau0.99",
+   "reason": "System-1 llm_generative gemini-3.5-flash-lite (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "arm": "lite_ts_guard",
+   "reason": "System-1 llm_generative gemini-3.5-flash-lite (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "arm": "lite_ts_params_replace",
+   "reason": "System-1 llm_generative gemini-3.5-flash-lite (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "arm": "llm_only",
+   "reason": "reference (every decision point off)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a",
+   "arm": "llm_only_s2lite",
+   "reason": "reference (every decision point off)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "arm": "intern08_ts_assist_k3",
+   "reason": "System-1 intern_decision internlm/Intern-Decision-0.8B (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "arm": "intern08_ts_replace",
+   "reason": "System-1 intern_decision internlm/Intern-Decision-0.8B (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "arm": "intern2b_ts_assist_k3",
+   "reason": "System-1 intern_decision internlm/Intern-Decision-2B (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "arm": "intern2b_ts_replace",
+   "reason": "System-1 intern_decision internlm/Intern-Decision-2B (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "arm": "intern_shadow",
+   "reason": "shadow / measurement arm"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "arm": "intern_shadow_s2lite",
+   "reason": "shadow / measurement arm"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "arm": "jev_shadow",
+   "reason": "shadow / measurement arm"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "arm": "llm_only",
+   "reason": "reference (every decision point off)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2a_intern",
+   "arm": "llm_only_s2lite",
+   "reason": "reference (every decision point off)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2b",
+   "arm": "lite_route",
+   "reason": "System-1 llm_generative gemini-3.5-flash-lite (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2b",
+   "arm": "lite_stop_guard",
+   "reason": "System-1 llm_generative gemini-3.5-flash-lite (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2b",
+   "arm": "llm_only",
+   "reason": "reference (every decision point off)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2b",
+   "arm": "llm_only_s2lite",
+   "reason": "reference (every decision point off)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2b",
+   "arm": "mem_always",
+   "reason": "no System-1 mode (LLM control: always)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2b",
+   "arm": "mem_llm_gate",
+   "reason": "no System-1 mode (LLM control: always, llm)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2b",
+   "arm": "meta_shadow",
+   "reason": "shadow / measurement arm"
+  },
+  {
+   "suite": "L2",
+   "run": "E2b",
+   "arm": "meta_shadow_s2lite",
+   "reason": "shadow / measurement arm"
+  },
+  {
+   "suite": "L2",
+   "run": "E2b",
+   "arm": "reflect_always",
+   "reason": "no System-1 mode (LLM control: always)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2b",
+   "arm": "reflect_always_s2lite",
+   "reason": "no System-1 mode (LLM control: always)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2b",
+   "arm": "small_only",
+   "reason": "reference (every decision point off)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "bm25_ts_assist_k3",
+   "reason": "System-1 bm25 bm25 (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "bm25_ts_assist_k5",
+   "reason": "System-1 bm25 bm25 (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "bm25_ts_replace",
+   "reason": "System-1 bm25 bm25 (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "bm25task_ts_assist_k3",
+   "reason": "System-1 bm25 bm25 (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "embed_ts_assist_k3",
+   "reason": "System-1 embedding gemini-embedding-001 (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "embed_ts_replace",
+   "reason": "System-1 embedding gemini-embedding-001 (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "heuristic_memw",
+   "reason": "System-1 heuristic heuristic (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "heuristic_reflect_trigger",
+   "reason": "System-1 heuristic heuristic (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "heuristic_reflect_trigger_s2lite",
+   "reason": "System-1 heuristic heuristic (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "heuristic_route",
+   "reason": "System-1 heuristic heuristic (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "heuristic_stop_guard",
+   "reason": "System-1 heuristic heuristic (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "heuristic_stop_guard_s2lite",
+   "reason": "System-1 heuristic heuristic (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "heuristic_stop_trigger",
+   "reason": "System-1 heuristic heuristic (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "heuristic_ts_assist_k3",
+   "reason": "System-1 heuristic heuristic (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "heuristic_ts_replace",
+   "reason": "System-1 heuristic heuristic (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "lite_route",
+   "reason": "System-1 llm_generative gemini-3.5-flash-lite (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "lite_ts_assist_k3",
+   "reason": "System-1 llm_generative gemini-3.5-flash-lite (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "lite_ts_replace",
+   "reason": "System-1 llm_generative gemini-3.5-flash-lite (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "llm_only",
+   "reason": "reference (every decision point off)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "llm_only_s2lite",
+   "reason": "reference (every decision point off)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "prior_recent_ts_replace",
+   "reason": "System-1 prior prior(recent) (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "random_ts_assist_k3",
+   "reason": "System-1 rate rate(0.5) (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "random_ts_replace",
+   "reason": "System-1 rate rate(0.5) (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "randscore_route_tau0.2",
+   "reason": "System-1 rate rate(u) (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "randscore_route_tau0.4",
+   "reason": "System-1 rate rate(u) (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "randscore_route_tau0.6",
+   "reason": "System-1 rate rate(u) (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "randscore_route_tau0.8",
+   "reason": "System-1 rate rate(u) (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "rate10_reflect_trigger",
+   "reason": "System-1 rate rate(0.1) (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "rate10_reflect_trigger_s2lite",
+   "reason": "System-1 rate rate(0.1) (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "rate10_route",
+   "reason": "System-1 rate rate(0.1) (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "rate10_stop_trigger",
+   "reason": "System-1 rate rate(0.1) (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "rate30_reflect_trigger",
+   "reason": "System-1 rate rate(0.3) (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "rate30_reflect_trigger_s2lite",
+   "reason": "System-1 rate rate(0.3) (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "rate30_route",
+   "reason": "System-1 rate rate(0.3) (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "rate50_reflect_trigger",
+   "reason": "System-1 rate rate(0.5) (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "rate50_reflect_trigger_s2lite",
+   "reason": "System-1 rate rate(0.5) (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "rate50_route",
+   "reason": "System-1 rate rate(0.5) (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "rate50_stop_guard",
+   "reason": "System-1 rate rate(0.5) (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "ratem_memw",
+   "reason": "System-1 rate rate(0.9946646341463414) (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "ratem_reflect_trigger_s2lite",
+   "reason": "System-1 rate rate(0.1424) (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "ratem_route",
+   "reason": "System-1 rate rate(0.05033112582781457) (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "ratem_stop_guard_s2lite",
+   "reason": "System-1 rate rate(0.7290836653386454) (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "reflect_always",
+   "reason": "no System-1 mode (LLM control: always)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "s2self_reflect_trigger",
+   "reason": "System-1 s2_self gemini-3.5-flash (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "s2self_reflect_trigger_s2lite",
+   "reason": "System-1 s2_self gemini-3.5-flash-lite (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "s2self_route",
+   "reason": "System-1 s2_self gemini-3.5-flash (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "s2self_ts_assist_k3",
+   "reason": "System-1 s2_self gemini-3.5-flash (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "tfidf_ts_assist_k3",
+   "reason": "System-1 tfidf tfidf (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "tfidf_ts_assist_k5",
+   "reason": "System-1 tfidf tfidf (control / stand-in / other size)"
+  },
+  {
+   "suite": "L2",
+   "run": "E2c",
+   "arm": "tfidf_ts_replace",
+   "reason": "System-1 tfidf tfidf (control / stand-in / other size)"
+  }
+ ],
+ "references": {
+  "E2a": {
+   "flash": "llm_only",
+   "lite": "llm_only_s2lite"
+  },
+  "E2a_intern": {
+   "flash": "llm_only",
+   "lite": "llm_only_s2lite"
+  },
+  "E2b": {
+   "flash": "llm_only",
+   "lite": "llm_only_s2lite"
+  },
+  "E2c": {
+   "flash": "llm_only",
+   "lite": "llm_only_s2lite"
+  },
+  "tau2": {
+   "llm_only": "runs/tau2/airline/llm_only.jsonl",
+   "sha256": "6fb538f76ae21cb93744bdb228215bf3e8cd5fe037e9eeb2b99e41184190cd58",
+   "n_tasks": 35
+  }
+ },
+ "n_universe": 69,
+ "n_negligible": 4,
+ "absent": [
+  "L3 ALFWorld (E6 not run in Stage 1)"
+ ],
+ "flags": []
+}

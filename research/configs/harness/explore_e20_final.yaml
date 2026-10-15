@@ -1,0 +1,57 @@
+# Exploratory row E20 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-08 "E20: decision-model ensembles and a
+# hosted decision API behind the gate" (b), (c)); written by `scripts/explore_e20_ensembles.py prepare-live`
+# from results/explore/e20_ensembles/cal/fits.json before any E20 smoke or live episode. A copy of
+# configs/harness/jevagent_final.yaml (tool + argument cascade, reflection off, argument questions batched per
+# step) with one backends.<row> block per E20 row.
+kind: jevagent_profile
+version: 1
+name: explore_e20_final
+status: development
+description: 'Exploratory row E20 (PREREG_A7_STAGE2 Deviations 2026-10-08 ''E20''):
+  the final harness with a hosted decision model or an agreement gate of two hosted
+  decision models as System-1.'
+system2:
+  gemini-3.5-flash:
+    decision_points:
+      tool_select:
+        mode: cascade
+        tau: 1.0
+      tool_params:
+        mode: cascade
+        tau: 0.99
+        batch_s1: true
+    backends:
+      oaidec:
+        skip: 'E20 (c): both fitted thresholds always defer (the row equals LLM-only;
+          not run live)'
+        fitted_from:
+          tool_select:
+            path: results/explore/e20_ensembles/cal/tauhat_e20cal_oaidec_tool_select.json
+            sha256: b91f7f955991a3e253422eb0a8c4af706aee70a17b650640a5b718203171aef9
+          tool_params:
+            path: results/explore/e20_ensembles/cal/tauhat_e20cal_oaidec_tool_params.json
+            sha256: 5a3bbbee7a5bc835159de2b8c17f80ee70c1d8a257dc7d8d9ded3cf66adaf38e
+        notes: 'E20 row oaidec: OpenAI Decisions API behind the gate; fitted by the
+          registered command on rl_shadow_cal (E20 (c))'
+      agree:
+        tool_select:
+          tau: 1.0
+          always_defer: true
+        tool_params:
+          tau: 0.99
+        skip: 'E20 amendment (the fitted thresholds): the tool choice always defers
+          and the argument cascade is reached only through a System-1 tool choice,
+          so the row makes no System-1 call and equals LLM-only; not run live'
+        fitted_from:
+          tool_select:
+            path: results/explore/e20_ensembles/cal/tauhat_e20cal_agree_tool_select.json
+            sha256: 5839a7a30b1934d762dd736527e11b1b2fe8b8e9559192061195754ea7df2ada
+          tool_params:
+            path: results/explore/e20_ensembles/cal/tauhat_e20cal_agree_tool_params.json
+            sha256: eff3516b330049e4c06fd86143ea768b70fc410eb611d5c15ff1a8c597419894
+        notes: 'E20 row agree: Jev and the Decisions API, agreement gate; fitted by
+          the registered command on rl_shadow_cal (E20 (c))'
+  gemini-3.5-flash-lite:
+    decision_points: {}
+    skip: not part of the final harness (no decision point qualified for Flash-Lite
+      in Stage 1)

@@ -1,0 +1,77 @@
+{
+ "label": "exploratory (E28), descriptive; PREREG_A7_STAGE2 Deviations 2026-10-09 'E28: our recipe on StartLux-Decision-0.8B'; outside every Holm table",
+ "at": "2026-10-09T16:54:35+00:00",
+ "questions": 2719,
+ "answered": 2719,
+ "errors": 0,
+ "derive": {
+  "replaced": 2719,
+  "missing": 0,
+  "dropped_other_dps": 1125
+ },
+ "fits": {
+  "tool_select": {
+   "tau_hat": 0.9516002311101601,
+   "n_paired": 1125,
+   "tau_rule": "projection",
+   "path": "results/explore/e28_sl08b/cal/tauhat_e28cal_tool_select.json"
+  },
+  "tool_params": {
+   "tau_hat": 0.9989569187164307,
+   "n_paired": 1328,
+   "tau_rule": "projection",
+   "path": "results/explore/e28_sl08b/cal/tauhat_e28cal_tool_params.json"
+  }
+ },
+ "coverage_at_tau": {
+  "tool_select": {
+   "tau": 0.9516002311101601,
+   "always_defer": false,
+   "n_paired": 1125,
+   "accepted": 450,
+   "coverage": 0.4,
+   "accepted_errors": 0,
+   "s1_acc_all": 0.9875555555555555,
+   "s2_acc_all": 1.0
+  },
+  "tool_params": {
+   "tau": 0.9989569187164307,
+   "always_defer": false,
+   "n_paired": 1328,
+   "accepted": 625,
+   "coverage": 0.47063253012048195,
+   "accepted_errors": 0,
+   "s1_acc_all": 0.9781626506024096,
+   "s2_acc_all": 1.0
+  }
+ },
+ "profile": {
+  "path": "configs/harness/explore_e28_final.yaml",
+  "sha256": "0bf81c4fb7ae1491ec5be57aa4b5f0ba66b5a52cbe17fe2b4c47bd6217ddcebd",
+  "backend": {
+   "tool_select": {
+    "tau": 0.9516002311101601
+   },
+   "tool_params": {
+    "tau": 0.9989569187164307
+   },
+   "fitted_from": {
+    "tool_select": {
+     "path": "results/explore/e28_sl08b/cal/tauhat_e28cal_tool_select.json",
+     "sha256": "4625db37e815478e23d977b890dd8d1583c568a69625ba53d7d338bc5b5cdb93"
+    },
+    "tool_params": {
+     "path": "results/explore/e28_sl08b/cal/tauhat_e28cal_tool_params.json",
+     "sha256": "3bc252829294007ece00b7b5c168e13ce8e78319a47cd15fa679ce486a9ab1c4"
+    }
+   },
+   "notes": "E28 (f) 7: StartLux-0.8B (mixed) fitted in-domain by the registered command on rl_shadow_cal (seeds 5000-5149)"
+  },
+  "rule": "E28 (f) 7: StartLux-0.8B (mixed) fitted in-domain by the registered command on rl_shadow_cal (seeds 5000-5149)"
+ },
+ "requests_sha256": "d46701e8e9bdc69e6a9e047227eabb1e52578ddc527342dda10b33f7dc5fff5e",
+ "answers": {
+  "path": "results/explore/e28_sl08b/cal/answers_cal.jsonl.gz",
+  "sha256_raw": "35a5d1c4303d06a2eea5c5b58c621846120fc5597dad104e873550b76eba0325"
+ }
+}

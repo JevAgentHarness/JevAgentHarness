@@ -1,0 +1,54 @@
+{
+ "registered": "PREREGISTRATION A6.13, A6.16 (l)",
+ "config": "configs/decision/bfcl_when2call.yaml",
+ "suites": [
+  {
+   "name": "bfcl",
+   "categories": [
+    "simple_python",
+    "multiple",
+    "live_simple",
+    "live_multiple",
+    "irrelevance",
+    "live_irrelevance"
+   ],
+   "max_per_cat": 200
+  },
+  {
+   "name": "when2call",
+   "max_items": 1000
+  }
+ ],
+ "exclude_ids_file": "configs/eval/e1_dev_prefix_ids.json",
+ "exclusion_rule": "by parent (source) item",
+ "n_excluded_records_listed": 299,
+ "n_items_before_exclusion": 4290,
+ "generated": "2026-10-01",
+ "n_items": 3991,
+ "n_source_items": 2042,
+ "by_source": {
+  "bfcl:irrelevance": 185,
+  "bfcl:live_irrelevance": 185,
+  "bfcl:live_multiple": 839,
+  "bfcl:live_simple": 566,
+  "bfcl:multiple": 645,
+  "bfcl:simple_python": 643,
+  "when2call:BFCL v2 Live Multiple": 731,
+  "when2call:BFCL v2 Live Simple": 197
+ },
+ "by_source_dp": {
+  "bfcl:irrelevance|tool_select": 185,
+  "bfcl:live_irrelevance|tool_select": 185,
+  "bfcl:live_multiple|tool_params": 653,
+  "bfcl:live_multiple|tool_select": 186,
+  "bfcl:live_simple|tool_params": 380,
+  "bfcl:live_simple|tool_select": 186,
+  "bfcl:multiple|tool_params": 459,
+  "bfcl:multiple|tool_select": 186,
+  "bfcl:simple_python|tool_params": 457,
+  "bfcl:simple_python|tool_select": 186,
+  "when2call:BFCL v2 Live Multiple|tool_select": 731,
+  "when2call:BFCL v2 Live Simple|tool_select": 197
+ },
+ "sha256": "b47a72c0e55ea94865bf46659adfe97e41f47c889111cde85298080de1a88571"
+}

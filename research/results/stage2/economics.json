@@ -1,0 +1,2014 @@
+{
+ "label": "descriptive sensitivity, post hoc (review round 12); not a registered analysis",
+ "scenarios": {
+  "frozen": {
+   "model": "each call's own model (frozen table)",
+   "rows": {
+    "deepseek/deepseek-v4-flash": {
+     "input_per_m": 0.028,
+     "output_per_m": 0.056,
+     "cached_input_per_m": 0.0056,
+     "per_call": 0.0
+    },
+    "deepseek/deepseek-v4-pro": {
+     "input_per_m": 0.2088,
+     "output_per_m": 0.4176,
+     "cached_input_per_m": 0.0174,
+     "per_call": 0.0
+    },
+    "gemini-3.5-flash": {
+     "input_per_m": 1.5,
+     "output_per_m": 9.0,
+     "cached_input_per_m": 0.15,
+     "per_call": 0.0
+    }
+   }
+  },
+  "sol": {
+   "model": "gpt-6.1-sol",
+   "price": {
+    "input_per_m": 2.0,
+    "output_per_m": 10.0,
+    "cached_input_per_m": 0.1,
+    "per_call": 0.0
+   }
+  },
+  "astra": {
+   "model": "gpt-6-astra",
+   "price": {
+    "input_per_m": 10.0,
+    "output_per_m": 50.0,
+    "cached_input_per_m": 1.0,
+    "per_call": 0.0
+   }
+  }
+ },
+ "arms": {
+  "llm_only": {
+   "label": "LLM-only (Flash)",
+   "status": "reference",
+   "family": "flash",
+   "reference": null,
+   "n": 500,
+   "n_dropped": 0,
+   "dropped": [],
+   "tariff_q": 0.0,
+   "reprice": true,
+   "why_not_repriced": null,
+   "reasoning_tokens": 0,
+   "s2_models": [
+    "gemini-3.5-flash"
+   ],
+   "schedule": {
+    "file": "runs/stage2_jevgym/schedule.json",
+    "concurrency": 8,
+    "started": "2026-10-03T06:57:20+00:00",
+    "finished": "2026-10-03T07:33:46+00:00",
+    "arms_together": [
+     "best_single",
+     "jevagent_best",
+     "jevagent_default",
+     "jevagent_minus_tool",
+     "llm_only"
+    ]
+   },
+   "cost": {
+    "frozen": {
+     "mean": 0.0412984074,
+     "s1": 0.0,
+     "s2": 0.0412984074,
+     "tariff": 0.0,
+     "s2_share": 1.0
+    },
+    "sol": {
+     "mean": 0.052337233600000005,
+     "s1": 0.0,
+     "s2": 0.052337233600000005,
+     "tariff": 0.0,
+     "s2_share": 1.0
+    },
+    "astra": {
+     "mean": 0.272599376,
+     "s1": 0.0,
+     "s2": 0.272599376,
+     "tariff": 0.0,
+     "s2_share": 1.0
+    }
+   },
+   "timing": {
+    "arm": {
+     "wall_mean": 6.826870727614012,
+     "wall_median": 7.049228011499508,
+     "calllat_mean": 6.804797059687902,
+     "calllat_median": 7.014616060499975,
+     "retry_wait_mean": 0.0
+    }
+   }
+  },
+  "best_single": {
+   "label": "cascade alone (Jev)",
+   "status": "descriptive",
+   "family": "flash",
+   "reference": "llm_only",
+   "n": 500,
+   "n_dropped": 0,
+   "dropped": [],
+   "tariff_q": 0.0,
+   "reprice": true,
+   "why_not_repriced": null,
+   "reasoning_tokens": 0,
+   "s2_models": [
+    "gemini-3.5-flash"
+   ],
+   "schedule": {
+    "file": "runs/stage2_jevgym/schedule.json",
+    "concurrency": 8,
+    "started": "2026-10-03T06:57:20+00:00",
+    "finished": "2026-10-03T07:33:46+00:00",
+    "arms_together": [
+     "best_single",
+     "jevagent_best",
+     "jevagent_default",
+     "jevagent_minus_tool",
+     "llm_only"
+    ]
+   },
+   "cost": {
+    "frozen": {
+     "mean": 0.033544701708,
+     "s1": 0.0011320858079999997,
+     "s2": 0.0324126159,
+     "tariff": 0.0,
+     "s2_share": 0.9662514271894683
+    },
+    "sol": {
+     "mean": 0.042466652408,
+     "s1": 0.0011320858079999997,
+     "s2": 0.041334566600000004,
+     "tariff": 0.0,
+     "s2_share": 0.9733417695107343
+    },
+    "astra": {
+     "mean": 0.214867691808,
+     "s1": 0.0011320858079999997,
+     "s2": 0.21373560600000002,
+     "tariff": 0.0,
+     "s2_share": 0.9947312422892708
+    }
+   },
+   "timing": {
+    "arm": {
+     "wall_mean": 7.611164386269935,
+     "wall_median": 7.582282769499216,
+     "calllat_mean": 7.919881620982327,
+     "calllat_median": 8.081364907004172,
+     "retry_wait_mean": 0.0
+    },
+    "wall": {
+     "mean_arm": 7.611164386269935,
+     "mean_ref": 6.826870727614012,
+     "median_arm": 7.582282769499216,
+     "median_ref": 7.049228011499508,
+     "mean_diff": 0.7842936586559226,
+     "mean_diff_ci": [
+      0.5857701682909524,
+      0.9655192713595021
+     ],
+     "median_diff": 0.5330547579997074,
+     "median_diff_ci": [
+      -0.7017677778005236,
+      1.054484390824018
+     ],
+     "mean_ratio": 1.1148833323419371
+    },
+    "calllat": {
+     "mean_arm": 7.919881620982327,
+     "mean_ref": 6.804797059687902,
+     "median_arm": 8.081364907004172,
+     "median_ref": 7.014616060499975,
+     "mean_diff": 1.1150845612944247,
+     "mean_diff_ci": [
+      0.9184808910770655,
+      1.2937099736564868
+     ],
+     "median_diff": 1.066748846504197,
+     "median_diff_ci": [
+      -0.24460691419094474,
+      1.3341148278582295
+     ],
+     "mean_ratio": 1.163867423453414
+    },
+    "same_invocation": true,
+    "concurrency_arm": 8,
+    "concurrency_ref": 8
+   },
+   "savings": {
+    "frozen": {
+     "cost_arm": 0.033544701708,
+     "cost_ref": 0.0412984074,
+     "savings": 0.18774829781934876,
+     "savings_ci": [
+      0.17220659802722163,
+      0.20330433835246609
+     ],
+     "abs_savings": 0.007753705691999999,
+     "abs_savings_ci": [
+      0.0070411987725000034,
+      0.008490687586200002
+     ]
+    },
+    "sol": {
+     "cost_arm": 0.042466652408,
+     "cost_ref": 0.052337233600000005,
+     "savings": 0.1885957761435828,
+     "savings_ci": [
+      0.17298975970353483,
+      0.2041281658306311
+     ],
+     "abs_savings": 0.009870581192000003,
+     "abs_savings_ci": [
+      0.008969985090500003,
+      0.010798673278700007
+     ],
+     "abs_ratio_to_frozen": 1.2730146827966557,
+     "rel_change_pt": 0.0008474783242340411
+    },
+    "astra": {
+     "cost_arm": 0.214867691808,
+     "cost_ref": 0.272599376,
+     "savings": 0.21178215826877023,
+     "savings_ci": [
+      0.1959286474158334,
+      0.22766863518458386
+     ],
+     "abs_savings": 0.057731684192000005,
+     "abs_savings_ci": [
+      0.05281871207140003,
+      0.06281847415410001
+     ],
+     "abs_ratio_to_frozen": 7.445689388438554,
+     "rel_change_pt": 0.024033860449421462
+    }
+   }
+  },
+  "jevagent_best": {
+   "label": "profile, Jev",
+   "status": "S2-1",
+   "family": "flash",
+   "reference": "llm_only",
+   "n": 500,
+   "n_dropped": 0,
+   "dropped": [],
+   "tariff_q": 0.0,
+   "reprice": true,
+   "why_not_repriced": null,
+   "reasoning_tokens": 0,
+   "s2_models": [
+    "gemini-3.5-flash"
+   ],
+   "schedule": {
+    "file": "runs/stage2_jevgym/schedule.json",
+    "concurrency": 8,
+    "started": "2026-10-03T06:57:20+00:00",
+    "finished": "2026-10-03T07:33:46+00:00",
+    "arms_together": [
+     "best_single",
+     "jevagent_best",
+     "jevagent_default",
+     "jevagent_minus_tool",
+     "llm_only"
+    ]
+   },
+   "cost": {
+    "frozen": {
+     "mean": 0.024478962048,
+     "s1": 0.001696463748,
+     "s2": 0.0227824983,
+     "tariff": 0.0,
+     "s2_share": 0.9306970718499641
+    },
+    "sol": {
+     "mean": 0.030560095948,
+     "s1": 0.001696463748,
+     "s2": 0.028863632200000003,
+     "tariff": 0.0,
+     "s2_share": 0.9444876170910379
+    },
+    "astra": {
+     "mean": 0.151096265748,
+     "s1": 0.001696463748,
+     "s2": 0.14939980200000003,
+     "tariff": 0.0,
+     "s2_share": 0.9887722986428443
+    }
+   },
+   "timing": {
+    "arm": {
+     "wall_mean": 9.21475767002401,
+     "wall_median": 10.001624953998544,
+     "calllat_mean": 9.346831845222187,
+     "calllat_median": 10.092488152500664,
+     "retry_wait_mean": 0.003537624237001541
+    },
+    "wall": {
+     "mean_arm": 9.21475767002401,
+     "mean_ref": 6.826870727614012,
+     "median_arm": 10.001624953998544,
+     "median_ref": 7.049228011499508,
+     "mean_diff": 2.387886942409998,
+     "mean_diff_ci": [
+      2.070720376074554,
+      2.7326217681382228
+     ],
+     "median_diff": 2.9523969424990355,
+     "median_diff_ci": [
+      1.8375330719083196,
+      3.172200142162819
+     ],
+     "mean_ratio": 1.3497776708662774
+    },
+    "calllat": {
+     "mean_arm": 9.346831845222187,
+     "mean_ref": 6.804797059687902,
+     "median_arm": 10.092488152500664,
+     "median_ref": 7.014616060499975,
+     "mean_diff": 2.542034785534285,
+     "mean_diff_ci": [
+      2.2216761731522072,
+      2.8874784872022126
+     ],
+     "median_diff": 3.077872092000689,
+     "median_diff_ci": [
+      2.6764562740424025,
+      3.685815819573144
+     ],
+     "mean_ratio": 1.373565113439382
+    },
+    "same_invocation": true,
+    "concurrency_arm": 8,
+    "concurrency_ref": 8
+   },
+   "savings": {
+    "frozen": {
+     "cost_arm": 0.024478962048,
+     "cost_ref": 0.0412984074,
+     "savings": 0.4072661976790902,
+     "savings_ci": [
+      0.3888999546119167,
+      0.424501853185815
+     ],
+     "abs_savings": 0.016819445352,
+     "abs_savings_ci": [
+      0.015729594786300004,
+      0.017887249303499993
+     ]
+    },
+    "sol": {
+     "cost_arm": 0.030560095948,
+     "cost_ref": 0.052337233600000005,
+     "savings": 0.4160926391034929,
+     "savings_ci": [
+      0.39781268400795344,
+      0.43320631732421494
+     ],
+     "abs_savings": 0.021777137652000005,
+     "abs_savings_ci": [
+      0.020399051283100003,
+      0.023124263745099998
+     ],
+     "abs_ratio_to_frozen": 1.2947595593222392,
+     "rel_change_pt": 0.008826441424402698
+    },
+    "astra": {
+     "cost_arm": 0.151096265748,
+     "cost_ref": 0.272599376,
+     "savings": 0.44572042693157155,
+     "savings_ci": [
+      0.42693047837557907,
+      0.46324114272324596
+     ],
+     "abs_savings": 0.121503110252,
+     "abs_savings_ci": [
+      0.11396685812239997,
+      0.12896943466419997
+     ],
+     "abs_ratio_to_frozen": 7.223966528572363,
+     "rel_change_pt": 0.03845422925248132
+    }
+   }
+  },
+  "jevagent_best_rl": {
+   "label": "profile, JevAgentRL-4B",
+   "status": "S2-4",
+   "family": "flash",
+   "reference": "llm_only",
+   "n": 500,
+   "n_dropped": 0,
+   "dropped": [],
+   "tariff_q": 0.00196182,
+   "reprice": true,
+   "why_not_repriced": null,
+   "reasoning_tokens": 0,
+   "s2_models": [
+    "gemini-3.5-flash"
+   ],
+   "schedule": {
+    "file": "runs/stage2_jevgym/schedule_rl.json",
+    "concurrency": 4,
+    "started": "2026-10-03T18:02:47+00:00",
+    "finished": "2026-10-03T18:24:06+00:00",
+    "arms_together": [
+     "jevagent_best_rl"
+    ]
+   },
+   "cost": {
+    "frozen": {
+     "mean": 0.007794759000000001,
+     "s1": 0.0,
+     "s2": 0.005832939,
+     "tariff": 0.00196182,
+     "s2_share": 0.7483155027628178
+    },
+    "sol": {
+     "mean": 0.009552455999999999,
+     "s1": 0.0,
+     "s2": 0.0075906359999999996,
+     "tariff": 0.00196182,
+     "s2_share": 0.7946266384268088
+    },
+    "astra": {
+     "mean": 0.039915000000000006,
+     "s1": 0.0,
+     "s2": 0.03795318,
+     "tariff": 0.00196182,
+     "s2_share": 0.9508500563697857
+    }
+   },
+   "timing": {
+    "arm": {
+     "wall_mean": 10.211072618970006,
+     "wall_median": 9.10213181500012,
+     "calllat_mean": 9.77373558219007,
+     "calllat_median": 8.430034226999851,
+     "retry_wait_mean": 0.007020729267849071
+    },
+    "wall": {
+     "mean_arm": 10.211072618970006,
+     "mean_ref": 6.826870727614012,
+     "median_arm": 9.10213181500012,
+     "median_ref": 7.049228011499508,
+     "mean_diff": 3.3842018913559935,
+     "mean_diff_ci": [
+      2.848463550725428,
+      3.950651382243307
+     ],
+     "median_diff": 2.0529038035006124,
+     "median_diff_ci": [
+      0.9330203448007808,
+      3.7716674570353854
+     ],
+     "mean_ratio": 1.4957178810589211
+    },
+    "calllat": {
+     "mean_arm": 9.77373558219007,
+     "mean_ref": 6.804797059687902,
+     "median_arm": 8.430034226999851,
+     "median_ref": 7.014616060499975,
+     "mean_diff": 2.9689385225021683,
+     "mean_diff_ci": [
+      2.5235016480645918,
+      3.415801745232449
+     ],
+     "median_diff": 1.415418166499876,
+     "median_diff_ci": [
+      0.7769035509995774,
+      3.010750186548421
+     ],
+     "mean_ratio": 1.4363008178583854
+    },
+    "same_invocation": false,
+    "concurrency_arm": 4,
+    "concurrency_ref": 8
+   },
+   "savings": {
+    "frozen": {
+     "cost_arm": 0.007794759000000001,
+     "cost_ref": 0.0412984074,
+     "savings": 0.8112576370196783,
+     "savings_ci": [
+      0.8068520408688336,
+      0.8155775983641514
+     ],
+     "abs_savings": 0.0335036484,
+     "abs_savings_ci": [
+      0.032478464805,
+      0.03450255409500001
+     ]
+    },
+    "sol": {
+     "cost_arm": 0.009552455999999999,
+     "cost_ref": 0.052337233600000005,
+     "savings": 0.8174825961760425,
+     "savings_ci": [
+      0.8130151790107311,
+      0.8218515273644708
+     ],
+     "abs_savings": 0.042784777600000004,
+     "abs_savings_ci": [
+      0.041518570545,
+      0.044015716270000005
+     ],
+     "abs_ratio_to_frozen": 1.2770184634578483,
+     "rel_change_pt": 0.006224959156364118
+    },
+    "astra": {
+     "cost_arm": 0.039915000000000006,
+     "cost_ref": 0.272599376,
+     "savings": 0.85357633393849,
+     "savings_ci": [
+      0.849298247189667,
+      0.8577635324073856
+     ],
+     "abs_savings": 0.232684376,
+     "abs_savings_ci": [
+      0.22594563560000003,
+      0.23924825399999997
+     ],
+     "abs_ratio_to_frozen": 6.94504590132936,
+     "rel_change_pt": 0.04231869691881163
+    }
+   }
+  },
+  "jevagent_best_sl4b": {
+   "label": "profile, StartLux-4B",
+   "status": "S2-4S",
+   "family": "flash",
+   "reference": "llm_only",
+   "n": 500,
+   "n_dropped": 0,
+   "dropped": [],
+   "tariff_q": 0.002167344,
+   "reprice": true,
+   "why_not_repriced": null,
+   "reasoning_tokens": 0,
+   "s2_models": [
+    "gemini-3.5-flash"
+   ],
+   "schedule": {
+    "file": "runs/stage2_jevgym/schedule_sl4b.json",
+    "concurrency": 4,
+    "started": "2026-10-03T08:02:42+00:00",
+    "finished": "2026-10-03T08:32:01+00:00",
+    "arms_together": [
+     "jevagent_best_sl4b"
+    ]
+   },
+   "cost": {
+    "frozen": {
+     "mean": 0.0418924143,
+     "s1": 0.0,
+     "s2": 0.0397250703,
+     "tariff": 0.002167344,
+     "s2_share": 0.94826404645769
+    },
+    "sol": {
+     "mean": 0.0531141602,
+     "s1": 0.0,
+     "s2": 0.0509468162,
+     "tariff": 0.002167344,
+     "s2_share": 0.9591946104044774
+    },
+    "astra": {
+     "mean": 0.26467038600000004,
+     "s1": 0.0,
+     "s2": 0.2625030420000001,
+     "tariff": 0.002167344,
+     "s2_share": 0.9918111578981113
+    }
+   },
+   "timing": {
+    "arm": {
+     "wall_mean": 13.993180963775991,
+     "wall_median": 15.930521490499814,
+     "calllat_mean": 13.811339654460062,
+     "calllat_median": 15.741962668500946,
+     "retry_wait_mean": 0.0
+    },
+    "wall": {
+     "mean_arm": 13.993180963775991,
+     "mean_ref": 6.826870727614012,
+     "median_arm": 15.930521490499814,
+     "median_ref": 7.049228011499508,
+     "mean_diff": 7.166310236161979,
+     "mean_diff_ci": [
+      6.667608848773029,
+      7.670141548652894
+     ],
+     "median_diff": 8.881293479000306,
+     "median_diff_ci": [
+      4.778202730812359,
+      9.479686272476318
+     ],
+     "mean_ratio": 2.049721098009805
+    },
+    "calllat": {
+     "mean_arm": 13.811339654460062,
+     "mean_ref": 6.804797059687902,
+     "median_arm": 15.741962668500946,
+     "median_ref": 7.014616060499975,
+     "mean_diff": 7.006542594772159,
+     "mean_diff_ci": [
+      6.507644221103005,
+      7.50791069606735
+     ],
+     "median_diff": 8.727346608000971,
+     "median_diff_ci": [
+      4.687180961112114,
+      9.2693375020026
+     ],
+     "mean_ratio": 2.0296475461817094
+    },
+    "same_invocation": false,
+    "concurrency_arm": 4,
+    "concurrency_ref": 8
+   },
+   "savings": {
+    "frozen": {
+     "cost_arm": 0.0418924143,
+     "cost_ref": 0.0412984074,
+     "savings": -0.01438328830084612,
+     "savings_ci": [
+      -0.02494027464009786,
+      -0.004235984200832572
+     ],
+     "abs_savings": -0.0005940068999999992,
+     "abs_savings_ci": [
+      -0.0010063313024999937,
+      -0.00017853785250000553
+     ]
+    },
+    "sol": {
+     "cost_arm": 0.0531141602,
+     "cost_ref": 0.052337233600000005,
+     "savings": -0.014844624879065016,
+     "savings_ci": [
+      -0.0250131970528736,
+      -0.00508842456804654
+     ],
+     "abs_savings": -0.0007769265999999983,
+     "abs_savings_ci": [
+      -0.0012877140150000146,
+      -0.0002712347100000053
+     ],
+     "abs_ratio_to_frozen": 1.3079420457910493,
+     "rel_change_pt": -0.00046133657821889607
+    },
+    "astra": {
+     "cost_arm": 0.26467038600000004,
+     "cost_ref": 0.272599376,
+     "savings": 0.0290866036318439,
+     "savings_ci": [
+      0.01941847391950273,
+      0.03840628798314183
+     ],
+     "abs_savings": 0.007928989999999969,
+     "abs_savings_ci": [
+      0.005201619949999951,
+      0.010662712350000022
+     ],
+     "abs_ratio_to_frozen": -13.348312957307364,
+     "rel_change_pt": 0.04346989193269002
+    }
+   }
+  },
+  "jevagent_default": {
+   "label": "default profile, Jev",
+   "status": "descriptive",
+   "family": "flash",
+   "reference": "llm_only",
+   "n": 500,
+   "n_dropped": 0,
+   "dropped": [],
+   "tariff_q": 0.0,
+   "reprice": true,
+   "why_not_repriced": null,
+   "reasoning_tokens": 0,
+   "s2_models": [
+    "gemini-3.5-flash"
+   ],
+   "schedule": {
+    "file": "runs/stage2_jevgym/schedule.json",
+    "concurrency": 8,
+    "started": "2026-10-03T06:57:20+00:00",
+    "finished": "2026-10-03T07:33:46+00:00",
+    "arms_together": [
+     "best_single",
+     "jevagent_best",
+     "jevagent_default",
+     "jevagent_minus_tool",
+     "llm_only"
+    ]
+   },
+   "cost": {
+    "frozen": {
+     "mean": 0.033818257872,
+     "s1": 0.0011283012720000002,
+     "s2": 0.0326899566,
+     "tariff": 0.0,
+     "s2_share": 0.9666363277413477
+    },
+    "sol": {
+     "mean": 0.042818969672,
+     "s1": 0.0011283012720000002,
+     "s2": 0.041690668400000006,
+     "tariff": 0.0,
+     "s2_share": 0.9736494997277384
+    },
+    "astra": {
+     "mean": 0.21670146527200002,
+     "s1": 0.0011283012720000002,
+     "s2": 0.21557316399999998,
+     "tariff": 0.0,
+     "s2_share": 0.9947932919115992
+    }
+   },
+   "timing": {
+    "arm": {
+     "wall_mean": 7.671090335973895,
+     "wall_median": 7.716545698000118,
+     "calllat_mean": 7.959844143810107,
+     "calllat_median": 8.07360462500219,
+     "retry_wait_mean": 0.0
+    },
+    "wall": {
+     "mean_arm": 7.671090335973895,
+     "mean_ref": 6.826870727614012,
+     "median_arm": 7.716545698000118,
+     "median_ref": 7.049228011499508,
+     "mean_diff": 0.8442196083598832,
+     "mean_diff_ci": [
+      0.651816971377523,
+      1.0201163438915273
+     ],
+     "median_diff": 0.6673176865006099,
+     "median_diff_ci": [
+      -0.471391517289112,
+      1.043060450322946
+     ],
+     "mean_ratio": 1.1236612852423145
+    },
+    "calllat": {
+     "mean_arm": 7.959844143810107,
+     "mean_ref": 6.804797059687902,
+     "median_arm": 8.07360462500219,
+     "median_ref": 7.014616060499975,
+     "mean_diff": 1.155047084122205,
+     "mean_diff_ci": [
+      0.963622640437086,
+      1.3277015690457916
+     ],
+     "median_diff": 1.058988564502215,
+     "median_diff_ci": [
+      -0.15535630149133794,
+      1.3255458230069053
+     ],
+     "mean_ratio": 1.1697401221507082
+    },
+    "same_invocation": true,
+    "concurrency_arm": 8,
+    "concurrency_ref": 8
+   },
+   "savings": {
+    "frozen": {
+     "cost_arm": 0.033818257872,
+     "cost_ref": 0.0412984074,
+     "savings": 0.18112440645834693,
+     "savings_ci": [
+      0.16644717155236813,
+      0.19621347190559457
+     ],
+     "abs_savings": 0.007480149528000003,
+     "abs_savings_ci": [
+      0.006797995944000002,
+      0.008192061085799993
+     ]
+    },
+    "sol": {
+     "cost_arm": 0.042818969672,
+     "cost_ref": 0.052337233600000005,
+     "savings": 0.181864100818657,
+     "savings_ci": [
+      0.16724707225143245,
+      0.19698820420376756
+     ],
+     "abs_savings": 0.009518263928000002,
+     "abs_savings_ci": [
+      0.0086637659899,
+      0.010414679534500005
+     ],
+     "abs_ratio_to_frozen": 1.2724697403936707,
+     "rel_change_pt": 0.0007396943603100725
+    },
+    "astra": {
+     "cost_arm": 0.21670146527200002,
+     "cost_ref": 0.272599376,
+     "savings": 0.20505516758042763,
+     "savings_ci": [
+      0.1899705249308203,
+      0.22048805960290865
+     ],
+     "abs_savings": 0.05589791072799999,
+     "abs_savings_ci": [
+      0.05116978526779998,
+      0.060844409095099944
+     ],
+     "abs_ratio_to_frozen": 7.472833332911412,
+     "rel_change_pt": 0.0239307611220807
+    }
+   }
+  },
+  "jevagent_minus_tool": {
+   "label": "profile without the tool cascade (200 tasks)",
+   "status": "descriptive",
+   "family": "flash",
+   "reference": "llm_only",
+   "n": 200,
+   "n_dropped": 0,
+   "dropped": [],
+   "tariff_q": 0.0,
+   "reprice": true,
+   "why_not_repriced": null,
+   "reasoning_tokens": 0,
+   "s2_models": [
+    "gemini-3.5-flash"
+   ],
+   "schedule": {
+    "file": "runs/stage2_jevgym/schedule.json",
+    "concurrency": 8,
+    "started": "2026-10-03T06:57:20+00:00",
+    "finished": "2026-10-03T07:33:46+00:00",
+    "arms_together": [
+     "best_single",
+     "jevagent_best",
+     "jevagent_default",
+     "jevagent_minus_tool",
+     "llm_only"
+    ]
+   },
+   "cost": {
+    "frozen": {
+     "mean": 0.041319134339999994,
+     "s1": 0.00034743009000000005,
+     "s2": 0.04097170425,
+     "tariff": 0.0,
+     "s2_share": 0.9915915448000163
+    },
+    "sol": {
+     "mean": 0.051922029589999995,
+     "s1": 0.00034743009000000005,
+     "s2": 0.051574599500000005,
+     "tariff": 0.0,
+     "s2_share": 0.993308618851315
+    },
+    "astra": {
+     "mean": 0.27004507509,
+     "s1": 0.00034743009000000005,
+     "s2": 0.26969764500000004,
+     "tariff": 0.0,
+     "s2_share": 0.9987134366739177
+    }
+   },
+   "timing": {
+    "arm": {
+     "wall_mean": 8.257703497430212,
+     "wall_median": 9.265309325499402,
+     "calllat_mean": 8.320790825785098,
+     "calllat_median": 9.469838759498089,
+     "retry_wait_mean": 0.0
+    },
+    "wall": {
+     "mean_arm": 8.257703497430212,
+     "mean_ref": 6.09700217545007,
+     "median_arm": 9.265309325499402,
+     "median_ref": 6.925452549499823,
+     "mean_diff": 2.1607013219801416,
+     "mean_diff_ci": [
+      1.8738254633493843,
+      2.4267292635322075
+     ],
+     "median_diff": 2.3398567759995785,
+     "median_diff_ci": [
+      1.5813393090029422,
+      3.575855124003283
+     ],
+     "mean_ratio": 1.3543874940180158
+    },
+    "calllat": {
+     "mean_arm": 8.320790825785098,
+     "mean_ref": 6.075575863355189,
+     "median_arm": 9.469838759498089,
+     "median_ref": 6.89156829500098,
+     "mean_diff": 2.245214962429909,
+     "mean_diff_ci": [
+      1.9586040095264943,
+      2.508270327906714
+     ],
+     "median_diff": 2.578270464497109,
+     "median_diff_ci": [
+      1.6912915184178474,
+      3.693990465006209
+     ],
+     "mean_ratio": 1.3695476795824266
+    },
+    "same_invocation": true,
+    "concurrency_arm": 8,
+    "concurrency_ref": 8
+   },
+   "savings": {
+    "frozen": {
+     "cost_arm": 0.041319134339999994,
+     "cost_ref": 0.040889895,
+     "savings": -0.010497442950146763,
+     "savings_ci": [
+      -0.029638272638885615,
+      0.00470377742961062
+     ],
+     "abs_savings": -0.00042923933999999137,
+     "abs_savings_ci": [
+      -0.001200503834250003,
+      0.00019415828325000057
+     ]
+    },
+    "sol": {
+     "cost_arm": 0.051922029589999995,
+     "cost_ref": 0.051784735000000005,
+     "savings": -0.0026512560120273143,
+     "savings_ci": [
+      -0.022033254243642626,
+      0.013029437915911256
+     ],
+     "abs_savings": -0.00013729458999998945,
+     "abs_savings_ci": [
+      -0.0011355259074999967,
+      0.0006791092717499978
+     ],
+     "abs_ratio_to_frozen": 0.3198555612353523,
+     "rel_change_pt": 0.007846186938119448
+    },
+    "astra": {
+     "cost_arm": 0.27004507509,
+     "cost_ref": 0.26987895,
+     "savings": -0.0006155540845256269,
+     "savings_ci": [
+      -0.01942065666079045,
+      0.014425307232809869
+     ],
+     "abs_savings": -0.0001661250899999689,
+     "abs_savings_ci": [
+      -0.005219619651999981,
+      0.003917102994499989
+     ],
+     "abs_ratio_to_frozen": 0.3870220516133778,
+     "rel_change_pt": 0.009881888865621136
+    }
+   }
+  },
+  "jevagent_best_v2": {
+   "label": "profile, JevAgentRL-v2 (exploratory, A7.19)",
+   "status": "exploratory",
+   "family": "flash",
+   "reference": "llm_only",
+   "n": 500,
+   "n_dropped": 0,
+   "dropped": [],
+   "tariff_q": 0.01235502925,
+   "reprice": true,
+   "why_not_repriced": null,
+   "reasoning_tokens": 0,
+   "s2_models": [
+    "gemini-3.5-flash"
+   ],
+   "schedule": {
+    "file": "runs/stage2_v2/schedule.json",
+    "concurrency": 4,
+    "started": "2026-10-04T21:34:40+00:00",
+    "finished": "2026-10-04T22:22:14+00:00",
+    "arms_together": [
+     "jevagent_best_v2"
+    ]
+   },
+   "cost": {
+    "frozen": {
+     "mean": 0.01865643325,
+     "s1": 0.0,
+     "s2": 0.006301404,
+     "tariff": 0.01235502925,
+     "s2_share": 0.3377603808595086
+    },
+    "sol": {
+     "mean": 0.020588705249999995,
+     "s1": 0.0,
+     "s2": 0.008233675999999999,
+     "tariff": 0.01235502925,
+     "s2_share": 0.3999122771452567
+    },
+    "astra": {
+     "mean": 0.05352340925,
+     "s1": 0.0,
+     "s2": 0.04116838,
+     "tariff": 0.01235502925,
+     "s2_share": 0.7691658767046868
+    }
+   },
+   "timing": {
+    "arm": {
+     "wall_mean": 22.788321507636145,
+     "wall_median": 23.639970769501815,
+     "calllat_mean": 22.58385990963369,
+     "calllat_median": 21.413366462998965,
+     "retry_wait_mean": 0.007294069699008272
+    },
+    "wall": {
+     "mean_arm": 22.788321507636145,
+     "mean_ref": 6.826870727614012,
+     "median_arm": 23.639970769501815,
+     "median_ref": 7.049228011499508,
+     "mean_diff": 15.961450780022133,
+     "mean_diff_ci": [
+      15.272929294520537,
+      16.653226817597243
+     ],
+     "median_diff": 16.590742758002307,
+     "median_diff_ci": [
+      8.298612838647113,
+      23.05348678645323
+     ],
+     "mean_ratio": 3.3380332537218926
+    },
+    "calllat": {
+     "mean_arm": 22.58385990963369,
+     "mean_ref": 6.804797059687902,
+     "median_arm": 21.413366462998965,
+     "median_ref": 7.014616060499975,
+     "mean_diff": 15.779062849945788,
+     "mean_diff_ci": [
+      15.109859250156335,
+      16.458517268896003
+     ],
+     "median_diff": 14.39875040249899,
+     "median_diff_ci": [
+      8.210922449945565,
+      22.68068531479289
+     ],
+     "mean_ratio": 3.3188146114484547
+    },
+    "same_invocation": false,
+    "concurrency_arm": 4,
+    "concurrency_ref": 8
+   },
+   "savings": {
+    "frozen": {
+     "cost_arm": 0.01865643325,
+     "cost_ref": 0.0412984074,
+     "savings": 0.5482529612025668,
+     "savings_ci": [
+      0.5381498032582565,
+      0.5576206019386348
+     ],
+     "abs_savings": 0.02264197415,
+     "abs_savings_ci": [
+      0.021611001822500003,
+      0.023670439932500002
+     ]
+    },
+    "sol": {
+     "cost_arm": 0.020588705249999995,
+     "cost_ref": 0.052337233600000005,
+     "savings": 0.6066145679889356,
+     "savings_ci": [
+      0.598329122181761,
+      0.6143714633155678
+     ],
+     "abs_savings": 0.03174852835000001,
+     "abs_savings_ci": [
+      0.030482294780000002,
+      0.033007834629999996
+     ],
+     "abs_ratio_to_frozen": 1.4021978887384257,
+     "rel_change_pt": 0.058361606786368814
+    },
+    "astra": {
+     "cost_arm": 0.05352340925,
+     "cost_ref": 0.272599376,
+     "savings": 0.8036554227108722,
+     "savings_ci": [
+      0.7988637768588062,
+      0.8080825420177301
+     ],
+     "abs_savings": 0.21907596675000002,
+     "abs_savings_ci": [
+      0.21229967990000004,
+      0.22583885775000007
+     ],
+     "abs_ratio_to_frozen": 9.675656605676322,
+     "rel_change_pt": 0.25540246150830537
+    }
+   }
+  },
+  "llm_only_x": {
+   "label": "LLM-only (V4-Pro)",
+   "status": "reference",
+   "family": "x",
+   "reference": null,
+   "n": 500,
+   "n_dropped": 0,
+   "dropped": [],
+   "tariff_q": 0.0,
+   "reprice": true,
+   "why_not_repriced": null,
+   "reasoning_tokens": 0,
+   "s2_models": [
+    "deepseek/deepseek-v4-pro"
+   ],
+   "schedule": {
+    "file": "runs/stage2_x/schedule.json",
+    "concurrency": 8,
+    "started": "2026-10-03T07:43:20+00:00",
+    "finished": "2026-10-03T09:25:06+00:00",
+    "arms_together": [
+     "jevagent_best_x",
+     "llm_only_x",
+     "llm_only_xsmall"
+    ]
+   },
+   "cost": {
+    "frozen": {
+     "mean": 0.0020334733763999998,
+     "s1": 0.0,
+     "s2": 0.0020334733763999998,
+     "tariff": 0.0,
+     "s2_share": 1.0
+    },
+    "sol": {
+     "mean": 0.0212348326,
+     "s1": 0.0,
+     "s2": 0.0212348326,
+     "tariff": 0.0,
+     "s2_share": 1.0
+    },
+    "astra": {
+     "mean": 0.127808406,
+     "s1": 0.0,
+     "s2": 0.127808406,
+     "tariff": 0.0,
+     "s2_share": 1.0
+    }
+   },
+   "timing": {
+    "arm": {
+     "wall_mean": 33.79832641138993,
+     "wall_median": 35.508803234497464,
+     "calllat_mean": 33.534712556611844,
+     "calllat_median": 35.472541915485635,
+     "retry_wait_mean": 0.002287229369650314
+    }
+   }
+  },
+  "jevagent_best_x": {
+   "label": "profile, V4-Pro",
+   "status": "S2-1X",
+   "family": "x",
+   "reference": "llm_only_x",
+   "n": 500,
+   "n_dropped": 0,
+   "dropped": [],
+   "tariff_q": 0.0,
+   "reprice": true,
+   "why_not_repriced": null,
+   "reasoning_tokens": 0,
+   "s2_models": [
+    "deepseek/deepseek-v4-pro"
+   ],
+   "schedule": {
+    "file": "runs/stage2_x/schedule.json",
+    "concurrency": 8,
+    "started": "2026-10-03T07:43:20+00:00",
+    "finished": "2026-10-03T09:25:06+00:00",
+    "arms_together": [
+     "jevagent_best_x",
+     "llm_only_x",
+     "llm_only_xsmall"
+    ]
+   },
+   "cost": {
+    "frozen": {
+     "mean": 0.0024565002312,
+     "s1": 0.000359903796,
+     "s2": 0.0020965964352,
+     "tariff": 0.0,
+     "s2_share": 0.8534892073573357
+    },
+    "sol": {
+     "mean": 0.022418361396,
+     "s1": 0.000359903796,
+     "s2": 0.022058457599999998,
+     "tariff": 0.0,
+     "s2_share": 0.983946025775808
+    },
+    "astra": {
+     "mean": 0.132803319796,
+     "s1": 0.000359903796,
+     "s2": 0.132443416,
+     "tariff": 0.0,
+     "s2_share": 0.9972899488013339
+    }
+   },
+   "timing": {
+    "arm": {
+     "wall_mean": 37.816687277894054,
+     "wall_median": 40.52101058900007,
+     "calllat_mean": 37.4507657023478,
+     "calllat_median": 40.091138310501265,
+     "retry_wait_mean": 0.006176936029999039
+    },
+    "wall": {
+     "mean_arm": 37.816687277894054,
+     "mean_ref": 33.79832641138993,
+     "median_arm": 40.52101058900007,
+     "median_ref": 35.508803234497464,
+     "mean_diff": 4.018360866504125,
+     "mean_diff_ci": [
+      2.605465158134208,
+      5.334123136244764
+     ],
+     "median_diff": 5.012207354502607,
+     "median_diff_ci": [
+      2.670722216847571,
+      8.882621177001056
+     ],
+     "mean_ratio": 1.11889230305646
+    },
+    "calllat": {
+     "mean_arm": 37.4507657023478,
+     "mean_ref": 33.534712556611844,
+     "median_arm": 40.091138310501265,
+     "median_ref": 35.472541915485635,
+     "mean_diff": 3.916053145735958,
+     "mean_diff_ci": [
+      2.6894983086093895,
+      5.038881020594831
+     ],
+     "median_diff": 4.618596395015629,
+     "median_diff_ci": [
+      2.1652796274170214,
+      8.207539387489305
+     ],
+     "mean_ratio": 1.1167761059268078
+    },
+    "same_invocation": true,
+    "concurrency_arm": 8,
+    "concurrency_ref": 8
+   },
+   "savings": {
+    "frozen": {
+     "cost_arm": 0.0024565002312,
+     "cost_ref": 0.0020334733763999998,
+     "savings": -0.20803166626598002,
+     "savings_ci": [
+      -0.22006058959506283,
+      -0.1961854526024667
+     ],
+     "abs_savings": -0.00042302685480000027,
+     "abs_savings_ci": [
+      -0.00045135215444999964,
+      -0.00039487420040999944
+     ]
+    },
+    "sol": {
+     "cost_arm": 0.022418361396,
+     "cost_ref": 0.0212348326,
+     "savings": -0.055735254348084684,
+     "savings_ci": [
+      -0.06694836375753282,
+      -0.04491319463405748
+     ],
+     "abs_savings": -0.0011835287960000017,
+     "abs_savings_ci": [
+      -0.0014092197989000006,
+      -0.0009598069196999995
+     ],
+     "abs_ratio_to_frozen": 2.7977627958384663,
+     "rel_change_pt": 0.15229641191789534
+    },
+    "astra": {
+     "cost_arm": 0.132803319796,
+     "cost_ref": 0.127808406,
+     "savings": -0.03908126196331696,
+     "savings_ci": [
+      -0.04899677000052639,
+      -0.029592245175190983
+     ],
+     "abs_savings": -0.004994913795999978,
+     "abs_savings_ci": [
+      -0.0062140255982000205,
+      -0.003806086696500028
+     ],
+     "abs_ratio_to_frozen": 11.80755722556074,
+     "rel_change_pt": 0.16895040430266306
+    }
+   }
+  },
+  "llm_only_xsmall": {
+   "label": "V4-Flash alone",
+   "status": "descriptive",
+   "family": "x",
+   "reference": "llm_only_x",
+   "n": 500,
+   "n_dropped": 0,
+   "dropped": [],
+   "tariff_q": 0.0,
+   "reprice": false,
+   "why_not_repriced": "a cheaper-LLM reference: its row is defined by its own lower price, which re-pricing at another model's price would remove",
+   "reasoning_tokens": 0,
+   "s2_models": [
+    "deepseek/deepseek-v4-flash"
+   ],
+   "schedule": {
+    "file": "runs/stage2_x/schedule.json",
+    "concurrency": 8,
+    "started": "2026-10-03T07:43:20+00:00",
+    "finished": "2026-10-03T09:25:06+00:00",
+    "arms_together": [
+     "jevagent_best_x",
+     "llm_only_x",
+     "llm_only_xsmall"
+    ]
+   },
+   "cost": {
+    "frozen": {
+     "mean": 0.0005026913360000001,
+     "s1": 0.0,
+     "s2": 0.0005026913360000001,
+     "tariff": 0.0,
+     "s2_share": 1.0
+    }
+   },
+   "timing": {
+    "arm": {
+     "wall_mean": 24.04203170691817,
+     "wall_median": 22.436156646999734,
+     "calllat_mean": 23.385163287623858,
+     "calllat_median": 22.25116809499559,
+     "retry_wait_mean": 0.11120089765557997
+    },
+    "wall": {
+     "mean_arm": 24.04203170691817,
+     "mean_ref": 33.79832641138993,
+     "median_arm": 22.436156646999734,
+     "median_ref": 35.508803234497464,
+     "mean_diff": -9.75629470447176,
+     "mean_diff_ci": [
+      -11.582525521659347,
+      -7.9339481629760495
+     ],
+     "median_diff": -13.07264658749773,
+     "median_diff_ci": [
+      -14.947999298235572,
+      -3.7954368120277215
+     ],
+     "mean_ratio": 0.7113379347332441
+    },
+    "calllat": {
+     "mean_arm": 23.385163287623858,
+     "mean_ref": 33.534712556611844,
+     "median_arm": 22.25116809499559,
+     "median_ref": 35.472541915485635,
+     "mean_diff": -10.149549268987986,
+     "mean_diff_ci": [
+      -11.794438791472842,
+      -8.542550933740879
+     ],
+     "median_diff": -13.221373820490044,
+     "median_diff_ci": [
+      -15.09248713863235,
+      -3.9834119654026936
+     ],
+     "mean_ratio": 0.6973419929616526
+    },
+    "same_invocation": true,
+    "concurrency_arm": 8,
+    "concurrency_ref": 8
+   },
+   "savings": {
+    "frozen": {
+     "cost_arm": 0.0005026913360000001,
+     "cost_ref": 0.0020334733763999998,
+     "savings": 0.752791778916747,
+     "savings_ci": [
+      0.747971390886577,
+      0.7571266408600762
+     ],
+     "abs_savings": 0.0015307820403999998,
+     "abs_savings_ci": [
+      0.0014727457535900002,
+      0.0015899476939699997
+     ]
+    }
+   }
+  }
+ },
+ "n_boot": 10000,
+ "seed": 0,
+ "reasoning_tokens_total": 0,
+ "checks": [
+  {
+   "arm": "llm_only",
+   "what": "input sha256 = registered provenance",
+   "registered": "fba5397498f8d4a08902fba0a31e99bb132b48e0ba3d02c7d5ea3daf213d4141",
+   "value": "fba5397498f8d4a08902fba0a31e99bb132b48e0ba3d02c7d5ea3daf213d4141",
+   "ok": true,
+   "note": null
+  },
+  {
+   "arm": "best_single",
+   "what": "input sha256 = registered provenance",
+   "registered": "43495c708896d392d91447aa581aa7ac9ac392afb8542f952d172db7416bd403",
+   "value": "43495c708896d392d91447aa581aa7ac9ac392afb8542f952d172db7416bd403",
+   "ok": true,
+   "note": null
+  },
+  {
+   "arm": "jevagent_best",
+   "what": "input sha256 = registered provenance",
+   "registered": "defe93054b0b1c91b15521f6f21f9f81d7fd580274d4dc9490dcd8ea14ee36a4",
+   "value": "defe93054b0b1c91b15521f6f21f9f81d7fd580274d4dc9490dcd8ea14ee36a4",
+   "ok": true,
+   "note": null
+  },
+  {
+   "arm": "jevagent_best_rl",
+   "what": "input sha256 = registered provenance",
+   "registered": "97da04a8e4a719760bbe823e94f0b7c4a83cd50a6dc051cd4da175951a9dcf57",
+   "value": "97da04a8e4a719760bbe823e94f0b7c4a83cd50a6dc051cd4da175951a9dcf57",
+   "ok": true,
+   "note": null
+  },
+  {
+   "arm": "jevagent_best_sl4b",
+   "what": "input sha256 = registered provenance",
+   "registered": "b334cfba2276c4d1ef30408ee439b56a0e412e87d117ecb0183290c1998e504d",
+   "value": "b334cfba2276c4d1ef30408ee439b56a0e412e87d117ecb0183290c1998e504d",
+   "ok": true,
+   "note": null
+  },
+  {
+   "arm": "jevagent_default",
+   "what": "input sha256 = registered provenance",
+   "registered": "9d121a653e0b91060ef6cd820939738c656cd50b23b7a428b60850e094f6f1f3",
+   "value": "9d121a653e0b91060ef6cd820939738c656cd50b23b7a428b60850e094f6f1f3",
+   "ok": true,
+   "note": null
+  },
+  {
+   "arm": "jevagent_minus_tool",
+   "what": "input sha256 = registered provenance",
+   "registered": "14fae4e9d093f22a7022700fe4b04804999bc3e24067df20dbc1a2ed05e59617",
+   "value": "14fae4e9d093f22a7022700fe4b04804999bc3e24067df20dbc1a2ed05e59617",
+   "ok": true,
+   "note": null
+  },
+  {
+   "arm": "jevagent_best_v2",
+   "what": "input sha256 = registered provenance",
+   "registered": "79a154973b7217544bcc8754a644d54673d851be6593a89811174991b1e20775",
+   "value": "79a154973b7217544bcc8754a644d54673d851be6593a89811174991b1e20775",
+   "ok": true,
+   "note": null
+  },
+  {
+   "arm": "llm_only_x",
+   "what": "input sha256 = registered provenance",
+   "registered": "3e82d6a70e5cdded875386b03e3a7eacf04573a3c6f379537a18f93439699bf7",
+   "value": "3e82d6a70e5cdded875386b03e3a7eacf04573a3c6f379537a18f93439699bf7",
+   "ok": true,
+   "note": null
+  },
+  {
+   "arm": "jevagent_best_x",
+   "what": "input sha256 = registered provenance",
+   "registered": "03aa7d1c43c3612e851d45439b5fd8a9da3aaa1fc08c43188e8d5a5026221a4a",
+   "value": "03aa7d1c43c3612e851d45439b5fd8a9da3aaa1fc08c43188e8d5a5026221a4a",
+   "ok": true,
+   "note": null
+  },
+  {
+   "arm": "llm_only_xsmall",
+   "what": "input sha256 = registered provenance",
+   "registered": "37f500d9d921f8153a309e5a17f772d22d5afc8105dfd73bd25c35dc8cbf58c3",
+   "value": "37f500d9d921f8153a309e5a17f772d22d5afc8105dfd73bd25c35dc8cbf58c3",
+   "ok": true,
+   "note": null
+  },
+  {
+   "arm": "llm_only",
+   "what": "mean $ / episode = family/S2-1/cost/cost_ref",
+   "registered": 0.0412984074,
+   "value": 0.0412984074,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "llm_only",
+   "what": "mean $ / episode = descriptive/scorecard/llm_only/cost_usd",
+   "registered": 0.0412984074,
+   "value": 0.0412984074,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "llm_only",
+   "what": "mean model-call latency (s) = descriptive/scorecard/llm_only/latency_s",
+   "registered": 6.804797059687902,
+   "value": 6.804797059687902,
+   "tol": 1e-06,
+   "ok": true
+  },
+  {
+   "arm": "llm_only",
+   "what": "mean model-call latency (s) = secondary/S2-1T/latency_ref_s",
+   "registered": 6.804797059687902,
+   "value": 6.804797059687902,
+   "tol": 1e-06,
+   "ok": true
+  },
+  {
+   "arm": "best_single",
+   "what": "mean $ / episode = family/S2-2/cost/cost_ref",
+   "registered": 0.033544701708,
+   "value": 0.033544701708,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "best_single",
+   "what": "mean $ / episode = descriptive/scorecard/best_single/cost_usd",
+   "registered": 0.033544701708,
+   "value": 0.033544701708,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "best_single",
+   "what": "mean model-call latency (s) = descriptive/scorecard/best_single/latency_s",
+   "registered": 7.919881620982327,
+   "value": 7.919881620982327,
+   "tol": 1e-06,
+   "ok": true
+  },
+  {
+   "arm": "best_single",
+   "what": "savings = descriptive/scorecard/best_single/vs_baseline/cost_savings",
+   "registered": 0.18774829781934876,
+   "value": 0.18774829781934876,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "best_single",
+   "what": "savings bootstrap lo = descriptive/scorecard/best_single/vs_baseline/cost_savings_ci",
+   "registered": 0.17220659802722185,
+   "value": 0.17220659802722163,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "best_single",
+   "what": "savings bootstrap hi = descriptive/scorecard/best_single/vs_baseline/cost_savings_ci",
+   "registered": 0.20330433835246609,
+   "value": 0.20330433835246609,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best",
+   "what": "mean $ / episode = family/S2-1/cost/cost_arm",
+   "registered": 0.024478962048,
+   "value": 0.024478962048,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best",
+   "what": "mean model-call latency (s) = secondary/S2-1T/latency_arm_s",
+   "registered": 9.346831845222187,
+   "value": 9.346831845222187,
+   "tol": 1e-06,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best",
+   "what": "savings = family/S2-1/cost/cost_savings",
+   "registered": 0.4072661976790902,
+   "value": 0.4072661976790902,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best",
+   "what": "savings bootstrap lo = family/S2-1/cost/cost_savings_ci",
+   "registered": 0.3888999546119167,
+   "value": 0.3888999546119167,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best",
+   "what": "savings bootstrap hi = family/S2-1/cost/cost_savings_ci",
+   "registered": 0.424501853185815,
+   "value": 0.424501853185815,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best_rl",
+   "what": "mean $ / episode = family/S2-4/cost/cost_arm",
+   "registered": 0.007794759000000001,
+   "value": 0.007794759000000001,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best_rl",
+   "what": "mean $ / episode = descriptive/scorecard/jevagent_best_rl/cost_usd",
+   "registered": 0.005832939,
+   "value": 0.0058329390000000005,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best_rl",
+   "what": "mean model-call latency (s) = descriptive/scorecard/jevagent_best_rl/latency_s",
+   "registered": 9.77373558219007,
+   "value": 9.77373558219007,
+   "tol": 1e-06,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best_rl",
+   "what": "savings = family/S2-4/cost/cost_savings",
+   "registered": 0.8112576370196783,
+   "value": 0.8112576370196783,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best_rl",
+   "what": "savings bootstrap lo = family/S2-4/cost/cost_savings_ci",
+   "registered": 0.8068520408688336,
+   "value": 0.8068520408688336,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best_rl",
+   "what": "savings bootstrap hi = family/S2-4/cost/cost_savings_ci",
+   "registered": 0.8155775983641514,
+   "value": 0.8155775983641514,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best_sl4b",
+   "what": "mean $ / episode = secondary/S2-4S/cost/cost_arm",
+   "registered": 0.0418924143,
+   "value": 0.0418924143,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best_sl4b",
+   "what": "mean $ / episode = descriptive/scorecard/jevagent_best_sl4b/cost_usd",
+   "registered": 0.0397250703,
+   "value": 0.0397250703,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best_sl4b",
+   "what": "mean model-call latency (s) = descriptive/scorecard/jevagent_best_sl4b/latency_s",
+   "registered": 13.811339654460062,
+   "value": 13.811339654460062,
+   "tol": 1e-06,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best_sl4b",
+   "what": "savings = secondary/S2-4S/cost/cost_savings",
+   "registered": -0.01438328830084612,
+   "value": -0.01438328830084612,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best_sl4b",
+   "what": "savings bootstrap lo = secondary/S2-4S/cost/cost_savings_ci",
+   "registered": -0.02494027464009786,
+   "value": -0.02494027464009786,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best_sl4b",
+   "what": "savings bootstrap hi = secondary/S2-4S/cost/cost_savings_ci",
+   "registered": -0.004235984200832572,
+   "value": -0.004235984200832572,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_default",
+   "what": "mean $ / episode = descriptive/scorecard/jevagent_default/cost_usd",
+   "registered": 0.033818257872,
+   "value": 0.033818257872,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_default",
+   "what": "mean model-call latency (s) = descriptive/scorecard/jevagent_default/latency_s",
+   "registered": 7.959844143810107,
+   "value": 7.959844143810107,
+   "tol": 1e-06,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_default",
+   "what": "savings = descriptive/jevagent_default/cost/cost_savings",
+   "registered": 0.18112440645834693,
+   "value": 0.18112440645834693,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_default",
+   "what": "savings bootstrap lo = descriptive/jevagent_default/cost/cost_savings_ci",
+   "registered": 0.16644717155236813,
+   "value": 0.16644717155236813,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_default",
+   "what": "savings bootstrap hi = descriptive/jevagent_default/cost/cost_savings_ci",
+   "registered": 0.19621347190559457,
+   "value": 0.19621347190559457,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_minus_tool",
+   "what": "mean $ / episode = descriptive/logo/tool/cost/cost_arm",
+   "registered": 0.041319134339999994,
+   "value": 0.041319134339999994,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best_v2",
+   "what": "mean $ / episode = descriptive/stage2_v2/profile/cost/cost_arm",
+   "registered": 0.01865643325,
+   "value": 0.01865643325,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best_v2",
+   "what": "savings = descriptive/stage2_v2/profile/cost/cost_savings",
+   "registered": 0.5482529612025668,
+   "value": 0.5482529612025668,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best_v2",
+   "what": "savings bootstrap lo = descriptive/stage2_v2/profile/cost/cost_savings_ci",
+   "registered": 0.5381498032582565,
+   "value": 0.5381498032582565,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best_v2",
+   "what": "savings bootstrap hi = descriptive/stage2_v2/profile/cost/cost_savings_ci",
+   "registered": 0.5576206019386348,
+   "value": 0.5576206019386348,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "llm_only_x",
+   "what": "mean $ / episode = secondary/S2-1X/cost/cost_ref",
+   "registered": 0.0020334733763999998,
+   "value": 0.0020334733763999998,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "llm_only_x",
+   "what": "mean $ / episode = descriptive/scorecard/llm_only_x/cost_usd",
+   "registered": 0.0020334733763999998,
+   "value": 0.0020334733763999998,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "llm_only_x",
+   "what": "mean model-call latency (s) = descriptive/scorecard/llm_only_x/latency_s",
+   "registered": 33.534712556611844,
+   "value": 33.534712556611844,
+   "tol": 1e-06,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best_x",
+   "what": "mean $ / episode = secondary/S2-1X/cost/cost_arm",
+   "registered": 0.0024565002312,
+   "value": 0.0024565002312,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best_x",
+   "what": "mean model-call latency (s) = descriptive/scorecard/jevagent_best_x/latency_s",
+   "registered": 37.4507657023478,
+   "value": 37.4507657023478,
+   "tol": 1e-06,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best_x",
+   "what": "savings = secondary/S2-1X/cost/cost_savings",
+   "registered": -0.20803166626598002,
+   "value": -0.20803166626598002,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best_x",
+   "what": "savings bootstrap lo = secondary/S2-1X/cost/cost_savings_ci",
+   "registered": -0.22006058959506283,
+   "value": -0.22006058959506283,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "jevagent_best_x",
+   "what": "savings bootstrap hi = secondary/S2-1X/cost/cost_savings_ci",
+   "registered": -0.19618545260246648,
+   "value": -0.1961854526024667,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "llm_only_xsmall",
+   "what": "mean $ / episode = descriptive/scorecard/llm_only_xsmall/cost_usd",
+   "registered": 0.0005026913360000001,
+   "value": 0.0005026913360000001,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "llm_only_xsmall",
+   "what": "mean model-call latency (s) = descriptive/scorecard/llm_only_xsmall/latency_s",
+   "registered": 23.385163287623858,
+   "value": 23.385163287623858,
+   "tol": 1e-06,
+   "ok": true
+  },
+  {
+   "arm": "llm_only_xsmall",
+   "what": "savings = descriptive/llm_only_xsmall/cost/cost_savings",
+   "registered": 0.752791778916747,
+   "value": 0.752791778916747,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "llm_only_xsmall",
+   "what": "savings bootstrap lo = descriptive/llm_only_xsmall/cost/cost_savings_ci",
+   "registered": 0.747971390886577,
+   "value": 0.747971390886577,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "arm": "llm_only_xsmall",
+   "what": "savings bootstrap hi = descriptive/llm_only_xsmall/cost/cost_savings_ci",
+   "registered": 0.7571266408600762,
+   "value": 0.7571266408600762,
+   "tol": 1e-09,
+   "ok": true
+  }
+ ],
+ "n_checks": 61,
+ "provenance": {
+  "inputs": {
+   "llm_only": {
+    "path": "runs/stage2_jevgym/llm_only.jsonl",
+    "sha256": "fba5397498f8d4a08902fba0a31e99bb132b48e0ba3d02c7d5ea3daf213d4141",
+    "n_records": 500,
+    "n_tasks": 500
+   },
+   "best_single": {
+    "path": "runs/stage2_jevgym/best_single.jsonl",
+    "sha256": "43495c708896d392d91447aa581aa7ac9ac392afb8542f952d172db7416bd403",
+    "n_records": 500,
+    "n_tasks": 500
+   },
+   "jevagent_best": {
+    "path": "runs/stage2_jevgym/jevagent_best.jsonl",
+    "sha256": "defe93054b0b1c91b15521f6f21f9f81d7fd580274d4dc9490dcd8ea14ee36a4",
+    "n_records": 500,
+    "n_tasks": 500
+   },
+   "jevagent_best_rl": {
+    "path": "runs/stage2_jevgym/jevagent_best_rl.jsonl",
+    "sha256": "97da04a8e4a719760bbe823e94f0b7c4a83cd50a6dc051cd4da175951a9dcf57",
+    "n_records": 500,
+    "n_tasks": 500
+   },
+   "jevagent_best_sl4b": {
+    "path": "runs/stage2_jevgym/jevagent_best_sl4b.jsonl",
+    "sha256": "b334cfba2276c4d1ef30408ee439b56a0e412e87d117ecb0183290c1998e504d",
+    "n_records": 500,
+    "n_tasks": 500
+   },
+   "jevagent_default": {
+    "path": "runs/stage2_jevgym/jevagent_default.jsonl",
+    "sha256": "9d121a653e0b91060ef6cd820939738c656cd50b23b7a428b60850e094f6f1f3",
+    "n_records": 500,
+    "n_tasks": 500
+   },
+   "jevagent_minus_tool": {
+    "path": "runs/stage2_jevgym/jevagent_minus_tool.jsonl",
+    "sha256": "14fae4e9d093f22a7022700fe4b04804999bc3e24067df20dbc1a2ed05e59617",
+    "n_records": 200,
+    "n_tasks": 200
+   },
+   "jevagent_best_v2": {
+    "path": "runs/stage2_v2/jevagent_best_v2.jsonl",
+    "sha256": "79a154973b7217544bcc8754a644d54673d851be6593a89811174991b1e20775",
+    "n_records": 500,
+    "n_tasks": 500
+   },
+   "llm_only_x": {
+    "path": "runs/stage2_x/llm_only_x.jsonl",
+    "sha256": "3e82d6a70e5cdded875386b03e3a7eacf04573a3c6f379537a18f93439699bf7",
+    "n_records": 502,
+    "n_tasks": 500
+   },
+   "jevagent_best_x": {
+    "path": "runs/stage2_x/jevagent_best_x.jsonl",
+    "sha256": "03aa7d1c43c3612e851d45439b5fd8a9da3aaa1fc08c43188e8d5a5026221a4a",
+    "n_records": 504,
+    "n_tasks": 500
+   },
+   "llm_only_xsmall": {
+    "path": "runs/stage2_x/llm_only_xsmall.jsonl",
+    "sha256": "37f500d9d921f8153a309e5a17f772d22d5afc8105dfd73bd25c35dc8cbf58c3",
+    "n_records": 504,
+    "n_tasks": 500
+   }
+  },
+  "registered": {
+   "path": "results/stage2/stage2.json",
+   "sha256": "828d3a8159d5927d00a909f09efe790d0712587c4c57039fe002c551844c7cc7"
+  },
+  "prices": {
+   "path": "configs/prices/models.yaml",
+   "sha256": "f000bf3c5ae700039c28c6a52f572745133725859fe96b8a92b7ccc71f658d5b"
+  },
+  "tasks": {
+   "path": "configs/eval/jevgym_stage2_tasks.json",
+   "sha256": "b10636362f2ef87696fccdb35692dfebf2593f6d84af2a95fda2e2ed5a2acdf8"
+  },
+  "tariffs": {
+   "rl": {
+    "path": "results/stage2/tariff.json",
+    "sha256": "d56be1d2725998f050e8025f5b49f4ed10156cdc7585039daefacbddb5b84d99"
+   },
+   "sl4b": {
+    "path": "results/stage2/tariff_sl4b.json",
+    "sha256": "4d79bcf2791a9b44f76b58fe8796b4bdc79a0cef9086e14e958fca9ecc65f7a9"
+   },
+   "v2": {
+    "path": "results/stage2/tariff_v2.json",
+    "sha256": "f1cb6154388122090b645298c510653d7603aefe95e4ae40ad7a16969243f0e7"
+   }
+  }
+ },
+ "meta": {
+  "generated": "2026-10-05T07:12:54+00:00",
+  "git": "4e95fbb390ef1642aac545f5c527d2eea7aa210a"
+ }
+}

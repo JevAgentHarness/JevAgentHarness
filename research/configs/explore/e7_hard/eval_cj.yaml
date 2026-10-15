@@ -1,0 +1,19 @@
+# E7c Jev row, local (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-06 "E7c Jev row, local"; descriptive, no test,
+# outside every Holm table): the refitted Jev cascade (tau-hat 0.91 / 0.87 from E7c's calibration arm,
+# results/explore/e7_hard/cal_e7c/fits.json) beside LLM-only on E7c's first 100 registered tasks (seeds 310400-310499;
+# 12 customers, tier rule), run in the development container (no GPU). Flash on the DIRECT Gemini API (the org's
+# OpenRouter budget is exhausted); Jev via OpenRouter with the author's Jev-only key (OPENROUTER_API_KEY_JEV, read by
+# decision/jev.py's openrouter preset; never on AWS). Both arms on the same route: dollars compare within this row only.
+#   JEV_EVAL_RUNS=1 jevbench run configs/explore/e7_hard/eval_cj.yaml --out runs -o workers=16
+name: e7cj_hard
+suite: {name: jevgym, n: 100, seed0: 310400, families: multi, multi_customers: 12, multi_rule: tier, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 100
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+harness_defaults: {max_steps: 45}
+s1: {type: jev, provider: openrouter}        # the pinned Jev endpoint; no System-1 cache (fresh answers)
+workers: 16
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}
+  # the Stage-2 Jev profile's decision points at the thresholds refitted on E7c's calibration arm (unchanged)
+  - {name: jev_refit, tool_select: {mode: cascade, tau: 0.91}, tool_params: {mode: cascade, tau: 0.87}, reflection: {mode: trigger, tau: 0.5}}

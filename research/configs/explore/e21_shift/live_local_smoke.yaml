@@ -1,0 +1,36 @@
+# Exploratory row E21, DecisionGym-Shift (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-08 "E21: a shifted DecisionGym
+# split"; descriptive, outside every Holm table). Smoke of the local live rows on 2 development tasks (seeds 339002-339003, never reported).
+# Suite: the Stage-2 block with `shift: true` (surface, distraction and structure all on: 120 distractors, 40 noise
+# lines, kinds by seed mod 10; src/jevharness/bench/suites/jevgym_shift.py). Flash on the direct Gemini API (temperature
+# 0, minimal reasoning). Run with scripts/explore_e21_shift.py's pause rule (probe-gated, paused on 503 / overload,
+# spend-capped). From this container only: Jev with the Jev-only key, which never goes to AWS.
+name: e21_live_local_smoke
+suite:
+  name: jevgym
+  shift: true
+  n: 2
+  seed0: 339002
+  families: v2
+  distractor_style: near
+  n_distractors: 60
+  noise_lines: 20
+  strict: true
+n_tasks: 2
+llm:
+  provider: gemini
+  model: gemini-3.5-flash
+  temperature: 0
+  reasoning_effort: minimal
+s1:
+  type: jev
+  provider: openrouter
+s1_cache: cache/s1_e21_live_local_smoke.sqlite
+workers: 2
+schedule:
+  mode: task_major
+  seed: 732
+arms:
+- name: llm_only
+- name: jev_ts_replace_f
+  tool_select:
+    mode: replace

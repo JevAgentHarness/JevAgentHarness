@@ -1,0 +1,28 @@
+name: e15_live_oaidec
+suite:
+  name: jevgym
+  n: 500
+  seed0: 300000
+  families: v2
+  distractor_style: near
+  n_distractors: 60
+  noise_lines: 20
+  strict: true
+n_tasks: 200
+llm:
+  provider: gemini
+  model: gemini-3.5-flash
+  temperature: 0
+  reasoning_effort: minimal
+s1_cache: cache/s1_e15_live_oaidec.sqlite
+s1_backends:
+  oaidec:
+    type: openai_decisions
+    model: gpt-6-luna
+    timeout: 120.0
+workers: 4
+arms:
+- name: oaidec_ts_replace_f
+  s1: oaidec
+  tool_select:
+    mode: replace

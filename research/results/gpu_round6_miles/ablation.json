@@ -1,0 +1,315 @@
+{
+ "v2": {
+  "zeroshot_startlux": {
+   "decision": {
+    "acc": 0.94194,
+    "recovery": null,
+    "knockout": null,
+    "ece": 0.00726,
+    "gate_acc": 0.90476,
+    "by_dp": {
+     "tool_select": 0.88801,
+     "tool_params": 0.96723,
+     "stop": 0.98206
+    },
+    "intern_reference": "v1 dev",
+    "go_g1_g5": true,
+    "gates": {
+     "G1_min_gate": true,
+     "G2_static_vs_intern": true,
+     "G3_in_harness_vs_intern": true,
+     "G4_vs_teacher": true,
+     "G5_calibration": true
+    }
+   },
+   "stress": {
+    "S": null,
+    "A": null,
+    "P": null,
+    "R": null,
+    "C": null,
+    "n": null,
+    "A_n": null,
+    "cost_usd": null,
+    "errors": null
+   },
+   "e2dev": {}
+  },
+  "sft_v2": {
+   "decision": {
+    "acc": 0.99621,
+    "recovery": 0.9967,
+    "knockout": 1.0,
+    "ece": 0.02722,
+    "gate_acc": 0.99524,
+    "by_dp": {
+     "tool_select": 0.99548,
+     "tool_params": 1.0,
+     "stop": 0.99253
+    },
+    "intern_reference": "v1 dev",
+    "go_g1_g5": true,
+    "gates": {
+     "G1_min_gate": true,
+     "G2_static_vs_intern": true,
+     "G3_in_harness_vs_intern": true,
+     "G4_vs_teacher": true,
+     "G5_calibration": true
+    }
+   },
+   "stress": {
+    "S": 0.715,
+    "A": 0.9539656128674432,
+    "P": 0.9325946445060018,
+    "R": 0.5025,
+    "C": 0.8344828064337215,
+    "n": 200,
+    "A_n": 1803,
+    "cost_usd": 0.0249726555,
+    "errors": 0
+   },
+   "e2dev": {}
+  },
+  "opd_i12": {
+   "decision": {
+    "acc": 0.98654,
+    "recovery": 0.97855,
+    "knockout": 1.0,
+    "ece": 0.01717,
+    "gate_acc": 0.99048,
+    "by_dp": {
+     "tool_select": 0.97285,
+     "tool_params": 1.0,
+     "stop": 0.98804
+    },
+    "intern_reference": "v1 dev",
+    "go_g1_g5": true,
+    "gates": {
+     "G1_min_gate": true,
+     "G2_static_vs_intern": true,
+     "G3_in_harness_vs_intern": true,
+     "G4_vs_teacher": true,
+     "G5_calibration": true
+    }
+   },
+   "stress": {
+    "S": 0.665,
+    "A": 0.9468599033816425,
+    "P": 0.9276729559748428,
+    "R": 0.473,
+    "C": 0.8059299516908213,
+    "n": 200,
+    "A_n": 1656,
+    "cost_usd": 0.02177267025,
+    "errors": 0
+   },
+   "e2dev": {}
+  },
+  "opd": {
+   "decision": {
+    "acc": 0.98948,
+    "recovery": 0.9769,
+    "knockout": 0.99848,
+    "ece": 0.02091,
+    "gate_acc": 1.0,
+    "by_dp": {
+     "tool_select": 0.98077,
+     "tool_params": 1.0,
+     "stop": 0.98804
+    },
+    "intern_reference": "v1 dev",
+    "go_g1_g5": true,
+    "gates": {
+     "G1_min_gate": true,
+     "G2_static_vs_intern": true,
+     "G3_in_harness_vs_intern": true,
+     "G4_vs_teacher": true,
+     "G5_calibration": true
+    }
+   },
+   "stress": {
+    "S": 0.65,
+    "A": 0.9387755102040817,
+    "P": 0.962043795620438,
+    "R": 0.45325000000000004,
+    "C": 0.7943877551020408,
+    "n": 200,
+    "A_n": 1666,
+    "cost_usd": 0.021868016249999997,
+    "errors": 0
+   },
+   "e2dev": {}
+  },
+  "grpo_i15": {
+   "decision": {
+    "acc": 0.99621,
+    "recovery": 0.9967,
+    "knockout": 1.0,
+    "ece": 0.00606,
+    "gate_acc": 0.99524,
+    "by_dp": {
+     "tool_select": 0.99661,
+     "tool_params": 1.0,
+     "stop": 0.99103
+    },
+    "intern_reference": "v1 dev",
+    "go_g1_g5": true,
+    "gates": {
+     "G1_min_gate": true,
+     "G2_static_vs_intern": true,
+     "G3_in_harness_vs_intern": true,
+     "G4_vs_teacher": true,
+     "G5_calibration": true
+    }
+   },
+   "stress": {
+    "S": 0.625,
+    "A": 0.9493006993006993,
+    "P": 0.9231155778894472,
+    "R": 0.41025,
+    "C": 0.7871503496503496,
+    "n": 200,
+    "A_n": 1716,
+    "cost_usd": 0.02318010225,
+    "errors": 0
+   },
+   "e2dev": {}
+  },
+  "grpo": {
+   "decision": {
+    "acc": 0.99621,
+    "recovery": 0.9967,
+    "knockout": 1.0,
+    "ece": 0.00197,
+    "gate_acc": 0.99524,
+    "by_dp": {
+     "tool_select": 0.99548,
+     "tool_params": 1.0,
+     "stop": 0.99253
+    },
+    "intern_reference": "v1 dev",
+    "go_g1_g5": true,
+    "gates": {
+     "G1_min_gate": true,
+     "G2_static_vs_intern": true,
+     "G3_in_harness_vs_intern": true,
+     "G4_vs_teacher": true,
+     "G5_calibration": true
+    }
+   },
+   "stress": {
+    "S": 0.6,
+    "A": 0.93885949441505,
+    "P": 0.9092391304347827,
+    "R": 0.40399999999999997,
+    "C": 0.769429747207525,
+    "n": 200,
+    "A_n": 1701,
+    "cost_usd": 0.02236621875,
+    "errors": 0
+   },
+   "e2dev": {}
+  }
+ },
+ "v1_reference": {
+  "sft_v0": {
+   "acc": 0.95162,
+   "recovery": 0.92244,
+   "knockout": 0.97866,
+   "ece": 0.0225,
+   "gate_acc": 0.99524,
+   "by_dp": {
+    "tool_select": 0.9276,
+    "tool_params": 0.95267,
+    "stop": 0.98206
+   },
+   "intern_reference": null,
+   "go_g1_g5": false,
+   "gates": {}
+  },
+  "sft_v1": {
+   "acc": 0.99706,
+   "recovery": 0.99835,
+   "knockout": 0.99848,
+   "ece": 0.02927,
+   "gate_acc": 1.0,
+   "by_dp": {
+    "tool_select": 0.99661,
+    "tool_params": 1.0,
+    "stop": 0.99402
+   },
+   "intern_reference": null,
+   "go_g1_g5": false,
+   "gates": {}
+  },
+  "opd_i12": {
+   "acc": 0.98948,
+   "recovery": 0.97855,
+   "knockout": 1.0,
+   "ece": 0.02262,
+   "gate_acc": 1.0,
+   "by_dp": {
+    "tool_select": 0.98416,
+    "tool_params": 0.99879,
+    "stop": 0.98505
+   },
+   "intern_reference": null,
+   "go_g1_g5": false,
+   "gates": {}
+  },
+  "opd": {
+   "acc": 0.98906,
+   "recovery": 0.9802,
+   "knockout": 1.0,
+   "ece": 0.02077,
+   "gate_acc": 0.94762,
+   "by_dp": {
+    "tool_select": 0.98529,
+    "tool_params": 0.99757,
+    "stop": 0.98356
+   },
+   "intern_reference": null,
+   "go_g1_g5": false,
+   "gates": {}
+  },
+  "grpo_i15": {
+   "acc": 0.99706,
+   "recovery": 0.99835,
+   "knockout": 0.99543,
+   "ece": 0.00419,
+   "gate_acc": 1.0,
+   "by_dp": {
+    "tool_select": 0.99661,
+    "tool_params": 1.0,
+    "stop": 0.99402
+   },
+   "intern_reference": null,
+   "go_g1_g5": false,
+   "gates": {}
+  },
+  "grpo": {
+   "acc": 0.99411,
+   "recovery": 0.99505,
+   "knockout": 0.99543,
+   "ece": 0.00264,
+   "gate_acc": 1.0,
+   "by_dp": {
+    "tool_select": 0.99095,
+    "tool_params": 1.0,
+    "stop": 0.99103
+   },
+   "intern_reference": null,
+   "go_g1_g5": false,
+   "gates": {}
+  }
+ },
+ "chain": {
+  "kept": [
+   "sft_v2"
+  ],
+  "frozen": "sft_v2",
+  "go": true,
+  "label": "GO: the frozen JevAgentRL-v2 passes G1-G6 (development; generator-adapted vs off-the-shelf)"
+ },
+ "v1_reference_source": "branch <worktree> (commit 34f7991), results/gpu_round5/eval/eval_<tag>_{gate,v1}.json"
+}

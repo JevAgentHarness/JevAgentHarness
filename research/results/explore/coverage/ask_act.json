@@ -1,0 +1,1283 @@
+{
+ "meta": {
+  "generated": "2026-10-06T05:41:40+00:00",
+  "git": "749cecfdf7cb20461930750010fd614e58eb09fe",
+  "label": "descriptive, post hoc (coverage of decision-model roles); S2-3's scoring on corpus C; not a registered analysis",
+  "corpus": "results/stage2/s23",
+  "registered_corpus": "PREREG_A7_STAGE2 A7.10 (c)",
+  "published": [
+   "paper/generated/stage2.tex",
+   "paper/generated/difficulty.tex"
+  ],
+  "n_eligible_tasks": 200,
+  "state_changing": [
+   "cancel_order",
+   "refund",
+   "ship_order"
+  ]
+ },
+ "strata": {
+  "all": {
+   "occurrences": 5314,
+   "tasks": 200
+  },
+  "after_off_plan": {
+   "occurrences": 386,
+   "tasks": 57
+  },
+  "ask_now": {
+   "occurrences": 582,
+   "tasks": 100
+  },
+  "ask_only": {
+   "occurrences": 267,
+   "tasks": 100
+  },
+  "ask_optional": {
+   "occurrences": 167,
+   "tasks": 25
+  },
+  "act": {
+   "occurrences": 4565,
+   "tasks": 200
+  }
+ },
+ "rows": {
+  "rl": {
+   "display": "JevAgentRL-4B (frozen)",
+   "answers": "results/stage2/s23/answers_rl.jsonl",
+   "n_answers": 3939,
+   "backend": {
+    "backend": "jevagentrl-4b",
+    "provider": "typesafe",
+    "model": "jevagentrl-4b",
+    "base_url": "http://127.0.0.1:8081",
+    "extra_body": {},
+    "cached": true
+   },
+   "acc": {
+    "all": 0.9920083177147069,
+    "after_off_plan": 0.9471677445361655,
+    "ask_now": 1.0,
+    "ask_only": 1.0,
+    "ask_optional": 1.0,
+    "act": 0.9892081025338146
+   },
+   "tasks": {
+    "all": 200,
+    "after_off_plan": 57,
+    "ask_now": 100,
+    "ask_only": 100,
+    "ask_optional": 25,
+    "act": 200
+   },
+   "ask_now_answers": {
+    "asked": 503,
+    "other_acceptable": 79,
+    "acted": 0,
+    "finished": 0,
+    "other_wrong": 0,
+    "failed": 0
+   },
+   "ask_only_answers": {
+    "asked": 267,
+    "other_acceptable": 0,
+    "acted": 0,
+    "finished": 0,
+    "other_wrong": 0,
+    "failed": 0
+   },
+   "over_ask": 0.007826702033598585
+  },
+  "v2": {
+   "display": "JevAgentRL-v2 (exploratory)",
+   "answers": "results/stage2/s23/answers_v2.jsonl",
+   "n_answers": 3939,
+   "backend": {
+    "backend": "jevagentrl-v2",
+    "provider": "typesafe",
+    "model": "jevagentrl-v2",
+    "base_url": "http://127.0.0.1:8084",
+    "extra_body": {},
+    "cached": true
+   },
+   "acc": {
+    "all": 0.9936077879552164,
+    "after_off_plan": 0.9502652318441792,
+    "ask_now": 1.0,
+    "ask_only": 1.0,
+    "ask_optional": 1.0,
+    "act": 0.9918400780670271
+   },
+   "tasks": {
+    "all": 200,
+    "after_off_plan": 57,
+    "ask_now": 100,
+    "ask_only": 100,
+    "ask_optional": 25,
+    "act": 200
+   },
+   "ask_now_answers": {
+    "asked": 582,
+    "other_acceptable": 0,
+    "acted": 0,
+    "finished": 0,
+    "other_wrong": 0,
+    "failed": 0
+   },
+   "ask_only_answers": {
+    "asked": 267,
+    "other_acceptable": 0,
+    "acted": 0,
+    "finished": 0,
+    "other_wrong": 0,
+    "failed": 0
+   },
+   "over_ask": 0.006367816091954023
+  },
+  "sft_v1": {
+   "display": "SFT v1 (JevAgentRL recipe before RL)",
+   "answers": "results/stage2/s23/answers_sft_v1.jsonl",
+   "n_answers": 3939,
+   "backend": {
+    "backend": "rl-sft-v1",
+    "provider": "typesafe",
+    "model": "rl-sft-v1",
+    "base_url": "http://127.0.0.1:8081",
+    "extra_body": {},
+    "cached": true
+   },
+   "acc": {
+    "all": 0.9919093147483258,
+    "after_off_plan": 0.9379700708648078,
+    "ask_now": 1.0,
+    "ask_only": 1.0,
+    "ask_optional": 1.0,
+    "act": 0.9891946490332921
+   },
+   "tasks": {
+    "all": 200,
+    "after_off_plan": 57,
+    "ask_now": 100,
+    "ask_only": 100,
+    "ask_optional": 25,
+    "act": 200
+   },
+   "ask_now_answers": {
+    "asked": 581,
+    "other_acceptable": 1,
+    "acted": 0,
+    "finished": 0,
+    "other_wrong": 0,
+    "failed": 0
+   },
+   "ask_only_answers": {
+    "asked": 267,
+    "other_acceptable": 0,
+    "acted": 0,
+    "finished": 0,
+    "other_wrong": 0,
+    "failed": 0
+   },
+   "over_ask": 0.008010610079575597
+  },
+  "base": {
+   "display": "untrained base of JevAgentRL-4B",
+   "answers": "results/stage2/s23/answers_base.jsonl",
+   "n_answers": 3939,
+   "backend": {
+    "backend": "rl-base",
+    "provider": "typesafe",
+    "model": "rl-base",
+    "base_url": "http://127.0.0.1:8081",
+    "extra_body": {},
+    "cached": true
+   },
+   "acc": {
+    "all": 0.5010455808575052,
+    "after_off_plan": 0.26697177726926014,
+    "ask_now": 0.47303751803751803,
+    "ask_only": 0.24,
+    "ask_optional": 0.6019047619047619,
+    "act": 0.5489719836954764
+   },
+   "tasks": {
+    "all": 200,
+    "after_off_plan": 57,
+    "ask_now": 100,
+    "ask_only": 100,
+    "ask_optional": 25,
+    "act": 200
+   },
+   "ask_now_answers": {
+    "asked": 264,
+    "other_acceptable": 27,
+    "acted": 258,
+    "finished": 4,
+    "other_wrong": 29,
+    "failed": 0
+   },
+   "ask_only_answers": {
+    "asked": 96,
+    "other_acceptable": 0,
+    "acted": 166,
+    "finished": 1,
+    "other_wrong": 4,
+    "failed": 0
+   },
+   "over_ask": 0.014757075300178748
+  },
+  "jev": {
+   "display": "Jev",
+   "answers": "results/stage2/s23/answers_jev.jsonl",
+   "n_answers": 3939,
+   "backend": {
+    "backend": "jev",
+    "provider": "openrouter",
+    "model": "typesafe/jev-1.13",
+    "base_url": "https://openrouter.ai/api",
+    "extra_body": {},
+    "cached": true
+   },
+   "acc": {
+    "all": 0.914710298469303,
+    "after_off_plan": 0.8147447581658108,
+    "ask_now": 0.6439426406926407,
+    "ask_only": 0.27,
+    "ask_optional": 1.0,
+    "act": 0.9420892959423162
+   },
+   "tasks": {
+    "all": 200,
+    "after_off_plan": 57,
+    "ask_now": 100,
+    "ask_only": 100,
+    "ask_optional": 25,
+    "act": 200
+   },
+   "ask_now_answers": {
+    "asked": 270,
+    "other_acceptable": 148,
+    "acted": 162,
+    "finished": 2,
+    "other_wrong": 0,
+    "failed": 0
+   },
+   "ask_only_answers": {
+    "asked": 105,
+    "other_acceptable": 0,
+    "acted": 162,
+    "finished": 0,
+    "other_wrong": 0,
+    "failed": 0
+   },
+   "over_ask": 0.011801871498918995
+  },
+  "intern": {
+   "display": "Intern-Decision-4B",
+   "answers": "results/stage2/s23/answers_intern.jsonl",
+   "n_answers": 3939,
+   "backend": {
+    "backend": "intern_decision",
+    "model": "internlm/Intern-Decision-4B",
+    "dtype": "bfloat16",
+    "device": "cuda",
+    "max_length": 8192,
+    "temperature": 1.99241824,
+    "batch": false,
+    "batched_questions": true,
+    "max_questions_per_request": 16,
+    "max_options": 62,
+    "truncate_state": true,
+    "state_json": true,
+    "shared_weights": false,
+    "cached": true
+   },
+   "acc": {
+    "all": 0.7521235058547658,
+    "after_off_plan": 0.47603097385706084,
+    "ask_now": 0.5963127705627705,
+    "ask_only": 0.25,
+    "ask_optional": 0.8628571428571429,
+    "act": 0.7614139042519465
+   },
+   "tasks": {
+    "all": 200,
+    "after_off_plan": 57,
+    "ask_now": 100,
+    "ask_only": 100,
+    "ask_optional": 25,
+    "act": 200
+   },
+   "ask_now_answers": {
+    "asked": 120,
+    "other_acceptable": 269,
+    "acted": 166,
+    "finished": 1,
+    "other_wrong": 26,
+    "failed": 0
+   },
+   "ask_only_answers": {
+    "asked": 100,
+    "other_acceptable": 0,
+    "acted": 164,
+    "finished": 1,
+    "other_wrong": 2,
+    "failed": 0
+   },
+   "over_ask": 0.013762513546340383
+  },
+  "sl0.8b": {
+   "display": "StartLux-Decision 0.8B",
+   "answers": "results/stage2/s23/answers_sl0.8b.jsonl",
+   "n_answers": 3939,
+   "backend": {
+    "backend": "startlux-0.8b",
+    "provider": "typesafe",
+    "model": "StartLux-Decision-0.8B",
+    "base_url": "http://127.0.0.1:8092",
+    "extra_body": {},
+    "cached": true
+   },
+   "acc": {
+    "all": 0.48347936571460165,
+    "after_off_plan": 0.315057901671174,
+    "ask_now": 0.49393145743145744,
+    "ask_only": 0.25,
+    "ask_optional": 0.6019047619047619,
+    "act": 0.5310302895945547
+   },
+   "tasks": {
+    "all": 200,
+    "after_off_plan": 57,
+    "ask_now": 100,
+    "ask_only": 100,
+    "ask_optional": 25,
+    "act": 200
+   },
+   "ask_now_answers": {
+    "asked": 301,
+    "other_acceptable": 1,
+    "acted": 279,
+    "finished": 0,
+    "other_wrong": 1,
+    "failed": 0
+   },
+   "ask_only_answers": {
+    "asked": 100,
+    "other_acceptable": 0,
+    "acted": 167,
+    "finished": 0,
+    "other_wrong": 0,
+    "failed": 0
+   },
+   "over_ask": 0.08526071665181295
+  },
+  "sl2b": {
+   "display": "StartLux-Decision 2B",
+   "answers": "results/stage2/s23/answers_sl2b.jsonl",
+   "n_answers": 3939,
+   "backend": {
+    "backend": "startlux-2b",
+    "provider": "typesafe",
+    "model": "StartLux-Decision-2B",
+    "base_url": "http://127.0.0.1:8093",
+    "extra_body": {},
+    "cached": true
+   },
+   "acc": {
+    "all": 0.6843949500828108,
+    "after_off_plan": 0.47241783134231646,
+    "ask_now": 0.617676406926407,
+    "ask_only": 0.27,
+    "ask_optional": 0.8209523809523809,
+    "act": 0.6967815490537059
+   },
+   "tasks": {
+    "all": 200,
+    "after_off_plan": 57,
+    "ask_now": 100,
+    "ask_only": 100,
+    "ask_optional": 25,
+    "act": 200
+   },
+   "ask_now_answers": {
+    "asked": 137,
+    "other_acceptable": 260,
+    "acted": 169,
+    "finished": 1,
+    "other_wrong": 15,
+    "failed": 0
+   },
+   "ask_only_answers": {
+    "asked": 105,
+    "other_acceptable": 0,
+    "acted": 161,
+    "finished": 1,
+    "other_wrong": 0,
+    "failed": 0
+   },
+   "over_ask": 0.011055248508150105
+  },
+  "sl4b": {
+   "display": "StartLux-Decision 4B",
+   "answers": "results/stage2/s23/answers_sl4b.jsonl",
+   "n_answers": 3939,
+   "backend": {
+    "backend": "startlux-4b",
+    "provider": "typesafe",
+    "model": "StartLux-Decision-4B",
+    "base_url": "http://127.0.0.1:8090",
+    "extra_body": {},
+    "cached": true
+   },
+   "acc": {
+    "all": 0.8910747350186926,
+    "after_off_plan": 0.7679967375619551,
+    "ask_now": 0.8405335497835498,
+    "ask_only": 0.47,
+    "ask_optional": 0.6609523809523808,
+    "act": 0.9130797812885816
+   },
+   "tasks": {
+    "all": 200,
+    "after_off_plan": 57,
+    "ask_now": 100,
+    "ask_only": 100,
+    "ask_optional": 25,
+    "act": 200
+   },
+   "ask_now_answers": {
+    "asked": 156,
+    "other_acceptable": 310,
+    "acted": 109,
+    "finished": 2,
+    "other_wrong": 5,
+    "failed": 0
+   },
+   "ask_only_answers": {
+    "asked": 156,
+    "other_acceptable": 0,
+    "acted": 109,
+    "finished": 0,
+    "other_wrong": 2,
+    "failed": 0
+   },
+   "over_ask": 0.003209549071618037
+  },
+  "sl9b": {
+   "display": "StartLux-Decision 9B",
+   "answers": "results/stage2/s23/answers_sl9b.jsonl",
+   "n_answers": 3939,
+   "backend": {
+    "backend": "startlux-9b",
+    "provider": "typesafe",
+    "model": "StartLux-Decision-9B",
+    "base_url": "http://127.0.0.1:8094",
+    "extra_body": {},
+    "cached": true
+   },
+   "acc": {
+    "all": 0.9180101821499909,
+    "after_off_plan": 0.7432393153502993,
+    "ask_now": 0.8714426406926407,
+    "ask_only": 0.5,
+    "ask_optional": 0.9885714285714287,
+    "act": 0.9181724458146993
+   },
+   "tasks": {
+    "all": 200,
+    "after_off_plan": 57,
+    "ask_now": 100,
+    "ask_only": 100,
+    "ask_optional": 25,
+    "act": 200
+   },
+   "ask_now_answers": {
+    "asked": 162,
+    "other_acceptable": 311,
+    "acted": 105,
+    "finished": 3,
+    "other_wrong": 1,
+    "failed": 0
+   },
+   "ask_only_answers": {
+    "asked": 162,
+    "other_acceptable": 0,
+    "acted": 105,
+    "finished": 0,
+    "other_wrong": 0,
+    "failed": 0
+   },
+   "over_ask": 0.00926934419935781
+  },
+  "sl27b": {
+   "display": "StartLux-Decision 27B",
+   "answers": "results/stage2/s23/answers_sl27b.jsonl",
+   "n_answers": 3939,
+   "backend": {
+    "backend": "startlux-27b",
+    "provider": "typesafe",
+    "model": "StartLux-Decision-27B-Q8_0",
+    "base_url": "http://127.0.0.1:8091",
+    "extra_body": {},
+    "cached": true
+   },
+   "acc": {
+    "all": 0.9394508336904281,
+    "after_off_plan": 0.8507970100075364,
+    "ask_now": 0.6339426406926407,
+    "ask_only": 0.26,
+    "ask_optional": 1.0,
+    "act": 0.9871410557631229
+   },
+   "tasks": {
+    "all": 200,
+    "after_off_plan": 57,
+    "ask_now": 100,
+    "ask_only": 100,
+    "ask_optional": 25,
+    "act": 200
+   },
+   "ask_now_answers": {
+    "asked": 102,
+    "other_acceptable": 313,
+    "acted": 165,
+    "finished": 2,
+    "other_wrong": 0,
+    "failed": 0
+   },
+   "ask_only_answers": {
+    "asked": 102,
+    "other_acceptable": 0,
+    "acted": 165,
+    "finished": 0,
+    "other_wrong": 0,
+    "failed": 0
+   },
+   "over_ask": 0.007488063660477453
+  }
+ },
+ "checks": [
+  {
+   "backend": "rl",
+   "stratum": "all",
+   "key": "stage2_rl/frozen/corpus_acc",
+   "published": "99.2",
+   "reproduced": "99.2",
+   "ok": true
+  },
+  {
+   "backend": "rl",
+   "stratum": "all",
+   "key": "stage2_s1/frozen/corpus_acc",
+   "published": "99.2",
+   "reproduced": "99.2",
+   "ok": true
+  },
+  {
+   "backend": "rl",
+   "stratum": "after_off_plan",
+   "key": "stage2_rl/frozen/corpus_acc_offplan",
+   "published": "94.7",
+   "reproduced": "94.7",
+   "ok": true
+  },
+  {
+   "backend": "rl",
+   "stratum": "after_off_plan",
+   "key": "stage2_s1/frozen/corpus_acc_offplan",
+   "published": "94.7",
+   "reproduced": "94.7",
+   "ok": true
+  },
+  {
+   "backend": "rl",
+   "stratum": "all",
+   "key": "diff/c/all/rl/acc",
+   "published": "99.2",
+   "reproduced": "99.2",
+   "ok": true
+  },
+  {
+   "backend": "rl",
+   "stratum": "after_off_plan",
+   "key": "diff/c/after_off_plan/rl/acc",
+   "published": "94.7",
+   "reproduced": "94.7",
+   "ok": true
+  },
+  {
+   "backend": "rl",
+   "stratum": "ask_now",
+   "key": "diff/c/ask_gold/rl/acc",
+   "published": "100.0",
+   "reproduced": "100.0",
+   "ok": true
+  },
+  {
+   "backend": "v2",
+   "stratum": "all",
+   "key": "stage2_v2/corpus_acc",
+   "published": "99.4",
+   "reproduced": "99.4",
+   "ok": true
+  },
+  {
+   "backend": "v2",
+   "stratum": "after_off_plan",
+   "key": "stage2_v2/corpus_acc_offplan",
+   "published": "95.0",
+   "reproduced": "95.0",
+   "ok": true
+  },
+  {
+   "backend": "v2",
+   "stratum": "all",
+   "key": "diff/c/all/v2/acc",
+   "published": "99.4",
+   "reproduced": "99.4",
+   "ok": true
+  },
+  {
+   "backend": "v2",
+   "stratum": "after_off_plan",
+   "key": "diff/c/after_off_plan/v2/acc",
+   "published": "95.0",
+   "reproduced": "95.0",
+   "ok": true
+  },
+  {
+   "backend": "v2",
+   "stratum": "ask_now",
+   "key": "diff/c/ask_gold/v2/acc",
+   "published": "100.0",
+   "reproduced": "100.0",
+   "ok": true
+  },
+  {
+   "backend": "sft_v1",
+   "stratum": "all",
+   "key": "stage2_rl/sft_v1/corpus_acc",
+   "published": "99.2",
+   "reproduced": "99.2",
+   "ok": true
+  },
+  {
+   "backend": "sft_v1",
+   "stratum": "after_off_plan",
+   "key": "stage2_rl/sft_v1/corpus_acc_offplan",
+   "published": "93.8",
+   "reproduced": "93.8",
+   "ok": true
+  },
+  {
+   "backend": "sft_v1",
+   "stratum": "all",
+   "key": "diff/c/all/sft_v1/acc",
+   "published": "99.2",
+   "reproduced": "99.2",
+   "ok": true
+  },
+  {
+   "backend": "sft_v1",
+   "stratum": "after_off_plan",
+   "key": "diff/c/after_off_plan/sft_v1/acc",
+   "published": "93.8",
+   "reproduced": "93.8",
+   "ok": true
+  },
+  {
+   "backend": "sft_v1",
+   "stratum": "ask_now",
+   "key": "diff/c/ask_gold/sft_v1/acc",
+   "published": "100.0",
+   "reproduced": "100.0",
+   "ok": true
+  },
+  {
+   "backend": "base",
+   "stratum": "all",
+   "key": "stage2_rl/base/corpus_acc",
+   "published": "50.1",
+   "reproduced": "50.1",
+   "ok": true
+  },
+  {
+   "backend": "base",
+   "stratum": "after_off_plan",
+   "key": "stage2_rl/base/corpus_acc_offplan",
+   "published": "26.7",
+   "reproduced": "26.7",
+   "ok": true
+  },
+  {
+   "backend": "base",
+   "stratum": "all",
+   "key": "diff/c/all/base/acc",
+   "published": "50.1",
+   "reproduced": "50.1",
+   "ok": true
+  },
+  {
+   "backend": "base",
+   "stratum": "after_off_plan",
+   "key": "diff/c/after_off_plan/base/acc",
+   "published": "26.7",
+   "reproduced": "26.7",
+   "ok": true
+  },
+  {
+   "backend": "base",
+   "stratum": "ask_now",
+   "key": "diff/c/ask_gold/base/acc",
+   "published": "47.3",
+   "reproduced": "47.3",
+   "ok": true
+  },
+  {
+   "backend": "jev",
+   "stratum": "all",
+   "key": "stage2_rl/jev/corpus_acc",
+   "published": "91.5",
+   "reproduced": "91.5",
+   "ok": true
+  },
+  {
+   "backend": "jev",
+   "stratum": "all",
+   "key": "stage2_s1/jev/corpus_acc",
+   "published": "91.5",
+   "reproduced": "91.5",
+   "ok": true
+  },
+  {
+   "backend": "jev",
+   "stratum": "after_off_plan",
+   "key": "stage2_rl/jev/corpus_acc_offplan",
+   "published": "81.5",
+   "reproduced": "81.5",
+   "ok": true
+  },
+  {
+   "backend": "jev",
+   "stratum": "after_off_plan",
+   "key": "stage2_s1/jev/corpus_acc_offplan",
+   "published": "81.5",
+   "reproduced": "81.5",
+   "ok": true
+  },
+  {
+   "backend": "jev",
+   "stratum": "all",
+   "key": "diff/c/all/jev/acc",
+   "published": "91.5",
+   "reproduced": "91.5",
+   "ok": true
+  },
+  {
+   "backend": "jev",
+   "stratum": "after_off_plan",
+   "key": "diff/c/after_off_plan/jev/acc",
+   "published": "81.5",
+   "reproduced": "81.5",
+   "ok": true
+  },
+  {
+   "backend": "jev",
+   "stratum": "ask_now",
+   "key": "diff/c/ask_gold/jev/acc",
+   "published": "64.4",
+   "reproduced": "64.4",
+   "ok": true
+  },
+  {
+   "backend": "intern",
+   "stratum": "all",
+   "key": "stage2_rl/intern/corpus_acc",
+   "published": "75.2",
+   "reproduced": "75.2",
+   "ok": true
+  },
+  {
+   "backend": "intern",
+   "stratum": "all",
+   "key": "stage2_s1/intern/corpus_acc",
+   "published": "75.2",
+   "reproduced": "75.2",
+   "ok": true
+  },
+  {
+   "backend": "intern",
+   "stratum": "after_off_plan",
+   "key": "stage2_rl/intern/corpus_acc_offplan",
+   "published": "47.6",
+   "reproduced": "47.6",
+   "ok": true
+  },
+  {
+   "backend": "intern",
+   "stratum": "after_off_plan",
+   "key": "stage2_s1/intern/corpus_acc_offplan",
+   "published": "47.6",
+   "reproduced": "47.6",
+   "ok": true
+  },
+  {
+   "backend": "intern",
+   "stratum": "all",
+   "key": "diff/c/all/intern/acc",
+   "published": "75.2",
+   "reproduced": "75.2",
+   "ok": true
+  },
+  {
+   "backend": "intern",
+   "stratum": "after_off_plan",
+   "key": "diff/c/after_off_plan/intern/acc",
+   "published": "47.6",
+   "reproduced": "47.6",
+   "ok": true
+  },
+  {
+   "backend": "intern",
+   "stratum": "ask_now",
+   "key": "diff/c/ask_gold/intern/acc",
+   "published": "59.6",
+   "reproduced": "59.6",
+   "ok": true
+  },
+  {
+   "backend": "sl0.8b",
+   "stratum": "all",
+   "key": "stage2_ladder/sl0.8b/corpus_acc",
+   "published": "48.3",
+   "reproduced": "48.3",
+   "ok": true
+  },
+  {
+   "backend": "sl0.8b",
+   "stratum": "after_off_plan",
+   "key": "stage2_ladder/sl0.8b/corpus_acc_offplan",
+   "published": "31.5",
+   "reproduced": "31.5",
+   "ok": true
+  },
+  {
+   "backend": "sl0.8b",
+   "stratum": "all",
+   "key": "diff/c/all/sl0.8b/acc",
+   "published": "48.3",
+   "reproduced": "48.3",
+   "ok": true
+  },
+  {
+   "backend": "sl0.8b",
+   "stratum": "after_off_plan",
+   "key": "diff/c/after_off_plan/sl0.8b/acc",
+   "published": "31.5",
+   "reproduced": "31.5",
+   "ok": true
+  },
+  {
+   "backend": "sl0.8b",
+   "stratum": "ask_now",
+   "key": "diff/c/ask_gold/sl0.8b/acc",
+   "published": "49.4",
+   "reproduced": "49.4",
+   "ok": true
+  },
+  {
+   "backend": "sl2b",
+   "stratum": "all",
+   "key": "stage2_ladder/sl2b/corpus_acc",
+   "published": "68.4",
+   "reproduced": "68.4",
+   "ok": true
+  },
+  {
+   "backend": "sl2b",
+   "stratum": "after_off_plan",
+   "key": "stage2_ladder/sl2b/corpus_acc_offplan",
+   "published": "47.2",
+   "reproduced": "47.2",
+   "ok": true
+  },
+  {
+   "backend": "sl2b",
+   "stratum": "all",
+   "key": "diff/c/all/sl2b/acc",
+   "published": "68.4",
+   "reproduced": "68.4",
+   "ok": true
+  },
+  {
+   "backend": "sl2b",
+   "stratum": "after_off_plan",
+   "key": "diff/c/after_off_plan/sl2b/acc",
+   "published": "47.2",
+   "reproduced": "47.2",
+   "ok": true
+  },
+  {
+   "backend": "sl2b",
+   "stratum": "ask_now",
+   "key": "diff/c/ask_gold/sl2b/acc",
+   "published": "61.8",
+   "reproduced": "61.8",
+   "ok": true
+  },
+  {
+   "backend": "sl4b",
+   "stratum": "all",
+   "key": "stage2_s1/sl4b/corpus_acc",
+   "published": "89.1",
+   "reproduced": "89.1",
+   "ok": true
+  },
+  {
+   "backend": "sl4b",
+   "stratum": "after_off_plan",
+   "key": "stage2_s1/sl4b/corpus_acc_offplan",
+   "published": "76.8",
+   "reproduced": "76.8",
+   "ok": true
+  },
+  {
+   "backend": "sl4b",
+   "stratum": "all",
+   "key": "diff/c/all/sl4b/acc",
+   "published": "89.1",
+   "reproduced": "89.1",
+   "ok": true
+  },
+  {
+   "backend": "sl4b",
+   "stratum": "after_off_plan",
+   "key": "diff/c/after_off_plan/sl4b/acc",
+   "published": "76.8",
+   "reproduced": "76.8",
+   "ok": true
+  },
+  {
+   "backend": "sl4b",
+   "stratum": "ask_now",
+   "key": "diff/c/ask_gold/sl4b/acc",
+   "published": "84.1",
+   "reproduced": "84.1",
+   "ok": true
+  },
+  {
+   "backend": "sl9b",
+   "stratum": "all",
+   "key": "stage2_ladder/sl9b/corpus_acc",
+   "published": "91.8",
+   "reproduced": "91.8",
+   "ok": true
+  },
+  {
+   "backend": "sl9b",
+   "stratum": "after_off_plan",
+   "key": "stage2_ladder/sl9b/corpus_acc_offplan",
+   "published": "74.3",
+   "reproduced": "74.3",
+   "ok": true
+  },
+  {
+   "backend": "sl9b",
+   "stratum": "all",
+   "key": "diff/c/all/sl9b/acc",
+   "published": "91.8",
+   "reproduced": "91.8",
+   "ok": true
+  },
+  {
+   "backend": "sl9b",
+   "stratum": "after_off_plan",
+   "key": "diff/c/after_off_plan/sl9b/acc",
+   "published": "74.3",
+   "reproduced": "74.3",
+   "ok": true
+  },
+  {
+   "backend": "sl9b",
+   "stratum": "ask_now",
+   "key": "diff/c/ask_gold/sl9b/acc",
+   "published": "87.1",
+   "reproduced": "87.1",
+   "ok": true
+  },
+  {
+   "backend": "sl27b",
+   "stratum": "all",
+   "key": "stage2_s1/sl27b/corpus_acc",
+   "published": "93.9",
+   "reproduced": "93.9",
+   "ok": true
+  },
+  {
+   "backend": "sl27b",
+   "stratum": "after_off_plan",
+   "key": "stage2_s1/sl27b/corpus_acc_offplan",
+   "published": "85.1",
+   "reproduced": "85.1",
+   "ok": true
+  },
+  {
+   "backend": "sl27b",
+   "stratum": "all",
+   "key": "diff/c/all/sl27b/acc",
+   "published": "93.9",
+   "reproduced": "93.9",
+   "ok": true
+  },
+  {
+   "backend": "sl27b",
+   "stratum": "after_off_plan",
+   "key": "diff/c/after_off_plan/sl27b/acc",
+   "published": "85.1",
+   "reproduced": "85.1",
+   "ok": true
+  },
+  {
+   "backend": "sl27b",
+   "stratum": "ask_now",
+   "key": "diff/c/ask_gold/sl27b/acc",
+   "published": "63.4",
+   "reproduced": "63.4",
+   "ok": true
+  }
+ ],
+ "reproduced": true,
+ "limits": [
+  "C holds pre-action tool-choice states of four source agents on the first 200 fresh Stage-2 tasks; the ask states come from JevGym's clarify tasks only (one missing slot, asked once).",
+  "Each state is scored as one replayed decision: C cannot show whether a wrong answer would have been recovered later in a live episode, nor the cost of a needless question to a real user.",
+  "JevAgentRL (and SFT v1, v2) were trained on the same generator and oracle: their rows are in-generator.",
+  "An 'acted' answer on an ask_now state is a state-changing call before the required question; JevGym's strict mode ends the episode at such a call, so these are irreversible errors in a live run (a replace-mode agent would make them; a cascade defers the low-confidence ones).",
+  "The ask_now accuracy is the 'ask_user next' column of the difficulty appendix (Table tab:hardstates; same states, same scoring, checked above); new here are the answer kinds, the ask-only / ask-optional split and the over-ask rate.",
+  "Descriptive and post hoc: no test, no interval; the strata were fixed in code before any answer was read."
+ ],
+ "tex": {
+  "cov/ask/all/occurrences": "5{,}314",
+  "cov/ask/all/tasks": "200",
+  "cov/ask/after_off_plan/occurrences": "386",
+  "cov/ask/after_off_plan/tasks": "57",
+  "cov/ask/ask_now/occurrences": "582",
+  "cov/ask/ask_now/tasks": "100",
+  "cov/ask/ask_only/occurrences": "267",
+  "cov/ask/ask_only/tasks": "100",
+  "cov/ask/ask_optional/occurrences": "167",
+  "cov/ask/ask_optional/tasks": "25",
+  "cov/ask/act/occurrences": "4{,}565",
+  "cov/ask/act/tasks": "200",
+  "cov/ask/rl/all/acc": "99.2",
+  "cov/ask/rl/after_off_plan/acc": "94.7",
+  "cov/ask/rl/ask_now/acc": "100.0",
+  "cov/ask/rl/ask_only/acc": "100.0",
+  "cov/ask/rl/ask_optional/acc": "100.0",
+  "cov/ask/rl/act/acc": "98.9",
+  "cov/ask/rl/ask_now/asked": "503",
+  "cov/ask/rl/ask_now/other_acceptable": "79",
+  "cov/ask/rl/ask_now/acted": "0",
+  "cov/ask/rl/ask_now/finished": "0",
+  "cov/ask/rl/ask_now/other_wrong": "0",
+  "cov/ask/rl/ask_now/failed": "0",
+  "cov/ask/rl/ask_only/asked": "267",
+  "cov/ask/rl/ask_only/other_acceptable": "0",
+  "cov/ask/rl/ask_only/acted": "0",
+  "cov/ask/rl/ask_only/finished": "0",
+  "cov/ask/rl/ask_only/other_wrong": "0",
+  "cov/ask/rl/ask_only/failed": "0",
+  "cov/ask/rl/act/over_ask": "0.8",
+  "cov/ask/v2/all/acc": "99.4",
+  "cov/ask/v2/after_off_plan/acc": "95.0",
+  "cov/ask/v2/ask_now/acc": "100.0",
+  "cov/ask/v2/ask_only/acc": "100.0",
+  "cov/ask/v2/ask_optional/acc": "100.0",
+  "cov/ask/v2/act/acc": "99.2",
+  "cov/ask/v2/ask_now/asked": "582",
+  "cov/ask/v2/ask_now/other_acceptable": "0",
+  "cov/ask/v2/ask_now/acted": "0",
+  "cov/ask/v2/ask_now/finished": "0",
+  "cov/ask/v2/ask_now/other_wrong": "0",
+  "cov/ask/v2/ask_now/failed": "0",
+  "cov/ask/v2/ask_only/asked": "267",
+  "cov/ask/v2/ask_only/other_acceptable": "0",
+  "cov/ask/v2/ask_only/acted": "0",
+  "cov/ask/v2/ask_only/finished": "0",
+  "cov/ask/v2/ask_only/other_wrong": "0",
+  "cov/ask/v2/ask_only/failed": "0",
+  "cov/ask/v2/act/over_ask": "0.6",
+  "cov/ask/sft_v1/all/acc": "99.2",
+  "cov/ask/sft_v1/after_off_plan/acc": "93.8",
+  "cov/ask/sft_v1/ask_now/acc": "100.0",
+  "cov/ask/sft_v1/ask_only/acc": "100.0",
+  "cov/ask/sft_v1/ask_optional/acc": "100.0",
+  "cov/ask/sft_v1/act/acc": "98.9",
+  "cov/ask/sft_v1/ask_now/asked": "581",
+  "cov/ask/sft_v1/ask_now/other_acceptable": "1",
+  "cov/ask/sft_v1/ask_now/acted": "0",
+  "cov/ask/sft_v1/ask_now/finished": "0",
+  "cov/ask/sft_v1/ask_now/other_wrong": "0",
+  "cov/ask/sft_v1/ask_now/failed": "0",
+  "cov/ask/sft_v1/ask_only/asked": "267",
+  "cov/ask/sft_v1/ask_only/other_acceptable": "0",
+  "cov/ask/sft_v1/ask_only/acted": "0",
+  "cov/ask/sft_v1/ask_only/finished": "0",
+  "cov/ask/sft_v1/ask_only/other_wrong": "0",
+  "cov/ask/sft_v1/ask_only/failed": "0",
+  "cov/ask/sft_v1/act/over_ask": "0.8",
+  "cov/ask/base/all/acc": "50.1",
+  "cov/ask/base/after_off_plan/acc": "26.7",
+  "cov/ask/base/ask_now/acc": "47.3",
+  "cov/ask/base/ask_only/acc": "24.0",
+  "cov/ask/base/ask_optional/acc": "60.2",
+  "cov/ask/base/act/acc": "54.9",
+  "cov/ask/base/ask_now/asked": "264",
+  "cov/ask/base/ask_now/other_acceptable": "27",
+  "cov/ask/base/ask_now/acted": "258",
+  "cov/ask/base/ask_now/finished": "4",
+  "cov/ask/base/ask_now/other_wrong": "29",
+  "cov/ask/base/ask_now/failed": "0",
+  "cov/ask/base/ask_only/asked": "96",
+  "cov/ask/base/ask_only/other_acceptable": "0",
+  "cov/ask/base/ask_only/acted": "166",
+  "cov/ask/base/ask_only/finished": "1",
+  "cov/ask/base/ask_only/other_wrong": "4",
+  "cov/ask/base/ask_only/failed": "0",
+  "cov/ask/base/act/over_ask": "1.5",
+  "cov/ask/jev/all/acc": "91.5",
+  "cov/ask/jev/after_off_plan/acc": "81.5",
+  "cov/ask/jev/ask_now/acc": "64.4",
+  "cov/ask/jev/ask_only/acc": "27.0",
+  "cov/ask/jev/ask_optional/acc": "100.0",
+  "cov/ask/jev/act/acc": "94.2",
+  "cov/ask/jev/ask_now/asked": "270",
+  "cov/ask/jev/ask_now/other_acceptable": "148",
+  "cov/ask/jev/ask_now/acted": "162",
+  "cov/ask/jev/ask_now/finished": "2",
+  "cov/ask/jev/ask_now/other_wrong": "0",
+  "cov/ask/jev/ask_now/failed": "0",
+  "cov/ask/jev/ask_only/asked": "105",
+  "cov/ask/jev/ask_only/other_acceptable": "0",
+  "cov/ask/jev/ask_only/acted": "162",
+  "cov/ask/jev/ask_only/finished": "0",
+  "cov/ask/jev/ask_only/other_wrong": "0",
+  "cov/ask/jev/ask_only/failed": "0",
+  "cov/ask/jev/act/over_ask": "1.2",
+  "cov/ask/intern/all/acc": "75.2",
+  "cov/ask/intern/after_off_plan/acc": "47.6",
+  "cov/ask/intern/ask_now/acc": "59.6",
+  "cov/ask/intern/ask_only/acc": "25.0",
+  "cov/ask/intern/ask_optional/acc": "86.3",
+  "cov/ask/intern/act/acc": "76.1",
+  "cov/ask/intern/ask_now/asked": "120",
+  "cov/ask/intern/ask_now/other_acceptable": "269",
+  "cov/ask/intern/ask_now/acted": "166",
+  "cov/ask/intern/ask_now/finished": "1",
+  "cov/ask/intern/ask_now/other_wrong": "26",
+  "cov/ask/intern/ask_now/failed": "0",
+  "cov/ask/intern/ask_only/asked": "100",
+  "cov/ask/intern/ask_only/other_acceptable": "0",
+  "cov/ask/intern/ask_only/acted": "164",
+  "cov/ask/intern/ask_only/finished": "1",
+  "cov/ask/intern/ask_only/other_wrong": "2",
+  "cov/ask/intern/ask_only/failed": "0",
+  "cov/ask/intern/act/over_ask": "1.4",
+  "cov/ask/sl0.8b/all/acc": "48.3",
+  "cov/ask/sl0.8b/after_off_plan/acc": "31.5",
+  "cov/ask/sl0.8b/ask_now/acc": "49.4",
+  "cov/ask/sl0.8b/ask_only/acc": "25.0",
+  "cov/ask/sl0.8b/ask_optional/acc": "60.2",
+  "cov/ask/sl0.8b/act/acc": "53.1",
+  "cov/ask/sl0.8b/ask_now/asked": "301",
+  "cov/ask/sl0.8b/ask_now/other_acceptable": "1",
+  "cov/ask/sl0.8b/ask_now/acted": "279",
+  "cov/ask/sl0.8b/ask_now/finished": "0",
+  "cov/ask/sl0.8b/ask_now/other_wrong": "1",
+  "cov/ask/sl0.8b/ask_now/failed": "0",
+  "cov/ask/sl0.8b/ask_only/asked": "100",
+  "cov/ask/sl0.8b/ask_only/other_acceptable": "0",
+  "cov/ask/sl0.8b/ask_only/acted": "167",
+  "cov/ask/sl0.8b/ask_only/finished": "0",
+  "cov/ask/sl0.8b/ask_only/other_wrong": "0",
+  "cov/ask/sl0.8b/ask_only/failed": "0",
+  "cov/ask/sl0.8b/act/over_ask": "8.5",
+  "cov/ask/sl2b/all/acc": "68.4",
+  "cov/ask/sl2b/after_off_plan/acc": "47.2",
+  "cov/ask/sl2b/ask_now/acc": "61.8",
+  "cov/ask/sl2b/ask_only/acc": "27.0",
+  "cov/ask/sl2b/ask_optional/acc": "82.1",
+  "cov/ask/sl2b/act/acc": "69.7",
+  "cov/ask/sl2b/ask_now/asked": "137",
+  "cov/ask/sl2b/ask_now/other_acceptable": "260",
+  "cov/ask/sl2b/ask_now/acted": "169",
+  "cov/ask/sl2b/ask_now/finished": "1",
+  "cov/ask/sl2b/ask_now/other_wrong": "15",
+  "cov/ask/sl2b/ask_now/failed": "0",
+  "cov/ask/sl2b/ask_only/asked": "105",
+  "cov/ask/sl2b/ask_only/other_acceptable": "0",
+  "cov/ask/sl2b/ask_only/acted": "161",
+  "cov/ask/sl2b/ask_only/finished": "1",
+  "cov/ask/sl2b/ask_only/other_wrong": "0",
+  "cov/ask/sl2b/ask_only/failed": "0",
+  "cov/ask/sl2b/act/over_ask": "1.1",
+  "cov/ask/sl4b/all/acc": "89.1",
+  "cov/ask/sl4b/after_off_plan/acc": "76.8",
+  "cov/ask/sl4b/ask_now/acc": "84.1",
+  "cov/ask/sl4b/ask_only/acc": "47.0",
+  "cov/ask/sl4b/ask_optional/acc": "66.1",
+  "cov/ask/sl4b/act/acc": "91.3",
+  "cov/ask/sl4b/ask_now/asked": "156",
+  "cov/ask/sl4b/ask_now/other_acceptable": "310",
+  "cov/ask/sl4b/ask_now/acted": "109",
+  "cov/ask/sl4b/ask_now/finished": "2",
+  "cov/ask/sl4b/ask_now/other_wrong": "5",
+  "cov/ask/sl4b/ask_now/failed": "0",
+  "cov/ask/sl4b/ask_only/asked": "156",
+  "cov/ask/sl4b/ask_only/other_acceptable": "0",
+  "cov/ask/sl4b/ask_only/acted": "109",
+  "cov/ask/sl4b/ask_only/finished": "0",
+  "cov/ask/sl4b/ask_only/other_wrong": "2",
+  "cov/ask/sl4b/ask_only/failed": "0",
+  "cov/ask/sl4b/act/over_ask": "0.3",
+  "cov/ask/sl9b/all/acc": "91.8",
+  "cov/ask/sl9b/after_off_plan/acc": "74.3",
+  "cov/ask/sl9b/ask_now/acc": "87.1",
+  "cov/ask/sl9b/ask_only/acc": "50.0",
+  "cov/ask/sl9b/ask_optional/acc": "98.9",
+  "cov/ask/sl9b/act/acc": "91.8",
+  "cov/ask/sl9b/ask_now/asked": "162",
+  "cov/ask/sl9b/ask_now/other_acceptable": "311",
+  "cov/ask/sl9b/ask_now/acted": "105",
+  "cov/ask/sl9b/ask_now/finished": "3",
+  "cov/ask/sl9b/ask_now/other_wrong": "1",
+  "cov/ask/sl9b/ask_now/failed": "0",
+  "cov/ask/sl9b/ask_only/asked": "162",
+  "cov/ask/sl9b/ask_only/other_acceptable": "0",
+  "cov/ask/sl9b/ask_only/acted": "105",
+  "cov/ask/sl9b/ask_only/finished": "0",
+  "cov/ask/sl9b/ask_only/other_wrong": "0",
+  "cov/ask/sl9b/ask_only/failed": "0",
+  "cov/ask/sl9b/act/over_ask": "0.9",
+  "cov/ask/sl27b/all/acc": "93.9",
+  "cov/ask/sl27b/after_off_plan/acc": "85.1",
+  "cov/ask/sl27b/ask_now/acc": "63.4",
+  "cov/ask/sl27b/ask_only/acc": "26.0",
+  "cov/ask/sl27b/ask_optional/acc": "100.0",
+  "cov/ask/sl27b/act/acc": "98.7",
+  "cov/ask/sl27b/ask_now/asked": "102",
+  "cov/ask/sl27b/ask_now/other_acceptable": "313",
+  "cov/ask/sl27b/ask_now/acted": "165",
+  "cov/ask/sl27b/ask_now/finished": "2",
+  "cov/ask/sl27b/ask_now/other_wrong": "0",
+  "cov/ask/sl27b/ask_now/failed": "0",
+  "cov/ask/sl27b/ask_only/asked": "102",
+  "cov/ask/sl27b/ask_only/other_acceptable": "0",
+  "cov/ask/sl27b/ask_only/acted": "165",
+  "cov/ask/sl27b/ask_only/finished": "0",
+  "cov/ask/sl27b/ask_only/other_wrong": "0",
+  "cov/ask/sl27b/ask_only/failed": "0",
+  "cov/ask/sl27b/act/over_ask": "0.7"
+ }
+}

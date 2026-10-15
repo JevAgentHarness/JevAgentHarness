@@ -1,0 +1,65 @@
+{
+  "description": "Jev System-One hooks (jevharness.adapters.hooks). Replace /ABS/PATH/JevAgentHarness/research; pick the arm with JEV_MODE (see README.md).",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/ABS/PATH/JevAgentHarness/research/.venv/bin/python -m jevharness.adapters.hooks --harness codex",
+            "timeout": 5,
+            "statusMessage": "Jev: routing"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/ABS/PATH/JevAgentHarness/research/.venv/bin/python -m jevharness.adapters.hooks --harness codex",
+            "timeout": 5,
+            "statusMessage": "Jev: action guard"
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/ABS/PATH/JevAgentHarness/research/.venv/bin/python -m jevharness.adapters.hooks --harness codex",
+            "timeout": 5,
+            "statusMessage": "Jev: approval gate"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/ABS/PATH/JevAgentHarness/research/.venv/bin/python -m jevharness.adapters.hooks --harness codex",
+            "timeout": 5,
+            "statusMessage": "Jev: memory"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/ABS/PATH/JevAgentHarness/research/.venv/bin/python -m jevharness.adapters.hooks --harness codex",
+            "timeout": 5,
+            "statusMessage": "Jev: completion check"
+          }
+        ]
+      }
+    ]
+  }
+}

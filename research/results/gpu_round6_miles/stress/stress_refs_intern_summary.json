@@ -1,0 +1,22 @@
+{
+ "stress_refs_intern::intern_stress_ts_params_replace": {
+  "run": "stress_refs_intern",
+  "n": 200,
+  "success": 0.115,
+  "reward_ccps": -0.04574999999999999,
+  "irreversible_rate": 0.745,
+  "cost_usd": 0.0045376003,
+  "llm_calls": 1.855,
+  "s1_calls": 14.74,
+  "errors": 0,
+  "s1_latency_ms_per_call": 276.57690310242975,
+  "s1_latency_ms_p50": 222.36685250027222,
+  "s1_latency_ms_p95": 536.1711617990295,
+  "tool_params/replace/s1_acc": 0.5676229508196722,
+  "tool_params/replace/n": 488,
+  "tool_params/replace/ece": 0.29342334375602364,
+  "tool_select/replace/s1_acc": 0.6105263157894737,
+  "tool_select/replace/n": 855,
+  "tool_select/replace/ece": 0.11952043047975361
+ }
+}

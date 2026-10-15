@@ -1,0 +1,11 @@
+{
+ "generated_at_commit": "d04fea0 (pre-E6f harness code)",
+ "n_tasks": 6,
+ "digests": {
+  "e6e_mw_replace": "5e5be7de9dce42fa7b093634f9a900b4158472b3d096c8cfbf669ffee2c9406e",
+  "e6e_mr_replace": "040b28e83d091a9912b71d5b4f947ac763021d1931f712d2f2e96c690eaa72b0",
+  "e6e_rf_replace": "ed86241c311357f30ba4166ae50cfcec5decd6a5de6ba90ec2a27f014a9f3f15",
+  "e6e_st_replace": "98b63be1fbed4eb7bb46f748b75b10433d7a8e965dfd22e47039e9b9f73c353f",
+  "e6e_rt_replace": "e9ac861fbdaf81252e7b62eab3edf37bfdb050161b3fc92ee94e0a8b91cae28b"
+ }
+}

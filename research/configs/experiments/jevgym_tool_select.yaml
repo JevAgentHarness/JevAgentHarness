@@ -1,0 +1,65 @@
+# E2a + E3 (RQ1/RQ2/RQ3) -- object-level decision points (tool selection, tool arguments) on JevGym:
+# every valid mode, System-1 backend comparison, and cascade threshold sweeps.
+# Suite: JevGym v2 as calibrated by the P4 difficulty pilot (docs/PILOT_RESULTS.md): v2 families (clarify +
+# multi), 60 near-duplicate distractors, noise, strict. LLM-only success there: Flash 100%, Flash-Lite 77%.
+# System-2 strength is a factor: Flash (primary; non-inferiority / cost claims) and Flash-Lite (`*_s2lite`
+# arms; headroom for Assist / Guard gains). Sizes (PREREGISTRATION A2 + A5): the suite holds 500 tasks (seeds
+# 200000..200499 (A6.13; 100000..100499 is retired: exposed by an n = 50 pilot resume) since amendment A6.4, 2026-10-01 -- seeds 0..59 were used by the pilots / dev rounds / CF pilot and
+# are development seeds; shared with E2b / E2c so controls pair up); every arm runs the first `n_tasks` (default 200). Amendment A5
+# (2026-10-01, P0-3) makes Flash-Lite a co-primary System-2 for C1 / C2 / C6: the `*_s2lite` arms of C1 / C2 and
+# their references carry `n_tasks: 500`. The Flash primaries (llm_only, jev_shadow, jev_ts_assist_k3, the cascade at
+# tau-hat) go to 500 per A2 once the budget is signed off (~$0.07 per Flash LLM-only episode before prompt-cache
+# discounts): set `n_tasks: 500` on those arms (or `-o n_tasks=500` for every arm).
+# Amendment A6.5 (2026-10-01, P0-6): tau-hat* for the C1 arms (`jev_ts_cascade_tauhat`, `jev_ts_cascade_tau0.9_s2lite`)
+# is fitted on the CALIBRATION shadow arms `jev_shadow_cal` / `jev_shadow_cal_s2lite` (seeds 5000..5149, n = 150,
+# configs/experiments/jevgym_shadow_cal.yaml; W = $1, lambda = 0; scalar threshold projection), NEVER on `jev_shadow`
+# (which stays the n = 500 evaluation shadow log for H1's regret analysis). C1 is tested on all 500 evaluation tasks.
+name: e2a_jevgym_tool_decisions
+suite: {name: jevgym, n: 500, seed0: 200000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # evaluation seeds 200000..200499 (A6.13; 100000..100499 is retired: exposed by an n = 50 pilot resume) (PREREGISTRATION A6.4)
+n_tasks: 200
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+llms:
+  lite2: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}
+s1_cache: cache/s1.sqlite
+s1_backends:
+  lite: {type: llm_generative, llm: {provider: gemini, model: gemini-3.5-flash-lite}, reasoning_effort: minimal}
+  embed: {type: embedding, provider: gemini, model: gemini-embedding-001}
+  bm25: {type: bm25}
+  # jev_ts: {type: calibrated, inner: {type: jev, provider: openrouter}, temperatures_file: runs/cal/jev_jevgym.json}   # E3 calibrated arm
+  # openjev: {type: openjev}
+workers: 8
+arms:
+  - {name: llm_only, n_tasks: 500}                                                      # C1/C2 reference (A2 signed off 2026-10-01)
+  # LLM-only episodes (identical to llm_only) + System-1 asked the same typed questions in shadow: the joint of
+  # (S1 confidence, S1 correct, LLM correct) on identical states -> q_L(c), calibration and the Prop. 1 test
+  # (python -m jevharness.bench.threshold_theory RUN_DIR --arm jev_shadow --dp tool_select --train-frac 0.3): H1's
+# regret analysis on its 30/70 split; the deployed C1 tau comes from the calibration arms (A6.5), not from here.
+  # Shadow S1 cost is excluded from the episode cost (usage.shadow / usage.total_with_shadow).
+  - {name: jev_shadow, n_tasks: 500, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}   # tau-hat* fit (H1)
+  - {name: jev_ts_replace, tool_select: {mode: replace}}
+  - {name: jev_ts_params_replace, tool_select: {mode: replace}, tool_params: {mode: replace}}
+  - {name: jev_ts_assist_k3, n_tasks: 500, tool_select: {mode: assist, k: 3}}                                     # C2F
+  - {name: jev_ts_cascade_tauhat, n_tasks: 500, tool_select: {mode: cascade, tau: 1.0}, tool_params: {mode: cascade, tau: 0.99}}  # C1F: tau-hat* from jev_shadow_cal, fitted 2026-10-01 (A6.5 + A6.11; PREREGISTRATION Deviations): tool_select 1.00 = Jev's certainty set, tool_params 0.99
+  - {name: jev_ts_assist_k5, tool_select: {mode: assist, k: 5}}
+  - {name: jev_ts_guard, tool_select: {mode: guard, tau: 0.5}}
+  - {name: lite_ts_params_replace, s1: lite, tool_select: {mode: replace}, tool_params: {mode: replace}}
+  - {name: lite_ts_assist_k3, s1: lite, tool_select: {mode: assist, k: 3}}
+  - {name: lite_ts_guard, s1: lite, tool_select: {mode: guard, tau: 0.5}}
+  - {name: embed_ts_assist_k3, s1: embed, tool_select: {mode: assist, k: 3}}
+  # --- weaker System-2 (Flash-Lite): where System-1 help (Assist / Guard / Cascade) can raise success ---
+  # A5 (P0-3): C1L / C2L primaries and their references at n = 500 (one Holm family of 11 with the Flash tests).
+  - {name: llm_only_s2lite, llm: lite2, n_tasks: 500}
+  - {name: jev_shadow_s2lite, llm: lite2, n_tasks: 500, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}
+  - {name: jev_ts_assist_k3_s2lite, llm: lite2, n_tasks: 500, tool_select: {mode: assist, k: 3}}   # C2L
+  - {name: jev_ts_guard_s2lite, llm: lite2, tool_select: {mode: guard, tau: 0.5}}
+  # C1L: cascade at the Flash-Lite tau-hat* (set tau from the jev_shadow_cal_s2lite fit, A6.5; python -m jevharness.bench.threshold_theory)
+  - {name: jev_ts_cascade_tau0.9_s2lite, llm: lite2, n_tasks: 500, tool_select: {mode: cascade, tau: 0.99, always_defer: true}, tool_params: {mode: cascade, tau: 0.13}}  # C1L plug-in policy (A6.11 (c)): the Flash-Lite fit accepts no tool_select confidence level -> always defer (System-1 not queried there); tool_params 0.13 (reached only inside System-1-chosen calls, so never fires here: stated in A6.11 (c)); name kept as registered in A5.3
+  - {name: bm25_ts_assist_k3_s2lite, llm: lite2, s1: bm25, tool_select: {mode: assist, k: 3}}
+sweeps:
+  - base: {name: jev_ts_cascade, tool_select: {mode: cascade}, tool_params: {mode: cascade, tau: 0.9}}
+    set: tool_select.tau
+    values: [0.5, 0.7, 0.8, 0.9, 0.95, 0.99]
+  - base: {name: lite_ts_cascade, s1: lite, tool_select: {mode: cascade}, tool_params: {mode: cascade, tau: 0.9}}
+    set: tool_select.tau
+    values: [0.7, 0.9, 0.99]

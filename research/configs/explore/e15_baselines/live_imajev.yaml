@@ -1,0 +1,38 @@
+# Exploratory row E15 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-07 "E15: more decision-model baselines" (c) 4;
+# descriptive, outside every Holm table): Imajev-4B LIVE, as `jev_ts_replace_f` of configs/experiments/stage2_rl_states.yaml,
+# the E2 ladder and E12: tool_select REPLACE, the same suite block, the first 200 fresh Stage-2 tasks (seeds 300000..300199; evaluation seeds: JEV_EVAL_RUNS=1), workers 4, Flash on the direct Gemini API (temperature 0,
+# minimal reasoning), a new System-1 cache. Written by `scripts/explore_e15_baselines.py livecfg --slug imajev` from the
+# model's L1 backend (configs/explore/e15_baselines/e1_e15.yaml); served on :8090 of the E15 host (scripts/aws/e15_baselines.sh live_imajev); probe-gated, paused on 503 / overload.
+name: e15_live_imajev
+suite:
+  name: jevgym
+  n: 500
+  seed0: 300000
+  families: v2
+  distractor_style: near
+  n_distractors: 60
+  noise_lines: 20
+  strict: true
+n_tasks: 200
+llm:
+  provider: gemini
+  model: gemini-3.5-flash
+  temperature: 0
+  reasoning_effort: minimal
+s1_cache: cache/s1_e15_live_imajev.sqlite
+s1_backends:
+  imajev:
+    type: jev
+    name: imajev-4b
+    base_url: http://127.0.0.1:8090
+    model: imajev-4b
+    api_key: ''
+    timeout: 300.0
+    price_model: e15-selfhost
+    max_questions_per_request: 8
+workers: 4
+arms:
+- name: imajev_ts_replace_f
+  s1: imajev
+  tool_select:
+    mode: replace

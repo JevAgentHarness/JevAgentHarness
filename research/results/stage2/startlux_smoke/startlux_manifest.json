@@ -1,0 +1,168 @@
+{
+ "registered": "PREREG_A7_STAGE2 A7.18 (d)",
+ "package": {
+  "repo": "https://github.com/StartLuxLabs/startlux-decision",
+  "commit": "a9101e918e097b26fea5ead9ed893b823e875e46"
+ },
+ "written": "2026-10-03T03:51:46Z",
+ "host": [
+  {
+   "hostname": "<host>",
+   "gpus": "0, NVIDIA L40S, 46068 MiB;",
+   "started": "2026-10-03T03:51:13Z",
+   "harness_commit": "b7f731c67a77ce843fa223652032b68d7fb5e58d"
+  },
+  {
+   "hostname": "<host>",
+   "gpus": "0, NVIDIA L40S, 46068 MiB;",
+   "started": "2026-10-03T03:55:12Z",
+   "harness_commit": "b7f731c67a77ce843fa223652032b68d7fb5e58d"
+  }
+ ],
+ "environment": [
+  {
+   "torch": "2.14.1",
+   "transformers": "5.8.1",
+   "accelerate": "1.15.0",
+   "flash-linear-attention": "0.5.2",
+   "causal-conv1d": "1.7.0",
+   "huggingface_hub": "1.33.0",
+   "triton": "3.8.0",
+   "cuda_home": null,
+   "nvcc": null
+  },
+  {
+   "torch": "2.14.1",
+   "transformers": "5.8.1",
+   "accelerate": "1.15.0",
+   "flash-linear-attention": "0.5.2",
+   "causal-conv1d": "1.7.0",
+   "huggingface_hub": "1.33.0",
+   "triton": "3.8.0",
+   "cuda_home": null,
+   "nvcc": null
+  }
+ ],
+ "sizes": [
+  {
+   "size": "4B",
+   "port": 8090,
+   "repo": "startlux-models/StartLux-Decision-4B",
+   "local_name": "StartLux-Decision-4B",
+   "gpu": 0,
+   "reason": "45 GiB >= 20 GiB",
+   "planned_mode": "original",
+   "status": "original",
+   "why": null,
+   "weights_revision": "3890ae0c174215e1555cc94c882ef45c5fe87cad",
+   "health": {
+    "status": "ok",
+    "model": "StartLux-Decision-4B",
+    "backend": "torch",
+    "fast_kernels": true,
+    "cuda_graphs": 40
+   },
+   "smoke": {
+    "port": 8090,
+    "ok": true,
+    "requests": [
+     {
+      "questions": 3,
+      "ok": true,
+      "model": "StartLux-Decision-4B",
+      "ms": 28.775587999916752,
+      "n_probabilities": {
+       "team": 3,
+       "urgent": 0,
+       "severity": 3
+      },
+      "usage": {
+       "input_tokens": 290,
+       "output_tokens": 0
+      },
+      "server_latency_ms": 26.44
+     },
+     {
+      "questions": 1,
+      "ok": true,
+      "model": "StartLux-Decision-4B",
+      "ms": 101.32292700018297,
+      "n_probabilities": {
+       "next_tool": 69
+      },
+      "usage": {
+       "input_tokens": 1525,
+       "output_tokens": 0
+      },
+      "server_latency_ms": 100.43
+     }
+    ]
+   }
+  },
+  {
+   "size": "27B",
+   "port": 8091,
+   "repo": "startlux-models/StartLux-Decision-27B-Q8_0-GGUF",
+   "local_name": "StartLux-Decision-27B-Q8_0",
+   "gpu": 0,
+   "reason": "no free GPU >= 64 GiB; Q8_0 GGUF on 45 GiB (A7.18 (g))",
+   "planned_mode": "gguf_q8_0",
+   "status": "gguf_q8_0",
+   "why": null,
+   "weights_revision": "a54b311e3aede0c869bf006116bcfdddb1ef466f",
+   "health": {
+    "status": "ok",
+    "model": "StartLux-Decision-27B-Q8_0"
+   },
+   "smoke": {
+    "port": 8091,
+    "ok": true,
+    "requests": [
+     {
+      "questions": 3,
+      "ok": true,
+      "model": "StartLux-Decision-27B-Q8_0",
+      "ms": 740.4503389998354,
+      "n_probabilities": {
+       "team": 3,
+       "urgent": 0,
+       "severity": 3
+      },
+      "usage": {
+       "input_tokens": 290,
+       "output_tokens": 0
+      },
+      "server_latency_ms": null
+     },
+     {
+      "questions": 1,
+      "ok": true,
+      "model": "StartLux-Decision-27B-Q8_0",
+      "ms": 2167.313882000144,
+      "n_probabilities": {
+       "next_tool": 69
+      },
+      "usage": {
+       "input_tokens": 1525,
+       "output_tokens": 0
+      },
+      "server_latency_ms": null
+     }
+    ]
+   }
+  }
+ ],
+ "invocations": [
+  {
+   "sizes": "4B",
+   "file": "manifest_4B.json",
+   "written": "2026-10-03T03:51:46Z"
+  },
+  {
+   "sizes": "27B",
+   "file": "manifest_27B.json",
+   "written": "2026-10-03T03:57:29Z"
+  }
+ ],
+ "note": "GPU smoke test on one L40S (development only): serve_startlux.sh run once per size (SIZES=4B, then SIZES=27B), the 4B stopped before the 27B started; not the Stage-2 serving manifest"
+}

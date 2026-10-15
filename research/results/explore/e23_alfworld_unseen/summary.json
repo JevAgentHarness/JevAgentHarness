@@ -1,0 +1,528 @@
+{
+ "row": "exploratory (E23)",
+ "label": "descriptive, revises no registered result; E11's frozen checkpoint and threshold, no refit, no training",
+ "generated": "2026-10-08T19:48:58+00:00",
+ "git": "c541ab6f2d6c88478e53472aaafe7224d98e3760",
+ "eval": {
+  "split": "valid_unseen",
+  "n_games": 134,
+  "list_sha256": "3c46e12b31bfcb6259289cbd48cc7b3ef2183dda9761d995e568fda38a83d820",
+  "registered_list_sha256": "3c46e12b31bfcb6259289cbd48cc7b3ef2183dda9761d995e568fda38a83d820",
+  "scenes": {
+   "10": 77,
+   "219": 11,
+   "308": 27,
+   "424": 19
+  },
+  "run": "runs/e23_alfworld_unseen_eval",
+  "files": {
+   "llm_only": {
+    "sha256": "202844f6946712d89b2b9758d6a35aa172cff260cabed67fd864960707b9acd3",
+    "records": 134
+   },
+   "e11_action_cascade_tauhat": {
+    "sha256": "d7d9e4420cb919eab0f7bf7c3a4d77f4443bf3a3bdbb33901035943097e6f30e",
+    "records": 134
+   },
+   "e11_action_replace": {
+    "sha256": "d25b633bc009d70a1e524e14962751866509e80082ca51d7495254d82aa1ec25",
+    "records": 134
+   }
+  }
+ },
+ "settings": {
+  "agent_llm": "gemini-3.5-flash (temperature 0, reasoning_effort minimal), direct Gemini API",
+  "decision_model": "e11-alfworld-4b (E11's frozen checkpoint; serve_jev)",
+  "tau_hat": 0.120764,
+  "max_steps": 50,
+  "history_window": 12,
+  "schedule": "task_major, seed 732",
+  "workers": 8
+ },
+ "checkpoint": {
+  "ok": true,
+  "files": {
+   "adapter_model.safetensors": "53c5893b60c262d6ac2356ad9fd537ee0e722085abb5a7e14d2cf2ae7cc6b659",
+   "adapter_config.json": "06d8e3d54909591eaa3e9a09a9b83bc5dedeebf4ac9e88deeb8e39abb349fa1d",
+   "calibration.json": "d089d0e76e08cc68dd9743d0fd36fcbf04044c16afe3ae76ddacf4cc1515b382"
+  }
+ },
+ "tariff": {
+  "q_usd_per_episode": 0.0016280597014925373,
+  "host_usd_per_hour": 1.212,
+  "instance_type": "g5.2xlarge",
+  "serving_hours": 0.36,
+  "paused_s": 0,
+  "episodes": 268,
+  "window": {
+   "start": "2026-10-08T19:18:25Z",
+   "end": "2026-10-08T19:40:01Z"
+  },
+  "state": "ok",
+  "convention": "E11's (E7 / S2-4 provisioned tariff, A7.13 (iii)): host $/h x evaluation window / completed GPU-arm episodes; on-demand price, us-east-1",
+  "sensitivity": {
+   "s2_4": 0.00196182,
+   "zero": 0.0
+  }
+ },
+ "reference": {
+  "n": 134,
+  "n_errored": 0,
+  "success": 0.8880597014925373,
+  "cost_usd": 0.02148100746268657,
+  "wall_mean_s": 35.09287127343283,
+  "wall_median_s": 22.706098645499992,
+  "steps": 14.828358208955224,
+  "llm_calls": 14.828358208955224,
+  "decisions": {
+   "n_decisions": 1987,
+   "coverage": 0.0,
+   "n_gold": 1987,
+   "llm_acc": 0.3688978359335682,
+   "acc": 0.3688978359335682
+  }
+ },
+ "arms": {
+  "cascade": {
+   "arm": "e11_action_cascade_tauhat",
+   "status": "run",
+   "n_expected": 134,
+   "n": 134,
+   "n_dropped": 0,
+   "dropped": {
+    "arm": {
+     "missing": 0,
+     "errored": 0
+    },
+    "ref": {
+     "missing": 0,
+     "errored": 0
+    }
+   },
+   "success": 0.8955223880597015,
+   "success_ref": 0.8880597014925373,
+   "delta_pt": 0.7462686567164201,
+   "delta_ci_pt": [
+    -6.7164179104477695,
+    8.208955223880599
+   ],
+   "delta_newcombe_pt": [
+    -7.052769486086547,
+    8.555821083636268
+   ],
+   "wins": 14,
+   "losses": 13,
+   "cost_usd": 8.556716417910448e-05,
+   "cost_ref_usd": 0.02148100746268657,
+   "gemini_usd": 8.556716417910448e-05,
+   "jev_usd": 0.0,
+   "saving": 0.9202259545485338,
+   "saving_ci": [
+    0.897118893260698,
+    0.9356475672377182
+   ],
+   "wall_mean_s": 18.2005497149627,
+   "wall_median_s": 12.523914292499967,
+   "wall_ref_mean_s": 35.09287127343283,
+   "wall_ref_median_s": 22.706098645499992,
+   "wall_delta_median_s": -8.28439767149996,
+   "steps": 16.350746268656717,
+   "llm_calls": 0.09701492537313433,
+   "s1_calls": 16.350746268656717,
+   "decisions": {
+    "n_decisions": 2191,
+    "coverage": 0.9940666362391603,
+    "n_gold": 2191,
+    "s1_acc": 0.6275673208580557,
+    "mean_conf": 0.7851461832896589,
+    "accepted_acc": 0.630394857667585,
+    "deferred_llm_acc": 0.0,
+    "llm_acc": 0.0,
+    "acc": 0.630394857667585
+   },
+   "saving_api": 0.9960166130788913,
+   "saving_api_ci": [
+    0.9936916096490832,
+    0.9979060205534284
+   ],
+   "tariff": {
+    "q": 0.0016280597014925373,
+    "cost_usd": 0.0017136268656716416,
+    "saving": 0.9202259545485338,
+    "saving_ci": [
+     0.897118893260698,
+     0.9356475672377182
+    ]
+   },
+   "sensitivity": {
+    "s2_4": {
+     "q": 0.00196182,
+     "cost_usd": 0.0020473871641791042,
+     "saving": 0.9046884943485307,
+     "saving_ci": [
+      0.8769530550868807,
+      0.9231238412216315
+     ]
+    },
+    "zero": {
+     "q": 0.0,
+     "cost_usd": 8.556716417910448e-05,
+     "saving": 0.9960166130788913,
+     "saving_ci": [
+      0.9936916096490832,
+      0.9979060205534284
+     ]
+    }
+   },
+   "ni": {
+    "margin": 0.03,
+    "alpha": 0.05,
+    "p": 0.17507431508015567,
+    "verdict": "not shown",
+    "tango_ci_pt": [
+     -7.13375629909396,
+     8.656876066205022
+    ],
+    "rule": "bb_ordered (A6.21), scripts/hard_ni.py"
+   },
+   "taken": {
+    "n_actions": 2191,
+    "n_taken": 2178,
+    "n_taken_gold": 2178,
+    "n_wrong": 805,
+    "wrong_share": 0.36960514233241504,
+    "n_deferred": 13,
+    "mean_conf": 0.7851461832896589,
+    "share_conf_below_tau": 0.005933363760839799
+   }
+  },
+  "replace": {
+   "arm": "e11_action_replace",
+   "status": "run",
+   "n_expected": 134,
+   "n": 134,
+   "n_dropped": 0,
+   "dropped": {
+    "arm": {
+     "missing": 0,
+     "errored": 0
+    },
+    "ref": {
+     "missing": 0,
+     "errored": 0
+    }
+   },
+   "success": 0.8805970149253731,
+   "success_ref": 0.8880597014925373,
+   "delta_pt": -0.7462686567164201,
+   "delta_ci_pt": [
+    -8.208955223880599,
+    7.462686567164178
+   ],
+   "delta_newcombe_pt": [
+    -8.804503297273751,
+    7.305944655634593
+   ],
+   "wins": 14,
+   "losses": 15,
+   "cost_usd": 0.0,
+   "cost_ref_usd": 0.02148100746268657,
+   "gemini_usd": 0.0,
+   "jev_usd": 0.0,
+   "saving": 0.9242093414696426,
+   "saving_ci": [
+    0.9017401129837946,
+    0.9390436016934867
+   ],
+   "wall_mean_s": 18.7946403390224,
+   "wall_median_s": 12.855750762499952,
+   "wall_ref_mean_s": 35.09287127343283,
+   "wall_ref_median_s": 22.706098645499992,
+   "wall_delta_median_s": -9.016181754499938,
+   "steps": 16.708955223880597,
+   "llm_calls": 0.0,
+   "s1_calls": 16.708955223880597,
+   "decisions": {
+    "n_decisions": 2239,
+    "coverage": 1.0,
+    "n_gold": 2239,
+    "s1_acc": 0.6257257704332291,
+    "mean_conf": 0.7849288256061082,
+    "llm_acc": null,
+    "acc": 0.6257257704332291
+   },
+   "saving_api": 1.0,
+   "saving_api_ci": [
+    1.0,
+    1.0
+   ],
+   "tariff": {
+    "q": 0.0016280597014925373,
+    "cost_usd": 0.001628059701492537,
+    "saving": 0.9242093414696426,
+    "saving_ci": [
+     0.9017401129837946,
+     0.9390436016934867
+    ]
+   },
+   "sensitivity": {
+    "s2_4": {
+     "q": 0.00196182,
+     "cost_usd": 0.00196182,
+     "saving": 0.9086718812696395,
+     "saving_ci": [
+      0.8815963497103884,
+      0.9265472382763033
+     ]
+    },
+    "zero": {
+     "q": 0.0,
+     "cost_usd": 0.0,
+     "saving": 1.0,
+     "saving_ci": [
+      1.0,
+      1.0
+     ]
+    }
+   },
+   "ni": {
+    "margin": 0.03,
+    "alpha": 0.05,
+    "p": 0.30056313545149144,
+    "verdict": "not shown",
+    "tango_ci_pt": [
+     -8.906131523693844,
+     7.388676326318072
+    ],
+    "rule": "bb_ordered (A6.21), scripts/hard_ni.py"
+   },
+   "taken": {
+    "n_actions": 2239,
+    "n_taken": 2239,
+    "n_taken_gold": 2239,
+    "n_wrong": 838,
+    "wrong_share": 0.37427422956677087,
+    "n_deferred": 0,
+    "mean_conf": 0.7849288256061082,
+    "share_conf_below_tau": 0.006252791424743189
+   }
+  }
+ },
+ "by_task_type": {
+  "pick_and_place_simple": {
+   "n": 24,
+   "llm_only": 1.0,
+   "cascade": 0.875,
+   "replace": 0.875
+  },
+  "look_at_obj_in_light": {
+   "n": 18,
+   "llm_only": 1.0,
+   "cascade": 0.7777777777777778,
+   "replace": 0.7777777777777778
+  },
+  "pick_clean_then_place_in_recep": {
+   "n": 31,
+   "llm_only": 0.6774193548387096,
+   "cascade": 0.9354838709677419,
+   "replace": 0.9032258064516129
+  },
+  "pick_heat_then_place_in_recep": {
+   "n": 23,
+   "llm_only": 0.8695652173913043,
+   "cascade": 0.9565217391304348,
+   "replace": 0.9130434782608695
+  },
+  "pick_cool_then_place_in_recep": {
+   "n": 21,
+   "llm_only": 0.9047619047619048,
+   "cascade": 0.8571428571428571,
+   "replace": 0.8571428571428571
+  },
+  "pick_two_obj_and_place": {
+   "n": 17,
+   "llm_only": 1.0,
+   "cascade": 0.9411764705882353,
+   "replace": 0.9411764705882353
+  }
+ },
+ "pilot_contact": {
+  "alfworld/valid_unseen/pick_and_place_simple-SaltShaker-None-Cabinet-10/trial_T20190906_191501_563086": {
+   "llm_only": true,
+   "e11_action_cascade_tauhat": true,
+   "e11_action_replace": true
+  },
+  "alfworld/valid_unseen/pick_heat_then_place_in_recep-Potato-None-GarbageCan-10/trial_T20190907_161853_945788": {
+   "llm_only": true,
+   "e11_action_cascade_tauhat": true,
+   "e11_action_replace": true
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Bowl-None-Cabinet-10/trial_T20190909_061232_368489": {
+   "llm_only": true,
+   "e11_action_cascade_tauhat": true,
+   "e11_action_replace": true
+  },
+  "alfworld/valid_unseen/look_at_obj_in_light-Book-None-DeskLamp-308/trial_T20190908_020029_636862": {
+   "llm_only": true,
+   "e11_action_cascade_tauhat": false,
+   "e11_action_replace": false
+  },
+  "alfworld/valid_unseen/pick_cool_then_place_in_recep-Bread-None-CounterTop-10/trial_T20190908_091835_825830": {
+   "llm_only": true,
+   "e11_action_cascade_tauhat": true,
+   "e11_action_replace": true
+  }
+ },
+ "seen": {
+  "n": 140,
+  "llm_only": {
+   "success": 0.9071428571428571,
+   "cost_usd": 0.01942347857142857,
+   "wall_mean_s": 37.033721550992844,
+   "wall_median_s": 25.366108585500115,
+   "steps": 13.121428571428572
+  },
+  "tariff_q": 0.0021315,
+  "cascade": {
+   "n": 140,
+   "success": 0.95,
+   "delta_pt": 4.285714285714281,
+   "delta_ci_pt": [
+    -2.1428571428571352,
+    10.71428571428571
+   ],
+   "wins": 13,
+   "losses": 7,
+   "saving": 0.8902616752111858,
+   "saving_ci": [
+    0.85564532422759,
+    0.9138196228085484
+   ],
+   "saving_api": 1.0,
+   "wall_mean_s": 18.186800511699936,
+   "wall_median_s": 13.67414137599917,
+   "steps": 12.121428571428572,
+   "llm_calls": 0.0,
+   "coverage": 1.0,
+   "acc": 0.6464348850913376,
+   "ni": {
+    "margin": 0.03,
+    "alpha": 0.05,
+    "p": 0.01413230371853343,
+    "verdict": "non-inferior",
+    "tango_ci_pt": [
+     -2.1329170982177654,
+     11.0624164290713
+    ],
+    "rule": "bb_ordered (A6.21), scripts/hard_ni.py"
+   }
+  },
+  "replace": {
+   "n": 140,
+   "success": 0.9571428571428572,
+   "delta_pt": 5.000000000000004,
+   "delta_ci_pt": [
+    -0.7142857142857229,
+    11.428571428571422
+   ],
+   "wins": 13,
+   "losses": 6,
+   "saving": 0.8902616752111858,
+   "saving_ci": [
+    0.85564532422759,
+    0.9138196228085484
+   ],
+   "saving_api": 1.0,
+   "wall_mean_s": 17.94869224935715,
+   "wall_median_s": 14.498268887999984,
+   "steps": 12.057142857142857,
+   "llm_calls": 0.0,
+   "coverage": 1.0,
+   "acc": 0.6469194312796208,
+   "ni": {
+    "margin": 0.03,
+    "alpha": 0.05,
+    "p": 0.007135704397136947,
+    "verdict": "non-inferior",
+    "tango_ci_pt": [
+     -1.2010251858359844,
+     11.661560098067856
+    ],
+    "rule": "bb_ordered (A6.21), scripts/hard_ni.py"
+   }
+  },
+  "by_task_type": {
+   "pick_and_place_simple": {
+    "n": 35,
+    "llm_only": 1.0,
+    "cascade": 0.9714285714285714,
+    "replace": 0.9714285714285714
+   },
+   "look_at_obj_in_light": {
+    "n": 13,
+    "llm_only": 1.0,
+    "cascade": 1.0,
+    "replace": 1.0
+   },
+   "pick_clean_then_place_in_recep": {
+    "n": 27,
+    "llm_only": 0.6666666666666666,
+    "cascade": 1.0,
+    "replace": 1.0
+   },
+   "pick_heat_then_place_in_recep": {
+    "n": 16,
+    "llm_only": 0.9375,
+    "cascade": 0.8125,
+    "replace": 0.8125
+   },
+   "pick_cool_then_place_in_recep": {
+    "n": 25,
+    "llm_only": 0.88,
+    "cascade": 0.92,
+    "replace": 0.96
+   },
+   "pick_two_obj_and_place": {
+    "n": 24,
+    "llm_only": 1.0,
+    "cascade": 0.9583333333333334,
+    "replace": 0.9583333333333334
+   }
+  }
+ },
+ "seen_change_pt": {
+  "llm_only": -1.9083155650319816,
+  "cascade": -5.447761194029843,
+  "replace": -7.654584221748406
+ },
+ "spend": {
+  "by_run": {
+   "e23_alfworld_smoke": {
+    "gemini": 0.0100875,
+    "jev": 0.0,
+    "total": 0.0100875,
+    "records": 6
+   },
+   "e23_alfworld_unseen_eval": {
+    "gemini": 2.8899209999999993,
+    "jev": 0.0,
+    "total": 2.8899209999999993,
+    "records": 402
+   }
+  },
+  "probes": 0.00056,
+  "gemini": 2.9005684999999994,
+  "jev": 0.0,
+  "total": 2.9005684999999994,
+  "records": 408
+ },
+ "host": {
+  "instance_id": "<instance-id>",
+  "instance_type": "g5.2xlarge",
+  "az": "us-east-1d",
+  "launch": "2026-10-08T18:57:29Z",
+  "stopped": "2026-10-08T19:42:12Z",
+  "hours": 0.745,
+  "note": "launch time from EC2; stop = the power-off the final stage scheduled at 19:40:12 UTC (+2 min, OS shutdown); state 'stopped' verified with describe-instances at about 19:48 UTC"
+ }
+}

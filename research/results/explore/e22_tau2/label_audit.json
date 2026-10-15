@@ -1,0 +1,47 @@
+{
+ "what": "E22 label audit (amendment (c)); no model call",
+ "strata": {
+  "success": {
+   "n": 100,
+   "respond_labels": 33,
+   "ref_respond": 52,
+   "ref_respond_agree": 26,
+   "tool_labels": 67,
+   "tool_in_expected_list": 42,
+   "call_matches_expected_action": 37,
+   "ref_names_tool": 48,
+   "ref_agree": 36,
+   "pool": 6457,
+   "share_tool_labels_matching_expected": 55.2,
+   "share_listed_tool_labels_matching_expected": 88.1,
+   "share_ref_agree_where_ref_names_tool": 75.0
+  },
+  "failed_exact": {
+   "n": 100,
+   "tool_labels": 100,
+   "tool_in_expected_list": 100,
+   "call_matches_expected_action": 100,
+   "ref_names_tool": 97,
+   "ref_agree": 91,
+   "ref_respond": 3,
+   "ref_respond_agree": 0,
+   "pool": 659,
+   "share_tool_labels_matching_expected": 100.0,
+   "share_listed_tool_labels_matching_expected": 100.0,
+   "share_ref_agree_where_ref_names_tool": 93.8
+  }
+ },
+ "coverage": {
+  "tool_choice_states": 9959,
+  "labelled": 7116,
+  "share_pct": 71.5,
+  "drops": {
+   "drop_tool_error": 161,
+   "drop_unmatched_write": 21,
+   "drop_failed_unmatched": 1479,
+   "drop_failed_message": 1182,
+   "state_choice_mismatch": 0,
+   "state_unjoined": 0
+  }
+ }
+}

@@ -1,0 +1,5 @@
+step jevgym_shadow_cal_x
+started 2026-10-03T07:21:11Z
+commit ed3955f5a550e3b8183e543875a4405bab1f1fe9
+plan sha256 838506ef306ffe32
+worktree <local-path> (branch stage2-pricefix)

@@ -1,0 +1,1400 @@
+{
+ "meta": {
+  "generated": "2026-10-07T07:17:46+00:00",
+  "git": "514bc3b434a574aec811e05479754d3e0881b587",
+  "script": "scripts/explore_e7_hard.py",
+  "run": "runs/e7f_hard; runs/e7fx_hard",
+  "label": "exploratory (E7)",
+  "n_boot": 10000,
+  "seed": 0,
+  "suite": {
+   "name": "jevgym",
+   "n": 100,
+   "seed0": 310600,
+   "families": "multi",
+   "multi_customers": 12,
+   "multi_rule": "tier",
+   "answer_style": "itemized",
+   "distractor_style": "near",
+   "n_distractors": 60,
+   "noise_lines": 20,
+   "strict": true
+  },
+  "max_steps": 45,
+  "llm": {
+   "provider": "gemini",
+   "model": "gemini-3.5-flash",
+   "temperature": 0,
+   "reasoning_effort": "minimal"
+  },
+  "workers": 12,
+  "spend": {
+   "by_run": {
+    "e7f_hard_smoke": {
+     "s2": 0.8859327000000001,
+     "s1": 0.0,
+     "total": 0.8859327000000001,
+     "records": 4
+    },
+    "e7f_hard": {
+     "s2": 39.644702999999986,
+     "s1": 0.0,
+     "total": 39.644702999999986,
+     "records": 160
+    },
+    "e7fx_hard": {
+     "s2": 59.14364444999998,
+     "s1": 0.0,
+     "total": 59.14364444999998,
+     "records": 240
+    }
+   },
+   "prior": 0.0,
+   "s2": 99.67428014999996,
+   "s1": 0.0,
+   "total": 99.67428014999996,
+   "records": 404,
+   "total_with_prior": 99.67428014999996
+  },
+  "cap": 115.0,
+  "exp": "e7f",
+  "title": "E7f: JevGym-Hard (12 customers, itemized answer), AgentDecision-4B (tier) live",
+  "entry": "E7f: AgentDecision-4B (tier) live",
+  "arms": [
+   "llm_only",
+   "rl_tier"
+  ],
+  "calibration": null,
+  "not_run": {
+   "rl_frozen_refit": "the frozen 4B at its registered refit (E7c) always defers at tool choice, so the arm would cost about as much as llm_only and show nothing E7c's fit has not shown"
+  },
+  "note": "Flash on the direct Gemini API in both arms: dollars compare within this row only; rl_tier = AgentDecision-4B (tier) (E7d's continued checkpoint) served on the host at E7d's fitted thresholds (tool choice 0.99993, arguments 0.99291); the task asks for one line per customer before the total",
+  "pilot_spend": null,
+  "projection": {
+   "smoke_per_episode": {
+    "llm_only": 0.2645899500000001,
+    "rl_tier": 0.1783764
+   },
+   "smoke_wall_s": {
+    "llm_only": 46.661006993,
+    "rl_tier": 119.949092033
+   },
+   "smoke_n": {
+    "llm_only": 2,
+    "rl_tier": 2
+   },
+   "smoke_errors": {
+    "llm_only": 0,
+    "rl_tier": 0
+   },
+   "missing_arms": [],
+   "spent_so_far": 0.8859327000000001,
+   "prior": 0.0,
+   "safety": 1.05,
+   "cap": 45.0,
+   "per_task_all_arms": 0.44296635000000006,
+   "projected_100": 46.51146675000001,
+   "fits_100": false,
+   "projected_80": 37.209173400000005,
+   "fits_80": true,
+   "decision": "run the first 80"
+  },
+  "stopped_by_watchdog": false,
+  "n_run": 200,
+  "pilot_chosen": {
+   "candidates": [
+    "e7_pilot_tier_k12",
+    "e7_pilot_tier_k12b"
+   ],
+   "n": 60,
+   "success": 0.4666666666666667,
+   "band": [
+    0.6,
+    0.8
+   ]
+  }
+ },
+ "tariff": {
+  "q_usd_per_episode": 0.0233954,
+  "host_usd_per_hour": 2.448,
+  "instance_type": "g5.8xlarge",
+  "serving_hours": 1.9113888888888888,
+  "episodes": 200,
+  "window": [
+   {
+    "start": "2026-10-07T04:42:32Z",
+    "end": "2026-10-07T05:28:11Z"
+   },
+   {
+    "start": "2026-10-07T06:06:55Z",
+    "end": "2026-10-07T07:15:57Z"
+   }
+  ],
+  "workers": 12,
+  "state": "ok",
+  "convention": "S2-4 provisioned tariff (A7.13 (iii)): host $/h x evaluation window / completed JevAgentRL episodes; on-demand price, us-east-1",
+  "sensitivity": {
+   "s2_4": 0.00196182,
+   "zero": 0.0
+  }
+ },
+ "arms": {
+  "llm_only": {
+   "state": "run",
+   "n_ok": 200,
+   "n_records": 200,
+   "success_all": 0.835,
+   "cost_mean": 0.26433715199999996,
+   "per_episode": {
+    "wall_s_mean": 74.18596439985,
+    "wall_s_median": 63.218213801499914,
+    "steps": 37.005,
+    "llm_calls": 37.005,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.26433715199999996,
+    "s1_s": 0.0
+   },
+   "failure_types": {
+    "n_failed": 33,
+    "types": {
+     "wrong_total": 33
+    },
+    "classes": {
+     "wrong_total": 33,
+     "wrong_write": 0,
+     "ask_finish": 0,
+     "other": 0
+    }
+   },
+   "answer_forms": {
+    "itemized": {
+     "n": 200,
+     "share": 1.0,
+     "n_success": 167,
+     "success": 0.835
+    },
+    "sentence": {
+     "n": 0,
+     "share": 0.0,
+     "n_success": 0,
+     "success": null
+    },
+    "number": {
+     "n": 0,
+     "share": 0.0,
+     "n_success": 0,
+     "success": null
+    },
+    "none": {
+     "n": 0,
+     "share": 0.0,
+     "n_success": 0,
+     "success": null
+    }
+   },
+   "provenance": {
+    "path": "runs/e7f_hard/llm_only.jsonl; runs/e7fx_hard/llm_only.jsonl",
+    "sha256": "342eb5603a7c1f6defb02ce07b47692f347fe859b07e780cce1c54bc0c3d5132; 399fbc8b7858f75e2eaacff392db290f8da47872bfa366b60383628b9b81491d",
+    "n_records": 200
+   }
+  },
+  "rl_tier": {
+   "state": "run",
+   "n_ok": 200,
+   "n_records": 200,
+   "success_all": 0.815,
+   "cost_mean": 0.22960458525,
+   "per_episode": {
+    "wall_s_mean": 327.186276206115,
+    "wall_s_median": 325.7778317650002,
+    "steps": 36.97,
+    "llm_calls": 31.61,
+    "s1_calls": 103.4,
+    "s1_cost": 0.0,
+    "s2_cost": 0.22960458525,
+    "s1_s": 232.2866974480699
+   },
+   "failure_types": {
+    "n_failed": 37,
+    "types": {
+     "wrong_total": 35,
+     "premature_finish": 2
+    },
+    "classes": {
+     "wrong_total": 35,
+     "wrong_write": 0,
+     "ask_finish": 2,
+     "other": 0
+    }
+   },
+   "answer_forms": {
+    "itemized": {
+     "n": 200,
+     "share": 1.0,
+     "n_success": 163,
+     "success": 0.815
+    },
+    "sentence": {
+     "n": 0,
+     "share": 0.0,
+     "n_success": 0,
+     "success": null
+    },
+    "number": {
+     "n": 0,
+     "share": 0.0,
+     "n_success": 0,
+     "success": null
+    },
+    "none": {
+     "n": 0,
+     "share": 0.0,
+     "n_success": 0,
+     "success": null
+    }
+   },
+   "provenance": {
+    "path": "runs/e7f_hard/rl_tier.jsonl; runs/e7fx_hard/rl_tier.jsonl",
+    "sha256": "f7991fd2fd4b65edf4e525f142c48c5b9c10b4af0137c6ff42a5df0560d074f2; abd7e42236ae474e357fa16092607712028ebca078210b917e83254735fc89ac",
+    "n_records": 200
+   },
+   "paired_per_episode": {
+    "wall_s_mean": 327.186276206115,
+    "wall_s_median": 325.7778317650002,
+    "steps": 36.97,
+    "llm_calls": 31.61,
+    "s1_calls": 103.4,
+    "s1_cost": 0.0,
+    "s2_cost": 0.22960458525,
+    "s1_s": 232.2866974480699
+   },
+   "ref_paired_per_episode": {
+    "wall_s_mean": 74.18596439985,
+    "wall_s_median": 63.218213801499914,
+    "steps": 37.005,
+    "llm_calls": 37.005,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.26433715199999996,
+    "s1_s": 0.0
+   },
+   "points": {
+    "tool_select": {
+     "n": 7394,
+     "coverage": 0.5274546929943197,
+     "n_gold": 7394,
+     "acc": 0.9851230727616986,
+     "acc_accepted": 0.9994871794871795,
+     "llm_acc_deferred": 1.0,
+     "n_accepted": 3900
+    },
+    "tool_params": {
+     "n": 6092,
+     "coverage": 0.6590610636900853,
+     "n_gold": 6092,
+     "acc": 0.9931057124097177,
+     "acc_accepted": 1.0,
+     "llm_acc_deferred": null,
+     "n_accepted": 4015
+    },
+    "tool": {
+     "n": 13486,
+     "coverage": 0.5869049384546937,
+     "n_gold": 13486,
+     "acc": 0.9887290523505858,
+     "acc_accepted": 0.9997473152242577,
+     "llm_acc_deferred": 1.0,
+     "n_accepted": 7915
+    },
+    "op": {
+     "n": 2398,
+     "coverage": 0.5162635529608006,
+     "acc": 0.963302752293578,
+     "acc_accepted": 1.0,
+     "accepted_wrong": 0,
+     "llm_acc_deferred": 1.0,
+     "s1_said_other_op": 88
+    },
+    "reflection": {
+     "n": 7194,
+     "fired": 0.09299416180150125,
+     "acc": 0.9943295019157088,
+     "gold_positive_rate": 0.005670498084291188
+    }
+   },
+   "cmp": {
+    "n_expected": 200,
+    "n": 200,
+    "n_dropped": 0,
+    "dropped": {
+     "missing_arm": 0,
+     "missing_ref": 0,
+     "errored_arm": 0,
+     "errored_ref": 0
+    },
+    "success": 0.815,
+    "success_ref": 0.835,
+    "delta": -0.02,
+    "delta_ci": [
+     -0.085,
+     0.045
+    ],
+    "wins": 21,
+    "losses": 25,
+    "cost": 0.25299998525,
+    "cost_ref": 0.26433715199999996,
+    "saving": 0.04288904024357487,
+    "saving_ci": [
+     0.02055514574373388,
+     0.0657568621318157
+    ],
+    "newcombe_pt": [
+     -8.761923951948946,
+     4.760244699190348
+    ],
+    "api": {
+     "cost": 0.22960458525,
+     "saving": 0.13139494954534414,
+     "saving_ci": [
+      0.10910996265588084,
+      0.15425552954233257
+     ]
+    },
+    "tariff_q": 0.0233954,
+    "sens": {
+     "s2_4": {
+      "cost": 0.23156640525,
+      "saving": 0.1239732913139655,
+      "saving_ci": [
+       0.10169453247859454,
+       0.1468323959437409
+      ]
+     },
+     "zero": {
+      "cost": 0.22960458525,
+      "saving": 0.13139494954534414,
+      "saving_ci": [
+       0.10910996265588084,
+       0.15425552954233257
+      ]
+     }
+    }
+   }
+  }
+ },
+ "latency": {
+  "llm_only": {
+   "n_episodes": 200,
+   "wall_mean": 74.18596439985,
+   "s1_per_episode": 0.0,
+   "s2_per_episode": 70.71593900421969,
+   "tail_per_episode": 22.89068489285999,
+   "s2_tail_per_episode": 22.89068489285999,
+   "groups": {
+    "s2/tool_select/gemini": {
+     "n": 7401,
+     "p50": 1.1547108889999436,
+     "p90": 4.016954333000058,
+     "mean": 1.9109833537149012,
+     "n_over": 565,
+     "share_of_wall": 0.9532253112337099,
+     "tail_share_of_wall": 0.3085581629630507,
+     "per_episode_s": 70.71593900421992,
+     "tail_per_episode_s": 22.89068489285999
+    }
+   }
+  },
+  "rl_tier": {
+   "n_episodes": 200,
+   "wall_mean": 327.186276206115,
+   "s1_per_episode": 232.2866974480695,
+   "s2_per_episode": 85.96433040746011,
+   "tail_per_episode": 46.58621715088003,
+   "s2_tail_per_episode": 45.80001412717004,
+   "groups": {
+    "s1/tool_select/agentdecision-4b-tier": {
+     "n": 7394,
+     "p50": 2.5046250135001173,
+     "p90": 3.6831350076000264,
+     "mean": 2.484462585901947,
+     "n_over": 25,
+     "share_of_wall": 0.2807287116863439,
+     "tail_share_of_wall": 0.0020020392723390013,
+     "per_episode_s": 91.85058180079498,
+     "tail_per_episode_s": 0.6550397743349984
+    },
+    "s1/reflection/agentdecision-4b-tier": {
+     "n": 7194,
+     "p50": 2.1713405010000315,
+     "p90": 3.34163425270001,
+     "mean": 2.1532873715154284,
+     "n_over": 4,
+     "share_of_wall": 0.23672675899345172,
+     "tail_share_of_wall": 0.0003217423164279816,
+     "per_episode_s": 77.45374675340996,
+     "tail_per_episode_s": 0.10526967041000092
+    },
+    "s1/tool_params/agentdecision-4b-tier": {
+     "n": 6092,
+     "p50": 2.0700307555000563,
+     "p90": 3.2673903715000736,
+     "mean": 2.067707448912178,
+     "n_over": 1,
+     "share_of_wall": 0.1924969764140975,
+     "tail_share_of_wall": 7.914017441455336e-05,
+     "per_episode_s": 62.98236889386495,
+     "tail_per_episode_s": 0.025893578965000188
+    },
+    "s2/tool_select/gemini": {
+     "n": 3494,
+     "p50": 1.211879381999779,
+     "p90": 5.807761301999988,
+     "mean": 2.3794587439327413,
+     "n_over": 441,
+     "share_of_wall": 0.12705039080037075,
+     "tail_share_of_wall": 0.05813417794529579,
+     "per_episode_s": 41.569144256504984,
+     "tail_per_episode_s": 19.020705202225
+    },
+    "s2/tool_params/1tool/gemini": {
+     "n": 2159,
+     "p50": 1.4584541619997253,
+     "p90": 7.4688099192000665,
+     "mean": 3.027656351657249,
+     "n_over": 506,
+     "share_of_wall": 0.09989279102755086,
+     "tail_share_of_wall": 0.05991410525946331,
+     "per_episode_s": 32.68355031614001,
+     "tail_per_episode_s": 19.603072992065023
+    },
+    "s2/reflection/gemini": {
+     "n": 669,
+     "p50": 1.6532174320000195,
+     "p90": 8.250266941599968,
+     "mean": 3.5012364229641286,
+     "n_over": 170,
+     "share_of_wall": 0.03579500940753736,
+     "tail_share_of_wall": 0.021933181354951595,
+     "per_episode_s": 11.711635834815011,
+     "tail_per_episode_s": 7.17623593288001
+    }
+   }
+  }
+ },
+ "latency_cmp": {
+  "rl_tier": {
+   "extra_wall_s": 253.00031180626502,
+   "extra_s2_tail_s": 22.909329234310047,
+   "extra_s1_s": 232.2866974480695,
+   "extra_s2_s": 15.248391403240419,
+   "tail_share_of_extra": 0.09055059683820811
+  }
+ },
+ "diagnosis": {
+  "rl_tier": {
+   "run": "runs/e7f_hard; runs/e7fx_hard",
+   "arm": "rl_tier",
+   "arm_sha256": "f7991fd2fd4b65edf4e525f142c48c5b9c10b4af0137c6ff42a5df0560d074f2; abd7e42236ae474e357fa16092607712028ebca078210b917e83254735fc89ac",
+   "n_episodes": 200,
+   "n_records": 200,
+   "thresholds": {
+    "tool_select": {
+     "mode": "cascade",
+     "tau": 0.9999322567940803
+    },
+    "tool_params": {
+     "mode": "cascade",
+     "tau": 0.9929112792015076
+    },
+    "reflection": {
+     "mode": "trigger",
+     "tau": 0.5
+    }
+   },
+   "threshold_check": {
+    "tool_select": {
+     "n": 7394,
+     "consistent": 7394,
+     "other_deferred": 0,
+     "violations": 0,
+     "examples": []
+    },
+    "tool_params": {
+     "n": 6092,
+     "consistent": 6092,
+     "other_deferred": 1486,
+     "violations": 0,
+     "examples": []
+    }
+   },
+   "s1_describe": {
+    "{\"backend\": \"agentdecision-4b-tier\", \"base_url\": \"http://127.0.0.1:8081\", \"extra_body\": {}, \"model\": \"agentdecision-4b-tier\", \"provider\": \"typesafe\"}": 200
+   },
+   "s1_calls": {
+    "agentdecision-4b-tier / agentdecision-4b-tier": 20680
+   },
+   "s1_state_max_chars": 12000,
+   "write_states": {
+    "n": 2398,
+    "both_writes_offered": 2398,
+    "policy_in_task": 2398,
+    "tier_and_amount_seen": 2398,
+    "job_found": 2398,
+    "state_chars_max": 5249,
+    "state_at_cap": 0
+   },
+   "cells": {
+    "basic | above limit | gold cancel_order": {
+     "n": 544,
+     "model_wrong": 18,
+     "accepted_wrong": 0
+    },
+    "basic | at or below limit | gold ship_order": {
+     "n": 248,
+     "model_wrong": 2,
+     "accepted_wrong": 0
+    },
+    "gold | gold tier | gold ship_order": {
+     "n": 777,
+     "model_wrong": 0,
+     "accepted_wrong": 0
+    },
+    "silver | above limit | gold cancel_order": {
+     "n": 273,
+     "model_wrong": 25,
+     "accepted_wrong": 0
+    },
+    "silver | at or below limit | gold ship_order": {
+     "n": 556,
+     "model_wrong": 43,
+     "accepted_wrong": 0
+    }
+   },
+   "cancel_rate": {
+    "basic | 0-150": {
+     "n": 109,
+     "model_cancel": 0,
+     "gold_cancel": 0
+    },
+    "basic | 150-300": {
+     "n": 139,
+     "model_cancel": 2,
+     "gold_cancel": 0
+    },
+    "basic | 300-450": {
+     "n": 147,
+     "model_cancel": 135,
+     "gold_cancel": 147
+    },
+    "basic | 450-600": {
+     "n": 134,
+     "model_cancel": 128,
+     "gold_cancel": 134
+    },
+    "basic | 600-750": {
+     "n": 135,
+     "model_cancel": 135,
+     "gold_cancel": 135
+    },
+    "basic | 750-900": {
+     "n": 128,
+     "model_cancel": 128,
+     "gold_cancel": 128
+    },
+    "gold | 0-150": {
+     "n": 97,
+     "model_cancel": 0,
+     "gold_cancel": 0
+    },
+    "gold | 150-300": {
+     "n": 147,
+     "model_cancel": 0,
+     "gold_cancel": 0
+    },
+    "gold | 300-450": {
+     "n": 136,
+     "model_cancel": 0,
+     "gold_cancel": 0
+    },
+    "gold | 450-600": {
+     "n": 138,
+     "model_cancel": 0,
+     "gold_cancel": 0
+    },
+    "gold | 600-750": {
+     "n": 137,
+     "model_cancel": 0,
+     "gold_cancel": 0
+    },
+    "gold | 750-900": {
+     "n": 122,
+     "model_cancel": 0,
+     "gold_cancel": 0
+    },
+    "silver | 0-150": {
+     "n": 131,
+     "model_cancel": 0,
+     "gold_cancel": 0
+    },
+    "silver | 150-300": {
+     "n": 141,
+     "model_cancel": 0,
+     "gold_cancel": 0
+    },
+    "silver | 300-450": {
+     "n": 140,
+     "model_cancel": 18,
+     "gold_cancel": 0
+    },
+    "silver | 450-600": {
+     "n": 144,
+     "model_cancel": 25,
+     "gold_cancel": 0
+    },
+    "silver | 600-750": {
+     "n": 132,
+     "model_cancel": 116,
+     "gold_cancel": 132
+    },
+    "silver | 750-900": {
+     "n": 141,
+     "model_cancel": 132,
+     "gold_cancel": 141
+    }
+   },
+   "failures": {
+    "wrong_total": 35,
+    "premature_finish": 2
+   },
+   "attribution": {
+    "wrong_total: last step finish chosen by the LLM": 22,
+    "wrong_total: last step finish chosen by the model": 13,
+    "premature_finish: finish chosen by the model": 2
+   },
+   "premature_finish_after_writes": {
+    "11": 2
+   }
+  }
+ },
+ "parts": {
+  "first": {
+   "meta": {
+    "generated": "2026-10-07T07:17:52+00:00",
+    "git": "514bc3b434a574aec811e05479754d3e0881b587",
+    "script": "scripts/explore_e7_hard.py",
+    "run": "runs/e7f_hard",
+    "label": "exploratory (E7)",
+    "n_boot": 10000,
+    "seed": 0,
+    "suite": {
+     "name": "jevgym",
+     "n": 100,
+     "seed0": 310600,
+     "families": "multi",
+     "multi_customers": 12,
+     "multi_rule": "tier",
+     "answer_style": "itemized",
+     "distractor_style": "near",
+     "n_distractors": 60,
+     "noise_lines": 20,
+     "strict": true
+    },
+    "max_steps": 45,
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash",
+     "temperature": 0,
+     "reasoning_effort": "minimal"
+    },
+    "workers": 12,
+    "spend": {
+     "s2": 39.644702999999986,
+     "s1": 0.0,
+     "total": 39.644702999999986,
+     "records": 160,
+     "prior": 0.0
+    },
+    "cap": 115.0,
+    "exp": "e7f",
+    "title": "E7f: JevGym-Hard (12 customers, itemized answer), AgentDecision-4B (tier) live",
+    "entry": "E7f: AgentDecision-4B (tier) live",
+    "arms": [
+     "llm_only",
+     "rl_tier"
+    ],
+    "calibration": null,
+    "not_run": {
+     "rl_frozen_refit": "the frozen 4B at its registered refit (E7c) always defers at tool choice, so the arm would cost about as much as llm_only and show nothing E7c's fit has not shown"
+    },
+    "note": "Flash on the direct Gemini API in both arms: dollars compare within this row only; rl_tier = AgentDecision-4B (tier) (E7d's continued checkpoint) served on the host at E7d's fitted thresholds (tool choice 0.99993, arguments 0.99291); the task asks for one line per customer before the total",
+    "pilot_spend": null,
+    "projection": {
+     "smoke_per_episode": {
+      "llm_only": 0.2645899500000001,
+      "rl_tier": 0.1783764
+     },
+     "smoke_wall_s": {
+      "llm_only": 46.661006993,
+      "rl_tier": 119.949092033
+     },
+     "smoke_n": {
+      "llm_only": 2,
+      "rl_tier": 2
+     },
+     "smoke_errors": {
+      "llm_only": 0,
+      "rl_tier": 0
+     },
+     "missing_arms": [],
+     "spent_so_far": 0.8859327000000001,
+     "prior": 0.0,
+     "safety": 1.05,
+     "cap": 45.0,
+     "per_task_all_arms": 0.44296635000000006,
+     "projected_100": 46.51146675000001,
+     "fits_100": false,
+     "projected_80": 37.209173400000005,
+     "fits_80": true,
+     "decision": "run the first 80"
+    },
+    "stopped_by_watchdog": false,
+    "n_run": 80,
+    "pilot_chosen": {
+     "candidates": [
+      "e7_pilot_tier_k12",
+      "e7_pilot_tier_k12b"
+     ],
+     "n": 60,
+     "success": 0.4666666666666667,
+     "band": [
+      0.6,
+      0.8
+     ]
+    }
+   },
+   "tariff": {
+    "q_usd_per_episode": 0.0232815,
+    "host_usd_per_hour": 2.448,
+    "instance_type": "g5.8xlarge",
+    "serving_hours": 0.7608333333333334,
+    "episodes": 80,
+    "window": {
+     "start": "2026-10-07T04:42:32Z",
+     "end": "2026-10-07T05:28:11Z"
+    },
+    "workers": 12,
+    "state": "ok",
+    "convention": "S2-4 provisioned tariff (A7.13 (iii)): host $/h x evaluation window / completed JevAgentRL episodes; on-demand price, us-east-1",
+    "sensitivity": {
+     "s2_4": 0.00196182,
+     "zero": 0.0
+    }
+   },
+   "arms": {
+    "llm_only": {
+     "state": "run",
+     "n_ok": 80,
+     "n_records": 80,
+     "success_all": 0.775,
+     "cost_mean": 0.263941018125,
+     "per_episode": {
+      "wall_s_mean": 58.35534261418748,
+      "wall_s_median": 55.02224573949991,
+      "steps": 37.0,
+      "llm_calls": 37.0,
+      "s1_calls": 0.0,
+      "s1_cost": 0.0,
+      "s2_cost": 0.263941018125,
+      "s1_s": 0.0
+     },
+     "failure_types": {
+      "n_failed": 18,
+      "types": {
+       "wrong_total": 18
+      },
+      "classes": {
+       "wrong_total": 18,
+       "wrong_write": 0,
+       "ask_finish": 0,
+       "other": 0
+      }
+     },
+     "answer_forms": {
+      "itemized": {
+       "n": 80,
+       "share": 1.0,
+       "n_success": 62,
+       "success": 0.775
+      },
+      "sentence": {
+       "n": 0,
+       "share": 0.0,
+       "n_success": 0,
+       "success": null
+      },
+      "number": {
+       "n": 0,
+       "share": 0.0,
+       "n_success": 0,
+       "success": null
+      },
+      "none": {
+       "n": 0,
+       "share": 0.0,
+       "n_success": 0,
+       "success": null
+      }
+     },
+     "provenance": {
+      "path": "runs/e7f_hard/llm_only.jsonl",
+      "sha256": "342eb5603a7c1f6defb02ce07b47692f347fe859b07e780cce1c54bc0c3d5132",
+      "n_records": 80
+     }
+    },
+    "rl_tier": {
+     "state": "run",
+     "n_ok": 80,
+     "n_records": 80,
+     "success_all": 0.7625,
+     "cost_mean": 0.23161776937500003,
+     "per_episode": {
+      "wall_s_mean": 336.03262573823747,
+      "wall_s_median": 333.2287927489999,
+      "steps": 36.9625,
+      "llm_calls": 31.9375,
+      "s1_calls": 102.2125,
+      "s1_cost": 0.0,
+      "s2_cost": 0.23161776937500003,
+      "s1_s": 247.76501846423753
+     },
+     "failure_types": {
+      "n_failed": 19,
+      "types": {
+       "wrong_total": 18,
+       "premature_finish": 1
+      },
+      "classes": {
+       "wrong_total": 18,
+       "wrong_write": 0,
+       "ask_finish": 1,
+       "other": 0
+      }
+     },
+     "answer_forms": {
+      "itemized": {
+       "n": 80,
+       "share": 1.0,
+       "n_success": 61,
+       "success": 0.7625
+      },
+      "sentence": {
+       "n": 0,
+       "share": 0.0,
+       "n_success": 0,
+       "success": null
+      },
+      "number": {
+       "n": 0,
+       "share": 0.0,
+       "n_success": 0,
+       "success": null
+      },
+      "none": {
+       "n": 0,
+       "share": 0.0,
+       "n_success": 0,
+       "success": null
+      }
+     },
+     "provenance": {
+      "path": "runs/e7f_hard/rl_tier.jsonl",
+      "sha256": "f7991fd2fd4b65edf4e525f142c48c5b9c10b4af0137c6ff42a5df0560d074f2",
+      "n_records": 80
+     },
+     "paired_per_episode": {
+      "wall_s_mean": 336.03262573823747,
+      "wall_s_median": 333.2287927489999,
+      "steps": 36.9625,
+      "llm_calls": 31.9375,
+      "s1_calls": 102.2125,
+      "s1_cost": 0.0,
+      "s2_cost": 0.23161776937500003,
+      "s1_s": 247.76501846423753
+     },
+     "ref_paired_per_episode": {
+      "wall_s_mean": 58.35534261418748,
+      "wall_s_median": 55.02224573949991,
+      "steps": 37.0,
+      "llm_calls": 37.0,
+      "s1_calls": 0.0,
+      "s1_cost": 0.0,
+      "s2_cost": 0.263941018125,
+      "s1_s": 0.0
+     },
+     "points": {
+      "tool_select": {
+       "n": 2957,
+       "coverage": 0.5099763273588096,
+       "n_gold": 2957,
+       "acc": 0.9854582346973284,
+       "acc_accepted": 0.9993368700265252,
+       "llm_acc_deferred": 1.0,
+       "n_accepted": 1508
+      },
+      "tool_params": {
+       "n": 2343,
+       "coverage": 0.6598378147673922,
+       "n_gold": 2343,
+       "acc": 0.9931711481007256,
+       "acc_accepted": 1.0,
+       "llm_acc_deferred": null,
+       "n_accepted": 1546
+      },
+      "tool": {
+       "n": 5300,
+       "coverage": 0.5762264150943396,
+       "n_gold": 5300,
+       "acc": 0.9888679245283019,
+       "acc_accepted": 0.9996725605762934,
+       "llm_acc_deferred": 1.0,
+       "n_accepted": 3054
+      },
+      "op": {
+       "n": 959,
+       "coverage": 0.49009384775808135,
+       "acc": 0.9666319082377477,
+       "acc_accepted": 1.0,
+       "accepted_wrong": 0,
+       "llm_acc_deferred": 1.0,
+       "s1_said_other_op": 32
+      },
+      "reflection": {
+       "n": 2877,
+       "fired": 0.09732360097323602,
+       "acc": 0.9926838659992299,
+       "gold_positive_rate": 0.007316134000770119
+      }
+     },
+     "cmp": {
+      "n_expected": 80,
+      "n": 80,
+      "n_dropped": 0,
+      "dropped": {
+       "missing_arm": 0,
+       "missing_ref": 0,
+       "errored_arm": 0,
+       "errored_ref": 0
+      },
+      "success": 0.7625,
+      "success_ref": 0.775,
+      "delta": -0.0125,
+      "delta_ci": [
+       -0.125,
+       0.0875
+      ],
+      "wins": 9,
+      "losses": 10,
+      "cost": 0.254899269375,
+      "cost_ref": 0.263941018125,
+      "saving": 0.034256701797360956,
+      "saving_ci": [
+       8.098109442384044e-05,
+       0.06862700384053151
+      ],
+      "newcombe_pt": [
+       -12.219144477824555,
+       9.739000547739943
+      ],
+      "api": {
+       "cost": 0.23161776937500003,
+       "saving": 0.12246390871574175,
+       "saving_ci": [
+        0.08836818025439705,
+        0.15686178746199675
+       ]
+      },
+      "tariff_q": 0.0232815,
+      "sens": {
+       "s2_4": {
+        "cost": 0.23357958937500004,
+        "saving": 0.11503111174490155,
+        "saving_ci": [
+         0.08093526865968348,
+         0.14943747648399128
+        ]
+       },
+       "zero": {
+        "cost": 0.23161776937500003,
+        "saving": 0.12246390871574175,
+        "saving_ci": [
+         0.08836818025439705,
+         0.15686178746199675
+        ]
+       }
+      }
+     }
+    }
+   }
+  },
+  "ext": {
+   "meta": {
+    "generated": "2026-10-07T07:17:56+00:00",
+    "git": "514bc3b434a574aec811e05479754d3e0881b587",
+    "script": "scripts/explore_e7_hard.py",
+    "run": "runs/e7fx_hard",
+    "label": "exploratory (E7)",
+    "n_boot": 10000,
+    "seed": 0,
+    "suite": {
+     "name": "jevgym",
+     "n": 120,
+     "seed0": 310680,
+     "families": "multi",
+     "multi_customers": 12,
+     "multi_rule": "tier",
+     "answer_style": "itemized",
+     "distractor_style": "near",
+     "n_distractors": 60,
+     "noise_lines": 20,
+     "strict": true
+    },
+    "max_steps": 45,
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash",
+     "temperature": 0,
+     "reasoning_effort": "minimal"
+    },
+    "workers": 12,
+    "spend": {
+     "s2": 59.14364444999998,
+     "s1": 0.0,
+     "total": 59.14364444999998,
+     "records": 240,
+     "prior": 0.0
+    },
+    "cap": 115.0,
+    "exp": "e7f",
+    "title": "E7f: JevGym-Hard (12 customers, itemized answer), AgentDecision-4B (tier) live",
+    "entry": "E7f: AgentDecision-4B (tier) live",
+    "arms": [
+     "llm_only",
+     "rl_tier"
+    ],
+    "calibration": null,
+    "not_run": {
+     "rl_frozen_refit": "the frozen 4B at its registered refit (E7c) always defers at tool choice, so the arm would cost about as much as llm_only and show nothing E7c's fit has not shown"
+    },
+    "note": "Flash on the direct Gemini API in both arms: dollars compare within this row only; rl_tier = AgentDecision-4B (tier) (E7d's continued checkpoint) served on the host at E7d's fitted thresholds (tool choice 0.99993, arguments 0.99291); the task asks for one line per customer before the total",
+    "pilot_spend": null,
+    "projection": {
+     "smoke_per_episode": {
+      "llm_only": 0.2645899500000001,
+      "rl_tier": 0.1783764
+     },
+     "smoke_wall_s": {
+      "llm_only": 46.661006993,
+      "rl_tier": 119.949092033
+     },
+     "smoke_n": {
+      "llm_only": 2,
+      "rl_tier": 2
+     },
+     "smoke_errors": {
+      "llm_only": 0,
+      "rl_tier": 0
+     },
+     "missing_arms": [],
+     "spent_so_far": 0.8859327000000001,
+     "prior": 0.0,
+     "safety": 1.05,
+     "cap": 45.0,
+     "per_task_all_arms": 0.44296635000000006,
+     "projected_100": 46.51146675000001,
+     "fits_100": false,
+     "projected_80": 37.209173400000005,
+     "fits_80": true,
+     "decision": "run the first 80"
+    },
+    "stopped_by_watchdog": false,
+    "n_run": 120,
+    "pilot_chosen": {
+     "candidates": [
+      "e7_pilot_tier_k12",
+      "e7_pilot_tier_k12b"
+     ],
+     "n": 60,
+     "success": 0.4666666666666667,
+     "band": [
+      0.6,
+      0.8
+     ]
+    }
+   },
+   "tariff": {
+    "q_usd_per_episode": 0.023471333333333334,
+    "host_usd_per_hour": 2.448,
+    "instance_type": "g5.8xlarge",
+    "serving_hours": 1.1505555555555556,
+    "episodes": 120,
+    "window": {
+     "start": "2026-10-07T06:06:55Z",
+     "end": "2026-10-07T07:15:57Z"
+    },
+    "workers": 12,
+    "state": "ok",
+    "convention": "S2-4 provisioned tariff (A7.13 (iii)): host $/h x evaluation window / completed JevAgentRL episodes; on-demand price, us-east-1",
+    "sensitivity": {
+     "s2_4": 0.00196182,
+     "zero": 0.0
+    }
+   },
+   "arms": {
+    "llm_only": {
+     "state": "run",
+     "n_ok": 120,
+     "n_records": 120,
+     "success_all": 0.875,
+     "cost_mean": 0.26460124125,
+     "per_episode": {
+      "wall_s_mean": 84.73971225695831,
+      "wall_s_median": 70.78463293250002,
+      "steps": 37.00833333333333,
+      "llm_calls": 37.00833333333333,
+      "s1_calls": 0.0,
+      "s1_cost": 0.0,
+      "s2_cost": 0.26460124125,
+      "s1_s": 0.0
+     },
+     "failure_types": {
+      "n_failed": 15,
+      "types": {
+       "wrong_total": 15
+      },
+      "classes": {
+       "wrong_total": 15,
+       "wrong_write": 0,
+       "ask_finish": 0,
+       "other": 0
+      }
+     },
+     "answer_forms": {
+      "itemized": {
+       "n": 120,
+       "share": 1.0,
+       "n_success": 105,
+       "success": 0.875
+      },
+      "sentence": {
+       "n": 0,
+       "share": 0.0,
+       "n_success": 0,
+       "success": null
+      },
+      "number": {
+       "n": 0,
+       "share": 0.0,
+       "n_success": 0,
+       "success": null
+      },
+      "none": {
+       "n": 0,
+       "share": 0.0,
+       "n_success": 0,
+       "success": null
+      }
+     },
+     "provenance": {
+      "path": "runs/e7fx_hard/llm_only.jsonl",
+      "sha256": "399fbc8b7858f75e2eaacff392db290f8da47872bfa366b60383628b9b81491d",
+      "n_records": 120
+     }
+    },
+    "rl_tier": {
+     "state": "run",
+     "n_ok": 120,
+     "n_records": 120,
+     "success_all": 0.85,
+     "cost_mean": 0.2282624625,
+     "per_episode": {
+      "wall_s_mean": 321.28870985136666,
+      "wall_s_median": 315.31525672349994,
+      "steps": 36.975,
+      "llm_calls": 31.391666666666666,
+      "s1_calls": 104.19166666666666,
+      "s1_cost": 0.0,
+      "s2_cost": 0.2282624625,
+      "s1_s": 221.9678167706248
+     },
+     "failure_types": {
+      "n_failed": 18,
+      "types": {
+       "wrong_total": 17,
+       "premature_finish": 1
+      },
+      "classes": {
+       "wrong_total": 17,
+       "wrong_write": 0,
+       "ask_finish": 1,
+       "other": 0
+      }
+     },
+     "answer_forms": {
+      "itemized": {
+       "n": 120,
+       "share": 1.0,
+       "n_success": 102,
+       "success": 0.85
+      },
+      "sentence": {
+       "n": 0,
+       "share": 0.0,
+       "n_success": 0,
+       "success": null
+      },
+      "number": {
+       "n": 0,
+       "share": 0.0,
+       "n_success": 0,
+       "success": null
+      },
+      "none": {
+       "n": 0,
+       "share": 0.0,
+       "n_success": 0,
+       "success": null
+      }
+     },
+     "provenance": {
+      "path": "runs/e7fx_hard/rl_tier.jsonl",
+      "sha256": "abd7e42236ae474e357fa16092607712028ebca078210b917e83254735fc89ac",
+      "n_records": 120
+     },
+     "paired_per_episode": {
+      "wall_s_mean": 321.28870985136666,
+      "wall_s_median": 315.31525672349994,
+      "steps": 36.975,
+      "llm_calls": 31.391666666666666,
+      "s1_calls": 104.19166666666666,
+      "s1_cost": 0.0,
+      "s2_cost": 0.22826246249999999,
+      "s1_s": 221.9678167706248
+     },
+     "ref_paired_per_episode": {
+      "wall_s_mean": 84.73971225695831,
+      "wall_s_median": 70.78463293250002,
+      "steps": 37.00833333333333,
+      "llm_calls": 37.00833333333333,
+      "s1_calls": 0.0,
+      "s1_cost": 0.0,
+      "s2_cost": 0.26460124125,
+      "s1_s": 0.0
+     },
+     "points": {
+      "tool_select": {
+       "n": 4437,
+       "coverage": 0.5391029975208474,
+       "n_gold": 4437,
+       "acc": 0.9848997070092405,
+       "acc_accepted": 0.9995819397993311,
+       "llm_acc_deferred": 1.0,
+       "n_accepted": 2392
+      },
+      "tool_params": {
+       "n": 3749,
+       "coverage": 0.6585756201653774,
+       "n_gold": 3749,
+       "acc": 0.9930648172846093,
+       "acc_accepted": 1.0,
+       "llm_acc_deferred": null,
+       "n_accepted": 2469
+      },
+      "tool": {
+       "n": 8186,
+       "coverage": 0.5938187148790618,
+       "n_gold": 8186,
+       "acc": 0.9886391399951137,
+       "acc_accepted": 0.9997942810121374,
+       "llm_acc_deferred": 1.0,
+       "n_accepted": 4861
+      },
+      "op": {
+       "n": 1439,
+       "coverage": 0.5337039610840861,
+       "acc": 0.9610840861709521,
+       "acc_accepted": 1.0,
+       "accepted_wrong": 0,
+       "llm_acc_deferred": 1.0,
+       "s1_said_other_op": 56
+      },
+      "reflection": {
+       "n": 4317,
+       "fired": 0.09010887190178364,
+       "acc": 0.995417515274949,
+       "gold_positive_rate": 0.004582484725050916
+      }
+     },
+     "cmp": {
+      "n_expected": 120,
+      "n": 120,
+      "n_dropped": 0,
+      "dropped": {
+       "missing_arm": 0,
+       "missing_ref": 0,
+       "errored_arm": 0,
+       "errored_ref": 0
+      },
+      "success": 0.85,
+      "success_ref": 0.875,
+      "delta": -0.025,
+      "delta_ci": [
+       -0.10833333333333334,
+       0.058333333333333334
+      ],
+      "wins": 12,
+      "losses": 15,
+      "cost": 0.25173379583333333,
+      "cost_ref": 0.26460124125,
+      "saving": 0.04862957314893801,
+      "saving_ci": [
+       0.019137841797998885,
+       0.07850920403955451
+      ],
+      "newcombe_pt": [
+       -11.293204688982868,
+       6.284875766588112
+      ],
+      "api": {
+       "cost": 0.22826246249999999,
+       "saving": 0.137334120498953,
+       "saving_ci": [
+        0.10791613680287089,
+        0.1670226130659821
+       ]
+      },
+      "tariff_q": 0.023471333333333334,
+      "sens": {
+       "s2_4": {
+        "cost": 0.2302242825,
+        "saving": 0.12991986956523782,
+        "saving_ci": [
+         0.10049814569302741,
+         0.159629544892719
+        ]
+       },
+       "zero": {
+        "cost": 0.22826246249999999,
+        "saving": 0.137334120498953,
+        "saving_ci": [
+         0.10791613680287089,
+         0.1670226130659821
+        ]
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

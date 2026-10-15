@@ -1,0 +1,46 @@
+{
+ "_note": "E29 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-09 ~16:05 UTC): the routing proxy of harness mswe. scripts/aws/e29_port.sh sets the stage's arms (gated tau = the fitted gate) and its cap with --set. Cost = OpenRouter's usage.cost; the provider pin (StreamLake) stays in the request body (e4_deepseek.yaml).",
+ "format": "openai",
+ "upstream": "https://openrouter.ai/api/v1",
+ "key_env": "OPENROUTER_API_KEY",
+ "tiers": {
+  "strong": {
+   "model": "deepseek/deepseek-v4-pro",
+   "overrides": {
+    "reasoning": {
+     "enabled": true
+    }
+   }
+  },
+  "fast": {
+   "model": "deepseek/deepseek-v4-flash",
+   "overrides": {
+    "reasoning": {
+     "enabled": false
+    }
+   }
+  }
+ },
+ "arms": {
+  "baseline": {
+   "mode": "strong"
+  },
+  "gated": {
+   "mode": "gated",
+   "tau": null,
+   "k": 4
+  }
+ },
+ "decision": {
+  "backend": {
+   "type": "jev",
+   "provider": "openrouter"
+  },
+  "wait_s": 10,
+  "timeout_s": 30,
+  "threads": 32
+ },
+ "cap_margin_usd": 0.3,
+ "retries": 2,
+ "request_timeout_s": 900
+}

@@ -1,0 +1,19 @@
+{
+ "registered": "PREREG_A7_STAGE2 Deviations 2026-10-07 'E15: more decision-model baselines' (c) 3",
+ "backend": {
+  "backend": "openai_decisions",
+  "provider": "openai",
+  "model": "gpt-6-luna",
+  "base_url": "https://api.openai.com/v1",
+  "max_questions_per_request": 64,
+  "cached": true
+ },
+ "cache": "cache/s1_e15_oaidec_c.sqlite",
+ "order": "sorted question hash, sharded over workers",
+ "workers": 4,
+ "batching": "one question per request (the harness tournament for Choices wider than the backend's max_options)",
+ "retries": 2,
+ "n_questions": 3939,
+ "resumed_with": 0,
+ "written": "2026-10-07T18:23:14+00:00"
+}

@@ -1,0 +1,1652 @@
+{
+ "meta": {
+  "generated": "2026-10-08T07:57:24+00:00",
+  "git": "f31a4bffd2b1e5cb87cff190955788099bfd61c3",
+  "script": "scripts/explore_e7_hard.py",
+  "run": "runs/e19_hard; runs/e19x_hard",
+  "label": "exploratory (E19)",
+  "n_boot": 10000,
+  "seed": 0,
+  "suite": {
+   "name": "jevgym",
+   "n": 200,
+   "seed0": 310600,
+   "families": "multi",
+   "multi_customers": 12,
+   "multi_rule": "tier",
+   "answer_style": "itemized",
+   "distractor_style": "near",
+   "n_distractors": 60,
+   "noise_lines": 20,
+   "strict": true
+  },
+  "max_steps": 45,
+  "llm": {
+   "provider": "gemini",
+   "model": "gemini-3.5-flash",
+   "temperature": 0,
+   "reasoning_effort": "minimal"
+  },
+  "workers": 12,
+  "spend": {
+   "by_run": {
+    "e19_hard_smoke": {
+     "s2": 0.56541855,
+     "s1": 0.0,
+     "total": 0.56541855,
+     "records": 2
+    },
+    "e19_hard": {
+     "s2": 47.804061150000024,
+     "s1": 0.0,
+     "total": 47.804061150000024,
+     "records": 180
+    },
+    "e19x_hard": {
+     "s2": 5.417044500000001,
+     "s1": 0.0,
+     "total": 5.417044500000001,
+     "records": 20
+    }
+   },
+   "prior": 0.0,
+   "s2": 53.786524200000024,
+   "s1": 0.0,
+   "total": 53.786524200000024,
+   "records": 202,
+   "total_with_prior": 53.786524200000024
+  },
+  "cap": 62.0,
+  "exp": "e19",
+  "title": "E19: JevGym-Hard (12 customers, itemized answer), AgentDecision-4B (random rules) live",
+  "entry": "E19: the rule-randomised model on DecisionGym-Hard",
+  "arms": [
+   "llm_only",
+   "rl_random"
+  ],
+  "calibration": null,
+  "not_run": {},
+  "note": "Flash on the direct Gemini API, as E7f's arms (the same route and list prices); rl_random = AgentDecision-4B (random rules) (E12b's checkpoint, never trained on the tier rule) served on the host at thresholds refitted on E7d's 20 calibration tasks; llm_only is E7f's logged arm on the same tasks, not re-run; the task asks for one line per customer before the total",
+  "pilot_spend": null,
+  "projection": {
+   "basis": "e19_hard_smoke",
+   "smoke_per_episode": {
+    "rl_random": 0.282709275
+   },
+   "smoke_wall_s": {
+    "rl_random": 87.38316751999992
+   },
+   "smoke_n": {
+    "rl_random": 2
+   },
+   "smoke_errors": {
+    "rl_random": 0
+   },
+   "missing_arms": [],
+   "spent_so_far": 0.56541855,
+   "prior": 0.0,
+   "safety": 1.05,
+   "cap": 56.0,
+   "per_task_all_arms": 0.282709275,
+   "projected_200": 59.368947750000004,
+   "fits_200": false,
+   "projected_180": 53.432052975,
+   "fits_180": true,
+   "projected_160": 47.4951582,
+   "fits_160": true,
+   "projected_140": 41.558263425,
+   "fits_140": true,
+   "projected_120": 35.62136865,
+   "fits_120": true,
+   "projected_100": 29.684473875000002,
+   "fits_100": true,
+   "projected_80": 23.7475791,
+   "fits_80": true,
+   "projected_60": 17.810684325,
+   "fits_60": true,
+   "projected_40": 11.87378955,
+   "fits_40": true,
+   "projected_20": 5.936894775,
+   "fits_20": true,
+   "candidates": [
+    200,
+    180,
+    160,
+    140,
+    120,
+    100,
+    80,
+    60,
+    40,
+    20
+   ],
+   "decision": "run the first 180"
+  },
+  "stopped_by_watchdog": false,
+  "n_run": 200,
+  "ref_runs": [
+   "e7f_hard",
+   "e7fx_hard"
+  ],
+  "pilot_chosen": {
+   "candidates": [
+    "e7_pilot_tier_k12",
+    "e7_pilot_tier_k12b"
+   ],
+   "n": 60,
+   "success": 0.4666666666666667,
+   "band": [
+    0.6,
+    0.8
+   ]
+  }
+ },
+ "tariff": {
+  "q_usd_per_episode": 0.011438249999999999,
+  "host_usd_per_hour": 1.212,
+  "instance_type": "g5.2xlarge",
+  "serving_hours": 1.8875,
+  "episodes": 200,
+  "window": [
+   {
+    "start": "2026-10-08T06:00:44Z",
+    "end": "2026-10-08T07:41:49Z"
+   },
+   {
+    "start": "2026-10-08T07:43:46Z",
+    "end": "2026-10-08T07:55:56Z"
+   }
+  ],
+  "workers": 12,
+  "state": "ok",
+  "convention": "S2-4 provisioned tariff (A7.13 (iii)): host $/h x evaluation window / completed JevAgentRL episodes; on-demand price, us-east-1",
+  "sensitivity": {
+   "s2_4": 0.00196182,
+   "zero": 0.0
+  }
+ },
+ "arms": {
+  "llm_only": {
+   "state": "run",
+   "n_ok": 200,
+   "n_records": 200,
+   "success_all": 0.835,
+   "cost_mean": 0.26433715199999996,
+   "per_episode": {
+    "wall_s_mean": 74.18596439985,
+    "wall_s_median": 63.218213801499914,
+    "steps": 37.005,
+    "llm_calls": 37.005,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.26433715199999996,
+    "s1_s": 0.0
+   },
+   "failure_types": {
+    "n_failed": 33,
+    "types": {
+     "wrong_total": 33
+    },
+    "classes": {
+     "wrong_total": 33,
+     "wrong_write": 0,
+     "ask_finish": 0,
+     "other": 0
+    }
+   },
+   "answer_forms": {
+    "itemized": {
+     "n": 200,
+     "share": 1.0,
+     "n_success": 167,
+     "success": 0.835
+    },
+    "sentence": {
+     "n": 0,
+     "share": 0.0,
+     "n_success": 0,
+     "success": null
+    },
+    "number": {
+     "n": 0,
+     "share": 0.0,
+     "n_success": 0,
+     "success": null
+    },
+    "none": {
+     "n": 0,
+     "share": 0.0,
+     "n_success": 0,
+     "success": null
+    }
+   },
+   "provenance": {
+    "path": "runs/e7f_hard/llm_only.jsonl; runs/e7fx_hard/llm_only.jsonl",
+    "sha256": "342eb5603a7c1f6defb02ce07b47692f347fe859b07e780cce1c54bc0c3d5132; 399fbc8b7858f75e2eaacff392db290f8da47872bfa366b60383628b9b81491d",
+    "n_records": 200
+   }
+  },
+  "rl_random": {
+   "state": "run",
+   "n_ok": 200,
+   "n_records": 200,
+   "success_all": 0.845,
+   "cost_mean": 0.26610552825,
+   "per_episode": {
+    "wall_s_mean": 389.42186514394996,
+    "wall_s_median": 389.9258597514995,
+    "steps": 37.0,
+    "llm_calls": 37.055,
+    "s1_calls": 92.375,
+    "s1_cost": 0.0,
+    "s2_cost": 0.26610552825,
+    "s1_s": 336.4726848161799
+   },
+   "failure_types": {
+    "n_failed": 31,
+    "types": {
+     "wrong_total": 31
+    },
+    "classes": {
+     "wrong_total": 31,
+     "wrong_write": 0,
+     "ask_finish": 0,
+     "other": 0
+    }
+   },
+   "answer_forms": {
+    "itemized": {
+     "n": 200,
+     "share": 1.0,
+     "n_success": 169,
+     "success": 0.845
+    },
+    "sentence": {
+     "n": 0,
+     "share": 0.0,
+     "n_success": 0,
+     "success": null
+    },
+    "number": {
+     "n": 0,
+     "share": 0.0,
+     "n_success": 0,
+     "success": null
+    },
+    "none": {
+     "n": 0,
+     "share": 0.0,
+     "n_success": 0,
+     "success": null
+    }
+   },
+   "provenance": {
+    "path": "runs/e19_hard/rl_random.jsonl; runs/e19x_hard/rl_random.jsonl",
+    "sha256": "970d128bcf0cdd3f8c1a8ca7113e30ccb671e5f0b12f3e821e3b87920c20708c; 3d601d5dada8a6c162698c3802f3b1551d040df14e292571e71c059a18d5b946",
+    "n_records": 200
+   },
+   "paired_per_episode": {
+    "wall_s_mean": 389.4218651439501,
+    "wall_s_median": 389.9258597514995,
+    "steps": 37.0,
+    "llm_calls": 37.055,
+    "s1_calls": 92.375,
+    "s1_cost": 0.0,
+    "s2_cost": 0.26610552825,
+    "s1_s": 336.4726848161799
+   },
+   "ref_paired_per_episode": {
+    "wall_s_mean": 74.18596439985,
+    "wall_s_median": 63.218213801499914,
+    "steps": 37.005,
+    "llm_calls": 37.005,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.26433715199999996,
+    "s1_s": 0.0
+   },
+   "points": {
+    "tool_select": {
+     "n": 7400,
+     "coverage": 0.3195945945945946,
+     "n_gold": 7400,
+     "acc": 0.9886486486486487,
+     "acc_accepted": 1.0,
+     "llm_acc_deferred": 1.0,
+     "n_accepted": 2365
+    },
+    "tool_params": {
+     "n": 3875,
+     "coverage": 0.6516129032258065,
+     "n_gold": 3875,
+     "acc": 0.991225806451613,
+     "acc_accepted": 1.0,
+     "llm_acc_deferred": null,
+     "n_accepted": 2525
+    },
+    "tool": {
+     "n": 11275,
+     "coverage": 0.4337028824833703,
+     "n_gold": 11275,
+     "acc": 0.9895343680709534,
+     "acc_accepted": 1.0,
+     "llm_acc_deferred": 1.0,
+     "n_accepted": 4890
+    },
+    "op": {
+     "n": 2400,
+     "coverage": 0.33416666666666667,
+     "acc": 0.96625,
+     "acc_accepted": 1.0,
+     "accepted_wrong": 0,
+     "llm_acc_deferred": 1.0,
+     "s1_said_other_op": 81
+    },
+    "reflection": {
+     "n": 7200,
+     "fired": 0.14152777777777778,
+     "acc": 0.9949846303187186,
+     "gold_positive_rate": 0.005015369681281346
+    }
+   },
+   "cmp": {
+    "n_expected": 200,
+    "n": 200,
+    "n_dropped": 0,
+    "dropped": {
+     "missing_arm": 0,
+     "missing_ref": 0,
+     "errored_arm": 0,
+     "errored_ref": 0
+    },
+    "success": 0.845,
+    "success_ref": 0.835,
+    "delta": 0.01,
+    "delta_ci": [
+     -0.045,
+     0.07
+    ],
+    "wins": 18,
+    "losses": 16,
+    "cost": 0.27754377825,
+    "cost_ref": 0.26433715199999996,
+    "saving": -0.04996129431703955,
+    "saving_ci": [
+     -0.07069634400211777,
+     -0.02814685261583158
+    ],
+    "newcombe_pt": [
+     -4.87475134754795,
+     6.890034514776364
+    ],
+    "api": {
+     "cost": 0.26610552825,
+     "saving": -0.006689851338036901,
+     "saving_ci": [
+      -0.027406175460434046,
+      0.015085854612857249
+     ]
+    },
+    "tariff_q": 0.011438249999999999,
+    "sens": {
+     "s2_4": {
+      "cost": 0.26806734825,
+      "saving": -0.014111509569415537,
+      "saving_ci": [
+       -0.034817393350109076,
+       0.007670840104922264
+      ]
+     },
+     "zero": {
+      "cost": 0.26610552825,
+      "saving": -0.006689851338036901,
+      "saving_ci": [
+       -0.027406175460434046,
+       0.015085854612857249
+      ]
+     }
+    }
+   },
+   "cmp_extra": {
+    "vs_tier": {
+     "n_expected": 200,
+     "n": 200,
+     "n_dropped": 0,
+     "dropped": {
+      "missing_arm": 0,
+      "missing_ref": 0,
+      "errored_arm": 0,
+      "errored_ref": 0
+     },
+     "success": 0.845,
+     "success_ref": 0.815,
+     "delta": 0.03,
+     "delta_ci": [
+      -0.035,
+      0.095
+     ],
+     "wins": 26,
+     "losses": 20,
+     "cost": 0.26610552825,
+     "cost_ref": 0.22960458525,
+     "saving": -0.15897305779088322,
+     "saving_ci": [
+      -0.17443252746394658,
+      -0.14388835537868366
+     ],
+     "newcombe_pt": [
+      -3.755674871122902,
+      9.759566327093532
+     ],
+     "ref_wall_s_mean": 327.186276206115,
+     "ref_arm": "rl_tier",
+     "ref_runs": [
+      "e7f_hard",
+      "e7fx_hard"
+     ]
+    }
+   }
+  }
+ },
+ "latency": {
+  "llm_only": {
+   "n_episodes": 200,
+   "wall_mean": 74.18596439985,
+   "s1_per_episode": 0.0,
+   "s2_per_episode": 70.71593900421969,
+   "tail_per_episode": 22.89068489285999,
+   "s2_tail_per_episode": 22.89068489285999,
+   "groups": {
+    "s2/tool_select/gemini": {
+     "n": 7401,
+     "p50": 1.1547108889999436,
+     "p90": 4.016954333000058,
+     "mean": 1.9109833537149012,
+     "n_over": 565,
+     "share_of_wall": 0.9532253112337099,
+     "tail_share_of_wall": 0.3085581629630507,
+     "per_episode_s": 70.71593900421992,
+     "tail_per_episode_s": 22.89068489285999
+    }
+   }
+  },
+  "rl_random": {
+   "n_episodes": 200,
+   "wall_mean": 389.42186514394996,
+   "s1_per_episode": 336.4726848161792,
+   "s2_per_episode": 48.37083883396505,
+   "tail_per_episode": 37.12667844950015,
+   "s2_tail_per_episode": 9.770385631674985,
+   "groups": {
+    "s1/tool_select/agentdecision-4b-random": {
+     "n": 7400,
+     "p50": 3.910602553499757,
+     "p90": 4.933680255100171,
+     "mean": 3.850197372843921,
+     "n_over": 624,
+     "share_of_wall": 0.36581742204579515,
+     "tail_share_of_wall": 0.0432878149745233,
+     "per_episode_s": 142.45730279522508,
+     "tail_per_episode_s": 16.857221645385074
+    },
+    "s1/reflection/agentdecision-4b-random": {
+     "n": 7200,
+     "p50": 3.6016737489997013,
+     "p90": 4.636455910100176,
+     "mean": 3.5349006406038868,
+     "n_over": 285,
+     "share_of_wall": 0.32678294274693465,
+     "tail_share_of_wall": 0.019470412965004666,
+     "per_episode_s": 127.25642306173991,
+     "tail_per_episode_s": 7.582204531955062
+    },
+    "s1/tool_params/agentdecision-4b-random": {
+     "n": 3875,
+     "p50": 3.527084717999969,
+     "p90": 4.524151480400542,
+     "mean": 3.445623688217545,
+     "n_over": 110,
+     "share_of_wall": 0.17143094657650373,
+     "tail_share_of_wall": 0.007490248754796554,
+     "per_episode_s": 66.75895895921494,
+     "tail_per_episode_s": 2.916866640485023
+    },
+    "s2/tool_select/gemini": {
+     "n": 5035,
+     "p50": 0.9967520609998246,
+     "p90": 1.4496898072002296,
+     "mean": 1.1721118101569046,
+     "n_over": 36,
+     "share_of_wall": 0.07577364668466281,
+     "tail_share_of_wall": 0.007689961726373644,
+     "per_episode_s": 29.507914820700076,
+     "tail_per_episode_s": 2.9946392383700142
+    },
+    "s2/tool_params/1tool/gemini": {
+     "n": 1357,
+     "p50": 0.7812210329993832,
+     "p90": 1.516197714400096,
+     "mean": 1.4110184210515837,
+     "n_over": 43,
+     "share_of_wall": 0.02458454659009979,
+     "tail_share_of_wall": 0.00879562493533548,
+     "per_episode_s": 9.573759986834995,
+     "tail_per_episode_s": 3.4252086674249766
+    },
+    "s2/reflection/gemini": {
+     "n": 1019,
+     "p50": 1.1490087700003642,
+     "p90": 1.4924018490002713,
+     "mean": 1.8231921543532827,
+     "n_over": 23,
+     "share_of_wall": 0.02385372999791943,
+     "tail_share_of_wall": 0.008603876735687317,
+     "per_episode_s": 9.289164026429976,
+     "tail_per_episode_s": 3.3505377258799944
+    }
+   }
+  }
+ },
+ "latency_cmp": {
+  "rl_random": {
+   "extra_wall_s": 315.2359007441,
+   "extra_s2_tail_s": -13.120299261185005,
+   "extra_s1_s": 336.4726848161792,
+   "extra_s2_s": -22.34510017025464,
+   "tail_share_of_extra": -0.041620574402265534
+  }
+ },
+ "diagnosis": {
+  "rl_random": {
+   "run": "runs/e19_hard; runs/e19x_hard",
+   "arm": "rl_random",
+   "arm_sha256": "970d128bcf0cdd3f8c1a8ca7113e30ccb671e5f0b12f3e821e3b87920c20708c; 3d601d5dada8a6c162698c3802f3b1551d040df14e292571e71c059a18d5b946",
+   "n_episodes": 200,
+   "n_records": 200,
+   "thresholds": {
+    "tool_select": {
+     "mode": "cascade",
+     "tau": 0.9999538704122877
+    },
+    "tool_params": {
+     "mode": "cascade",
+     "tau": 0.9862272143363953
+    },
+    "reflection": {
+     "mode": "trigger",
+     "tau": 0.5
+    }
+   },
+   "threshold_check": {
+    "tool_select": {
+     "n": 7400,
+     "consistent": 7400,
+     "other_deferred": 0,
+     "violations": 0,
+     "examples": []
+    },
+    "tool_params": {
+     "n": 3875,
+     "consistent": 3875,
+     "other_deferred": 937,
+     "violations": 0,
+     "examples": []
+    }
+   },
+   "s1_describe": {
+    "{\"backend\": \"agentdecision-4b-random\", \"base_url\": \"http://127.0.0.1:8081\", \"extra_body\": {}, \"model\": \"agentdecision-4b-random\", \"provider\": \"typesafe\"}": 200
+   },
+   "s1_calls": {
+    "agentdecision-4b-random / agentdecision-4b-random": 18475
+   },
+   "s1_state_max_chars": 12000,
+   "write_states": {
+    "n": 2400,
+    "both_writes_offered": 2400,
+    "policy_in_task": 2400,
+    "tier_and_amount_seen": 2400,
+    "job_found": 2400,
+    "state_chars_max": 5263,
+    "state_at_cap": 0
+   },
+   "cells": {
+    "basic | above limit | gold cancel_order": {
+     "n": 545,
+     "model_wrong": 2,
+     "accepted_wrong": 0
+    },
+    "basic | at or below limit | gold ship_order": {
+     "n": 248,
+     "model_wrong": 1,
+     "accepted_wrong": 0
+    },
+    "gold | gold tier | gold ship_order": {
+     "n": 778,
+     "model_wrong": 0,
+     "accepted_wrong": 0
+    },
+    "silver | above limit | gold cancel_order": {
+     "n": 273,
+     "model_wrong": 0,
+     "accepted_wrong": 0
+    },
+    "silver | at or below limit | gold ship_order": {
+     "n": 556,
+     "model_wrong": 78,
+     "accepted_wrong": 0
+    }
+   },
+   "cancel_rate": {
+    "basic | 0-150": {
+     "n": 109,
+     "model_cancel": 0,
+     "gold_cancel": 0
+    },
+    "basic | 150-300": {
+     "n": 139,
+     "model_cancel": 1,
+     "gold_cancel": 0
+    },
+    "basic | 300-450": {
+     "n": 147,
+     "model_cancel": 146,
+     "gold_cancel": 147
+    },
+    "basic | 450-600": {
+     "n": 135,
+     "model_cancel": 134,
+     "gold_cancel": 135
+    },
+    "basic | 600-750": {
+     "n": 135,
+     "model_cancel": 135,
+     "gold_cancel": 135
+    },
+    "basic | 750-900": {
+     "n": 128,
+     "model_cancel": 128,
+     "gold_cancel": 128
+    },
+    "gold | 0-150": {
+     "n": 97,
+     "model_cancel": 0,
+     "gold_cancel": 0
+    },
+    "gold | 150-300": {
+     "n": 147,
+     "model_cancel": 0,
+     "gold_cancel": 0
+    },
+    "gold | 300-450": {
+     "n": 136,
+     "model_cancel": 0,
+     "gold_cancel": 0
+    },
+    "gold | 450-600": {
+     "n": 138,
+     "model_cancel": 0,
+     "gold_cancel": 0
+    },
+    "gold | 600-750": {
+     "n": 137,
+     "model_cancel": 0,
+     "gold_cancel": 0
+    },
+    "gold | 750-900": {
+     "n": 123,
+     "model_cancel": 0,
+     "gold_cancel": 0
+    },
+    "silver | 0-150": {
+     "n": 131,
+     "model_cancel": 0,
+     "gold_cancel": 0
+    },
+    "silver | 150-300": {
+     "n": 141,
+     "model_cancel": 0,
+     "gold_cancel": 0
+    },
+    "silver | 300-450": {
+     "n": 140,
+     "model_cancel": 36,
+     "gold_cancel": 0
+    },
+    "silver | 450-600": {
+     "n": 144,
+     "model_cancel": 42,
+     "gold_cancel": 0
+    },
+    "silver | 600-750": {
+     "n": 132,
+     "model_cancel": 132,
+     "gold_cancel": 132
+    },
+    "silver | 750-900": {
+     "n": 141,
+     "model_cancel": 141,
+     "gold_cancel": 141
+    }
+   },
+   "failures": {
+    "wrong_total": 31
+   },
+   "attribution": {
+    "wrong_total: last step finish chosen by the LLM": 27,
+    "wrong_total: last step finish chosen by the model": 4
+   },
+   "premature_finish_after_writes": {}
+  }
+ },
+ "parts": {
+  "first": {
+   "meta": {
+    "generated": "2026-10-08T07:57:51+00:00",
+    "git": "f31a4bffd2b1e5cb87cff190955788099bfd61c3",
+    "script": "scripts/explore_e7_hard.py",
+    "run": "runs/e19_hard",
+    "label": "exploratory (E19)",
+    "n_boot": 10000,
+    "seed": 0,
+    "suite": {
+     "name": "jevgym",
+     "n": 200,
+     "seed0": 310600,
+     "families": "multi",
+     "multi_customers": 12,
+     "multi_rule": "tier",
+     "answer_style": "itemized",
+     "distractor_style": "near",
+     "n_distractors": 60,
+     "noise_lines": 20,
+     "strict": true
+    },
+    "max_steps": 45,
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash",
+     "temperature": 0,
+     "reasoning_effort": "minimal"
+    },
+    "workers": 12,
+    "spend": {
+     "s2": 47.804061150000024,
+     "s1": 0.0,
+     "total": 47.804061150000024,
+     "records": 180,
+     "prior": 0.0
+    },
+    "cap": 62.0,
+    "exp": "e19",
+    "title": "E19: JevGym-Hard (12 customers, itemized answer), AgentDecision-4B (random rules) live",
+    "entry": "E19: the rule-randomised model on DecisionGym-Hard",
+    "arms": [
+     "llm_only",
+     "rl_random"
+    ],
+    "calibration": null,
+    "not_run": {},
+    "note": "Flash on the direct Gemini API, as E7f's arms (the same route and list prices); rl_random = AgentDecision-4B (random rules) (E12b's checkpoint, never trained on the tier rule) served on the host at thresholds refitted on E7d's 20 calibration tasks; llm_only is E7f's logged arm on the same tasks, not re-run; the task asks for one line per customer before the total",
+    "pilot_spend": null,
+    "projection": {
+     "basis": "e19_hard_smoke",
+     "smoke_per_episode": {
+      "rl_random": 0.282709275
+     },
+     "smoke_wall_s": {
+      "rl_random": 87.38316751999992
+     },
+     "smoke_n": {
+      "rl_random": 2
+     },
+     "smoke_errors": {
+      "rl_random": 0
+     },
+     "missing_arms": [],
+     "spent_so_far": 0.56541855,
+     "prior": 0.0,
+     "safety": 1.05,
+     "cap": 56.0,
+     "per_task_all_arms": 0.282709275,
+     "projected_200": 59.368947750000004,
+     "fits_200": false,
+     "projected_180": 53.432052975,
+     "fits_180": true,
+     "projected_160": 47.4951582,
+     "fits_160": true,
+     "projected_140": 41.558263425,
+     "fits_140": true,
+     "projected_120": 35.62136865,
+     "fits_120": true,
+     "projected_100": 29.684473875000002,
+     "fits_100": true,
+     "projected_80": 23.7475791,
+     "fits_80": true,
+     "projected_60": 17.810684325,
+     "fits_60": true,
+     "projected_40": 11.87378955,
+     "fits_40": true,
+     "projected_20": 5.936894775,
+     "fits_20": true,
+     "candidates": [
+      200,
+      180,
+      160,
+      140,
+      120,
+      100,
+      80,
+      60,
+      40,
+      20
+     ],
+     "decision": "run the first 180"
+    },
+    "stopped_by_watchdog": false,
+    "n_run": 180,
+    "ref_runs": [
+     "e7f_hard",
+     "e7fx_hard"
+    ],
+    "pilot_chosen": {
+     "candidates": [
+      "e7_pilot_tier_k12",
+      "e7_pilot_tier_k12b"
+     ],
+     "n": 60,
+     "success": 0.4666666666666667,
+     "band": [
+      0.6,
+      0.8
+     ]
+    }
+   },
+   "tariff": {
+    "q_usd_per_episode": 0.011343796296296296,
+    "host_usd_per_hour": 1.212,
+    "instance_type": "g5.2xlarge",
+    "serving_hours": 1.6847222222222222,
+    "episodes": 180,
+    "window": {
+     "start": "2026-10-08T06:00:44Z",
+     "end": "2026-10-08T07:41:49Z"
+    },
+    "workers": 12,
+    "state": "ok",
+    "convention": "S2-4 provisioned tariff (A7.13 (iii)): host $/h x evaluation window / completed JevAgentRL episodes; on-demand price, us-east-1",
+    "sensitivity": {
+     "s2_4": 0.00196182,
+     "zero": 0.0
+    }
+   },
+   "arms": {
+    "llm_only": {
+     "state": "run",
+     "n_ok": 180,
+     "n_records": 200,
+     "success_all": 0.8388888888888889,
+     "cost_mean": 0.26428359749999997,
+     "per_episode": {
+      "wall_s_mean": 73.38939959958887,
+      "wall_s_median": 60.55424130199992,
+      "steps": 37.00555555555555,
+      "llm_calls": 37.00555555555555,
+      "s1_calls": 0.0,
+      "s1_cost": 0.0,
+      "s2_cost": 0.26428359749999997,
+      "s1_s": 0.0
+     },
+     "failure_types": {
+      "n_failed": 29,
+      "types": {
+       "wrong_total": 29
+      },
+      "classes": {
+       "wrong_total": 29,
+       "wrong_write": 0,
+       "ask_finish": 0,
+       "other": 0
+      }
+     },
+     "answer_forms": {
+      "itemized": {
+       "n": 180,
+       "share": 1.0,
+       "n_success": 151,
+       "success": 0.8388888888888889
+      },
+      "sentence": {
+       "n": 0,
+       "share": 0.0,
+       "n_success": 0,
+       "success": null
+      },
+      "number": {
+       "n": 0,
+       "share": 0.0,
+       "n_success": 0,
+       "success": null
+      },
+      "none": {
+       "n": 0,
+       "share": 0.0,
+       "n_success": 0,
+       "success": null
+      }
+     },
+     "provenance": {
+      "path": "runs/e7f_hard/llm_only.jsonl; runs/e7fx_hard/llm_only.jsonl",
+      "sha256": "342eb5603a7c1f6defb02ce07b47692f347fe859b07e780cce1c54bc0c3d5132; 399fbc8b7858f75e2eaacff392db290f8da47872bfa366b60383628b9b81491d",
+      "n_records": 200
+     }
+    },
+    "rl_random": {
+     "state": "run",
+     "n_ok": 180,
+     "n_records": 180,
+     "success_all": 0.85,
+     "cost_mean": 0.2655781175,
+     "per_episode": {
+      "wall_s_mean": 394.8882529793834,
+      "wall_s_median": 392.25026538500015,
+      "steps": 37.0,
+      "llm_calls": 37.00555555555555,
+      "s1_calls": 92.55555555555556,
+      "s1_cost": 0.0,
+      "s2_cost": 0.2655781175,
+      "s1_s": 340.88956017202236
+     },
+     "failure_types": {
+      "n_failed": 27,
+      "types": {
+       "wrong_total": 27
+      },
+      "classes": {
+       "wrong_total": 27,
+       "wrong_write": 0,
+       "ask_finish": 0,
+       "other": 0
+      }
+     },
+     "answer_forms": {
+      "itemized": {
+       "n": 180,
+       "share": 1.0,
+       "n_success": 153,
+       "success": 0.85
+      },
+      "sentence": {
+       "n": 0,
+       "share": 0.0,
+       "n_success": 0,
+       "success": null
+      },
+      "number": {
+       "n": 0,
+       "share": 0.0,
+       "n_success": 0,
+       "success": null
+      },
+      "none": {
+       "n": 0,
+       "share": 0.0,
+       "n_success": 0,
+       "success": null
+      }
+     },
+     "provenance": {
+      "path": "runs/e19_hard/rl_random.jsonl",
+      "sha256": "970d128bcf0cdd3f8c1a8ca7113e30ccb671e5f0b12f3e821e3b87920c20708c",
+      "n_records": 180
+     },
+     "paired_per_episode": {
+      "wall_s_mean": 394.88825297938337,
+      "wall_s_median": 392.25026538500015,
+      "steps": 37.0,
+      "llm_calls": 37.00555555555555,
+      "s1_calls": 92.55555555555556,
+      "s1_cost": 0.0,
+      "s2_cost": 0.2655781175,
+      "s1_s": 340.88956017202236
+     },
+     "ref_paired_per_episode": {
+      "wall_s_mean": 73.38939959958887,
+      "wall_s_median": 60.55424130199992,
+      "steps": 37.00555555555555,
+      "llm_calls": 37.00555555555555,
+      "s1_calls": 0.0,
+      "s1_cost": 0.0,
+      "s2_cost": 0.26428359749999997,
+      "s1_s": 0.0
+     },
+     "points": {
+      "tool_select": {
+       "n": 6660,
+       "coverage": 0.3217717717717718,
+       "n_gold": 6660,
+       "acc": 0.9884384384384385,
+       "acc_accepted": 1.0,
+       "llm_acc_deferred": 1.0,
+       "n_accepted": 2143
+      },
+      "tool_params": {
+       "n": 3520,
+       "coverage": 0.6551136363636364,
+       "n_gold": 3520,
+       "acc": 0.9917613636363637,
+       "acc_accepted": 1.0,
+       "llm_acc_deferred": null,
+       "n_accepted": 2306
+      },
+      "tool": {
+       "n": 10180,
+       "coverage": 0.43703339882121806,
+       "n_gold": 10180,
+       "acc": 0.9895874263261296,
+       "acc_accepted": 1.0,
+       "llm_acc_deferred": 1.0,
+       "n_accepted": 4449
+      },
+      "op": {
+       "n": 2160,
+       "coverage": 0.33425925925925926,
+       "acc": 0.9657407407407408,
+       "acc_accepted": 1.0,
+       "accepted_wrong": 0,
+       "llm_acc_deferred": 1.0,
+       "s1_said_other_op": 74
+      },
+      "reflection": {
+       "n": 6480,
+       "fired": 0.1425925925925926,
+       "acc": 0.9951403887688985,
+       "gold_positive_rate": 0.004859611231101512
+      }
+     },
+     "cmp": {
+      "n_expected": 180,
+      "n": 180,
+      "n_dropped": 0,
+      "dropped": {
+       "missing_arm": 0,
+       "missing_ref": 0,
+       "errored_arm": 0,
+       "errored_ref": 0
+      },
+      "success": 0.85,
+      "success_ref": 0.8388888888888889,
+      "delta": 0.011111111111111112,
+      "delta_ci": [
+       -0.05,
+       0.07222222222222222
+      ],
+      "wins": 17,
+      "losses": 15,
+      "cost": 0.27692191379629627,
+      "cost_ref": 0.26428359749999997,
+      "saving": -0.0478210392769316,
+      "saving_ci": [
+       -0.07002314757405109,
+       -0.025151341261617766
+      ],
+      "newcombe_pt": [
+       -5.233034020848574,
+       7.47201562265265
+      ],
+      "api": {
+       "cost": 0.2655781175,
+       "saving": -0.004898223015902481,
+       "saving_ci": [
+        -0.027063286343105463,
+        0.017723443148338968
+       ]
+      },
+      "tariff_q": 0.011343796296296296,
+      "sens": {
+       "s2_4": {
+        "cost": 0.2675399375,
+        "saving": -0.012321385174121513,
+        "saving_ci": [
+         -0.034502343877911686,
+         0.010301253785005855
+        ]
+       },
+       "zero": {
+        "cost": 0.2655781175,
+        "saving": -0.004898223015902481,
+        "saving_ci": [
+         -0.027063286343105463,
+         0.017723443148338968
+        ]
+       }
+      }
+     },
+     "cmp_extra": {
+      "vs_tier": {
+       "n_expected": 180,
+       "n": 180,
+       "n_dropped": 0,
+       "dropped": {
+        "missing_arm": 0,
+        "missing_ref": 0,
+        "errored_arm": 0,
+        "errored_ref": 0
+       },
+       "success": 0.85,
+       "success_ref": 0.8055555555555556,
+       "delta": 0.044444444444444446,
+       "delta_ci": [
+        -0.027777777777777776,
+        0.11666666666666667
+       ],
+       "wins": 25,
+       "losses": 17,
+       "cost": 0.26557811750000004,
+       "cost_ref": 0.22960171833333334,
+       "saving": -0.1566904613250173,
+       "saving_ci": [
+        -0.17250521637513747,
+        -0.14135855353796234
+       ],
+       "newcombe_pt": [
+        -2.722473343232336,
+        11.614178248439194
+       ],
+       "ref_wall_s_mean": 330.45866142095554,
+       "ref_arm": "rl_tier",
+       "ref_runs": [
+        "e7f_hard",
+        "e7fx_hard"
+       ]
+      }
+     }
+    }
+   }
+  },
+  "ext": {
+   "meta": {
+    "generated": "2026-10-08T07:58:02+00:00",
+    "git": "f31a4bffd2b1e5cb87cff190955788099bfd61c3",
+    "script": "scripts/explore_e7_hard.py",
+    "run": "runs/e19x_hard",
+    "label": "exploratory (E19)",
+    "n_boot": 10000,
+    "seed": 0,
+    "suite": {
+     "name": "jevgym",
+     "n": 20,
+     "seed0": 310780,
+     "families": "multi",
+     "multi_customers": 12,
+     "multi_rule": "tier",
+     "answer_style": "itemized",
+     "distractor_style": "near",
+     "n_distractors": 60,
+     "noise_lines": 20,
+     "strict": true
+    },
+    "max_steps": 45,
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash",
+     "temperature": 0,
+     "reasoning_effort": "minimal"
+    },
+    "workers": 12,
+    "spend": {
+     "s2": 5.417044500000001,
+     "s1": 0.0,
+     "total": 5.417044500000001,
+     "records": 20,
+     "prior": 0.0
+    },
+    "cap": 62.0,
+    "exp": "e19",
+    "title": "E19: JevGym-Hard (12 customers, itemized answer), AgentDecision-4B (random rules) live",
+    "entry": "E19: the rule-randomised model on DecisionGym-Hard",
+    "arms": [
+     "llm_only",
+     "rl_random"
+    ],
+    "calibration": null,
+    "not_run": {},
+    "note": "Flash on the direct Gemini API, as E7f's arms (the same route and list prices); rl_random = AgentDecision-4B (random rules) (E12b's checkpoint, never trained on the tier rule) served on the host at thresholds refitted on E7d's 20 calibration tasks; llm_only is E7f's logged arm on the same tasks, not re-run; the task asks for one line per customer before the total",
+    "pilot_spend": null,
+    "projection": {
+     "basis": "e19_hard_smoke",
+     "smoke_per_episode": {
+      "rl_random": 0.282709275
+     },
+     "smoke_wall_s": {
+      "rl_random": 87.38316751999992
+     },
+     "smoke_n": {
+      "rl_random": 2
+     },
+     "smoke_errors": {
+      "rl_random": 0
+     },
+     "missing_arms": [],
+     "spent_so_far": 0.56541855,
+     "prior": 0.0,
+     "safety": 1.05,
+     "cap": 56.0,
+     "per_task_all_arms": 0.282709275,
+     "projected_200": 59.368947750000004,
+     "fits_200": false,
+     "projected_180": 53.432052975,
+     "fits_180": true,
+     "projected_160": 47.4951582,
+     "fits_160": true,
+     "projected_140": 41.558263425,
+     "fits_140": true,
+     "projected_120": 35.62136865,
+     "fits_120": true,
+     "projected_100": 29.684473875000002,
+     "fits_100": true,
+     "projected_80": 23.7475791,
+     "fits_80": true,
+     "projected_60": 17.810684325,
+     "fits_60": true,
+     "projected_40": 11.87378955,
+     "fits_40": true,
+     "projected_20": 5.936894775,
+     "fits_20": true,
+     "candidates": [
+      200,
+      180,
+      160,
+      140,
+      120,
+      100,
+      80,
+      60,
+      40,
+      20
+     ],
+     "decision": "run the first 180"
+    },
+    "stopped_by_watchdog": false,
+    "n_run": 20,
+    "ref_runs": [
+     "e7f_hard",
+     "e7fx_hard"
+    ],
+    "pilot_chosen": {
+     "candidates": [
+      "e7_pilot_tier_k12",
+      "e7_pilot_tier_k12b"
+     ],
+     "n": 60,
+     "success": 0.4666666666666667,
+     "band": [
+      0.6,
+      0.8
+     ]
+    }
+   },
+   "tariff": {
+    "q_usd_per_episode": 0.012288333333333333,
+    "host_usd_per_hour": 1.212,
+    "instance_type": "g5.2xlarge",
+    "serving_hours": 0.20277777777777778,
+    "episodes": 20,
+    "window": {
+     "start": "2026-10-08T07:43:46Z",
+     "end": "2026-10-08T07:55:56Z"
+    },
+    "workers": 12,
+    "state": "ok",
+    "convention": "S2-4 provisioned tariff (A7.13 (iii)): host $/h x evaluation window / completed JevAgentRL episodes; on-demand price, us-east-1",
+    "sensitivity": {
+     "s2_4": 0.00196182,
+     "zero": 0.0
+    }
+   },
+   "arms": {
+    "llm_only": {
+     "state": "run",
+     "n_ok": 20,
+     "n_records": 200,
+     "success_all": 0.8,
+     "cost_mean": 0.26481914250000005,
+     "per_episode": {
+      "wall_s_mean": 81.35504760219999,
+      "wall_s_median": 78.75007526050035,
+      "steps": 37.0,
+      "llm_calls": 37.0,
+      "s1_calls": 0.0,
+      "s1_cost": 0.0,
+      "s2_cost": 0.26481914250000005,
+      "s1_s": 0.0
+     },
+     "failure_types": {
+      "n_failed": 4,
+      "types": {
+       "wrong_total": 4
+      },
+      "classes": {
+       "wrong_total": 4,
+       "wrong_write": 0,
+       "ask_finish": 0,
+       "other": 0
+      }
+     },
+     "answer_forms": {
+      "itemized": {
+       "n": 20,
+       "share": 1.0,
+       "n_success": 16,
+       "success": 0.8
+      },
+      "sentence": {
+       "n": 0,
+       "share": 0.0,
+       "n_success": 0,
+       "success": null
+      },
+      "number": {
+       "n": 0,
+       "share": 0.0,
+       "n_success": 0,
+       "success": null
+      },
+      "none": {
+       "n": 0,
+       "share": 0.0,
+       "n_success": 0,
+       "success": null
+      }
+     },
+     "provenance": {
+      "path": "runs/e7f_hard/llm_only.jsonl; runs/e7fx_hard/llm_only.jsonl",
+      "sha256": "342eb5603a7c1f6defb02ce07b47692f347fe859b07e780cce1c54bc0c3d5132; 399fbc8b7858f75e2eaacff392db290f8da47872bfa366b60383628b9b81491d",
+      "n_records": 200
+     }
+    },
+    "rl_random": {
+     "state": "run",
+     "n_ok": 20,
+     "n_records": 20,
+     "success_all": 0.8,
+     "cost_mean": 0.27085222500000006,
+     "per_episode": {
+      "wall_s_mean": 340.22437462505013,
+      "wall_s_median": 352.6349245544998,
+      "steps": 37.0,
+      "llm_calls": 37.5,
+      "s1_calls": 90.75,
+      "s1_cost": 0.0,
+      "s2_cost": 0.27085222500000006,
+      "s1_s": 296.720806613598
+     },
+     "failure_types": {
+      "n_failed": 4,
+      "types": {
+       "wrong_total": 4
+      },
+      "classes": {
+       "wrong_total": 4,
+       "wrong_write": 0,
+       "ask_finish": 0,
+       "other": 0
+      }
+     },
+     "answer_forms": {
+      "itemized": {
+       "n": 20,
+       "share": 1.0,
+       "n_success": 16,
+       "success": 0.8
+      },
+      "sentence": {
+       "n": 0,
+       "share": 0.0,
+       "n_success": 0,
+       "success": null
+      },
+      "number": {
+       "n": 0,
+       "share": 0.0,
+       "n_success": 0,
+       "success": null
+      },
+      "none": {
+       "n": 0,
+       "share": 0.0,
+       "n_success": 0,
+       "success": null
+      }
+     },
+     "provenance": {
+      "path": "runs/e19x_hard/rl_random.jsonl",
+      "sha256": "3d601d5dada8a6c162698c3802f3b1551d040df14e292571e71c059a18d5b946",
+      "n_records": 20
+     },
+     "paired_per_episode": {
+      "wall_s_mean": 340.22437462505013,
+      "wall_s_median": 352.6349245544998,
+      "steps": 37.0,
+      "llm_calls": 37.5,
+      "s1_calls": 90.75,
+      "s1_cost": 0.0,
+      "s2_cost": 0.27085222500000006,
+      "s1_s": 296.720806613598
+     },
+     "ref_paired_per_episode": {
+      "wall_s_mean": 81.35504760219999,
+      "wall_s_median": 78.75007526050035,
+      "steps": 37.0,
+      "llm_calls": 37.0,
+      "s1_calls": 0.0,
+      "s1_cost": 0.0,
+      "s2_cost": 0.26481914250000005,
+      "s1_s": 0.0
+     },
+     "points": {
+      "tool_select": {
+       "n": 740,
+       "coverage": 0.3,
+       "n_gold": 740,
+       "acc": 0.9905405405405405,
+       "acc_accepted": 1.0,
+       "llm_acc_deferred": 1.0,
+       "n_accepted": 222
+      },
+      "tool_params": {
+       "n": 355,
+       "coverage": 0.6169014084507042,
+       "n_gold": 355,
+       "acc": 0.9859154929577465,
+       "acc_accepted": 1.0,
+       "llm_acc_deferred": null,
+       "n_accepted": 219
+      },
+      "tool": {
+       "n": 1095,
+       "coverage": 0.40273972602739727,
+       "n_gold": 1095,
+       "acc": 0.989041095890411,
+       "acc_accepted": 1.0,
+       "llm_acc_deferred": 1.0,
+       "n_accepted": 441
+      },
+      "op": {
+       "n": 240,
+       "coverage": 0.3333333333333333,
+       "acc": 0.9708333333333333,
+       "acc_accepted": 1.0,
+       "accepted_wrong": 0,
+       "llm_acc_deferred": 1.0,
+       "s1_said_other_op": 7
+      },
+      "reflection": {
+       "n": 720,
+       "fired": 0.13194444444444445,
+       "acc": 0.9936,
+       "gold_positive_rate": 0.0064
+      }
+     },
+     "cmp": {
+      "n_expected": 20,
+      "n": 20,
+      "n_dropped": 0,
+      "dropped": {
+       "missing_arm": 0,
+       "missing_ref": 0,
+       "errored_arm": 0,
+       "errored_ref": 0
+      },
+      "success": 0.8,
+      "success_ref": 0.8,
+      "delta": 0.0,
+      "delta_ci": [
+       -0.15,
+       0.15
+      ],
+      "wins": 1,
+      "losses": 1,
+      "cost": 0.2831405583333334,
+      "cost_ref": 0.26481914250000005,
+      "saving": -0.06918463544731601,
+      "saving_ci": [
+       -0.13149754628045054,
+       -0.0023731908650973187
+      ],
+      "newcombe_pt": [
+       -18.307060842374305,
+       18.307060842374305
+      ],
+      "api": {
+       "cost": 0.27085222500000006,
+       "saving": -0.02278189727164448,
+       "saving_ci": [
+        -0.08504026918992354,
+        0.04390567044637132
+       ]
+      },
+      "tariff_q": 0.012288333333333333,
+      "sens": {
+       "s2_4": {
+        "cost": 0.27281404500000006,
+        "saving": -0.03019004753404486,
+        "saving_ci": [
+         -0.09247680773083279,
+         0.03653946974407634
+        ]
+       },
+       "zero": {
+        "cost": 0.27085222500000006,
+        "saving": -0.02278189727164448,
+        "saving_ci": [
+         -0.08504026918992354,
+         0.04390567044637132
+        ]
+       }
+      }
+     },
+     "cmp_extra": {
+      "vs_tier": {
+       "n_expected": 20,
+       "n": 20,
+       "n_dropped": 0,
+       "dropped": {
+        "missing_arm": 0,
+        "missing_ref": 0,
+        "errored_arm": 0,
+        "errored_ref": 0
+       },
+       "success": 0.8,
+       "success_ref": 0.9,
+       "delta": -0.1,
+       "delta_ci": [
+        -0.3,
+        0.1
+       ],
+       "wins": 1,
+       "losses": 3,
+       "cost": 0.27085222500000006,
+       "cost_ref": 0.2296303875,
+       "saving": -0.17951386116090595,
+       "saving_ci": [
+        -0.2377120709727152,
+        -0.1293479797218749
+       ],
+       "newcombe_pt": [
+        -32.48738923120255,
+        12.947287694764997
+       ],
+       "ref_wall_s_mean": 297.73480927255,
+       "ref_arm": "rl_tier",
+       "ref_runs": [
+        "e7f_hard",
+        "e7fx_hard"
+       ]
+      }
+     }
+    }
+   }
+  }
+ },
+ "calibration_fit": {
+  "label": "exploratory (E7d), descriptive; PREREG_A7_STAGE2 Deviations 2026-10-06 'E7d'; outside every Holm table",
+  "source": "e7c_cal/rl_shadow_cal",
+  "answers": "answers_random_cal.jsonl",
+  "answers_sha256": "690235e274a13f20d9a093225145ef0671de669cbe1c8a16821d6db20f5cab9c",
+  "derive": {
+   "replaced": 1940,
+   "missing": 6887,
+   "dropped_other_dps": 0
+  },
+  "n_tasks": 20,
+  "tasks_filter": 20,
+  "tool_select": {
+   "tau_hat": 0.9999538704122877,
+   "always_defer": false,
+   "n_paired": 740,
+   "tau_rule": "projection",
+   "at_tau": {
+    "n": 740,
+    "coverage": 0.2,
+    "s1_acc_taken": 1.0,
+    "llm_acc_taken": 1.0,
+    "s1_acc_all": 0.9567567567567568,
+    "llm_acc_all": 1.0
+   },
+   "op_at_tau": {
+    "n": 240,
+    "coverage": 0.12916666666666668,
+    "s1_acc_taken": 1.0,
+    "llm_acc_taken": 1.0,
+    "s1_acc_all": 0.8708333333333333,
+    "llm_acc_all": 1.0
+   }
+  },
+  "tool_params": {
+   "tau_hat": 0.9862272143363953,
+   "always_defer": false,
+   "n_paired": 1200,
+   "tau_rule": "projection",
+   "at_tau": {
+    "n": 1200,
+    "coverage": 0.9,
+    "s1_acc_taken": 1.0,
+    "llm_acc_taken": 1.0,
+    "s1_acc_all": 0.9908333333333333,
+    "llm_acc_all": 1.0
+   }
+  }
+ },
+ "reading": {
+  "n": 200,
+  "wins": 18,
+  "losses": 16,
+  "delta": 1.0,
+  "lo": -4.8902758745111905,
+  "hi": 6.935314358000625,
+  "p": 0.09116413173512428,
+  "ni": "no",
+  "full": true,
+  "verdict": "non-inferiority at 3 points not shown on the 200 tasks"
+ }
+}

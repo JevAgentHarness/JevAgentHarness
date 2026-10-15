@@ -1,0 +1,132 @@
+{
+ "registered": "docs/PREREG_A7_STAGE2.md A7.12 (a) capability manifest of pair (1); written 2026-10-03 07:21 UTC, after the eligibility smoke (see the dated Deviations entry); the facts of A7.12 (a) verified 2026-10-02 21:43 UTC are unchanged",
+ "pair": 1,
+ "members": {
+  "X": {
+   "openrouter_id": "deepseek/deepseek-v4-pro",
+   "canonical_slug": "deepseek/deepseek-v4-pro-20260423",
+   "listed_name": "DeepSeek: DeepSeek V4 Pro 0423",
+   "weights": {
+    "hf_repo": "deepseek-ai/DeepSeek-V4-Pro",
+    "hf_sha": "b5968e9190ef611bbf34a7229255be88a0e937c1",
+    "license": "mit",
+    "license_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+    "retrieved": "2026-10-03T07:20Z"
+   },
+   "list_price_per_M": {
+    "input": 0.2088,
+    "output": 0.4176,
+    "cache_read": 0.0174,
+    "reasoning": "none listed",
+    "per_request": "none listed"
+   },
+   "context_length_model": 1048576,
+   "name": "DeepSeek: DeepSeek V4 Pro 0423",
+   "pinned_endpoint": {
+    "provider": "StreamLake",
+    "tag": "streamlake/fp8",
+    "quantization": "fp8",
+    "context_length": 1024000,
+    "max_completion_tokens": 384000,
+    "pricing_per_M": {
+     "prompt": 0.2088,
+     "completion": 0.4176,
+     "input_cache_read": 0.0174
+    },
+    "supported_parameters": [
+     "reasoning",
+     "include_reasoning",
+     "tools",
+     "tool_choice",
+     "response_format",
+     "logprobs",
+     "top_logprobs",
+     "structured_outputs",
+     "max_tokens",
+     "temperature",
+     "top_p",
+     "stop",
+     "reasoning_effort"
+    ],
+    "listing_discount_field": 0.88
+   },
+   "n_endpoints_listed": 15
+  },
+  "X-small": {
+   "openrouter_id": "deepseek/deepseek-v4-flash",
+   "canonical_slug": "deepseek/deepseek-v4-flash-20260423",
+   "listed_name": "DeepSeek: DeepSeek V4 Flash 0423",
+   "weights": {
+    "hf_repo": "deepseek-ai/DeepSeek-V4-Flash",
+    "hf_sha": "60d8d70770c6776ff598c94bb586a859a38244f1",
+    "license": "mit",
+    "license_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash",
+    "retrieved": "2026-10-03T07:20Z"
+   },
+   "list_price_per_M": {
+    "input": 0.028,
+    "output": 0.056,
+    "cache_read": 0.0056,
+    "reasoning": "none listed",
+    "per_request": "none listed"
+   },
+   "context_length_model": 1048576,
+   "name": "DeepSeek: DeepSeek V4 Flash 0423",
+   "pinned_endpoint": {
+    "provider": "StreamLake",
+    "tag": "streamlake/fp8",
+    "quantization": "fp8",
+    "context_length": 1024000,
+    "max_completion_tokens": 384000,
+    "pricing_per_M": {
+     "prompt": 0.028,
+     "completion": 0.056,
+     "input_cache_read": 0.0056
+    },
+    "supported_parameters": [
+     "reasoning",
+     "include_reasoning",
+     "response_format",
+     "tools",
+     "tool_choice",
+     "logprobs",
+     "top_logprobs",
+     "structured_outputs",
+     "max_tokens",
+     "temperature",
+     "top_p",
+     "stop",
+     "reasoning_effort"
+    ],
+    "listing_discount_field": 0.8
+   },
+   "n_endpoints_listed": 15
+  }
+ },
+ "request_settings": {
+  "temperature": 0,
+  "reasoning": {
+   "enabled": false
+  },
+  "provider": {
+   "order": [
+    "StreamLake"
+   ],
+   "allow_fallbacks": false
+  },
+  "usage": {
+   "include": true
+  },
+  "source": "configs/dev/x_eligibility.yaml, configs/experiments/stage2_x.yaml, jevgym_shadow_cal_x.yaml"
+ },
+ "sources": [
+  "https://openrouter.ai/api/v1/models (read 2026-10-03 06:46 UTC)",
+  "https://openrouter.ai/api/v1/models/<id>/endpoints (read 2026-10-03 06:46 UTC)",
+  "https://huggingface.co/api/models/<repo> (read 2026-10-03 07:20 UTC)"
+ ],
+ "later_snapshots_not_used": [
+  "deepseek/deepseek-v4-pro-0813",
+  "deepseek/deepseek-v4.1-flash",
+  "deepseek/deepseek-v4-flash-0731"
+ ]
+}

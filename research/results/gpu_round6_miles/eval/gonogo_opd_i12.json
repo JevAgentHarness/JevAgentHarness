@@ -1,0 +1,87 @@
+{
+ "go": true,
+ "checks": {
+  "G1_min_gate": {
+   "value": 0.99048,
+   "threshold": 0.7771,
+   "pass": true
+  },
+  "G2_static_vs_intern": {
+   "value": 0.99048,
+   "threshold": 0.8519,
+   "pass": true
+  },
+  "G3_in_harness_vs_intern": {
+   "tool_select": 0.97285,
+   "intern_tool_select": 0.747737556561086,
+   "overall": 0.98654,
+   "intern_overall": 0.8430795119899033,
+   "pass": true
+  },
+  "G4_vs_teacher": {
+   "tool_select": {
+    "value": 0.97285,
+    "jev": 0.9163,
+    "threshold": 0.733,
+    "pass": true
+   },
+   "tool_params": {
+    "value": 1.0,
+    "jev": 0.9794,
+    "threshold": 0.7835,
+    "pass": true
+   },
+   "stop": {
+    "value": 0.98804,
+    "jev": 0.9865,
+    "threshold": 0.7892,
+    "pass": true
+   },
+   "pass": true
+  },
+  "G5_calibration": {
+   "value": 0.01717,
+   "threshold": 0.1,
+   "pass": true
+  }
+ },
+ "references": {
+  "jev_gate": 0.9714285714285714,
+  "intern_gate": 0.861904761904762,
+  "jev_v1_dev": {
+   "overall": 0.9579,
+   "tool_select": 0.9163,
+   "tool_params": 0.9794,
+   "stop": 0.9865
+  },
+  "intern_v1_dev": {
+   "overall": 0.8430795119899033,
+   "tool_select": 0.747737556561086,
+   "tool_params": 0.875,
+   "stop": 0.929745889387145,
+   "source": "v1 dev"
+  }
+ },
+ "recovery_states": {
+  "acc": 0.97855,
+  "n": 606
+ },
+ "decision": "GO: better open System-1 than Intern-Decision-4B on the harness's states; run the E2 dev slice (stage e2dev) before reporting it",
+ "vs_baseline": {
+  "gate_acc_delta": -0.0048,
+  "v1_dev_acc_delta": -0.0097
+ },
+ "inputs": {
+  "eval": [
+   "runs/gpu_round6_miles/eval/eval_opd_i12_gate.json",
+   "runs/gpu_round6_miles/eval/eval_opd_i12_v1.json"
+  ],
+  "jev_v1": "data/train_v1/dev_teacher.summary.json",
+  "intern_v1": "results/gpu_round5/eval/gate_intern4b_v1dev.json",
+  "gate_verdict": "results/gpu_round2/gate_verdict.json",
+  "baseline": [
+   "runs/gpu_round6_miles/eval/eval_sft_v2_gate.json",
+   "runs/gpu_round6_miles/eval/eval_sft_v2_v1.json"
+  ]
+ }
+}

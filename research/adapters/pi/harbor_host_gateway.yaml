@@ -1,0 +1,9 @@
+# Extra Docker Compose overlay for Harbor's docker environment (`harbor run ... --extra-docker-compose <this file>`):
+# makes the host reachable from the task container as `host.docker.internal`, so the pi extensions can use a
+# decision server running on the host:  --ae JEV_BASE_URL=http://host.docker.internal:8090
+# Start that server bound to a non-loopback address, e.g.
+#   python -m jevharness.decision.server --host 0.0.0.0 --port 8090 --name gemini-s1 --s1 '<backend spec>'
+services:
+  main:
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

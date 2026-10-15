@@ -1,0 +1,50 @@
+{
+ "tokenizer": "Qwen/Qwen3-0.6B",
+ "episodes": 100,
+ "flops_per_position": 7266631680.0,
+ "lm_head_flops_per_row": 777912320.0,
+ "rows": {
+  "v0_old": {
+   "steps": 750,
+   "requests": 2461,
+   "forwards": 3958,
+   "positions": 1900533,
+   "head_rows": 840868,
+   "positions_per_step": 2534.044,
+   "forwards_per_step": 5.277333333333333,
+   "head_rows_per_step": 1121.1573333333333,
+   "gflop_per_step": 19286.126511172264,
+   "cache_hit_share": 0.5461907139098275,
+   "prefilled_tokens": 1482453,
+   "stateless_tokens": 4661359
+  },
+  "v0_new": {
+   "steps": 750,
+   "requests": 1398,
+   "forwards": 3288,
+   "positions": 2009739,
+   "head_rows": 1143176,
+   "positions_per_step": 2679.652,
+   "forwards_per_step": 4.384,
+   "head_rows_per_step": 1524.2346666666667,
+   "gflop_per_step": 20657.765040346454,
+   "cache_hit_share": 0.3765531952316735,
+   "prefilled_tokens": 1443009,
+   "stateless_tokens": 4013903
+  },
+  "v2_new": {
+   "steps": 750,
+   "requests": 1398,
+   "forwards": 3311,
+   "positions": 1443009,
+   "head_rows": 3311,
+   "positions_per_step": 1924.012,
+   "forwards_per_step": 4.414666666666666,
+   "head_rows_per_step": 4.414666666666666,
+   "gflop_per_step": 13984.520775488854,
+   "cache_hit_share": 0.3765531952316735,
+   "prefilled_tokens": 1443009,
+   "stateless_tokens": 4013903
+  }
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "run": "e27_smoke_final_shift",
+ "arms": {
+  "e27_final_shift": {
+   "jevgym-shift-sdt-clarify.speed-339044-d120-near-strict": {
+    "success": true,
+    "error": false,
+    "error_text": null,
+    "cost": 0.030554849999999998,
+    "s1_cost": 0.0,
+    "s2_cost": 0.030554849999999998,
+    "wall_s": 10.111368814000116,
+    "steps": 5,
+    "s1_calls": 6,
+    "s2_calls": 4,
+    "attempts": 1,
+    "refusals": 0,
+    "own_acc": null
+   },
+   "jevgym-shift-sdt-notify-339045-d120-near-strict": {
+    "success": true,
+    "error": false,
+    "error_text": null,
+    "cost": 0.03600855,
+    "s1_cost": 0.0,
+    "s2_cost": 0.03600855,
+    "wall_s": 5.764207945999942,
+    "steps": 5,
+    "s1_calls": 6,
+    "s2_calls": 5,
+    "attempts": 1,
+    "refusals": 0,
+    "own_acc": null
+   }
+  }
+ },
+ "spend": {
+  "total": 0.0665634,
+  "s2": 0.0665634,
+  "s1": 0.0,
+  "records": 2,
+  "s1_by_arm": {
+   "e27_final_shift": 0.0
+  }
+ },
+ "written": "2026-10-09T15:16:14+00:00"
+}

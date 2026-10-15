@@ -1,0 +1,22 @@
+# Calibration shadow arms for the Intern-Decision C1 thresholds (PREREGISTRATION amendment A6.5, 2026-10-01): the
+# Intern-family counterpart of configs/experiments/jevgym_shadow_cal.yaml (read its header). tau-hat* for the C1 arms of
+# jevgym_tool_select_intern.yaml (`intern_ts_cascade_tauhat`, `intern_ts_cascade_tau0.9_s2lite`) is fitted on these
+# arms (calibration seeds 5000..5149, n = 150), never on `intern_shadow` (the n = 500 evaluation log, H1) and never on
+# evaluation tasks. Same System-1 as E2a-Intern (internlm/Intern-Decision-4B in-process; GPU recommended) and the same
+# fit command with `runs/e2a_jevgym_shadow_cal_intern --arm intern_shadow_cal[_s2lite]`. Cost ~ $8 System-2 API + ~ 1 GPU-h.
+# Budget fallback (A5.1): -o 's1={type: intern_decision, model: internlm/Intern-Decision-2B}' (the paper says which ran).
+name: e2a_jevgym_shadow_cal_intern
+suite: {name: jevgym, n: 150, seed0: 5000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # calibration seeds 5000..5149
+n_tasks: 150
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+llms:
+  lite2: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+# Calibration temperature defaults to the checkpoint's fitted value (4B: 1.9924, 2B: 2.1005), as in E2a-Intern.
+s1: {type: intern_decision, model: internlm/Intern-Decision-4B, device: auto, max_length: 8192}
+s1_cache: cache/s1.sqlite          # keyed on describe() (model, dtype, device, T, ...): safe to share with E2a
+workers: 4                         # one model instance, forward passes are serialised: more workers only queue
+arms:
+  # Flash: calibrates the Intern C1 arm (`intern_ts_cascade_tauhat`)
+  - {name: intern_shadow_cal, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}
+  # Flash-Lite: calibrates the Intern C1L arm (`intern_ts_cascade_tau0.9_s2lite`)
+  - {name: intern_shadow_cal_s2lite, llm: lite2, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}

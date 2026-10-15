@@ -1,0 +1,19 @@
+# Exploratory row E22 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-08 'E22' (f)-(g)): the final harness on
+# tau^2 -- tool choice and arguments in CASCADE at the fitted tau-hat, s1_act: complete, the trained 0.8B head
+# served on the host's GPU. Written by scripts/explore_e22_tau2.py fit from tauhat_tool_select.json, tauhat_tool_params.json.
+name: e22_final
+tool_select:
+  mode: cascade
+  tau: 0.9944593912273271
+tool_params:
+  mode: cascade
+  tau: 0.9980051159281186
+s1_act: complete
+log_state: false
+s1:
+  type: jev
+  name: e22-tau2-0.8b
+  base_url: http://127.0.0.1:8090
+  model: e22-tau2-0.8b
+  api_key: ''
+  timeout: 120.0

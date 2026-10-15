@@ -1,0 +1,20 @@
+{
+ "registered": "PREREG_A7_STAGE2 Deviations 2026-10-08 'E21' (d) 3",
+ "variant": "main",
+ "backend": {
+  "backend": "startlux-27b",
+  "provider": "typesafe",
+  "model": "StartLux-Decision-27B-Q8_0",
+  "base_url": "http://127.0.0.1:8091",
+  "extra_body": {},
+  "cached": true
+ },
+ "cache": "cache/s1_e21_sl27b_main.sqlite",
+ "workers": 4,
+ "order": "sorted question hash, sharded over workers",
+ "batching": "one question per request (the harness tournament for Choices wider than the backend's max_options)",
+ "retries": 2,
+ "n_questions": 1093,
+ "resumed_with": 0,
+ "written": "2026-10-08T23:04:22+00:00"
+}

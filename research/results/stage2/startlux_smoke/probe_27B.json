@@ -1,0 +1,37 @@
+{
+ "port": 8091,
+ "health": {
+  "status": "ok",
+  "model": "StartLux-Decision-27B-Q8_0"
+ },
+ "models": {
+  "status": "ok",
+  "model": "StartLux-Decision-27B-Q8_0"
+ },
+ "three_questions": {
+  "n": 20,
+  "p50_ms": 569.2893820000791,
+  "p95_ms": 615.1368579999144,
+  "max_ms": 923.9525860002686,
+  "errors": [],
+  "n_errors": 0,
+  "input_tokens": 290
+ },
+ "choice_69": {
+  "n": 10,
+  "p50_ms": 1544.7525260001385,
+  "p95_ms": 1564.247002999764,
+  "max_ms": 1564.247002999764,
+  "errors": [],
+  "n_errors": 0,
+  "input_tokens": 1525
+ },
+ "long_state": {
+  "ms": 201.69667600021057,
+  "ok": false,
+  "problems": {
+   "_error": "HTTPError: {\"error\": \"<HTTPError 400: 'Bad Request'>\"}"
+  },
+  "input_tokens": null
+ }
+}

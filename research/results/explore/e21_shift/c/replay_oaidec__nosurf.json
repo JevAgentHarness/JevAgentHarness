@@ -1,0 +1,20 @@
+{
+ "registered": "PREREG_A7_STAGE2 Deviations 2026-10-08 'E21' (d) 3 / (d) 5",
+ "variant": "nosurf",
+ "backend": {
+  "backend": "openai_decisions",
+  "provider": "openai",
+  "model": "gpt-6-luna",
+  "base_url": "https://api.openai.com/v1",
+  "max_questions_per_request": 64,
+  "cached": true
+ },
+ "cache": "cache/s1_e21_oaidec_nosurf.sqlite",
+ "workers": 4,
+ "order": "sorted question hash, sharded over workers",
+ "batching": "one question per request (the harness tournament for Choices wider than the backend's max_options)",
+ "retries": 2,
+ "n_questions": 1093,
+ "resumed_with": 0,
+ "written": "2026-10-08T16:05:11+00:00"
+}

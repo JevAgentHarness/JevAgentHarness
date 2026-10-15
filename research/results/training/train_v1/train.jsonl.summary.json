@@ -1,0 +1,53 @@
+{
+ "n_in": 15694,
+ "n_valid": 15694,
+ "teachers": {
+  "jev": {
+   "spec": {
+    "type": "jev",
+    "provider": "openrouter"
+   },
+   "answered": 15694,
+   "with_gold": 15694,
+   "acc": 0.9449471135465783,
+   "nll": 0.2462338850811729,
+   "ece": 0.011080092658331693,
+   "skipped": {},
+   "ledger": {
+    "calls": 5175,
+    "calls_fresh": 0,
+    "input_tokens": 11691550,
+    "output_tokens": 6666486,
+    "cost_usd": 0.49104509999999973,
+    "cost_usd_fresh": 0,
+    "latency_ms_sum": 1104290.8392940012,
+    "unpriced_models": []
+   }
+  }
+ },
+ "n_out": 15694,
+ "outcomes": {
+  "gold_only": 864,
+  "kept": 14830
+ },
+ "config": {
+  "alpha": 0.3,
+  "min_agree": 1,
+  "min_conf": 0.0,
+  "pool": "mean",
+  "temperature": 1.0,
+  "gold_filter": "gold",
+  "on_disagree": "gold",
+  "weights": {},
+  "mc_beta": null
+ },
+ "target_metrics": {
+  "answered": 14830,
+  "with_gold": 0,
+  "acc": null,
+  "nll": null,
+  "ece": null
+ },
+ "cost_usd_fresh": 0,
+ "wall_s": 5.274253401000351
+}

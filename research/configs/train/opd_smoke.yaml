@@ -1,0 +1,30 @@
+# Stage 65 smoke / CPU configuration: simulated System-2, a tiny local teacher, 1 iteration x 2 tasks.
+# PIPELINE CHECK ONLY (smoke_gpu.sh stage 65-opd, tests/test_opd.py); nothing trained with it is a result.
+# Override `student`, `init`, `teacher`, `out` on the command line (65_opd.sh does).
+executor: sim
+llm: {provider: simulated, model: scripted, error_rate: 0.3, simulated_latency_ms: 0}
+suite: {n_distractors: 3, distractor_style: mixed, families: all, strict: true}
+seeds: 10000
+n_tasks: 8
+arms:
+  - {name: opd_replace, tool_select: {mode: replace}, tool_params: {mode: replace}}
+max_steps: 6
+iterations: 1
+tasks_per_iter: 2
+rollouts_per_task: 1
+loss: forward_kl
+replay_frac: 0.5
+budget_usd: 0.0
+lora_r: 16
+lora_alpha: 32
+lr: 1.0e-4
+epochs_per_iter: 1
+minibatch: 8
+micro_batch: 4
+workers: 4
+decider_batch: 8
+eval_every: 1
+eval_n: 2
+eval_seed0: 1000
+save_every: 1
+teacher_cache: ''

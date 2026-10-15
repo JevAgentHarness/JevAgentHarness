@@ -1,0 +1,13 @@
+# E14 live smoke (development only, never reported): configs/explore/e14_small/live_a_g.yaml on 2 JevGym development tasks
+# (seeds 906-907: the pilot / development range 0-999, outside every evaluation, calibration and training block), the same
+# arm, backend, LLM and suite options; it feeds the registered cost gate (scripts/explore_e14_small.py gate).
+name: e14_live_smoke_g
+suite: {name: jevgym, n: 2, seed0: 906, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # development seeds (never reported)
+n_tasks: 2
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1_backends:
+  e14g: {type: jev, name: e14-g, base_url: "http://127.0.0.1:8083", model: e14-g, api_key: "",
+         price_model: jevagentrl-4b, timeout: 120.0, cache: null}   # exact 0 per token (GPU priced separately)
+workers: 2
+arms:
+  - {name: e14g_ts_replace_f, s1: e14g, tool_select: {mode: replace}}

@@ -1,0 +1,17 @@
+# Terminal-Bench-Science tasks whose images should build behind the dev sandbox's container egress (Ubuntu mirrors,
+# PyPI, GitHub, npm, conda reachable; Debian mirrors, Hugging Face, PyTorch index, Posit/CRAN, Julia, rustup blocked).
+# Heuristic (adapters/pi/tbsci.py sandbox_ok), for smoke tests only; build with PATCH_CA (a sandbox deviation).
+# Generated at terminal-bench-science@cfff307 with: python adapters/pi/tbsci.py list <clone> sandbox
+# Smoke-verified end to end (2026-10-01): see the SMOKE lines in adapters/pi/README.md.
+inelastic-constitutive-discovery
+dna-storage-codec
+ode-law-discovery
+finite-free-stam
+gen-turan-paths
+onsager-ising-lean
+regularized-game-proof
+highdim-mediation-debiasing
+3x2pt-inference
+geometric-pharmacophore-alignment
+si-fracture-fbc
+leaky-bloch-meep

@@ -1,0 +1,25 @@
+# E1 controls (RQ1, reviewer control) -- Level-1 static decisions (BFCL v4 + When2Call) answered by free,
+# non-learned deciders. Same items, questions and metrics as configs/decision/bfcl_when2call.yaml; their
+# rows sit next to Jev / Gemini / embeddings / native FC in Table 2 (docs/BASELINES.md).
+#   bm25 / tfidf   lexical match of the query to option name + description (tool-retrieval baselines)
+#   prior_first    always the first option (BFCL: first function; When2Call: "call a tool"; params: most recent span)
+#   prior_last     always the last option (BFCL: "none"; When2Call: "answer directly"; params: OTHER = defer)
+#   random         uniform-random option (chance level; confidence = 1/n)
+# All are offline and free: no keys, no cache needed.
+#   jevbench decide configs/decision/baselines_static.yaml [--max-items 150]
+name: e1_baselines_static
+suites:
+  - {name: bfcl, categories: [simple_python, multiple, live_simple, live_multiple, irrelevance, live_irrelevance], max_per_cat: 200}
+  - {name: when2call, max_items: 1000}
+batch_by_state: true
+workers: 8
+backends:
+  bm25: {type: bm25}
+  tfidf: {type: tfidf}
+  prior_first: {type: prior, rule: first}
+  prior_last: {type: prior, rule: last}
+  random: {type: random, seed: 0}
+  # A fitted majority-class prior needs labels from a TRAINING split (never the evaluated items), e.g.
+  #   prior_major: {type: prior, rule: majority, prior_file: runs/priors/<train_split>.json}
+  # with the file written from jevharness.decision.controls.fit_prior(...). An abstaining lexical variant
+  # (BFCL irrelevance) needs a threshold tuned on a dev split: {type: tfidf, abstain_score: <t>}.

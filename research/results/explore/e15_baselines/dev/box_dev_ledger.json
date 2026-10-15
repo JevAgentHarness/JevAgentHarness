@@ -1,0 +1,215 @@
+{
+ "fresh_cost_usd": 0.0,
+ "backends": {
+  "openjev": {
+   "total": {
+    "calls": 210,
+    "input_tokens": 74527,
+    "output_tokens": 0,
+    "cost_usd": 0.0,
+    "latency_ms": 79624.06585100063
+   },
+   "s1": {
+    "calls": 210,
+    "input_tokens": 74527,
+    "output_tokens": 0,
+    "cost_usd": 0.0,
+    "latency_ms": 79624.06585100063
+   },
+   "by_decision_point": {
+    "tool_params": {
+     "calls": 53,
+     "input_tokens": 16916,
+     "output_tokens": 0,
+     "cost_usd": 0.0,
+     "latency_ms": 27341.28835500042
+    },
+    "tool_select": {
+     "calls": 157,
+     "input_tokens": 57611,
+     "output_tokens": 0,
+     "cost_usd": 0.0,
+     "latency_ms": 52282.77749600019
+    }
+   },
+   "unpriced_models": [],
+   "fresh_cost_usd": 0.0,
+   "cached_calls": 0
+  },
+  "jevk5": {
+   "total": {
+    "calls": 210,
+    "input_tokens": 93656,
+    "output_tokens": 0,
+    "cost_usd": 0.0,
+    "latency_ms": 25577.688221998862
+   },
+   "s1": {
+    "calls": 210,
+    "input_tokens": 93656,
+    "output_tokens": 0,
+    "cost_usd": 0.0,
+    "latency_ms": 25577.688221998862
+   },
+   "by_decision_point": {
+    "tool_params": {
+     "calls": 53,
+     "input_tokens": 32053,
+     "output_tokens": 0,
+     "cost_usd": 0.0,
+     "latency_ms": 6316.0180269997
+    },
+    "tool_select": {
+     "calls": 157,
+     "input_tokens": 61603,
+     "output_tokens": 0,
+     "cost_usd": 0.0,
+     "latency_ms": 19261.670194999177
+    }
+   },
+   "unpriced_models": [],
+   "fresh_cost_usd": 0.0,
+   "cached_calls": 0
+  },
+  "decider": {
+   "total": {
+    "calls": 210,
+    "input_tokens": 58889,
+    "output_tokens": 0,
+    "cost_usd": 0.0,
+    "latency_ms": 22868.003142004
+   },
+   "s1": {
+    "calls": 210,
+    "input_tokens": 58889,
+    "output_tokens": 0,
+    "cost_usd": 0.0,
+    "latency_ms": 22868.003142004
+   },
+   "by_decision_point": {
+    "tool_params": {
+     "calls": 53,
+     "input_tokens": 11869,
+     "output_tokens": 0,
+     "cost_usd": 0.0,
+     "latency_ms": 5152.5239890015655
+    },
+    "tool_select": {
+     "calls": 157,
+     "input_tokens": 47020,
+     "output_tokens": 0,
+     "cost_usd": 0.0,
+     "latency_ms": 17715.479153002434
+    }
+   },
+   "unpriced_models": [],
+   "fresh_cost_usd": 0.0,
+   "cached_calls": 0
+  },
+  "clm": {
+   "total": {
+    "calls": 210,
+    "input_tokens": 49063,
+    "output_tokens": 0,
+    "cost_usd": 0.0,
+    "latency_ms": 22872.764917995482
+   },
+   "s1": {
+    "calls": 210,
+    "input_tokens": 49063,
+    "output_tokens": 0,
+    "cost_usd": 0.0,
+    "latency_ms": 22872.764917995482
+   },
+   "by_decision_point": {
+    "tool_params": {
+     "calls": 53,
+     "input_tokens": 10604,
+     "output_tokens": 0,
+     "cost_usd": 0.0,
+     "latency_ms": 5442.581654998321
+    },
+    "tool_select": {
+     "calls": 157,
+     "input_tokens": 38459,
+     "output_tokens": 0,
+     "cost_usd": 0.0,
+     "latency_ms": 17430.18326299716
+    }
+   },
+   "unpriced_models": [],
+   "fresh_cost_usd": 0.0,
+   "cached_calls": 0
+  },
+  "laya": {
+   "total": {
+    "calls": 210,
+    "input_tokens": 59320,
+    "output_tokens": 0,
+    "cost_usd": 0.0,
+    "latency_ms": 20215.455935007412
+   },
+   "s1": {
+    "calls": 210,
+    "input_tokens": 59320,
+    "output_tokens": 0,
+    "cost_usd": 0.0,
+    "latency_ms": 20215.455935007412
+   },
+   "by_decision_point": {
+    "tool_params": {
+     "calls": 53,
+     "input_tokens": 13997,
+     "output_tokens": 0,
+     "cost_usd": 0.0,
+     "latency_ms": 4959.67494299839
+    },
+    "tool_select": {
+     "calls": 157,
+     "input_tokens": 45323,
+     "output_tokens": 0,
+     "cost_usd": 0.0,
+     "latency_ms": 15255.780992009022
+    }
+   },
+   "unpriced_models": [],
+   "fresh_cost_usd": 0.0,
+   "cached_calls": 0
+  },
+  "verdict": {
+   "total": {
+    "calls": 210,
+    "input_tokens": 53888,
+    "output_tokens": 0,
+    "cost_usd": 0.0,
+    "latency_ms": 11998.782155004847
+   },
+   "s1": {
+    "calls": 210,
+    "input_tokens": 53888,
+    "output_tokens": 0,
+    "cost_usd": 0.0,
+    "latency_ms": 11998.782155004847
+   },
+   "by_decision_point": {
+    "tool_params": {
+     "calls": 53,
+     "input_tokens": 16543,
+     "output_tokens": 0,
+     "cost_usd": 0.0,
+     "latency_ms": 2916.038768998078
+    },
+    "tool_select": {
+     "calls": 157,
+     "input_tokens": 37345,
+     "output_tokens": 0,
+     "cost_usd": 0.0,
+     "latency_ms": 9082.743386006769
+    }
+   },
+   "unpriced_models": [],
+   "fresh_cost_usd": 0.0,
+   "cached_calls": 0
+  }
+ }
+}

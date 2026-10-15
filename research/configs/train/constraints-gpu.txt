@@ -1,0 +1,15 @@
+# Exact versions the training code was verified with (tests/test_training*.py, scripts/train/smoke_gpu.sh on CPU,
+# 2026-10-01). scripts/train/setup_gpu.sh installs `.[all,train]` with `-c` this file, so the GPU host gets the same
+# stack; the pyproject `train` extra only has lower bounds. torch==2.14.1 also matches local builds such as
+# 2.14.1+cu128 (PEP 440), so a torch installed from a PyTorch CUDA index is kept.
+# TRL is the most API-volatile dependency (GRPOConfig / GRPOTrainer): change its pin only together with
+# tests/test_training_rl.py::test_grpo_trl_trl_impl_smoke and `ONLY=60 bash scripts/train/smoke_gpu.sh`.
+torch==2.14.1
+transformers==5.18.0
+trl==1.14.1
+peft==0.21.1
+accelerate==1.15.0
+datasets==5.0.1
+huggingface_hub==1.33.0
+tokenizers==0.23.2
+safetensors==0.8.0

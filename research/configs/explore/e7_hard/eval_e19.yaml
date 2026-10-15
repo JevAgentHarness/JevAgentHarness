@@ -1,0 +1,25 @@
+# E19: the rule-randomised model on DecisionGym-Hard (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-08 "E19: the
+# rule-randomised model on DecisionGym-Hard"; exploratory, descriptive, no test, outside every Holm table). E7f's setting
+# (12 customers, tier rule, itemized final answer) on E7f's 200 tasks, seeds 310600-310799 (the runner refuses them
+# without JEV_EVAL_RUNS=1, bench/registry.py EXPLORE_EVAL_RANGES). The one arm rl_random = the Stage-2 profile's decision
+# points on E12b's checkpoint "AgentDecision-4B (random rules)" (records: e12b_random; trained on randomised order rules,
+# never the tier rule; served by training/serve_jev.py as agentdecision-4b-random on :8081 with E12b's temperatures) at
+# the thresholds the registered calibration-arm estimator fitted on E7d's 20 calibration tasks re-answered by this model
+# (results/explore/e19_hard_random/box/cal/tauhat_random_*.json; Deviations "E19: the fitted thresholds"). LLM-only is
+# NOT re-run: the readout pairs each task with E7f's logged llm_only episode (runs/e7f_hard + runs/e7fx_hard). Flash on
+# the direct Gemini API, as E7f. Run by scripts/aws/e7_hard.sh with EXP=e19:
+#   JEV_EVAL_RUNS=1 jevbench run configs/explore/e7_hard/eval_e19.yaml --out runs -o workers=12
+name: e19_hard
+suite: {name: jevgym, n: 200, seed0: 310600, families: multi, multi_customers: 12, multi_rule: tier, answer_style: itemized, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 200
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+harness_defaults: {max_steps: 45}
+s1_backends:
+  agentdecision_random: {type: jev, name: agentdecision-4b-random, base_url: "http://127.0.0.1:8081", model: agentdecision-4b-random,
+                         api_key: "", timeout: 60.0, cache: null}
+workers: 12
+schedule: {mode: task_major, seed: 732}
+arms:
+  # E19's fit (registered calibration-arm estimator, calibration seeds 5300-5319, this model's own answers): tool choice
+  # 0.9999538704122877, arguments 0.9862272143363953; the profile's fixed reflection trigger (0.5) asks the same model
+  - {name: rl_random, s1: agentdecision_random, tool_select: {mode: cascade, tau: 0.9999538704122877}, tool_params: {mode: cascade, tau: 0.9862272143363953}, reflection: {mode: trigger, tau: 0.5}}

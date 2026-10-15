@@ -1,0 +1,16 @@
+# E5 live-row smoke: 5 DEVELOPMENT tasks (seeds 900-904), the three live arms; operational check only (errors, served models).
+name: e5_small_smoke
+suite: {name: jevgym, n: 5, seed0: 900, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 5
+llm: {provider: openrouter, model: google/gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}   # Deviations 2026-10-06 ~18:00 UTC: the OpenRouter route (direct API overloaded)
+s1_backends:
+  jevagent_rl: {type: jev, name: jevagentrl-4b, base_url: "http://127.0.0.1:8081", model: jevagentrl-4b, api_key: "",
+                timeout: 60.0, cache: null}
+  e5_small: {type: jev, name: e5-e5_mc1, base_url: "http://127.0.0.1:8082", model: e5-e5_mc1, api_key: "",
+             timeout: 60.0, cache: null}
+workers: 1
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}
+  - {name: harness_final, s1: jevagent_rl, profile: configs/harness/jevagent_final.yaml, profile_s2: gemini-3.5-flash, profile_backend: jevagent_rl}
+  - {name: e5_final, s1: e5_small, profile: configs/harness/explore_e5_final.yaml, profile_s2: gemini-3.5-flash, profile_backend: e5_small}

@@ -1,0 +1,23 @@
+# Stage 2 (docs/PREREG_A7_STAGE2.md A7.18 (e) 4): the calibration shadow arm for StartLux-Decision-4B's cascade
+# thresholds -- identical to `jev_shadow_cal` of configs/experiments/jevgym_shadow_cal.yaml and to `intern_shadow_cal`
+# of jevgym_shadow_cal_intern.yaml except for System-1 (the vendor's server, scripts/aws/serve_startlux.sh, port 8090).
+# Flash only (the 4B is the only StartLux size with a profile row). CALIBRATION seeds 5000..5149 (never evaluation,
+# never Stage-2 data). Fitted with the registered command (A6.11 (c), A6.19), per decision point:
+#   jevbench run configs/experiments/jevgym_shadow_cal_startlux.yaml --out runs -o workers=4
+#   for dp in tool_select tool_params; do
+#     python -m jevharness.bench.threshold_theory runs/e2a_jevgym_shadow_cal_startlux --arm sl4b_shadow_cal --dp $dp \
+#       --calibration-arm --task-value 1.0 --lam-per-hour 0 --v-fallback W --format json \
+#       --out results/calibration/tauhat_sl4b_shadow_cal_${dp}.json
+#   done
+#   python scripts/fill_backend_tau.py --backend startlux_4b --fit-arm sl4b_shadow_cal     # -> backends.startlux_4b
+# A fit that accepts no level -> always_defer: true; if then nothing can delegate, S2-4S is not tested (A7.18 (f)).
+name: e2a_jevgym_shadow_cal_startlux
+suite: {name: jevgym, n: 150, seed0: 5000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # calibration seeds 5000..5149
+n_tasks: 150
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, name: startlux-4b, base_url: "http://localhost:8090", model: StartLux-Decision-4B, api_key: "",
+     price_model: StartLux-Decision-4B, timeout: 60.0}
+s1_cache: cache/s1_stage2_startlux.sqlite
+workers: 4
+arms:
+  - {name: sl4b_shadow_cal, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}

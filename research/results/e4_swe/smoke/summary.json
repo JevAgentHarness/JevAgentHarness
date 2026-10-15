@@ -1,0 +1,107 @@
+{
+ "label": "exploratory (E4), descriptive",
+ "run_dir": "/opt/jev/JevAgentHarness/research/runs/e4_swe/smoke",
+ "baseline": "always_deep",
+ "arms": [
+  {
+   "arm": "always_deep",
+   "n": 2,
+   "resolved": 1,
+   "unevaluated": 0,
+   "errors": 0,
+   "cost_mean": 0.023132899800000002,
+   "llm_cost_mean": 0.023132899800000002,
+   "s1_cost_mean": 0.0,
+   "cost_total": 0.046265799600000004,
+   "time_median_s": 244.35308706249998,
+   "time_mean_s": 244.35308706249998,
+   "time_p90_s": 339.1811189077,
+   "time_total_h": 0.13575171503472222,
+   "steps_mean": 31.0,
+   "llm_calls_mean": 31.0,
+   "s1_calls_mean": 0.0,
+   "fast_share": 0.0,
+   "exit_statuses": {
+    "Submitted": 2
+   }
+  },
+  {
+   "arm": "always_fast",
+   "n": 2,
+   "resolved": 1,
+   "unevaluated": 0,
+   "errors": 0,
+   "cost_mean": 0.0082324284,
+   "llm_cost_mean": 0.0082324284,
+   "s1_cost_mean": 0.0,
+   "cost_total": 0.0164648568,
+   "time_median_s": 179.70761418350003,
+   "time_mean_s": 179.70761418350003,
+   "time_p90_s": 249.91456550070006,
+   "time_total_h": 0.09983756343527779,
+   "steps_mean": 34.5,
+   "llm_calls_mean": 34.5,
+   "s1_calls_mean": 0.0,
+   "fast_share": 1.0,
+   "exit_statuses": {
+    "Submitted": 2
+   }
+  },
+  {
+   "arm": "jevagent_t050",
+   "n": 2,
+   "resolved": 1,
+   "unevaluated": 0,
+   "errors": 0,
+   "cost_mean": 0.0161153823,
+   "llm_cost_mean": 0.0136992903,
+   "s1_cost_mean": 0.002416092,
+   "cost_total": 0.0322307646,
+   "time_median_s": 217.55191401350004,
+   "time_mean_s": 217.55191401350004,
+   "time_p90_s": 292.47199306670007,
+   "time_total_h": 0.12086217445194447,
+   "steps_mean": 28.0,
+   "llm_calls_mean": 28.0,
+   "s1_calls_mean": 28.0,
+   "fast_share": 0.44642857142857145,
+   "exit_statuses": {
+    "Submitted": 2
+   }
+  }
+ ],
+ "paired": {
+  "always_fast": {
+   "tasks": 2,
+   "d_resolved": 0,
+   "wins": 0,
+   "losses": 0,
+   "sign_p_two_sided": null,
+   "mcnemar_p": 1.0,
+   "saving_pct": 64.4124667846441,
+   "mean_time_saving_pct": 26.455762706392616,
+   "n_cosolved": 1,
+   "d_time_median_cosolved_s": -33.86912221900002,
+   "cosolved_faster": 1,
+   "cosolved_slower": 0,
+   "cosolved_time_sign_p_one_sided": 0.5,
+   "d_time_median_all_s": -64.64547287899995
+  },
+  "jevagent_t050": {
+   "tasks": 2,
+   "d_resolved": 0,
+   "wins": 0,
+   "losses": 0,
+   "sign_p_two_sided": null,
+   "mcnemar_p": 1.0,
+   "saving_pct": 30.335658567111413,
+   "mean_time_saving_pct": 10.968215450515185,
+   "n_cosolved": 1,
+   "d_time_median_cosolved_s": -1.9162320589999808,
+   "cosolved_faster": 1,
+   "cosolved_slower": 0,
+   "cosolved_time_sign_p_one_sided": 0.5,
+   "d_time_median_all_s": -26.801173048999942
+  }
+ }
+}

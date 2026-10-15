@@ -1,0 +1,18 @@
+# E7b smoke (development only, never reported as a result): the three arms on 2 development tasks (seeds 7296, 7297;
+# unused by the pilot, the route check and the E7 smoke), the same settings as eval_b.yaml. Its mean $ per episode per
+# arm gives E7b's cost projection (scripts/explore_e7_hard.py --exp e7b project).
+name: e7b_hard_smoke
+suite: {name: jevgym, n: 2, seed0: 7296, families: multi, multi_customers: 12, multi_rule: tier, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 2
+llm: {provider: openrouter, model: google/gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+harness_defaults: {max_steps: 45}
+s1: {type: jev, provider: openrouter}
+s1_backends:
+  jevagent_rl: {type: jev, name: jevagentrl-4b, base_url: "http://127.0.0.1:8081", model: jevagentrl-4b, api_key: "",
+                timeout: 60.0, cache: null}
+workers: 6
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}
+  - {name: jevagent_best, profile: configs/harness/jevagent_best.yaml, profile_s2: gemini-3.5-flash}
+  - {name: jevagent_best_rl, s1: jevagent_rl, profile: configs/harness/jevagent_best.yaml, profile_s2: gemini-3.5-flash, profile_backend: jevagent_rl}

@@ -1,0 +1,33 @@
+{
+ "run_dir": "runs/startlux_smoke/startlux_smoke_dev_s0",
+ "arms": {
+  "dev_sl4b_ts_replace_f": {
+   "episodes": 20,
+   "episodes_with_error": 0,
+   "errors": [],
+   "s1_calls": 130,
+   "s1_calls_cached": 0,
+   "s1_calls_with_error_meta": 0,
+   "s1_latency_ms_per_decision": {
+    "n": 130,
+    "p50": 268.8,
+    "p95": 598.3,
+    "mean": 456.1,
+    "max": 10828.2
+   },
+   "s1_input_tokens_per_request": {
+    "p50": 4702,
+    "p95": 8355,
+    "max": 8415
+   },
+   "s1_models": {
+    "StartLux-Decision-4B": 130
+   },
+   "s1_backend_ids": [
+    "22ba0b72b1f1e8fc"
+   ],
+   "s2_calls": 130,
+   "api_spend_usd": 0.2504
+  }
+ }
+}

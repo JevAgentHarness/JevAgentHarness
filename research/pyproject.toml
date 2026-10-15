@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jevharness"
+version = "0.1.0"
+description = "Research code of the JevAgentHarness paper: AgentDecisionBench, the harness with fitted thresholds, and AgentDecision training"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "JevAgentHarness authors" }]
+dependencies = [
+  "httpx>=0.27",
+  "pydantic>=2.6",
+  "pyyaml>=6.0",
+  "numpy>=1.26",
+  "tqdm>=4.66",
+  "python-dotenv>=1.0",
+  "openai>=1.40",
+]
+
+[project.optional-dependencies]
+serve = ["fastapi>=0.110", "uvicorn>=0.29", "httpx>=0.27", "aiohttp>=3.9"]
+bench = ["datasets>=2.19", "pandas>=2.2", "matplotlib>=3.8"]
+train = [
+  "torch>=2.3",
+  "transformers>=4.46",
+  "trl>=0.12",
+  "peft>=0.13",
+  "datasets>=2.19",
+  "accelerate>=0.34",
+]
+swe = ["mini-swe-agent==2.4.6"]
+dev = ["pytest>=8.0", "ruff>=0.5"]
+all = ["jevharness[serve,bench,dev]"]
+
+[project.scripts]
+jevbench = "jevharness.bench.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"

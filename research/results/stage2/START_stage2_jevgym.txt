@@ -1,0 +1,8 @@
+step stage2_jevgym
+started 2026-10-03T06:57:18Z
+commit 8708dbd3ab843d053e64e4fbd0af473b0d9bef17
+plan sha256 838506ef306ffe32
+config configs/experiments/stage2_jevgym.yaml
+workers 8
+excluded arms llm_only_s2lite
+extra args  

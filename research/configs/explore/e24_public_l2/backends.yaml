@@ -1,0 +1,77 @@
+# Exploratory row E24 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-08 "E24: agent-state accuracy (L2) on public
+# benchmarks"): the System-1 backend of every model for the offline answers (scripts/explore_e24_public_l2.py replay
+# --slug SLUG), as in each model's logged rows (E11 / E23 for e11, E21 for the others). jev and oaidec run from this
+# container only (their keys never go to AWS); the others on the E24 GPU host (scripts/aws/e24_public_l2.sh), one model
+# at a time. Self-hosted models are priced at exactly 0 per token (the GPU host is accounted by host-hours).
+backends:
+  jev:
+    type: jev
+    provider: openrouter
+  oaidec:
+    type: openai_decisions
+    model: gpt-6-luna
+    timeout: 120.0
+  e11:
+    type: jev
+    name: e11-alfworld-4b
+    base_url: http://127.0.0.1:8081
+    model: e11-alfworld-4b
+    api_key: ''
+    price_model: jevagentrl-4b
+    timeout: 60.0
+  qwen4b:
+    type: jev
+    name: qwen3-4b
+    base_url: http://127.0.0.1:8081
+    model: qwen3-4b
+    api_key: ''
+    price_model: jevagentrl-4b
+    timeout: 60.0
+  e12:
+    type: jev
+    name: agentdecision-4b-mixed
+    base_url: http://127.0.0.1:8081
+    model: agentdecision-4b-mixed
+    api_key: ''
+    price_model: jevagentrl-4b
+    timeout: 60.0
+  e14a:
+    type: jev
+    name: e14-a
+    base_url: http://127.0.0.1:8083
+    model: e14-a
+    api_key: ''
+    price_model: jevagentrl-4b
+    timeout: 120.0
+  sl4b:
+    type: jev
+    name: startlux-4b
+    base_url: http://127.0.0.1:8090
+    model: StartLux-Decision-4B
+    api_key: ''
+    price_model: StartLux-Decision-4B
+    timeout: 60.0
+  sl9b:
+    type: jev
+    name: startlux-9b
+    base_url: http://127.0.0.1:8094
+    model: StartLux-Decision-9B
+    api_key: ''
+    price_model: StartLux-Decision-9B
+    timeout: 60.0
+  sl27b:
+    type: jev
+    name: startlux-27b
+    base_url: http://127.0.0.1:8091
+    model: StartLux-Decision-27B-Q8_0
+    api_key: ''
+    price_model: StartLux-Decision-27B
+    timeout: 120.0
+  e22:
+    type: jev
+    name: e22-tau2-0.8b
+    base_url: http://127.0.0.1:8083
+    model: e22-tau2-0.8b
+    api_key: ''
+    price_model: jevagentrl-4b
+    timeout: 120.0

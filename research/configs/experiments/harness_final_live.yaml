@@ -1,0 +1,23 @@
+# The final JevAgentHarness, live confirmation -- EXPLORATORY / DESCRIPTIVE (docs/PREREG_A7_STAGE2.md, Deviations entry
+# of 2026-10-05 "harness_final"; no test). Fresh spare Stage-2 seeds 300500..300699 (A7.2 (a): reserved, never trained
+# on, never piloted, untouched until this run; the runner refuses them without JEV_EVAL_RUNS=1), the frozen suite
+# settings of Stage 1 / Stage 2, the agent LLM exactly as Stage 2 (Gemini 3.5 Flash, direct Gemini API, temperature 0,
+# minimal reasoning; the OpenRouter route was not identical in cost accounting: results/harness_final/route_smoke.json).
+# Both arms in ONE invocation, task-major interleaved (arm order seeded per task), same concurrency; three passes (passes
+# 2-3 re-run infrastructure errors only):
+#   for pass in 1 2 3; do JEV_EVAL_RUNS=1 jevbench run configs/experiments/harness_final_live.yaml --out runs -o workers=W; done
+# (scripts/aws/harness_final_gpu.sh live, on the GPU host serving the frozen JevAgentRL-4B with serve_jev --fast)
+name: harness_final_live
+suite: {name: jevgym, n: 200, seed0: 300500, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 200
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1_backends:
+  # the frozen JevAgentRL-4B (results/stage2/rl_eval_plan.json row `frozen`, sha256-checked before serving) behind
+  # training/serve_jev.py --fast on the GPU host; no System-1 decision cache (the final harness does not use one)
+  jevagent_rl: {type: jev, name: jevagentrl-4b, base_url: "http://127.0.0.1:8081", model: jevagentrl-4b, api_key: "",
+                timeout: 60.0, cache: null}
+workers: 4
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}
+  - {name: harness_final, s1: jevagent_rl, profile: configs/harness/jevagent_final.yaml, profile_s2: gemini-3.5-flash, profile_backend: jevagent_rl}

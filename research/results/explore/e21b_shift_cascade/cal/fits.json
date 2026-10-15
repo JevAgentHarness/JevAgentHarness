@@ -1,0 +1,77 @@
+{
+ "label": "exploratory (E21b), descriptive; PREREG_A7_STAGE2 Deviations 2026-10-08 'E21b: the deployed confidence-gated cascades on DecisionGym-Shift'; outside every Holm table",
+ "at": "2026-10-09T00:00:35+00:00",
+ "questions": 2719,
+ "answered": 2719,
+ "errors": 0,
+ "derive": {
+  "replaced": 2719,
+  "missing": 0,
+  "dropped_other_dps": 1125
+ },
+ "fits": {
+  "tool_select": {
+   "tau_hat": 0.44503032941063925,
+   "n_paired": 1125,
+   "tau_rule": "projection",
+   "path": "results/explore/e21b_shift_cascade/cal/tauhat_e21bcal_e12_tool_select.json"
+  },
+  "tool_params": {
+   "tau_hat": 0.9958731532096863,
+   "n_paired": 1328,
+   "tau_rule": "projection",
+   "path": "results/explore/e21b_shift_cascade/cal/tauhat_e21bcal_e12_tool_params.json"
+  }
+ },
+ "coverage_at_tau": {
+  "tool_select": {
+   "tau": 0.44503032941063925,
+   "always_defer": false,
+   "n_paired": 1125,
+   "accepted": 1125,
+   "coverage": 1.0,
+   "accepted_errors": 0,
+   "s1_acc_all": 1.0,
+   "s2_acc_all": 1.0
+  },
+  "tool_params": {
+   "tau": 0.9958731532096863,
+   "always_defer": false,
+   "n_paired": 1328,
+   "accepted": 1112,
+   "coverage": 0.8373493975903614,
+   "accepted_errors": 0,
+   "s1_acc_all": 0.9962349397590361,
+   "s2_acc_all": 1.0
+  }
+ },
+ "profile": {
+  "path": "configs/harness/explore_e21b_e12_final.yaml",
+  "sha256": "c460546766f2de8e40b1ef71015027dd2ca3799745c41bb9043c0b9696d6a21a",
+  "backend": {
+   "tool_select": {
+    "tau": 0.44503032941063925
+   },
+   "tool_params": {
+    "tau": 0.9958731532096863
+   },
+   "fitted_from": {
+    "tool_select": {
+     "path": "results/explore/e21b_shift_cascade/cal/tauhat_e21bcal_e12_tool_select.json",
+     "sha256": "ed598114470acc889f751e33a681b5ab4550aa5905776bb05dbe8dd76a20457e"
+    },
+    "tool_params": {
+     "path": "results/explore/e21b_shift_cascade/cal/tauhat_e21bcal_e12_tool_params.json",
+     "sha256": "b1a65eddb359c829368b8558de7159c3ccf68d3ad366815ed3fe0bfd02433339"
+    }
+   },
+   "notes": "E21b (b) 3: E12's in-domain fit by the registered command on rl_shadow_cal (seeds 5000-5149)"
+  },
+  "rule": "E21b (b) 3: E12's in-domain fit by the registered command on rl_shadow_cal (seeds 5000-5149)"
+ },
+ "requests_sha256": "d46701e8e9bdc69e6a9e047227eabb1e52578ddc527342dda10b33f7dc5fff5e",
+ "answers": {
+  "path": "results/explore/e21b_shift_cascade/cal/answers_e12_cal.jsonl.gz",
+  "sha256_raw": "581bc58b0db377752af35ba060695f0fb53ef886d2305abc7df08071cd4ba9e4"
+ }
+}

@@ -1,0 +1,179 @@
+{
+ "label": "exploratory (E17, E18), descriptive; PREREG_A7_STAGE2 Deviations 2026-10-08 'E17 and E18: read-out ablation and a deferral-aware objective'; outside every Holm table",
+ "built_utc": "2026-10-08T05:27:05+00:00",
+ "sha256": {
+  "a/dev_a.jsonl.gz": "004b99a74cd7d7245422ebbb03062e5f80f872174c23c5edae4c7104b37dbdd5",
+  "a/dev_knockout_a.jsonl.gz": "9a5ebd297b909b5743db590ca8add1275ff355ef514715bc3c41c7c3b18a3ee5",
+  "a/dev_recovery_a.jsonl.gz": "24fa469fe3e0fc677375c716f26c7ec3275e6d9ae1b76a904e38675862b503b9",
+  "a/train_a.jsonl.gz": "7321c9685f516a78bc1e4700109a1dd3db3efda31c00e778e16a2566154f8df9",
+  "f/cal_f.jsonl.gz": "c66645a86b48db0ddcb72c65f72a51b5a1d1574c1484f52ff20b427f2965d111",
+  "f/dev_f.jsonl.gz": "d18914030434c507100b57ed7b75c631d0499bce85dc4ab70be6c0cdf05a4f1b",
+  "f/train_f.jsonl.gz": "fa09f0ade12e329192f056120730cc74646182c2fa321744e1488bc834faa5c5",
+  "a/build_a.json": "6cae48110683a1d1bc700f12a114a71c67e5b781cb5fda163e3bd2243439904e",
+  "f/build_f.json": "3076a8b74dbdd2da867e6db17c711f7118750421ae4bc2123e1b4718414c73ee"
+ },
+ "a/build_a.json": {
+  "train_mix_sha256": "9fe1088d8e5be533f38a2115fe369b9b238018367bbb6b4e729c19f9f94ebe37",
+  "rows": 16902,
+  "files": {
+   "train_a": {
+    "n": 14787,
+    "records": 14787,
+    "questions": 16902,
+    "records_by_dp": {
+     "tool_select": 9402,
+     "stop": 1988,
+     "tool_params": 3397
+    },
+    "questions_by_dp": {
+     "tool_select": 9402,
+     "stop": 1988,
+     "tool_params": 5512
+    },
+    "questions_per_record": {
+     "1": 12749,
+     "2": 1961,
+     "3": 77
+    },
+    "max_options": 52,
+    "soft_targets": 7596
+   },
+   "dev_a": {
+    "source": "data/train_v1/dev.jsonl.gz",
+    "source_sha256": "9301ae530b83f953aafeffe2364e8998e7a6057f5b0cc0410afa890664e30858",
+    "n": 2065,
+    "records": 2065,
+    "questions": 2377,
+    "records_by_dp": {
+     "tool_select": 884,
+     "stop": 669,
+     "tool_params": 512
+    },
+    "questions_by_dp": {
+     "tool_select": 884,
+     "stop": 669,
+     "tool_params": 824
+    },
+    "questions_per_record": {
+     "1": 1761,
+     "2": 296,
+     "3": 8
+    },
+    "max_options": 52,
+    "soft_targets": 0
+   },
+   "dev_recovery_a": {
+    "source": "data/train_v1/dev_recovery.jsonl.gz",
+    "source_sha256": "0eef019656936f4b13736ade83d993afc4f63a263482aa9726cb032998e3afcf",
+    "n": 532,
+    "records": 532,
+    "questions": 606,
+    "records_by_dp": {
+     "tool_select": 242,
+     "stop": 176,
+     "tool_params": 114
+    },
+    "questions_by_dp": {
+     "tool_select": 242,
+     "stop": 176,
+     "tool_params": 188
+    },
+    "questions_per_record": {
+     "1": 460,
+     "2": 70,
+     "3": 2
+    },
+    "max_options": 52,
+    "soft_targets": 0
+   },
+   "dev_knockout_a": {
+    "source": "data/train_v1/dev_knockout.jsonl.gz",
+    "source_sha256": "f0f1c4cc4f54b6d8cd746b3ef5fee291523a861d90639d023a1d6941fe2f3823",
+    "n": 656,
+    "records": 656,
+    "questions": 656,
+    "records_by_dp": {
+     "tool_select": 656
+    },
+    "questions_by_dp": {
+     "tool_select": 656
+    },
+    "questions_per_record": {
+     "1": 656
+    },
+    "max_options": 4,
+    "soft_targets": 0
+   }
+  }
+ },
+ "f/build_f.json": {
+  "files": {
+   "train_f": {
+    "n": 16707,
+    "a_records": 14787,
+    "cal_records": 1920,
+    "records": 16707,
+    "questions": 19355,
+    "records_by_dp": {
+     "tool_params": 4192,
+     "tool_select": 10527,
+     "stop": 1988
+    },
+    "questions_by_dp": {
+     "tool_params": 6840,
+     "tool_select": 10527,
+     "stop": 1988
+    },
+    "questions_per_record": {
+     "1": 14155,
+     "2": 2456,
+     "3": 96
+    },
+    "max_options": 53,
+    "soft_targets": 7596
+   },
+   "dev_f": {
+    "n": 2065,
+    "records": 2065,
+    "questions": 2377,
+    "records_by_dp": {
+     "tool_select": 884,
+     "stop": 669,
+     "tool_params": 512
+    },
+    "questions_by_dp": {
+     "tool_select": 884,
+     "stop": 669,
+     "tool_params": 824
+    },
+    "questions_per_record": {
+     "1": 1761,
+     "2": 296,
+     "3": 8
+    },
+    "max_options": 53,
+    "soft_targets": 0
+   },
+   "cal_f": {
+    "n": 1920
+   }
+  },
+  "labelled": {
+   "questions": 2453,
+   "positives": 15,
+   "by_dp": {
+    "tool_select": {
+     "n": 1125,
+     "positives": 3
+    },
+    "tool_params": {
+     "n": 1328,
+     "positives": 12
+    }
+   },
+   "rows_kept": 2453,
+   "records": 1920,
+   "records_with_defer": 15
+  }
+ }
+}

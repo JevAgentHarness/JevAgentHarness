@@ -1,0 +1,55 @@
+{
+ "registered": "docs/PREREG_A7_STAGE2.md, Deviations 2026-10-09 ~16:05 UTC, E29",
+ "harbor_registry": "laude-institute/harbor@4f848e3 registry.json",
+ "salts": {
+  "tbpro": "jev-explore-E29-tbpro-2026-10-09",
+  "swecal": "jev-explore-E29-swecal-2026-10-09"
+ },
+ "rule": "tb_cal = the first 10 Terminal-Bench Pro tasks in sha256(salt + newline + name) order, tb_smoke the 11th; SWE calibration = the 500 Verified ids minus e4_eval, e4_dev, e4_smoke, e4r_extension, e4r_smoke, e25_swe_eval, e25_swe_smoke, h5_smoke and the adapter's development ids, in sha256(salt + newline + id) order: mswe the first 20, swea the first 15; pilots = the first 30 of tb2_order.txt / E4r's extension list; evaluation = tb2_order.txt (89), E4r's extension (200), E25's swe_eval_ids (100)",
+ "files": {
+  "tb_cal.txt": {
+   "n": 10,
+   "sha256": "cee447472d4b8d98e7b513785496dce1cea9b45eef830785cd08b2d5e987f0b1"
+  },
+  "tb_smoke.txt": {
+   "n": 1,
+   "sha256": "4f7f884eecd9bcdff40e0b1cf8b3113dcc533c9f932c3ba0992e7402e0ae2ccb"
+  },
+  "tb_pilot.txt": {
+   "n": 30,
+   "sha256": "5797ef2ff53e8af8c2f74534ab333a2e25117d82e8bf556374f9f09e60d05293"
+  },
+  "tb_eval.txt": {
+   "n": 89,
+   "sha256": "cb8478fe6cadbbe5cd93b9c3f8b986f719226fd7487f9bb7d1737e1b879d0123"
+  },
+  "mswe_cal.txt": {
+   "n": 20,
+   "sha256": "bbec55b109f38c2ae747445fb76d14a2f30e95ff4360960f7774bb2f391d26fe"
+  },
+  "mswe_smoke.txt": {
+   "n": 1,
+   "sha256": "14365ae2c3d2657942d00aac41bb5ccf77741b85e2725bb903b538e350191ae9"
+  },
+  "mswe_pilot.txt": {
+   "n": 30,
+   "sha256": "7e2410e3420a3b07ed081c071be317248f7b1d2eed5ca88f6e9f32de774c4d8c"
+  },
+  "mswe_eval.txt": {
+   "n": 200,
+   "sha256": "46fe87bf1d22ca302f5da0081d0f1dd11fd02e8e0bb0706accbf77c5fac0bea9"
+  },
+  "swea_cal.txt": {
+   "n": 15,
+   "sha256": "f2bd1efa87e8147c390b60bfc4f21272bd7f8fc17d84ae0609d599c098f9ca2f"
+  },
+  "swea_smoke.txt": {
+   "n": 2,
+   "sha256": "cf6d176d0008b4c9e073b1130b8f879b66d3886dae3f62314b7ad3d29e642160"
+  },
+  "swea_eval.txt": {
+   "n": 100,
+   "sha256": "7eae630992228377bdd33bf7aa68a62378ba45698bba7f16430db75d4d5c9e1a"
+  }
+ }
+}

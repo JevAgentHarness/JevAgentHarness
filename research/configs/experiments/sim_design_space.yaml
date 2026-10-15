@@ -1,0 +1,32 @@
+# Offline simulation of the full WHERE x HOW design space (no API keys needed).
+# Simulated LLM (10% error) + simulated System-1 (85% accurate, calibrated).
+# Use it to sanity-check the pipeline and to produce the "simulation study" figure
+# (how S1 accuracy / calibration moves the success-cost frontier) before real runs.
+name: sim_design_space
+suite: {name: jevgym, n: 100, n_distractors: 30}
+llm: {provider: simulated, model: scripted, error_rate: 0.10, simulated_latency_ms: 2500}
+small_llm: {provider: simulated, model: scripted-small, error_rate: 0.30, simulated_latency_ms: 600}
+s1: {type: simulated, accuracy: 0.85, latency_ms: 120, price_per_m_input: 0.042}
+s1_backends:
+  s1_acc70: {type: simulated, accuracy: 0.70, latency_ms: 120, price_per_m_input: 0.042}
+  s1_acc95: {type: simulated, accuracy: 0.95, latency_ms: 120, price_per_m_input: 0.042}
+  s1_overconf: {type: simulated, accuracy: 0.85, overconfidence: 0.12, latency_ms: 120, price_per_m_input: 0.042}
+workers: 8
+arms:
+  - {name: llm_only}
+  - {name: ts_replace, tool_select: {mode: replace}}
+  - {name: ts_params_replace, tool_select: {mode: replace}, tool_params: {mode: replace}}
+  - {name: ts_assist_k3, tool_select: {mode: assist, k: 3}}
+  - {name: ts_guard, tool_select: {mode: guard, tau: 0.5}}
+  - {name: stop_guard, stop: {mode: guard, tau: 0.5}}
+  - {name: reflect_always, reflection: {mode: always}}
+  - {name: reflect_trigger, reflection: {mode: trigger, tau: 0.5}}
+  - {name: route_trigger, routing: {mode: trigger, tau: 0.5}}
+  - {name: mem_trigger, memory_write: {mode: trigger, tau: 0.5}, memory_read: {mode: assist, k: 3}}
+  - {name: ts_replace_acc70, s1: s1_acc70, tool_select: {mode: replace}, tool_params: {mode: replace}}
+  - {name: ts_replace_acc95, s1: s1_acc95, tool_select: {mode: replace}, tool_params: {mode: replace}}
+  - {name: ts_cascade_overconf, s1: s1_overconf, tool_select: {mode: cascade, tau: 0.9}, tool_params: {mode: cascade, tau: 0.9}}
+sweeps:
+  - base: {name: ts_cascade, tool_select: {mode: cascade}, tool_params: {mode: cascade, tau: 0.9}}
+    set: tool_select.tau
+    values: [0.5, 0.7, 0.8, 0.9, 0.95]

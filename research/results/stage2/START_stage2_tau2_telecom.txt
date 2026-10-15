@@ -1,0 +1,6 @@
+step stage2_tau2_telecom
+started 2026-10-03T07:19:09Z
+commit db1d86c5d401592195ac8cb9d735a48ced7e189b
+plan sha256 0f5e3b3e099e9c29
+command PY=.venv/bin/python MAX_CONCURRENCY=8 bash scripts/run_stage2_tau2.sh (llm_only then jevagent_best, one attempt, seed 300, --task-split-name full; rerun-errored up to twice; convert)
+sample configs/tau2/stage2/telecom_task_ids.json (n = 560, sha256 7c352a9b556d)

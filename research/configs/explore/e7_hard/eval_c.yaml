@@ -1,0 +1,26 @@
+# E7c (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-06 "E7c (JevGym-Hard, refitted thresholds)"; descriptive, no test,
+# outside every Holm table): E7b's setting (12 customers, tier rule) on fresh seeds 310400-310599 (n = 200; the runner
+# refuses them without JEV_EVAL_RUNS=1, bench/registry.py EXPLORE_EVAL_RANGES). The two decision-model arms are the
+# Stage-2 profile's decision points (tool cascade + reflection trigger at its fixed tau 0.5) with the cascade thresholds
+# REFITTED on this setting's calibration arm (configs/explore/e7_hard/cal_c.yaml; results/explore/e7_hard/cal_e7c/).
+# The fitted tau-hat were written here (and into the dated Deviations entry "E7c: the fitted thresholds") before any
+# smoke or evaluation episode; until then `calibration: pending` kept the runner from running the two arms.
+#   JEV_EVAL_RUNS=1 jevbench run configs/explore/e7_hard/eval_c.yaml --out runs -o workers=12     (EXP=e7c)
+name: e7c_hard
+suite: {name: jevgym, n: 200, seed0: 310400, families: multi, multi_customers: 12, multi_rule: tier, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 200
+llm: {provider: openrouter, model: google/gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+harness_defaults: {max_steps: 45}
+s1: {type: jev, provider: openrouter}
+s1_backends:
+  jevagent_rl: {type: jev, name: jevagentrl-4b, base_url: "http://127.0.0.1:8081", model: jevagentrl-4b, api_key: "",
+                timeout: 60.0, cache: null}
+workers: 12
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}
+  # tau-hat refitted on the E7c calibration arm (results/explore/e7_hard/cal_e7c/fits.json; Deviations "E7c: the fitted thresholds")
+  - {name: jev_refit, tool_select: {mode: cascade, tau: 0.91}, tool_params: {mode: cascade, tau: 0.87}, reflection: {mode: trigger, tau: 0.5}}
+  # the 4B's tool_select fit accepts no confidence level: always defer (A6.11 (c): System-1 not asked there); tool_params
+  # tau-hat 1.0 is reached only inside System-1-chosen calls, so it never fires (as A6.11 (c) states for C1L)
+  - {name: rl_refit, s1: jevagent_rl, tool_select: {mode: cascade, tau: 1.0, always_defer: true}, tool_params: {mode: cascade, tau: 1.0}, reflection: {mode: trigger, tau: 0.5}}

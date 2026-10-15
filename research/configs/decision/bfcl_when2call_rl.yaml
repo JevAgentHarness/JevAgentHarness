@@ -1,0 +1,22 @@
+# Stage 2 (docs/PREREG_A7_STAGE2.md A7.3 (d)): JevAgentRL on the E1 static decisions, descriptive. The E1 config
+# (configs/decision/bfcl_when2call.yaml) with the one backend `jevagent_rl`: the checkpoint frozen under
+# docs/TRAINING_RECIPES.md §18.4, recorded in results/gpu_round5/, served in the Jev wire format by training/serve_jev.py.
+# Same pools, exclusions (C8 population) and batching as E1, so the records pair item by item with the Stage-1 `jev` and
+# Intern-Decision rows.
+#   jevbench decide configs/decision/bfcl_when2call_rl.yaml --out runs
+name: e1_bfcl_when2call_rl
+suites:
+  - {name: bfcl, categories: [simple_python, multiple, live_simple, live_multiple, irrelevance, live_irrelevance], max_per_cat: 200}
+  - {name: when2call, max_items: 1000}
+exclude_ids_file: configs/eval/e1_dev_prefix_ids.json   # A6.13: as E1
+batch_by_state: true
+s1_cache: cache/s1_stage2.sqlite
+workers: 4
+backends:
+  jevagent_rl: {type: jev, name: jevagentrl-4b, base_url: "http://localhost:8081", model: jevagentrl-4b, api_key: ""}   # the served name of the freeze record
+  # A7.13 (i), (ii): the attribution rows of the freeze record, each served in turn on the same port by serve_jev under
+  # its own name (scripts/aws/stage2_gpu.sh, `--only <backend>`; one s1_<backend>.jsonl per evaluated row,
+  # scripts/stage2_analysis.py RL_ROWS): the untrained base with its v1-dev temperature fit and SFT v1. SFT v1 + OPD
+  # was dropped by the mechanical chain, so its row is not run (stated); the frozen model is `jevagent_rl` above.
+  rl_base: {type: jev, name: rl-base, base_url: "http://localhost:8081", model: rl-base, api_key: ""}
+  rl_sft_v1: {type: jev, name: rl-sft-v1, base_url: "http://localhost:8081", model: rl-sft-v1, api_key: ""}

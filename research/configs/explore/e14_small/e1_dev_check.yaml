@@ -1,0 +1,18 @@
+# Exploratory row E14, the serving-engine check (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-07 "E14: serving-engine
+# fix" (c)): E1's 299-item development prefix ONLY (configs/eval/e1_dev_prefix_ids.json; never part of E1's 3,991; the
+# same suites, item order and settings as E1, `--max-items 300` selects exactly the prefix, as E9's check), answered by
+# arm A served with engine v1 (one request per pass) and then with engine v2 (queued requests share a pass, warm-up,
+# the causal_conv1d kernel if installed). Answers must agree; nothing is tuned here.
+#   python -m jevharness.bench.decision_eval configs/explore/e14_small/e1_dev_check.yaml --out runs --only e14a_v1 --max-items 300
+name: e14_e1dev_check
+suites:
+  - {name: bfcl, categories: [simple_python, multiple, live_simple, live_multiple, irrelevance, live_irrelevance], max_per_cat: 200}
+  - {name: when2call, max_items: 1000}
+batch_by_state: true
+s1_cache: cache/s1_e14_devcheck.sqlite
+workers: 4
+backends:
+  e14a_v1: {type: jev, name: e14-a-v1, base_url: "http://127.0.0.1:8083", model: e14-a, api_key: "", timeout: 120.0,
+            price_model: jevagentrl-4b}
+  e14a_v2: {type: jev, name: e14-a-v2, base_url: "http://127.0.0.1:8083", model: e14-a, api_key: "", timeout: 120.0,
+            price_model: jevagentrl-4b}

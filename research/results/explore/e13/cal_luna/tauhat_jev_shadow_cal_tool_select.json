@@ -1,0 +1,758 @@
+{
+ "n_records": 2790,
+ "n_paired": 2790,
+ "task_value": 1.0,
+ "lam_per_hour": 0.0,
+ "n_bins": 10,
+ "min_count": 20,
+ "notes": [
+  "100 task seed(s) outside the calibration range 5000-5149 (e.g. [5400, 5401, 5402, 5403, 5404]): not a registered calibration arm"
+ ],
+ "v_fallback": "W",
+ "fatal_share": {
+  "n_wrong": 2,
+  "n_fatal": 2,
+  "p_fatal": 1.0,
+  "unknown_tool": 0,
+  "by_tool": {
+   "finish": 2
+  }
+ },
+ "seeds": {
+  "n_tasks": 100,
+  "min": 5400,
+  "max": 5499
+ },
+ "primary": {
+  "W": 1.0,
+  "lam_per_hour": 0.0,
+  "V": 0.7543859649122807,
+  "V_ci": [
+   0.6491228070175439,
+   0.8596491228070176
+  ],
+  "delta_c": 9.007662365591399e-05,
+  "delta_c_source": "ledger",
+  "slots_per_call": 1.0,
+  "kappa": 0.00014038307311827958,
+  "V_source": "counterfactual",
+  "n_wrong_episodes": 43,
+  "projection": {
+   "n": 2790,
+   "V": 0.7543859649122807,
+   "delta_c": 9.007662365591399e-05,
+   "n_bins": 10,
+   "min_count": 20,
+   "bins": [
+    {
+     "lo": -Infinity,
+     "hi": 0.94,
+     "c_min": 0.49,
+     "c_mean": 0.8363898916967509,
+     "n": 277,
+     "n_acceptable": 277,
+     "q_L": 0.9747292418772563,
+     "g": 0.9927797833935018,
+     "advantage": 0.01816994541271964,
+     "accept": true,
+     "fallback": {
+      "q_L": false,
+      "g": false
+     }
+    },
+    {
+     "lo": 0.94,
+     "hi": 0.98,
+     "c_min": 0.94,
+     "c_mean": 0.9604054054054053,
+     "n": 222,
+     "n_acceptable": 222,
+     "q_L": 0.990990990990991,
+     "g": 1.0,
+     "advantage": 0.009128412905483146,
+     "accept": true,
+     "fallback": {
+      "q_L": false,
+      "g": false
+     }
+    },
+    {
+     "lo": 0.98,
+     "hi": 0.99,
+     "c_min": 0.98,
+     "c_mean": 0.9800000000000003,
+     "n": 143,
+     "n_acceptable": 143,
+     "q_L": 0.986013986013986,
+     "g": 1.0,
+     "advantage": 0.014105417882488074,
+     "accept": true,
+     "fallback": {
+      "q_L": false,
+      "g": false
+     }
+    },
+    {
+     "lo": 0.99,
+     "hi": 1.0,
+     "c_min": 0.99,
+     "c_mean": 0.9900000000000001,
+     "n": 329,
+     "n_acceptable": 329,
+     "q_L": 0.9726443768996961,
+     "g": 1.0,
+     "advantage": 0.027475026996778045,
+     "accept": true,
+     "fallback": {
+      "q_L": false,
+      "g": false
+     }
+    },
+    {
+     "lo": 1.0,
+     "hi": Infinity,
+     "c_min": 1.0,
+     "c_mean": 1.0,
+     "n": 1819,
+     "n_acceptable": 1819,
+     "q_L": 0.9873556899395272,
+     "g": 1.0,
+     "advantage": 0.012763713956946959,
+     "accept": true,
+     "fallback": {
+      "q_L": false,
+      "g": false
+     }
+    }
+   ],
+   "k": 0.00011940389647411854,
+   "tail_bin": 0,
+   "tau_hat": 0.49,
+   "crossing": 0.49,
+   "islands": [],
+   "monotone": true,
+   "tau_gain": 0.49,
+   "pointwise": {
+    "accept_rate": 1.0,
+    "bins_accepting": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ]
+   },
+   "scalar_accept_rate": 1.0,
+   "disagreement": 0.0
+  },
+  "tau_hat": 0.49,
+  "crossing": 0.49,
+  "tau_gain": 0.49,
+  "monotone": true,
+  "disagreement": 0.0,
+  "plug_in": {
+   "n": 2790,
+   "k": 0.00011940389647411854,
+   "q_L": 0.9845878136200716,
+   "prop1": 0.9844684097235975,
+   "qL": 0.99,
+   "qL_crossing": 0.99,
+   "qL_interval": true,
+   "qL_disagreement": 0.0,
+   "general": 0.57,
+   "general_crossing": 0.57,
+   "general_interval": true,
+   "general_disagreement": 0.0
+  },
+  "tau_rule": "projection"
+ },
+ "sensitivity": [
+  {
+   "W": 0.1,
+   "lam_per_hour": 0.0,
+   "V": 0.07543859649122808,
+   "V_ci": [
+    0.0649122807017544,
+    0.08596491228070176
+   ],
+   "delta_c": 9.007662365591399e-05,
+   "delta_c_source": "ledger",
+   "slots_per_call": 1.0,
+   "kappa": 0.00014038307311827958,
+   "V_source": "counterfactual",
+   "n_wrong_episodes": 43,
+   "projection": {
+    "n": 2790,
+    "V": 0.07543859649122808,
+    "delta_c": 9.007662365591399e-05,
+    "n_bins": 10,
+    "min_count": 20,
+    "bins": [
+     {
+      "lo": -Infinity,
+      "hi": 0.94,
+      "c_min": 0.49,
+      "c_mean": 0.8363898916967509,
+      "n": 277,
+      "n_acceptable": 277,
+      "q_L": 0.9747292418772563,
+      "g": 0.9927797833935018,
+      "advantage": 0.019244580480986706,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.94,
+      "hi": 0.98,
+      "c_min": 0.94,
+      "c_mean": 0.9604054054054053,
+      "n": 222,
+      "n_acceptable": 222,
+      "q_L": 0.990990990990991,
+      "g": 1.0,
+      "advantage": 0.010203047973750214,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.98,
+      "hi": 0.99,
+      "c_min": 0.98,
+      "c_mean": 0.9800000000000003,
+      "n": 143,
+      "n_acceptable": 143,
+      "q_L": 0.986013986013986,
+      "g": 1.0,
+      "advantage": 0.015180052950755142,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.99,
+      "hi": 1.0,
+      "c_min": 0.99,
+      "c_mean": 0.9900000000000001,
+      "n": 329,
+      "n_acceptable": 329,
+      "q_L": 0.9726443768996961,
+      "g": 1.0,
+      "advantage": 0.02854966206504511,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 1.0,
+      "hi": Infinity,
+      "c_min": 1.0,
+      "c_mean": 1.0,
+      "n": 1819,
+      "n_acceptable": 1819,
+      "q_L": 0.9873556899395272,
+      "g": 1.0,
+      "advantage": 0.013838349025214027,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     }
+    ],
+    "k": 0.0011940389647411853,
+    "tail_bin": 0,
+    "tau_hat": 0.49,
+    "crossing": 0.49,
+    "islands": [],
+    "monotone": true,
+    "tau_gain": 0.49,
+    "pointwise": {
+     "accept_rate": 1.0,
+     "bins_accepting": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "scalar_accept_rate": 1.0,
+    "disagreement": 0.0
+   },
+   "tau_hat": 0.49,
+   "crossing": 0.49,
+   "tau_gain": 0.49,
+   "monotone": true,
+   "disagreement": 0.0,
+   "plug_in": {
+    "n": 2790,
+    "k": 0.0011940389647411853,
+    "q_L": 0.9845878136200716,
+    "prop1": 0.9833937746553304,
+    "qL": 0.99,
+    "qL_crossing": 0.99,
+    "qL_interval": true,
+    "qL_disagreement": 0.0,
+    "general": 0.57,
+    "general_crossing": 0.57,
+    "general_interval": true,
+    "general_disagreement": 0.0
+   },
+   "tau_rule": "projection"
+  },
+  {
+   "W": 10.0,
+   "lam_per_hour": 0.0,
+   "V": 7.543859649122807,
+   "V_ci": [
+    6.491228070175438,
+    8.596491228070175
+   ],
+   "delta_c": 9.007662365591399e-05,
+   "delta_c_source": "ledger",
+   "slots_per_call": 1.0,
+   "kappa": 0.00014038307311827958,
+   "V_source": "counterfactual",
+   "n_wrong_episodes": 43,
+   "projection": {
+    "n": 2790,
+    "V": 7.543859649122807,
+    "delta_c": 9.007662365591399e-05,
+    "n_bins": 10,
+    "min_count": 20,
+    "bins": [
+     {
+      "lo": -Infinity,
+      "hi": 0.94,
+      "c_min": 0.49,
+      "c_mean": 0.8363898916967509,
+      "n": 277,
+      "n_acceptable": 277,
+      "q_L": 0.9747292418772563,
+      "g": 0.9927797833935018,
+      "advantage": 0.018062481905892935,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.94,
+      "hi": 0.98,
+      "c_min": 0.94,
+      "c_mean": 0.9604054054054053,
+      "n": 222,
+      "n_acceptable": 222,
+      "q_L": 0.990990990990991,
+      "g": 1.0,
+      "advantage": 0.00902094939865644,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.98,
+      "hi": 0.99,
+      "c_min": 0.98,
+      "c_mean": 0.9800000000000003,
+      "n": 143,
+      "n_acceptable": 143,
+      "q_L": 0.986013986013986,
+      "g": 1.0,
+      "advantage": 0.013997954375661368,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.99,
+      "hi": 1.0,
+      "c_min": 0.99,
+      "c_mean": 0.9900000000000001,
+      "n": 329,
+      "n_acceptable": 329,
+      "q_L": 0.9726443768996961,
+      "g": 1.0,
+      "advantage": 0.02736756348995134,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 1.0,
+      "hi": Infinity,
+      "c_min": 1.0,
+      "c_mean": 1.0,
+      "n": 1819,
+      "n_acceptable": 1819,
+      "q_L": 0.9873556899395272,
+      "g": 1.0,
+      "advantage": 0.012656250450120253,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     }
+    ],
+    "k": 1.1940389647411854e-05,
+    "tail_bin": 0,
+    "tau_hat": 0.49,
+    "crossing": 0.49,
+    "islands": [],
+    "monotone": true,
+    "tau_gain": 0.49,
+    "pointwise": {
+     "accept_rate": 1.0,
+     "bins_accepting": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "scalar_accept_rate": 1.0,
+    "disagreement": 0.0
+   },
+   "tau_hat": 0.49,
+   "crossing": 0.49,
+   "tau_gain": 0.49,
+   "monotone": true,
+   "disagreement": 0.0,
+   "plug_in": {
+    "n": 2790,
+    "k": 1.1940389647411854e-05,
+    "q_L": 0.9845878136200716,
+    "prop1": 0.9845758732304243,
+    "qL": 0.99,
+    "qL_crossing": 0.99,
+    "qL_interval": true,
+    "qL_disagreement": 0.0,
+    "general": 0.57,
+    "general_crossing": 0.57,
+    "general_interval": true,
+    "general_disagreement": 0.0
+   },
+   "tau_rule": "projection"
+  },
+  {
+   "W": 1.0,
+   "lam_per_hour": 0.5,
+   "V": 0.7543859649122807,
+   "V_ci": [
+    0.6491228070175439,
+    0.8596491228070176
+   ],
+   "delta_c": 0.00036277312235663187,
+   "delta_c_source": "ledger",
+   "slots_per_call": 1.0,
+   "kappa": 0.00017464738078146126,
+   "V_source": "counterfactual",
+   "n_wrong_episodes": 43,
+   "projection": {
+    "n": 2790,
+    "V": 0.7543859649122807,
+    "delta_c": 0.00036277312235663187,
+    "n_bins": 10,
+    "min_count": 20,
+    "bins": [
+     {
+      "lo": -Infinity,
+      "hi": 0.94,
+      "c_min": 0.49,
+      "c_mean": 0.8363898916967509,
+      "n": 277,
+      "n_acceptable": 277,
+      "q_L": 0.9747292418772563,
+      "g": 0.9927797833935018,
+      "advantage": 0.01853142681797408,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.94,
+      "hi": 0.98,
+      "c_min": 0.94,
+      "c_mean": 0.9604054054054053,
+      "n": 222,
+      "n_acceptable": 222,
+      "q_L": 0.990990990990991,
+      "g": 1.0,
+      "advantage": 0.009489894310737587,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.98,
+      "hi": 0.99,
+      "c_min": 0.98,
+      "c_mean": 0.9800000000000003,
+      "n": 143,
+      "n_acceptable": 143,
+      "q_L": 0.986013986013986,
+      "g": 1.0,
+      "advantage": 0.014466899287742516,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.99,
+      "hi": 1.0,
+      "c_min": 0.99,
+      "c_mean": 0.9900000000000001,
+      "n": 329,
+      "n_acceptable": 329,
+      "q_L": 0.9726443768996961,
+      "g": 1.0,
+      "advantage": 0.027836508402032487,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 1.0,
+      "hi": Infinity,
+      "c_min": 1.0,
+      "c_mean": 1.0,
+      "n": 1819,
+      "n_acceptable": 1819,
+      "q_L": 0.9873556899395272,
+      "g": 1.0,
+      "advantage": 0.0131251953622014,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     }
+    ],
+    "k": 0.0004808853017285585,
+    "tail_bin": 0,
+    "tau_hat": 0.49,
+    "crossing": 0.49,
+    "islands": [],
+    "monotone": true,
+    "tau_gain": 0.49,
+    "pointwise": {
+     "accept_rate": 1.0,
+     "bins_accepting": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "scalar_accept_rate": 1.0,
+    "disagreement": 0.0
+   },
+   "tau_hat": 0.49,
+   "crossing": 0.49,
+   "tau_gain": 0.49,
+   "monotone": true,
+   "disagreement": 0.0,
+   "plug_in": {
+    "n": 2790,
+    "k": 0.0004808853017285585,
+    "q_L": 0.9845878136200716,
+    "prop1": 0.9841069283183431,
+    "qL": 0.99,
+    "qL_crossing": 0.99,
+    "qL_interval": true,
+    "qL_disagreement": 0.0,
+    "general": 0.57,
+    "general_crossing": 0.57,
+    "general_interval": true,
+    "general_disagreement": 0.0
+   },
+   "tau_rule": "projection"
+  },
+  {
+   "W": 1.0,
+   "lam_per_hour": 5.0,
+   "V": 0.7543859649122807,
+   "V_ci": [
+    0.6491228070175439,
+    0.8596491228070176
+   ],
+   "delta_c": 0.002817041610663093,
+   "delta_c_source": "ledger",
+   "slots_per_call": 1.0,
+   "kappa": 0.00048302614975009634,
+   "V_source": "counterfactual",
+   "n_wrong_episodes": 43,
+   "projection": {
+    "n": 2790,
+    "V": 0.7543859649122807,
+    "delta_c": 0.002817041610663093,
+    "n_bins": 10,
+    "min_count": 20,
+    "bins": [
+     {
+      "lo": -Infinity,
+      "hi": 0.94,
+      "c_min": 0.49,
+      "c_mean": 0.8363898916967509,
+      "n": 277,
+      "n_acceptable": 277,
+      "q_L": 0.9747292418772563,
+      "g": 0.9927797833935018,
+      "advantage": 0.02178475946526404,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.94,
+      "hi": 0.98,
+      "c_min": 0.94,
+      "c_mean": 0.9604054054054053,
+      "n": 222,
+      "n_acceptable": 222,
+      "q_L": 0.990990990990991,
+      "g": 1.0,
+      "advantage": 0.012743226958027546,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.98,
+      "hi": 0.99,
+      "c_min": 0.98,
+      "c_mean": 0.9800000000000003,
+      "n": 143,
+      "n_acceptable": 143,
+      "q_L": 0.986013986013986,
+      "g": 1.0,
+      "advantage": 0.017720231935032475,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.99,
+      "hi": 1.0,
+      "c_min": 0.99,
+      "c_mean": 0.9900000000000001,
+      "n": 329,
+      "n_acceptable": 329,
+      "q_L": 0.9726443768996961,
+      "g": 1.0,
+      "advantage": 0.031089841049322445,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 1.0,
+      "hi": Infinity,
+      "c_min": 1.0,
+      "c_mean": 1.0,
+      "n": 1819,
+      "n_acceptable": 1819,
+      "q_L": 0.9873556899395272,
+      "g": 1.0,
+      "advantage": 0.01637852800949136,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     }
+    ],
+    "k": 0.003734217949018519,
+    "tail_bin": 0,
+    "tau_hat": 0.49,
+    "crossing": 0.49,
+    "islands": [],
+    "monotone": true,
+    "tau_gain": 0.49,
+    "pointwise": {
+     "accept_rate": 1.0,
+     "bins_accepting": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "scalar_accept_rate": 1.0,
+    "disagreement": 0.0
+   },
+   "tau_hat": 0.49,
+   "crossing": 0.49,
+   "tau_gain": 0.49,
+   "monotone": true,
+   "disagreement": 0.0,
+   "plug_in": {
+    "n": 2790,
+    "k": 0.003734217949018519,
+    "q_L": 0.9845878136200716,
+    "prop1": 0.9808535956710531,
+    "qL": 0.98,
+    "qL_crossing": 0.98,
+    "qL_interval": true,
+    "qL_disagreement": 0.0,
+    "general": 0.57,
+    "general_crossing": 0.57,
+    "general_interval": true,
+    "general_disagreement": 0.0
+   },
+   "tau_rule": "projection"
+  }
+ ],
+ "tau_hat": 0.49,
+ "tau_rule": {
+  "rule": "projection",
+  "n_paired": 2790,
+  "registered": "A6.5; A6.22 (b) 5",
+  "text": "n_paired >= 30: the scalar-threshold projection (A6.5, A6.11 (c).7, A6.19)"
+ },
+ "meta": {
+  "run_dir": "<runs>/e13_luna_cal",
+  "arms": [
+   "jev_shadow_cal"
+  ],
+  "dp": "tool_select",
+  "gold": "acceptable"
+ }
+}

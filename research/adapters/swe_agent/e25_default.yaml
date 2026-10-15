@@ -1,0 +1,82 @@
+# E25 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-09, "E25"), harness B: the SWE-agent config of EVERY arm.
+# = SWE-agent v1.1.0's config/default.yaml (tag v1.1.0, commit 0f3acafacabc0def8cc76b4e48acb4b6cf302cb9; MIT licence)
+# with three changes, the same for every arm:
+#   1. its `history_processors: [{type: cache_control, last_n_messages: 2}]` is removed (an Anthropic prompt-cache
+#      marker; through litellm it would ask Gemini for explicit context caches);
+#   2. `agent.model` sets the registered caps (50 LLM calls per instance; $3 per instance, SWE-agent's default) and
+#      Gemini's minimal thinking. The model name comes from Harbor (`--agent.model.name=...`); the routed arm's fast
+#      model gets the same settings (jev_sweagent.py), and its caps count both models together;
+#   3. `agent.tools.env_variables` = mini-SWE-agent's SWE-bench values (PAGER / MANPAGER cat, LESS -R, no progress bars):
+#      without them `git log` / `git diff` open the pager in SWE-agent's terminal and hang until the command timeout
+#      (E25 amendment, Deviations 2026-10-09 ~01:45 UTC).
+# Formerly called: anthropic_filemap.yaml
+# This template is heavily inspired by anthropic's computer use demo, but you can use
+# it with any LM.
+agent:
+  templates:
+    system_template: |-
+      You are a helpful assistant that can interact with a computer to solve tasks.
+    instance_template: |-
+      <uploaded_files>
+      {{working_dir}}
+      </uploaded_files>
+      I've uploaded a python code repository in the directory {{working_dir}}. Consider the following PR description:
+
+      <pr_description>
+      {{problem_statement}}
+      </pr_description>
+
+      Can you help me implement the necessary changes to the repository so that the requirements specified in the <pr_description> are met?
+      I've already taken care of all changes to any of the test files described in the <pr_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!
+      Your task is to make the minimal changes to non-tests files in the {{working_dir}} directory to ensure the <pr_description> is satisfied.
+      Follow these steps to resolve the issue:
+      1. As a first step, it might be a good idea to find and read code relevant to the <pr_description>
+      2. Create a script to reproduce the error and execute it with `python <filename.py>` using the bash tool, to confirm the error
+      3. Edit the sourcecode of the repo to resolve the issue
+      4. Rerun your reproduce script and confirm that the error is fixed!
+      5. Think about edgecases and make sure your fix handles them as well
+      Your thinking should be thorough and so it's fine if it's very long.
+    next_step_template: |-
+      OBSERVATION:
+      {{observation}}
+    next_step_no_output_template: |-
+      Your command ran successfully and did not produce any output.
+  tools:
+    bundles:
+      - path: tools/registry
+      - path: tools/edit_anthropic
+      - path: tools/review_on_submit_m
+    registry_variables:
+      USE_FILEMAP: 'true'
+      SUBMIT_REVIEW_MESSAGES:
+        - |
+          Thank you for your work on this issue. Please carefully follow the steps below to help review your changes.
+
+          1. If you made any changes to your code after running the reproduction script, please run the reproduction script again.
+            If the reproduction script is failing, please revisit your changes and make sure they are correct.
+            If you have already removed your reproduction script, please ignore this step.
+          2. Remove your reproduction script (if you haven't done so already).
+          3. If you have modified any TEST files, please revert them to the state they had before you started fixing the issue.
+            You can do this with `git checkout -- /path/to/test/file.py`. Use below <diff> to find the files you need to revert.
+          4. Run the submit command again to confirm.
+
+          Here is a list of all of your changes:
+
+          <diff>
+          {{diff}}
+          </diff>
+    enable_bash_tool: true
+    env_variables:
+      PAGER: cat
+      MANPAGER: cat
+      LESS: -R
+      PIP_PROGRESS_BAR: "off"
+      TQDM_DISABLE: "1"
+    parse_function:
+      type: function_calling
+  model:
+    per_instance_cost_limit: 3.0
+    per_instance_call_limit: 50
+    completion_kwargs:
+      thinkingConfig:
+        thinkingLevel: minimal

@@ -1,0 +1,15 @@
+# E7 (JevGym-Hard) difficulty pilot -- development only, never reported as a result (docs/PREREG_A7_STAGE2.md,
+# Deviations "Exploratory row E7"). Flash LLM-only on development seeds 7000-7299 (outside every reserved, calibration
+# and training range; unused by any earlier config, run manifest or S3 manifest on 2026-10-06). Base = the Stage-2
+# frozen suite settings (v2 families, 60 near distractors, 20 noise lines, strict); each candidate changes one or two
+# knobs through -o overrides and its own run name, e.g.
+#   jevbench run configs/explore/e7_hard/pilot.yaml --out runs -o name=e7_pilot_k6 -o suite.multi_customers=6
+# Every candidate and its success are recorded in results/explore/e7_hard/pilot.json (scripts/explore_e7_hard.py pilot).
+name: e7_pilot
+suite: {name: jevgym, n: 30, seed0: 7000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true, multi_customers: 3}
+n_tasks: 30
+llm: {provider: openrouter, model: google/gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}   # direct API: 503 high demand on 2026-10-06 15:00 UTC
+harness_defaults: {max_steps: 30}
+workers: 10
+arms:
+  - {name: llm_only}

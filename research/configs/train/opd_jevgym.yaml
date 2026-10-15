@@ -1,0 +1,63 @@
+# Stage 65 / recipe R9 -- ON-POLICY DISTILLATION of the System-1 decider inside the JevAgent harness on JevGym.
+#   python -m jevharness.training.opd --config configs/train/opd_jevgym.yaml --init checkpoints/r3 --out checkpoints/r9-opd
+# or scripts/train/65_opd.sh (TEACHER, EXECUTOR, ITERATIONS, BUDGET_USD, ...; every key below is a flag of opd.py,
+# CLI flags override the file; `--print-config` shows the resolved config).
+#
+# Loop per iteration: the student (sampling at rollout_temperature) acts as System-1 in the `arms` on
+# tasks_per_iter training tasks (seeds >= 10000, never the dev seeds 0..999, the calibration seeds 5000..5149 or the reserved evaluation ranges); the teacher
+# answers the same typed questions at the states the student reached; the student is updated with `loss` on those
+# rows (+ replay_frac x previous iteration). Teacher spend is on a Ledger; budget_usd stops the run.
+#
+# Budget at these defaults (planning estimate, replace after the first run): 40 it x 16 tasks x 1 rollout
+# = 640 episodes; ~2 System-1 questions per step x <= 20 steps -> <= 25k teacher questions, in practice ~8-12k
+# (episodes end early). Jev via OpenRouter: ~$0.09 per 1k requests of ~3.5k tokens (pilot_jev r2 ledger:
+# $0.156 / 1,817 calls) -> about $1 of teacher labels; the Flash-Lite executor ~$0.01 per episode -> ~$6.
+student: Qwen/Qwen3-4B
+init: checkpoints/r3            # start from the teacher-soft SFT adapter ('' = fresh LoRA on `student`)
+out: checkpoints/r9-opd
+
+teacher: jev-openrouter         # teacher_label alias or JSON make_backend spec; in-process checkpoint:
+                                #   '{"type": "local", "model": "Qwen/Qwen3-8B", "adapter": "checkpoints/r4-8b"}'
+                                # second family: '{"type": "intern_decision", "model": "internlm/Intern-Decision-4B"}'
+teacher_cache: cache/opd_teacher.sqlite   # real teachers only: re-runs over the same states are free
+teacher_temperature: 1.0
+gold_alpha: 0.0                 # 0 = pure teacher distribution (ablation: mix in the JevGym oracle one-hot)
+
+executor: jevgym                # `sim` = simulated System-2 (pipeline checks only; never a result)
+llm: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0.7, reasoning_effort: minimal}
+suite: {n_distractors: 30, distractor_style: mixed, families: all, strict: true}
+seeds: 10000                    # first training seed; the pool is seeds .. seeds + n_tasks - 1
+n_tasks: 512
+arms:
+  - {name: opd_replace, tool_select: {mode: replace}, tool_params: {mode: replace}}
+max_steps: 20
+
+iterations: 40
+tasks_per_iter: 16
+rollouts_per_task: 1
+rollout_temperature: 1.0        # the student's own (sampled) policy drives the agent; 0 = greedy rollouts
+loss: forward_kl                # forward_kl (= soft CE - H(p_T)) | reverse_kl (mode-seeking) | jsd
+replay_frac: 0.5                # rows replayed from the previous iteration, relative to the fresh rows
+max_questions: 0                # cap on teacher questions per iteration (0 = all visited decisions)
+questions_per_request: 16
+teacher_workers: 8
+budget_usd: 5.0                 # stop when the teacher ledger passes this
+
+lora_r: 32
+lora_alpha: 64
+lr: 3.0e-5
+warmup_steps: 5
+epochs_per_iter: 1
+minibatch: 32
+micro_batch: 8
+max_len: 4096
+workers: 16                     # concurrent episodes (executor calls overlap; student prefills are micro-batched)
+decider_batch: 32
+price_model: Qwen/Qwen3-4B      # prices the student's System-1 tokens in the episode cost
+
+eval_every: 5                   # greedy rollouts on dev seeds (no teacher calls)
+eval_n: 32
+eval_seed0: 1000
+save_every: 1
+seed: 0
+log_rollouts: true

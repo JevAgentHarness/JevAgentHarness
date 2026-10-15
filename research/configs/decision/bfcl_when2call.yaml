@@ -1,0 +1,30 @@
+# E1 (RQ1) -- Level-1 static decisions at full scale: can a System-1 decider take agent decisions,
+# and at what calibration / latency / cost, vs. an LLM's native function calling?
+# Jev arms need openrouter.ai reachable; GPU arms need vLLM / OpenJev servers (uncomment).
+name: e1_bfcl_when2call
+suites:
+  - {name: bfcl, categories: [simple_python, multiple, live_simple, live_multiple, irrelevance, live_irrelevance], max_per_cat: 200}
+  - {name: when2call, max_items: 1000}          # test split has 3,652 -- use all for camera-ready
+exclude_ids_file: configs/eval/e1_dev_prefix_ids.json   # A6.13: the 299 dev-prefix items (exposed in dev rounds) leave the C8 population
+batch_by_state: true                            # all questions about one state in one System-1 request
+s1_cache: cache/s1.sqlite
+workers: 8
+backends:
+  jev: {type: jev, provider: openrouter}        # typesafe/jev-1.13, $0.042/M input
+  gemini_lite_dist: {type: llm_generative, llm: {provider: gemini, model: gemini-3.5-flash-lite}, reasoning_effort: minimal, mode: distribution}
+  gemini_lite_label: {type: llm_generative, llm: {provider: gemini, model: gemini-3.5-flash-lite}, reasoning_effort: minimal, mode: label}
+  gemma4_dist: {type: llm_generative, llm: {provider: gemini, model: gemma-4-26b-a4b-it}, reasoning_effort: minimal, mode: distribution}
+  gemini_embed: {type: embedding, provider: gemini, model: gemini-embedding-001}
+  # --- controls (P0-3 / P0-8): System-2 answering the same typed question, lexical rankers ---
+  gemini_flash_typed: {type: s2_self, llm: {provider: gemini, model: gemini-3.5-flash}, reasoning_effort: minimal}
+  bm25: {type: bm25}
+  tfidf: {type: tfidf}
+  # --- GPU / self-hosted (uncomment when servers are up) ---
+  # openjev: {type: openjev}                                                    # razorback16/openjev, OPENJEV_BASE_URL
+  # qwen3_0.6b: {type: llm_logprob, llm: {provider: vllm, model: Qwen/Qwen3-0.6B, extra_body: {chat_template_kwargs: {enable_thinking: false}}}}
+  # qwen3_4b:   {type: llm_logprob, llm: {provider: vllm, model: Qwen/Qwen3-4B,   extra_body: {chat_template_kwargs: {enable_thinking: false}}}}
+  # ours_r4:    {type: jev, name: ours-r4, base_url: "http://localhost:8081", model: ours-r4, api_key: ""}   # training/serve_jev.py
+fc_llms:
+  gemini_flash_fc: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+  # via OpenRouter when reachable (any chat model id OpenRouter lists), e.g.:
+  # or_gpt_mini_fc: {provider: openrouter, model: openai/gpt-4.1-mini, temperature: 0}

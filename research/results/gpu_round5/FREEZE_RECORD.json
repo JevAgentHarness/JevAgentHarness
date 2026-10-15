@@ -1,0 +1,68 @@
+{
+ "record": "JevAgentRL freeze record (PREREGISTRATION A7.10 (a)-(b), (h); A7.13 (i)); written from the host's FROZEN.txt, chain_decision.json and checkpoint_sha256.txt, all in this directory",
+ "name": "JevAgentRL-4B",
+ "frozen_utc": "2026-10-03T10:17:50Z",
+ "freeze_deadline_utc": "2026-10-07T12:00:00Z",
+ "operator": "JevAgentRL training operator (a separate working copy); no Stage-1 or Stage-2 evaluation output was opened by the operator before this record (see TRAINING_MANIFEST.md section 1 for the one dated pre-barrier schema disclosure)",
+ "frozen_checkpoint": {
+  "stage": "grpo_i15",
+  "description": "SFT v1 (R3-v1) -> episode-level GRPO in the harness (R8), iteration 15 of 30; OPD (R9) was trained but not kept by the chain",
+  "s3": "s3://<bucket>/checkpoints/round5/jevagentrl-4b/",
+  "base_model": "Qwen/Qwen3-4B",
+  "base_model_hf_snapshot": "1cfa9a7208912126459214e8b04321603b3df60c",
+  "adapter": "LoRA r 32 / alpha 64, all linear layers (PEFT)",
+  "sha256": {
+   "adapter_model.safetensors": "b5eb0250228355212c2b9b08f0ac6312db1a8d632314febcc384174194994d1c",
+   "adapter_config.json": "2e45249c2e7675b80c8d86b05aa50ff0bc4e461974367e14b39b6b8c9b3b946e",
+   "calibration.json": "0c4b9534b689fa0fc569107bb58281ea0fbb9c3987059012d8caae5fc4e26373",
+   "tokenizer.json": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506",
+   "tokenizer_config.json": "2e3bd3cb5055f7a903a54e7062b2fd14d21b70f4174c3ffcd9fc81ec50a25631",
+   "chat_template.jinja": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+   "decision_config.json": "0899eb97ea63fa91c2a9d6ada7adad20f045da183cb14436b04dcdf599231592"
+  },
+  "sha256_verified_from_s3": "adapter_model.safetensors and calibration.json re-downloaded and re-hashed 2026-10-03 ~17:05 UTC: identical"
+ },
+ "temperatures": {
+  "file": "calibration.json",
+  "procedure": "training/calibrate.py: golden-section NLL fit of a temperature per (kind x option-count bucket, min bucket 200) and a global one, on data/train_v1/dev.jsonl.gz (2,377 decisions, held-out training-seed tasks); applied by serve_jev --calibration",
+  "values": {"global": 0.7750629528906106, "noul:2": 0.9303992748097824, "choice:17-52": 0.24948864561547113, "choice:3-5": 0.09527231336324964}
+ },
+ "serving": {
+  "commit": "c6c1cc1a3ceed69a21759d5d6a4f286741239125",
+  "code": "training/serve_jev.py (Jev wire format), prompt = training/data.render + decision_model.chat_text (Qwen3 chat template, enable_thinking=False), option codes A-Z a-z in the presented order, restricted softmax over the code tokens; > 52 options: knockout in chunks of 52, top-2 advance (decision/tournament.py, knockout_probs 'linked'); max_len 4096 (prompt tail kept); session cache on (default)",
+  "command": "python -m jevharness.training.serve_jev --model Qwen/Qwen3-4B --adapter <jevagentrl-4b dir> --calibration <jevagentrl-4b dir>/calibration.json --name jevagentrl-4b --port 8081",
+  "backend_spec": {"type": "jev", "name": "jevagentrl-4b", "base_url": "http://127.0.0.1:8081", "model": "jevagentrl-4b", "api_key": ""},
+  "declared_max_options": 255,
+  "training_commits": {"sft_v1": "805a185 (training code identical to c6c1cc1 for SFT)", "opd_grpo_and_later": "cf767b1 (training code identical to c6c1cc1; c6c1cc1 changed only the chain's validity-output parser and the stage's exit-code line)"}
+ },
+ "chain_decision": {
+  "file": "chain_decision.json",
+  "sha256": "76617a8f63dac95043a40ff80e4cc566425b39a673c9a1407df8337ab41651d4",
+  "script": "scripts/train/r5_chain.py (rules in results/gpu_round5/TRAINING_MANIFEST.md section 4)",
+  "kept": ["sft_v1", "grpo_i15"],
+  "dropped": {"opd_i12": "rule A and rule B fail against SFT v1: v1-dev acc 0.9895 < 0.9971 - 0.005; recovery 0.9786 < 0.9983 - 0.010; own-state tool_select acc 1.000 not >= 1.000 + 0.020",
+              "opd": "same: v1-dev acc 0.9891, recovery 0.9802; own-state acc 1.000"},
+  "grpo_init": "sft_v1",
+  "grpo_continuations": {"grpo_i15": "pass (validity tests passed; v1-dev 0.9971 >= 0.9871; recovery 0.9983; ECE 0.0042 <= 0.0493; live call-count-penalised success 0.6822 > 0.6788; live success 1.000 >= 0.986)",
+                         "grpo": "pass (v1-dev 0.9941; recovery 0.9950; ECE 0.0026; reward 0.6846 > 0.6788; success 1.000)"},
+  "retention": "grpo_i15: highest v1-dev accuracy among passing continuations (0.99706 vs 0.99411)",
+  "go": true,
+  "gates_G1_G5": "all pass (G3 against the actual Intern-Decision-4B v1-dev reference: tool_select 0.748, overall 0.843)",
+  "rl_claim_by_rule": true,
+  "rl_claim_evidence_note": "the GRPO gain that kept the stage is +0.0034 in mean call-count-penalised success over the five live Flash dev arms (0.6822 vs 0.6788, 50 tasks each; success 1.000 vs 0.996) and a raw v1-dev ECE drop 0.029 -> 0.004 at equal accuracy; the dev slice is saturated, so no RL effect on success is measurable here"
+ },
+ "attribution_rows_A7_13_i": {
+  "untrained_base": {"model": "Qwen/Qwen3-4B, no adapter", "calibration_sha256": "d75673a4d1c14b7426d6b43badd5dc1bc84a55327c4de900d780ca135fca48c5", "temperatures": {"global": 6.313710385476057, "noul:2": 7.585267877312432, "choice:17-52": 6.288190169535624, "choice:3-5": 6.588183309483269}, "temperature_fit": "as for JevAgentRL (training/calibrate.py on data/train_v1/dev.jsonl.gz)", "s3": "not uploaded (no adapter; calibration.json is the only artefact: results/gpu_round5/base_calibration.json)"},
+  "sft_v1": {"s3": "s3://<bucket>/checkpoints/round5/sft_v1/", "adapter_sha256": "6736730a858caed8744de9032b73ab104f410c0c011c975cbae50c978d42be91", "adapter_config_sha256": "fbaae782ba37addadb0cba8eb19329622a21a83a568777dfbde3671b72bf1eaa"},
+  "sft_v1_plus_opd": "not a row: OPD does not precede the frozen checkpoint in its chain (dropped by the chain); its continuations are kept for the appendix ablation: opd_i12 5dfcc417a6a74bb1300dec80f936dead580413ae62fda55abb38da3f1e6c990e, opd 9f80ba4687fcbf892628e1301c0d1e9048c4d193d514e9a9af709fba9c5bbf53 (s3 checkpoints/round5/opd_i12/, opd/)",
+  "frozen": {"stage": "grpo_i15", "adapter_sha256": "b5eb0250228355212c2b9b08f0ac6312db1a8d632314febcc384174194994d1c"},
+  "other_kept_checkpoints": {"grpo_iteration_30": "fedb669869d4a90cf6aafdf22f9d727783fc1b46051819d3c9e9cbe69f8e4563 (s3 checkpoints/round5/grpo/)", "sft_v0_round3_R2": "8c455595bfff3696317dd90d30737863412c55da973de95438401ff55e9f372c (s3 checkpoints/v0/r2/)"}
+ },
+ "tau_hat_star": {
+  "source": "configs/experiments/jevgym_shadow_cal_rl.yaml, calibration seeds 5000-5149 (n = 150 per arm), the frozen checkpoint served with its temperatures; the registered command python -m jevharness.bench.threshold_theory <run> --arm <arm> --dp <dp> --calibration-arm --task-value 1.0 --lam-per-hour 0 --v-fallback W; fits in results/gpu_round5/cal/",
+  "flash": {"tool_select": {"tau_hat": 0.5000, "scalar_accept_rate": 1.0, "n_paired": 1125}, "tool_params": {"tau_hat": 0.99999988, "scalar_accept_rate": 0.805, "n_paired": 1328}},
+  "flash_lite": {"tool_select": {"tau_hat": 0.5000, "scalar_accept_rate": 1.0, "n_paired": 1139}, "tool_params": {"tau_hat": 0.99874228, "scalar_accept_rate": 1.0, "n_paired": 1480}},
+  "V_source": "the A6.11 fallback W = 1 on all four fits (no episode with a wrong System-2 decision in the calibration log, or no positive counterfactual V for Flash-Lite tool_select)"
+ },
+ "seeds_used": {"training": "data v0 10000-12059, data v1 30000-30599, OPD 40000-43999, GRPO 50000-52999", "development": "greedy rollouts 1000-1047, E2 dev slice 1100-1149 (and a superseded reference run on 0-49)", "calibration": "5000-5149 after the freeze only", "never_run": "100000-100499, 200000-200499, 300000-300999"}
+}

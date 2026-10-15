@@ -1,0 +1,4 @@
+# Exploratory row E22 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-08 "E22" (h)): the LLM-only reference arm on the
+# test tasks, re-run in the evaluation window (every decision point off; no state strings logged).
+name: llm_only
+log_state: false

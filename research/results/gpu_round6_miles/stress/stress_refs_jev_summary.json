@@ -1,0 +1,22 @@
+{
+ "stress_refs_jev::jev_stress_ts_params_replace": {
+  "run": "stress_refs_jev",
+  "n": 200,
+  "success": 0.49,
+  "reward_ccps": 0.32275000000000004,
+  "irreversible_rate": 0.185,
+  "cost_usd": 0.05266900782,
+  "llm_calls": 9.57,
+  "s1_calls": 39.465,
+  "errors": 0,
+  "s1_latency_ms_per_call": 172.6890016200439,
+  "s1_latency_ms_p50": 163.0112509999435,
+  "s1_latency_ms_p95": 238.30235280001943,
+  "tool_params/replace/s1_acc": 0.8654104979811574,
+  "tool_params/replace/n": 2972,
+  "tool_params/replace/ece": 0.08019851951547777,
+  "tool_select/replace/s1_acc": 0.6913821138211382,
+  "tool_select/replace/n": 3075,
+  "tool_select/replace/ece": 0.19029918699186987
+ }
+}

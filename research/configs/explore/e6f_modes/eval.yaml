@@ -1,0 +1,26 @@
+# Exploratory row E6f (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-07 "Exploratory row E6f"; outside both registered
+# stages, descriptive, no test): the trigger cells at tool choice and tool arguments (harness/config.py E6F_CELLS;
+# semantics in results/explore/e6f_modes/cells.md). TRIGGER = System-1 decides whether the LLM runs one verification
+# call on its own proposal (it re-reads the state and the proposal and confirms or revises it once); "always" verifies
+# every proposal (the reference that says how much of always-verify's effect the trigger keeps, at what share of its
+# cost). Fresh JevGym seeds 301600..301799 with their own llm_only reference: E6d's block (301000..301199) was run on
+# the OpenRouter route, so its llm_only cannot be paired with arms on the direct Gemini API. Suite settings as E6b / E6d.
+# Thresholds fixed a priori by E6b's rule (the registered tau of the point's guard): tool choice 0.5 (the Stage-1
+# tool guard), tool arguments 0.9 (E6b's argument guard). Gemini 3.5 Flash on the direct API (minimal reasoning,
+# temperature 0); Jev via OpenRouter on the Jev-only key, no System-1 cache. Run locally: one invocation, all arms
+# task-major interleaved (seed 732), 12 workers; passes 2-3 re-run infrastructure errors only.
+#   JEV_EVAL_RUNS is not needed (these seeds are outside every guarded range)
+#   python -m jevharness.bench.runner configs/explore/e6f_modes/eval.yaml --out runs
+name: e6f_modes
+suite: {name: jevgym, n: 200, seed0: 301600, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 200
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}      # the pinned Jev endpoint of Stage 1; no System-1 cache (fresh answers)
+workers: 12
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}                                              # the reference of both cells
+  - {name: ts_trigger, tool_select: {mode: trigger, tau: 0.5}}    # tool-choice trigger
+  - {name: ts_verify_all, tool_select: {mode: always}}            # reference: verify every tool choice
+  - {name: tp_trigger, tool_params: {mode: trigger, tau: 0.9}}    # argument trigger
+  - {name: tp_verify_all, tool_params: {mode: always}}            # reference: verify every call's arguments

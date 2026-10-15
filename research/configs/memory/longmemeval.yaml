@@ -1,0 +1,37 @@
+# Jev-for-memory on LongMemEval (500 questions, each with its own ~115k-token / ~50-session haystack in _S).
+# Data is only on Hugging Face -- download it first (docs/MEMORY.md), then:
+#   python -m jevharness.bench.suites.memory_qa --config configs/memory/longmemeval.yaml --out runs/memory
+# Start with `-o dataset.n=50` or `-o dataset.variant=oracle` (evidence sessions only) before the full run.
+name: longmemeval_s_memory
+dataset:
+  name: longmemeval
+  variant: s                       # s -> longmemeval_s_cleaned.json | m -> longmemeval_m_cleaned.json | oracle
+  # path: /abs/path/longmemeval_s_cleaned.json   # default: data/raw/longmemeval/<file for variant>
+  # n: 100                         # first n questions (after optional `seed` shuffle)
+  # question_types: [single-session-user, single-session-assistant, single-session-preference,
+  #                  multi-session, knowledge-update, temporal-reasoning, abstention]
+  include_abstention: true
+granularity: round                 # user+assistant round (LongMemEval's "turn" key granularity); or session
+max_item_chars: 6000               # clip very long assistant replies inside one memory
+write_context_turns: 1
+answer: {style: cot, prompt: longmemeval, max_context_tokens: 200000, max_tokens: 800}  # LME CoT reader; budget is chars/4
+llm: {provider: openai, model: gpt-4.1-mini, temperature: 0}
+judge: {provider: openai, model: gpt-4o-2024-08-06, temperature: 0}   # the official LongMemEval judge model
+s1: {type: jev, model: jev-1.13.0}
+s1_cache: cache/s1.sqlite
+embedder: {type: openai, model: text-embedding-3-small}
+workers: 16                        # parallel questions (each question = one haystack)
+arms:
+  - {name: full_context, read: {policy: full_context}}
+  - {name: no_memory, read: {policy: none}}
+  - {name: all_recency_k20, write: {mode: always}, read: {policy: recency, k: 20}}
+  - {name: all_bm25_k10, write: {mode: always}, read: {policy: bm25, k: 10}}
+  - {name: all_embed_k10, write: {mode: always}, read: {policy: embedding, k: 10}}
+  - {name: all_jevread_k10, write: {mode: always}, read: {policy: s1, k: 10}}
+  - {name: all_jevrerank_k10, write: {mode: always},
+     read: {policy: s1_rerank, k: 10, prefilter: {policy: embedding, n: 100}}}
+  - {name: jevwrite_jevread_k10, write: {mode: trigger, tau: 0.5}, read: {policy: s1, k: 10}}
+  - {name: jevwrite_embed_k10, write: {mode: trigger, tau: 0.5}, read: {policy: embedding, k: 10}}
+  - {name: jevwrite_all, write: {mode: trigger, tau: 0.5}, read: {policy: all}}
+  # the LLM write gate calls the System-2 model once per round (~250k calls on _S): run it on a subset
+  - {name: llmwrite_embed_k10, write: {mode: llm}, read: {policy: embedding, k: 10}}

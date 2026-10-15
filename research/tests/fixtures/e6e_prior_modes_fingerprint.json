@@ -1,0 +1,13 @@
+{
+ "generated_at_commit": "765565b (pre-E6e harness code)",
+ "n_tasks": 6,
+ "digests": {
+  "e6d_mw_assist": "5f0c0b90c361fde86478afa1a5258b66cd982e67fc21345df6b1cffb84919aad",
+  "e6d_rf_assist": "fc039a30704ac32ba5bf984181db564e016b0ec5569a16ea5df4e4eabfa60b2c",
+  "e6d_st_assist": "3fdfd2bbf3af786c6a2de6a80fd0a2eecdcff617d736de91e8013c63ac11640a",
+  "e6d_rt_assist": "6fa28b7a4d92607ee70534e784ae06d03fbbbe8c161a3620adadfac7e90855b7",
+  "e6d_rf_guard": "e69f68c23cc995adb3a425514c03811558e74b968bfce518f0a9db61c1539874",
+  "e6d_rt_guard": "ecaa16d0dfd9d98da513fda7840aa71fe5900bfd293b6d2c101db0671918e563",
+  "e6d_mr_guard": "2dc151ae785866a23ce08c89d2612988c48ebba964dc78bf32871b2c02cda290"
+ }
+}

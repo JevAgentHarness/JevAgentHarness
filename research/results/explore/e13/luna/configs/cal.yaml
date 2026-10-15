@@ -1,0 +1,34 @@
+name: e13_luna_cal
+suite:
+  name: jevgym
+  n: 100
+  seed0: 5400
+  families: multi
+  multi_customers: 12
+  multi_rule: tier
+  answer_style: itemized
+  distractor_style: near
+  n_distractors: 60
+  noise_lines: 20
+  strict: true
+n_tasks: 100
+llm:
+  provider: openai_responses
+  model: gpt-6-luna
+  reasoning_effort: none
+  temperature: 0
+harness_defaults:
+  max_steps: 45
+s1:
+  type: jev
+  provider: openrouter
+workers: 4
+schedule:
+  mode: task_major
+  seed: 732
+arms:
+- name: jev_shadow_cal
+  tool_select:
+    mode: shadow
+  tool_params:
+    mode: shadow

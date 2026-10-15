@@ -1,0 +1,82 @@
+{
+ "model": "/opt/jev/models/StartLux-Decision-4B",
+ "adapter": null,
+ "calibration": null,
+ "n_perm": 0,
+ "files": {
+  "data/train_v1/dev.jsonl.gz": {
+   "overall": {
+    "n": 2377,
+    "acc": 0.94194,
+    "nll": 0.20101,
+    "brier": 0.03797,
+    "ece": 0.00726,
+    "ece_adaptive": 0.01288,
+    "auroc": 0.93185,
+    "aurc": 0.00642,
+    "mean_conf": 0.94212
+   },
+   "by_dp": {
+    "stop": {
+     "n": 669,
+     "acc": 0.98206,
+     "nll": 0.05059,
+     "brier": 0.01233,
+     "ece": 0.01723,
+     "ece_adaptive": 0.01597,
+     "auroc": 0.98034,
+     "aurc": 0.00054,
+     "mean_conf": 0.9756
+    },
+    "tool_params": {
+     "n": 824,
+     "acc": 0.96723,
+     "nll": 0.09475,
+     "brier": 0.01587,
+     "ece": 0.02456,
+     "ece_adaptive": 0.0164,
+     "auroc": 0.95102,
+     "aurc": 0.00287,
+     "mean_conf": 0.96305
+    },
+    "tool_select": {
+     "n": 884,
+     "acc": 0.88801,
+     "nll": 0.4139,
+     "brier": 0.07798,
+     "ece": 0.01552,
+     "ece_adaptive": 0.01877,
+     "auroc": 0.87289,
+     "aurc": 0.02274,
+     "mean_conf": 0.89727
+    }
+   },
+   "by_kind": {
+    "choice": {
+     "n": 1492,
+     "acc": 0.92091,
+     "nll": 0.28398,
+     "brier": 0.05116,
+     "ece": 0.00835,
+     "ece_adaptive": 0.01149,
+     "auroc": 0.91489,
+     "aurc": 0.01122,
+     "mean_conf": 0.92431
+    },
+    "noul": {
+     "n": 885,
+     "acc": 0.9774,
+     "nll": 0.06114,
+     "brier": 0.01574,
+     "ece": 0.01411,
+     "ece_adaptive": 0.00832,
+     "auroc": 0.96919,
+     "aurc": 0.001,
+     "mean_conf": 0.97214
+    }
+   },
+   "seconds": 633.34,
+   "decisions_per_s": 3.75
+  }
+ }
+}

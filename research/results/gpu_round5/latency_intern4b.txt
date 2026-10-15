@@ -1,0 +1,38 @@
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights: 100%|██████████| 426/426 [00:00<00:00, 7062.04it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+{
+ "backend": {
+  "backend": "intern_decision",
+  "model": "internlm/Intern-Decision-4B",
+  "dtype": "bfloat16",
+  "device": "cuda",
+  "max_length": 8192,
+  "temperature": 1.99241824,
+  "batch": false,
+  "batched_questions": true,
+  "max_questions_per_request": 16,
+  "max_options": 62,
+  "truncate_state": true,
+  "state_json": true,
+  "shared_weights": false
+ },
+ "questions_per_req": 3,
+ "state_tokens": 1500,
+ "results": {
+  "c=1": {
+   "p50_ms": 413.91274749912554,
+   "p95_ms": 416.228857000533,
+   "req_per_s": 2.4158742046453465,
+   "input_tokens_per_req": 3410.475,
+   "amortised_usd_per_m_input": 0.10127639653593327
+  },
+  "c=4": {
+   "p50_ms": 1648.3901645005972,
+   "p95_ms": 1659.7459700060426,
+   "req_per_s": 2.4246860346892327,
+   "input_tokens_per_req": 3411.34,
+   "amortised_usd_per_m_input": 0.10088274942160434
+  }
+ }
+}

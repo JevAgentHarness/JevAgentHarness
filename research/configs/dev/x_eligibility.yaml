@@ -1,0 +1,17 @@
+# Stage 2, A7.12 (b): eligibility smoke of the second System-2 family on DEVELOPMENT seeds 0..49 (never a paper number).
+# Both members LLM-only through OpenRouter, pinned with fallbacks disabled. Eligible iff each member's malformed
+# responses are <= 5 % of steps (a legitimate final-text answer is not malformed), no infrastructure error remains after
+# the A6.22 (e) retries, the context fits, and every call's `served_provider` (ledger call meta) is the pinned one.
+# No success threshold selects a pair. Its token accounting sets n by A7.12 (c)'s $25 envelope.
+#   jevbench run configs/dev/x_eligibility.yaml --out runs/stage2_dev -o workers=8
+name: x_eligibility
+suite: {name: jevgym, n: 50, seed0: 0, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # development seeds 0..49
+llm: {provider: openrouter, model: deepseek/deepseek-v4-pro, temperature: 0,
+      extra_body: {provider: {order: [StreamLake], allow_fallbacks: false}, reasoning: {enabled: false}, usage: {include: true}}}
+llms:
+  xsmall: {provider: openrouter, model: deepseek/deepseek-v4-flash, temperature: 0,
+           extra_body: {provider: {order: [StreamLake], allow_fallbacks: false}, reasoning: {enabled: false}, usage: {include: true}}}
+workers: 8
+arms:
+  - {name: llm_only_x}
+  - {name: llm_only_xsmall, llm: xsmall}

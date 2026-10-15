@@ -1,0 +1,675 @@
+{
+ "meta": {
+  "generated": "2026-10-06T19:47:14+00:00",
+  "git": "dfd239c2a5591c575b6589f5f2dad92383fd1ddd",
+  "script": "scripts/explore_e7_hard.py",
+  "run": "runs/e7b_hard",
+  "label": "exploratory (E7)",
+  "n_boot": 10000,
+  "seed": 0,
+  "suite": {
+   "name": "jevgym",
+   "n": 200,
+   "seed0": 310200,
+   "families": "multi",
+   "multi_customers": 12,
+   "multi_rule": "tier",
+   "distractor_style": "near",
+   "n_distractors": 60,
+   "noise_lines": 20,
+   "strict": true
+  },
+  "max_steps": 45,
+  "llm": {
+   "provider": "openrouter",
+   "model": "google/gemini-3.5-flash",
+   "temperature": 0,
+   "reasoning_effort": "minimal"
+  },
+  "workers": 12,
+  "spend": {
+   "by_run": {
+    "e7b_hard_smoke": {
+     "s2": 0.31922895,
+     "s1": 0.022533419999999995,
+     "total": 0.34176237,
+     "records": 6
+    },
+    "e7b_hard": {
+     "s2": 28.760091749999972,
+     "s1": 2.36495448,
+     "total": 31.12504622999998,
+     "records": 600
+    }
+   },
+   "prior": 0.0,
+   "s2": 29.079320699999972,
+   "s1": 2.3874879,
+   "total": 31.466808599999982,
+   "records": 606,
+   "total_with_prior": 31.466808599999982
+  },
+  "cap": 60.0,
+  "exp": "e7b",
+  "title": "E7b: JevGym-Hard with 12 customers",
+  "entry": "E7b (JevGym-Hard, 12 customers)",
+  "arms": [
+   "llm_only",
+   "jevagent_best",
+   "jevagent_best_rl"
+  ],
+  "calibration": null,
+  "not_run": {},
+  "note": null,
+  "pilot_spend": null,
+  "projection": {
+   "smoke_per_episode": {
+    "llm_only": 0.07824472500000001,
+    "jevagent_best": 0.07042071,
+    "jevagent_best_rl": 0.022215749999999996
+   },
+   "smoke_wall_s": {
+    "llm_only": 39.415685671999995,
+    "jevagent_best": 57.76203925750002,
+    "jevagent_best_rl": 42.65600067550009
+   },
+   "smoke_n": {
+    "llm_only": 2,
+    "jevagent_best": 2,
+    "jevagent_best_rl": 2
+   },
+   "smoke_errors": {
+    "llm_only": 0,
+    "jevagent_best": 0,
+    "jevagent_best_rl": 0
+   },
+   "missing_arms": [],
+   "spent_so_far": 0.34176237,
+   "prior": 0.0,
+   "safety": 1.5,
+   "cap": 60.0,
+   "per_task_all_arms": 0.17088118500000002,
+   "projected_200": 51.2643555,
+   "fits_200": true,
+   "projected_100": 25.63217775,
+   "fits_100": true,
+   "decision": "run all 200"
+  },
+  "stopped_by_watchdog": false,
+  "pilot_chosen": {
+   "candidates": [
+    "e7_pilot_tier_k12",
+    "e7_pilot_tier_k12b"
+   ],
+   "n": 60,
+   "success": 0.4666666666666667,
+   "band": [
+    0.6,
+    0.8
+   ]
+  }
+ },
+ "tariff": {
+  "q_usd_per_episode": 0.0099178,
+  "host_usd_per_hour": 2.448,
+  "instance_type": "g5.8xlarge",
+  "serving_hours": 0.8102777777777778,
+  "episodes": 200,
+  "window": {
+   "start": "2026-10-06T16:56:26Z",
+   "end": "2026-10-06T17:45:03Z"
+  },
+  "workers": 12,
+  "state": "ok",
+  "convention": "S2-4 provisioned tariff (A7.13 (iii)): host $/h x evaluation window / completed JevAgentRL episodes; on-demand price, us-east-1",
+  "sensitivity": {
+   "s2_4": 0.00196182,
+   "zero": 0.0
+  }
+ },
+ "arms": {
+  "llm_only": {
+   "state": "run",
+   "n_ok": 200,
+   "n_records": 200,
+   "success_all": 0.66,
+   "cost_mean": 0.073283079,
+   "per_episode": {
+    "wall_s_mean": 41.60977592362999,
+    "wall_s_median": 40.57124874699997,
+    "steps": 37.0,
+    "llm_calls": 37.0,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.073283079,
+    "s1_s": 0.0
+   },
+   "failure_types": {
+    "n_failed": 68,
+    "types": {
+     "wrong_total": 68
+    },
+    "classes": {
+     "wrong_total": 68,
+     "wrong_write": 0,
+     "ask_finish": 0,
+     "other": 0
+    }
+   },
+   "provenance": {
+    "path": "runs/e7b_hard/llm_only.jsonl",
+    "sha256": "2fda75f02c83d5b573021709c8170913602b464b1ab149c1cbf7b6caffc7ed5b",
+    "n_records": 200
+   }
+  },
+  "jevagent_best": {
+   "state": "run",
+   "n_ok": 200,
+   "n_records": 200,
+   "success_all": 0.695,
+   "cost_mean": 0.06992858715,
+   "per_episode": {
+    "wall_s_mean": 71.52277575009002,
+    "wall_s_median": 70.30512729800013,
+    "steps": 37.0,
+    "llm_calls": 27.795,
+    "s1_calls": 113.44,
+    "s1_cost": 0.0118247724,
+    "s2_cost": 0.058103814749999996,
+    "s1_s": 22.522625758095117
+   },
+   "failure_types": {
+    "n_failed": 61,
+    "types": {
+     "wrong_total": 61
+    },
+    "classes": {
+     "wrong_total": 61,
+     "wrong_write": 0,
+     "ask_finish": 0,
+     "other": 0
+    }
+   },
+   "provenance": {
+    "path": "runs/e7b_hard/jevagent_best.jsonl",
+    "sha256": "d9bcc240ae741ddf439e1a6b3c467320b00d476c8d40ede95cdeeb19e121dc0c",
+    "n_records": 200
+   },
+   "paired_per_episode": {
+    "wall_s_mean": 71.52277575009002,
+    "wall_s_median": 70.30512729800013,
+    "steps": 37.0,
+    "llm_calls": 27.795,
+    "s1_calls": 113.44,
+    "s1_cost": 0.011824772400000001,
+    "s2_cost": 0.058103814749999996,
+    "s1_s": 22.522625758095124
+   },
+   "ref_paired_per_episode": {
+    "wall_s_mean": 41.60977592362999,
+    "wall_s_median": 40.57124874699997,
+    "steps": 37.0,
+    "llm_calls": 37.0,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.073283079,
+    "s1_s": 0.0
+   },
+   "points": {
+    "tool_select": {
+     "n": 7400,
+     "coverage": 0.6043243243243244,
+     "n_gold": 7400,
+     "acc": 0.9962162162162163,
+     "acc_accepted": 1.0,
+     "llm_acc_deferred": 0.9924863387978142,
+     "n_accepted": 4472
+    },
+    "tool_params": {
+     "n": 8088,
+     "coverage": 0.7053659742828883,
+     "n_gold": 8088,
+     "acc": 0.995919881305638,
+     "acc_accepted": 1.0,
+     "llm_acc_deferred": null,
+     "n_accepted": 5705
+    },
+    "tool": {
+     "n": 15488,
+     "coverage": 0.6570893595041323,
+     "n_gold": 15488,
+     "acc": 0.9960614669421488,
+     "acc_accepted": 1.0,
+     "llm_acc_deferred": 0.9924863387978142,
+     "n_accepted": 10177
+    },
+    "op": {
+     "n": 2411,
+     "coverage": 0.5806719203649938,
+     "acc": 0.9975114060555786,
+     "acc_accepted": 1.0,
+     "accepted_wrong": 0,
+     "llm_acc_deferred": 0.9891196834817013,
+     "s1_said_other_op": 4
+    },
+    "reflection": {
+     "n": 7200,
+     "fired": 0.05638888888888889,
+     "acc": 0.993229319988225,
+     "gold_positive_rate": 0.006770680011775096
+    }
+   },
+   "cmp": {
+    "n_expected": 200,
+    "n": 200,
+    "n_dropped": 0,
+    "dropped": {
+     "missing_arm": 0,
+     "missing_ref": 0,
+     "errored_arm": 0,
+     "errored_ref": 0
+    },
+    "success": 0.695,
+    "success_ref": 0.66,
+    "delta": 0.035,
+    "delta_ci": [
+     -0.045,
+     0.115
+    ],
+    "wins": 38,
+    "losses": 31,
+    "cost": 0.06992858715,
+    "cost_ref": 0.073283079,
+    "saving": 0.045774439280860446,
+    "saving_ci": [
+     0.030587474737731657,
+     0.06094790971369798
+    ],
+    "newcombe_pt": [
+     -4.667724372394071,
+     11.602185956989608
+    ],
+    "api": {
+     "cost": 0.06992858715,
+     "saving": 0.045774439280860446,
+     "saving_ci": [
+      0.030587474737731657,
+      0.06094790971369798
+     ]
+    }
+   }
+  },
+  "jevagent_best_rl": {
+   "state": "run",
+   "n_ok": 200,
+   "n_records": 200,
+   "success_all": 0.005,
+   "cost_mean": 0.012413565,
+   "per_episode": {
+    "wall_s_mean": 59.291519330110006,
+    "wall_s_median": 38.68475225650002,
+    "steps": 14.405,
+    "llm_calls": 7.33,
+    "s1_calls": 51.565,
+    "s1_cost": 0.0,
+    "s2_cost": 0.012413565,
+    "s1_s": 39.77936875974998
+   },
+   "failure_types": {
+    "n_failed": 199,
+    "types": {
+     "strict_stop": 169,
+     "premature_finish": 24,
+     "no_answer": 1,
+     "wrong_total": 5
+    },
+    "classes": {
+     "wrong_total": 5,
+     "wrong_write": 169,
+     "ask_finish": 25,
+     "other": 0
+    }
+   },
+   "provenance": {
+    "path": "runs/e7b_hard/jevagent_best_rl.jsonl",
+    "sha256": "b96084ba12ec455210df2132f6140f18983fc46ec667d777089a9bb46ea06061",
+    "n_records": 200
+   },
+   "paired_per_episode": {
+    "wall_s_mean": 59.291519330110006,
+    "wall_s_median": 38.68475225650002,
+    "steps": 14.405,
+    "llm_calls": 7.33,
+    "s1_calls": 51.565,
+    "s1_cost": 0.0,
+    "s2_cost": 0.012413565000000001,
+    "s1_s": 39.77936875974998
+   },
+   "ref_paired_per_episode": {
+    "wall_s_mean": 41.60977592362999,
+    "wall_s_median": 40.57124874699997,
+    "steps": 37.0,
+    "llm_calls": 37.0,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.073283079,
+    "s1_s": 0.0
+   },
+   "points": {
+    "tool_select": {
+     "n": 2881,
+     "coverage": 1.0,
+     "n_gold": 2881,
+     "acc": 0.9264144394307532,
+     "acc_accepted": 0.9264144394307532,
+     "llm_acc_deferred": null,
+     "n_accepted": 2881
+    },
+    "tool_params": {
+     "n": 4751,
+     "coverage": 0.6103978109871606,
+     "n_gold": 4370,
+     "acc": 0.968649885583524,
+     "acc_accepted": 0.9996339677891655,
+     "llm_acc_deferred": null,
+     "n_accepted": 2900
+    },
+    "tool": {
+     "n": 7632,
+     "coverage": 0.7574685534591195,
+     "n_gold": 7251,
+     "acc": 0.9518687077644463,
+     "acc_accepted": 0.9620523784072689,
+     "llm_acc_deferred": null,
+     "n_accepted": 5781
+    },
+    "op": {
+     "n": 957,
+     "coverage": 1.0,
+     "acc": 0.8150470219435737,
+     "acc_accepted": 0.8150470219435737,
+     "accepted_wrong": 177,
+     "llm_acc_deferred": null,
+     "s1_said_other_op": 170
+    },
+    "reflection": {
+     "n": 2681,
+     "fired": 0.035434539350988434,
+     "acc": 0.9234338747099768,
+     "gold_positive_rate": 0.0765661252900232
+    }
+   },
+   "cmp": {
+    "n_expected": 200,
+    "n": 200,
+    "n_dropped": 0,
+    "dropped": {
+     "missing_arm": 0,
+     "missing_ref": 0,
+     "errored_arm": 0,
+     "errored_ref": 0
+    },
+    "success": 0.005,
+    "success_ref": 0.66,
+    "delta": -0.655,
+    "delta_ci": [
+     -0.72,
+     -0.59
+    ],
+    "wins": 0,
+    "losses": 131,
+    "cost": 0.022331364999999995,
+    "cost_ref": 0.073283079,
+    "saving": 0.6952725608049302,
+    "saving_ci": [
+     0.6679153331798793,
+     0.7217469616382733
+    ],
+    "newcombe_pt": [
+     -71.72208842990688,
+     -58.31786874890498
+    ],
+    "api": {
+     "cost": 0.012413565000000001,
+     "saving": 0.8306080316303304,
+     "saving_ci": [
+      0.8033985107964585,
+      0.8568829003149545
+     ]
+    },
+    "tariff_q": 0.0099178,
+    "sens": {
+     "s2_4": {
+      "cost": 0.014375385000000001,
+      "saving": 0.803837595306278,
+      "saving_ci": [
+       0.776606184775146,
+       0.8301426994222955
+      ]
+     },
+     "zero": {
+      "cost": 0.012413565000000001,
+      "saving": 0.8306080316303304,
+      "saving_ci": [
+       0.8033985107964585,
+       0.8568829003149545
+      ]
+     }
+    }
+   }
+  }
+ },
+ "latency": {
+  "llm_only": {
+   "n_episodes": 200,
+   "wall_mean": 41.60977592362999,
+   "s1_per_episode": 0.0,
+   "s2_per_episode": 38.89903120119979,
+   "tail_per_episode": 0.7812080459599997,
+   "s2_tail_per_episode": 0.7812080459599997,
+   "groups": {
+    "s2/tool_select/Google": {
+     "n": 7397,
+     "p50": 0.9702075029999833,
+     "p90": 1.1808137064002042,
+     "mean": 1.0445618927863978,
+     "n_over": 17,
+     "share_of_wall": 0.9284626207940087,
+     "tail_share_of_wall": 0.012384071724173024,
+     "per_episode_s": 38.63312160470492,
+     "tail_per_episode_s": 0.5152984494650014
+    },
+    "s2/tool_select/Google AI Studio": {
+     "n": 3,
+     "p50": 17.772494405999623,
+     "p90": 18.498097169999983,
+     "mean": 17.727306432999892,
+     "n_over": 3,
+     "share_of_wall": 0.00639055583916254,
+     "tail_share_of_wall": 0.00639055583916254,
+     "per_episode_s": 0.26590959649499835,
+     "tail_per_episode_s": 0.26590959649499835
+    }
+   }
+  },
+  "jevagent_best": {
+   "n_episodes": 200,
+   "wall_mean": 71.52277575009002,
+   "s1_per_episode": 22.522625758095202,
+   "s2_per_episode": 45.64019403174509,
+   "tail_per_episode": 8.989425805405011,
+   "s2_tail_per_episode": 8.989425805405011,
+   "groups": {
+    "s2/tool_params/1tool/Google": {
+     "n": 2216,
+     "p50": 1.3050280335000934,
+     "p90": 5.097475583000005,
+     "mean": 2.302935275693598,
+     "n_over": 230,
+     "share_of_wall": 0.35676080223512485,
+     "tail_share_of_wall": 0.10944587610311192,
+     "per_episode_s": 25.516522854685064,
+     "tail_per_episode_s": 7.827872853295014
+    },
+    "s2/tool_select/Google": {
+     "n": 2928,
+     "p50": 0.9776264269999047,
+     "p90": 1.2979539443000483,
+     "mean": 1.1249482514778009,
+     "n_over": 6,
+     "share_of_wall": 0.23026570527940207,
+     "tail_share_of_wall": 0.004188568122716087,
+     "per_episode_s": 16.469242401635004,
+     "tail_per_episode_s": 0.2995780185549984
+    },
+    "s1/tool_params/typesafe/jev-1.13-20260917": {
+     "n": 8088,
+     "p50": 0.18430933150000328,
+     "p90": 0.2561237688000347,
+     "mean": 0.19628267352114293,
+     "n_over": 0,
+     "share_of_wall": 0.11098102994394796,
+     "tail_share_of_wall": 0.0,
+     "per_episode_s": 7.93767131719502,
+     "tail_per_episode_s": 0.0
+    },
+    "s1/tool_select/typesafe/jev-1.13-20260917": {
+     "n": 7400,
+     "p50": 0.19139866450007048,
+     "p90": 0.25852224519996986,
+     "mean": 0.20327688989689255,
+     "n_over": 0,
+     "share_of_wall": 0.10515873925901924,
+     "tail_share_of_wall": 0.0,
+     "per_episode_s": 7.521244926185025,
+     "tail_per_episode_s": 0.0
+    },
+    "s1/reflection/typesafe/jev-1.13-20260917": {
+     "n": 7200,
+     "p50": 0.18214865799996005,
+     "p90": 0.25579886179993994,
+     "mean": 0.1962141531865299,
+     "n_over": 0,
+     "share_of_wall": 0.09876168032678992,
+     "tail_share_of_wall": 0.0,
+     "per_episode_s": 7.063709514715076,
+     "tail_per_episode_s": 0.0
+    },
+    "s2/reflection/Google": {
+     "n": 406,
+     "p50": 1.3649892089999867,
+     "p90": 1.587813578500004,
+     "mean": 1.5312544353251074,
+     "n_over": 4,
+     "share_of_wall": 0.043460932145185295,
+     "tail_share_of_wall": 0.004418070447155433,
+     "per_episode_s": 3.1084465037099682,
+     "tail_per_episode_s": 0.3159926618399982
+    },
+    "s2/tool_params/1tool/Google AI Studio": {
+     "n": 9,
+     "p50": 11.978626652999992,
+     "p90": 12.528828092200047,
+     "mean": 12.132939371444486,
+     "n_over": 9,
+     "share_of_wall": 0.007633684039651025,
+     "tail_share_of_wall": 0.007633684039651025,
+     "per_episode_s": 0.5459822717150018,
+     "tail_per_episode_s": 0.5459822717150018
+    }
+   }
+  },
+  "jevagent_best_rl": {
+   "n_episodes": 200,
+   "wall_mean": 59.291519330110006,
+   "s1_per_episode": 39.77936875974989,
+   "s2_per_episode": 17.875380749275017,
+   "tail_per_episode": 6.762004434745009,
+   "s2_tail_per_episode": 6.762004434745009,
+   "groups": {
+    "s2/tool_params/1tool/Google": {
+     "n": 1364,
+     "p50": 1.3228114925000227,
+     "p90": 5.541383606099999,
+     "mean": 2.4449315701429652,
+     "n_over": 181,
+     "share_of_wall": 0.2812279647539281,
+     "tail_share_of_wall": 0.10652993086318825,
+     "per_episode_s": 16.674433308375022,
+     "tail_per_episode_s": 6.316321455010009
+    },
+    "s1/tool_params/jevagentrl-4b": {
+     "n": 4751,
+     "p50": 0.5998627849999139,
+     "p90": 1.2646726499999659,
+     "mean": 0.6381515086731211,
+     "n_over": 0,
+     "share_of_wall": 0.2556738174329706,
+     "tail_share_of_wall": 0.0,
+     "per_episode_s": 15.15928908852999,
+     "tail_per_episode_s": 0.0
+    },
+    "s1/tool_select/jevagentrl-4b": {
+     "n": 2881,
+     "p50": 0.9971412020000798,
+     "p90": 1.651192010999921,
+     "mean": 1.0387542679496689,
+     "n_over": 0,
+     "share_of_wall": 0.2523675459639671,
+     "tail_share_of_wall": 0.0,
+     "per_episode_s": 14.96325522981498,
+     "tail_per_episode_s": 0.0
+    },
+    "s1/reflection/jevagentrl-4b": {
+     "n": 2681,
+     "p50": 0.6482595110001057,
+     "p90": 1.3774162939999997,
+     "mean": 0.7203897382622162,
+     "n_over": 0,
+     "share_of_wall": 0.16287024772699635,
+     "tail_share_of_wall": 0.0,
+     "per_episode_s": 9.656824441405009,
+     "tail_per_episode_s": 0.0
+    },
+    "s2/reflection/Google": {
+     "n": 95,
+     "p50": 1.5641374120000364,
+     "p90": 1.7717933034001363,
+     "mean": 1.5900304445578777,
+     "n_over": 0,
+     "share_of_wall": 0.012738153275513147,
+     "tail_share_of_wall": 0.0,
+     "per_episode_s": 0.7552644611649919,
+     "tail_per_episode_s": 0.0
+    },
+    "s2/tool_params/1tool/Google AI Studio": {
+     "n": 7,
+     "p50": 11.838070550000111,
+     "p90": 15.070986715199979,
+     "mean": 12.733799421000024,
+     "n_over": 7,
+     "share_of_wall": 0.007516808217607432,
+     "tail_share_of_wall": 0.007516808217607432,
+     "per_episode_s": 0.4456829797350008,
+     "tail_per_episode_s": 0.4456829797350008
+    }
+   }
+  }
+ },
+ "latency_cmp": {
+  "jevagent_best": {
+   "extra_wall_s": 29.91299982646003,
+   "extra_s2_tail_s": 8.208217759445011,
+   "extra_s1_s": 22.522625758095202,
+   "extra_s2_s": 6.741162830545299,
+   "tail_share_of_extra": 0.2744030290196538
+  },
+  "jevagent_best_rl": {
+   "extra_wall_s": 17.681743406480017,
+   "extra_s2_tail_s": 5.980796388785009,
+   "extra_s1_s": 39.77936875974989,
+   "extra_s2_s": -21.023650451924773,
+   "tail_share_of_extra": 0.33824698454752844
+  }
+ }
+}

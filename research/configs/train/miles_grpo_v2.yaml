@@ -1,0 +1,72 @@
+# JevAgentRL-v2, stage 3: episode-level GRPO inside the harness on Miles rollouts (docs/MILES_PORT.md §3).
+# Rules / budgets / the validity gate: results/gpu_round6_miles/TRAINING_MANIFEST.md. Mirrors v1's
+# configs/train/grpo_online_round5.yaml (arms, samplers, reward, advantages) with a fresh training-seed pool
+# (70000-72999; v1 used 50000-52999) and Flash-Lite as the System-2 of every arm (v1's guard arm used Flash).
+# Reward, verbatim: R = 1[success] x (1 - 0.5 x min(1, C / 10)) - 0.2 x 1[irreversible error], C = the episode's
+# System-2 (LLM) calls -> "call-count-penalised success". Advantages: group-normalised episode reward (8 episodes per
+# task) + GiGPO anchor-state advantages (omega 1, gamma 0.95), error episodes and zero-signal groups dropped
+# (grpo_online.compute_advantages). Loss: PPO-clip 0.2 / 0.28 on the event log-probability under softmax(z / 1)
+# against the STORED SGLang behaviour log-probability; no KL term, no entropy bonus; each episode's decisions are one
+# Miles rollout (per-episode mean), 16 episodes per optimizer step (4 steps per iteration).
+name: grpo_v2
+stage: grpo
+base: auto
+init: auto                      # runs/gpu_round6_miles/init_grpo.txt = the retained continuation of the last kept stage
+out: checkpoints/r6/grpo
+max_len: 4096
+seed: 0
+rollout:
+  suite: {families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+  seed0: 70000
+  n_tasks: 3000
+  tasks_per_iter: 8
+  group_size: 8                 # 64 episodes per iteration
+  iterations: 30
+  temperature: 1.0
+  arms:
+    - {name: rl_ts_params_replace, tool_select: {mode: replace}, tool_params: {mode: replace}, stop: {mode: guard, tau: 0.5}}
+    - {name: rl_ts_assist_k3, tool_select: {mode: assist, k: 3}}
+    - {name: rl_cascade, tool_select: {mode: cascade, tau: 0.9}, tool_params: {mode: cascade, tau: 0.9}}
+    - {name: rl_guard, tool_select: {mode: guard, tau: 0.5}, stop: {mode: guard, tau: 0.5}}
+  executor: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0.7, reasoning_effort: minimal}
+  max_steps: 20
+  workers: 32                   # concurrent episodes: two waves of 32 (manifest §9, 2026-10-03 ~06:20 UTC)
+  decider_batch: 32
+grpo:
+  algo:
+    clip_eps: 0.2
+    clip_eps_high: 0.28
+    kl_beta: 0.0
+    entropy_coef: 0.0
+    adv_scale: group
+    drop_zero_std_groups: true
+    drop_error_episodes: true
+    loss_agg: episode
+    gigpo: {enabled: true, omega: 1.0, gamma: 0.95, scale: std}
+  reward:
+    kind: gated
+    lambda_gate: 0.5
+    cost_unit: calls
+    cost_scale: 10.0
+    irreversible_penalty: 0.2
+miles:
+  actor_gpus: 8                 # g5.48xlarge: 8 x A10G 24 GB, FSDP over 8 ranks (64 rows / 16 episodes divide evenly)
+  rollout_gpus: 0
+  colocate: true                # one SGLang engine per GPU between updates (trainer offloaded to host RAM meanwhile)
+  lr: 1.0e-6
+  min_lr: 1.0e-6
+  lr_decay_style: constant
+  warmup_fraction: 0.0
+  weight_decay: 0.0
+  adam_beta1: 0.9
+  adam_beta2: 0.98
+  clip_grad: 1.0
+  global_batch_size: 16         # episodes per optimizer step
+  max_tokens_per_gpu: 16384     # rows-only LM head: one micro-batch per rank per step (manifest §9, 2026-10-03 ~05:35 UTC)
+  gradient_checkpointing: true
+  attn_implementation: flash_attention_2
+  sglang_mem_fraction: 0.65
+  sglang_attention_backend: flashinfer
+  save_interval: 15             # continuations grpo_i15 and grpo (iteration 30)
+  keep_steps: [15, 30]
+  seed: 1234

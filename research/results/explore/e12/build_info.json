@@ -1,0 +1,165 @@
+{
+ "label": "exploratory (E12), descriptive; PREREG_A7_STAGE2 Deviations 2026-10-07 'E12: more training on public tool-use data'; outside every Holm table",
+ "generated": "2026-10-07T13:39:44+00:00",
+ "seed": 0,
+ "quota_train": {
+  "w2c_call": 1000,
+  "w2c_ask": 1000,
+  "w2c_cannot": 1000,
+  "bfcl_tool": 1500,
+  "bfcl_none": 500,
+  "bfcl_args": 2000
+ },
+ "quota_dev": {
+  "w2c_call": 150,
+  "w2c_ask": 150,
+  "w2c_cannot": 150,
+  "bfcl_tool": 200,
+  "bfcl_none": 100,
+  "bfcl_args": 250
+ },
+ "n_replay": 7000,
+ "n_cal_v1": 1000,
+ "dev_rule": "sha256('jev-explore-E12-dev\\n<unit>') mod 10 == 0",
+ "rows": {
+  "train_mix": 14000,
+  "public_train": 7000,
+  "public_dev": 1000,
+  "cal_dev": 2000,
+  "dev_w2c": 450,
+  "dev_tool": 300,
+  "dev_args": 250
+ },
+ "train_by_family": {
+  "bfcl_tool": 1500,
+  "w2c_call": 1000,
+  "bfcl_args": 2000,
+  "bfcl_none": 500,
+  "w2c_cannot": 1000,
+  "w2c_ask": 1000
+ },
+ "dev_by_family": {
+  "bfcl_tool": 200,
+  "w2c_call": 150,
+  "bfcl_args": 250,
+  "bfcl_none": 100,
+  "w2c_cannot": 150,
+  "w2c_ask": 150
+ },
+ "train_by_dp": {
+  "tool_select": 8679,
+  "stop": 900,
+  "tool_params": 4421
+ },
+ "train_args_other": 888,
+ "train_options_mean": {
+  "w2c_call": 4.0,
+  "w2c_ask": 4.0,
+  "w2c_cannot": 4.0,
+  "bfcl_tool": 4.07,
+  "bfcl_none": 3.45,
+  "bfcl_args": 5.31
+ },
+ "when2call_train_ids_in_sftv1_replay_file": 363,
+ "sources": {
+  "when2call_train": {
+   "url_commit": "ecc8d42388e91ab37e7e737d48e16e8ecea3d1dc",
+   "file": "train/when2call_train_sft.jsonl",
+   "sha256": "3eb20258557513579995ff55c09fcc33fabf2cd2004dea49dc3a0ba9880e631c",
+   "license": "CC-BY-4.0",
+   "rows_by_outcome": {
+    "cannot_answer": 7530,
+    "request_for_info": 7470
+   }
+  },
+  "toolace": {
+   "repo": "Team-ACE/ToolACE",
+   "revision": "6bda777c88d21e5a204703c1ee45597a8fa4f734",
+   "url": "https://huggingface.co/datasets/Team-ACE/ToolACE/resolve/6bda777c88d21e5a204703c1ee45597a8fa4f734/data.json",
+   "sha256": "ba12c083fca7e8da48c67ad5b895e495447da7c66e39a2e19742c082e6cb537e",
+   "license": "Apache-2.0",
+   "rows_by_outcome": {
+    "used": 5036,
+    "not_one_call": 5727,
+    "call_not_listed": 14,
+    "not_english": 5,
+    "other_system_format": 518
+   }
+  }
+ },
+ "units": {
+  "total": 19909,
+  "toolace": 5033,
+  "when2call_train": 14876,
+  "duplicate_rows_dropped": {
+   "when2call-train": 124,
+   "toolace": 3
+  },
+  "clean": 19702,
+  "train": 17830,
+  "dev": 1872
+ },
+ "audit": {
+  "targets": {
+   "e1": 3991,
+   "e1_dev": 299,
+   "public_test_pools": 6687
+  },
+  "rule": "exact token sequence or a shared 8-gram of the user request (shorter requests: identical tokens); a unit with any hit is dropped",
+  "units_with_hit": 207,
+  "items_dropped": 485,
+  "by_source": {
+   "when2call-train": {
+    "e1:ngram": 57,
+    "public_test_pools:ngram": 67,
+    "units_dropped": 69,
+    "e1_dev:ngram": 9,
+    "public_test_pools:exact": 2
+   },
+   "toolace": {
+    "e1:ngram": 118,
+    "public_test_pools:ngram": 138,
+    "units_dropped": 138,
+    "e1_dev:ngram": 5
+   }
+  },
+  "by_target": {
+   "e1": {
+    "exact": 0,
+    "ngram": 175
+   },
+   "e1_dev": {
+    "exact": 0,
+    "ngram": 14
+   },
+   "public_test_pools": {
+    "exact": 2,
+    "ngram": 205
+   }
+  }
+ },
+ "replay": {
+  "path": "data/train_v1/train.jsonl.gz",
+  "sha256": "9c0450c22d63f8b1cd9180c0edc2103a72ed895097ca58a79f4c7ccab93bee0a",
+  "rows_available": 15694,
+  "rows": 7000,
+  "dp": {
+   "tool_params": 2421,
+   "tool_select": 3679,
+   "stop": 900
+  }
+ },
+ "cal_dev": {
+  "v1_dev_rows": 1000,
+  "public_dev_rows": 1000,
+  "v1_dev_sha256": "9301ae530b83f953aafeffe2364e8998e7a6057f5b0cc0410afa890664e30858"
+ },
+ "sha256": {
+  "cal_dev.jsonl.gz": "ccce13bbb0133e7e5b20102d669d9e961c35776265b4589aa2ea7940972d5afb",
+  "dev_args.jsonl.gz": "6475699c94527512cfcbff3ff6874072ec2c3e8d2aa785a6fcfb980d672195ef",
+  "dev_tool.jsonl.gz": "6309585ad58adfb842df9a6064c9a46e562a22f698551b8b01dca50ff3ac7f2f",
+  "dev_w2c.jsonl.gz": "5b70f843c880875509b7235554e98805acb0f20ae59e6162c8b306ee22c7f3ba",
+  "public_dev.jsonl.gz": "49fa7147bf0c115c323020c30bed0f2442b4809efb9a065d33f993b0ebcd4e71",
+  "train_mix.jsonl.gz": "fcdb3b9a9a1f1194ebf2335251d500a75c37dc75ad5d3cafa1229ce71e539521"
+ }
+}

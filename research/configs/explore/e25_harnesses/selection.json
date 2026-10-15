@@ -1,0 +1,36 @@
+{
+  "registered": "docs/PREREG_A7_STAGE2.md, Deviations 2026-10-09 ~01:35 UTC, E25 (c), (d), (e)",
+  "harbor_registry": "laude-institute/harbor@4f848e367e6e2627c2c0b1826bb3b20ceab1198f registry.json",
+  "salts": {
+    "tb": "jev-explore-E25-tb2-2026-10-09",
+    "swe": "jev-explore-E25-swe-agent-2026-10-09"
+  },
+  "rule_tb": "evaluation = all 89 tasks; if the gate cuts, the first K of tb2_order.txt (sha256(salt + newline + name)); smoke = prove-plus-comm, overfull-hbox (development only)",
+  "rule_swe": "the 500 Verified ids ordered by sha256(salt + newline + id): evaluation = the first 100 (or the first n the gate allows), smoke = positions 100 and 101 (never evaluated)",
+  "tb2_tasks.txt": {
+    "n": 89,
+    "sha256": "3778b86071c74c8a342222cfff41089916adb5c7338d1afa69f42c9cae21fe3e"
+  },
+  "tb2_order.txt": {
+    "n": 89,
+    "sha256": "cb8478fe6cadbbe5cd93b9c3f8b986f719226fd7487f9bb7d1737e1b879d0123"
+  },
+  "swe_order.txt": {
+    "n": 500,
+    "sha256": "2a2bdd5e2ecc3c8fea03d250b1cbc950630b85c8c9fc924a191ddeaaa9e4889a"
+  },
+  "swe_eval_ids.txt": {
+    "n": 100,
+    "sha256": "7eae630992228377bdd33bf7aa68a62378ba45698bba7f16430db75d4d5c9e1a"
+  },
+  "swe_smoke_ids.txt": {
+    "n": 2,
+    "sha256": "cf6d176d0008b4c9e073b1130b8f879b66d3886dae3f62314b7ad3d29e642160"
+  },
+  "tb2_smoke_tasks.txt": {
+    "n": 2,
+    "sha256": "9194508708c8f75933cbbcb71b8a8af1677317882a51567ba347db37d6493d47"
+  },
+  "swe_pool_sha256": "a6b0fd7c8c2969a0eef892e032250adcfa6d32362d395c246930e61b575ac9b9",
+  "swe_pool_equals_e4r_pool": true
+}

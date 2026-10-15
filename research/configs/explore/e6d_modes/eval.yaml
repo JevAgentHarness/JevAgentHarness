@@ -1,0 +1,31 @@
+# Exploratory row E6d (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-06 "Exploratory row E6d"; outside both registered
+# stages, descriptive, no test): the seven module-map cells added by E6d (harness/config.py E6D_CELLS; semantics in
+# results/explore/e6d_modes/cells.md), each in its own arm next to the LLM-only reference (routing: Flash-Lite alone),
+# on fresh JevGym seeds 301000..301199 (outside the reserved Stage-2 block 300000..300999, which E6b exhausted; no run,
+# config, training set or dataset uses them: checked against runs/, configs/, results/training/leakage_audit.json).
+# Same evaluation setting as E6b: the frozen suite settings, Gemini 3.5 Flash (minimal reasoning) on the direct API,
+# Jev via OpenRouter. Thresholds fixed a priori: every guard at the Stage-1 guards' tau = 0.5; the assists have none.
+# Run on the CPU box (scripts/aws/e6d_modes.sh): one invocation, all arms task-major interleaved (seed 732), 24 workers
+# (E6b's resumed setting); passes 2-3 re-run infrastructure errors only. A $120 watchdog covers smoke + eval.
+name: e6d_modes
+suite: {name: jevgym, n: 200, seed0: 301000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 200
+llm: {provider: openrouter, model: google/gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}   # OpenRouter route (Deviations addendum 2026-10-06 ~16:30 UTC: direct API overloaded)
+small_llm: {provider: openrouter, model: google/gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}   # routing only
+llms:
+  lite: {provider: openrouter, model: google/gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}      # the pinned Jev endpoint of Stage 1; no System-1 cache (fresh answers)
+workers: 24
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}                                                        # reference of every cell but routing
+  - {name: small_only, llm: lite}                                           # routing reference (Flash-Lite alone, as C4)
+  # "advise" assists: System-1's answer and confidence as a hint to the LLM, which decides
+  - {name: mw_assist, memory_write: {mode: assist}, memory_read: {mode: always}}
+  - {name: rf_assist, reflection: {mode: assist}}
+  - {name: st_assist, stop: {mode: assist}}
+  - {name: rt_assist, routing: {mode: assist}}
+  # guards: the LLM proposes (its gate / its memory selection), System-1 vetoes once when p_yes < 0.5
+  - {name: rf_guard, reflection: {mode: guard, tau: 0.5}}
+  - {name: rt_guard, routing: {mode: guard, tau: 0.5}}
+  - {name: mr_guard, memory_write: {mode: always}, memory_read: {mode: guard, tau: 0.5}}

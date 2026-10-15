@@ -1,0 +1,116 @@
+{
+ "model": "Qwen/Qwen3-0.6B",
+ "gpus": 1,
+ "env": {
+  "python": "3.11.16",
+  "torch": "2.14.1+cu130",
+  "cuda": "13.0",
+  "gpus_visible": 1,
+  "gpu": "NVIDIA L4",
+  "transformers": "5.18.0",
+  "trl": "1.14.1",
+  "peft": "0.21.1",
+  "accelerate": "1.15.0"
+ },
+ "stages": [
+  {
+   "stage": "00-harvest",
+   "rc": "0",
+   "seconds": "0",
+   "log": "runs/smoke_gpu/logs/00-harvest.log",
+   "ok": true
+  },
+  {
+   "stage": "10-sft",
+   "rc": "0",
+   "seconds": "47",
+   "log": "runs/smoke_gpu/logs/10-sft.log",
+   "ok": true
+  },
+  {
+   "stage": "10-eval",
+   "rc": "0",
+   "seconds": "31",
+   "log": "runs/smoke_gpu/logs/10-eval.log",
+   "ok": true
+  },
+  {
+   "stage": "20-teacher",
+   "rc": "0",
+   "seconds": "31",
+   "log": "runs/smoke_gpu/logs/20-teacher.log",
+   "ok": true
+  },
+  {
+   "stage": "30-mc",
+   "rc": "0",
+   "seconds": "1",
+   "log": "runs/smoke_gpu/logs/30-mc.log",
+   "ok": true
+  },
+  {
+   "stage": "40-kl",
+   "rc": "0",
+   "seconds": "28",
+   "log": "runs/smoke_gpu/logs/40-kl.log",
+   "ok": true
+  },
+  {
+   "stage": "50-dpo",
+   "rc": "0",
+   "seconds": "21",
+   "log": "runs/smoke_gpu/logs/50-dpo.log",
+   "ok": true
+  },
+  {
+   "stage": "55-pg",
+   "rc": "0",
+   "seconds": "21",
+   "log": "runs/smoke_gpu/logs/55-pg.log",
+   "ok": true
+  },
+  {
+   "stage": "60-grpo-trl",
+   "rc": "0",
+   "seconds": "15",
+   "log": "runs/smoke_gpu/logs/60-grpo-trl.log",
+   "ok": true
+  },
+  {
+   "stage": "60-grpo-torch",
+   "rc": "0",
+   "seconds": "13",
+   "log": "runs/smoke_gpu/logs/60-grpo-torch.log",
+   "ok": true
+  },
+  {
+   "stage": "70-online",
+   "rc": "0",
+   "seconds": "15",
+   "log": "runs/smoke_gpu/logs/70-online.log",
+   "ok": true
+  },
+  {
+   "stage": "80-distill",
+   "rc": "0",
+   "seconds": "35",
+   "log": "runs/smoke_gpu/logs/80-distill.log",
+   "ok": true
+  },
+  {
+   "stage": "90-serve-r4",
+   "rc": "0",
+   "seconds": "23",
+   "log": "runs/smoke_gpu/logs/90-serve-r4.log",
+   "ok": true
+  },
+  {
+   "stage": "90-serve-r7",
+   "rc": "0",
+   "seconds": "16",
+   "log": "runs/smoke_gpu/logs/90-serve-r7.log",
+   "ok": true
+  }
+ ],
+ "all_ok": true
+}

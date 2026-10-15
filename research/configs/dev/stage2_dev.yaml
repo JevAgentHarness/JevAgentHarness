@@ -1,0 +1,25 @@
+# Stage-2 DEVELOPMENT check (docs/PREREG_A7_STAGE2.md; docs/JEVAGENT_HARNESS.md §6) -- NOT a paper run, never a
+# headline number. JevAgentHarness with the development default profile (configs/harness/jevagent_default.yaml) vs
+# LLM-only on DEVELOPMENT seeds 900..999 (inside 0..999, never used by a pilot or dev round), Jev via OpenRouter, Flash
+# and Flash-Lite System-2. Checks that the composition runs end to end, that the ledger accounts every call, and the
+# direction of success / cost / latency. `jev_ts_cascade_tauhat_dev` is the default profile's tool group alone (the C1F
+# setting), so the composed arm can be read against its single mode. Results: results/stage2_dev/ (development).
+# Ran 2026-10-02 20:23-20:52 UTC at commit b41e906, when the default profile was cascade + stop trigger (Flash) and
+# reflection trigger (Flash-Lite); its sha256 is in every episode's meta.profile. The default was reduced afterwards.
+#   jevbench run configs/dev/stage2_dev.yaml --out runs/stage2_dev -o workers=4
+#   jevbench report runs/stage2_dev/stage2_dev
+name: stage2_dev
+suite: {name: jevgym, n: 100, seed0: 900, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # development seeds 900..999
+n_tasks: 100
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+llms:
+  lite2: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}
+s1_cache: cache/s1_stage2_dev.sqlite
+workers: 4
+arms:
+  - {name: llm_only}
+  - {name: jevagent_default, profile: configs/harness/jevagent_default.yaml}
+  - {name: jev_ts_cascade_tauhat_dev, tool_select: {mode: cascade, tau: 1.0}, tool_params: {mode: cascade, tau: 0.99}}
+  - {name: llm_only_s2lite, llm: lite2}
+  - {name: jevagent_default_s2lite, llm: lite2, profile: configs/harness/jevagent_default.yaml}

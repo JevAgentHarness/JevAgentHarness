@@ -1,0 +1,4037 @@
+{
+ "registered": "docs/PREREG_A7_STAGE2.md A7.14",
+ "table": "configs/harness/control_candidates.yaml",
+ "table_sha256": "81af8e5989cfcdaa41864f44ae56193e884a3a128be22577e0e686ca2e9de44c",
+ "rows": [
+  {
+   "run": "E2a",
+   "config": "configs/experiments/jevgym_tool_select.yaml",
+   "arm": "lite_ts_params_replace",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "replace",
+   "groups": [
+    "tool"
+   ],
+   "s1": {
+    "type": "llm_generative",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash-lite"
+    },
+    "reasoning_effort": "minimal"
+   },
+   "s1_name": "lite",
+   "setting": {
+    "tool_select": {
+     "mode": "replace"
+    },
+    "tool_params": {
+     "mode": "replace"
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 121,
+    "diff": -0.605,
+    "ci95": [
+     -0.675,
+     -0.54
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.395,
+    "mde": 0.1062548604376014
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 2.5811120557188185e-25,
+   "cheaper": true,
+   "cost_arm": 0.027077254499999998,
+   "cost_ref": 0.042941570250000005,
+   "savings": 0.36943958168367175,
+   "savings_ci": [
+    0.30502889710802233,
+    0.42653263485029325
+   ],
+   "latency_saving_s": -17.061628797344866,
+   "llm_calls_avoided": 6.045,
+   "activation": {
+    "statistic": "delegation",
+    "tool_coverage": 1.0,
+    "arg_coverage": 0.8594049904030711,
+    "class": "non-negligible",
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "llm_generative",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash-lite"
+    },
+    "reasoning_effort": "minimal"
+   }
+  },
+  {
+   "run": "E2a",
+   "config": "configs/experiments/jevgym_tool_select.yaml",
+   "arm": "lite_ts_assist_k3",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "assist",
+   "groups": [
+    "tool"
+   ],
+   "s1": {
+    "type": "llm_generative",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash-lite"
+    },
+    "reasoning_effort": "minimal"
+   },
+   "s1_name": "lite",
+   "setting": {
+    "tool_select": {
+     "mode": "assist",
+     "k": 3
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 25,
+    "diff": -0.125,
+    "ci95": [
+     -0.17,
+     -0.08
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.875,
+    "mde": 0.031927599153794235
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 2.2097799055209552e-18,
+   "cheaper": true,
+   "cost_arm": 0.036664431000000004,
+   "cost_ref": 0.042941570250000005,
+   "savings": 0.14617861464905324,
+   "savings_ci": [
+    0.11560510648091539,
+    0.1784911367845989
+   ],
+   "latency_saving_s": -17.685965760085136,
+   "llm_calls_avoided": -0.035,
+   "activation": {
+    "statistic": "strict candidate reductions",
+    "decisions": 1508,
+    "changes": 1508,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "llm_generative",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash-lite"
+    },
+    "reasoning_effort": "minimal"
+   }
+  },
+  {
+   "run": "E2a",
+   "config": "configs/experiments/jevgym_tool_select.yaml",
+   "arm": "lite_ts_guard",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "guard",
+   "groups": [
+    "tool"
+   ],
+   "s1": {
+    "type": "llm_generative",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash-lite"
+    },
+    "reasoning_effort": "minimal"
+   },
+   "s1_name": "lite",
+   "setting": {
+    "tool_select": {
+     "mode": "guard",
+     "tau": 0.5
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 0,
+    "diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "p_decisive": 0.002363326299121377,
+    "rule": "bb_ordered",
+    "ni_95": true,
+    "success_ref": 1.0,
+    "success_arm": 1.0,
+    "mde": null
+   },
+   "p_ni": 0.002363326299121377,
+   "noninferior": true,
+   "p_cheaper": 1.0,
+   "cheaper": false,
+   "cost_arm": 0.05362222425,
+   "cost_ref": 0.042941570250000005,
+   "savings": -0.248725278042202,
+   "savings_ci": [
+    -0.27782351033149816,
+    -0.21972049080615774
+   ],
+   "latency_saving_s": -5.946574490489972,
+   "llm_calls_avoided": -1.395,
+   "activation": {
+    "statistic": "vetoes",
+    "decisions": 1603,
+    "changes": 177,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not cheaper",
+   "s1_run": {
+    "type": "llm_generative",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash-lite"
+    },
+    "reasoning_effort": "minimal"
+   }
+  },
+  {
+   "run": "E2a",
+   "config": "configs/experiments/jevgym_tool_select.yaml",
+   "arm": "embed_ts_assist_k3",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "assist",
+   "groups": [
+    "tool"
+   ],
+   "s1": {
+    "type": "embedding",
+    "provider": "gemini",
+    "model": "gemini-embedding-001"
+   },
+   "s1_name": "embed",
+   "setting": {
+    "tool_select": {
+     "mode": "assist",
+     "k": 3
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 144,
+    "diff": -0.72,
+    "ci95": [
+     -0.78,
+     -0.655
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.28,
+    "mde": 0.1186308395499801
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 2.8529041217370387e-85,
+   "cheaper": true,
+   "cost_arm": 0.00924400725,
+   "cost_ref": 0.042941570250000005,
+   "savings": 0.7847305723525562,
+   "savings_ci": [
+    0.7527571986787801,
+    0.8155216397107352
+   ],
+   "latency_saving_s": 3.3072678407301193,
+   "llm_calls_avoided": 2.685,
+   "activation": {
+    "statistic": "strict candidate reductions",
+    "decisions": 964,
+    "changes": 964,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "embedding",
+    "provider": "gemini",
+    "model": "gemini-embedding-001"
+   }
+  },
+  {
+   "run": "E2a",
+   "config": "configs/experiments/jevgym_tool_select.yaml",
+   "arm": "lite_ts_cascade_tau0.7",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "cascade",
+   "groups": [
+    "tool"
+   ],
+   "s1": {
+    "type": "llm_generative",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash-lite"
+    },
+    "reasoning_effort": "minimal"
+   },
+   "s1_name": "lite",
+   "setting": {
+    "tool_select": {
+     "mode": "cascade",
+     "tau": 0.7
+    },
+    "tool_params": {
+     "mode": "cascade",
+     "tau": 0.9
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 115,
+    "diff": -0.575,
+    "ci95": [
+     -0.645,
+     -0.51
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.425,
+    "mde": 0.10283640182849825
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 2.082236666459933e-33,
+   "cheaper": true,
+   "cost_arm": 0.026656354249999997,
+   "cost_ref": 0.042941570250000005,
+   "savings": 0.37924127844393407,
+   "savings_ci": [
+    0.32711682225791155,
+    0.42813716506867927
+   ],
+   "latency_saving_s": -17.576693329924964,
+   "llm_calls_avoided": 6.055,
+   "activation": {
+    "statistic": "delegation",
+    "tool_coverage": 0.9991909385113269,
+    "arg_coverage": 0.8397403894158761,
+    "class": "non-negligible",
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "llm_generative",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash-lite"
+    },
+    "reasoning_effort": "minimal"
+   }
+  },
+  {
+   "run": "E2a",
+   "config": "configs/experiments/jevgym_tool_select.yaml",
+   "arm": "lite_ts_cascade_tau0.9",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "cascade",
+   "groups": [
+    "tool"
+   ],
+   "s1": {
+    "type": "llm_generative",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash-lite"
+    },
+    "reasoning_effort": "minimal"
+   },
+   "s1_name": "lite",
+   "setting": {
+    "tool_select": {
+     "mode": "cascade",
+     "tau": 0.9
+    },
+    "tool_params": {
+     "mode": "cascade",
+     "tau": 0.9
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 113,
+    "diff": -0.565,
+    "ci95": [
+     -0.635,
+     -0.5
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.435,
+    "mde": 0.1016771485987939
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 1.2482695322255796e-45,
+   "cheaper": true,
+   "cost_arm": 0.026295240249999997,
+   "cost_ref": 0.042941570250000005,
+   "savings": 0.3876507054373496,
+   "savings_ci": [
+    0.34638023015532804,
+    0.4289263474368822
+   ],
+   "latency_saving_s": -16.29946616896497,
+   "llm_calls_avoided": 6.09,
+   "activation": {
+    "statistic": "delegation",
+    "tool_coverage": 0.9833610648918469,
+    "arg_coverage": 0.8370786516853933,
+    "class": "non-negligible",
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "llm_generative",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash-lite"
+    },
+    "reasoning_effort": "minimal"
+   }
+  },
+  {
+   "run": "E2a",
+   "config": "configs/experiments/jevgym_tool_select.yaml",
+   "arm": "lite_ts_cascade_tau0.99",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "cascade",
+   "groups": [
+    "tool"
+   ],
+   "s1": {
+    "type": "llm_generative",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash-lite"
+    },
+    "reasoning_effort": "minimal"
+   },
+   "s1_name": "lite",
+   "setting": {
+    "tool_select": {
+     "mode": "cascade",
+     "tau": 0.99
+    },
+    "tool_params": {
+     "mode": "cascade",
+     "tau": 0.9
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 50,
+    "diff": -0.25,
+    "ci95": [
+     -0.31,
+     -0.19
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.75,
+    "mde": 0.05760723490416707
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 0.6259997646755068,
+   "cheaper": false,
+   "cost_arm": 0.043237659500000004,
+   "cost_ref": 0.042941570250000005,
+   "savings": -0.0068951658795011195,
+   "savings_ci": [
+    -0.047655025316112085,
+    0.03236355161831918
+   ],
+   "latency_saving_s": -19.020452751070014,
+   "llm_calls_avoided": 3.195,
+   "activation": {
+    "statistic": "delegation",
+    "tool_coverage": 0.4996410624551328,
+    "arg_coverage": 0.43713904931141717,
+    "class": "non-negligible",
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior, not cheaper",
+   "s1_run": {
+    "type": "llm_generative",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash-lite"
+    },
+    "reasoning_effort": "minimal"
+   }
+  },
+  {
+   "run": "E2b",
+   "config": "configs/experiments/jevgym_meta_control.yaml",
+   "arm": "small_only",
+   "reference": "llm_only",
+   "n": 500,
+   "intervention": "llm_swap",
+   "groups": [],
+   "s1": null,
+   "s1_name": null,
+   "setting": {},
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 500,
+   "n_pairs": 500,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 500,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 500,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 500,
+    "wins": 1,
+    "losses": 96,
+    "diff": -0.19,
+    "ci95": [
+     -0.226,
+     -0.156
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 0.998,
+    "success_arm": 0.808,
+    "mde": 0.01888738387946914
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 1.2342217323141078e-232,
+   "cheaper": true,
+   "cost_arm": 0.0098073042,
+   "cost_ref": 0.040817852099999996,
+   "savings": 0.7597300275386122,
+   "savings_ci": [
+    0.7572871830841708,
+    0.7620077153359008
+   ],
+   "latency_saving_s": 6.669766629407959,
+   "llm_calls_avoided": -0.052,
+   "activation": {
+    "statistic": "void",
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior"
+  },
+  {
+   "run": "E2b",
+   "config": "configs/experiments/jevgym_meta_control.yaml",
+   "arm": "lite_route",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "trigger",
+   "groups": [
+    "routing"
+   ],
+   "s1": {
+    "type": "llm_generative",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash-lite"
+    },
+    "reasoning_effort": "minimal"
+   },
+   "s1_name": "lite",
+   "setting": {
+    "routing": {
+     "mode": "trigger",
+     "tau": 0.5
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 30,
+    "diff": -0.15,
+    "ci95": [
+     -0.2,
+     -0.1
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.85,
+    "mde": 0.037849249791987304
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 3.286071063164371e-92,
+   "cheaper": true,
+   "cost_arm": 0.01441963475,
+   "cost_ref": 0.040608665999999995,
+   "savings": 0.6449123753535759,
+   "savings_ci": [
+    0.6344571954152334,
+    0.6545905357120875
+   ],
+   "latency_saving_s": 1.9306178637751008,
+   "llm_calls_avoided": -0.05,
+   "activation": {
+    "statistic": "state changes",
+    "decisions": 1511,
+    "changes": 1415,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "llm_generative",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash-lite"
+    },
+    "reasoning_effort": "minimal"
+   }
+  },
+  {
+   "run": "E2b",
+   "config": "configs/experiments/jevgym_meta_control.yaml",
+   "arm": "lite_stop_guard",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "guard",
+   "groups": [
+    "stop"
+   ],
+   "s1": {
+    "type": "llm_generative",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash-lite"
+    },
+    "reasoning_effort": "minimal"
+   },
+   "s1_name": "lite",
+   "setting": {
+    "stop": {
+     "mode": "guard",
+     "tau": 0.5
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 1,
+    "diff": -0.005,
+    "ci95": [
+     -0.015,
+     0.0
+    ],
+    "p_decisive": 0.01636141962915501,
+    "rule": "bb_ordered",
+    "ni_95": true,
+    "success_ref": 1.0,
+    "success_arm": 0.995,
+    "mde": -0.018490931188353234
+   },
+   "p_ni": 0.01636141962915501,
+   "noninferior": true,
+   "p_cheaper": 0.9678236451427508,
+   "cheaper": false,
+   "cost_arm": 0.042433120500000004,
+   "cost_ref": 0.040608665999999995,
+   "savings": -0.04492771321274169,
+   "savings_ci": [
+    -0.09659307142941811,
+    -0.007153256633053969
+   ],
+   "latency_saving_s": 3.0687859561498545,
+   "llm_calls_avoided": -0.25,
+   "activation": {
+    "statistic": "vetoes",
+    "decisions": 251,
+    "changes": 52,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not cheaper",
+   "s1_run": {
+    "type": "llm_generative",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash-lite"
+    },
+    "reasoning_effort": "minimal"
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "lite_ts_assist_k3",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "assist",
+   "groups": [
+    "tool"
+   ],
+   "s1": {
+    "type": "llm_generative",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash-lite"
+    },
+    "reasoning_effort": "minimal"
+   },
+   "s1_name": "lite",
+   "setting": {
+    "tool_select": {
+     "mode": "assist",
+     "k": 3
+    }
+   },
+   "duplicate_of": "E2a:lite_ts_assist_k3",
+   "qualifies": false,
+   "fate": "not read: duplicate of E2a:lite_ts_assist_k3 (A7.14 (a))"
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "embed_ts_assist_k3",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "assist",
+   "groups": [
+    "tool"
+   ],
+   "s1": {
+    "type": "embedding",
+    "provider": "gemini",
+    "model": "gemini-embedding-001"
+   },
+   "s1_name": "embed",
+   "setting": {
+    "tool_select": {
+     "mode": "assist",
+     "k": 3
+    }
+   },
+   "duplicate_of": "E2a:embed_ts_assist_k3",
+   "qualifies": false,
+   "fate": "not read: duplicate of E2a:embed_ts_assist_k3 (A7.14 (a))"
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "bm25_ts_assist_k3",
+   "reference": "llm_only",
+   "n": 500,
+   "intervention": "assist",
+   "groups": [
+    "tool"
+   ],
+   "s1": {
+    "type": "bm25"
+   },
+   "s1_name": "bm25",
+   "setting": {
+    "tool_select": {
+     "mode": "assist",
+     "k": 3
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 166,
+    "diff": -0.83,
+    "ci95": [
+     -0.88,
+     -0.775
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.17,
+    "mde": 0.12957133092976486
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 1.5211442297080577e-27,
+   "cheaper": true,
+   "cost_arm": 0.015277775999999998,
+   "cost_ref": 0.04093566225,
+   "savings": 0.626785664130791,
+   "savings_ci": [
+    0.5397895493115525,
+    0.7057072685920749
+   ],
+   "latency_saving_s": 9.243376712849972,
+   "llm_calls_avoided": -0.055,
+   "activation": {
+    "statistic": "strict candidate reductions",
+    "decisions": 3908,
+    "changes": 3908,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "bm25"
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "bm25task_ts_assist_k3",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "assist",
+   "groups": [
+    "tool"
+   ],
+   "s1": {
+    "type": "bm25",
+    "query_mode": "task_obs"
+   },
+   "s1_name": "bm25_task",
+   "setting": {
+    "tool_select": {
+     "mode": "assist",
+     "k": 3
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 151,
+    "diff": -0.755,
+    "ci95": [
+     -0.81,
+     -0.695
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.245,
+    "mde": 0.12219741147014358
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 2.014814521266144e-38,
+   "cheaper": true,
+   "cost_arm": 0.014952680250000001,
+   "cost_ref": 0.04093566225,
+   "savings": 0.6347272908721538,
+   "savings_ci": [
+    0.5708723846818673,
+    0.694675315422242
+   ],
+   "latency_saving_s": 8.113810523999954,
+   "llm_calls_avoided": -1.285,
+   "activation": {
+    "statistic": "strict candidate reductions",
+    "decisions": 1757,
+    "changes": 1757,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "bm25",
+    "query_mode": "task_obs"
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "tfidf_ts_assist_k3",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "assist",
+   "groups": [
+    "tool"
+   ],
+   "s1": {
+    "type": "tfidf"
+   },
+   "s1_name": "tfidf",
+   "setting": {
+    "tool_select": {
+     "mode": "assist",
+     "k": 3
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 134,
+    "diff": -0.67,
+    "ci95": [
+     -0.73,
+     -0.605
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.33,
+    "mde": 0.11338158481274692
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 4.122199587115788e-52,
+   "cheaper": true,
+   "cost_arm": 0.013444582499999998,
+   "cost_ref": 0.04093566225,
+   "savings": 0.6715679737170981,
+   "savings_ci": [
+    0.616585708046248,
+    0.7209210110706317
+   ],
+   "latency_saving_s": 9.598962625145074,
+   "llm_calls_avoided": 0.19,
+   "activation": {
+    "statistic": "strict candidate reductions",
+    "decisions": 1462,
+    "changes": 1462,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "tfidf"
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "heuristic_ts_assist_k3",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "assist",
+   "groups": [
+    "tool"
+   ],
+   "s1": {
+    "type": "heuristic"
+   },
+   "s1_name": "heuristic",
+   "setting": {
+    "tool_select": {
+     "mode": "assist",
+     "k": 3
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 138,
+    "diff": -0.69,
+    "ci95": [
+     -0.75,
+     -0.625
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.31,
+    "mde": 0.11550406248488915
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 4.333121460060679e-24,
+   "cheaper": true,
+   "cost_arm": 0.018089100749999996,
+   "cost_ref": 0.04093566225,
+   "savings": 0.5581089994458317,
+   "savings_ci": [
+    0.4706406980710405,
+    0.6361049451246639
+   ],
+   "latency_saving_s": 8.173197877815008,
+   "llm_calls_avoided": -1.85,
+   "activation": {
+    "statistic": "strict candidate reductions",
+    "decisions": 1870,
+    "changes": 1870,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "heuristic"
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "random_ts_assist_k3",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "assist",
+   "groups": [
+    "tool"
+   ],
+   "s1": {
+    "type": "rate",
+    "rate": 0.5,
+    "seed": 0
+   },
+   "s1_name": "rate50",
+   "setting": {
+    "tool_select": {
+     "mode": "assist",
+     "k": 3
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 188,
+    "diff": -0.94,
+    "ci95": [
+     -0.97,
+     -0.905
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.06,
+    "mde": 0.13980709795666862
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 0.018005335019532366,
+   "cheaper": true,
+   "cost_arm": 0.03580371,
+   "cost_ref": 0.04093566225,
+   "savings": 0.12536629354274087,
+   "savings_ci": [
+    0.008394729517227103,
+    0.2400962669293263
+   ],
+   "latency_saving_s": 4.439427448485061,
+   "llm_calls_avoided": -7.345,
+   "activation": {
+    "statistic": "strict candidate reductions",
+    "decisions": 2969,
+    "changes": 2969,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "rate",
+    "rate": 0.5,
+    "seed": 0
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "s2self_ts_assist_k3",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "assist",
+   "groups": [
+    "tool"
+   ],
+   "s1": {
+    "type": "s2_self",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash"
+    },
+    "reasoning_effort": "minimal"
+   },
+   "s1_name": "s2self",
+   "setting": {
+    "tool_select": {
+     "mode": "assist",
+     "k": 3
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 11,
+    "diff": -0.055,
+    "ci95": [
+     -0.085,
+     -0.025
+    ],
+    "p_decisive": 0.9826579203048761,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.945,
+    "mde": 0.010994082070235145
+   },
+   "p_ni": 0.9826579203048761,
+   "noninferior": false,
+   "p_cheaper": 1.0,
+   "cheaper": false,
+   "cost_arm": 0.107199855,
+   "cost_ref": 0.04093566225,
+   "savings": -1.618739971649048,
+   "savings_ci": [
+    -1.7065613308084662,
+    -1.5380962033833678
+   ],
+   "latency_saving_s": -27.945232891100247,
+   "llm_calls_avoided": -0.37,
+   "activation": {
+    "statistic": "strict candidate reductions",
+    "decisions": 1574,
+    "changes": 1574,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior, not cheaper",
+   "s1_run": {
+    "type": "s2_self",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash"
+    },
+    "reasoning_effort": "minimal"
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "lite_ts_replace",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "replace",
+   "groups": [
+    "tool"
+   ],
+   "s1": {
+    "type": "llm_generative",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash-lite"
+    },
+    "reasoning_effort": "minimal"
+   },
+   "s1_name": "lite",
+   "setting": {
+    "tool_select": {
+     "mode": "replace"
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 117,
+    "diff": -0.585,
+    "ci95": [
+     -0.655,
+     -0.52
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.415,
+    "mde": 0.10398560194462626
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 7.108892955500021e-46,
+   "cheaper": true,
+   "cost_arm": 0.024203663,
+   "cost_ref": 0.04093566225,
+   "savings": 0.40873894131271804,
+   "savings_ci": [
+    0.36387909835851207,
+    0.4533774306443467
+   ],
+   "latency_saving_s": -3.5537311968150913,
+   "llm_calls_avoided": 1.835,
+   "activation": {
+    "statistic": "delegation",
+    "tool_coverage": 1.0,
+    "arg_coverage": 0.0,
+    "class": "non-negligible",
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "llm_generative",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash-lite"
+    },
+    "reasoning_effort": "minimal"
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "embed_ts_replace",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "replace",
+   "groups": [
+    "tool"
+   ],
+   "s1": {
+    "type": "embedding",
+    "provider": "gemini",
+    "model": "gemini-embedding-001"
+   },
+   "s1_name": "embed",
+   "setting": {
+    "tool_select": {
+     "mode": "replace"
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 200,
+    "diff": -1.0,
+    "ci95": [
+     -1.0,
+     -1.0
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.0,
+    "mde": 0.14513783094930796
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 5.346197081272858e-35,
+   "cheaper": true,
+   "cost_arm": 0.008705242499999998,
+   "cost_ref": 0.04093566225,
+   "savings": 0.7873433084620489,
+   "savings_ci": [
+    0.6981473662842638,
+    0.862005233466963
+   ],
+   "latency_saving_s": 10.49626898348,
+   "llm_calls_avoided": 3.215,
+   "activation": {
+    "statistic": "delegation",
+    "tool_coverage": 1.0,
+    "arg_coverage": 0.0,
+    "class": "non-negligible",
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "embedding",
+    "provider": "gemini",
+    "model": "gemini-embedding-001"
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "bm25_ts_replace",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "replace",
+   "groups": [
+    "tool"
+   ],
+   "s1": {
+    "type": "bm25"
+   },
+   "s1_name": "bm25",
+   "setting": {
+    "tool_select": {
+     "mode": "replace"
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 175,
+    "diff": -0.875,
+    "ci95": [
+     -0.92,
+     -0.825
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.125,
+    "mde": 0.1338361501023329
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 8.083355714308772e-22,
+   "cheaper": true,
+   "cost_arm": 0.015003120000000002,
+   "cost_ref": 0.04093566225,
+   "savings": 0.6334951195274725,
+   "savings_ci": [
+    0.5372031518735834,
+    0.7182919560992752
+   ],
+   "latency_saving_s": 8.64937284995494,
+   "llm_calls_avoided": -1.235,
+   "activation": {
+    "statistic": "delegation",
+    "tool_coverage": 1.0,
+    "arg_coverage": 0.0,
+    "class": "non-negligible",
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "bm25"
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "tfidf_ts_replace",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "replace",
+   "groups": [
+    "tool"
+   ],
+   "s1": {
+    "type": "tfidf"
+   },
+   "s1_name": "tfidf",
+   "setting": {
+    "tool_select": {
+     "mode": "replace"
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 175,
+    "diff": -0.875,
+    "ci95": [
+     -0.92,
+     -0.825
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.125,
+    "mde": 0.1338361501023329
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 1.9956021732279612e-10,
+   "cheaper": true,
+   "cost_arm": 0.01868097675,
+   "cost_ref": 0.04093566225,
+   "savings": 0.5436503106774582,
+   "savings_ci": [
+    0.3890698085232117,
+    0.6767661275211482
+   ],
+   "latency_saving_s": 8.771154208465028,
+   "llm_calls_avoided": 0.26,
+   "activation": {
+    "statistic": "delegation",
+    "tool_coverage": 1.0,
+    "arg_coverage": 0.0,
+    "class": "non-negligible",
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "tfidf"
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "heuristic_ts_replace",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "replace",
+   "groups": [
+    "tool"
+   ],
+   "s1": {
+    "type": "heuristic"
+   },
+   "s1_name": "heuristic",
+   "setting": {
+    "tool_select": {
+     "mode": "replace"
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 175,
+    "diff": -0.875,
+    "ci95": [
+     -0.92,
+     -0.825
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.125,
+    "mde": 0.1338361501023329
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 2.2363604790489715e-98,
+   "cheaper": true,
+   "cost_arm": 0.0017451975000000004,
+   "cost_ref": 0.04093566225,
+   "savings": 0.957367307524138,
+   "savings_ci": [
+    0.955220901099933,
+    0.9593303665518854
+   ],
+   "latency_saving_s": 13.306540065670001,
+   "llm_calls_avoided": 5.375,
+   "activation": {
+    "statistic": "delegation",
+    "tool_coverage": 1.0,
+    "arg_coverage": 0.0,
+    "class": "non-negligible",
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "heuristic"
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "prior_recent_ts_replace",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "replace",
+   "groups": [
+    "tool"
+   ],
+   "s1": {
+    "type": "prior",
+    "rule": "recent"
+   },
+   "s1_name": "prior_recent",
+   "setting": {
+    "tool_select": {
+     "mode": "replace"
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 200,
+    "diff": -1.0,
+    "ci95": [
+     -1.0,
+     -1.0
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.0,
+    "mde": 0.14513783094930796
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 0.4208327818009282,
+   "cheaper": false,
+   "cost_arm": 0.04039609275,
+   "cost_ref": 0.04093566225,
+   "savings": 0.013180915376542979,
+   "savings_ci": [
+    -0.12013716477552917,
+    0.13641578888664344
+   ],
+   "latency_saving_s": -4.0270228132900465,
+   "llm_calls_avoided": -14.09,
+   "activation": {
+    "statistic": "delegation",
+    "tool_coverage": 1.0,
+    "arg_coverage": 0.0,
+    "class": "non-negligible",
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior, not cheaper",
+   "s1_run": {
+    "type": "prior",
+    "rule": "recent"
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "random_ts_replace",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "replace",
+   "groups": [
+    "tool"
+   ],
+   "s1": {
+    "type": "rate",
+    "rate": 0.5,
+    "seed": 0
+   },
+   "s1_name": "rate50",
+   "setting": {
+    "tool_select": {
+     "mode": "replace"
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 200,
+    "diff": -1.0,
+    "ci95": [
+     -1.0,
+     -1.0
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.0,
+    "mde": 0.14513783094930796
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 1.389870999652989e-94,
+   "cheaper": true,
+   "cost_arm": 0.0029963850000000003,
+   "cost_ref": 0.04093566225,
+   "savings": 0.9268025766457461,
+   "savings_ci": [
+    0.9118879031072716,
+    0.9394575959050646
+   ],
+   "latency_saving_s": 12.466203545704934,
+   "llm_calls_avoided": 4.17,
+   "activation": {
+    "statistic": "delegation",
+    "tool_coverage": 1.0,
+    "arg_coverage": 0.0,
+    "class": "non-negligible",
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "rate",
+    "rate": 0.5,
+    "seed": 0
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "rate10_reflect_trigger",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "trigger",
+   "groups": [
+    "reflection"
+   ],
+   "s1": {
+    "type": "rate",
+    "rate": 0.1,
+    "seed": 0
+   },
+   "s1_name": "rate10",
+   "setting": {
+    "reflection": {
+     "mode": "trigger",
+     "tau": 0.5
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 0,
+    "diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "p_decisive": 0.002363326299121377,
+    "rule": "bb_ordered",
+    "ni_95": true,
+    "success_ref": 1.0,
+    "success_arm": 1.0,
+    "mde": null
+   },
+   "p_ni": 0.002363326299121377,
+   "noninferior": true,
+   "p_cheaper": 0.99999992898349,
+   "cheaper": false,
+   "cost_arm": 0.04234242225,
+   "cost_ref": 0.04093566225,
+   "savings": -0.03436514575991745,
+   "savings_ci": [
+    -0.04630389431376475,
+    -0.022822723978588234
+   ],
+   "latency_saving_s": 6.809078434419751,
+   "llm_calls_avoided": -0.595,
+   "activation": {
+    "statistic": "state changes",
+    "decisions": 1306,
+    "changes": 113,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not cheaper",
+   "s1_run": {
+    "type": "rate",
+    "rate": 0.1,
+    "seed": 0
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "rate30_reflect_trigger",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "trigger",
+   "groups": [
+    "reflection"
+   ],
+   "s1": {
+    "type": "rate",
+    "rate": 0.3,
+    "seed": 0
+   },
+   "s1_name": "rate30",
+   "setting": {
+    "reflection": {
+     "mode": "trigger",
+     "tau": 0.5
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 2,
+    "diff": -0.01,
+    "ci95": [
+     -0.025,
+     0.0
+    ],
+    "p_decisive": 0.059434274662800116,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.99,
+    "mde": -0.013004229474081811
+   },
+   "p_ni": 0.059434274662800116,
+   "noninferior": false,
+   "p_cheaper": 1.0,
+   "cheaper": false,
+   "cost_arm": 0.04606700475,
+   "cost_ref": 0.04093566225,
+   "savings": -0.12535139821757757,
+   "savings_ci": [
+    -0.1494542068820533,
+    -0.10249591167017458
+   ],
+   "latency_saving_s": 5.502769607500035,
+   "llm_calls_avoided": -2.07,
+   "activation": {
+    "statistic": "state changes",
+    "decisions": 1316,
+    "changes": 398,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior, not cheaper",
+   "s1_run": {
+    "type": "rate",
+    "rate": 0.3,
+    "seed": 0
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "rate50_reflect_trigger",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "trigger",
+   "groups": [
+    "reflection"
+   ],
+   "s1": {
+    "type": "rate",
+    "rate": 0.5,
+    "seed": 0
+   },
+   "s1_name": "rate50",
+   "setting": {
+    "reflection": {
+     "mode": "trigger",
+     "tau": 0.5
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 3,
+    "diff": -0.015,
+    "ci95": [
+     -0.035,
+     0.0
+    ],
+    "p_decisive": 0.15505227781707945,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.985,
+    "mde": -0.008919807505029702
+   },
+   "p_ni": 0.15505227781707945,
+   "noninferior": false,
+   "p_cheaper": 1.0,
+   "cheaper": false,
+   "cost_arm": 0.050744457,
+   "cost_ref": 0.04093566225,
+   "savings": -0.23961490326200852,
+   "savings_ci": [
+    -0.27140659225247343,
+    -0.20679283389153644
+   ],
+   "latency_saving_s": 3.884285062859384,
+   "llm_calls_avoided": -3.415,
+   "activation": {
+    "statistic": "state changes",
+    "decisions": 1326,
+    "changes": 657,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior, not cheaper",
+   "s1_run": {
+    "type": "rate",
+    "rate": 0.5,
+    "seed": 0
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "heuristic_reflect_trigger",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "trigger",
+   "groups": [
+    "reflection"
+   ],
+   "s1": {
+    "type": "heuristic"
+   },
+   "s1_name": "heuristic",
+   "setting": {
+    "reflection": {
+     "mode": "trigger",
+     "tau": 0.5
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 0,
+    "diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "p_decisive": 0.002363326299121377,
+    "rule": "bb_ordered",
+    "ni_95": true,
+    "success_ref": 1.0,
+    "success_arm": 1.0,
+    "mde": null
+   },
+   "p_ni": 0.002363326299121377,
+   "noninferior": true,
+   "p_cheaper": 0.05483760181903907,
+   "cheaper": false,
+   "cost_arm": 0.040696569,
+   "cost_ref": 0.04093566225,
+   "savings": 0.005840708000271699,
+   "savings_ci": [
+    -0.0009236120798175151,
+    0.012823856497923393
+   ],
+   "latency_saving_s": 6.414828629049783,
+   "llm_calls_avoided": -0.01,
+   "activation": {
+    "statistic": "state changes",
+    "decisions": 1301,
+    "changes": 1,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not cheaper",
+   "s1_run": {
+    "type": "heuristic"
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "s2self_reflect_trigger",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "trigger",
+   "groups": [
+    "reflection"
+   ],
+   "s1": {
+    "type": "s2_self",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash"
+    },
+    "reasoning_effort": "minimal"
+   },
+   "s1_name": "s2self",
+   "setting": {
+    "reflection": {
+     "mode": "trigger",
+     "tau": 0.5
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 0,
+    "diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "p_decisive": 0.002363326299121377,
+    "rule": "bb_ordered",
+    "ni_95": true,
+    "success_ref": 1.0,
+    "success_arm": 1.0,
+    "mde": null
+   },
+   "p_ni": 0.002363326299121377,
+   "noninferior": true,
+   "p_cheaper": 1.0,
+   "cheaper": false,
+   "cost_arm": 0.052812791250000005,
+   "cost_ref": 0.04093566225,
+   "savings": -0.29014136689580505,
+   "savings_ci": [
+    -0.3042980211752357,
+    -0.27531497760672186
+   ],
+   "latency_saving_s": 2.393085310455066,
+   "llm_calls_avoided": -0.17,
+   "activation": {
+    "statistic": "state changes",
+    "decisions": 1303,
+    "changes": 31,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not cheaper",
+   "s1_run": {
+    "type": "s2_self",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash"
+    },
+    "reasoning_effort": "minimal"
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "rate10_stop_trigger",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "trigger",
+   "groups": [
+    "stop"
+   ],
+   "s1": {
+    "type": "rate",
+    "rate": 0.1,
+    "seed": 0
+   },
+   "s1_name": "rate10",
+   "setting": {
+    "stop": {
+     "mode": "trigger",
+     "tau": 0.9
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 99,
+    "diff": -0.495,
+    "ci95": [
+     -0.5601250000000001,
+     -0.425
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.505,
+    "mde": 0.09325669265975962
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 2.872941959389854e-22,
+   "cheaper": true,
+   "cost_arm": 0.029205845249999998,
+   "cost_ref": 0.04093566225,
+   "savings": 0.2865427442791646,
+   "savings_ci": [
+    0.24021346959837572,
+    0.3323908077653471
+   ],
+   "latency_saving_s": 9.71378282337952,
+   "llm_calls_avoided": 1.725,
+   "activation": {
+    "statistic": "state changes",
+    "decisions": 955,
+    "changes": 99,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "rate",
+    "rate": 0.1,
+    "seed": 0
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "heuristic_stop_trigger",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "trigger",
+   "groups": [
+    "stop"
+   ],
+   "s1": {
+    "type": "heuristic"
+   },
+   "s1_name": "heuristic",
+   "setting": {
+    "stop": {
+     "mode": "trigger",
+     "tau": 0.9
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 100,
+    "diff": -0.5,
+    "ci95": [
+     -0.565,
+     -0.43
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.5,
+    "mde": 0.09387718526448022
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 5.2647139995765594e-24,
+   "cheaper": true,
+   "cost_arm": 0.03107969325,
+   "cost_ref": 0.04093566225,
+   "savings": 0.24076730308668692,
+   "savings_ci": [
+    0.2064135827498099,
+    0.2756813580555982
+   ],
+   "latency_saving_s": 9.28289262381992,
+   "llm_calls_avoided": 1.455,
+   "activation": {
+    "statistic": "state changes",
+    "decisions": 1009,
+    "changes": 100,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "heuristic"
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "rate50_stop_guard",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "guard",
+   "groups": [
+    "stop"
+   ],
+   "s1": {
+    "type": "rate",
+    "rate": 0.5,
+    "seed": 0
+   },
+   "s1_name": "rate50",
+   "setting": {
+    "stop": {
+     "mode": "guard",
+     "tau": 0.5
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 0,
+    "diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "p_decisive": 0.002363326299121377,
+    "rule": "bb_ordered",
+    "ni_95": true,
+    "success_ref": 1.0,
+    "success_arm": 1.0,
+    "mde": null
+   },
+   "p_ni": 0.002363326299121377,
+   "noninferior": true,
+   "p_cheaper": 1.0,
+   "cheaper": false,
+   "cost_arm": 0.04635025649999999,
+   "cost_ref": 0.04093566225,
+   "savings": -0.13227083555976904,
+   "savings_ci": [
+    -0.15854521223944476,
+    -0.10552210161018737
+   ],
+   "latency_saving_s": 2.9697834610449116,
+   "llm_calls_avoided": -0.925,
+   "activation": {
+    "statistic": "vetoes",
+    "decisions": 385,
+    "changes": 185,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not cheaper",
+   "s1_run": {
+    "type": "rate",
+    "rate": 0.5,
+    "seed": 0
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "heuristic_stop_guard",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "guard",
+   "groups": [
+    "stop"
+   ],
+   "s1": {
+    "type": "heuristic"
+   },
+   "s1_name": "heuristic",
+   "setting": {
+    "stop": {
+     "mode": "guard",
+     "tau": 0.5
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 0,
+    "diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "p_decisive": 0.002363326299121377,
+    "rule": "bb_ordered",
+    "ni_95": true,
+    "success_ref": 1.0,
+    "success_arm": 1.0,
+    "mde": null
+   },
+   "p_ni": 0.002363326299121377,
+   "noninferior": true,
+   "p_cheaper": 0.0007249683698088355,
+   "cheaper": true,
+   "cost_arm": 0.04048744425,
+   "cost_ref": 0.04093566225,
+   "savings": 0.010949328174115425,
+   "savings_ci": [
+    0.004572656399543062,
+    0.017747621852992838
+   ],
+   "latency_saving_s": 4.986291966114753,
+   "llm_calls_avoided": -0.005,
+   "activation": {
+    "statistic": "vetoes",
+    "decisions": 200,
+    "changes": 0,
+    "active": false
+   },
+   "active": false,
+   "fate": "not qualified: not active",
+   "s1_run": {
+    "type": "heuristic"
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "lite_route",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "trigger",
+   "groups": [
+    "routing"
+   ],
+   "s1": {
+    "type": "llm_generative",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash-lite"
+    },
+    "reasoning_effort": "minimal"
+   },
+   "s1_name": "lite",
+   "setting": {
+    "routing": {
+     "mode": "trigger",
+     "tau": 0.5
+    }
+   },
+   "duplicate_of": "E2b:lite_route",
+   "qualifies": false,
+   "fate": "not read: duplicate of E2b:lite_route (A7.14 (a))"
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "rate10_route",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "trigger",
+   "groups": [
+    "routing"
+   ],
+   "s1": {
+    "type": "rate",
+    "rate": 0.1,
+    "seed": 0
+   },
+   "s1_name": "rate10",
+   "setting": {
+    "routing": {
+     "mode": "trigger",
+     "tau": 0.5
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 34,
+    "diff": -0.17,
+    "ci95": [
+     -0.22,
+     -0.12
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.83,
+    "mde": 0.04223638584325655
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 1.8158692958944924e-86,
+   "cheaper": true,
+   "cost_arm": 0.01315996615,
+   "cost_ref": 0.04093566225,
+   "savings": 0.67852074629622,
+   "savings_ci": [
+    0.66367428732085,
+    0.6917365836521222
+   ],
+   "latency_saving_s": 8.897117566794881,
+   "llm_calls_avoided": -0.05,
+   "activation": {
+    "statistic": "state changes",
+    "decisions": 1510,
+    "changes": 1339,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "rate",
+    "rate": 0.1,
+    "seed": 0
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "rate30_route",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "trigger",
+   "groups": [
+    "routing"
+   ],
+   "s1": {
+    "type": "rate",
+    "rate": 0.3,
+    "seed": 0
+   },
+   "s1_name": "rate30",
+   "setting": {
+    "routing": {
+     "mode": "trigger",
+     "tau": 0.5
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 27,
+    "diff": -0.135,
+    "ci95": [
+     -0.185,
+     -0.09
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.865,
+    "mde": 0.03436199233089825
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 6.372179416816941e-79,
+   "cheaper": true,
+   "cost_arm": 0.01931714545,
+   "cost_ref": 0.04093566225,
+   "savings": 0.5281096142520572,
+   "savings_ci": [
+    0.5106591848297005,
+    0.5456216229567623
+   ],
+   "latency_saving_s": 8.052581432129912,
+   "llm_calls_avoided": -0.04,
+   "activation": {
+    "statistic": "state changes",
+    "decisions": 1508,
+    "changes": 1041,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "rate",
+    "rate": 0.3,
+    "seed": 0
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "rate50_route",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "trigger",
+   "groups": [
+    "routing"
+   ],
+   "s1": {
+    "type": "rate",
+    "rate": 0.5,
+    "seed": 0
+   },
+   "s1_name": "rate50",
+   "setting": {
+    "routing": {
+     "mode": "trigger",
+     "tau": 0.5
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 22,
+    "diff": -0.11,
+    "ci95": [
+     -0.155,
+     -0.06987500000000069
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.89,
+    "mde": 0.028083984351224386
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 2.297049064552443e-64,
+   "cheaper": true,
+   "cost_arm": 0.0255461911,
+   "cost_ref": 0.04093566225,
+   "savings": 0.37594288950339383,
+   "savings_ci": [
+    0.3552252783444596,
+    0.39644639593394876
+   ],
+   "latency_saving_s": 4.473969534685024,
+   "llm_calls_avoided": -0.02,
+   "activation": {
+    "statistic": "state changes",
+    "decisions": 1504,
+    "changes": 733,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "rate",
+    "rate": 0.5,
+    "seed": 0
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "heuristic_route",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "trigger",
+   "groups": [
+    "routing"
+   ],
+   "s1": {
+    "type": "heuristic"
+   },
+   "s1_name": "heuristic",
+   "setting": {
+    "routing": {
+     "mode": "trigger",
+     "tau": 0.5
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 33,
+    "diff": -0.165,
+    "ci95": [
+     -0.215,
+     -0.115
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.835,
+    "mde": 0.04116507388596737
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 1.2302458715504508e-94,
+   "cheaper": true,
+   "cost_arm": 0.009831803049999999,
+   "cost_ref": 0.04093566225,
+   "savings": 0.7598230366970551,
+   "savings_ci": [
+    0.7554723487117424,
+    0.7637717483071493
+   ],
+   "latency_saving_s": 10.188091721219712,
+   "llm_calls_avoided": -0.065,
+   "activation": {
+    "statistic": "state changes",
+    "decisions": 1513,
+    "changes": 1509,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "heuristic"
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "s2self_route",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "trigger",
+   "groups": [
+    "routing"
+   ],
+   "s1": {
+    "type": "s2_self",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash"
+    },
+    "reasoning_effort": "minimal"
+   },
+   "s1_name": "s2self",
+   "setting": {
+    "routing": {
+     "mode": "trigger",
+     "tau": 0.5
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 35,
+    "diff": -0.175,
+    "ci95": [
+     -0.225,
+     -0.125
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.825,
+    "mde": 0.04329197274335296
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 1.0775748204053077e-107,
+   "cheaper": true,
+   "cost_arm": 0.022638500399999997,
+   "cost_ref": 0.04093566225,
+   "savings": 0.44697363727149675,
+   "savings_ci": [
+    0.4394426522477602,
+    0.4551396879473895
+   ],
+   "latency_saving_s": 0.9622570682350794,
+   "llm_calls_avoided": -0.045,
+   "activation": {
+    "statistic": "state changes",
+    "decisions": 1509,
+    "changes": 1489,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "s2_self",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash"
+    },
+    "reasoning_effort": "minimal"
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "bm25_ts_assist_k5",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "assist",
+   "groups": [
+    "tool"
+   ],
+   "s1": {
+    "type": "bm25"
+   },
+   "s1_name": "bm25",
+   "setting": {
+    "tool_select": {
+     "mode": "assist",
+     "k": 5
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 163,
+    "diff": -0.815,
+    "ci95": [
+     -0.865,
+     -0.76
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.185,
+    "mde": 0.12812411403105103
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 3.616972078943389e-27,
+   "cheaper": true,
+   "cost_arm": 0.016326815999999997,
+   "cost_ref": 0.04093566225,
+   "savings": 0.6011591091335038,
+   "savings_ci": [
+    0.5157654240057542,
+    0.6784776887407687
+   ],
+   "latency_saving_s": 7.7390196842147905,
+   "llm_calls_avoided": 0.02,
+   "activation": {
+    "statistic": "strict candidate reductions",
+    "decisions": 1496,
+    "changes": 1496,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "bm25"
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "tfidf_ts_assist_k5",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "assist",
+   "groups": [
+    "tool"
+   ],
+   "s1": {
+    "type": "tfidf"
+   },
+   "s1_name": "tfidf",
+   "setting": {
+    "tool_select": {
+     "mode": "assist",
+     "k": 5
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 150,
+    "diff": -0.75,
+    "ci95": [
+     -0.81,
+     -0.69
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.25,
+    "mde": 0.12169304599320586
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 2.4180772265606166e-13,
+   "cheaper": true,
+   "cost_arm": 0.0243064875,
+   "cost_ref": 0.04093566225,
+   "savings": 0.4062270850400129,
+   "savings_ci": [
+    0.30466622184911074,
+    0.49891059920244063
+   ],
+   "latency_saving_s": 3.9995786505950206,
+   "llm_calls_avoided": -3.46,
+   "activation": {
+    "statistic": "strict candidate reductions",
+    "decisions": 2192,
+    "changes": 2192,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "tfidf"
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "heuristic_memw",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "trigger",
+   "groups": [
+    "memory"
+   ],
+   "s1": {
+    "type": "heuristic"
+   },
+   "s1_name": "heuristic",
+   "setting": {
+    "memory_write": {
+     "mode": "trigger",
+     "tau": 0.5
+    },
+    "memory_read": {
+     "mode": "always"
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 5,
+    "diff": -0.025,
+    "ci95": [
+     -0.05,
+     -0.005
+    ],
+    "p_decisive": 0.458527968743023,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.975,
+    "mde": -0.0025356304364726585
+   },
+   "p_ni": 0.458527968743023,
+   "noninferior": false,
+   "p_cheaper": 1.0,
+   "cheaper": false,
+   "cost_arm": 0.05171960924999999,
+   "cost_ref": 0.04093566225,
+   "savings": -0.26343648562812727,
+   "savings_ci": [
+    -0.3004126203264586,
+    -0.22598576032933443
+   ],
+   "latency_saving_s": 4.097947764280247,
+   "llm_calls_avoided": -0.14,
+   "activation": {
+    "statistic": "state changes",
+    "decisions": 1333,
+    "changes": 1229,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior, not cheaper",
+   "s1_run": {
+    "type": "heuristic"
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "ratem_route",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "trigger",
+   "groups": [
+    "routing"
+   ],
+   "s1": {
+    "type": "rate",
+    "rate": 0.066,
+    "seed": 0
+   },
+   "s1_name": "ratem_route",
+   "setting": {
+    "routing": {
+     "mode": "trigger",
+     "tau": 0.5
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 33,
+    "diff": -0.165,
+    "ci95": [
+     -0.215,
+     -0.115
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.835,
+    "mde": 0.04116507388596737
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 3.957464092457616e-91,
+   "cheaper": true,
+   "cost_arm": 0.01135820325,
+   "cost_ref": 0.04093566225,
+   "savings": 0.7225352510328571,
+   "savings_ci": [
+    0.711436956640497,
+    0.7326492588559671
+   ],
+   "latency_saving_s": 10.00989561441443,
+   "llm_calls_avoided": -0.05,
+   "activation": {
+    "statistic": "state changes",
+    "decisions": 1510,
+    "changes": 1438,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "rate",
+    "rate": 0.05033112582781457,
+    "seed": 0
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "ratem_memw",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "trigger",
+   "groups": [
+    "memory"
+   ],
+   "s1": {
+    "type": "rate",
+    "rate": 0.5,
+    "seed": 0
+   },
+   "s1_name": "ratem_memw",
+   "setting": {
+    "memory_write": {
+     "mode": "trigger",
+     "tau": 0.5
+    },
+    "memory_read": {
+     "mode": "always"
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 3,
+    "diff": -0.015,
+    "ci95": [
+     -0.035,
+     0.0
+    ],
+    "p_decisive": 0.15505227781707945,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.985,
+    "mde": -0.008919807505029702
+   },
+   "p_ni": 0.15505227781707945,
+   "noninferior": false,
+   "p_cheaper": 1.0,
+   "cheaper": false,
+   "cost_arm": 0.0556045515,
+   "cost_ref": 0.04093566225,
+   "savings": -0.35834009867520833,
+   "savings_ci": [
+    -0.40171816688871526,
+    -0.3167120121368859
+   ],
+   "latency_saving_s": 4.353494535149306,
+   "llm_calls_avoided": -0.13,
+   "activation": {
+    "statistic": "state changes",
+    "decisions": 1329,
+    "changes": 1321,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior, not cheaper",
+   "s1_run": {
+    "type": "rate",
+    "rate": 0.9946646341463414,
+    "seed": 0
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "randscore_route_tau0.2",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "trigger",
+   "groups": [
+    "routing"
+   ],
+   "s1": {
+    "type": "rate",
+    "rate": null,
+    "seed": 0
+   },
+   "s1_name": "randscore",
+   "setting": {
+    "routing": {
+     "mode": "trigger",
+     "tau": 0.2
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 7,
+    "diff": -0.035,
+    "ci95": [
+     -0.06,
+     -0.01
+    ],
+    "p_decisive": 0.7469399362992084,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.965,
+    "mde": 0.0026103015476529427
+   },
+   "p_ni": 0.7469399362992084,
+   "noninferior": false,
+   "p_cheaper": 3.618313346951148e-44,
+   "cheaper": true,
+   "cost_arm": 0.03375210205,
+   "cost_ref": 0.04093566225,
+   "savings": 0.17548415745979518,
+   "savings_ci": [
+    0.1584602810923875,
+    0.191995893327451
+   ],
+   "latency_saving_s": 7.107767996419965,
+   "llm_calls_avoided": -0.025,
+   "activation": {
+    "statistic": "state changes",
+    "decisions": 1505,
+    "changes": 323,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "rate",
+    "rate": null,
+    "seed": 0
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "randscore_route_tau0.4",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "trigger",
+   "groups": [
+    "routing"
+   ],
+   "s1": {
+    "type": "rate",
+    "rate": null,
+    "seed": 0
+   },
+   "s1_name": "randscore",
+   "setting": {
+    "routing": {
+     "mode": "trigger",
+     "tau": 0.4
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 12,
+    "diff": -0.06,
+    "ci95": [
+     -0.095,
+     -0.03
+    ],
+    "p_decisive": 0.9934087644256441,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.94,
+    "mde": 0.012832509951631507
+   },
+   "p_ni": 0.9934087644256441,
+   "noninferior": false,
+   "p_cheaper": 4.487251979951796e-55,
+   "cheaper": true,
+   "cost_arm": 0.028878062899999998,
+   "cost_ref": 0.04093566225,
+   "savings": 0.2945500008369841,
+   "savings_ci": [
+    0.272565881944415,
+    0.315238087285229
+   ],
+   "latency_saving_s": 4.893196010250425,
+   "llm_calls_avoided": -0.025,
+   "activation": {
+    "statistic": "state changes",
+    "decisions": 1505,
+    "changes": 623,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "rate",
+    "rate": null,
+    "seed": 0
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "randscore_route_tau0.6",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "trigger",
+   "groups": [
+    "routing"
+   ],
+   "s1": {
+    "type": "rate",
+    "rate": null,
+    "seed": 0
+   },
+   "s1_name": "randscore",
+   "setting": {
+    "routing": {
+     "mode": "trigger",
+     "tau": 0.6
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 24,
+    "diff": -0.12,
+    "ci95": [
+     -0.165,
+     -0.075
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.88,
+    "mde": 0.03067359537716876
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 9.413064117460352e-78,
+   "cheaper": true,
+   "cost_arm": 0.021571699899999998,
+   "cost_ref": 0.04093566225,
+   "savings": 0.47303405602043247,
+   "savings_ci": [
+    0.4528065461733637,
+    0.49079613152118534
+   ],
+   "latency_saving_s": 8.547128808040883,
+   "llm_calls_avoided": -0.045,
+   "activation": {
+    "statistic": "state changes",
+    "decisions": 1509,
+    "changes": 943,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "rate",
+    "rate": null,
+    "seed": 0
+   }
+  },
+  {
+   "run": "E2c",
+   "config": "configs/experiments/baselines_jevgym.yaml",
+   "arm": "randscore_route_tau0.8",
+   "reference": "llm_only",
+   "n": 200,
+   "intervention": "trigger",
+   "groups": [
+    "routing"
+   ],
+   "s1": {
+    "type": "rate",
+    "rate": null,
+    "seed": 0
+   },
+   "s1_name": "randscore",
+   "setting": {
+    "routing": {
+     "mode": "trigger",
+     "tau": 0.8
+    }
+   },
+   "duplicate_of": null,
+   "qualifies": false,
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 26,
+    "diff": -0.13,
+    "ci95": [
+     -0.175,
+     -0.085
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.87,
+    "mde": 0.03315658473933338
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 1.5334736525536855e-88,
+   "cheaper": true,
+   "cost_arm": 0.01592221675,
+   "cost_ref": 0.04093566225,
+   "savings": 0.611042893290434,
+   "savings_ci": [
+    0.596242254465204,
+    0.6256900256823267
+   ],
+   "latency_saving_s": 8.918499938685104,
+   "llm_calls_avoided": -0.035,
+   "activation": {
+    "statistic": "state changes",
+    "decisions": 1507,
+    "changes": 1207,
+    "active": true
+   },
+   "active": true,
+   "fate": "not qualified: not non-inferior",
+   "s1_run": {
+    "type": "rate",
+    "rate": null,
+    "seed": 0
+   }
+  }
+ ],
+ "best_control": null,
+ "reason": "no listed control satisfied the prespecified Stage-1 screen",
+ "meta": {
+  "generated": "2026-10-03T06:28:20+00:00",
+  "git": "cdd78765ae7c361bc91e7b46c769e25c2fe923f4",
+  "rule": "docs/PREREG_A7_STAGE2.md A7.1",
+  "runs": {
+   "E2a": "runs/e2a_jevgym_tool_decisions",
+   "E2b": "runs/e2b_jevgym_meta_control",
+   "E2c": "runs/e2c_jevgym_baselines",
+   "E6": "runs/e6_alfworld_action_only"
+  },
+  "marks": []
+ }
+}

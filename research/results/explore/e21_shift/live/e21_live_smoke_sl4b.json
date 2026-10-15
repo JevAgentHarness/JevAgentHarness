@@ -1,0 +1,47 @@
+{
+ "run": "e21_live_smoke_sl4b",
+ "arms": {
+  "sl4b_ts_replace_f": {
+   "jevgym-shift-sdt-clarify.ask_twice-339018-d120-near-strict": {
+    "success": false,
+    "error": false,
+    "error_text": null,
+    "cost": 0.0024795,
+    "s1_cost": 0.0,
+    "s2_cost": 0.0024795,
+    "wall_s": 6.280569256996387,
+    "steps": 3,
+    "s1_calls": 3,
+    "s2_calls": 3,
+    "attempts": 1,
+    "refusals": 0,
+    "own_acc": 0.6666666666666666
+   },
+   "jevgym-shift-sdt-clarify.ask_after_lookup-339019-d120-near-strict": {
+    "success": false,
+    "error": false,
+    "error_text": null,
+    "cost": 0.0044445000000000005,
+    "s1_cost": 0.0,
+    "s2_cost": 0.0044445000000000005,
+    "wall_s": 9.404167798005801,
+    "steps": 3,
+    "s1_calls": 3,
+    "s2_calls": 3,
+    "attempts": 1,
+    "refusals": 0,
+    "own_acc": 0.6666666666666666
+   }
+  }
+ },
+ "spend": {
+  "total": 0.0069240000000000005,
+  "s2": 0.0069240000000000005,
+  "s1": 0.0,
+  "records": 2,
+  "s1_by_arm": {
+   "sl4b_ts_replace_f": 0.0
+  }
+ },
+ "written": "2026-10-09T03:26:05+00:00"
+}

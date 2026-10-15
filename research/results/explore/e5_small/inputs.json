@@ -1,0 +1,25 @@
+{
+ "what": "inputs of exploratory row E5 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-06 'Exploratory row E5'); written locally before any E5 step, checked on the GPU host by scripts/aws/e5_small.sh e5_inputs",
+ "training_file": {
+  "arm": "D100",
+  "builder": "scripts/train/ablation_subsets.py build --arms D100 (E3's D100 = the SFT v1 rows)",
+  "sha256": "65fa28a10d59b43536b0083a0b0bcaa16b10562bdeba28eec5a13d2355134dc0",
+  "rows": 15694,
+  "rows_with_replay": 16902,
+  "train_mix_sha256": "9fe1088d8e5be533f38a2115fe369b9b238018367bbb6b4e729c19f9f94ebe37",
+  "train_mix_note": "D100 + 0.45 x When2Call replay (data.py mix, seed 0) = SFT v1's training input byte for byte; tokenizer-independent"
+ },
+ "cal_requests": {
+  "command": "python scripts/e5_cal_replay.py build --run runs/e2a_jevgym_shadow_cal_rl --arm rl_shadow_cal --out runs/e5_small_inputs/cal_requests.jsonl.gz",
+  "source": "s3://<bucket>/e2a_jevgym_shadow_cal_rl/rl_shadow_cal.jsonl (the frozen JevAgentRL-4B's calibration shadow arm, Flash, seeds 5000-5149)",
+  "source_sha256": "3dcb4b8fb863766eeead37f052c6647337d859262f9f36e739bc6b9802a6c198",
+  "tasks": 150,
+  "questions": {
+   "tool_select": 1125,
+   "tool_params": 1594
+  },
+  "sha256": "d46701e8e9bdc69e6a9e047227eabb1e52578ddc527342dda10b33f7dc5fff5e",
+  "s3": "s3://<bucket>/e5_small/inputs/cal_requests.jsonl.gz",
+  "offline_check": "derive + fit with the LOGGED answers reproduce the frozen thresholds exactly (tool_select 0.4999999999978404, tool_params 0.9999998807907104; 2026-10-06, local)"
+ }
+}

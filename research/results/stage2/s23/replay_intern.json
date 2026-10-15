@@ -1,0 +1,25 @@
+{
+ "registered": "PREREG_A7_STAGE2 A7.10 (c)",
+ "backend": {
+  "backend": "intern_decision",
+  "model": "internlm/Intern-Decision-4B",
+  "dtype": "bfloat16",
+  "device": "cuda",
+  "max_length": 8192,
+  "temperature": 1.99241824,
+  "batch": false,
+  "batched_questions": true,
+  "max_questions_per_request": 16,
+  "max_options": 62,
+  "truncate_state": true,
+  "state_json": true,
+  "shared_weights": false,
+  "cached": true
+ },
+ "cache": "cache/s1_stage2_replay.sqlite",
+ "order": "sorted question hash",
+ "batching": "one question per request (the harness tournament for Choices wider than the backend's max_options)",
+ "retries": 2,
+ "n_questions": 3939,
+ "resumed_with": 3939
+}

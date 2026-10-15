@@ -317,6 +317,14 @@ the billed amount. Add or correct prices under `prices:` in the config. Calls to
 (`bench/harbor_agents.py`), the run script, the configs, the fixed dev/test split of Terminal-Bench 2.0, the summary
 script and the protocol. [`bench/README.md`](bench/README.md) walks through a full run.
 
+## Paper experiments
+
+[`research/`](research) holds the code behind every experiment in the paper: the benchmark (AgentDecisionBench, with
+DecisionGym), the harness with fitted thresholds, the registered Stage-1 and Stage-2 studies, the training of
+AgentDecision-4B and -0.8B, and the appendix experiments, with their configurations, registrations and result
+summaries. [`research/README.md`](research/README.md) maps each section, table and figure of the paper to the commands
+that produce it, with the keys, hardware and cost each one needs.
+
 ## Security
 
 - Provider keys live only in the proxy's environment. Harnesses get the proxy URL and a dummy key, so keys never enter

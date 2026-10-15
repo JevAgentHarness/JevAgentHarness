@@ -1,0 +1,46 @@
+# Jev-for-memory on LoCoMo-10 (10 very long two-person conversations, 1,540 QA without adversarial).
+#   python -m jevharness.bench.suites.memory_qa --config configs/memory/locomo.yaml --out runs/memory
+#   (add --max-conversations 1 --max-questions 20 for a cheap dry run; see docs/MEMORY.md)
+# WRITE policies: always | trigger (S1 Noul gate, tau) | llm (System-2 yes/no gate)
+# READ policies:  full_context | none | all | recency(k) | s1(k) [S1 Choice tournament] | embedding(k) | bm25(k)
+#                 | s1_rerank(k, prefilter: {policy: bm25|embedding, n})
+name: locomo_memory
+dataset:
+  name: locomo                     # data/raw/locomo/locomo10.json, downloaded at a pinned commit on first use
+  include_adversarial: false       # category 5 has no gold answer; set true to ask it in LoCoMo's MC form
+  # categories: [1, 2, 3, 4]       # 1 multi-hop, 2 temporal, 3 open-domain, 4 single-hop, 5 adversarial
+granularity: turn                  # memory candidate = one utterance (LoCoMo evidence is turn-level)
+write_context_turns: 3             # recent turns shown to the write gate together with the candidate
+answer: {style: short, max_context_tokens: 120000, max_tokens: 64}   # LoCoMo's short-phrase QA prompt
+llm: {provider: openai, model: gpt-4.1-mini, temperature: 0}        # System-2 answerer (and default LLM gate)
+# write_llm: {provider: openai, model: gpt-4.1-nano, temperature: 0} # cheaper LLM write gate (optional)
+judge: {provider: openai, model: gpt-4o-2024-08-06, temperature: 0}  # LongMemEval-style yes/no judge; --no-judge
+s1: {type: jev, model: jev-1.13.0}
+s1_cache: cache/s1.sqlite
+s1_backends:
+  openjev: {type: openjev}
+embedder: {type: openai, model: text-embedding-3-small}
+workers: 10                        # parallel conversations
+arms:
+  # --- references --------------------------------------------------------------------------------------
+  - {name: full_context, read: {policy: full_context}}
+  - {name: no_memory, read: {policy: none}}
+  # --- store everything, vary the READ policy ------------------------------------------------------------
+  - {name: all_recency_k50, write: {mode: always}, read: {policy: recency, k: 50}}
+  - {name: all_bm25_k10, write: {mode: always}, read: {policy: bm25, k: 10}}
+  - {name: all_embed_k10, write: {mode: always}, read: {policy: embedding, k: 10}}
+  - {name: all_jevread_k10, write: {mode: always}, read: {policy: s1, k: 10}}
+  - {name: all_jevrerank_k10, write: {mode: always},
+     read: {policy: s1_rerank, k: 10, prefilter: {policy: embedding, n: 100}}}
+  # --- gate the WRITE ----------------------------------------------------------------------------------
+  - {name: jevwrite_jevread_k10, write: {mode: trigger, tau: 0.5}, read: {policy: s1, k: 10}}
+  - {name: jevwrite_embed_k10, write: {mode: trigger, tau: 0.5}, read: {policy: embedding, k: 10}}
+  - {name: jevwrite_all, write: {mode: trigger, tau: 0.5}, read: {policy: all}}
+  - {name: llmwrite_embed_k10, write: {mode: llm}, read: {policy: embedding, k: 10}}
+  - {name: llmwrite_all, write: {mode: llm}, read: {policy: all}}
+  # --- System-1 backend comparison ---------------------------------------------------------------------
+  - {name: openjev_write_read_k10, s1: openjev, write: {mode: trigger, tau: 0.5}, read: {policy: s1, k: 10}}
+sweeps:
+  - base: {name: jevwrite_embed_k10_sweep, write: {mode: trigger}, read: {policy: embedding, k: 10}}
+    set: write.tau
+    values: [0.2, 0.35, 0.65, 0.8]

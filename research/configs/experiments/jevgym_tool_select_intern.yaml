@@ -1,0 +1,58 @@
+# E2a with Intern-Decision as the System-1 (docs/BASELINES.md "Intern-Decision backend"): the object-level arms of
+# configs/experiments/jevgym_tool_select.yaml with `s1` = internlm/Intern-Decision-4B loaded in-process (GPU
+# recommended: `device: auto` picks cuda when available; CPU works for pilots). Same suite, System-2 and modes as
+# E2a, so Jev and Intern-Decision rows are comparable task by task; the `jev` backend is kept for paired arms.
+# Pilot:  N=10 WORKERS=4 jevbench run configs/experiments/jevgym_tool_select_intern.yaml --max-tasks 10
+# Budget fallback (A5.1): -o 's1={type: intern_decision, model: internlm/Intern-Decision-2B}' (the paper says which ran).
+# Sizes (A5.1 + A5.3): C1/C2/C6 arms and their references n_tasks 500 on both System-2 models, everything else 200.
+# Seeds (A6.4): evaluation seeds 200000..200499 (A6.13; 100000..100499 is retired: exposed by an n = 50 pilot resume), identical to E2a so the Jev and Intern rows pair task by task.
+# Tau (A6.5): the C1 arms' tau-hat* comes from the calibration arms `intern_shadow_cal` / `intern_shadow_cal_s2lite`
+# (seeds 5000..5149, configs/experiments/jevgym_shadow_cal_intern.yaml), never from `intern_shadow` (evaluation log, H1).
+name: e2a_jevgym_tool_decisions_intern
+suite: {name: jevgym, n: 500, seed0: 200000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # evaluation seeds 200000..200499 (A6.13; 100000..100499 is retired: exposed by an n = 50 pilot resume) (PREREGISTRATION A6.4)
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+llms:
+  lite2: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+n_tasks: 200
+# Calibration temperature defaults to the checkpoint's fitted value (4B: 1.9924, 2B: 2.1005); `temperature: 1` = uncalibrated.
+s1: {type: intern_decision, model: internlm/Intern-Decision-4B, device: auto, max_length: 8192}
+s1_cache: cache/s1.sqlite          # keyed on describe() (model, dtype, device, T, ...): safe to share with E2a
+s1_backends:
+  intern08: {type: intern_decision, model: internlm/Intern-Decision-0.8B, device: auto, max_length: 8192}
+  intern2b: {type: intern_decision, model: internlm/Intern-Decision-2B, device: auto, max_length: 8192}
+  intern4b_uncal: {type: intern_decision, model: internlm/Intern-Decision-4B, device: auto, max_length: 8192, temperature: 1}
+  jev: {type: jev, provider: openrouter}   # paired Jev arms (needs openrouter.ai)
+workers: 4                         # one model instance, forward passes are serialised: more workers only queue
+arms:
+  - {name: llm_only, n_tasks: 500}
+  - {name: intern_shadow, n_tasks: 500, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}
+  - {name: intern_ts_replace, tool_select: {mode: replace}}
+  - {name: intern_ts_params_replace, tool_select: {mode: replace}, tool_params: {mode: replace}}
+  - {name: intern_ts_assist_k3, n_tasks: 500, tool_select: {mode: assist, k: 3}}                      # C2 (Intern family)
+  - {name: intern_ts_cascade_tauhat, n_tasks: 500, tool_select: {mode: cascade, tau: 0.99, always_defer: true}, tool_params: {mode: cascade, tau: 0.6309452181036016}}  # C1F (Intern): tau-hat* from intern_shadow_cal, fitted 2026-10-02 (A6.5 / A6.11 / A6.19; PREREGISTRATION Deviations): tool_select never -> always-defer (A6.11 (c).4), tool_params as fitted
+  - {name: intern_stop_guard, n_tasks: 500, stop: {mode: guard, tau: 0.5}}                            # C6 (Intern family)
+  - {name: intern_ts_assist_k5, tool_select: {mode: assist, k: 5}}
+  - {name: intern_ts_guard, tool_select: {mode: guard, tau: 0.5}}
+  # --- size ladder on the primary modes ---
+  - {name: intern08_ts_replace, s1: intern08, tool_select: {mode: replace}}
+  - {name: intern08_ts_assist_k3, s1: intern08, tool_select: {mode: assist, k: 3}}
+  - {name: intern2b_ts_replace, s1: intern2b, tool_select: {mode: replace}}
+  - {name: intern2b_ts_assist_k3, s1: intern2b, tool_select: {mode: assist, k: 3}}
+  # --- calibration ablation: same model, T = 1 (changes guard / cascade, never replace) ---
+  - {name: intern4b_uncal_ts_guard, s1: intern4b_uncal, tool_select: {mode: guard, tau: 0.5}}
+  # --- paired Jev arms ---
+  - {name: jev_shadow, s1: jev, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}
+  - {name: jev_ts_replace, s1: jev, tool_select: {mode: replace}}
+  - {name: jev_ts_assist_k3, s1: jev, tool_select: {mode: assist, k: 3}}
+  - {name: jev_ts_guard, s1: jev, tool_select: {mode: guard, tau: 0.5}}
+  # --- weaker System-2 (Flash-Lite): where System-1 help can raise success ---
+  - {name: llm_only_s2lite, llm: lite2, n_tasks: 500}
+  - {name: intern_shadow_s2lite, llm: lite2, n_tasks: 500, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}
+  - {name: intern_ts_assist_k3_s2lite, llm: lite2, n_tasks: 500, tool_select: {mode: assist, k: 3}}   # C2L
+  - {name: intern_ts_guard_s2lite, llm: lite2, tool_select: {mode: guard, tau: 0.5}}
+  - {name: intern_ts_cascade_tau0.9_s2lite, llm: lite2, n_tasks: 500, tool_select: {mode: cascade, tau: 0.99, always_defer: true}, tool_params: {mode: cascade, tau: 0.8518233437140553}}  # C1L (Intern): tau-hat* from intern_shadow_cal_s2lite, fitted 2026-10-02 (A6.19: the accepting upper tail's edge; one isolated bin below reported); tool_select never -> always-defer
+  - {name: intern_stop_guard_s2lite, llm: lite2, n_tasks: 500, stop: {mode: guard, tau: 0.5}}      # C6L
+sweeps:
+  - base: {name: intern_ts_cascade, tool_select: {mode: cascade}, tool_params: {mode: cascade, tau: 0.9}}
+    set: tool_select.tau
+    values: [0.5, 0.7, 0.8, 0.9, 0.95, 0.99]

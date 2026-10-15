@@ -1,0 +1,189 @@
+{
+ "generated": "2026-10-05T10:21:46+00:00",
+ "git": "585e27c11ff5",
+ "api": {
+  "tracks": {
+   "stage1_main": {
+    "usd": 931.0652658320012,
+    "records": 73068,
+    "runs": {
+     "e1_bfcl_when2call": 7.5922,
+     "e2a_jevgym_tool_decisions": 167.9244,
+     "e2a_jevgym_tool_decisions_intern": 226.5984,
+     "e2b_jevgym_meta_control": 181.9271,
+     "e2c_jevgym_baselines": 347.0231
+    },
+    "source": "run ledgers under runs/"
+   },
+   "stage1_calibration": {
+    "usd": 16.592156983999995,
+    "records": 600,
+    "runs": {
+     "e2a_jevgym_shadow_cal": 8.445,
+     "e2a_jevgym_shadow_cal_intern": 8.1472,
+     "cal": 0.0,
+     "cal_intern": 0.0
+    },
+    "source": "run ledgers under runs/"
+   },
+   "stage2_evaluation": {
+    "usd": 320.2116586973996,
+    "records": 31222,
+    "runs": {
+     "stage2_jevgym": 97.613,
+     "stage2_x": 2.5046,
+     "stage2_tau2": 205.5533,
+     "stage2_rl_states": 7.379,
+     "stage2_startlux_states": 4.9841,
+     "stage2_rl_attribution": 2.1658,
+     "e1_bfcl_when2call_rl": 0.0,
+     "e1_bfcl_when2call_startlux": 0.0118
+    },
+    "source": "run ledgers under runs/"
+   },
+   "stage2_calibration_checks": {
+    "usd": 24.943747895599998,
+    "records": 773,
+    "runs": {
+     "e2a_jevgym_shadow_cal_x": 0.6005,
+     "e2a_jevgym_shadow_cal_startlux": 6.4445,
+     "stage2_dev": 0.1312,
+     "stage2_dev_tariff_rl": 0.6128,
+     "stage2_dev_tariff_rl_warmup": 0.0582,
+     "stage2_dev_tariff_sl4b": 3.9336,
+     "stage2_dev_tariff_sl4b_warmup": 0.4025,
+     "stage2_tau2_validation": 11.8801,
+     "e2c_jevgym_baselines_check": 0.8803
+    },
+    "source": "run ledgers under runs/"
+   },
+   "round6_evaluation": {
+    "usd": 13.220482650000005,
+    "records": 960,
+    "runs": {
+     "stage2_v2": 3.1507,
+     "stage2_v2_states": 2.8962,
+     "e2a_jevgym_shadow_cal_v2": 6.4878,
+     "stage2_dev_tariff_v2": 0.6218,
+     "stage2_dev_tariff_v2_warmup": 0.064
+    },
+    "source": "run ledgers under runs/"
+   },
+   "exploratory": {
+    "usd": 8.466762190000008,
+    "records": 12583,
+    "runs": {
+     "explore_startlux_live": 6.6792,
+     "explore_telecom_rl_validation": 0.5273,
+     "explore_telecom_rl_validation2": 1.2602,
+     "e1_bfcl_when2call_startlux_ladder": 0.0
+    },
+    "source": "run ledgers under runs/"
+   },
+   "development_pilots": {
+    "usd": 196.06160069799995,
+    "records": 19126,
+    "runs": {
+     "dev": 43.8621,
+     "pilot": 16.9615,
+     "pilot_jev": 12.1225,
+     "pilot_jev_r2": 12.2639,
+     "pilot_jev_v2": 11.6408,
+     "pilot_jev_n50": 86.2269,
+     "gpu_round3": 7.1829,
+     "smoke_main": 5.801,
+     "decision": 0.0
+    },
+    "source": "run ledgers under runs/"
+   },
+   "stage2_sol": {
+    "usd": 14.885652788000003,
+    "at": "2026-10-05T10:00:46+00:00",
+    "source": "results/stage2/sol/summary.json (spend.total_usd: ledger + cache-write surcharge + capability probe; runs e2a_jevgym_shadow_cal_sol, stage2_dev/sol_eligibility, stage2_sol)"
+   },
+   "reviews": {
+    "usd": 16.745869300000003,
+    "records": 20,
+    "unpriced_calls": {
+     "gemini-3.1-pro-preview": 19
+    },
+    "source": "results/reviews/**/run_log*.jsonl (priced calls)"
+   },
+   "figures": {
+    "usd": 2.17404,
+    "records": 37,
+    "unpriced_calls": {
+     "gemini-3.1-pro-preview": 4
+    },
+    "source": "runs/dev/figures/**/ledger.jsonl (priced from the price table)"
+   },
+   "stage1_tau2": {
+    "usd": 235.2,
+    "source": "results/tau2/runs.json (total_logged_usd)"
+   },
+   "hard_tasks": {
+    "usd": 413.63,
+    "source": "results/hard/NOTES.md (logged total of the round)"
+   },
+   "training_v1_data": {
+    "usd": 5.283,
+    "source": "results/training/train_v1/manifest.json"
+   },
+   "training_round5": {
+    "usd": 142.36,
+    "source": "results/gpu_round5/spend.json (api_usd_total)"
+   },
+   "training_round6": {
+    "usd": 42.428,
+    "source": "results/gpu_round6_miles/spend_before_e2dev_v2_final.txt (last ledger written; the final E2 dev slice after it and OPD's lost executor / teacher records are not in it: TRAINING_MANIFEST.md)"
+   }
+  },
+  "total_usd": 2383.2682370350008,
+  "unpriced_calls": {
+   "gemini-3.1-pro-preview": 23
+  }
+ },
+ "gpu": {
+  "round5": {
+   "usd": 45.29,
+   "hours": 15.07,
+   "usd_per_h": 3.004,
+   "source": "results/gpu_round5/spend.json"
+  },
+  "explore": {
+   "usd": 12.094037149999998,
+   "hours": 1.596111111111111,
+   "usd_per_h": 7.57719,
+   "instance_type": "g6e.16xlarge",
+   "start_utc": "2026-10-05T07:16:04Z",
+   "stop_utc": "2026-10-05T08:51:50Z",
+   "source": "results/explore/gpu/host_window.json x results/stage2/tariff_v2_plan.json (a lower bound: boot unrecorded)"
+  },
+  "not_logged": [
+   "GPU rounds 2-4 (Intern-Decision serving and the E2a' arms)",
+   "round 6 (JevAgentRL-v2 on Miles; budget cap $400)",
+   "the Stage-2 GPU host (StartLux, JevAgentRL and JevAgentRL-v2 serving) beyond the S2-4 bound below",
+   "the hard-task boxes (EC2 instance hours)"
+  ]
+ },
+ "amortisation": {
+  "training_and_calibration_usd": 192.933,
+  "saving_usd_per_episode": 0.0335036484,
+  "episodes": 5758.566878943249,
+  "basis": "round 5 API + GPU spend (training, calibration arms, development slices) + data v1 build; S2-4's registered cost clause (LLM-only minus the profile with JevAgentRL, tariff included)"
+ },
+ "s24_host_bill": {
+  "usd_per_h": 2.24208,
+  "tariff_q": 0.00196182,
+  "episodes": 500,
+  "hours_upper": 0.36527777777777776,
+  "usd_upper": 0.818982,
+  "per_episode_upper": 0.001637964,
+  "basis": "host $ / h x (start of stage2_rl_states - start of stage2_jevgym_rl) on the same host; an upper bound on S2-4's evaluation-host bill"
+ },
+ "excluded": {
+  "pilot_jev_n50_split": "a re-split copy of pilot_jev_n50",
+  "tau2": "ledger: results/tau2/runs.json",
+  "*/telecom, */retail, ... (records with meta.tau2)": "per-task copies of tau2 runs, counted from their raw/ side-car ledger and results.json"
+ }
+}

@@ -1,0 +1,239 @@
+{
+ "what": "inputs of the exploratory SFT training ablation E3 (results/training/ablation_plan.md section 4.1 and addendum 2026-10-05); written locally before any upload, checked by scripts/aws/train_ablation.sh abl_inputs on the GPU host",
+ "teacher_only": {
+  "command": "env -u OPENROUTER_API_KEY -u GEMINI_API_KEY -u GEMINI_API_KEYS -u OPENAI_API_KEY .venv/bin/python -m jevharness.training.teacher_label --in data/cache/train_v1/_work/train_gold.jsonl --out data/cache/train_v1/train_teacher_only.jsonl --teacher jev=jev-openrouter --alpha 0 --min-agree 1 --gold-filter keep --on-disagree gold --cache data/cache/teacher_v1.sqlite --workers 8 --max-questions 16 --max-errors 1",
+  "source": "data/cache/train_v1/_work/train_gold.jsonl (gitignored; the pre-label version of data/train_v1/train.jsonl.gz, row for row)",
+  "source_sha256": "1b3858f78ad6f73616180cad12ace527ea42c77511af31e10226cd7b87367d2b",
+  "teacher_cache_sha256": "c05adef308d40876d9ca23627cee850c91cbecf0544bffdffc10a2ce6425b845",
+  "rows": 15694,
+  "outcomes": {
+   "kept": 15694
+  },
+  "calls": 5175,
+  "calls_fresh": 0,
+  "cost_usd_fresh": 0,
+  "teacher_acc_vs_gold": 0.9449471135465783,
+  "jsonl_sha256": "0cd6626562bace0bbc658c2a2a74724dfb5797d95325509e23ccbd80dfb1e3b5",
+  "gz": "gzip -n -k (no name / time stamp in the header)",
+  "gz_sha256": "15964e15b75f1fbc28a9bd4f80373f0a47324c4d49bbb78cf21c566ff2fbd619",
+  "summary_sha256": "597bb01d133262a844918acf2d4450822255b98ca9e20b1f3c97a17b9407ad04",
+  "s3": "s3://<bucket>/train_ablation/inputs/train_teacher_only.jsonl.gz (+ .summary.json)"
+ },
+ "train_v1_sha256": "9c0450c22d63f8b1cd9180c0edc2103a72ed895097ca58a79f4c7ccab93bee0a",
+ "builder": "python scripts/train/ablation_subsets.py build --out runs/train_ablation/data --teacher-only data/cache/train_v1/train_teacher_only.jsonl.gz (seed 0)",
+ "arms": {
+  "D10": {
+   "rows": 1627,
+   "tasks": 59,
+   "recovery_rows": 575,
+   "recovery_share": 0.3534,
+   "replay_factor": 0.0467,
+   "rows_with_replay": 1752,
+   "sha256": "4ecab832f5b3d4d5b67e63eb8fbcfff6031f98f359c98b99a2e195a65d628d0f"
+  },
+  "D25": {
+   "rows": 3831,
+   "tasks": 147,
+   "recovery_rows": 1393,
+   "recovery_share": 0.3636,
+   "replay_factor": 0.1098,
+   "rows_with_replay": 4126,
+   "sha256": "9c2d9f3ed5739128333dff7632a433948fd384881156b6bb0c55262deecd9fd4"
+  },
+  "D50": {
+   "rows": 7586,
+   "tasks": 293,
+   "recovery_rows": 2287,
+   "recovery_share": 0.3015,
+   "replay_factor": 0.2175,
+   "rows_with_replay": 8170,
+   "sha256": "728fd94dac6b5ba4c86a548f9671fde0e75f7d0d769a78b2ef1d204e74f25682"
+  },
+  "D100": {
+   "rows": 15694,
+   "tasks": 587,
+   "recovery_rows": 4843,
+   "recovery_share": 0.3086,
+   "replay_factor": 0.45,
+   "rows_with_replay": 16902,
+   "sha256": "65fa28a10d59b43536b0083a0b0bcaa16b10562bdeba28eec5a13d2355134dc0"
+  },
+  "L_gold_100": {
+   "rows": 15694,
+   "tasks": 587,
+   "recovery_rows": 4843,
+   "recovery_share": 0.3086,
+   "replay_factor": 0.45,
+   "rows_with_replay": 16902,
+   "sha256": "a9b00260099e80db9ef7c686adfbd8c28cf13f36f43756fa9c989b5b5294b3da"
+  },
+  "L_teach_100": {
+   "rows": 15694,
+   "tasks": 587,
+   "recovery_rows": 4843,
+   "recovery_share": 0.3086,
+   "replay_factor": 0.45,
+   "rows_with_replay": 16902,
+   "sha256": "68f379a781556a273e4a582e7407c80f15578951c0758e52354b0a708178e2e4"
+  },
+  "L_gold_25": {
+   "rows": 3831,
+   "tasks": 147,
+   "recovery_rows": 1393,
+   "recovery_share": 0.3636,
+   "replay_factor": 0.1098,
+   "rows_with_replay": 4126,
+   "sha256": "e4085a5d68ee1ccd3c4d2febe9236da0b6fa8779b64a3e0490f45765254ac127"
+  },
+  "L_teach_25": {
+   "rows": 3831,
+   "tasks": 147,
+   "recovery_rows": 1393,
+   "recovery_share": 0.3636,
+   "replay_factor": 0.1098,
+   "rows_with_replay": 4126,
+   "sha256": "1d00386579fb3eb9532300097ce8b0d3e1d43d587b07a0264904a5c72e405f8c"
+  },
+  "S_canon": {
+   "rows": 10851,
+   "tasks": 587,
+   "recovery_rows": 0,
+   "recovery_share": 0.0,
+   "replay_factor": 0.3111,
+   "rows_with_replay": 11686,
+   "sha256": "6760d5d7c848fb265fef4be763b38f78b02cfea0f4406128e5431d3942c357f0"
+  },
+  "S_match": {
+   "rows": 10851,
+   "tasks": 587,
+   "recovery_rows": 3322,
+   "recovery_share": 0.3061,
+   "replay_factor": 0.3111,
+   "rows_with_replay": 11686,
+   "sha256": "826241d1a2f1b1f747b773092499cfd92cf3e46b1af2b0273b92590ab4924b4b"
+  },
+  "S_canon_25": {
+   "rows": 2438,
+   "tasks": 147,
+   "recovery_rows": 0,
+   "recovery_share": 0.0,
+   "replay_factor": 0.0699,
+   "rows_with_replay": 2626,
+   "sha256": "9b6c02bf6766253e3b48a4cd526fa8caee78434b0794e98706665544d0580f2d"
+  },
+  "S_match_25": {
+   "rows": 2438,
+   "tasks": 146,
+   "recovery_rows": 894,
+   "recovery_share": 0.3667,
+   "replay_factor": 0.0699,
+   "rows_with_replay": 2626,
+   "sha256": "c482ec8ef6596ace41a51c1851a97b406c1cc9ea8442b37843025a55d5043ac8"
+  }
+ },
+ "train_mix": {
+  "what": "the training file 10_sft.sh writes per arm (OUT/train_mix.jsonl: the arm's rows + the When2Call replay at the arm's factor, data.py mix with the trainer seed); checked on the box after each arm's SFT",
+  "sft_v1_round5_train_mix_sha256": "9fe1088d8e5be533f38a2115fe369b9b238018367bbb6b4e729c19f9f94ebe37",
+  "sft_v1_round5_note": "s3 checkpoints/round5/sft_v1/train_mix.jsonl; identical to D100's mix (D100 reproduces SFT v1's training input byte for byte)",
+  "arms": {
+   "D25": {
+    "data": "D25",
+    "trainer_seed": 0,
+    "replay_factor": 0.1098,
+    "rows": 4126,
+    "sha256": "f747cec891794fb21241e67df90dd8c9e0c1860e87baaf2fc4c5a46c3c8ac267"
+   },
+   "L_gold_25": {
+    "data": "L_gold_25",
+    "trainer_seed": 0,
+    "replay_factor": 0.1098,
+    "rows": 4126,
+    "sha256": "10be6676ef84f00625055af7c3443cf63fd5c8958f4bd2f2ff94d642acb76ad9"
+   },
+   "L_teach_25": {
+    "data": "L_teach_25",
+    "trainer_seed": 0,
+    "replay_factor": 0.1098,
+    "rows": 4126,
+    "sha256": "46ca08c56ae855cbef082d9ba8cff3962ea63834637d616f30e66f188c4f8d7d"
+   },
+   "S_canon_25": {
+    "data": "S_canon_25",
+    "trainer_seed": 0,
+    "replay_factor": 0.0699,
+    "rows": 2626,
+    "sha256": "5a71b1c97c53f6a05d5573218f8d6457b49bb01216bad1387d96787c3fde64c1"
+   },
+   "S_match_25": {
+    "data": "S_match_25",
+    "trainer_seed": 0,
+    "replay_factor": 0.0699,
+    "rows": 2626,
+    "sha256": "1e03aad2a84eb0b8a9bbeb8a715f917e7a597b65648083e7368ad143a84f0586"
+   },
+   "D10": {
+    "data": "D10",
+    "trainer_seed": 0,
+    "replay_factor": 0.0467,
+    "rows": 1752,
+    "sha256": "b3e37008618aa54e252a5fa954082913f7f824efe8aa816569cda3929b2b5dfe"
+   },
+   "D50": {
+    "data": "D50",
+    "trainer_seed": 0,
+    "replay_factor": 0.2175,
+    "rows": 8170,
+    "sha256": "633d41c8dd277818052135a108e4cb0bd7b8c739616e5afa44a2fa66a209205e"
+   },
+   "D25_s1": {
+    "data": "D25",
+    "trainer_seed": 1,
+    "replay_factor": 0.1098,
+    "rows": 4126,
+    "sha256": "86f3fc123d0cca5717673eef09a3b5972c92725abdfce7da25519968a4182f56"
+   },
+   "D10_s1": {
+    "data": "D10",
+    "trainer_seed": 1,
+    "replay_factor": 0.0467,
+    "rows": 1752,
+    "sha256": "24afbbbea52c66d6177fd467e6b9132ca67d6881faccbd1515a3c247a2d04351"
+   },
+   "D100": {
+    "data": "D100",
+    "trainer_seed": 0,
+    "replay_factor": 0.45,
+    "rows": 16902,
+    "sha256": "9fe1088d8e5be533f38a2115fe369b9b238018367bbb6b4e729c19f9f94ebe37"
+   },
+   "L_gold_100": {
+    "data": "L_gold_100",
+    "trainer_seed": 0,
+    "replay_factor": 0.45,
+    "rows": 16902,
+    "sha256": "26b0bdaac4f30d94e257ec000783c85cbe4772fff3b5332eecd498f23339715b"
+   },
+   "L_teach_100": {
+    "data": "L_teach_100",
+    "trainer_seed": 0,
+    "replay_factor": 0.45,
+    "rows": 16902,
+    "sha256": "1bde31766e07e6aacc496ab9595742f47529e57258f3bed285846872c22ab74d"
+   },
+   "S_canon": {
+    "data": "S_canon",
+    "trainer_seed": 0,
+    "replay_factor": 0.3111,
+    "rows": 11686,
+    "sha256": "f79b433f62924993f66f4832bba2c566ced4155847e1cca6f58592b16aca8165"
+   },
+   "S_match": {
+    "data": "S_match",
+    "trainer_seed": 0,
+    "replay_factor": 0.3111,
+    "rows": 11686,
+    "sha256": "20b54b4a82dd5aaae9579b9de2a1d2439aa2e82a32c5bf541339b61d6920a09e"
+   }
+  }
+ }
+}

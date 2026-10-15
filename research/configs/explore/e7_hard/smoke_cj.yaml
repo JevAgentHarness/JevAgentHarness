@@ -1,0 +1,15 @@
+# E7c Jev row smoke (development only, never reported as a result): both arms on 2 development tasks (seeds 7270,
+# 7271; never run before), the same settings as eval_cj.yaml; its mean $ per episode per arm gives the row's
+# projection (scripts/explore_e7_hard.py --exp e7cj project --prior 16.05).
+name: e7cj_hard_smoke
+suite: {name: jevgym, n: 2, seed0: 7270, families: multi, multi_customers: 12, multi_rule: tier, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 2
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+harness_defaults: {max_steps: 45}
+s1: {type: jev, provider: openrouter}        # the pinned Jev endpoint; no System-1 cache (fresh answers)
+workers: 16
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}
+  # the Stage-2 Jev profile's decision points at the thresholds refitted on E7c's calibration arm (unchanged)
+  - {name: jev_refit, tool_select: {mode: cascade, tau: 0.91}, tool_params: {mode: cascade, tau: 0.87}, reflection: {mode: trigger, tau: 0.5}}

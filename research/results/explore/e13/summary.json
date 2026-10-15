@@ -1,0 +1,1238 @@
+{
+ "meta": {
+  "generated": "2026-10-07T16:05:19+00:00",
+  "git": "f5b6486706c24c3c272fcb5d75b4f83b61f0cb48",
+  "label": "exploratory (E13)",
+  "entry": "E13: other agent LLMs on DecisionGym-Hard",
+  "n_boot": 10000,
+  "seed": 0,
+  "setting": {
+   "families": "multi",
+   "multi_customers": 12,
+   "multi_rule": "tier",
+   "answer_style": "itemized",
+   "distractor_style": "near",
+   "n_distractors": 60,
+   "noise_lines": 20,
+   "strict": true
+  },
+  "max_steps": 45
+ },
+ "llms": {
+  "luna": {
+   "state": "run",
+   "summary": {
+    "meta": {
+     "generated": "2026-10-07T16:05:20+00:00",
+     "git": "f5b6486706c24c3c272fcb5d75b4f83b61f0cb48",
+     "script": "scripts/explore_e7_hard.py",
+     "run": "results/explore/e13/records/luna/e13_luna_eval",
+     "label": "exploratory (E7)",
+     "n_boot": 10000,
+     "seed": 0,
+     "suite": {
+      "name": "jevgym",
+      "n": 100,
+      "seed0": 311000,
+      "families": "multi",
+      "multi_customers": 12,
+      "multi_rule": "tier",
+      "answer_style": "itemized",
+      "distractor_style": "near",
+      "n_distractors": 60,
+      "noise_lines": 20,
+      "strict": true
+     },
+     "max_steps": 45,
+     "llm": {
+      "provider": "openai_responses",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "none",
+      "temperature": 0
+     },
+     "workers": 6,
+     "spend": {
+      "by_run": {
+       "e13_luna_cal": {
+        "s2": 0.25131378000000004,
+        "s1": 0.7866394200000004,
+        "total": 1.0379532000000002,
+        "records": 100
+       },
+       "e13_luna_smoke": {
+        "s2": 0.022267470000000015,
+        "s1": 0.031243253999999998,
+        "total": 0.053510723999999996,
+        "records": 6
+       },
+       "e13_luna_eval": {
+        "s2": 1.1842491400000006,
+        "s1": 1.3717680900000004,
+        "total": 2.556017230000001,
+        "records": 200
+       }
+      },
+      "prior": 0.0,
+      "s2": 1.4578303900000007,
+      "s1": 2.189650764000001,
+      "total": 3.647481154000001,
+      "records": 306,
+      "total_with_prior": 3.647481154000001
+     },
+     "cap": 65.0,
+     "exp": "e13/luna",
+     "title": "E13: GPT-6-Luna on DecisionGym-Hard",
+     "entry": "E13: other agent LLMs on DecisionGym-Hard",
+     "arms": [
+      "llm_only",
+      "jev_refit"
+     ],
+     "calibration": null,
+     "not_run": {},
+     "note": "OpenAI Responses API directly (reasoning effort none, its lowest; temperature 0; stateless); Jev via OpenRouter on the author's Jev-only key",
+     "pilot_spend": null,
+     "projection": {
+      "phase": "pre_cal",
+      "at": "2026-10-07T14:14:01+00:00",
+      "safety": 1.2,
+      "caps": {
+       "llm": 60.0,
+       "jev": 5.0
+      },
+      "spent": {
+       "by_stage": {
+        "smoke": {
+         "llm": 0.022267470000000015,
+         "jev": 0.031243253999999998,
+         "total": 0.053510723999999996,
+         "records": 6
+        },
+        "cal": {
+         "llm": 0.0,
+         "jev": 0.0,
+         "total": 0.0,
+         "records": 0
+        },
+        "eval": {
+         "llm": 0.0,
+         "jev": 0.0,
+         "total": 0.0,
+         "records": 0
+        }
+       },
+       "llm": 0.022267470000000015,
+       "jev": 0.031243253999999998,
+       "total": 0.053510723999999996,
+       "records": 6
+      },
+      "budget": null,
+      "smoke": {
+       "llm_only": {
+        "n": 2,
+        "errors": 0,
+        "no_tool_call": 0,
+        "no_answer": 2,
+        "llm": 0.000732725,
+        "jev": 0.0,
+        "wall_s": 14.09847740550049,
+        "retried_calls": 0,
+        "served_providers": [
+         "None"
+        ]
+       },
+       "jev_shadow_cal": {
+        "n": 2,
+        "errors": 0,
+        "no_tool_call": 0,
+        "no_answer": 2,
+        "llm": 0.00035945,
+        "jev": 0.0017536259999999999,
+        "wall_s": 18.873388406999766,
+        "retried_calls": 0,
+        "served_providers": [
+         "None"
+        ]
+       },
+       "jev_cascade_dev": {
+        "n": 2,
+        "errors": 0,
+        "no_tool_call": 0,
+        "no_answer": 0,
+        "llm": 0.010041560000000008,
+        "jev": 0.013868000999999998,
+        "wall_s": 87.23083105149954,
+        "retried_calls": 0,
+        "served_providers": [
+         "None"
+        ]
+       }
+      },
+      "tiers": [
+       {
+        "n_cal": 100,
+        "n_eval": 100,
+        "projected": {
+         "llm": 1.3583156700000008,
+         "jev": 1.9058384939999997
+        },
+        "new_spend": 3.21064344,
+        "fits": true
+       },
+       {
+        "n_cal": 50,
+        "n_eval": 50,
+        "projected": {
+         "llm": 0.6902915700000004,
+         "jev": 0.9685408739999999
+        },
+        "new_spend": 1.60532172,
+        "fits": true
+       }
+      ],
+      "decision": "run: calibration 100, evaluation 100",
+      "n_cal": 100,
+      "n_eval": 100
+     },
+     "stopped_by_watchdog": false,
+     "n_run": 100,
+     "pilot_chosen": null
+    },
+    "tariff": {
+     "q_usd_per_episode": null,
+     "state": "no window record",
+     "sensitivity": {
+      "s2_4": 0.00196182,
+      "zero": 0.0
+     }
+    },
+    "arms": {
+     "llm_only": {
+      "state": "run",
+      "n_ok": 100,
+      "n_records": 100,
+      "success_all": 0.45,
+      "cost_mean": 0.0027266533000000004,
+      "per_episode": {
+       "wall_s_mean": 53.8555263663899,
+       "wall_s_median": 62.32157616950008,
+       "steps": 29.06,
+       "llm_calls": 29.06,
+       "s1_calls": 0.0,
+       "s1_cost": 0.0,
+       "s2_cost": 0.0027266533000000004,
+       "s1_s": 0.0
+      },
+      "failure_types": {
+       "n_failed": 55,
+       "types": {
+        "strict_stop": 44,
+        "wrong_total": 11
+       },
+       "classes": {
+        "wrong_total": 11,
+        "wrong_write": 44,
+        "ask_finish": 0,
+        "other": 0
+       }
+      },
+      "answer_forms": {
+       "itemized": {
+        "n": 56,
+        "share": 0.56,
+        "n_success": 45,
+        "success": 0.8035714285714286
+       },
+       "sentence": {
+        "n": 0,
+        "share": 0.0,
+        "n_success": 0,
+        "success": null
+       },
+       "number": {
+        "n": 0,
+        "share": 0.0,
+        "n_success": 0,
+        "success": null
+       },
+       "none": {
+        "n": 44,
+        "share": 0.44,
+        "n_success": 0,
+        "success": 0.0
+       }
+      },
+      "provenance": {
+       "path": "results/explore/e13/records/luna/e13_luna_eval/llm_only.jsonl.gz",
+       "sha256": "abd83f2d375ded1bd2cb0ad3b47308e6a55504a6d2a4ee1a2ed90cf804168919",
+       "n_records": 100
+      }
+     },
+     "jev_refit": {
+      "state": "run",
+      "n_ok": 100,
+      "n_records": 100,
+      "success_all": 0.83,
+      "cost_mean": 0.022833518999999997,
+      "per_episode": {
+       "wall_s_mean": 67.42938475580999,
+       "wall_s_median": 65.40447279850105,
+       "steps": 37.55,
+       "llm_calls": 21.2,
+       "s1_calls": 134.75,
+       "s1_cost": 0.0137176809,
+       "s2_cost": 0.0091158381,
+       "s1_s": 32.61682627072933
+      },
+      "failure_types": {
+       "n_failed": 17,
+       "types": {
+        "premature_finish": 7,
+        "wrong_total": 8,
+        "no_answer": 1,
+        "strict_stop": 1
+       },
+       "classes": {
+        "wrong_total": 8,
+        "wrong_write": 1,
+        "ask_finish": 8,
+        "other": 0
+       }
+      },
+      "answer_forms": {
+       "itemized": {
+        "n": 98,
+        "share": 0.98,
+        "n_success": 83,
+        "success": 0.8469387755102041
+       },
+       "sentence": {
+        "n": 0,
+        "share": 0.0,
+        "n_success": 0,
+        "success": null
+       },
+       "number": {
+        "n": 0,
+        "share": 0.0,
+        "n_success": 0,
+        "success": null
+       },
+       "none": {
+        "n": 2,
+        "share": 0.02,
+        "n_success": 0,
+        "success": 0.0
+       }
+      },
+      "provenance": {
+       "path": "results/explore/e13/records/luna/e13_luna_eval/jev_refit.jsonl.gz",
+       "sha256": "be134fb93a64b65a1710fa257f8bd34ff70999943a81fe047a82eb583d7ba025",
+       "n_records": 100
+      },
+      "paired_per_episode": {
+       "wall_s_mean": 67.42938475580999,
+       "wall_s_median": 65.40447279850105,
+       "steps": 37.55,
+       "llm_calls": 21.2,
+       "s1_calls": 134.75,
+       "s1_cost": 0.013717680899999998,
+       "s2_cost": 0.0091158381,
+       "s1_s": 32.61682627072933
+      },
+      "ref_paired_per_episode": {
+       "wall_s_mean": 53.8555263663899,
+       "wall_s_median": 62.32157616950008,
+       "steps": 29.06,
+       "llm_calls": 29.06,
+       "s1_calls": 0.0,
+       "s1_cost": 0.0,
+       "s2_cost": 0.0027266533000000004,
+       "s1_s": 0.0
+      },
+      "points": {
+       "tool_select": {
+        "n": 3755,
+        "coverage": 0.9989347536617843,
+        "n_gold": 3752,
+        "acc": 0.988272921108742,
+        "acc_accepted": 0.9890608324439701,
+        "llm_acc_deferred": 0.5,
+        "n_accepted": 3751
+       },
+       "tool_params": {
+        "n": 6065,
+        "coverage": 0.7091508656224237,
+        "n_gold": 5964,
+        "acc": 0.9696512407780014,
+        "acc_accepted": 0.9919335705812574,
+        "llm_acc_deferred": null,
+        "n_accepted": 4301
+       },
+       "tool": {
+        "n": 9820,
+        "coverage": 0.819959266802444,
+        "n_gold": 9716,
+        "acc": 0.9768423219431865,
+        "acc_accepted": 0.990581439156097,
+        "llm_acc_deferred": 0.5,
+        "n_accepted": 8052
+       },
+       "op": {
+        "n": 1182,
+        "coverage": 1.0,
+        "acc": 1.0,
+        "acc_accepted": 1.0,
+        "accepted_wrong": 0,
+        "llm_acc_deferred": null,
+        "s1_said_other_op": 0
+       },
+       "reflection": {
+        "n": 3655,
+        "fired": 0.06976744186046512,
+        "acc": 0.9967618486900206,
+        "gold_positive_rate": 0.0032381513099793936
+       }
+      },
+      "cmp": {
+       "n_expected": 100,
+       "n": 100,
+       "n_dropped": 0,
+       "dropped": {
+        "missing_arm": 0,
+        "missing_ref": 0,
+        "errored_arm": 0,
+        "errored_ref": 0
+       },
+       "success": 0.83,
+       "success_ref": 0.45,
+       "delta": 0.38,
+       "delta_ci": [
+        0.26,
+        0.5
+       ],
+       "wins": 44,
+       "losses": 6,
+       "cost": 0.022833518999999997,
+       "cost_ref": 0.0027266533000000004,
+       "saving": -7.374192274463347,
+       "saving_ci": [
+        -8.14061404618815,
+        -6.7223410815581355
+       ],
+       "newcombe_pt": [
+        25.431274122436577,
+        48.8775770492702
+       ],
+       "api": {
+        "cost": 0.022833518999999997,
+        "saving": -7.374192274463347,
+        "saving_ci": [
+         -8.14061404618815,
+         -6.7223410815581355
+        ]
+       }
+      }
+     }
+    },
+    "latency": {
+     "llm_only": {
+      "n_episodes": 100,
+      "wall_mean": 53.8555263663899,
+      "s1_per_episode": 0.0,
+      "s2_per_episode": 52.587398504150016,
+      "tail_per_episode": 4.983305366999994,
+      "s2_tail_per_episode": 4.983305366999994,
+      "groups": {
+       "s2/tool_select/openai_responses": {
+        "n": 2906,
+        "p50": 1.5444462465002289,
+        "p90": 2.3865149259995633,
+        "mean": 1.809614539027874,
+        "n_over": 59,
+        "share_of_wall": 0.9764531525769043,
+        "tail_share_of_wall": 0.09253099362723839,
+        "per_episode_s": 52.587398504150016,
+        "tail_per_episode_s": 4.983305366999994
+       }
+      }
+     },
+     "jev_refit": {
+      "n_episodes": 100,
+      "wall_mean": 67.42938475580999,
+      "s1_per_episode": 32.61682627072933,
+      "s2_per_episode": 32.88995863622984,
+      "tail_per_episode": 2.2029174672600313,
+      "s2_tail_per_episode": 2.2029174672600313,
+      "groups": {
+       "s2/tool_params/1tool/openai_responses": {
+        "n": 1861,
+        "p50": 1.216178372998911,
+        "p90": 2.221226450999893,
+        "mean": 1.4602145770273791,
+        "n_over": 20,
+        "share_of_wall": 0.4030081748022779,
+        "tail_share_of_wall": 0.02304885948178662,
+        "per_episode_s": 27.174593278479524,
+        "tail_per_episode_s": 1.5541704141799892
+       },
+       "s1/tool_params/typesafe/jev-1.13-20260917": {
+        "n": 6065,
+        "p50": 0.2201361959996575,
+        "p90": 0.29629655979970276,
+        "mean": 0.23761366404137532,
+        "n_over": 0,
+        "share_of_wall": 0.2137238649929648,
+        "tail_share_of_wall": 0.0,
+        "per_episode_s": 14.411268724109414,
+        "tail_per_episode_s": 0.0
+       },
+       "s1/tool_select/typesafe/jev-1.13-20260917": {
+        "n": 3755,
+        "p50": 0.2289686519998213,
+        "p90": 0.31029494979993616,
+        "mean": 0.24915684230784316,
+        "n_over": 0,
+        "share_of_wall": 0.13875018232097058,
+        "tail_share_of_wall": 0.0,
+        "per_episode_s": 9.355839428659511,
+        "tail_per_episode_s": 0.0
+       },
+       "s1/reflection/typesafe/jev-1.13-20260917": {
+        "n": 3655,
+        "p50": 0.21788841400029924,
+        "p90": 0.3123538374002237,
+        "mean": 0.242126350696591,
+        "n_over": 0,
+        "share_of_wall": 0.13124423647062675,
+        "tail_share_of_wall": 0.0,
+        "per_episode_s": 8.849718117960402,
+        "tail_per_episode_s": 0.0
+       },
+       "s2/reflection/openai_responses": {
+        "n": 255,
+        "p50": 1.9146465070007253,
+        "p90": 2.6513950246004243,
+        "mean": 2.203934018286404,
+        "n_over": 7,
+        "share_of_wall": 0.08334692311049278,
+        "tail_share_of_wall": 0.009621132617914674,
+        "per_episode_s": 5.620031746630329,
+        "tail_per_episode_s": 0.648747053080042
+       },
+       "s2/tool_select/openai_responses": {
+        "n": 4,
+        "p50": 1.8731012970001757,
+        "p90": 3.4539850828992718,
+        "mean": 2.3833402779996504,
+        "n_over": 0,
+        "share_of_wall": 0.0014138288739431468,
+        "tail_share_of_wall": 0.0,
+        "per_episode_s": 0.09533361111998602,
+        "tail_per_episode_s": 0.0
+       }
+      }
+     }
+    },
+    "latency_cmp": {
+     "jev_refit": {
+      "extra_wall_s": 13.573858389420089,
+      "extra_s2_tail_s": -2.7803878997399623,
+      "extra_s1_s": 32.61682627072933,
+      "extra_s2_s": -19.697439867920174,
+      "tail_share_of_extra": -0.2048340140270719
+     }
+    },
+    "calibration": {
+     "generated": "2026-10-07T14:56:04+00:00",
+     "git": "1e74ff6ca7650988c8ee6a0a94d8a9a8af661b54",
+     "run": "runs/e13_luna_cal",
+     "estimator": "threshold_theory --calibration-arm --task-value 1.0 --lam-per-hour 0 --v-fallback W (A6.5 / A6.11)",
+     "fits": {
+      "jev_shadow_cal": {
+       "sha256": "796cb5e09af9f1e761b0f7abe4a3f46a52bb385f15c3d26e26b8de3fcaec11eb",
+       "eval_arm": "jev_refit",
+       "n_tasks": 100,
+       "errored": 0,
+       "tool_select": {
+        "tau_hat": 0.49,
+        "always_defer": false,
+        "n_paired": 2790,
+        "tau_rule": "projection",
+        "V": 0.7543859649122807,
+        "delta_c": 9.007662365591399e-05,
+        "path": "results/explore/e13/cal_luna/tauhat_jev_shadow_cal_tool_select.json",
+        "sha256": "8787daa45a51dac75bb6d2dc4af468762d7b176ee4ddabbc5dad6492010fc263",
+        "notes": [
+         "100 task seed(s) outside the calibration range 5000-5149 (e.g. [5400, 5401, 5402, 5403, 5404]): not a registered calibration arm"
+        ],
+        "at_tau": {
+         "n": 2790,
+         "coverage": 1.0,
+         "s1_acc_taken": 0.9992831541218637,
+         "llm_acc_taken": 0.9845878136200716,
+         "s1_acc_all": 0.9992831541218637,
+         "llm_acc_all": 0.9845878136200716
+        },
+        "op_at_tau": {
+         "n": 911,
+         "coverage": 1.0,
+         "s1_acc_taken": 1.0,
+         "llm_acc_taken": 0.9527991218441273,
+         "s1_acc_all": 1.0,
+         "llm_acc_all": 0.9527991218441273
+        }
+       },
+       "tool_params": {
+        "tau_hat": 0.61,
+        "always_defer": false,
+        "n_paired": 4469,
+        "tau_rule": "projection",
+        "V": 1.0,
+        "delta_c": 5.311432535242784e-05,
+        "path": "results/explore/e13/cal_luna/tauhat_jev_shadow_cal_tool_params.json",
+        "sha256": "2de2135bd5d8c8b87f7c192e4ffa19a293312a2b42f6501a782936272a453618",
+        "notes": [
+         "100 task seed(s) outside the calibration range 5000-5149 (e.g. [5400, 5401, 5402, 5403, 5404]): not a registered calibration arm"
+        ],
+        "at_tau": {
+         "n": 4469,
+         "coverage": 0.9024390243902439,
+         "s1_acc_taken": 1.0,
+         "llm_acc_taken": 1.0,
+         "s1_acc_all": 0.9724770642201835,
+         "llm_acc_all": 1.0
+        }
+       }
+      }
+     },
+     "spend": {
+      "s2": 0.25131378000000004,
+      "s1": 0.7866394200000004,
+      "total": 1.0379532000000002,
+      "records": 100
+     },
+     "llm": "luna",
+     "n_cal": 100,
+     "entry": "E13: other agent LLMs on DecisionGym-Hard"
+    },
+    "calibration_md": "# E13 calibration fit, GPT-6-Luna (DecisionGym-Hard as E7e; calibration seeds 5400+, n = 100)\n\nGenerated 2026-10-07T14:56:04+00:00; run `runs/e13_luna_cal`; estimator: threshold_theory --calibration-arm --task-value 1.0 --lam-per-hour 0 --v-fallback W (A6.5 / A6.11).\n\n| calibration arm | decision point | tau-hat | rule | paired | V | dC | coverage at tau % | model acc. taken % | LLM acc. taken % | model acc. all % | LLM acc. all % |\n|---|---|---|---|---|---|---|---|---|---|---|---|\n| `jev_shadow_cal` | tool_select | 0.49 | projection | 2790 | 0.7543859649122807 | 9.007662365591399e-05 | 100.0 | 99.9 | 98.5 | 99.9 | 98.5 |\n| `jev_shadow_cal` | tool_params | 0.61 | projection | 4469 | 1.0 | 5.311432535242784e-05 | 90.2 | 100.0 | 100.0 | 97.2 | 100.0 |\n\nCancel-vs-ship decisions (tool choice where the gold next tool is a write), at the fitted tau:\n\n- `jev_shadow_cal`: 911 decisions, coverage 100.0 %, model acc. taken 100.0 %, model acc. all 100.0 %, LLM acc. all 95.3 %\n",
+    "status": {
+     "started": {
+      "at": "2026-10-07T14:12:21+00:00",
+      "git": "5462386fc8317e3868fd44955b13d79d23818857",
+      "host": "5bce98f7",
+      "runner": "local",
+      "dry": false,
+      "model": "gpt-6-luna",
+      "route": "OpenAI Responses API directly (reasoning effort none, its lowest; temperature 0; stateless); Jev via OpenRouter on the author's Jev-only key"
+     },
+     "smoke": {
+      "invocations": [
+       {
+        "start": "2026-10-07T14:12:21+00:00",
+        "end": "2026-10-07T14:14:01+00:00",
+        "returncode": 0,
+        "capped": null,
+        "errors_after": {
+         "llm_only": 0,
+         "jev_shadow_cal": 0,
+         "jev_cascade_dev": 0
+        }
+       }
+      ],
+      "errors": {
+       "llm_only": 0,
+       "jev_shadow_cal": 0,
+       "jev_cascade_dev": 0
+      },
+      "n_records": {
+       "llm_only": 2,
+       "jev_shadow_cal": 2,
+       "jev_cascade_dev": 2
+      },
+      "capped": false,
+      "done": "2026-10-07T14:14:01+00:00"
+     },
+     "gate": {
+      "phase": "pre_cal",
+      "at": "2026-10-07T14:14:01+00:00",
+      "safety": 1.2,
+      "caps": {
+       "llm": 60.0,
+       "jev": 5.0
+      },
+      "spent": {
+       "by_stage": {
+        "smoke": {
+         "llm": 0.022267470000000015,
+         "jev": 0.031243253999999998,
+         "total": 0.053510723999999996,
+         "records": 6
+        },
+        "cal": {
+         "llm": 0.0,
+         "jev": 0.0,
+         "total": 0.0,
+         "records": 0
+        },
+        "eval": {
+         "llm": 0.0,
+         "jev": 0.0,
+         "total": 0.0,
+         "records": 0
+        }
+       },
+       "llm": 0.022267470000000015,
+       "jev": 0.031243253999999998,
+       "total": 0.053510723999999996,
+       "records": 6
+      },
+      "budget": null,
+      "smoke": {
+       "llm_only": {
+        "n": 2,
+        "errors": 0,
+        "no_tool_call": 0,
+        "no_answer": 2,
+        "llm": 0.000732725,
+        "jev": 0.0,
+        "wall_s": 14.09847740550049,
+        "retried_calls": 0,
+        "served_providers": [
+         "None"
+        ]
+       },
+       "jev_shadow_cal": {
+        "n": 2,
+        "errors": 0,
+        "no_tool_call": 0,
+        "no_answer": 2,
+        "llm": 0.00035945,
+        "jev": 0.0017536259999999999,
+        "wall_s": 18.873388406999766,
+        "retried_calls": 0,
+        "served_providers": [
+         "None"
+        ]
+       },
+       "jev_cascade_dev": {
+        "n": 2,
+        "errors": 0,
+        "no_tool_call": 0,
+        "no_answer": 0,
+        "llm": 0.010041560000000008,
+        "jev": 0.013868000999999998,
+        "wall_s": 87.23083105149954,
+        "retried_calls": 0,
+        "served_providers": [
+         "None"
+        ]
+       }
+      },
+      "tiers": [
+       {
+        "n_cal": 100,
+        "n_eval": 100,
+        "projected": {
+         "llm": 1.3583156700000008,
+         "jev": 1.9058384939999997
+        },
+        "new_spend": 3.21064344,
+        "fits": true
+       },
+       {
+        "n_cal": 50,
+        "n_eval": 50,
+        "projected": {
+         "llm": 0.6902915700000004,
+         "jev": 0.9685408739999999
+        },
+        "new_spend": 1.60532172,
+        "fits": true
+       }
+      ],
+      "decision": "run: calibration 100, evaluation 100",
+      "n_cal": 100,
+      "n_eval": 100
+     },
+     "cal": {
+      "invocations": [
+       {
+        "start": "2026-10-07T14:37:55+00:00",
+        "end": "2026-10-07T14:56:00+00:00",
+        "returncode": 0,
+        "capped": null,
+        "disk": null,
+        "errors_after": {
+         "jev_shadow_cal": 0
+        }
+       }
+      ],
+      "errors": {
+       "jev_shadow_cal": 0
+      },
+      "n_records": {
+       "jev_shadow_cal": 100
+      },
+      "capped": false,
+      "done": "2026-10-07T14:56:02+00:00"
+     },
+     "fit": {
+      "at": "2026-10-07T14:56:05+00:00",
+      "taus": {
+       "tool_select": 0.49,
+       "tool_params": 0.61
+      },
+      "arm": {
+       "name": "jev_refit",
+       "tool_select": {
+        "mode": "cascade",
+        "tau": 0.49
+       },
+       "tool_params": {
+        "mode": "cascade",
+        "tau": 0.61
+       },
+       "reflection": {
+        "mode": "trigger",
+        "tau": 0.5
+       }
+      },
+      "path": "results/explore/e13/cal_luna/fits.json"
+     },
+     "gate_eval": {
+      "phase": "pre_eval",
+      "at": "2026-10-07T15:11:26+00:00",
+      "safety": 1.2,
+      "caps": {
+       "llm": 60.0,
+       "jev": 5.0
+      },
+      "spent": {
+       "by_stage": {
+        "smoke": {
+         "llm": 0.022267470000000015,
+         "jev": 0.031243253999999998,
+         "total": 0.053510723999999996,
+         "records": 6
+        },
+        "cal": {
+         "llm": 0.25131378000000004,
+         "jev": 0.7866394200000004,
+         "total": 1.0379532000000002,
+         "records": 100
+        },
+        "eval": {
+         "llm": 0.0,
+         "jev": 0.0,
+         "total": 0.0,
+         "records": 0
+        }
+       },
+       "llm": 0.27358125000000005,
+       "jev": 0.8178826740000005,
+       "total": 1.0914639240000001,
+       "records": 106
+      },
+      "budget": null,
+      "smoke": {
+       "llm_only": {
+        "n": 2,
+        "errors": 0,
+        "no_tool_call": 0,
+        "no_answer": 2,
+        "llm": 0.000732725,
+        "jev": 0.0,
+        "wall_s": 14.09847740550049,
+        "retried_calls": 0,
+        "served_providers": [
+         "None"
+        ]
+       },
+       "jev_shadow_cal": {
+        "n": 2,
+        "errors": 0,
+        "no_tool_call": 0,
+        "no_answer": 2,
+        "llm": 0.00035945,
+        "jev": 0.0017536259999999999,
+        "wall_s": 18.873388406999766,
+        "retried_calls": 0,
+        "served_providers": [
+         "None"
+        ]
+       },
+       "jev_cascade_dev": {
+        "n": 2,
+        "errors": 0,
+        "no_tool_call": 0,
+        "no_answer": 0,
+        "llm": 0.010041560000000008,
+        "jev": 0.013868000999999998,
+        "wall_s": 87.23083105149954,
+        "retried_calls": 0,
+        "served_providers": [
+         "None"
+        ]
+       }
+      },
+      "tiers": [
+       {
+        "n_cal": 100,
+        "n_eval": 100,
+        "projected": {
+         "llm": 1.566495450000001,
+         "jev": 2.4820427940000003
+        },
+        "new_spend": 2.9570743200000007,
+        "fits": true
+       },
+       {
+        "n_cal": 100,
+        "n_eval": 50,
+        "projected": {
+         "llm": 0.9200383500000004,
+         "jev": 1.6499627340000003
+        },
+        "new_spend": 1.4785371600000001,
+        "fits": true
+       }
+      ],
+      "decision": "run: calibration 100, evaluation 100",
+      "n_cal": 100,
+      "n_eval": 100
+     },
+     "eval": {
+      "invocations": [
+       {
+        "start": "2026-10-07T15:43:27+00:00",
+        "end": "2026-10-07T15:48:39+00:00",
+        "returncode": 0,
+        "capped": null,
+        "disk": null,
+        "errors_after": {
+         "llm_only": 0,
+         "jev_refit": 0
+        }
+       }
+      ],
+      "errors": {
+       "llm_only": 0,
+       "jev_refit": 0
+      },
+      "n_records": {
+       "llm_only": 100,
+       "jev_refit": 100
+      },
+      "capped": false,
+      "done": "2026-10-07T15:48:41+00:00"
+     },
+     "slim": {
+      "done": "2026-10-07T15:48:43+00:00",
+      "runs": {
+       "smoke": {
+        "raw": "runs/e13_luna_smoke",
+        "files": {
+         "jev_cascade_dev.jsonl": {
+          "raw_sha256": "078608be67b2fbcf7ffa38edbb0e464c2018cf9d3c9a19f76743bee9bcf66673",
+          "raw_bytes": 2031724,
+          "gz_bytes": 39893,
+          "records": 2
+         },
+         "jev_shadow_cal.jsonl": {
+          "raw_sha256": "9f7bf031c4cdf44d7e6236926f57eec19d4e418fd83b8b41018b6ba668902592",
+          "raw_bytes": 278329,
+          "gz_bytes": 10382,
+          "records": 2
+         },
+         "llm_only.jsonl": {
+          "raw_sha256": "d1469993b05950edaba8d6a8c012f2486e720cff93819e597fa1b5f0fc3c2302",
+          "raw_bytes": 93259,
+          "gz_bytes": 3666,
+          "records": 2
+         }
+        }
+       },
+       "eval": {
+        "raw": "runs/e13_luna_eval",
+        "files": {
+         "jev_refit.jsonl": {
+          "raw_sha256": "f132909179164c65841d47eb98823433884001098d5b5bb8228ed8336dc61a74",
+          "raw_bytes": 100161147,
+          "gz_bytes": 1965382,
+          "records": 100
+         },
+         "llm_only.jsonl": {
+          "raw_sha256": "ac359c660a545a75a7b139f459e897c42041e6f6de5db5e2b9bd45edeb962a3b",
+          "raw_bytes": 20950215,
+          "gz_bytes": 441186,
+          "records": 100
+         }
+        }
+       }
+      }
+     },
+     "spend": {
+      "by_stage": {
+       "smoke": {
+        "llm": 0.022267470000000015,
+        "jev": 0.031243253999999998,
+        "total": 0.053510723999999996,
+        "records": 6
+       },
+       "cal": {
+        "llm": 0.25131378000000004,
+        "jev": 0.7866394200000004,
+        "total": 1.0379532000000002,
+        "records": 100
+       },
+       "eval": {
+        "llm": 1.1842491400000006,
+        "jev": 1.3717680900000004,
+        "total": 2.556017230000001,
+        "records": 200
+       }
+      },
+      "llm": 1.4578303900000007,
+      "jev": 2.189650764000001,
+      "total": 3.647481154000001,
+      "records": 306
+     },
+     "finished": "2026-10-07T15:48:44+00:00"
+    },
+    "spend_split": {
+     "by_stage": {
+      "smoke": {
+       "llm": 0.022267470000000015,
+       "jev": 0.031243253999999998,
+       "total": 0.053510723999999996,
+       "records": 6
+      },
+      "cal": {
+       "llm": 0.25131378000000004,
+       "jev": 0.7866394200000004,
+       "total": 1.0379532000000002,
+       "records": 100
+      },
+      "eval": {
+       "llm": 1.1842491400000006,
+       "jev": 1.3717680900000004,
+       "total": 2.556017230000001,
+       "records": 200
+      }
+     },
+     "llm": 1.4578303900000007,
+     "jev": 2.189650764000001,
+     "total": 3.647481154000001,
+     "records": 306
+    },
+    "source": "results/explore/e13",
+    "dry_run": false,
+    "cache": {
+     "llm_only": {
+      "cached_share": 0.954605704750065,
+      "s2_input_tokens": 165921.73,
+      "steps": 29.06
+     },
+     "jev_refit": {
+      "cached_share": 0.009413173952983708,
+      "s2_input_tokens": 87739.8,
+      "steps": 37.55
+     }
+    },
+    "diag": {
+     "arms": {
+      "llm_only": {
+       "groups": {
+        "alltools": {
+         "calls": 2906,
+         "input": 16592173,
+         "cached": 15838983,
+         "hit_calls": 2809,
+         "written": 744472,
+         "cached_share": 0.954605704750065,
+         "call_share": 1.0,
+         "token_share": 1.0
+        }
+       },
+       "n": 100,
+       "written_per_episode": 7444.72
+      },
+      "jev_refit": {
+       "groups": {
+        "onetool": {
+         "calls": 1861,
+         "input": 7566860,
+         "cached": 51387,
+         "hit_calls": 18,
+         "written": 7197123,
+         "cached_share": 0.006791059964106644,
+         "call_share": 0.8778301886792453,
+         "token_share": 0.8624204750865627
+        },
+        "notools": {
+         "calls": 255,
+         "input": 1172280,
+         "cached": 3805,
+         "hit_calls": 1,
+         "written": 1154891,
+         "cached_share": 0.0032458115808509914,
+         "call_share": 0.12028301886792453,
+         "token_share": 0.1336086929762776
+        },
+        "alltools": {
+         "calls": 4,
+         "input": 34840,
+         "cached": 27399,
+         "hit_calls": 4,
+         "written": 7429,
+         "cached_share": 0.7864236509758897,
+         "call_share": 0.0018867924528301887,
+         "token_share": 0.003970831937159647
+        }
+       },
+       "n": 100,
+       "written_per_episode": 83594.43
+      }
+     },
+     "ratio": 8.374192274463347,
+     "gap": 0.020106865699999997,
+     "jev_cost": 0.013717680899999998,
+     "llm_cost": 0.0091158381,
+     "llm_cost_ref": 0.0027266533000000004,
+     "jev_share_of_gap": 0.6822386494579311,
+     "perfect_fix_llm_cost": 0.0014418606605134843,
+     "perfect_fix_cost": 0.015159541560513481,
+     "perfect_fix_ratio": 5.559761323712655,
+     "write_factor": 1.25,
+     "write_surcharge": {
+      "llm_only": 0.00018611800000000004,
+      "jev_refit": 0.00208986075
+     }
+    },
+    "order_check": {
+     "fit_at": "2026-10-07T14:56:05+00:00",
+     "eval_start": "2026-10-07T15:11:26+00:00",
+     "ok": true
+    }
+   }
+  },
+  "deepseek": {
+   "state": "not run",
+   "why": null
+  }
+ },
+ "reference": {
+  "title": "Gemini 3.5 Flash (E7e, reference)",
+  "source": "results/explore/e7_hard/summary_e7e.json",
+  "cmp": {
+   "n_expected": 100,
+   "n": 100,
+   "n_dropped": 0,
+   "dropped": {
+    "missing_arm": 0,
+    "missing_ref": 0,
+    "errored_arm": 0,
+    "errored_ref": 0
+   },
+   "success": 0.89,
+   "success_ref": 0.87,
+   "delta": 0.02,
+   "delta_ci": [
+    -0.06,
+    0.1
+   ],
+   "wins": 9,
+   "losses": 7,
+   "cost": 0.1838009488200001,
+   "cost_ref": 0.264647826,
+   "saving": 0.3054885369812178,
+   "saving_ci": [
+    0.2975913876680744,
+    0.3129207510771037
+   ],
+   "newcombe_pt": [
+    -6.365562053170322,
+    10.44439844539965
+   ],
+   "api": {
+    "cost": 0.1838009488200001,
+    "saving": 0.3054885369812178,
+    "saving_ci": [
+     0.2975913876680744,
+     0.3129207510771037
+    ]
+   }
+  },
+  "points": {
+   "tool_select": {
+    "n": 3758,
+    "coverage": 0.9632783395423098,
+    "n_gold": 3758,
+    "acc": 0.9882916444917509,
+    "acc_accepted": 0.9917127071823204,
+    "llm_acc_deferred": 1.0,
+    "n_accepted": 3620
+   },
+   "tool_params": {
+    "n": 5979,
+    "coverage": 0.6400735909014885,
+    "n_gold": 5920,
+    "acc": 0.9672297297297298,
+    "acc_accepted": 0.9925709737330857,
+    "llm_acc_deferred": null,
+    "n_accepted": 3827
+   },
+   "tool": {
+    "n": 9737,
+    "coverage": 0.7648146246277088,
+    "n_gold": 9678,
+    "acc": 0.975408142178136,
+    "acc_accepted": 0.9921504939775342,
+    "llm_acc_deferred": 1.0,
+    "n_accepted": 7447
+   },
+   "op": {
+    "n": 1200,
+    "coverage": 0.9958333333333333,
+    "acc": 1.0,
+    "acc_accepted": 1.0,
+    "accepted_wrong": 0,
+    "llm_acc_deferred": 1.0,
+    "s1_said_other_op": 0
+   },
+   "reflection": {
+    "n": 3658,
+    "fired": 0.04866047020229634,
+    "acc": 0.9971264367816092,
+    "gold_positive_rate": 0.0028735632183908046
+   }
+  },
+  "ppe": {
+   "wall_s_mean": 104.14777440777995,
+   "wall_s_median": 103.55174587399983,
+   "steps": 37.58,
+   "llm_calls": 25.33,
+   "s1_calls": 133.95,
+   "s1_cost": 0.013682033820000002,
+   "s2_cost": 0.170118915,
+   "s1_s": 35.687105885199934
+  },
+  "ref_ppe": {
+   "wall_s_mean": 63.539819254610045,
+   "wall_s_median": 63.24058358549996,
+   "steps": 37.0,
+   "llm_calls": 37.0,
+   "s1_calls": 0.0,
+   "s1_cost": 0.0,
+   "s2_cost": 0.264647826,
+   "s1_s": 0.0
+  },
+  "ref_success": 0.87,
+  "seeds": "310500-310599",
+  "taus": [
+   0.91,
+   0.87
+  ]
+ }
+}

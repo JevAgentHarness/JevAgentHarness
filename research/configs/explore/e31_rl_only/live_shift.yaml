@@ -1,0 +1,40 @@
+# Exploratory row E31 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-10 "E31: GRPO in the agent loop without SFT (RL only,
+# from the untrained base)" (d) 4; descriptive, outside every Holm table). L3 shift: the RL-only checkpoint REPLACE at the
+# tool choice on E21's 200 L3 tasks (seeds 330100-330299; JEV_EVAL_RUNS=1), exactly as E21 addendum 2's sft_v1 row
+# (configs/explore/e21_shift/live_sft_v1.yaml) with this backend and a new System-1 cache: the shifted suite, Flash on
+# the direct Gemini API (temperature 0, minimal reasoning), 4 workers. On the E31 GPU host (scripts/aws/e31_rl_only.sh
+# stage l3): Qwen3-4B + the E31 LoRA with its temperatures behind serve_jev on :8081; the Gemini key from SSM into the
+# live process only.
+name: e31_live_shift
+suite:
+  name: jevgym
+  shift: true
+  n: 200
+  seed0: 330100
+  families: v2
+  distractor_style: near
+  n_distractors: 60
+  noise_lines: 20
+  strict: true
+n_tasks: 200
+llm:
+  provider: gemini
+  model: gemini-3.5-flash
+  temperature: 0
+  reasoning_effort: minimal
+s1_cache: cache/s1_e31_live_shift.sqlite
+s1_backends:
+  e31:
+    type: jev
+    name: rl-only-e31
+    base_url: http://127.0.0.1:8081
+    model: rl-only-e31
+    api_key: ''
+    price_model: jevagentrl-4b
+    timeout: 60.0
+workers: 4
+arms:
+- name: e31_ts_replace_f
+  s1: e31
+  tool_select:
+    mode: replace

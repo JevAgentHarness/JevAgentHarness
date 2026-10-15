@@ -1,0 +1,4 @@
+[ok] effective specification in sync: docs/STAGE2_EFFECTIVE.md
+[ok] Stage-2 fixture tests: .....................................................                    [100%]
+[ok] StartLux serving manifest with the 4B served: StartLux-Decision-4B: original
+[gate] stage2_startlux_states: PASS

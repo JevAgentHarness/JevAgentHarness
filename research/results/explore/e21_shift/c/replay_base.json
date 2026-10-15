@@ -1,0 +1,20 @@
+{
+ "registered": "PREREG_A7_STAGE2 Deviations 2026-10-08 'E21' (d) 3",
+ "variant": "main",
+ "backend": {
+  "backend": "rl-base",
+  "provider": "typesafe",
+  "model": "rl-base",
+  "base_url": "http://127.0.0.1:8081",
+  "extra_body": {},
+  "cached": true
+ },
+ "cache": "cache/s1_e21_base_main.sqlite",
+ "workers": 4,
+ "order": "sorted question hash, sharded over workers",
+ "batching": "one question per request (the harness tournament for Choices wider than the backend's max_options)",
+ "retries": 2,
+ "n_questions": 1093,
+ "resumed_with": 0,
+ "written": "2026-10-09T05:19:49+00:00"
+}

@@ -1,0 +1,5 @@
+No entry for terminal type "unknown";
+using dumb terminal settings.
+.......                                                                  [100%]
+7 passed in 11.30s
+pytest_exit=0

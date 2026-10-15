@@ -1,0 +1,1 @@
+{"status": "ok", "model": "StartLux-Decision-4B", "backend": "torch", "fast_kernels": true, "cuda_graphs": 40}

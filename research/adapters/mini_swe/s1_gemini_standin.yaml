@@ -1,0 +1,9 @@
+# Overlay: the Gemini stand-in System-1 (batched verbalised distributions from Gemini 3.5 Flash-Lite) for every
+# S1 hook, until Jev is reachable. List it after swebench_jev.yaml (see gemini.yaml for the full command).
+# For Jev, leave this file out and keep the base config's `s1: {type: jev, ...}` (OpenRouter route:
+# -c jev.s1.provider=openrouter). Dicts are merged, hence `model:` here: it overwrites the base `model: jev-latest`
+# so the logged config is not misleading (the generative backend uses llm.model).
+jev:
+  s1: {type: llm_generative, model: gemini-3.5-flash-lite, llm: {provider: gemini, model: gemini-3.5-flash-lite},
+       reasoning_effort: minimal}
+  s1_cache: cache/jev_swe_gemini.sqlite

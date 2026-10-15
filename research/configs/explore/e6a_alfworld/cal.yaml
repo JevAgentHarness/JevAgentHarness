@@ -1,0 +1,13 @@
+# E6a (exploratory, descriptive; docs/PREREG_A7_STAGE2.md, Deviations 2026-10-06 "Exploratory row E6a"): the CASCADE
+# threshold's calibration shadow arm on the 48 ALFWorld TRAIN games of train_games.json (never valid_seen). The LLM
+# decides every action; Jev is asked the same action question at every step and logged (measurement only, kept out of
+# the episode cost). Fit: python scripts/explore_e6a_alfworld.py fit  (-> tauhat_action.json).
+#   python -m jevharness.bench.runner configs/explore/e6a_alfworld/cal.yaml --out runs
+name: e6a_alfworld_cal
+suite: {name: alfworld, split: train, data_dir: data/raw/alfworld_e6a, stratify: true, max_episode_steps: 50}
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}
+harness_defaults: {max_steps: 50, history_window: 12}
+workers: 8
+arms:
+  - {name: jev_action_shadow_cal, action: {mode: shadow}}

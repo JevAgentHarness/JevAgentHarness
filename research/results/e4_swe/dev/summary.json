@@ -1,0 +1,263 @@
+{
+ "label": "exploratory (E4), descriptive",
+ "run_dir": "runs/e4_swe/dev",
+ "baseline": "always_deep",
+ "arms": [
+  {
+   "arm": "always_deep",
+   "n": 45,
+   "resolved": 36,
+   "unevaluated": 0,
+   "errors": 0,
+   "cost_mean": 0.03406023513333334,
+   "llm_cost_mean": 0.03406023513333334,
+   "s1_cost_mean": 0.0,
+   "cost_total": 1.5327105810000001,
+   "time_median_s": 209.81677387299987,
+   "time_mean_s": 336.93507181837765,
+   "time_p90_s": 680.5967258333999,
+   "time_total_h": 4.211688397729721,
+   "steps_mean": 38.15555555555556,
+   "llm_calls_mean": 38.15555555555556,
+   "s1_calls_mean": 0.0,
+   "fast_share": 0.0,
+   "deep_call_mean_s": 8.32682493968258,
+   "fast_call_mean_s": null,
+   "s1_call_mean_s": null,
+   "llm_time_share": 0.9429550621512799,
+   "cached_input_share": 0.916326532635946,
+   "exit_statuses": {
+    "Submitted": 45
+   }
+  },
+  {
+   "arm": "always_fast",
+   "n": 45,
+   "resolved": 34,
+   "unevaluated": 0,
+   "errors": 0,
+   "cost_mean": 0.012498589413333335,
+   "llm_cost_mean": 0.012498589413333335,
+   "s1_cost_mean": 0.0,
+   "cost_total": 0.5624365236000001,
+   "time_median_s": 277.84463026699996,
+   "time_mean_s": 344.93725981631115,
+   "time_p90_s": 675.3720443538,
+   "time_total_h": 4.311715747703889,
+   "steps_mean": 49.4,
+   "llm_calls_mean": 49.4,
+   "s1_calls_mean": 0.0,
+   "fast_share": 1.0,
+   "deep_call_mean_s": null,
+   "fast_call_mean_s": 6.426948191412956,
+   "s1_call_mean_s": null,
+   "llm_time_share": 0.9204318513600794,
+   "cached_input_share": 0.9201444084419748,
+   "exit_statuses": {
+    "Submitted": 45
+   }
+  },
+  {
+   "arm": "jevagent_t050",
+   "n": 45,
+   "resolved": 38,
+   "unevaluated": 0,
+   "errors": 0,
+   "cost_mean": 0.03431120725333333,
+   "llm_cost_mean": 0.03087270085333334,
+   "s1_cost_mean": 0.0034385063999999997,
+   "cost_total": 1.5440043263999998,
+   "time_median_s": 300.859982425,
+   "time_mean_s": 369.5041738094221,
+   "time_p90_s": 781.3568070010003,
+   "time_total_h": 4.618802172617777,
+   "steps_mean": 40.4,
+   "llm_calls_mean": 40.4,
+   "s1_calls_mean": 40.4,
+   "fast_share": 0.21397139713971397,
+   "deep_call_mean_s": 9.206098470900624,
+   "fast_call_mean_s": 5.340084873776364,
+   "s1_call_mean_s": 0.18139902216557108,
+   "llm_time_share": 0.916111000784441,
+   "cached_input_share": 0.8898128493397502,
+   "exit_statuses": {
+    "Submitted": 45
+   }
+  },
+  {
+   "arm": "jevagent_t060",
+   "n": 45,
+   "resolved": 38,
+   "unevaluated": 0,
+   "errors": 0,
+   "cost_mean": 0.028682767813333326,
+   "llm_cost_mean": 0.02518623981333333,
+   "s1_cost_mean": 0.003496527999999999,
+   "cost_total": 1.2907245515999997,
+   "time_median_s": 314.3906684900003,
+   "time_mean_s": 366.6826747574668,
+   "time_p90_s": 715.4334888361999,
+   "time_total_h": 4.583533434468335,
+   "steps_mean": 40.577777777777776,
+   "llm_calls_mean": 40.577777777777776,
+   "s1_calls_mean": 40.577777777777776,
+   "fast_share": 0.3904709748083242,
+   "deep_call_mean_s": 9.853480915540876,
+   "fast_call_mean_s": 5.707467378885005,
+   "s1_call_mean_s": 0.18996327270099175,
+   "llm_time_share": 0.9112540645721608,
+   "cached_input_share": 0.8903031944175142,
+   "exit_statuses": {
+    "Submitted": 45
+   }
+  },
+  {
+   "arm": "jevagent_t070",
+   "n": 45,
+   "resolved": 33,
+   "unevaluated": 0,
+   "errors": 0,
+   "cost_mean": 0.023970920013333345,
+   "llm_cost_mean": 0.01997529761333333,
+   "s1_cost_mean": 0.003995622400000002,
+   "cost_total": 1.0786914006000006,
+   "time_median_s": 286.441049691,
+   "time_mean_s": 394.6742739367333,
+   "time_p90_s": 832.6615744137999,
+   "time_total_h": 4.933428424209166,
+   "steps_mean": 46.44444444444444,
+   "llm_calls_mean": 46.44444444444444,
+   "s1_calls_mean": 46.44444444444444,
+   "fast_share": 0.7282296650717703,
+   "deep_call_mean_s": 12.3813395678134,
+   "fast_call_mean_s": 6.017516744854148,
+   "s1_call_mean_s": 0.18573873548182007,
+   "llm_time_share": 0.911652549367358,
+   "cached_input_share": 0.9093971271092074,
+   "exit_statuses": {
+    "Submitted": 45
+   }
+  }
+ ],
+ "paired": {
+  "always_fast": {
+   "tasks": 45,
+   "d_resolved": -2,
+   "wins": 2,
+   "losses": 4,
+   "sign_p_two_sided": 0.6875000000000013,
+   "mcnemar_p": 0.6875000000000013,
+   "saving_pct": 63.30445352357099,
+   "mean_time_saving_pct": -2.374994076676895,
+   "n_cosolved": 32,
+   "d_time_median_cosolved_s": 19.55170757100018,
+   "cosolved_faster": 12,
+   "cosolved_slower": 20,
+   "cosolved_time_sign_p_one_sided": 0.9449079174082732,
+   "d_time_median_all_s": 16.260405024000647
+  },
+  "jevagent_t050": {
+   "tasks": 45,
+   "d_resolved": 2,
+   "wins": 3,
+   "losses": 1,
+   "sign_p_two_sided": 0.6249999999999994,
+   "mcnemar_p": 0.6249999999999994,
+   "saving_pct": -0.7368478785232391,
+   "mean_time_saving_pct": -9.66628431266443,
+   "n_cosolved": 35,
+   "d_time_median_cosolved_s": 20.90590292900015,
+   "cosolved_faster": 14,
+   "cosolved_slower": 21,
+   "cosolved_time_sign_p_one_sided": 0.9122673755045976,
+   "d_time_median_all_s": 16.46182821900038
+  },
+  "jevagent_t060": {
+   "tasks": 45,
+   "d_resolved": 2,
+   "wins": 4,
+   "losses": 2,
+   "sign_p_two_sided": 0.6875000000000013,
+   "mcnemar_p": 0.6875000000000013,
+   "saving_pct": 15.788109797096816,
+   "mean_time_saving_pct": -8.828882899766644,
+   "n_cosolved": 34,
+   "d_time_median_cosolved_s": 15.868843169499769,
+   "cosolved_faster": 10,
+   "cosolved_slower": 24,
+   "cosolved_time_sign_p_one_sided": 0.9954794072546065,
+   "d_time_median_all_s": 18.27091520900106
+  },
+  "jevagent_t070": {
+   "tasks": 45,
+   "d_resolved": -3,
+   "wins": 3,
+   "losses": 6,
+   "sign_p_two_sided": 0.5078124999999989,
+   "mcnemar_p": 0.5078124999999989,
+   "saving_pct": 29.621977301401536,
+   "mean_time_saving_pct": -17.136596023307284,
+   "n_cosolved": 30,
+   "d_time_median_cosolved_s": 24.733179239000492,
+   "cosolved_faster": 11,
+   "cosolved_slower": 19,
+   "cosolved_time_sign_p_one_sided": 0.9506314266473052,
+   "d_time_median_all_s": 35.7737996980004
+  }
+ },
+ "threshold": {
+  "always_deep_resolved": 36,
+  "always_fast_resolved": 34,
+  "margin": 2,
+  "candidates": {
+   "jevagent_t050": {
+    "tau": 0.5,
+    "resolved": 38,
+    "fast_share": 0.21397139713971397,
+    "eligible": true
+   },
+   "jevagent_t060": {
+    "tau": 0.6,
+    "resolved": 38,
+    "fast_share": 0.3904709748083242,
+    "eligible": true
+   },
+   "jevagent_t070": {
+    "tau": 0.7,
+    "resolved": 33,
+    "fast_share": 0.7282296650717703,
+    "eligible": false
+   }
+  },
+  "tau": 0.5,
+  "case": "not_separable",
+  "reason": "always_fast (34) is within 2 of always_deep (36) on dev: dev cannot separate the settings, so the registered route tau 0.5 is used",
+  "phase": "dev",
+  "n_dev": 45,
+  "dev_ids_sha256": "c5d0a510cab2b4094c5ea71deed85e84adafdd7682e4c0c21fbe3c077b742d24",
+  "eval_ids_sha256": "8d67497edcc71e78e2c0d49496f0bb9333dc87959addf7a3cf20eb440b89a1ee",
+  "resolved": {
+   "always_deep": 36,
+   "always_fast": 34,
+   "jevagent_t050": 38,
+   "jevagent_t060": 38,
+   "jevagent_t070": 33
+  },
+  "fast_share": {
+   "always_deep": 0.0,
+   "always_fast": 1.0,
+   "jevagent_t050": 0.21397139713971397,
+   "jevagent_t060": 0.3904709748083242,
+   "jevagent_t070": 0.7282296650717703
+  },
+  "errors": {
+   "always_deep": 0,
+   "always_fast": 0,
+   "jevagent_t050": 0,
+   "jevagent_t060": 0,
+   "jevagent_t070": 0
+  },
+  "written": "2026-10-05T23:11:03+00:00"
+ },
+ "note": "development only; dev wall-clock is not comparable across arms (dev runner restarted at 22:03 UTC after the unbilled-response fix; container starts delayed by a background image pull)"
+}

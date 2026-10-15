@@ -1,0 +1,18 @@
+# Stage 2 (docs/PREREG_A7_STAGE2.md A7.2 (c), S2-L3b): the profile's ALFWorld rendering on the FRESH split valid_seen
+# (`eval_in_distribution`, 140 games), which no config or pilot of this project has run (Stage 1's E6 and the pilots use
+# `eval_out_of_distribution`). Same System-2 (Flash), System-1 (Jev) and harness defaults as E6
+# (configs/experiments/alfworld_action_only.yaml). The `jevagent_best` arm reads the profile's ALFWorld rendering
+# (`profile_env: alfworld`: the action / reflection / routing / memory decision points the action loop consults,
+# A7.1 (i)); it is not run when that rendering is all `off`. Adapter checks use train-split games only.
+#   jevbench run configs/experiments/stage2_alfworld.yaml --out runs        # x3 passes (A7.6); needs ALFWORLD_DATA
+name: stage2_alfworld
+suite: {name: alfworld, split: eval_in_distribution, n: 140}
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+small_llm: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}   # used only if the profile selects routing
+s1: {type: jev, provider: openrouter}
+s1_cache: cache/s1_stage2.sqlite
+harness_defaults: {max_steps: 50, history_window: 12}
+workers: 8
+arms:
+  - {name: llm_react}                                                                                             # S2-L3b reference
+  - {name: jevagent_best, profile: configs/harness/jevagent_best.yaml, profile_s2: gemini-3.5-flash, profile_env: alfworld}   # S2-L3b

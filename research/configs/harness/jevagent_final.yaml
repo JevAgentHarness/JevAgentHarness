@@ -1,0 +1,39 @@
+# The final JevAgentHarness profile -- EXPLORATORY, post hoc (docs/PREREG_A7_STAGE2.md, Deviations entry of
+# 2026-10-05 "harness_final"; docs/JEVAGENT_HARNESS.md §8). Not selected by the registered rule of A7.1: a post-hoc
+# configuration choice made after Stage 2 from development evidence and the Stage-2 latency diagnosis
+# (results/harness_final/latency_diagnosis.md), before any harness_final evaluation episode:
+#   * tool + argument CASCADE (the selected profile's tool group, configs/harness/jevagent_best.yaml) with JevAgentRL-4B
+#     at its frozen calibration-fit thresholds (backends.jevagent_rl, copied unchanged from jevagent_best.yaml);
+#   * reflection trigger OFF: with JevAgentRL it was asked 3250 times in S2-4 and never fired (max p(yes) 0.40 < tau 0.5),
+#     and with hosted Jev it lost success on fresh seeds (S2-1 / S2-2);
+#   * `batch_s1`: the argument questions of one call go to System-1 in ONE request (the reference loop's registered
+#     call graph asks one question per request, A6.22 (a)); answers, thresholds and logs are those of the per-question
+#     path (tests/test_harness_final.py).
+# The serving side of the final harness is `serve_jev --fast` (exact fast paths; docs/JEVAGENT_HARNESS.md §8).
+kind: jevagent_profile
+version: 1
+name: jevagent_final
+status: development
+description: Exploratory final JevAgentHarness (post hoc; Deviations 2026-10-05). Tool + argument cascade, reflection
+  off, argument questions batched per step; JevAgentRL-4B at its frozen thresholds.
+system2:
+  gemini-3.5-flash:
+    decision_points:
+      tool_select:
+        mode: cascade
+        tau: 1.0
+      tool_params:
+        mode: cascade
+        tau: 0.99
+        batch_s1: true
+    backends:
+      jevagent_rl:
+        tool_select:
+          tau: 0.4999999999978404
+        tool_params:
+          tau: 0.9999998807907104
+        notes: frozen thresholds of configs/harness/jevagent_best.yaml backends.jevagent_rl (fitted on the calibration
+          seeds, results/gpu_round5/cal/), copied unchanged
+  gemini-3.5-flash-lite:
+    decision_points: {}
+    skip: not part of the final harness (no decision point qualified for Flash-Lite in Stage 1)

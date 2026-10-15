@@ -1,0 +1,796 @@
+{
+ "label": "post hoc, descriptive; stored answers only (no model call, no GPU); revises no registered result; no registration entry (the convention of scripts/explore_drift.py)",
+ "written": "2026-10-08T15:37:43+00:00",
+ "git": "ab473d7c4fe0",
+ "split_sha256": "f216c1b16b8e279cf29ffb6b546c5a18795241650ab01e11e08112d0378d9dfc",
+ "rule": {
+  "vote": "members = the best dev accuracy among the top-k sets by dev single accuracy (k = 2..9) and greedy forward selection from the best single model",
+  "gate": "m from a strict majority to unanimity over the same candidate sets; the highest dev coverage with accepted-error rate <= k_dp(tool choice) = 0.0058322; else the lowest error rate among gates that delegate at least half of the dev units; else the lowest error rate"
+ },
+ "levels": {
+  "c": {
+   "dev_units": 2493,
+   "families": {
+    "ots": {
+     "pool": [
+      "jev",
+      "oaidec",
+      "intern",
+      "sl0.8b",
+      "sl2b",
+      "sl4b",
+      "sl9b",
+      "sl27b",
+      "openjev",
+      "openjevhf",
+      "clefflash",
+      "jevk5",
+      "clm",
+      "laya",
+      "verdict",
+      "decider",
+      "imajev",
+      "bosun"
+     ],
+     "dev_singles": [
+      [
+       "sl27b",
+       0.9394803162766447
+      ],
+      [
+       "openjevhf",
+       0.9275880880780479
+      ],
+      [
+       "sl9b",
+       0.9206098721308961
+      ],
+      [
+       "openjev",
+       0.913890227852786
+      ],
+      [
+       "oaidec",
+       0.913031236044177
+      ],
+      [
+       "jev",
+       0.9125479721731339
+      ],
+      [
+       "sl4b",
+       0.8909742440166878
+      ],
+      [
+       "imajev",
+       0.7750806812443838
+      ],
+      [
+       "intern",
+       0.7555678306607916
+      ],
+      [
+       "sl2b",
+       0.677193482326726
+      ],
+      [
+       "jevk5",
+       0.6505083554715213
+      ],
+      [
+       "decider",
+       0.6110135618420308
+      ],
+      [
+       "clefflash",
+       0.49035798376101697
+      ],
+      [
+       "sl0.8b",
+       0.4771870366659249
+      ],
+      [
+       "bosun",
+       0.36155092643042624
+      ],
+      [
+       "verdict",
+       0.18406818946060022
+      ],
+      [
+       "clm",
+       0.11393061182777997
+      ],
+      [
+       "laya",
+       0.10747899333993613
+      ]
+     ],
+     "best_single": "sl27b",
+     "majority": {
+      "members": [
+       "sl27b",
+       "openjev"
+      ],
+      "dev_acc": 0.948838853607076,
+      "candidates": 16
+     },
+     "weighted": {
+      "members": [
+       "sl27b",
+       "openjev"
+      ],
+      "dev_acc": 0.948838853607076,
+      "candidates": 16
+     },
+     "gate": {
+      "members": [
+       "sl27b",
+       "openjevhf",
+       "sl9b",
+       "openjev"
+      ],
+      "m": 4,
+      "dev": {
+       "coverage": 0.8772563176895307,
+       "accepted": 2187,
+       "accepted_errors": 48,
+       "accepted_acc": 0.9780521262002744,
+       "error_rate": 0.02194787379972565
+      },
+      "rule": "no gate within k_dp: the lowest accepted-error rate among gates delegating at least half",
+      "candidates": 53,
+      "within_kdp": 0
+     }
+    },
+    "mixed": {
+     "pool": [
+      "jev",
+      "oaidec",
+      "intern",
+      "sl0.8b",
+      "sl2b",
+      "sl4b",
+      "sl9b",
+      "sl27b",
+      "openjev",
+      "openjevhf",
+      "clefflash",
+      "jevk5",
+      "clm",
+      "laya",
+      "verdict",
+      "decider",
+      "imajev",
+      "bosun",
+      "rl",
+      "e12",
+      "e12c",
+      "e14a",
+      "e16a",
+      "e16b"
+     ],
+     "dev_singles": [
+      [
+       "e12c",
+       0.9934912020756227
+      ],
+      [
+       "e16b",
+       0.9902596263245671
+      ],
+      [
+       "e14a",
+       0.9880920732755188
+      ],
+      [
+       "e12",
+       0.987199096583894
+      ],
+      [
+       "e16a",
+       0.9868022205607647
+      ],
+      [
+       "rl",
+       0.9862733826577825
+      ],
+      [
+       "sl27b",
+       0.9394803162766447
+      ],
+      [
+       "openjevhf",
+       0.9275880880780479
+      ],
+      [
+       "sl9b",
+       0.9206098721308961
+      ],
+      [
+       "openjev",
+       0.913890227852786
+      ],
+      [
+       "oaidec",
+       0.913031236044177
+      ],
+      [
+       "jev",
+       0.9125479721731339
+      ],
+      [
+       "sl4b",
+       0.8909742440166878
+      ],
+      [
+       "imajev",
+       0.7750806812443838
+      ],
+      [
+       "intern",
+       0.7555678306607916
+      ],
+      [
+       "sl2b",
+       0.677193482326726
+      ],
+      [
+       "jevk5",
+       0.6505083554715213
+      ],
+      [
+       "decider",
+       0.6110135618420308
+      ],
+      [
+       "clefflash",
+       0.49035798376101697
+      ],
+      [
+       "sl0.8b",
+       0.4771870366659249
+      ],
+      [
+       "bosun",
+       0.36155092643042624
+      ],
+      [
+       "verdict",
+       0.18406818946060022
+      ],
+      [
+       "clm",
+       0.11393061182777997
+      ],
+      [
+       "laya",
+       0.10747899333993613
+      ]
+     ],
+     "best_single": "e12c",
+     "majority": {
+      "members": [
+       "e12c",
+       "sl0.8b",
+       "clm",
+       "e16b",
+       "openjev"
+      ],
+      "dev_acc": 0.993212835161519,
+      "candidates": 16
+     },
+     "weighted": {
+      "members": [
+       "e12c",
+       "sl0.8b",
+       "clm",
+       "e16b",
+       "openjev"
+      ],
+      "dev_acc": 0.9935147675286686,
+      "candidates": 16
+     },
+     "gate": {
+      "members": [
+       "e12c",
+       "e16b"
+      ],
+      "m": 2,
+      "dev": {
+       "coverage": 0.98676293622142,
+       "accepted": 2460,
+       "accepted_errors": 9,
+       "accepted_acc": 0.9963414634146341,
+       "error_rate": 0.003658536585365854
+      },
+      "rule": "max coverage with accepted-error rate <= k_dp",
+      "candidates": 64,
+      "within_kdp": 38
+     }
+    },
+    "hosted": {
+     "pool": [
+      "jev",
+      "oaidec"
+     ],
+     "dev_singles": [
+      [
+       "oaidec",
+       0.913031236044177
+      ],
+      [
+       "jev",
+       0.9125479721731339
+      ]
+     ],
+     "best_single": "oaidec",
+     "majority": {
+      "members": [
+       "oaidec",
+       "jev"
+      ],
+      "dev_acc": 0.9162292253486749,
+      "candidates": 1
+     },
+     "weighted": {
+      "members": [
+       "oaidec",
+       "jev"
+      ],
+      "dev_acc": 0.9162292253486749,
+      "candidates": 1
+     },
+     "gate": {
+      "members": [
+       "oaidec",
+       "jev"
+      ],
+      "m": 2,
+      "dev": {
+       "coverage": 0.9257922182109908,
+       "accepted": 2308,
+       "accepted_errors": 113,
+       "accepted_acc": 0.9510398613518197,
+       "error_rate": 0.048960138648180246
+      },
+      "rule": "no gate within k_dp: the lowest accepted-error rate among gates delegating at least half",
+      "candidates": 1,
+      "within_kdp": 0
+     }
+    }
+   },
+   "hosted_check": {
+    "gate": {
+     "n": 2493,
+     "accepted": 2308,
+     "coverage": 0.9257922182109908,
+     "accepted_errors": 113,
+     "accepted_acc": 0.9510398613518197,
+     "error_rate": 0.048960138648180246
+    },
+    "oaidec_at_equal_coverage": {
+     "accepted": 2308,
+     "accepted_errors": 133.1,
+     "tau": 0.36,
+     "tied": 20
+    },
+    "jev_at_equal_coverage": {
+     "accepted": 2308,
+     "accepted_errors": 102.27272727272727,
+     "tau": 0.61,
+     "tied": 22
+    },
+    "beats_oaidec": true,
+    "beats_jev": false
+   }
+  },
+  "l1": {
+   "dev_units": 1922,
+   "families": {
+    "ots": {
+     "pool": [
+      "jev",
+      "oaidec",
+      "intern",
+      "sl0.8b",
+      "sl2b",
+      "sl4b",
+      "sl9b",
+      "sl27b",
+      "openjev",
+      "openjevhf",
+      "clefflash",
+      "clef",
+      "jevk5",
+      "clm",
+      "laya",
+      "verdict",
+      "decider",
+      "imajev",
+      "bosun"
+     ],
+     "dev_singles": [
+      [
+       "sl27b",
+       0.8777315296566077
+      ],
+      [
+       "jev",
+       0.8720083246618107
+      ],
+      [
+       "clef",
+       0.8563995837669095
+      ],
+      [
+       "sl9b",
+       0.8376690946930281
+      ],
+      [
+       "sl4b",
+       0.8329864724245577
+      ],
+      [
+       "openjevhf",
+       0.8324661810613944
+      ],
+      [
+       "clefflash",
+       0.8246618106139438
+      ],
+      [
+       "oaidec",
+       0.7991675338189386
+      ],
+      [
+       "imajev",
+       0.7970863683662851
+      ],
+      [
+       "decider",
+       0.7950052029136316
+      ],
+      [
+       "openjev",
+       0.7934443288241415
+      ],
+      [
+       "sl2b",
+       0.7679500520291364
+      ],
+      [
+       "intern",
+       0.7393340270551508
+      ],
+      [
+       "jevk5",
+       0.7070759625390218
+      ],
+      [
+       "sl0.8b",
+       0.7039542143600416
+      ],
+      [
+       "bosun",
+       0.6264308012486993
+      ],
+      [
+       "laya",
+       0.4984391259105099
+      ],
+      [
+       "verdict",
+       0.47346514047866806
+      ],
+      [
+       "clm",
+       0.45681581685744016
+      ]
+     ],
+     "best_single": "sl27b",
+     "majority": {
+      "members": [
+       "sl27b",
+       "clef",
+       "jev",
+       "clefflash"
+      ],
+      "dev_acc": 0.8839750260145681,
+      "candidates": 16
+     },
+     "weighted": {
+      "members": [
+       "sl27b",
+       "clef",
+       "jev",
+       "clefflash",
+       "laya"
+      ],
+      "dev_acc": 0.8850156087408949,
+      "candidates": 16
+     },
+     "gate": {
+      "members": [
+       "sl27b",
+       "jev",
+       "clef",
+       "sl9b",
+       "sl4b",
+       "openjevhf",
+       "clefflash",
+       "oaidec"
+      ],
+      "m": 8,
+      "dev": {
+       "coverage": 0.7008324661810614,
+       "accepted": 1347,
+       "accepted_errors": 77,
+       "accepted_acc": 0.9428359317000743,
+       "error_rate": 0.05716406829992576
+      },
+      "rule": "no gate within k_dp: the lowest accepted-error rate among gates delegating at least half",
+      "candidates": 67,
+      "within_kdp": 0
+     }
+    },
+    "mixed": {
+     "pool": [
+      "jev",
+      "oaidec",
+      "intern",
+      "sl0.8b",
+      "sl2b",
+      "sl4b",
+      "sl9b",
+      "sl27b",
+      "openjev",
+      "openjevhf",
+      "clefflash",
+      "clef",
+      "jevk5",
+      "clm",
+      "laya",
+      "verdict",
+      "decider",
+      "imajev",
+      "bosun",
+      "rl",
+      "e12",
+      "e12c",
+      "e14a",
+      "e16a",
+      "e16b"
+     ],
+     "dev_singles": [
+      [
+       "sl27b",
+       0.8777315296566077
+      ],
+      [
+       "jev",
+       0.8720083246618107
+      ],
+      [
+       "e12",
+       0.858480749219563
+      ],
+      [
+       "clef",
+       0.8563995837669095
+      ],
+      [
+       "e12c",
+       0.8563995837669095
+      ],
+      [
+       "e16b",
+       0.8532778355879292
+      ],
+      [
+       "e16a",
+       0.8522372528616025
+      ],
+      [
+       "sl9b",
+       0.8376690946930281
+      ],
+      [
+       "sl4b",
+       0.8329864724245577
+      ],
+      [
+       "openjevhf",
+       0.8324661810613944
+      ],
+      [
+       "clefflash",
+       0.8246618106139438
+      ],
+      [
+       "oaidec",
+       0.7991675338189386
+      ],
+      [
+       "imajev",
+       0.7970863683662851
+      ],
+      [
+       "decider",
+       0.7950052029136316
+      ],
+      [
+       "openjev",
+       0.7934443288241415
+      ],
+      [
+       "rl",
+       0.7934443288241415
+      ],
+      [
+       "sl2b",
+       0.7679500520291364
+      ],
+      [
+       "intern",
+       0.7393340270551508
+      ],
+      [
+       "jevk5",
+       0.7070759625390218
+      ],
+      [
+       "sl0.8b",
+       0.7039542143600416
+      ],
+      [
+       "e14a",
+       0.6815816857440167
+      ],
+      [
+       "bosun",
+       0.6264308012486993
+      ],
+      [
+       "laya",
+       0.4984391259105099
+      ],
+      [
+       "verdict",
+       0.47346514047866806
+      ],
+      [
+       "clm",
+       0.45681581685744016
+      ]
+     ],
+     "best_single": "sl27b",
+     "majority": {
+      "members": [
+       "sl27b",
+       "e12",
+       "e16b",
+       "clef",
+       "jev",
+       "verdict"
+      ],
+      "dev_acc": 0.8995837669094693,
+      "candidates": 16
+     },
+     "weighted": {
+      "members": [
+       "sl27b",
+       "e12",
+       "e16b",
+       "clef",
+       "jev",
+       "verdict"
+      ],
+      "dev_acc": 0.9001040582726326,
+      "candidates": 16
+     },
+     "gate": {
+      "members": [
+       "sl27b",
+       "jev",
+       "e12",
+       "clef",
+       "e12c",
+       "e16b",
+       "e16a"
+      ],
+      "m": 7,
+      "dev": {
+       "coverage": 0.6956295525494277,
+       "accepted": 1337,
+       "accepted_errors": 36,
+       "accepted_acc": 0.9730740463724757,
+       "error_rate": 0.02692595362752431
+      },
+      "rule": "no gate within k_dp: the lowest accepted-error rate among gates delegating at least half",
+      "candidates": 61,
+      "within_kdp": 0
+     }
+    },
+    "hosted": {
+     "pool": [
+      "jev",
+      "oaidec"
+     ],
+     "dev_singles": [
+      [
+       "jev",
+       0.8720083246618107
+      ],
+      [
+       "oaidec",
+       0.7991675338189386
+      ]
+     ],
+     "best_single": "jev",
+     "majority": {
+      "members": [
+       "jev",
+       "oaidec"
+      ],
+      "dev_acc": 0.8600416233090531,
+      "candidates": 1
+     },
+     "weighted": {
+      "members": [
+       "jev",
+       "oaidec"
+      ],
+      "dev_acc": 0.8600416233090531,
+      "candidates": 1
+     },
+     "gate": {
+      "members": [
+       "jev",
+       "oaidec"
+      ],
+      "m": 2,
+      "dev": {
+       "coverage": 0.8699271592091571,
+       "accepted": 1672,
+       "accepted_errors": 176,
+       "accepted_acc": 0.8947368421052632,
+       "error_rate": 0.10526315789473684
+      },
+      "rule": "no gate within k_dp: the lowest accepted-error rate among gates delegating at least half",
+      "candidates": 1,
+      "within_kdp": 0
+     }
+    }
+   },
+   "hosted_check": {
+    "gate": {
+     "n": 1922,
+     "accepted": 1672,
+     "coverage": 0.8699271592091571,
+     "accepted_errors": 176,
+     "accepted_acc": 0.8947368421052632,
+     "error_rate": 0.10526315789473684
+    },
+    "oaidec_at_equal_coverage": {
+     "accepted": 1672,
+     "accepted_errors": 271.3333333333333,
+     "tau": 0.44,
+     "tied": 15
+    },
+    "jev_at_equal_coverage": {
+     "accepted": 1672,
+     "accepted_errors": 133.8,
+     "tau": 0.63,
+     "tied": 10
+    },
+    "beats_oaidec": true,
+    "beats_jev": false
+   }
+  }
+ },
+ "part_b": {
+  "run_row_ii": true,
+  "reading": "row (ii) runs iff the hosted agreement gate accepts fewer errors than the Decisions API alone at equal coverage on the dev half of C"
+ }
+}

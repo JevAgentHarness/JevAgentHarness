@@ -1,0 +1,27 @@
+{
+ "smoke_per_episode": {
+  "llm_only": 0.00700425,
+  "jev_action_guard": 0.009650775
+ },
+ "smoke_wall_s": {
+  "llm_only": 16.974629559,
+  "jev_action_guard": 17.753391838999995
+ },
+ "smoke_n": {
+  "llm_only": 2,
+  "jev_action_guard": 2
+ },
+ "smoke_errored": {
+  "llm_only": 0,
+  "jev_action_guard": 0
+ },
+ "spent_so_far": 0.03331005,
+ "safety": 1.5,
+ "cap": 25.0,
+ "projected_140": 3.4975552500000004,
+ "fits_140": true,
+ "projected_100": 2.49825375,
+ "fits_100": true,
+ "decision": "run all 140",
+ "note": "the registered gate as computed before the evaluation (smoke run only; the box printed the same at 07:41 UTC)"
+}

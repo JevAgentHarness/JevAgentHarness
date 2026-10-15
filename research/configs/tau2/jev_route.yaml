@@ -1,0 +1,8 @@
+# tau2 arm: Jev as a per-turn router. S1 answers "does the next step need careful reasoning / policy
+# interpretation / error recovery?"; p_yes >= tau -> the strong model (--agent-llm), else `small_llm`.
+# small_llm is a litellm model name; scripts/run_tau2.sh sets it with --jev-set small_llm=$SMALL_LLM.
+name: jev_route
+routing: {mode: trigger, tau: 0.5}
+small_llm: gpt-4.1-mini
+s1: {type: jev, provider: openrouter}   # A6.20: the same pinned Jev endpoint as E2 (configs/experiments)
+s1_cache: cache/s1_tau2.sqlite

@@ -1,0 +1,529 @@
+{
+ "build": {
+  "runs": [
+   "data/cache/train_v1/train_v1_jevgym"
+  ],
+  "episodes": {
+   "data/cache/train_v1/train_v1_jevgym": {
+    "run": "data/cache/train_v1/train_v1_jevgym",
+    "arms": {
+     "lite_guard": {
+      "episodes": 150,
+      "superseded_or_errored_records": 0,
+      "system1_behaviour": [
+       {
+        "backend": "nearmiss",
+        "eps_gate": 0.1,
+        "eps_param": 0.15,
+        "eps_tool": 0.2,
+        "param_modes": {
+         "confusable": 0.6,
+         "other": 0.2,
+         "random": 0.2
+        },
+        "seed": 0,
+        "tool_modes": {
+         "near": 0.35,
+         "over_ask": 0.1,
+         "random": 0.15,
+         "skip": 0.4
+        }
+       }
+      ],
+      "executor": [
+       "gemini-3.5-flash-lite"
+      ],
+      "success": 127,
+      "cost_usd": 1.87121,
+      "decisions": 1362,
+      "wrong_proposal_rows": 0,
+      "off_plan_episodes": 72
+     },
+     "lite_shadow": {
+      "episodes": 250,
+      "superseded_or_errored_records": 0,
+      "system1_behaviour": [
+       {
+        "backend": "nearmiss",
+        "eps_gate": 0.1,
+        "eps_param": 0.15,
+        "eps_tool": 0.2,
+        "param_modes": {
+         "confusable": 0.6,
+         "other": 0.2,
+         "random": 0.2
+        },
+        "seed": 0,
+        "tool_modes": {
+         "near": 0.35,
+         "over_ask": 0.1,
+         "random": 0.15,
+         "skip": 0.4
+        }
+       }
+      ],
+      "executor": [
+       "gemini-3.5-flash-lite"
+      ],
+      "success": 207,
+      "cost_usd": 2.436614,
+      "decisions": 6246,
+      "wrong_proposal_rows": 16,
+      "off_plan_episodes": 66
+     },
+     "nearmiss_replace": {
+      "episodes": 600,
+      "superseded_or_errored_records": 0,
+      "system1_behaviour": [
+       {
+        "backend": "nearmiss",
+        "eps_gate": 0.1,
+        "eps_param": 0.15,
+        "eps_tool": 0.2,
+        "param_modes": {
+         "confusable": 0.6,
+         "other": 0.2,
+         "random": 0.2
+        },
+        "seed": 0,
+        "tool_modes": {
+         "near": 0.35,
+         "over_ask": 0.1,
+         "random": 0.15,
+         "skip": 0.4
+        }
+       }
+      ],
+      "executor": [
+       "gemini-3.5-flash-lite"
+      ],
+      "success": 160,
+      "cost_usd": 0.34553,
+      "decisions": 10487,
+      "wrong_proposal_rows": 652,
+      "off_plan_episodes": 432
+     }
+    },
+    "cost_usd": 4.653354,
+    "nearmiss_counts": {
+     "stop:flip": 529,
+     "stop:gold": 4829,
+     "tool_params:confusable": 345,
+     "tool_params:gold": 5370,
+     "tool_params:no_gold": 1078,
+     "tool_params:other": 236,
+     "tool_params:random": 388,
+     "tool_select:flip": 133,
+     "tool_select:gold": 5252,
+     "tool_select:near": 327,
+     "tool_select:over_ask": 115,
+     "tool_select:random": 203,
+     "tool_select:skip": 368
+    }
+   }
+  },
+  "rows_raw": 18763,
+  "duplicates_removed": 1496,
+  "exclusions": {
+   "dropped": {},
+   "kept": 17267
+  },
+  "balance": {
+   "before": {
+    "tool_guard:yes": 1167,
+    "stop_guard:yes": 506,
+    "tool_guard:no": 617,
+    "stop_guard:no": 162,
+    "tool_select": 4790,
+    "stop_trigger:no": 4127,
+    "tool_params": 5815,
+    "tool_params:OTHER": 38,
+    "stop_trigger:yes": 45
+   },
+   "after": {
+    "tool_guard:yes": 1167,
+    "stop_guard:yes": 506,
+    "tool_guard:no": 617,
+    "stop_guard:no": 162,
+    "tool_select": 4790,
+    "stop_trigger:no": 1138,
+    "tool_params": 5815,
+    "tool_params:OTHER": 38,
+    "stop_trigger:yes": 45
+   }
+  },
+  "dev_frac": 0.15,
+  "seed": 0,
+  "train_rows_gold": 15694,
+  "dev_rows": 2377,
+  "dev_tasks": 90,
+  "extra_train": {
+   "v0_train": {
+    "path": "data/train_v0/train.jsonl",
+    "rows": 1225,
+    "dropped": {},
+    "kept": 1225
+   }
+  },
+  "replay": {
+   "path": "data/train_v0/replay_when2call.jsonl.gz",
+   "dropped": {
+    "ngram_overlap_eval": 15
+   },
+   "kept": 2685
+  },
+  "knockout_final_variants": {
+   "frac": 0.5,
+   "rows": 2133
+  },
+  "decontamination": {
+   "ngram": 8,
+   "eval_texts": 6687,
+   "sources": "BFCL v4 six tool categories (all items) + When2Call test"
+  },
+  "gate_dev_tasks_excluded": 13,
+  "e1_dev_prefix_ids": 299
+ },
+ "cost": {
+  "episodes train_v1_jevgym (System-2 Flash-Lite; System-1 behaviour policy $0)": 4.6534,
+  "teacher jev on train (5175 requests)": 0.491,
+  "teacher jev on dev (2377 requests)": 0.1386,
+  "total": 5.283
+ },
+ "teacher_train": {
+  "outcomes": {
+   "gold_only": 864,
+   "kept": 14830
+  },
+  "config": {
+   "alpha": 0.3,
+   "min_agree": 1,
+   "min_conf": 0.0,
+   "pool": "mean",
+   "temperature": 1.0,
+   "gold_filter": "gold",
+   "on_disagree": "gold",
+   "weights": {},
+   "mc_beta": null
+  },
+  "teachers": {
+   "jev": {
+    "acc": 0.9449471135465783,
+    "nll": 0.2462338850811729,
+    "ece": 0.011080092658331693,
+    "answered": 15694,
+    "skipped": {}
+   }
+  }
+ },
+ "teacher_dev": {
+  "after_error:0": {
+   "n": 1771,
+   "acc": 0.9627,
+   "brier": 0.0296,
+   "ece": 0.0144
+  },
+  "after_error:1": {
+   "n": 606,
+   "acc": 0.9439,
+   "brier": 0.0448,
+   "ece": 0.0189
+  },
+  "bucket:stop_guard:no": {
+   "n": 15,
+   "acc": 0.6667,
+   "brier": 0.1483,
+   "ece": 0.2353
+  },
+  "bucket:stop_guard:yes": {
+   "n": 65,
+   "acc": 0.9385,
+   "brier": 0.0551,
+   "ece": 0.0355
+  },
+  "bucket:stop_trigger:no": {
+   "n": 584,
+   "acc": 1.0,
+   "brier": 0.001,
+   "ece": 0.0295
+  },
+  "bucket:stop_trigger:yes": {
+   "n": 5,
+   "acc": 1.0,
+   "brier": 0.023,
+   "ece": 0.114
+  },
+  "bucket:tool_guard:no": {
+   "n": 91,
+   "acc": 0.989,
+   "brier": 0.0124,
+   "ece": 0.0501
+  },
+  "bucket:tool_guard:yes": {
+   "n": 125,
+   "acc": 0.976,
+   "brier": 0.0347,
+   "ece": 0.1064
+  },
+  "bucket:tool_params": {
+   "n": 821,
+   "acc": 0.9805,
+   "brier": 0.0204,
+   "ece": 0.0241
+  },
+  "bucket:tool_params:OTHER": {
+   "n": 3,
+   "acc": 0.6667,
+   "brier": 0.0858,
+   "ece": 0.2069
+  },
+  "bucket:tool_select": {
+   "n": 668,
+   "acc": 0.8952,
+   "brier": 0.0758,
+   "ece": 0.0369
+  },
+  "dp:stop": {
+   "n": 669,
+   "acc": 0.9865,
+   "brier": 0.0098,
+   "ece": 0.0334
+  },
+  "dp:tool_params": {
+   "n": 824,
+   "acc": 0.9794,
+   "brier": 0.0207,
+   "ece": 0.0243
+  },
+  "dp:tool_select": {
+   "n": 884,
+   "acc": 0.9163,
+   "brier": 0.0635,
+   "ece": 0.0186
+  },
+  "overall": {
+   "n": 2377,
+   "acc": 0.9579,
+   "brier": 0.0335,
+   "ece": 0.0129
+  }
+ },
+ "name": "train_v1",
+ "created": "2026-10-02T03:35:32Z",
+ "git_commit": "c939e871f4aa93fbf29273b6acbb5016d231d3c7",
+ "files": {
+  "dev.jsonl.gz": {
+   "rows": 2377,
+   "bytes": 561882,
+   "sha256": "9301ae530b83f953aafeffe2364e8998e7a6057f5b0cc0410afa890664e30858",
+   "tasks": 90,
+   "by_source": {
+    "traj": 2287,
+    "syn_guard": 90
+   },
+   "by_dp": {
+    "tool_select": 884,
+    "stop": 669,
+    "tool_params": 824
+   },
+   "by_bucket": {
+    "tool_guard:yes": 125,
+    "stop_guard:yes": 65,
+    "tool_guard:no": 91,
+    "stop_guard:no": 15,
+    "tool_select": 668,
+    "tool_params": 821,
+    "stop_trigger:no": 584,
+    "stop_trigger:yes": 5,
+    "tool_params:OTHER": 3
+   },
+   "by_arm": {
+    "lite_guard": 143,
+    "lite_shadow": 800,
+    "nearmiss_replace": 1434
+   },
+   "after_error_rows": 606,
+   "label_sources": {
+    "gold": 2377
+   },
+   "soft_frac": 0.0,
+   "by_options": {
+    "2": 968,
+    "17-52": 1060,
+    "3-5": 277,
+    "6-16": 72
+   },
+   "jevgym_seed_range": [
+    30006,
+    30597
+   ],
+   "state_chars_median": 1733
+  },
+  "dev_knockout.jsonl.gz": {
+   "rows": 656,
+   "bytes": 118777,
+   "sha256": "f0f1c4cc4f54b6d8cd746b3ef5fee291523a861d90639d023a1d6941fe2f3823",
+   "tasks": 90,
+   "by_source": {
+    "traj": 656
+   },
+   "by_dp": {
+    "tool_select": 656
+   },
+   "by_bucket": {
+    "tool_select": 656
+   },
+   "by_arm": {
+    "lite_shadow": 234,
+    "nearmiss_replace": 422
+   },
+   "after_error_rows": 166,
+   "label_sources": {
+    "gold": 656
+   },
+   "soft_frac": 0.0,
+   "by_options": {
+    "3-5": 607,
+    "2": 49
+   },
+   "jevgym_seed_range": [
+    30006,
+    30597
+   ],
+   "state_chars_median": 1559
+  },
+  "dev_recovery.jsonl.gz": {
+   "rows": 606,
+   "bytes": 158126,
+   "sha256": "0eef019656936f4b13736ade83d993afc4f63a263482aa9726cb032998e3afcf",
+   "tasks": 44,
+   "by_source": {
+    "traj": 574,
+    "syn_guard": 32
+   },
+   "by_dp": {
+    "tool_select": 242,
+    "stop": 176,
+    "tool_params": 188
+   },
+   "by_bucket": {
+    "tool_guard:yes": 41,
+    "stop_guard:yes": 20,
+    "tool_guard:no": 33,
+    "tool_select": 168,
+    "stop_trigger:no": 149,
+    "tool_params": 185,
+    "stop_trigger:yes": 2,
+    "stop_guard:no": 5,
+    "tool_params:OTHER": 3
+   },
+   "by_arm": {
+    "lite_guard": 50,
+    "lite_shadow": 56,
+    "nearmiss_replace": 500
+   },
+   "after_error_rows": 606,
+   "label_sources": {
+    "gold": 606
+   },
+   "soft_frac": 0.0,
+   "by_options": {
+    "2": 269,
+    "17-52": 265,
+    "3-5": 68,
+    "6-16": 4
+   },
+   "jevgym_seed_range": [
+    30006,
+    30597
+   ],
+   "state_chars_median": 1958
+  },
+  "replay_when2call.jsonl.gz": {
+   "rows": 2685,
+   "bytes": 673123,
+   "sha256": "838d9d4a3d5bbc3e437ab5c9f6ec2c32507db4ff03c2d53e527a0d399ae6f948",
+   "tasks": 2685,
+   "by_source": {
+    "when2call-train": 2685
+   },
+   "by_dp": {
+    "tool_select": 2685
+   },
+   "by_bucket": {
+    "tool_select": 2685
+   },
+   "by_arm": {
+    "-": 2685
+   },
+   "after_error_rows": 0,
+   "label_sources": {
+    "gold": 2685
+   },
+   "soft_frac": 0.0,
+   "by_options": {
+    "3-5": 2685
+   },
+   "jevgym_seed_range": null,
+   "state_chars_median": 719
+  },
+  "train.jsonl.gz": {
+   "rows": 15694,
+   "bytes": 10277898,
+   "sha256": "9c0450c22d63f8b1cd9180c0edc2103a72ed895097ca58a79f4c7ccab93bee0a",
+   "tasks": 587,
+   "by_source": {
+    "traj": 15199,
+    "syn_guard": 495
+   },
+   "by_dp": {
+    "stop": 1988,
+    "tool_select": 8194,
+    "tool_params": 5512
+   },
+   "by_bucket": {
+    "stop_trigger:yes": 44,
+    "tool_select": 6626,
+    "stop_trigger:no": 1279,
+    "tool_params": 5392,
+    "stop_guard:yes": 518,
+    "tool_guard:yes": 1042,
+    "tool_guard:no": 526,
+    "stop_guard:no": 147,
+    "tool_params:OTHER": 120
+   },
+   "by_arm": {
+    "nearmiss_replace": 8083,
+    "v0_flash_shadow": 1384,
+    "lite_shadow": 5010,
+    "lite_guard": 1217
+   },
+   "after_error_rows": 4843,
+   "label_sources": {
+    "gold": 864,
+    "teacher": 14830
+   },
+   "soft_frac": 0.9449,
+   "by_options": {
+    "2": 4275,
+    "17-52": 7139,
+    "3-5": 3807,
+    "6-16": 473
+   },
+   "jevgym_seed_range": [
+    10000,
+    30599
+   ],
+   "state_chars_median": 1808
+  },
+  "dev_teacher.summary.json": {
+   "bytes": 1796,
+   "sha256": "e933b1725feec0c8c272bb600d944012bc477eeac9c1d440eafe4f45aafa9202"
+  },
+  "train.jsonl.summary.json": {
+   "bytes": 971,
+   "sha256": "31055a27aa5f124c70bfb8488a84e8634a889565ef6c8dfdf7c572484a808fd5"
+  }
+ },
+ "total_mb": 11.793
+}

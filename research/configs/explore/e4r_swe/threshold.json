@@ -1,0 +1,8 @@
+{
+ "tau": 0.5,
+ "case": "e4_registered",
+ "reason": "E4's eval tau (0.5, fixed on E4's dev by E4's registered rule, case not_separable); E4r has no dev and changes no setting",
+ "source": "configs/explore/e4_swe/threshold.json",
+ "source_sha256": "92bf024740156b125ce5ca6ee13239e03881d741af06cfb5fa9a5ccf2e8ce1b7",
+ "eval_ids_sha256": "46fe87bf1d22ca302f5da0081d0f1dd11fd02e8e0bb0706accbf77c5fac0bea9"
+}

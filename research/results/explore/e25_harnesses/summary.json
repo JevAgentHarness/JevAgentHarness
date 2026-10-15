@@ -1,0 +1,537 @@
+{
+  "generated": "2026-10-09T05:59:44+00:00",
+  "git": "5796a60c017d",
+  "registered": "docs/PREREG_A7_STAGE2.md, Deviations 2026-10-09 ~01:35 UTC, E25",
+  "harnesses": {
+    "tb": {
+      "harness": "pi 0.99.2",
+      "label": "pi on Terminal-Bench 2.0",
+      "bench": "Terminal-Bench 2.0",
+      "cap": 140.0,
+      "n_full": 89,
+      "arms_run": [
+        "baseline",
+        "jev_router",
+        "always_cheap"
+      ],
+      "n_common_all_arms": 89,
+      "left_out": {},
+      "arms": {
+        "baseline": {
+          "n": 89,
+          "success": 42.69662921348314,
+          "solved": 38,
+          "cost_usd": 0.5102530314606741,
+          "llm_cost_usd": 0.5102530314606741,
+          "jev_cost_usd": 0.0,
+          "wall_mean_s": 257.4022615393258,
+          "wall_median_s": 120.573039,
+          "timeouts": 5,
+          "infra_errors": 5,
+          "requests_mean": 36.49438202247191,
+          "taken_share": 0.0,
+          "route_decisions": 0,
+          "route_jev_share": null,
+          "route_rule_share": null,
+          "route_error_share": null,
+          "route_cheap_share": null,
+          "jev_s_per_task": 0.0,
+          "steps_mean": 38.523809523809526,
+          "input_tokens_mean": 1213081.3033707866
+        },
+        "jev_router": {
+          "n": 89,
+          "success": 50.56179775280899,
+          "solved": 45,
+          "cost_usd": 0.4611256831460674,
+          "llm_cost_usd": 0.4586017842696629,
+          "jev_cost_usd": 0.0025238988764044942,
+          "wall_mean_s": 259.9279902696629,
+          "wall_median_s": 119.902813,
+          "timeouts": 2,
+          "infra_errors": 4,
+          "requests_mean": 37.06741573033708,
+          "taken_share": 12.367384055774478,
+          "route_decisions": 3272,
+          "route_jev_share": 88.66136919315403,
+          "route_rule_share": 11.124694376528117,
+          "route_error_share": 0.2139364303178484,
+          "route_cheap_share": 12.469437652811736,
+          "jev_s_per_task": 6.237078651685393,
+          "steps_mean": 38.23255813953488,
+          "input_tokens_mean": 1156494.3146067415
+        },
+        "always_cheap": {
+          "n": 89,
+          "success": 35.95505617977528,
+          "solved": 32,
+          "cost_usd": 0.14840292438202246,
+          "llm_cost_usd": 0.14840292438202246,
+          "jev_cost_usd": 0.0,
+          "wall_mean_s": 335.86299459550565,
+          "wall_median_s": 150.403795,
+          "timeouts": 9,
+          "infra_errors": 3,
+          "requests_mean": 49.79775280898876,
+          "taken_share": 100.0,
+          "route_decisions": 0,
+          "route_jev_share": null,
+          "route_rule_share": null,
+          "route_error_share": null,
+          "route_cheap_share": null,
+          "jev_s_per_task": 0.0,
+          "steps_mean": 50.616279069767444,
+          "input_tokens_mean": 2104439.4269662923
+        },
+        "baseline_on_router_tasks": {
+          "n": 89,
+          "success": 42.69662921348314,
+          "solved": 38,
+          "cost_usd": 0.5102530314606741,
+          "llm_cost_usd": 0.5102530314606741,
+          "jev_cost_usd": 0.0,
+          "wall_mean_s": 257.4022615393258,
+          "wall_median_s": 120.573039,
+          "timeouts": 5,
+          "infra_errors": 5,
+          "requests_mean": 36.49438202247191,
+          "taken_share": 0.0,
+          "route_decisions": 0,
+          "route_jev_share": null,
+          "route_rule_share": null,
+          "route_error_share": null,
+          "route_cheap_share": null,
+          "jev_s_per_task": 0.0,
+          "steps_mean": 38.523809523809526,
+          "input_tokens_mean": 1213081.3033707866
+        }
+      },
+      "paired": {
+        "jev_router": {
+          "n": 89,
+          "wins": 12,
+          "losses": 5,
+          "both": 33,
+          "delta": 7.865168539325845,
+          "delta_ci": [
+            -1.1235955056179747,
+            16.85393258426966
+          ],
+          "tango_ci": [
+            -1.3290710737681517,
+            17.5811349688121
+          ],
+          "ni_p": 0.011661643723593618,
+          "ni": "yes",
+          "saving": 9.628036539826624,
+          "saving_ci": [
+            -13.589891318782062,
+            27.52338688253036
+          ],
+          "time_saving": -0.9812379717383468,
+          "time_saving_ci": [
+            -19.601747192694123,
+            15.281399476309323
+          ],
+          "median_time_saving": 0.5558672200341563,
+          "cheaper_share": 55.0561797752809,
+          "faster_share": 49.43820224719101
+        },
+        "always_cheap": {
+          "n": 89,
+          "wins": 9,
+          "losses": 15,
+          "both": 23,
+          "delta": -6.741573033707865,
+          "delta_ci": [
+            -16.853932584269664,
+            3.3707865168539355
+          ],
+          "tango_ci": [
+            -17.837251800805127,
+            4.248771396752174
+          ],
+          "ni_p": 0.7605256938249138,
+          "ni": "no",
+          "saving": 70.91581720598556,
+          "saving_ci": [
+            61.785335237730514,
+            77.97641450027398
+          ],
+          "time_saving": -30.481757458915194,
+          "time_saving_ci": [
+            -60.4437348436784,
+            -6.235008726421177
+          ],
+          "median_time_saving": -24.740817887156364,
+          "cheaper_share": 79.7752808988764,
+          "faster_share": 35.95505617977528
+        }
+      },
+      "paired_complete_case": {
+        "jev_router": {
+          "n": 83,
+          "wins": 12,
+          "losses": 5,
+          "both": 33,
+          "delta": 8.433734939759036,
+          "delta_ci": [
+            -1.204819277108432,
+            18.07228915662651
+          ],
+          "tango_ci": [
+            -1.422433430007827,
+            18.777847570963814
+          ],
+          "ni_p": 0.012642712765530315,
+          "ni": "yes",
+          "saving": 10.527838493212883,
+          "saving_ci": [
+            -12.262470432889637,
+            28.72119952212146
+          ],
+          "time_saving": -4.606088486867299,
+          "time_saving_ci": [
+            -22.56700976790749,
+            10.370309846812455
+          ],
+          "median_time_saving": -1.2742666356354793,
+          "cheaper_share": 57.831325301204814,
+          "faster_share": 50.602409638554214
+        },
+        "always_cheap": {
+          "n": 84,
+          "wins": 8,
+          "losses": 15,
+          "both": 23,
+          "delta": -8.333333333333332,
+          "delta_ci": [
+            -19.04761904761905,
+            2.3809523809523836
+          ],
+          "tango_ci": [
+            -19.804301825981874,
+            3.0151711301794575
+          ],
+          "ni_p": 0.8312966145128592,
+          "ni": "no",
+          "saving": 71.15109122396683,
+          "saving_ci": [
+            61.98706184000998,
+            78.15405941302556
+          ],
+          "time_saving": -26.61514682142183,
+          "time_saving_ci": [
+            -54.9104622842294,
+            -3.3710486534103303
+          ],
+          "median_time_saving": -21.84097691222735,
+          "cheaper_share": 84.52380952380952,
+          "faster_share": 36.904761904761905
+        }
+      },
+      "errored": [
+        "always_cheap/pytorch-model-recovery: NonZeroAgentExitCodeError: Command failed (exit 1): . ~/.nvm/nvm.sh; mkdir -p /logs/agent/pi/sessions && pi --print --mo",
+        "always_cheap/qemu-alpine-ssh: NonZeroAgentExitCodeError: Command failed (exit 100): apt-get update && apt-get install -y curl",
+        "always_cheap/qemu-startup: NonZeroAgentExitCodeError: Command failed (exit 100): apt-get update && apt-get install -y curl",
+        "baseline/mteb-retrieve: RuntimeError: Docker compose command failed for environment mteb-retrieve. Command: docker compose --project-name mteb-r",
+        "baseline/overfull-hbox: RuntimeError: Docker compose command failed for environment overfull-hbox. Command: docker compose --project-name overfu",
+        "baseline/pytorch-model-recovery: NonZeroAgentExitCodeError: Command failed (exit 1): . ~/.nvm/nvm.sh; mkdir -p /logs/agent/pi/sessions && pi --print --mo",
+        "baseline/qemu-alpine-ssh: NonZeroAgentExitCodeError: Command failed (exit 100): apt-get update && apt-get install -y curl",
+        "baseline/qemu-startup: NonZeroAgentExitCodeError: Command failed (exit 100): apt-get update && apt-get install -y curl",
+        "jev_router/caffe-cifar-10: NonZeroAgentExitCodeError: Command failed (exit 137): . ~/.nvm/nvm.sh; mkdir -p /logs/agent/pi/sessions && pi --print --",
+        "jev_router/pytorch-model-recovery: NonZeroAgentExitCodeError: Command failed (exit 1): . ~/.nvm/nvm.sh; mkdir -p /logs/agent/pi/sessions && pi --print --mo",
+        "jev_router/qemu-alpine-ssh: NonZeroAgentExitCodeError: Command failed (exit 100): apt-get update && apt-get install -y curl",
+        "jev_router/qemu-startup: NonZeroAgentExitCodeError: Command failed (exit 100): apt-get update && apt-get install -y curl"
+      ],
+      "reruns": [],
+      "notes": [
+        "Time (amendment 2026-10-09 ~03:05 UTC): the router arm ran again from 03:02 UTC with the fix, while baseline and always_cheap finished, so its later trials ran on a less loaded host than baseline's; the time comparison is weaker for this harness than the cost and success comparisons."
+      ],
+      "defect_run": {
+        "note": "first router run, stopped: pi-ai dropped thought signatures across models (amendment ~03:05 UTC)",
+        "n": 74,
+        "success": 18.91891891891892,
+        "signature_errors": 51,
+        "baseline_tasks_signature_errors": 0
+      }
+    },
+    "swe": {
+      "harness": "SWE-agent v1.1.0",
+      "label": "SWE-agent on SWE-bench Verified",
+      "bench": "SWE-bench Verified",
+      "cap": 100.0,
+      "n_full": 100,
+      "arms_run": [
+        "baseline",
+        "jev_router",
+        "always_cheap"
+      ],
+      "n_common_all_arms": 100,
+      "left_out": {},
+      "arms": {
+        "baseline": {
+          "n": 100,
+          "success": 63.0,
+          "solved": 63,
+          "cost_usd": 0.260458251,
+          "llm_cost_usd": 0.260458251,
+          "jev_cost_usd": 0.0,
+          "wall_mean_s": 110.28768576,
+          "wall_median_s": 97.715131,
+          "timeouts": 0,
+          "infra_errors": 0,
+          "requests_mean": null,
+          "taken_share": 0.0,
+          "route_decisions": 0,
+          "route_jev_share": null,
+          "route_rule_share": null,
+          "route_error_share": null,
+          "route_cheap_share": null,
+          "jev_s_per_task": 0.0,
+          "steps_mean": 29.27,
+          "input_tokens_mean": null
+        },
+        "jev_router": {
+          "n": 100,
+          "success": 56.99999999999999,
+          "solved": 57,
+          "cost_usd": 0.24029124590000003,
+          "llm_cost_usd": 0.23720273590000002,
+          "jev_cost_usd": 0.00308851,
+          "wall_mean_s": 124.29395249,
+          "wall_median_s": 106.101849,
+          "timeouts": 0,
+          "infra_errors": 0,
+          "requests_mean": 33.42,
+          "taken_share": 23.2196289646918,
+          "route_decisions": 3342,
+          "route_jev_share": 100.0,
+          "route_rule_share": 0.0,
+          "route_error_share": 0.0,
+          "route_cheap_share": 23.2196289646918,
+          "jev_s_per_task": 7.455,
+          "steps_mean": 33.42,
+          "input_tokens_mean": null
+        },
+        "always_cheap": {
+          "n": 100,
+          "success": 28.000000000000004,
+          "solved": 28,
+          "cost_usd": 0.08133421329999999,
+          "llm_cost_usd": 0.08133421329999999,
+          "jev_cost_usd": 0.0,
+          "wall_mean_s": 102.06817312999999,
+          "wall_median_s": 98.20084700000001,
+          "timeouts": 0,
+          "infra_errors": 0,
+          "requests_mean": null,
+          "taken_share": 100.0,
+          "route_decisions": 0,
+          "route_jev_share": null,
+          "route_rule_share": null,
+          "route_error_share": null,
+          "route_cheap_share": null,
+          "jev_s_per_task": 0.0,
+          "steps_mean": 44.25,
+          "input_tokens_mean": null
+        },
+        "baseline_on_router_tasks": {
+          "n": 100,
+          "success": 63.0,
+          "solved": 63,
+          "cost_usd": 0.260458251,
+          "llm_cost_usd": 0.260458251,
+          "jev_cost_usd": 0.0,
+          "wall_mean_s": 110.28768576,
+          "wall_median_s": 97.715131,
+          "timeouts": 0,
+          "infra_errors": 0,
+          "requests_mean": null,
+          "taken_share": 0.0,
+          "route_decisions": 0,
+          "route_jev_share": null,
+          "route_rule_share": null,
+          "route_error_share": null,
+          "route_cheap_share": null,
+          "jev_s_per_task": 0.0,
+          "steps_mean": 29.27,
+          "input_tokens_mean": null
+        }
+      },
+      "paired": {
+        "jev_router": {
+          "n": 100,
+          "wins": 2,
+          "losses": 8,
+          "both": 55,
+          "delta": -6.000000000000005,
+          "delta_ci": [
+            -12.0,
+            0.0
+          ],
+          "tango_ci": [
+            -13.355596425681886,
+            0.23854957554035172
+          ],
+          "ni_p": 0.8478668693966609,
+          "ni": "no",
+          "saving": 7.7428935434262876,
+          "saving_ci": [
+            -1.8659292879623601,
+            16.332806062683503
+          ],
+          "time_saving": -12.69975576464577,
+          "time_saving_ci": [
+            -27.103213502995096,
+            -0.10787000420178447
+          ],
+          "median_time_saving": -8.582824291562385,
+          "cheaper_share": 59.0,
+          "faster_share": 34.0
+        },
+        "always_cheap": {
+          "n": 100,
+          "wins": 2,
+          "losses": 37,
+          "both": 26,
+          "delta": -35.0,
+          "delta_ci": [
+            -45.024999999999984,
+            -24.999999999999993
+          ],
+          "tango_ci": [
+            -45.25286926898282,
+            -24.936246115469174
+          ],
+          "ni_p": 1.0,
+          "ni": "no",
+          "saving": 68.77264859618519,
+          "saving_ci": [
+            64.29212068495548,
+            72.63397297822897
+          ],
+          "time_saving": 7.452792733258262,
+          "time_saving_ci": [
+            -2.988029946303688,
+            17.58186019296729
+          ],
+          "median_time_saving": -0.497073477801524,
+          "cheaper_share": 95.0,
+          "faster_share": 49.0
+        }
+      },
+      "paired_complete_case": {
+        "jev_router": {
+          "n": 100,
+          "wins": 2,
+          "losses": 8,
+          "both": 55,
+          "delta": -6.000000000000005,
+          "delta_ci": [
+            -12.0,
+            0.0
+          ],
+          "tango_ci": [
+            -13.355596425681886,
+            0.23854957554035172
+          ],
+          "ni_p": 0.8478668693966609,
+          "ni": "no",
+          "saving": 7.7428935434262876,
+          "saving_ci": [
+            -1.8659292879623601,
+            16.332806062683503
+          ],
+          "time_saving": -12.69975576464577,
+          "time_saving_ci": [
+            -27.103213502995096,
+            -0.10787000420178447
+          ],
+          "median_time_saving": -8.582824291562385,
+          "cheaper_share": 59.0,
+          "faster_share": 34.0
+        },
+        "always_cheap": {
+          "n": 100,
+          "wins": 2,
+          "losses": 37,
+          "both": 26,
+          "delta": -35.0,
+          "delta_ci": [
+            -45.024999999999984,
+            -24.999999999999993
+          ],
+          "tango_ci": [
+            -45.25286926898282,
+            -24.936246115469174
+          ],
+          "ni_p": 1.0,
+          "ni": "no",
+          "saving": 68.77264859618519,
+          "saving_ci": [
+            64.29212068495548,
+            72.63397297822897
+          ],
+          "time_saving": 7.452792733258262,
+          "time_saving_ci": [
+            -2.988029946303688,
+            17.58186019296729
+          ],
+          "median_time_saving": -0.497073477801524,
+          "cheaper_share": 95.0,
+          "faster_share": 49.0
+        }
+      },
+      "errored": [],
+      "reruns": []
+    }
+  },
+  "spend": {
+    "tb": {
+      "logged": {
+        "llm": 125.1116,
+        "jev": 0.352525,
+        "total": 125.4641,
+        "trials": 347,
+        "by_job": {
+          "eval/always_cheap": 13.2079,
+          "eval/baseline": 45.4125,
+          "eval/jev_router": 40.8156,
+          "eval_defect/jev_router": 25.1282,
+          "smoke/always_cheap": 0.1129,
+          "smoke/baseline": 0.2379,
+          "smoke/jev_router": 0.1967
+        }
+      },
+      "or_key_usage_start": "17.609693035",
+      "or_key_usage_end": "18.286930267",
+      "written": "2026-10-09T05:44:35Z"
+    },
+    "swe": {
+      "logged": {
+        "llm": 59.1604,
+        "jev": 0.319109,
+        "total": 59.4796,
+        "trials": 318,
+        "by_job": {
+          "eval/always_cheap": 8.1334,
+          "eval/baseline": 26.0458,
+          "eval/jev_router": 23.7203,
+          "smoke/always_cheap": 0.0986,
+          "smoke/baseline": 0.2189,
+          "smoke/jev_router": 0.2216,
+          "smoke_1/always_cheap": 0.0474,
+          "smoke_1/baseline": 0.2334,
+          "smoke_1/jev_router": 0.1945,
+          "smoke_2/always_cheap": 0.0202,
+          "smoke_2/baseline": 0.0939,
+          "smoke_2/jev_router": 0.1324
+        }
+      },
+      "or_key_usage_start": "17.656772515",
+      "or_key_usage_end": "18.222163453",
+      "written": "2026-10-09T04:52:08Z"
+    }
+  }
+}

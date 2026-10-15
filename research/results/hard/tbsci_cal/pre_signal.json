@@ -1,0 +1,416 @@
+{
+ "rule": "PREREGISTRATION A6.22 (d) 2",
+ "calibration_dir": "/opt/jev/JevAgentHarness/research/runs/tbsci_cal",
+ "n_target": 20,
+ "per_domain": 4,
+ "selected": [],
+ "by_domain": {
+  "earth": [],
+  "engineering": [],
+  "life": [],
+  "mathematical": [],
+  "physical": []
+ },
+ "counts": {
+  "eligible": 0,
+  "dropped": 9,
+  "pending": 28
+ },
+ "pending": [
+  "baseline-free-localization",
+  "clinical-metadata-recovery",
+  "dapi-he-alignment",
+  "diag-chipseq",
+  "dna-storage-codec",
+  "duan-thesis",
+  "eeg-erp-recovery",
+  "foraging-cognitive-model",
+  "genomic-model-ranking",
+  "geometric-pharmacophore-alignment",
+  "guided-wave-localization",
+  "inelastic-constitutive-discovery",
+  "inverse-lithography",
+  "longitudinal-clinical-agent",
+  "masked-spherical-remap",
+  "mendota-ice-phenology",
+  "microarch-modeling",
+  "mri-harmonization",
+  "nanoindentation-property-extraction",
+  "neo-orbit-determination",
+  "ont-tn-qc",
+  "protein-active-learning",
+  "regularized-game-proof",
+  "sparse-network-assimilation",
+  "tess-transit-vetting",
+  "traffic-flux-inversion",
+  "virtual-baseline-localization",
+  "xrd-multiphase-qpa"
+ ],
+ "jobs_found": [
+  "oracle",
+  "nop"
+ ],
+ "tasks": {
+  "sparse-network-assimilation": {
+   "slug": "sparse-network-assimilation",
+   "domain": "earth",
+   "expert_hours": 18.0,
+   "oracle_run_s": 1403.918986,
+   "floor": 0,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "hysteretic-aquifer-control": {
+   "slug": "hysteretic-aquifer-control",
+   "domain": "earth",
+   "expert_hours": 12,
+   "oracle_run_s": 3600.018024,
+   "status": "dropped",
+   "stage": "validity",
+   "reason": "oracle reward 0.0 < 1"
+  },
+  "duan-thesis": {
+   "slug": "duan-thesis",
+   "domain": "earth",
+   "expert_hours": 12,
+   "oracle_run_s": 6.595161,
+   "floor": 0,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "mendota-ice-phenology": {
+   "slug": "mendota-ice-phenology",
+   "domain": "earth",
+   "expert_hours": 12.0,
+   "oracle_run_s": 163.164976,
+   "floor": 0,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "masked-spherical-remap": {
+   "slug": "masked-spherical-remap",
+   "domain": "earth",
+   "expert_hours": 18.0,
+   "oracle_run_s": 0.220678,
+   "floor": 1,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "microarch-modeling": {
+   "slug": "microarch-modeling",
+   "domain": "engineering",
+   "expert_hours": 16.0,
+   "oracle_run_s": 0.804163,
+   "floor": 0,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "baseline-free-localization": {
+   "slug": "baseline-free-localization",
+   "domain": "engineering",
+   "expert_hours": 4.0,
+   "oracle_run_s": 0.220641,
+   "floor": 12,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "guided-wave-localization": {
+   "slug": "guided-wave-localization",
+   "domain": "engineering",
+   "expert_hours": 4.0,
+   "oracle_run_s": 1.967806,
+   "floor": 11,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "inelastic-constitutive-discovery": {
+   "slug": "inelastic-constitutive-discovery",
+   "domain": "engineering",
+   "expert_hours": 12.0,
+   "oracle_run_s": 1218.739056,
+   "floor": 0,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "virtual-baseline-localization": {
+   "slug": "virtual-baseline-localization",
+   "domain": "engineering",
+   "expert_hours": 4.0,
+   "oracle_run_s": 0.246197,
+   "floor": 9,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "betalactam-multimodal-transfer": {
+   "slug": "betalactam-multimodal-transfer",
+   "domain": "life",
+   "expert_hours": 4.0,
+   "oracle_run_s": 2424.749804,
+   "status": "dropped",
+   "stage": "validity",
+   "reason": "oracle agent-run time 2424.749804 s > 1800 s"
+  },
+  "diag-chipseq": {
+   "slug": "diag-chipseq",
+   "domain": "life",
+   "expert_hours": 5.0,
+   "oracle_run_s": 9.403751,
+   "floor": 0,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "genomic-model-ranking": {
+   "slug": "genomic-model-ranking",
+   "domain": "life",
+   "expert_hours": 5.0,
+   "oracle_run_s": 1.469341,
+   "floor": 0,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "ont-tn-qc": {
+   "slug": "ont-tn-qc",
+   "domain": "life",
+   "expert_hours": 4.0,
+   "oracle_run_s": 266.331356,
+   "floor": 7,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "protein-active-learning": {
+   "slug": "protein-active-learning",
+   "domain": "life",
+   "expert_hours": 8.0,
+   "oracle_run_s": 6.138482,
+   "floor": 0,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "clinical-metadata-recovery": {
+   "slug": "clinical-metadata-recovery",
+   "domain": "life",
+   "expert_hours": 4.0,
+   "oracle_run_s": 112.140766,
+   "floor": 0,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "dapi-he-alignment": {
+   "slug": "dapi-he-alignment",
+   "domain": "life",
+   "expert_hours": 4.0,
+   "oracle_run_s": 2.905989,
+   "floor": 0,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "longitudinal-clinical-agent": {
+   "slug": "longitudinal-clinical-agent",
+   "domain": "life",
+   "expert_hours": 12.0,
+   "oracle_run_s": 1.643374,
+   "floor": 0,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "eeg-erp-recovery": {
+   "slug": "eeg-erp-recovery",
+   "domain": "life",
+   "expert_hours": 8.5,
+   "oracle_run_s": 10.174879,
+   "floor": 0,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "foraging-cognitive-model": {
+   "slug": "foraging-cognitive-model",
+   "domain": "life",
+   "expert_hours": 12.0,
+   "oracle_run_s": 34.05815,
+   "floor": 4,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "mri-harmonization": {
+   "slug": "mri-harmonization",
+   "domain": "life",
+   "expert_hours": 4.0,
+   "oracle_run_s": 0.8232,
+   "floor": 1,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "dna-storage-codec": {
+   "slug": "dna-storage-codec",
+   "domain": "mathematical",
+   "expert_hours": 12,
+   "oracle_run_s": 0.205394,
+   "floor": 0,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "ode-law-discovery": {
+   "slug": "ode-law-discovery",
+   "domain": "mathematical",
+   "expert_hours": 12.0,
+   "oracle_run_s": 2521.817179,
+   "status": "dropped",
+   "stage": "validity",
+   "reason": "oracle agent-run time 2521.817179 s > 1800 s"
+  },
+  "traffic-flux-inversion": {
+   "slug": "traffic-flux-inversion",
+   "domain": "mathematical",
+   "expert_hours": 12.0,
+   "oracle_run_s": 0.203913,
+   "floor": 0,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "energy-routing": {
+   "slug": "energy-routing",
+   "domain": "mathematical",
+   "expert_hours": 4.0,
+   "oracle_run_s": 3600.054236,
+   "status": "dropped",
+   "stage": "validity",
+   "reason": "oracle reward 0.0 < 1"
+  },
+  "regularized-game-proof": {
+   "slug": "regularized-game-proof",
+   "domain": "mathematical",
+   "expert_hours": 24.0,
+   "oracle_run_s": 24.96715,
+   "floor": 1,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "3x2pt-inference": {
+   "slug": "3x2pt-inference",
+   "domain": "physical",
+   "expert_hours": 16,
+   "oracle_run_s": 3600.044576,
+   "status": "dropped",
+   "stage": "validity",
+   "reason": "oracle reward 0.0 < 1"
+  },
+  "neo-orbit-determination": {
+   "slug": "neo-orbit-determination",
+   "domain": "physical",
+   "expert_hours": 8.0,
+   "oracle_run_s": 424.531861,
+   "floor": 0,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "rv-astrometry-fitting": {
+   "slug": "rv-astrometry-fitting",
+   "domain": "physical",
+   "expert_hours": 20.0,
+   "oracle_run_s": 2597.177447,
+   "status": "dropped",
+   "stage": "validity",
+   "reason": "oracle agent-run time 2597.177447 s > 1800 s"
+  },
+  "tess-transit-vetting": {
+   "slug": "tess-transit-vetting",
+   "domain": "physical",
+   "expert_hours": 8.0,
+   "oracle_run_s": 6.55344,
+   "floor": 1,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "geometric-pharmacophore-alignment": {
+   "slug": "geometric-pharmacophore-alignment",
+   "domain": "physical",
+   "expert_hours": 8.0,
+   "oracle_run_s": 895.902534,
+   "floor": 0,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "nanoindentation-property-extraction": {
+   "slug": "nanoindentation-property-extraction",
+   "domain": "physical",
+   "expert_hours": 6.0,
+   "oracle_run_s": 21.364777,
+   "floor": 0,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "si-fracture-fbc": {
+   "slug": "si-fracture-fbc",
+   "domain": "physical",
+   "expert_hours": 16.0,
+   "oracle_run_s": 2678.431258,
+   "status": "dropped",
+   "stage": "validity",
+   "reason": "oracle agent-run time 2678.431258 s > 1800 s"
+  },
+  "xrd-multiphase-qpa": {
+   "slug": "xrd-multiphase-qpa",
+   "domain": "physical",
+   "expert_hours": 12.0,
+   "oracle_run_s": 355.822928,
+   "floor": 1,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "frustrated-heisenberg-nqs": {
+   "slug": "frustrated-heisenberg-nqs",
+   "domain": "physical",
+   "expert_hours": 6.0,
+   "oracle_run_s": 3600.101081,
+   "status": "dropped",
+   "stage": "validity",
+   "reason": "oracle reward 0.0 < 1"
+  },
+  "inverse-lithography": {
+   "slug": "inverse-lithography",
+   "domain": "physical",
+   "expert_hours": 12.0,
+   "oracle_run_s": 507.925515,
+   "floor": 0,
+   "status": "pending",
+   "stage": "signal",
+   "reason": "baseline: missing"
+  },
+  "spin-glass-groundstate": {
+   "slug": "spin-glass-groundstate",
+   "domain": "physical",
+   "expert_hours": 6.0,
+   "oracle_run_s": 3535.925512,
+   "status": "dropped",
+   "stage": "validity",
+   "reason": "oracle agent-run time 3535.925512 s > 1800 s"
+  }
+ }
+}

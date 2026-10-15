@@ -1,0 +1,6 @@
+{
+ "clef (27B, 8-bit) C and live": "not run: its C run (about 1.6 s per request) would have used the GPU time reserved for the live rows and was stopped after 15 answers (set aside unused); the author then withdrew the 27B's remaining levels (2026-10-08). L1 only.",
+ "codiv hosted OpenJev endpoint": "not used: it needs a sign-up (registration (b) 2); the self-hosted image and the HF checkpoint ran instead.",
+ "GPT-6-Luna / GPT-6.1-Sol / GPT-6-Astra as Responses-API deciders": "not E15 rows (the author: not decision models); only the Decisions API was run.",
+ "written": "2026-10-08T03:17:39+00:00"
+}

@@ -1,0 +1,56 @@
+{
+ "files": {
+  "occurrences.jsonl.gz": "a1d3cbec06bc783efa6de160a075a0c80bddc62fb084ee98da231e26ed59f082",
+  "questions.jsonl.gz": "7be0fcd7f0bd2ec9e228878b4edc89bcc7e2891cd45accdd743f0fd9499b4ee7"
+ },
+ "generated": "2026-10-09T01:52:42+00:00",
+ "git": "90e89ecc43d6104f2b9f285c3a8948ecb633804c",
+ "label": "exploratory (E24), descriptive; PREREG_A7_STAGE2 Deviations 2026-10-08 'E24: agent-state accuracy (L2) on public benchmarks'; outside every Holm table",
+ "registered": "PREREG_A7_STAGE2 Deviations 2026-10-09 'E24 Part 2' (a)",
+ "sources": {
+  "airline/jev_decisions.jsonl.gz": "622a046f447f93d07d0cfdccd7eed6699e75fdabaa302c483a7816b36b6e079c",
+  "airline/results.json.gz": "de81083e10456a8a4d8dc35cb754f7b07cb049a4da4d89ae6cc3a2621196929a",
+  "retail/jev_decisions.jsonl.gz": "54837dd6100f54656c19122c65061722f8258a02a2162ebbab21ef16afb70f48",
+  "retail/results.json.gz": "a5c4cffe87d06adef9d7cf0d8dacff8e8e61d0698883bf93f6e7d29c47bbc788"
+ },
+ "stats": {
+  "arg_questions": 1445,
+  "by_domain": {
+   "airline": {
+    "arg_not_asked": 144,
+    "arg_other_label": 4,
+    "arg_questions": 424,
+    "not_write_due": 924,
+    "sims": 80,
+    "turns": 1023,
+    "write_due": 99
+   },
+   "retail": {
+    "arg_not_asked": 396,
+    "arg_other_label": 14,
+    "arg_questions": 1021,
+    "not_write_due": 1523,
+    "sims": 160,
+    "turns": 1846,
+    "write_due": 323
+   }
+  },
+  "by_label_tool": {
+   "book_reservation": 28,
+   "cancel_pending_order": 22,
+   "cancel_reservation": 8,
+   "exchange_delivered_order_items": 73,
+   "modify_pending_order_address": 61,
+   "modify_pending_order_items": 103,
+   "modify_pending_order_payment": 6,
+   "modify_user_address": 14,
+   "return_delivered_order_items": 44,
+   "update_reservation_baggages": 3,
+   "update_reservation_flights": 60
+  },
+  "questions": 1867,
+  "states": 422,
+  "tasks": 46,
+  "tool_questions": 422
+ }
+}

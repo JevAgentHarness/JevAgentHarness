@@ -1,0 +1,86 @@
+{
+ "registered": "PREREG_A7_STAGE2 A7.12 (b), (c)",
+ "written": "2026-10-03T07:20:12+00:00",
+ "members": {
+  "llm_only_x": {
+   "model": "deepseek/deepseek-v4-pro",
+   "path": "runs/stage2_dev/x_eligibility/llm_only_x.jsonl",
+   "episodes": 50,
+   "attempts": 51,
+   "steps": 369,
+   "malformed": 0,
+   "malformed_rate": 0.0,
+   "infra_errors_left": 0,
+   "context_errors": 0,
+   "s2_calls": 369,
+   "served_providers": {
+    "StreamLake": 369
+   },
+   "pinned": [
+    "StreamLake"
+   ],
+   "eligible": true,
+   "cost_per_episode_list": 0.002119895244,
+   "cost_per_episode_reported": 0.002101445675999998,
+   "smoke_cost_list": 0.1059947622,
+   "tokens_per_episode": {
+    "input": 47666.58,
+    "output": 779.72,
+    "cached": 42625.38
+   }
+  },
+  "llm_only_xsmall": {
+   "model": "deepseek/deepseek-v4-flash",
+   "path": "runs/stage2_dev/x_eligibility/llm_only_xsmall.jsonl",
+   "episodes": 50,
+   "attempts": 50,
+   "steps": 380,
+   "malformed": 0,
+   "malformed_rate": 0.0,
+   "infra_errors_left": 0,
+   "context_errors": 0,
+   "s2_calls": 380,
+   "served_providers": {
+    "StreamLake": 380
+   },
+   "pinned": [
+    "StreamLake"
+   ],
+   "eligible": true,
+   "cost_per_episode_list": 0.000486439968,
+   "cost_per_episode_reported": 0.000486439968,
+   "smoke_cost_list": 0.0243219984,
+   "tokens_per_episode": {
+    "input": 48790.28,
+    "output": 703.96,
+    "cached": 41031.68
+   }
+  }
+ },
+ "eligible": true,
+ "predicted_usd": {
+  "500": 5.713699530239999,
+  "300": 3.8594042208
+ },
+ "envelope_usd": 25.0,
+ "n": 500,
+ "decision": "n = 500",
+ "assumptions": {
+  "jev_per_episode_usd": 0.003,
+  "calibration_episodes": 150,
+  "jevagent_best_x_bound": "llm_only_x per-episode cost",
+  "contingency": 1.2,
+  "list_prices_per_M": {
+   "deepseek/deepseek-v4-pro": [
+    0.2088,
+    0.4176,
+    0.0174
+   ],
+   "deepseek/deepseek-v4-flash": [
+    0.028,
+    0.056,
+    0.0056
+   ]
+  }
+ }
+}

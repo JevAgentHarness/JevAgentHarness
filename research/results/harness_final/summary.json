@@ -1,0 +1,127 @@
+{
+ "label": "exploratory, descriptive (post hoc; PREREG_A7_STAGE2 Deviations 2026-10-05 harness_final); no test",
+ "generated": "2026-10-05T19:38:09+00:00",
+ "git": "df6945cecd699fb60d5e909146300b420aed79ec",
+ "run": "runs/harness_final_live",
+ "concurrency": 8,
+ "inputs": {
+  "llm_only": {
+   "path": "runs/harness_final_live/llm_only.jsonl",
+   "sha256": "661c75d4fed581cc"
+  },
+  "harness_final": {
+   "path": "runs/harness_final_live/harness_final.jsonl",
+   "sha256": "b350dce8b7dc6e00"
+  }
+ },
+ "n_expected": 200,
+ "errored_latest": {
+  "llm_only": 0,
+  "harness_final": 0
+ },
+ "tariff": {
+  "path": "results/harness_final/tariff.json",
+  "q_usd_per_episode": 0.0019217333333333333,
+  "instance_type": "g5.4xlarge",
+  "hardware": "1x NVIDIA A10G 24 GB",
+  "host_usd_per_hour": 1.624,
+  "sensitivity": {
+   "zero": 0.0,
+   "s2_4_tariff": 0.00196182
+  }
+ },
+ "paired": {
+  "n_pairs": 200,
+  "success": {
+   "llm_only": 0.995,
+   "harness_final": 1.0
+  },
+  "success_delta_pt": 0.5,
+  "success_delta_ci": [
+   0.0,
+   1.5
+  ],
+  "discordant": {
+   "llm_only_only": 0,
+   "harness_final_only": 1
+  },
+  "cost": {
+   "llm_only": 0.04337649000000001,
+   "harness_final_api": 0.0058314075,
+   "tariff_q": 0.0019217333333333333,
+   "harness_final": 0.007753140833333334,
+   "saving_frac": 0.8212593772955503,
+   "saving_ci": [
+    0.8150430993502238,
+    0.8272363517500834
+   ],
+   "saving_abs": 0.03562334916666668,
+   "saving_frac_no_tariff": 0.8655629466561264
+  },
+  "wall_s": {
+   "llm_only": 8.699213092729996,
+   "harness_final": 22.39419537471,
+   "llm_only_median": 8.94220349950001,
+   "harness_final_median": 20.721900662999815,
+   "delta": 13.694982281980005,
+   "delta_ci": [
+    12.083108280075843,
+    15.134512871488559
+   ],
+   "delta_median": 11.779697163499804,
+   "delta_median_ci": [
+    10.757819673474069,
+    14.361199343162967
+   ],
+   "saving_frac": -1.5742782865527243,
+   "faster_share": 0.025
+  },
+  "model_s": {
+   "llm_only": 8.43324863518997,
+   "harness_final": 22.049442248000005,
+   "llm_only_median": 8.885707963499499,
+   "harness_final_median": 20.471875398499833,
+   "delta": 13.616193612810035,
+   "delta_ci": [
+    12.157067222636428,
+    14.929151419460236
+   ],
+   "delta_median": 11.586167435000334,
+   "delta_median_ci": [
+    10.246099258502,
+    14.22267728131069
+   ],
+   "saving_frac": -1.6145846282763263,
+   "faster_share": 0.02
+  },
+  "calls": {
+   "llm_only": {
+    "s1_requests": 0.0,
+    "s1_questions": 0.0,
+    "s2_calls": 7.52,
+    "steps": 7.52,
+    "s1_s": 0.0,
+    "s2_s": 8.43324863518997
+   },
+   "harness_final": {
+    "s1_requests": 14.0,
+    "s1_questions": 18.125,
+    "s2_calls": 3.05,
+    "steps": 7.5,
+    "s1_s": 16.41464294891491,
+    "s2_s": 5.634799299085094
+   }
+  }
+ },
+ "harness_final": {
+  "queue_share": 0.7634365380243099,
+  "lock_wait_s_per_episode": 12.43654395,
+  "compute_s_per_episode": 3.853669224999999,
+  "cache_hit_share": 0.37550635024612766,
+  "tool_coverage": 1.0,
+  "arg_coverage": 0.8541176470588235,
+  "rest_s": 0.3447531267099976
+ },
+ "span_s_pass1": 784.0,
+ "row": "summary"
+}

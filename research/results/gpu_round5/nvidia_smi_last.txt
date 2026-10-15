@@ -1,0 +1,2 @@
+name, memory.used [MiB], utilization.gpu [%]
+NVIDIA L40S, 0 MiB, 0 %

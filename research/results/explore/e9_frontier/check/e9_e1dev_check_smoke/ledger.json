@@ -1,0 +1,180 @@
+{
+ "fresh_cost_usd": 0.050572864,
+ "backends": {
+  "jev": {
+   "total": {
+    "calls": 23,
+    "input_tokens": 11342,
+    "output_tokens": 1741,
+    "cost_usd": 0.0004763639999999999,
+    "latency_ms": 8213.689869001428
+   },
+   "s1": {
+    "calls": 23,
+    "input_tokens": 11342,
+    "output_tokens": 1741,
+    "cost_usd": 0.0004763639999999999,
+    "latency_ms": 8213.689869001428
+   },
+   "by_decision_point": {
+    "tool_params": {
+     "calls": 6,
+     "input_tokens": 2665,
+     "output_tokens": 636,
+     "cost_usd": 0.00011192999999999998,
+     "latency_ms": 2336.0801210001227
+    },
+    "tool_select": {
+     "calls": 17,
+     "input_tokens": 8677,
+     "output_tokens": 1105,
+     "cost_usd": 0.00036443399999999996,
+     "latency_ms": 5877.609748001305
+    }
+   },
+   "unpriced_models": [],
+   "fresh_cost_usd": 0.0004763639999999999,
+   "cached_calls": 0
+  },
+  "gemini_flash_typed": {
+   "total": {
+    "calls": 23,
+    "input_tokens": 8037,
+    "output_tokens": 913,
+    "cost_usd": 0.020272500000000002,
+    "latency_ms": 27677.86201799845
+   },
+   "s1": {
+    "calls": 23,
+    "input_tokens": 8037,
+    "output_tokens": 913,
+    "cost_usd": 0.020272500000000002,
+    "latency_ms": 27677.86201799845
+   },
+   "by_decision_point": {
+    "tool_params": {
+     "calls": 6,
+     "input_tokens": 1903,
+     "output_tokens": 418,
+     "cost_usd": 0.006616499999999999,
+     "latency_ms": 7112.580756999705
+    },
+    "tool_select": {
+     "calls": 17,
+     "input_tokens": 6134,
+     "output_tokens": 495,
+     "cost_usd": 0.013656000000000003,
+     "latency_ms": 20565.281260998745
+    }
+   },
+   "unpriced_models": [],
+   "fresh_cost_usd": 0.020272500000000002,
+   "cached_calls": 0
+  },
+  "gemini_lite_dist": {
+   "total": {
+    "calls": 23,
+    "input_tokens": 8037,
+    "output_tokens": 888,
+    "cost_usd": 0.0046311,
+    "latency_ms": 21459.585372997935
+   },
+   "s1": {
+    "calls": 23,
+    "input_tokens": 8037,
+    "output_tokens": 888,
+    "cost_usd": 0.0046311,
+    "latency_ms": 21459.585372997935
+   },
+   "by_decision_point": {
+    "tool_params": {
+     "calls": 6,
+     "input_tokens": 1903,
+     "output_tokens": 370,
+     "cost_usd": 0.0014958999999999999,
+     "latency_ms": 5002.072510999824
+    },
+    "tool_select": {
+     "calls": 17,
+     "input_tokens": 6134,
+     "output_tokens": 518,
+     "cost_usd": 0.0031352,
+     "latency_ms": 16457.51286199811
+    }
+   },
+   "unpriced_models": [],
+   "fresh_cost_usd": 0.0046311,
+   "cached_calls": 0
+  },
+  "luna_dist": {
+   "total": {
+    "calls": 23,
+    "input_tokens": 7769,
+    "output_tokens": 696,
+    "cost_usd": 0.0011249000000000003,
+    "latency_ms": 43465.29311199902
+   },
+   "s1": {
+    "calls": 23,
+    "input_tokens": 7769,
+    "output_tokens": 696,
+    "cost_usd": 0.0011249000000000003,
+    "latency_ms": 43465.29311199902
+   },
+   "by_decision_point": {
+    "tool_params": {
+     "calls": 6,
+     "input_tokens": 1856,
+     "output_tokens": 282,
+     "cost_usd": 0.0003266,
+     "latency_ms": 8558.830133998526
+    },
+    "tool_select": {
+     "calls": 17,
+     "input_tokens": 5913,
+     "output_tokens": 414,
+     "cost_usd": 0.0007983,
+     "latency_ms": 34906.46297800049
+    }
+   },
+   "unpriced_models": [],
+   "fresh_cost_usd": 0.0011249000000000003,
+   "cached_calls": 0
+  },
+  "sol_dist": {
+   "total": {
+    "calls": 23,
+    "input_tokens": 7769,
+    "output_tokens": 853,
+    "cost_usd": 0.024068,
+    "latency_ms": 52268.04111800084
+   },
+   "s1": {
+    "calls": 23,
+    "input_tokens": 7769,
+    "output_tokens": 853,
+    "cost_usd": 0.024068,
+    "latency_ms": 52268.04111800084
+   },
+   "by_decision_point": {
+    "tool_params": {
+     "calls": 6,
+     "input_tokens": 1856,
+     "output_tokens": 315,
+     "cost_usd": 0.006861999999999999,
+     "latency_ms": 14140.592669998114
+    },
+    "tool_select": {
+     "calls": 17,
+     "input_tokens": 5913,
+     "output_tokens": 538,
+     "cost_usd": 0.017206,
+     "latency_ms": 38127.448448002724
+    }
+   },
+   "unpriced_models": [],
+   "fresh_cost_usd": 0.024068,
+   "cached_calls": 0
+  }
+ }
+}

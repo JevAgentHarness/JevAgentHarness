@@ -1,0 +1,180 @@
+{
+ "fresh_cost_usd": 0.5374703100000001,
+ "backends": {
+  "jev": {
+   "total": {
+    "calls": 210,
+    "input_tokens": 119797,
+    "output_tokens": 20537,
+    "cost_usd": 0.005031474000000001,
+    "latency_ms": 50066.44439700176
+   },
+   "s1": {
+    "calls": 210,
+    "input_tokens": 119797,
+    "output_tokens": 20537,
+    "cost_usd": 0.005031474000000001,
+    "latency_ms": 50066.44439700176
+   },
+   "by_decision_point": {
+    "tool_params": {
+     "calls": 53,
+     "input_tokens": 28901,
+     "output_tokens": 9752,
+     "cost_usd": 0.0012138420000000001,
+     "latency_ms": 13307.489031997648
+    },
+    "tool_select": {
+     "calls": 157,
+     "input_tokens": 90896,
+     "output_tokens": 10785,
+     "cost_usd": 0.0038176319999999983,
+     "latency_ms": 36758.95536500411
+    }
+   },
+   "unpriced_models": [],
+   "fresh_cost_usd": 0.004555109999999999,
+   "cached_calls": 23
+  },
+  "gemini_flash_typed": {
+   "total": {
+    "calls": 210,
+    "input_tokens": 90869,
+    "output_tokens": 11889,
+    "cost_usd": 0.24330450000000006,
+    "latency_ms": 332317.82444599597
+   },
+   "s1": {
+    "calls": 210,
+    "input_tokens": 90869,
+    "output_tokens": 11889,
+    "cost_usd": 0.24330450000000006,
+    "latency_ms": 332317.82444599597
+   },
+   "by_decision_point": {
+    "tool_params": {
+     "calls": 53,
+     "input_tokens": 23752,
+     "output_tokens": 6952,
+     "cost_usd": 0.09819600000000002,
+     "latency_ms": 99687.88855500225
+    },
+    "tool_select": {
+     "calls": 157,
+     "input_tokens": 67117,
+     "output_tokens": 4937,
+     "cost_usd": 0.14510850000000003,
+     "latency_ms": 232629.93589099363
+    }
+   },
+   "unpriced_models": [],
+   "fresh_cost_usd": 0.22303200000000006,
+   "cached_calls": 23
+  },
+  "gemini_lite_dist": {
+   "total": {
+    "calls": 210,
+    "input_tokens": 90869,
+    "output_tokens": 11266,
+    "cost_usd": 0.055425699999999994,
+    "latency_ms": 165434.74009999417
+   },
+   "s1": {
+    "calls": 210,
+    "input_tokens": 90869,
+    "output_tokens": 11266,
+    "cost_usd": 0.055425699999999994,
+    "latency_ms": 165434.74009999417
+   },
+   "by_decision_point": {
+    "tool_params": {
+     "calls": 53,
+     "input_tokens": 23752,
+     "output_tokens": 6244,
+     "cost_usd": 0.022735600000000005,
+     "latency_ms": 47929.4157760005
+    },
+    "tool_select": {
+     "calls": 157,
+     "input_tokens": 67117,
+     "output_tokens": 5022,
+     "cost_usd": 0.032690099999999986,
+     "latency_ms": 117505.32432399361
+    }
+   },
+   "unpriced_models": [],
+   "fresh_cost_usd": 0.05079459999999999,
+   "cached_calls": 23
+  },
+  "luna_dist": {
+   "total": {
+    "calls": 210,
+    "input_tokens": 87175,
+    "output_tokens": 9168,
+    "cost_usd": 0.013301500000000003,
+    "latency_ms": 249888.25095699832
+   },
+   "s1": {
+    "calls": 210,
+    "input_tokens": 87175,
+    "output_tokens": 9168,
+    "cost_usd": 0.013301500000000003,
+    "latency_ms": 249888.25095699832
+   },
+   "by_decision_point": {
+    "tool_params": {
+     "calls": 53,
+     "input_tokens": 22949,
+     "output_tokens": 4877,
+     "cost_usd": 0.004733400000000001,
+     "latency_ms": 74067.92565799877
+    },
+    "tool_select": {
+     "calls": 157,
+     "input_tokens": 64226,
+     "output_tokens": 4291,
+     "cost_usd": 0.008568100000000004,
+     "latency_ms": 175820.32529899973
+    }
+   },
+   "unpriced_models": [],
+   "fresh_cost_usd": 0.012176600000000004,
+   "cached_calls": 23
+  },
+  "sol_dist": {
+   "total": {
+    "calls": 210,
+    "input_tokens": 87175,
+    "output_tokens": 9663,
+    "cost_usd": 0.2709800000000001,
+    "latency_ms": 478477.51068400027
+   },
+   "s1": {
+    "calls": 210,
+    "input_tokens": 87175,
+    "output_tokens": 9663,
+    "cost_usd": 0.2709800000000001,
+    "latency_ms": 478477.51068400027
+   },
+   "by_decision_point": {
+    "tool_params": {
+     "calls": 53,
+     "input_tokens": 22949,
+     "output_tokens": 4403,
+     "cost_usd": 0.08992800000000001,
+     "latency_ms": 144675.83524199558
+    },
+    "tool_select": {
+     "calls": 157,
+     "input_tokens": 64226,
+     "output_tokens": 5260,
+     "cost_usd": 0.18105200000000002,
+     "latency_ms": 333801.6754420042
+    }
+   },
+   "unpriced_models": [],
+   "fresh_cost_usd": 0.24691200000000008,
+   "cached_calls": 23
+  }
+ }
+}

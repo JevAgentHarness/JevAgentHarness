@@ -1,0 +1,33 @@
+name: e21_live_sl9b
+suite:
+  name: jevgym
+  shift: true
+  n: 200
+  seed0: 330100
+  families: v2
+  distractor_style: near
+  n_distractors: 60
+  noise_lines: 20
+  strict: true
+n_tasks: 200
+llm:
+  provider: gemini
+  model: gemini-3.5-flash
+  temperature: 0
+  reasoning_effort: minimal
+s1_cache: cache/s1_e21_live_sl9b.sqlite
+s1_backends:
+  sl9b:
+    type: jev
+    name: startlux-9b
+    base_url: http://127.0.0.1:8094
+    model: StartLux-Decision-9B
+    api_key: ''
+    price_model: StartLux-Decision-9B
+    timeout: 60.0
+workers: 4
+arms:
+- name: sl9b_ts_replace_f
+  s1: sl9b
+  tool_select:
+    mode: replace

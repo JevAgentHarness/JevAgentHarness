@@ -1,0 +1,31 @@
+{
+ "generated_at_commit": "cbedd65 (pre-E6b harness code)",
+ "n_tasks": 6,
+ "digests": {
+  "llm_only": "ba83d8eb8b162fa5019b5ee608b9da5e7ae323e7546ce60a9d2c7d2ab233d941",
+  "ts_replace": "05037654a2a7f860f12c9edafd0f050eb069d997a9ada05f7d63fbbd2bbe947c",
+  "ts_params_replace": "9025a76a4a6134e492928ad0acd25c5dfddc597a64a3c4eb6c7dc7d293015a1d",
+  "ts_cascade": "6dbd94c136ad9d42e533c97391ed1e4073dae8952aaa2ed82e223772f4c10f33",
+  "ts_cascade_always_defer": "c0c814c098a0b4e4d7ffb31dc2ce3dd19432898c17dfc36aab907c19a2a25a74",
+  "ts_assist": "a31d54d2e9bf5d5eb3c0c0f14d90ec4f44b8646dce781fb271a27e924098d56f",
+  "ts_guard": "5bfd3426dae0c69b65eddca42ef2adad9ef685d2b3e14eb9b4dae85cd8374429",
+  "shadow_tools": "3cca10b99fc7d1921c973d33f0bbaffd86d75789423c6d4b7bcdc25d6f84db66",
+  "mem_always": "0180b55d75aa8a832ab49fe445b75f0bbbd682567863856258f0101f28eecd70",
+  "mem_llm": "069515dd1a14a136163634e9978055bde05c6e9d7e6533181961f86dfb0289cc",
+  "mem_trigger_assist": "f2ccb891edca0a82fd57b40fc08048bbdfe42e3255d4072ff94f9495251cb015",
+  "mem_write_shadow": "391cf2d1a348b80ef692a4b2b6adb3ff2da3f91b1620da12a674cc1ef379fecb",
+  "reflect_always": "cfc1be75f2edc034b4aa5fdbd7d2ae2a10d71dc554f754502e004aa0ebca071b",
+  "reflect_trigger": "ab3ce9dbe7ed9999a21b10d2b0c8d8d381af9d387835cc179711306f6cd297e6",
+  "reflect_shadow": "39828e4b2adcd1ef9dc09bf419db4f905fceac8115dca87cf7669c2d4f91fe46",
+  "stop_guard": "bb6267ec9e8f64498571429b0d6d2f8bad6c3292ead06b1024c49d9e9bf68600",
+  "stop_trigger": "6e48f7e87568cc39dfa48f108c4a797f509bd76bf85fa9c4420805a8b820a915",
+  "stop_shadow": "915615a32e401926156fe48637f18f69676d142f71c3d42493b33cc3573e3da2",
+  "route_trigger": "9b4110fb5f8a074fbbcc46f295a1f3fa0d5f3a187453e2f27b377595d86c00ba",
+  "route_shadow": "51765330f897022f90bf142b6eb276708a51e3dadd786dc1073105d81b9699ad",
+  "action_off": "893d2ef72cd082a758b0ebac9abaede3140fcde9fe5bca355d5704d5618b5801",
+  "action_replace": "54e59fec2f7b6fe456a51abb3eb3a956fe20cad82bffaa3cf604ae140f1d51ed",
+  "action_cascade": "ac8ae7db59d7e660755438d137889bf88416719b0436788c681f50832d6107f8",
+  "action_assist": "f3a6821429ac79b22ccde8c1ebbe59e3e94a6a0777a5b00d6551ef902853894e",
+  "action_shadow": "70821c06ab728b88a0a6e9c002ad615ba7b7ed586871d38ee75e5da5c8fb425b"
+ }
+}

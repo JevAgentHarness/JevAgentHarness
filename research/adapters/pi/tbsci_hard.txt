@@ -1,0 +1,20 @@
+# Terminal-Bench-Science hard subset (PREREGISTRATION A6.22 (d) 2), written by `adapters/pi/tbsci.py select`; do not edit by hand.
+# pool: tbsci_hard_pool.txt sha256 f131ee5289003d95facdb055bb308a18a9d68280ddabb2aeb1c9fd122c9261fe (1389 bytes)
+# calibration run: tbsci_cal@<host>
+# commit: 8941f54c53e5b30cbbd95cf80bf8138bcb861260; terminal-bench-science: cfff307772949a2ef90aab1aada9597e92a6ad1e
+# N = 15 of 20 (a smaller subset, reported as such); per domain: earth 3, engineering 2, life 7, mathematical 1, physical 2
+mendota-ice-phenology
+masked-spherical-remap
+sparse-network-assimilation
+inelastic-constitutive-discovery
+microarch-modeling
+dapi-he-alignment
+mri-harmonization
+ont-tn-qc
+diag-chipseq
+genomic-model-ranking
+protein-active-learning
+foraging-cognitive-model
+dna-storage-codec
+neo-orbit-determination
+xrd-multiphase-qpa

@@ -1,0 +1,192 @@
+name: e2a_intern2b_dev
+suite:
+  name: jevgym
+  n: 500
+  families: v2
+  distractor_style: near
+  n_distractors: 60
+  noise_lines: 20
+  strict: true
+llm:
+  provider: gemini
+  model: gemini-3.5-flash
+  temperature: 0
+  reasoning_effort: minimal
+llms:
+  lite2:
+    provider: gemini
+    model: gemini-3.5-flash-lite
+    temperature: 0
+    reasoning_effort: minimal
+n_tasks: 200
+s1:
+  type: intern_decision
+  model: internlm/Intern-Decision-4B
+  device: auto
+  max_length: 8192
+s1_cache: cache/s1.sqlite
+s1_backends:
+  intern08:
+    type: intern_decision
+    model: internlm/Intern-Decision-0.8B
+    device: auto
+    max_length: 8192
+  intern2b:
+    type: intern_decision
+    model: internlm/Intern-Decision-2B
+    device: auto
+    max_length: 8192
+  intern4b_uncal:
+    type: intern_decision
+    model: internlm/Intern-Decision-4B
+    device: auto
+    max_length: 8192
+    temperature: 1
+  jev:
+    type: jev
+    provider: openrouter
+workers: 4
+arms:
+- name: llm_only
+  n_tasks: 500
+- name: intern_shadow
+  n_tasks: 500
+  tool_select:
+    mode: shadow
+  tool_params:
+    mode: shadow
+  stop:
+    mode: shadow
+- name: intern_ts_replace
+  tool_select:
+    mode: replace
+- name: intern_ts_params_replace
+  tool_select:
+    mode: replace
+  tool_params:
+    mode: replace
+- name: intern_ts_assist_k3
+  n_tasks: 500
+  tool_select:
+    mode: assist
+    k: 3
+- name: intern_ts_cascade_tauhat
+  n_tasks: 500
+  tool_select:
+    mode: cascade
+    tau: 0.9
+  tool_params:
+    mode: cascade
+    tau: 0.9
+- name: intern_stop_guard
+  n_tasks: 500
+  stop:
+    mode: guard
+    tau: 0.5
+- name: intern_ts_assist_k5
+  tool_select:
+    mode: assist
+    k: 5
+- name: intern_ts_guard
+  tool_select:
+    mode: guard
+    tau: 0.5
+- name: intern08_ts_replace
+  s1: intern08
+  tool_select:
+    mode: replace
+- name: intern08_ts_assist_k3
+  s1: intern08
+  tool_select:
+    mode: assist
+    k: 3
+- name: intern2b_ts_replace
+  s1: intern2b
+  tool_select:
+    mode: replace
+- name: intern2b_ts_assist_k3
+  s1: intern2b
+  tool_select:
+    mode: assist
+    k: 3
+- name: intern4b_uncal_ts_guard
+  s1: intern4b_uncal
+  tool_select:
+    mode: guard
+    tau: 0.5
+- name: jev_shadow
+  s1: jev
+  tool_select:
+    mode: shadow
+  tool_params:
+    mode: shadow
+  stop:
+    mode: shadow
+- name: jev_ts_replace
+  s1: jev
+  tool_select:
+    mode: replace
+- name: jev_ts_assist_k3
+  s1: jev
+  tool_select:
+    mode: assist
+    k: 3
+- name: jev_ts_guard
+  s1: jev
+  tool_select:
+    mode: guard
+    tau: 0.5
+- name: llm_only_s2lite
+  llm: lite2
+  n_tasks: 500
+- name: intern_shadow_s2lite
+  llm: lite2
+  n_tasks: 500
+  tool_select:
+    mode: shadow
+  tool_params:
+    mode: shadow
+  stop:
+    mode: shadow
+- name: intern_ts_assist_k3_s2lite
+  llm: lite2
+  n_tasks: 500
+  tool_select:
+    mode: assist
+    k: 3
+- name: intern_ts_guard_s2lite
+  llm: lite2
+  tool_select:
+    mode: guard
+    tau: 0.5
+- name: intern_ts_cascade_tau0.9_s2lite
+  llm: lite2
+  n_tasks: 500
+  tool_select:
+    mode: cascade
+    tau: 0.9
+  tool_params:
+    mode: cascade
+    tau: 0.9
+- name: intern_stop_guard_s2lite
+  llm: lite2
+  n_tasks: 500
+  stop:
+    mode: guard
+    tau: 0.5
+sweeps:
+- base:
+    name: intern_ts_cascade
+    tool_select:
+      mode: cascade
+    tool_params:
+      mode: cascade
+      tau: 0.9
+  set: tool_select.tau
+  values:
+  - 0.5
+  - 0.7
+  - 0.8
+  - 0.9
+  - 0.95
+  - 0.99

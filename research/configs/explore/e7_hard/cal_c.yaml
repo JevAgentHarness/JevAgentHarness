@@ -1,0 +1,24 @@
+# E7c calibration (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-06 "E7c (JevGym-Hard, refitted thresholds)"): the paper's
+# calibrate-then-deploy procedure (Sec. 2.1; PREREGISTRATION A6.5 / A6.11; as Stage 1's shadow arms, e.g.
+# configs/experiments/jevgym_shadow_cal_rl.yaml) in the JevGym-Hard setting of E7b. The LLM-only agent acts; the decision
+# model answers every tool-choice and argument question in shadow mode (logged, never executed). Calibration seeds
+# 5300-5399 (n = 100) of the reserved calibration range 5000-5999 (never trained on; 5000-5299 used by earlier
+# calibrations, 5300+ never run). One arm per decision model, task-major in one pool on the E7 GPU host:
+#   jevbench run configs/explore/e7_hard/cal_c.yaml --out runs -o workers=12          (scripts/aws/e7_hard.sh, EXP=e7c)
+# Fit (registered estimator, W = $1, lambda = 0, V fallback W), per arm and decision point:
+#   python -m jevharness.bench.threshold_theory runs/e7c_cal --arm <arm> --dp tool_select|tool_params \
+#       --calibration-arm --task-value 1.0 --lam-per-hour 0 --v-fallback W --out results/explore/e7_hard/cal_e7c/...
+name: e7c_cal
+suite: {name: jevgym, n: 100, seed0: 5300, families: multi, multi_customers: 12, multi_rule: tier, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 100
+llm: {provider: openrouter, model: google/gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+harness_defaults: {max_steps: 45}
+s1: {type: jev, provider: openrouter}        # Jev: the pinned Stage-1 endpoint; no System-1 cache
+s1_backends:
+  jevagent_rl: {type: jev, name: jevagentrl-4b, base_url: "http://127.0.0.1:8081", model: jevagentrl-4b, api_key: "",
+                timeout: 60.0, cache: null}
+workers: 12
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: jev_shadow_cal, tool_select: {mode: shadow}, tool_params: {mode: shadow}}
+  - {name: rl_shadow_cal, s1: jevagent_rl, tool_select: {mode: shadow}, tool_params: {mode: shadow}}

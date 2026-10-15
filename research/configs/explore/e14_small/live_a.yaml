@@ -1,0 +1,19 @@
+# Exploratory row E14 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-07 "E14: a sub-1B decision model with a scoring
+# head" (g) (a) and "E14: pause and resume on API overload"; descriptive, outside every Holm table): arm A (Qwen3.5-0.8B +
+# a Clef scoring head trained on the agent's states) LIVE, exactly as the frozen row `rl_ts_replace_f` of
+# configs/experiments/stage2_rl_states.yaml, the E2 ladder and E12: tool_select REPLACE, the same suite block, the same
+# first 200 fresh Stage-2 tasks (seeds 300000..300199; evaluation seeds: JEV_EVAL_RUNS=1, never trained on), Flash on
+# the direct Gemini API (temperature 0, minimal reasoning), workers 4, no System-1 cache. Served by
+# training/serve_jev.py --backend clef on the E14 host (:8083, e14-a). Started only after two clean probe rounds; paused
+# on 503 / overload and resumed after two clean rounds; errored episodes re-run once (scripts/aws/e14_small.sh live_a).
+#   JEV_EVAL_RUNS=1 jevbench run configs/explore/e14_small/live_a.yaml --out runs
+name: e14_live_a
+suite: {name: jevgym, n: 500, seed0: 300000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # Stage-2 fresh seeds (A7.2 (a))
+n_tasks: 200
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1_backends:
+  e14a: {type: jev, name: e14-a, base_url: "http://127.0.0.1:8083", model: e14-a, api_key: "",
+         price_model: jevagentrl-4b, timeout: 120.0, cache: null}   # exact 0 per token (GPU priced separately)
+workers: 4
+arms:
+  - {name: e14a_ts_replace_f, s1: e14a, tool_select: {mode: replace}}

@@ -1,0 +1,2 @@
+sl27b_ts_replace_f: tasks 200 latest-errored 0 cost/ep $0.0133 s1 {'StartLux-Decision-27B-Q8_0': 1352}
+sl4b_ts_replace_f: tasks 200 latest-errored 0 cost/ep $0.0116 s1 {'StartLux-Decision-4B': 1232}

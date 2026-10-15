@@ -1,0 +1,241 @@
+{
+ "status": "DEVELOPMENT (dev seeds 900-999; descriptive, never a paper number)",
+ "run": "runs/stage2_dev/stage2_dev",
+ "arms": {
+  "jev_ts_cascade_tauhat_dev": {
+   "n": 100,
+   "errors": 0,
+   "success": 1.0,
+   "cost_per_episode": 0.0339895443,
+   "s1_cost_per_episode": 0.0011079977999999997,
+   "latency_s": 11.731999049239876,
+   "s2_calls": 6.41,
+   "s1_calls": 10.92,
+   "unpriced": [],
+   "decisions": {
+    "tool_select/cascade/deferred": 561,
+    "tool_select/cascade": 189,
+    "tool_params/cascade/deferred": 90,
+    "tool_params/generate/deferred": 13,
+    "tool_params/cascade": 252
+   },
+   "coverage": {
+    "tool_coverage": 0.252,
+    "arg_coverage": 0.2079207920792079,
+    "llm_free_steps": 0.14533333333333334
+   },
+   "ledger": {
+    "episodes": 100,
+    "call_records": 1733,
+    "episodes_not_matching": 0
+   }
+  },
+  "jevagent_default": {
+   "n": 100,
+   "errors": 0,
+   "success": 1.0,
+   "cost_per_episode": 0.034304318759999994,
+   "s1_cost_per_episode": 0.0014098677599999998,
+   "latency_s": 10.610425877839834,
+   "s2_calls": 6.43,
+   "s1_calls": 17.42,
+   "unpriced": [],
+   "decisions": {
+    "tool_select/cascade/deferred": 560,
+    "stop/trigger": 650,
+    "tool_select/cascade": 190,
+    "tool_params/cascade/deferred": 94,
+    "tool_params/generate/deferred": 13,
+    "tool_params/cascade": 248
+   },
+   "coverage": {
+    "tool_coverage": 0.25333333333333335,
+    "arg_coverage": 0.20462046204620463,
+    "llm_free_steps": 0.14266666666666666
+   },
+   "ledger": {
+    "episodes": 100,
+    "call_records": 2385,
+    "episodes_not_matching": 0
+   }
+  },
+  "jevagent_default_s2lite": {
+   "n": 100,
+   "errors": 0,
+   "success": 0.83,
+   "cost_per_episode": 0.009859993759999998,
+   "s1_cost_per_episode": 0.00035170506000000004,
+   "latency_s": 8.49840472290999,
+   "s2_calls": 8.44,
+   "s1_calls": 6.57,
+   "unpriced": [],
+   "decisions": {
+    "tool_select/off": 757,
+    "reflection/trigger": 657
+   },
+   "coverage": {
+    "tool_coverage": 0.0,
+    "arg_coverage": 0.0,
+    "llm_free_steps": 0.0
+   },
+   "ledger": {
+    "episodes": 100,
+    "call_records": 1501,
+    "episodes_not_matching": 0
+   }
+  },
+  "llm_only": {
+   "n": 100,
+   "errors": 0,
+   "success": 1.0,
+   "cost_per_episode": 0.0432090525,
+   "s1_cost_per_episode": 0.0,
+   "latency_s": 7.729670522830057,
+   "s2_calls": 7.5,
+   "s1_calls": 0.0,
+   "unpriced": [],
+   "decisions": {
+    "tool_select/off": 750
+   },
+   "coverage": {
+    "tool_coverage": 0.0,
+    "arg_coverage": 0.0,
+    "llm_free_steps": 0.0
+   },
+   "ledger": {
+    "episodes": 100,
+    "call_records": 750,
+    "episodes_not_matching": 0
+   }
+  },
+  "llm_only_s2lite": {
+   "n": 100,
+   "errors": 0,
+   "success": 0.88,
+   "cost_per_episode": 0.009743293,
+   "s1_cost_per_episode": 0.0,
+   "latency_s": 5.299135823449998,
+   "s2_calls": 7.56,
+   "s1_calls": 0.0,
+   "unpriced": [],
+   "decisions": {
+    "tool_select/off": 756
+   },
+   "coverage": {
+    "tool_coverage": 0.0,
+    "arg_coverage": 0.0,
+    "llm_free_steps": 0.0
+   },
+   "ledger": {
+    "episodes": 100,
+    "call_records": 756,
+    "episodes_not_matching": 0
+   }
+  }
+ },
+ "pairs": {
+  "jevagent_default vs llm_only": {
+   "n": 100,
+   "wins": 0,
+   "losses": 0,
+   "diff_success": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "p_ni_3pt": 0.04769099539937257,
+   "cost_savings": 0.20608491102645687,
+   "cost_savings_ci": [
+    0.17806271711003913,
+    0.23222804072723435
+   ],
+   "p_cheaper": 4.648811616522872e-22,
+   "latency_saving_s": -2.8807553550097778,
+   "p_faster": 1.0
+  },
+  "jev_ts_cascade_tauhat_dev vs llm_only": {
+   "n": 100,
+   "wins": 0,
+   "losses": 0,
+   "diff_success": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "p_ni_3pt": 0.04769099539937257,
+   "cost_savings": 0.21336983031507106,
+   "cost_savings_ci": [
+    0.18672506396287505,
+    0.2399173517566354
+   ],
+   "p_cheaper": 5.764186176359344e-23,
+   "latency_saving_s": -4.002328526409818,
+   "p_faster": 0.9999955368368477
+  },
+  "jevagent_default vs jev_ts_cascade_tauhat_dev": {
+   "n": 100,
+   "wins": 0,
+   "losses": 0,
+   "diff_success": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "p_ni_3pt": 0.04769099539937257,
+   "cost_savings": -0.009260920276592088,
+   "cost_savings_ci": [
+    -0.028127086824845587,
+    0.00772687463558607
+   ],
+   "p_cheaper": 0.8460397861861332,
+   "latency_saving_s": 1.1215731714000408,
+   "p_faster": 0.09081672821492776
+  },
+  "jevagent_default_s2lite vs llm_only_s2lite": {
+   "n": 100,
+   "wins": 4,
+   "losses": 9,
+   "diff_success": -0.05,
+   "ci95": [
+    -0.12,
+    0.010249999999998635
+   ],
+   "p_ni_3pt": 0.7275624087452944,
+   "cost_savings": -0.01197754804253548,
+   "cost_savings_ci": [
+    -0.027362134614437948,
+    0.0026395916795897154
+   ],
+   "p_cheaper": 0.9352756915529018,
+   "latency_saving_s": -3.199268899459995,
+   "p_faster": 0.9999948467149894
+  }
+ },
+ "provenance": {
+  "jev_ts_cascade_tauhat_dev": {
+   "path": "runs/stage2_dev/stage2_dev/jev_ts_cascade_tauhat_dev.jsonl",
+   "sha256": "417ebba8984370a7d07471d34a902a0542c90940965bb7789322c2e51190eeaa",
+   "n_records": 100
+  },
+  "jevagent_default": {
+   "path": "runs/stage2_dev/stage2_dev/jevagent_default.jsonl",
+   "sha256": "b51e94b4217be3f6204e38b535b8291c9ca668ab99aff984d1be22a9817dbaa1",
+   "n_records": 100
+  },
+  "jevagent_default_s2lite": {
+   "path": "runs/stage2_dev/stage2_dev/jevagent_default_s2lite.jsonl",
+   "sha256": "699c6549093df700ec2a796bd5edc7544f2e07cd99b985cffff07aeaa66685d3",
+   "n_records": 100
+  },
+  "llm_only": {
+   "path": "runs/stage2_dev/stage2_dev/llm_only.jsonl",
+   "sha256": "d77670e1ae1b8a606ac61553146cfba495022f4fec94ff57148d27e50931d7d6",
+   "n_records": 100
+  },
+  "llm_only_s2lite": {
+   "path": "runs/stage2_dev/stage2_dev/llm_only_s2lite.jsonl",
+   "sha256": "e3e4bab402b2932f7fc243026f09bc0e77843f6e6f1957e66b57da485f4b3f2d",
+   "n_records": 100
+  }
+ }
+}

@@ -1,0 +1,21 @@
+# E6 (RQ1/RQ4) -- System-1 as the whole policy in a discrete-action environment (ALFWorld OOD, 134 games).
+# Data: see docs/ALFWORLD.md (ALFWORLD_DATA). TextWorld is CPU-bound: keep workers <= 8.
+name: e6_alfworld_action_only
+suite: {name: alfworld, split: eval_out_of_distribution, n: 134}
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}
+s1_cache: cache/s1.sqlite
+s1_backends:
+  lite: {type: llm_generative, llm: {provider: gemini, model: gemini-3.5-flash-lite}, reasoning_effort: minimal}
+harness_defaults: {max_steps: 50, history_window: 12}
+workers: 8
+arms:
+  - {name: llm_react}
+  - {name: jev_action_replace, action: {mode: replace}}
+  - {name: jev_action_assist_k3, action: {mode: assist, k: 3}}
+  - {name: jev_action_replace_reflect, action: {mode: replace}, reflection: {mode: trigger, tau: 0.6}}
+  - {name: lite_action_replace, s1: lite, action: {mode: replace}}
+sweeps:
+  - base: {name: jev_action_cascade, action: {mode: cascade}}
+    set: action.tau
+    values: [0.5, 0.7, 0.9]

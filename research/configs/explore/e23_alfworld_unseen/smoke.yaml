@@ -1,0 +1,18 @@
+# E23 (exploratory, descriptive; docs/PREREG_A7_STAGE2.md, Deviations 2026-10-08 "E23"), smoke (e): the three arms on
+# the first 2 of E6a's 48 calibration TRAIN games, as E11's smoke (development; never reported as a result; no
+# valid_unseen game). The cascade runs at E11's tau-hat (no refit).
+#   python -m jevharness.bench.runner configs/explore/e23_alfworld_unseen/smoke.yaml --out runs
+name: e23_alfworld_smoke
+suite: {name: alfworld, split: train, data_dir: data/raw/alfworld_e6a, n: 2, stratify: true, max_episode_steps: 50}
+n_tasks: 2
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1_backends:
+  e11: {type: jev, name: e11-alfworld-4b, base_url: "http://127.0.0.1:8081", model: e11-alfworld-4b, api_key: "",
+        timeout: 60.0, cache: null}
+harness_defaults: {max_steps: 50, history_window: 12}
+workers: 8
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}
+  - {name: e11_action_cascade_tauhat, s1: e11, action: {mode: cascade, tau: 0.120764}}
+  - {name: e11_action_replace, s1: e11, action: {mode: replace}}

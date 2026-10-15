@@ -1,0 +1,11 @@
+# tau2 arm: Jev as a policy verifier. The LLM acts as usual; before any state-changing (WRITE) tool call
+# is executed S1 answers "Does this action comply with the domain policy, and has the user explicitly
+# confirmed exactly this action?" (airline/retail policies require explicit confirmation before DB
+# updates), and before `transfer_to_human_agents` "is transferring justified by the policy?". p_yes < tau
+# -> the call is NOT executed and the LLM regenerates with a verifier note (guard_max_retries per turn).
+name: jev_guard
+policy_guard: {mode: guard, tau: 0.5, extra: {scope: write}}
+stop: {mode: guard, tau: 0.5}
+guard_max_retries: 1
+s1: {type: jev, provider: openrouter}   # A6.20: the same pinned Jev endpoint as E2 (configs/experiments)
+s1_cache: cache/s1_tau2.sqlite

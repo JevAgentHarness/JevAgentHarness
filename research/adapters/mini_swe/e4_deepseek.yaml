@@ -1,0 +1,39 @@
+# Overlay for swebench_jev.yaml: exploratory row E4 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-05) -- per-step
+# System-1 / System-2 routing on mini-SWE-agent 2.4.6 with DeepSeek V4 through OpenRouter. List it AFTER the base config
+# and s1_jev_openrouter.yaml (later specs win, nested dicts are merged); scripts/explore_e4_swe.py builds every arm.
+#
+#   deep path (System 2): deepseek/deepseek-v4-pro,   OpenRouter `reasoning: {enabled: true}`  (thinking on)
+#   fast path:            deepseek/deepseek-v4-flash, OpenRouter `reasoning: {enabled: false}` (thinking off)
+#
+# Both through mini-SWE-agent's own OpenRouterModel (via the adapter's OpenRouterTimeoutModel, which only makes upstream's
+# hard-coded 60 s request timeout configurable for long thinking steps): it posts to OpenRouter with
+# `usage: {include: true}` and books OpenRouter's reported `usage.cost` as the call's cost, so `agent.cost_limit` binds
+# on the real spend (an unpriced call raises instead of counting as $0). Both pinned to one provider (StreamLake, fp8;
+# the S2-1X pin of A7.12) with fallbacks disabled. Verified 2026-10-05 ~21:20 UTC with tiny calls from the project key:
+# omitting `reasoning` leaves DeepSeek V4 thinking ON by default on both models; `{enabled: false}` gives 0 reasoning
+# tokens; tool calls and text work with both, and a shared history Pro (thinking) -> Flash (no thinking) -> Pro works.
+# Caps (E4 entry): 250 steps (as H5) and $0.42 per instance = H5's $3 scaled by the input-price ratio of the deep path to
+# H5's Gemini 3.5 Flash (0.2088 / 1.50 x $3 = $0.4176).
+agent:
+  cost_limit: 0.42
+
+model:
+  model_class: jevharness.adapters.mini_swe.OpenRouterTimeoutModel
+  request_timeout: 600
+  model_name: "deepseek/deepseek-v4-pro"
+  model_kwargs:
+    provider: {order: [StreamLake], allow_fallbacks: false}
+    reasoning: {enabled: true}
+
+jev:
+  # routing target (merged over `model:` above): same class, provider pin and templates; only the model and reasoning
+  cheap_model:
+    model_name: "deepseek/deepseek-v4-flash"
+    model_kwargs:
+      reasoning: {enabled: false}
+  arms:
+    llm_only: {}                                   # always_deep (and always_fast with e4_fast.yaml): no S1 call
+    # the decision model routes each step: deep path if Jev's p(hard) >= tau or Jev gives no answer (fail-open),
+    # fast path if p(hard) < tau. Dev candidates tau 0.5 / 0.6 / 0.7 (-c jev.arms.jevagent.routing.tau=...); the eval
+    # tau is fixed on dev by the registered rule (configs/explore/e4_swe/threshold.json).
+    jevagent: {routing: {mode: trigger, tau: 0.5, extra: {first_n_strong: 0}}}

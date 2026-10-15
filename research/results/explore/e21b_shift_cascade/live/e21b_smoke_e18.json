@@ -1,0 +1,67 @@
+{
+"run": "e21b_smoke_e18",
+"arm": "e18_final",
+"label": "exploratory (E21b), descriptive; PREREG_A7_STAGE2 Deviations 2026-10-08 'E21b: the deployed confidence-gated cascades on DecisionGym-Shift'; outside every Holm table",
+"source_sha256": "838f8d0cba07b537ec7240918e07e5a12932b09e3013ba227f1bb94e65856e79",
+"records": 2,
+"decisions": {
+"tool_select": {
+"decisions": 23,
+"taken": 15,
+"deferred": 8,
+"coverage": 0.6521739130434783,
+"taken_labelled": 15,
+"accepted_wrong": 7,
+"accepted_wrong_share": 0.4666666666666667,
+"deferred_labelled": 8,
+"deferred_llm_acc": 0.875,
+"mean_conf_taken": 0.9999193419198803,
+"mustask": {
+"decisions": 0,
+"taken": 0,
+"accepted_wrong": 0
+}
+},
+"tool_params": {
+"decisions": 22,
+"taken": 6,
+"deferred": 16,
+"coverage": 0.2727272727272727,
+"taken_labelled": 5,
+"accepted_wrong": 0,
+"accepted_wrong_share": 0.0,
+"deferred_labelled": 5,
+"deferred_llm_acc": 0.4,
+"mean_conf_taken": 0.9998312260987059
+}
+},
+"tasks": {
+"jevgym-shift-sdt-clarify.method-339022-d120-near-strict": {
+"success": 1.0,
+"cost": 0.022294500000000002,
+"wall_s": 52.55503990500029,
+"steps": 5,
+"s2_calls": 4,
+"s1_requests": 7,
+"tool_decisions": 5,
+"tool_by_s1": 3,
+"arg_decisions": 3,
+"arg_by_s1": 2,
+"error": null
+},
+"jevgym-shift-sdt-multi-339023-d120-near-strict": {
+"success": 1.0,
+"cost": 0.10311329999999999,
+"wall_s": 17.88085850899961,
+"steps": 18,
+"s2_calls": 16,
+"s1_requests": 29,
+"tool_decisions": 18,
+"tool_by_s1": 12,
+"arg_decisions": 19,
+"arg_by_s1": 4,
+"error": null
+}
+},
+"written": "2026-10-09T02:02:17+00:00"
+}

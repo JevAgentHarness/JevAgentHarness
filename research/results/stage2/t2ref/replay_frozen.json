@@ -1,0 +1,18 @@
+{
+ "registered": "PREREG_A7_STAGE2 A7.13 (iv)",
+ "backend": {
+  "backend": "jevagentrl-4b",
+  "provider": "typesafe",
+  "model": "jevagentrl-4b",
+  "base_url": "http://127.0.0.1:8082",
+  "extra_body": {},
+  "cached": true
+ },
+ "cache": "cache/s1_t2ref_replay_frozen.sqlite",
+ "shard": null,
+ "order": "sorted question hash (shard i of n = every n-th from i)",
+ "batching": "one question per request (the harness tournament for Choices wider than the backend's max_options)",
+ "retries": 2,
+ "n_questions": 22704,
+ "resumed_with": 22704
+}

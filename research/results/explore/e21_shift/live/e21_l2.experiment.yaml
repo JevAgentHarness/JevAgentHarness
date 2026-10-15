@@ -1,0 +1,30 @@
+name: e21_l2
+suite:
+  name: jevgym
+  shift: true
+  n: 100
+  seed0: 330000
+  families: v2
+  distractor_style: near
+  n_distractors: 60
+  noise_lines: 20
+  strict: true
+n_tasks: 100
+llm:
+  provider: gemini
+  model: gemini-3.5-flash
+  temperature: 0
+  reasoning_effort: minimal
+s1:
+  type: jev
+  provider: openrouter
+s1_cache: cache/s1_e21_l2.sqlite
+workers: 4
+schedule:
+  mode: task_major
+  seed: 732
+arms:
+- name: llm_only
+- name: jev_ts_replace_f
+  tool_select:
+    mode: replace

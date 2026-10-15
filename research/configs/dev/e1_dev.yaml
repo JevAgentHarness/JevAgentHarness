@@ -1,0 +1,32 @@
+# E1 DEV (small-scale shakedown of configs/decision/bfcl_when2call.yaml) -- NOT a paper run.
+# Same suites, item pool, backends and controls as the E1 config, minus the Jev arm (openrouter.ai is
+# blocked here) and the GPU arms. System-1 is the Gemini stand-in. Development runs go under runs/dev so they
+# can never fill paper keys (paper keys come from runs/e1_bfcl_when2call):
+#   jevbench decide configs/dev/e1_dev.yaml --out runs/dev --max-items 300
+#   python -m jevharness.bench.decision_eval configs/dev/e1_dev.yaml --out runs/dev --max-items 300 --only gemma4_dist
+# --max-items takes a stratified prefix of the pool (whole BFCL rows, sources in proportion), so a larger dev
+# run is a superset of a smaller one and the shared s1_cache makes the overlap free.
+name: e1_dev
+suites:
+  - {name: bfcl, categories: [simple_python, multiple, live_simple, live_multiple, irrelevance, live_irrelevance], max_per_cat: 200}
+  - {name: when2call, max_items: 1000}
+batch_by_state: true                            # one System-1 request per (state, decision point)
+s1_cache: cache/s1.sqlite                       # same cache as the full E1 run: dev answers are reused there
+fc_cache: cache/fc.sqlite                       # native-FC + judge responses (the default next to s1_cache)
+workers: 8
+backends:
+  gemini_lite_dist: {type: llm_generative, llm: {provider: gemini, model: gemini-3.5-flash-lite}, reasoning_effort: minimal, mode: distribution}
+  gemini_lite_label: {type: llm_generative, llm: {provider: gemini, model: gemini-3.5-flash-lite}, reasoning_effort: minimal, mode: label}
+  # gemma-4 on the Gemini API has a 16k input-tokens/minute quota: few workers, a stratified subset
+  gemma4_dist: {type: llm_generative, llm: {provider: gemini, model: gemma-4-26b-a4b-it}, reasoning_effort: minimal, mode: distribution,
+                eval: {workers: 1, max_items: 120}}
+  gemini_embed: {type: embedding, provider: gemini, model: gemini-embedding-001}
+  # --- controls: System-2 answering the same typed question, lexical rankers ---
+  gemini_flash_typed: {type: s2_self, llm: {provider: gemini, model: gemini-3.5-flash}, reasoning_effort: minimal}
+  bm25: {type: bm25}
+  tfidf: {type: tfidf}
+fc_llms:
+  gemini_flash_fc: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+# When2Call: classifies the FC arm's text replies (ask for info / cannot answer / answer directly);
+# its cost is reported as judge_cost_per_1k_usd, not as decision cost
+fc_judge: {provider: gemini, model: gemini-3.5-flash-lite, reasoning_effort: minimal}

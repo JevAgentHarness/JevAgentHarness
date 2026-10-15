@@ -1,0 +1,132 @@
+{
+ "label": "development smoke (seeds 900-904), not a result: does Gemini 3.5 Flash via OpenRouter behave like the direct Gemini API in the reference loop?",
+ "config": "configs/dev/harness_final_route_smoke.yaml",
+ "arms": {
+  "llm_only_gemini": {
+   "episodes": [
+    {
+     "task_id": "jevgym-clarify-900-d60-near-strict",
+     "success": true,
+     "error": null,
+     "s2_calls": 5,
+     "input_tokens": 27793,
+     "cached_input_tokens": 9662,
+     "output_tokens": 169,
+     "cost_usd_list_price": 0.0301668,
+     "provider_cost_usd": null
+    },
+    {
+     "task_id": "jevgym-clarify-902-d60-near-strict",
+     "success": true,
+     "error": null,
+     "s2_calls": 5,
+     "input_tokens": 27410,
+     "cached_input_tokens": 9654,
+     "output_tokens": 162,
+     "cost_usd_list_price": 0.0295401,
+     "provider_cost_usd": null
+    },
+    {
+     "task_id": "jevgym-clarify-904-d60-near-strict",
+     "success": true,
+     "error": null,
+     "s2_calls": 5,
+     "input_tokens": 28035,
+     "cached_input_tokens": 11603,
+     "output_tokens": 176,
+     "cost_usd_list_price": 0.02797245,
+     "provider_cost_usd": null
+    },
+    {
+     "task_id": "jevgym-multi-901-d60-near-strict",
+     "success": true,
+     "error": null,
+     "s2_calls": 10,
+     "input_tokens": 62521,
+     "cached_input_tokens": 31003,
+     "output_tokens": 367,
+     "cost_usd_list_price": 0.05523045,
+     "provider_cost_usd": null
+    },
+    {
+     "task_id": "jevgym-multi-903-d60-near-strict",
+     "success": true,
+     "error": null,
+     "s2_calls": 10,
+     "input_tokens": 63956,
+     "cached_input_tokens": 31049,
+     "output_tokens": 381,
+     "cost_usd_list_price": 0.05744685,
+     "provider_cost_usd": null
+    }
+   ],
+   "success": 5,
+   "cost_usd_total": 0.20035665,
+   "input_tokens_total": 209715
+  },
+  "llm_only_openrouter": {
+   "episodes": [
+    {
+     "task_id": "jevgym-clarify-900-d60-near-strict",
+     "success": true,
+     "error": null,
+     "s2_calls": 5,
+     "input_tokens": 14391,
+     "cached_input_tokens": 8746,
+     "output_tokens": 162,
+     "cost_usd_list_price": 0.011237400000000002,
+     "provider_cost_usd": 0.0112374
+    },
+    {
+     "task_id": "jevgym-clarify-902-d60-near-strict",
+     "success": true,
+     "error": null,
+     "s2_calls": 5,
+     "input_tokens": 14529,
+     "cached_input_tokens": 8794,
+     "output_tokens": 163,
+     "cost_usd_list_price": 0.011388599999999999,
+     "provider_cost_usd": 0.011388599999999999
+    },
+    {
+     "task_id": "jevgym-clarify-904-d60-near-strict",
+     "success": true,
+     "error": null,
+     "s2_calls": 5,
+     "input_tokens": 14592,
+     "cached_input_tokens": 8788,
+     "output_tokens": 178,
+     "cost_usd_list_price": 0.0116262,
+     "provider_cost_usd": 0.0116262
+    },
+    {
+     "task_id": "jevgym-multi-901-d60-near-strict",
+     "success": true,
+     "error": null,
+     "s2_calls": 10,
+     "input_tokens": 30537,
+     "cached_input_tokens": 17739,
+     "output_tokens": 367,
+     "cost_usd_list_price": 0.025160850000000002,
+     "provider_cost_usd": 0.025160850000000002
+    },
+    {
+     "task_id": "jevgym-multi-903-d60-near-strict",
+     "success": true,
+     "error": null,
+     "s2_calls": 10,
+     "input_tokens": 30506,
+     "cached_input_tokens": 17728,
+     "output_tokens": 385,
+     "cost_usd_list_price": 0.025291200000000003,
+     "provider_cost_usd": 0.025291200000000003
+    }
+   ],
+   "success": 5,
+   "cost_usd_total": 0.08470425,
+   "input_tokens_total": 104555
+  }
+ },
+ "identical": false,
+ "reading": "same successes (5/5 vs 5/5) and System-2 call counts, but OpenRouter reports 104555 input tokens vs 209715 on the direct API for the same episodes, so the list-price cost differs ($0.0847 vs $0.2004): not identical in cost accounting -> the live run uses the direct Gemini API exactly as Stage 2."
+}

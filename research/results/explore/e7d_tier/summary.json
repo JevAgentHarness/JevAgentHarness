@@ -1,0 +1,377 @@
+{
+ "label": "exploratory (E7d), descriptive; PREREG_A7_STAGE2 Deviations 2026-10-06 'E7d'; outside every Holm table",
+ "generated": "2026-10-07T01:15:06+00:00",
+ "run": "results/explore/e7_hard/box_e7d",
+ "models": {
+  "frozen": {
+   "name": "AgentDecision-4B",
+   "heldout": {
+    "op": {
+     "n": 600,
+     "acc": 0.765,
+     "ece": 0.22098,
+     "mean_conf": 0.98598
+    },
+    "ts_other": {
+     "n": 225,
+     "acc": 0.91556,
+     "ece": 0.08232,
+     "mean_conf": 0.99453
+    },
+    "tp": {
+     "n": 225,
+     "acc": 0.95111,
+     "ece": 0.03898,
+     "mean_conf": 0.99009
+    }
+   },
+   "cal": {
+    "label": "exploratory (E7d), descriptive; PREREG_A7_STAGE2 Deviations 2026-10-06 'E7d'; outside every Holm table",
+    "source": "e7c_cal/rl_shadow_cal",
+    "answers": "answers_frozen_cal.jsonl",
+    "answers_sha256": "7ccd9cd18beb47cab766220649bf92893379009ed18d5fb79cb969bb648fd70f",
+    "derive": {
+     "replaced": 1940,
+     "missing": 6887,
+     "dropped_other_dps": 0
+    },
+    "n_tasks": 20,
+    "tasks_filter": 20,
+    "tool_select": {
+     "tau_hat": Infinity,
+     "always_defer": true,
+     "n_paired": 740,
+     "tau_rule": "projection",
+     "at_tau": {
+      "n": 740,
+      "coverage": 0.0,
+      "s1_acc_taken": NaN,
+      "llm_acc_taken": NaN,
+      "s1_acc_all": 0.8581081081081081,
+      "llm_acc_all": 1.0
+     },
+     "op_at_tau": {
+      "n": 240,
+      "coverage": 0.0,
+      "s1_acc_taken": NaN,
+      "llm_acc_taken": NaN,
+      "s1_acc_all": 0.7916666666666666,
+      "llm_acc_all": 1.0
+     }
+    },
+    "tool_params": {
+     "tau_hat": 0.9999986886978149,
+     "always_defer": false,
+     "n_paired": 1200,
+     "tau_rule": "projection",
+     "at_tau": {
+      "n": 1200,
+      "coverage": 0.7008333333333333,
+      "s1_acc_taken": 1.0,
+      "llm_acc_taken": 1.0,
+      "s1_acc_all": 0.9483333333333334,
+      "llm_acc_all": 1.0
+     }
+    }
+   },
+   "v1": {
+    "v1_acc": 0.99706,
+    "v1_ece": 0.00419,
+    "v1_nll": 0.01254,
+    "v1_n": 2377,
+    "v1_tool_select": 0.99661,
+    "v1_tool_params": 1.0,
+    "v1_stop": 0.99402,
+    "v1_recovery": 0.99835,
+    "v1_recovery_tool_select": 0.99587,
+    "v1_onplan": 0.9966120835686053,
+    "v1_knockout": 0.99543
+   },
+   "c": {
+    "c_acc": 0.9920083177147069,
+    "c_acc_offplan": 0.9471677445361655,
+    "c_acc_ask": 1.0,
+    "c_tasks": 200
+   }
+  },
+  "tier": {
+   "name": "AgentDecision-4B (tier)",
+   "heldout": {
+    "op": {
+     "n": 600,
+     "acc": 0.95333,
+     "ece": 0.00861,
+     "mean_conf": 0.95804
+    },
+    "ts_other": {
+     "n": 225,
+     "acc": 1.0,
+     "ece": 0.00263,
+     "mean_conf": 0.99737
+    },
+    "tp": {
+     "n": 225,
+     "acc": 0.98222,
+     "ece": 0.01425,
+     "mean_conf": 0.99178
+    }
+   },
+   "cal": {
+    "label": "exploratory (E7d), descriptive; PREREG_A7_STAGE2 Deviations 2026-10-06 'E7d'; outside every Holm table",
+    "source": "e7c_cal/rl_shadow_cal",
+    "answers": "answers_tier_cal.jsonl",
+    "answers_sha256": "a8da4b6030b17e3002d88646e1fb60e5b26741b44d9eca82ca375e71a8abcd1b",
+    "derive": {
+     "replaced": 1940,
+     "missing": 6887,
+     "dropped_other_dps": 0
+    },
+    "n_tasks": 20,
+    "tasks_filter": 20,
+    "tool_select": {
+     "tau_hat": 0.9999322567940803,
+     "always_defer": false,
+     "n_paired": 740,
+     "tau_rule": "projection",
+     "at_tau": {
+      "n": 740,
+      "coverage": 0.5,
+      "s1_acc_taken": 1.0,
+      "llm_acc_taken": 1.0,
+      "s1_acc_all": 0.9851351351351352,
+      "llm_acc_all": 1.0
+     },
+     "op_at_tau": {
+      "n": 240,
+      "coverage": 0.42083333333333334,
+      "s1_acc_taken": 1.0,
+      "llm_acc_taken": 1.0,
+      "s1_acc_all": 0.9666666666666667,
+      "llm_acc_all": 1.0
+     }
+    },
+    "tool_params": {
+     "tau_hat": 0.9929112792015076,
+     "always_defer": false,
+     "n_paired": 1200,
+     "tau_rule": "projection",
+     "at_tau": {
+      "n": 1200,
+      "coverage": 0.9,
+      "s1_acc_taken": 1.0,
+      "llm_acc_taken": 1.0,
+      "s1_acc_all": 0.9941666666666666,
+      "llm_acc_all": 1.0
+     }
+    }
+   },
+   "c": {
+    "c_acc": 0.9906247298585581,
+    "c_acc_offplan": 0.9337945680050944,
+    "c_acc_ask": 1.0,
+    "c_tasks": 200
+   }
+  }
+ },
+ "c_delta": {
+  "all": {
+   "delta": -0.0013835878561488323,
+   "lo": -0.004225466701457557,
+   "hi": 0.0009726456639566371,
+   "n_tasks": 200
+  },
+  "offplan": {
+   "delta": -0.013373176531071269,
+   "lo": -0.029083124477861322,
+   "hi": -0.0015101857207120365,
+   "n_tasks": 57
+  }
+ },
+ "cal_tasks": {
+  "label": "exploratory (E7d), descriptive; PREREG_A7_STAGE2 Deviations 2026-10-06 'E7d'; outside every Holm table",
+  "tasks_total": 91,
+  "tasks_complete": 20,
+  "questions_total": 8827,
+  "answered": 2017,
+  "rows_tier": 1940,
+  "rows_frozen": 1940,
+  "enough": true
+ },
+ "check_frozen": {
+  "label": "exploratory (E5), descriptive; PREREG_A7_STAGE2 Deviations 2026-10-06 'Exploratory row E5' (g)",
+  "agree_min": 0.99,
+  "by_dp": {
+   "tool_select": {
+    "questions": 185,
+    "answered": 185,
+    "errors": 0,
+    "argmax_agree": 185,
+    "agreement": 1.0,
+    "max_abs_dp_max": 0.0,
+    "max_abs_dp_median": 0.0,
+    "abs_dconf_max": 0.0,
+    "ok": true
+   },
+   "tool_params": {
+    "questions": 300,
+    "answered": 300,
+    "errors": 0,
+    "argmax_agree": 300,
+    "agreement": 1.0,
+    "max_abs_dp_max": 0.0,
+    "max_abs_dp_median": 0.0,
+    "abs_dconf_max": 0.0,
+    "ok": true
+   }
+  },
+  "ok": true
+ },
+ "trim": {
+  "label": "exploratory (E7d), descriptive; PREREG_A7_STAGE2 Deviations 2026-10-06 'E7d'; outside every Holm table",
+  "trim": {
+   "cal_v1": 1000,
+   "cal_tier": 1000,
+   "heldout_ts_other": 225,
+   "heldout_tp": 225
+  },
+  "cal_v1": {
+   "src": "dev.jsonl.gz",
+   "src_sha256": "9301ae530b83f953aafeffe2364e8998e7a6057f5b0cc0410afa890664e30858",
+   "rows": 1000,
+   "out": "cal_v1_small.jsonl"
+  },
+  "cal_tier": {
+   "src": "tier_dev.jsonl",
+   "src_sha256": "f3b13932c2e220d216f7036a13ba1b9b98b1721f7d12fbc89c049048fcea8979",
+   "rows": 1000,
+   "out": "cal_tier_small.jsonl"
+  },
+  "heldout_ts_other": {
+   "src": "heldout_ts_other.jsonl",
+   "src_sha256": "bff2743f619452c0bca6ba9098690d0910ffff491471aabbda1e9282a5c216f6",
+   "rows": 225,
+   "out": "heldout_ts_other_s.jsonl"
+  },
+  "heldout_tp": {
+   "src": "heldout_tp.jsonl",
+   "src_sha256": "e23398c3e9656af3b9e4c8f95b54a10ab8271d8829d07d49da1145d60cd14a67",
+   "rows": 225,
+   "out": "heldout_tp_s.jsonl"
+  },
+  "cal_dev_small": {
+   "rows": 2000
+  }
+ },
+ "jev_cal": {
+  "sha256": "08326b220f4a5afce1b43e5ada1a79626b911bf41e130733a6f093c06e19dd63",
+  "eval_arm": "jev_refit",
+  "n_tasks": 100,
+  "errored": 0,
+  "tool_select": {
+   "tau_hat": 0.91,
+   "always_defer": false,
+   "n_paired": 3699,
+   "tau_rule": "projection",
+   "V": 1.0,
+   "delta_c": 0.001991415486486487,
+   "path": "results/explore/e7_hard/cal_e7c/tauhat_jev_shadow_cal_tool_select.json",
+   "sha256": "5d4457c072541f709f4166a57fa0fe8db46576bf87c997fdb3bf8bd81089f5b7",
+   "notes": [
+    "100 task seed(s) outside the calibration range 5000-5149 (e.g. [5300, 5301, 5302, 5303, 5304]): not a registered calibration arm"
+   ],
+   "at_tau": {
+    "n": 3699,
+    "coverage": 0.9005136523384698,
+    "s1_acc_taken": 1.0,
+    "llm_acc_taken": 1.0,
+    "s1_acc_all": 0.9981075966477426,
+    "llm_acc_all": 1.0
+   },
+   "op_at_tau": {
+    "n": 1200,
+    "coverage": 0.995,
+    "s1_acc_taken": 1.0,
+    "llm_acc_taken": 1.0,
+    "s1_acc_all": 1.0,
+    "llm_acc_all": 1.0
+   }
+  },
+  "tool_params": {
+   "tau_hat": 0.87,
+   "always_defer": false,
+   "n_paired": 5998,
+   "tau_rule": "projection",
+   "V": 1.0,
+   "delta_c": 0.001136279225,
+   "path": "results/explore/e7_hard/cal_e7c/tauhat_jev_shadow_cal_tool_params.json",
+   "sha256": "620106882827c0dc35da94f43d68f4f65218497839b360a9f83d9bd672264918",
+   "notes": [
+    "100 task seed(s) outside the calibration range 5000-5149 (e.g. [5300, 5301, 5302, 5303, 5304]): not a registered calibration arm"
+   ],
+   "at_tau": {
+    "n": 5998,
+    "coverage": 0.802267422474158,
+    "s1_acc_taken": 1.0,
+    "llm_acc_taken": 1.0,
+    "s1_acc_all": 0.9744914971657219,
+    "llm_acc_all": 1.0
+   }
+  }
+ },
+ "frozen_cal_e7c_100": {
+  "sha256": "6fd651974c30cfd2cac814633b6272777bb1a7e9f787e5e2f7ad56cf00551595",
+  "eval_arm": "rl_refit",
+  "n_tasks": 100,
+  "errored": 9,
+  "tool_select": {
+   "tau_hat": null,
+   "always_defer": true,
+   "n_paired": 3561,
+   "tau_rule": "projection",
+   "V": 1.0,
+   "delta_c": 0.001839197851727043,
+   "path": "results/explore/e7_hard/cal_e7c/tauhat_rl_shadow_cal_tool_select.json",
+   "sha256": "faedc985ade159eee579ec81f7325df15eeab3f4e68f22e2c787f7fd38ac2945",
+   "notes": [
+    "100 task seed(s) outside the calibration range 5000-5149 (e.g. [5300, 5301, 5302, 5303, 5304]): not a registered calibration arm"
+   ],
+   "at_tau": {
+    "n": 3561,
+    "coverage": 0.0,
+    "s1_acc_taken": null,
+    "llm_acc_taken": null,
+    "s1_acc_all": 0.8652064026958719,
+    "llm_acc_all": 1.0
+   },
+   "op_at_tau": {
+    "n": 1153,
+    "coverage": 0.0,
+    "s1_acc_taken": null,
+    "llm_acc_taken": null,
+    "s1_acc_all": 0.810928013876843,
+    "llm_acc_all": 1.0
+   }
+  },
+  "tool_params": {
+   "tau_hat": 1.0,
+   "always_defer": false,
+   "n_paired": 5781,
+   "tau_rule": "projection",
+   "V": 1.0,
+   "delta_c": 0.001052616554229372,
+   "path": "results/explore/e7_hard/cal_e7c/tauhat_rl_shadow_cal_tool_params.json",
+   "sha256": "2855bb689316585b04db278bb8470f6b8d2f56033150a1813fcc758f6d0b8d09",
+   "notes": [
+    "100 task seed(s) outside the calibration range 5000-5149 (e.g. [5300, 5301, 5302, 5303, 5304]): not a registered calibration arm"
+   ],
+   "at_tau": {
+    "n": 5781,
+    "coverage": 0.628956927867151,
+    "s1_acc_taken": 0.9997249724972497,
+    "llm_acc_taken": 1.0,
+    "s1_acc_all": 0.9484518249437813,
+    "llm_acc_all": 1.0
+   }
+  }
+ }
+}

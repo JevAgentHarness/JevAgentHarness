@@ -1,0 +1,67 @@
+{
+ "s1": {
+  "type": "intern_decision",
+  "model": "internlm/Intern-Decision-4B"
+ },
+ "dev": "runs/gpu_round5/eval/v1_dev.jsonl",
+ "n": 2377,
+ "wall_s": 401.1,
+ "acc": 0.8430795119899033,
+ "by_dp": {
+  "tool_select": {
+   "n": 884,
+   "acc": 0.747737556561086,
+   "brier": 0.28448685451344924
+  },
+  "stop": {
+   "n": 669,
+   "acc": 0.929745889387145,
+   "brier": 0.08193072018792118
+  },
+  "tool_params": {
+   "n": 824,
+   "acc": 0.875,
+   "brier": 0.18683968582774385
+  }
+ },
+ "ledger": {
+  "total": {
+   "calls": 2377,
+   "input_tokens": 3042404,
+   "output_tokens": 2377,
+   "cost_usd": 0.03042403999999998,
+   "latency_ms": 394811.4068220006
+  },
+  "s1": {
+   "calls": 2377,
+   "input_tokens": 3042404,
+   "output_tokens": 2377,
+   "cost_usd": 0.03042403999999998,
+   "latency_ms": 394811.4068220006
+  },
+  "by_decision_point": {
+   "stop": {
+    "calls": 669,
+    "input_tokens": 629910,
+    "output_tokens": 669,
+    "cost_usd": 0.006299099999999988,
+    "latency_ms": 89918.20455501511
+   },
+   "tool_params": {
+    "calls": 824,
+    "input_tokens": 995161,
+    "output_tokens": 824,
+    "cost_usd": 0.00995160999999999,
+    "latency_ms": 130446.17062898396
+   },
+   "tool_select": {
+    "calls": 884,
+    "input_tokens": 1417333,
+    "output_tokens": 884,
+    "cost_usd": 0.014173330000000007,
+    "latency_ms": 174447.03163800092
+   }
+  },
+  "unpriced_models": []
+ }
+}

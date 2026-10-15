@@ -1,0 +1,80 @@
+{
+ "run": "e21_l2_smoke",
+ "arms": {
+  "jev_ts_replace_f": {
+   "jevgym-shift-sdt-clarify.order-339000-d120-near-strict": {
+    "success": true,
+    "error": false,
+    "error_text": null,
+    "cost": 0.002850708,
+    "s1_cost": 0.000435708,
+    "s2_cost": 0.002415,
+    "wall_s": 22.15159830099992,
+    "steps": 3,
+    "s1_calls": 3,
+    "s2_calls": 3,
+    "attempts": 1,
+    "refusals": 0,
+    "own_acc": 1.0
+   },
+   "jevgym-shift-sdt-multi-339001-d120-near-strict": {
+    "success": true,
+    "error": false,
+    "error_text": null,
+    "cost": 0.03926067,
+    "s1_cost": 0.00204267,
+    "s2_cost": 0.037217999999999994,
+    "wall_s": 24.415680691000034,
+    "steps": 11,
+    "s1_calls": 11,
+    "s2_calls": 11,
+    "attempts": 1,
+    "refusals": 0,
+    "own_acc": 0.9090909090909091
+   }
+  },
+  "llm_only": {
+   "jevgym-shift-sdt-clarify.order-339000-d120-near-strict": {
+    "success": true,
+    "error": false,
+    "error_text": null,
+    "cost": 0.038661749999999995,
+    "s1_cost": 0.0,
+    "s2_cost": 0.038661749999999995,
+    "wall_s": 7.98134754900002,
+    "steps": 5,
+    "s1_calls": 0,
+    "s2_calls": 5,
+    "attempts": 1,
+    "refusals": 0,
+    "own_acc": null
+   },
+   "jevgym-shift-sdt-multi-339001-d120-near-strict": {
+    "success": true,
+    "error": false,
+    "error_text": null,
+    "cost": 0.08234655,
+    "s1_cost": 0.0,
+    "s2_cost": 0.08234655,
+    "wall_s": 12.553167583999766,
+    "steps": 10,
+    "s1_calls": 0,
+    "s2_calls": 10,
+    "attempts": 1,
+    "refusals": 0,
+    "own_acc": null
+   }
+  }
+ },
+ "spend": {
+  "total": 0.163119678,
+  "s2": 0.1606413,
+  "s1": 0.002478378,
+  "records": 4,
+  "s1_by_arm": {
+   "jev_ts_replace_f": 0.002478378,
+   "llm_only": 0.0
+  }
+ },
+ "written": "2026-10-08T21:46:57+00:00"
+}

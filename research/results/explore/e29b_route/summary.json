@@ -1,0 +1,680 @@
+{
+ "registered": "docs/PREREG_A7_STAGE2.md, Deviations 2026-10-09 ~19:55 UTC, E29b",
+ "code": "86a9589",
+ "written": "2026-10-09T22:07:35Z",
+ "pilot": {
+  "tb": {
+   "harness": "tb",
+   "label": "pi on Terminal-Bench 2.0",
+   "llms": "Gemini 3.5 Flash / Flash-Lite",
+   "ref": "E25 harness A",
+   "n_listed": 30,
+   "n": 28,
+   "missing": {
+    "baseline": [
+     "rstan-to-pystan",
+     "mcmc-sampling-stan"
+    ],
+    "gated": [
+     "rstan-to-pystan",
+     "mcmc-sampling-stan"
+    ]
+   },
+   "arms": {
+    "baseline": {
+     "n": 28,
+     "solved": 15,
+     "success": 0.5357142857142857,
+     "cost_mean": 0.5523940714285713,
+     "llm_cost_mean": 0.5523940714285713,
+     "dm_cost_mean": 0.0,
+     "wall_mean": 246.9982929285714,
+     "wall_median": 165.91488249999998,
+     "requests_mean": 43.607142857142854,
+     "fast_share": 0.0,
+     "fast_requests": 0,
+     "requests": 1221,
+     "input_tokens_mean": 1181752.5714285714,
+     "cached_share": 0.818189159248709,
+     "reasons": {
+      "strong": 1220
+     },
+     "segments_per_task": 0.0,
+     "segment_len_mean": null,
+     "segments_capped_share": null,
+     "switches_per_task": 0.0,
+     "decisions_per_task": 0.0,
+     "decision_errors": 0,
+     "fail_open": 0,
+     "dm_latency_per_task_s": 0.0,
+     "waited_per_task_s": 0.0,
+     "llm_errors": 1,
+     "infra_errors": 0,
+     "timeouts": 1,
+     "not_in_proxy_log": 0,
+     "steps": 1220,
+     "fast_steps": 0,
+     "fast_step_share": 0.0,
+     "guard_accept": 0,
+     "guard_reject": 0,
+     "guard_reject_cost_mean": 0.0
+    },
+    "gated": {
+     "n": 28,
+     "solved": 13,
+     "success": 0.4642857142857143,
+     "cost_mean": 0.46682740021428576,
+     "llm_cost_mean": 0.46357104571428576,
+     "dm_cost_mean": 0.0032563545000000005,
+     "wall_mean": 225.3596690357143,
+     "wall_median": 126.114231,
+     "requests_mean": 37.964285714285715,
+     "fast_share": 0.10253998118532455,
+     "fast_requests": 109,
+     "requests": 1063,
+     "input_tokens_mean": 1236821.142857143,
+     "cached_share": 0.8508846642337015,
+     "reasons": {
+      "first": 28,
+      "enter": 69,
+      "continue": 40,
+      "below_tau": 875,
+      "guard_reject": 46,
+      "cap_k": 5
+     },
+     "segments_per_task": 1.1428571428571428,
+     "segment_len_mean": 1.96875,
+     "segments_capped_share": 0.15625,
+     "switches_per_task": 2.2857142857142856,
+     "decisions_per_task": 36.32142857142857,
+     "decision_errors": 0,
+     "fail_open": 0,
+     "dm_latency_per_task_s": 7.173146428571427,
+     "waited_per_task_s": 4.533167857142856,
+     "llm_errors": 0,
+     "infra_errors": 0,
+     "timeouts": 0,
+     "not_in_proxy_log": 0,
+     "steps": 1017,
+     "fast_steps": 63,
+     "fast_step_share": 0.061946902654867256,
+     "guard_accept": 63,
+     "guard_reject": 46,
+     "guard_reject_cost_mean": 0.005106898928571428
+    }
+   },
+   "spend": {
+    "llm": 30.205792,
+    "decision_model": 0.099437,
+    "total": 30.305229,
+    "by_arm": {
+     "baseline": 16.089775,
+     "gated": 14.215454
+    },
+    "calls": 2418,
+    "decisions": 1103,
+    "unpriced_calls": 0
+   },
+   "reruns": {
+    "baseline": [],
+    "gated": []
+   },
+   "written": "2026-10-09T21:04:29Z",
+   "paired": {
+    "n": 28,
+    "wins": 2,
+    "losses": 4,
+    "both": 11,
+    "neither": 11,
+    "success_base": 0.5357142857142857,
+    "success_arm": 0.4642857142857143,
+    "solved_base": 15,
+    "solved_arm": 13,
+    "delta_pt": -7.142857142857142,
+    "delta_ci": [
+     -25.0,
+     10.714285714285714
+    ],
+    "cost_base": 0.5523940714285714,
+    "cost_arm": 0.4668274002142857,
+    "saving": 0.15490150173588557,
+    "saving_ci": [
+     -0.02403278570974526,
+     0.3490350221356072
+    ],
+    "cheaper_share": 0.4642857142857143,
+    "tango": {
+     "n": 28,
+     "diff": -0.07142857142857142,
+     "ci": [
+      -0.26361920024063956,
+      0.11823955144656478
+     ],
+     "alpha": 0.05,
+     "one_sided": false,
+     "method": "Tango 1998"
+    },
+    "ni_p": 0.7023236623689134,
+    "ni": false,
+    "time_base": 246.99829292857143,
+    "time_arm": 225.35966903571426,
+    "time_saving": 0.08760637021533901,
+    "time_saving_ci": [
+     -0.16087752530506763,
+     0.2974427510994151
+    ],
+    "median_time_base": 165.91488249999998,
+    "median_time_arm": 126.114231,
+    "median_time_saving": 0.23988596381641636,
+    "faster_share": 0.5,
+    "n_time": 28
+   },
+   "paired_cc": {
+    "n": 28,
+    "wins": 2,
+    "losses": 4,
+    "both": 11,
+    "neither": 11,
+    "success_base": 0.5357142857142857,
+    "success_arm": 0.4642857142857143,
+    "solved_base": 15,
+    "solved_arm": 13,
+    "delta_pt": -7.142857142857142,
+    "delta_ci": [
+     -25.0,
+     10.714285714285714
+    ],
+    "cost_base": 0.5523940714285714,
+    "cost_arm": 0.4668274002142857,
+    "saving": 0.15490150173588557,
+    "saving_ci": [
+     -0.02403278570974526,
+     0.3490350221356072
+    ],
+    "cheaper_share": 0.4642857142857143,
+    "tango": {
+     "n": 28,
+     "diff": -0.07142857142857142,
+     "ci": [
+      -0.26361920024063956,
+      0.11823955144656478
+     ],
+     "alpha": 0.05,
+     "one_sided": false,
+     "method": "Tango 1998"
+    },
+    "ni_p": 0.7023236623689134,
+    "ni": false,
+    "time_base": 246.99829292857143,
+    "time_arm": 225.35966903571426,
+    "time_saving": 0.08760637021533901,
+    "time_saving_ci": [
+     -0.16087752530506763,
+     0.2974427510994151
+    ],
+    "median_time_base": 165.91488249999998,
+    "median_time_arm": 126.114231,
+    "median_time_saving": 0.23988596381641636,
+    "faster_share": 0.5,
+    "n_time": 28
+   },
+   "stage": "pilot",
+   "registered": "docs/PREREG_A7_STAGE2.md, Deviations 2026-10-09 ~19:55 UTC, E29b"
+  },
+  "mswe": {
+   "harness": "mswe",
+   "label": "mini-SWE-agent on SWE-bench Verified",
+   "llms": "DeepSeek-V4-Pro / V4-Flash",
+   "ref": "E4r (pooled 300)",
+   "n_listed": 30,
+   "n": 30,
+   "missing": {
+    "baseline": [],
+    "gated": []
+   },
+   "arms": {
+    "baseline": {
+     "n": 30,
+     "solved": 20,
+     "success": 0.6666666666666666,
+     "cost_mean": 0.03878437844,
+     "llm_cost_mean": 0.03878437844,
+     "dm_cost_mean": 0.0,
+     "wall_mean": 468.79618205686677,
+     "wall_median": 287.93695256,
+     "requests_mean": 40.96666666666667,
+     "fast_share": 0.0,
+     "fast_requests": 0,
+     "requests": 1229,
+     "input_tokens_mean": 982926.1333333333,
+     "cached_share": 0.9150161300693196,
+     "reasons": {
+      "strong": 1229
+     },
+     "segments_per_task": 0.0,
+     "segment_len_mean": null,
+     "segments_capped_share": null,
+     "switches_per_task": 0.0,
+     "decisions_per_task": 0.0,
+     "decision_errors": 0,
+     "fail_open": 0,
+     "dm_latency_per_task_s": 0.0,
+     "waited_per_task_s": 0.0,
+     "llm_errors": 0,
+     "infra_errors": 0,
+     "timeouts": 0,
+     "not_in_proxy_log": 0,
+     "steps": 1221,
+     "fast_steps": 0,
+     "fast_step_share": 0.0,
+     "guard_accept": 0,
+     "guard_reject": 0,
+     "guard_reject_cost_mean": 0.0
+    },
+    "gated": {
+     "n": 30,
+     "solved": 20,
+     "success": 0.6666666666666666,
+     "cost_mean": 0.046965385073333345,
+     "llm_cost_mean": 0.04149509647333333,
+     "dm_cost_mean": 0.0054702886,
+     "wall_mean": 496.76422381926665,
+     "wall_median": 311.93595766049975,
+     "requests_mean": 41.8,
+     "fast_share": 0.011961722488038277,
+     "fast_requests": 15,
+     "requests": 1254,
+     "input_tokens_mean": 1045118.7666666667,
+     "cached_share": 0.9106513986943047,
+     "reasons": {
+      "first": 30,
+      "enter": 14,
+      "below_tau": 1201,
+      "repeat:below_tau": 8,
+      "continue": 1
+     },
+     "segments_per_task": 0.4666666666666667,
+     "segment_len_mean": 1.0714285714285714,
+     "segments_capped_share": 0.0,
+     "switches_per_task": 0.9333333333333333,
+     "decisions_per_task": 41.53333333333333,
+     "decision_errors": 0,
+     "fail_open": 0,
+     "dm_latency_per_task_s": 7.7862166666666655,
+     "waited_per_task_s": 1.239503333333333,
+     "llm_errors": 0,
+     "infra_errors": 0,
+     "timeouts": 0,
+     "not_in_proxy_log": 0,
+     "steps": 1246,
+     "fast_steps": 15,
+     "fast_step_share": 0.012038523274478331,
+     "guard_accept": 15,
+     "guard_reject": 0,
+     "guard_reject_cost_mean": 0.0
+    }
+   },
+   "spend": {
+    "llm": 2.408384,
+    "decision_model": 0.164109,
+    "total": 2.572493,
+    "by_arm": {
+     "baseline": 1.163531,
+     "gated": 1.408962
+    },
+    "calls": 2483,
+    "decisions": 1246,
+    "unpriced_calls": 13
+   },
+   "reruns": {
+    "baseline": [],
+    "gated": []
+   },
+   "written": "2026-10-09T21:50:58Z",
+   "paired": {
+    "n": 30,
+    "wins": 1,
+    "losses": 1,
+    "both": 19,
+    "neither": 9,
+    "success_base": 0.6666666666666666,
+    "success_arm": 0.6666666666666666,
+    "solved_base": 20,
+    "solved_arm": 20,
+    "delta_pt": 0.0,
+    "delta_ci": [
+     -10.0,
+     10.0
+    ],
+    "cost_base": 0.03878437844,
+    "cost_arm": 0.046965385073333345,
+    "saving": -0.21093561280064033,
+    "saving_ci": [
+     -0.7610817151462336,
+     0.16480337704958428
+    ],
+    "cheaper_share": 0.36666666666666664,
+    "tango": {
+     "n": 30,
+     "diff": 0.0,
+     "ci": [
+      -0.1399779647401978,
+      0.1399779647401978
+     ],
+     "alpha": 0.05,
+     "one_sided": false,
+     "method": "Tango 1998"
+    },
+    "ni_p": 0.7739481808874427,
+    "ni": false,
+    "time_base": 468.79618205686677,
+    "time_arm": 496.76422381926665,
+    "time_saving": -0.05965927802502291,
+    "time_saving_ci": [
+     -0.32049243494210733,
+     0.15411114771743287
+    ],
+    "median_time_base": 287.93695256,
+    "median_time_arm": 311.93595766049975,
+    "median_time_saving": -0.08334812495280142,
+    "faster_share": 0.43333333333333335,
+    "n_time": 30
+   },
+   "paired_cc": {
+    "n": 30,
+    "wins": 1,
+    "losses": 1,
+    "both": 19,
+    "neither": 9,
+    "success_base": 0.6666666666666666,
+    "success_arm": 0.6666666666666666,
+    "solved_base": 20,
+    "solved_arm": 20,
+    "delta_pt": 0.0,
+    "delta_ci": [
+     -10.0,
+     10.0
+    ],
+    "cost_base": 0.03878437844,
+    "cost_arm": 0.046965385073333345,
+    "saving": -0.21093561280064033,
+    "saving_ci": [
+     -0.7610817151462336,
+     0.16480337704958428
+    ],
+    "cheaper_share": 0.36666666666666664,
+    "tango": {
+     "n": 30,
+     "diff": 0.0,
+     "ci": [
+      -0.1399779647401978,
+      0.1399779647401978
+     ],
+     "alpha": 0.05,
+     "one_sided": false,
+     "method": "Tango 1998"
+    },
+    "ni_p": 0.7739481808874427,
+    "ni": false,
+    "time_base": 468.79618205686677,
+    "time_arm": 496.76422381926665,
+    "time_saving": -0.05965927802502291,
+    "time_saving_ci": [
+     -0.32049243494210733,
+     0.15411114771743287
+    ],
+    "median_time_base": 287.93695256,
+    "median_time_arm": 311.93595766049975,
+    "median_time_saving": -0.08334812495280142,
+    "faster_share": 0.43333333333333335,
+    "n_time": 30
+   },
+   "stage": "pilot",
+   "registered": "docs/PREREG_A7_STAGE2.md, Deviations 2026-10-09 ~19:55 UTC, E29b"
+  }
+ },
+ "full": {},
+ "gates": {
+  "tb": {
+   "n_steps": 205,
+   "n_episodes": 10,
+   "precision_rule": 0.95,
+   "k": 6,
+   "tau": 0.92,
+   "n_eligible": 98,
+   "answers": {
+    "inspect": 98,
+    "edit": 66,
+    "run": 39,
+    "finish": 2
+   },
+   "base_rate": 0.24878048780487805,
+   "eligible_precision": 0.25510204081632654,
+   "precision": 1.0,
+   "n_routed": 4,
+   "implied_share": 0.01951219512195122,
+   "recall": 0.0784313725490196,
+   "routed_cost_share": 0.005665122626038688,
+   "sim_llm_saving": 0.004681223181903773,
+   "guard_accept_sim": 0.75,
+   "fast_ro_share_all": 0.21951219512195122,
+   "c_inspect_mean": 0.41657967844430016,
+   "reason": "lowest tau with read-only precision >= 0.95",
+   "harness": "tb",
+   "registered": "docs/PREREG_A7_STAGE2.md, Deviations 2026-10-09 ~19:55 UTC, E29b",
+   "written": "2026-10-09T20:24:22Z",
+   "logs": "/opt/jev/JevAgentHarness/research/runs/e29b/tb/proxy/cal",
+   "decisions_total": 215,
+   "decision_errors": 0,
+   "shadow_calls_failed": 0,
+   "descriptive": {
+    "n": 205,
+    "auroc_c_inspect": 0.5648077412783296,
+    "ro_cost_share": 0.1405356302195124,
+    "by_answer": {
+     "inspect": {
+      "n": 98,
+      "read_only": 0.25510204081632654
+     },
+     "edit": {
+      "n": 66,
+      "read_only": 0.25757575757575757
+     },
+     "run": {
+      "n": 39,
+      "read_only": 0.23076923076923078
+     },
+     "finish": {
+      "n": 2,
+      "read_only": 0.0
+     }
+    },
+    "fast_ro_when_strong_ro": 0.6078431372549019,
+    "fast_ro_when_strong_not": 0.09090909090909091,
+    "note": "post hoc, descriptive; not part of the registered fit"
+   }
+  },
+  "mswe": {
+   "n_steps": 709,
+   "n_episodes": 20,
+   "precision_rule": 0.95,
+   "k": 6,
+   "tau": 0.9799980400039199,
+   "n_eligible": 531,
+   "answers": {
+    "inspect": 531,
+    "edit": 90,
+    "run": 70,
+    "finish": 18
+   },
+   "base_rate": 0.4837799717912553,
+   "eligible_precision": 0.536723163841808,
+   "precision": 1.0,
+   "n_routed": 6,
+   "implied_share": 0.00846262341325811,
+   "recall": 0.01749271137026239,
+   "routed_cost_share": 0.0029497214519567856,
+   "sim_llm_saving": 0.0013036886988460087,
+   "guard_accept_sim": 1.0,
+   "fast_ro_share_all": 0.47368421052631576,
+   "c_inspect_mean": 0.5876625583472833,
+   "reason": "lowest tau with read-only precision >= 0.95",
+   "harness": "mswe",
+   "registered": "docs/PREREG_A7_STAGE2.md, Deviations 2026-10-09 ~19:55 UTC, E29b",
+   "written": "2026-10-09T21:04:29Z",
+   "logs": "/opt/jev/JevAgentHarness/research/runs/e29b/mswe/proxy/cal",
+   "decisions_total": 729,
+   "decision_errors": 0,
+   "shadow_calls_failed": 6,
+   "descriptive": {
+    "n": 709,
+    "auroc_c_inspect": 0.6953073969634692,
+    "ro_cost_share": 0.4193078606289164,
+    "by_answer": {
+     "inspect": {
+      "n": 531,
+      "read_only": 0.536723163841808
+     },
+     "edit": {
+      "n": 90,
+      "read_only": 0.4444444444444444
+     },
+     "run": {
+      "n": 70,
+      "read_only": 0.22857142857142856
+     },
+     "finish": {
+      "n": 18,
+      "read_only": 0.1111111111111111
+     }
+    },
+    "fast_ro_when_strong_ro": 0.7046783625730995,
+    "fast_ro_when_strong_not": 0.2548476454293629,
+    "note": "post hoc, descriptive; not part of the registered fit"
+   }
+  }
+ },
+ "go": {
+  "decision": "no-go",
+  "per_harness": {
+   "tb": {
+    "n": 28,
+    "saving": 0.15490150173588557,
+    "drop": 2,
+    "solved_base": 15,
+    "solved_gated": 13,
+    "no_gate": false,
+    "have_pilot": true,
+    "pass": false,
+    "ok": true,
+    "status": null
+   },
+   "mswe": {
+    "n": 30,
+    "saving": -0.21093561280064033,
+    "drop": 0,
+    "solved_base": 20,
+    "solved_gated": 20,
+    "no_gate": false,
+    "have_pilot": true,
+    "pass": false,
+    "ok": true,
+    "status": null
+   }
+  },
+  "rule": "GO iff (pass(tb) and ok(mswe)) or (pass(mswe) and ok(tb)); pass = saving >= 20 % and at most 3 of 30 tasks lost; ok = at most 3 lost; a gate that routes nothing: saving 0, drop 0",
+  "registered": "docs/PREREG_A7_STAGE2.md, Deviations 2026-10-09 ~19:55 UTC, E29b",
+  "written": "2026-10-09T21:51:07Z"
+ },
+ "spend": {
+  "tb": {
+   "harness": "tb",
+   "logged": {
+    "llm": 34.51958,
+    "decision_model": 0.121625,
+    "total": 34.641205,
+    "by_arm": {
+     "baseline": 16.089775,
+     "gated": 14.215454,
+     "shadow": 4.122381,
+     "smoke_gated": 0.213595
+    },
+    "calls": 2899,
+    "decisions": 1351,
+    "unpriced_calls": 0
+   },
+   "or_key_usage_start": "23.652674787",
+   "or_key_usage_end": "27.722433124",
+   "written": "2026-10-09T21:51:14Z"
+  },
+  "mswe": {
+   "harness": "mswe",
+   "logged": {
+    "llm": 3.685591,
+    "decision_model": 0.262544,
+    "total": 3.948134,
+    "by_arm": {
+     "baseline": 1.163531,
+     "gated": 1.408962,
+     "shadow": 1.368979,
+     "smoke_gated": 0.006663
+    },
+    "calls": 3986,
+    "decisions": 2002,
+    "unpriced_calls": 13
+   },
+   "or_key_usage_start": "23.652674787",
+   "or_key_usage_end": "27.722433124",
+   "written": "2026-10-09T21:53:46Z"
+  },
+  "swea": {
+   "harness": "swea",
+   "logged": {
+    "llm": 0,
+    "decision_model": 0,
+    "total": 0,
+    "by_arm": {},
+    "calls": 0,
+    "decisions": 0,
+    "unpriced_calls": 0
+   },
+   "or_key_usage_start": "",
+   "or_key_usage_end": "27.722433124",
+   "written": "2026-10-09T21:52:29Z"
+  },
+  "total": 38.5893,
+  "cap": 250.0,
+  "e29_spent": 13.3822,
+  "e29_plus_e29b": 51.9715,
+  "total_cap": 300.0
+ },
+ "leaks": {
+  "tb": {
+   "checks": 4,
+   "max_files": 0,
+   "stages": [
+    "smoke",
+    "cal",
+    "pilot",
+    "final"
+   ]
+  },
+  "mswe": {
+   "checks": 4,
+   "max_files": 0,
+   "stages": [
+    "smoke",
+    "cal",
+    "pilot",
+    "final"
+   ]
+  },
+  "swea": {
+   "checks": 1,
+   "max_files": 0,
+   "stages": [
+    "final"
+   ]
+  }
+ }
+}

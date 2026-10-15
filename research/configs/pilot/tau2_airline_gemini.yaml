@@ -1,0 +1,31 @@
+# PILOT (real APIs, small): tau2-bench airline, 5 tasks x 1 trial, 3 arms, one `run` subprocess per arm.
+#   python -m jevharness.bench.suites.tau2 experiment configs/pilot/tau2_airline_gemini.yaml
+#   (--dry-run prints the commands; -o num_tasks=50 -o num_trials=3 scales it up; see docs/PILOT_RESULTS.md)
+# System-2 agent = Gemini 3.5 Flash, user simulator = Gemini 3.5 Flash-Lite, both through tau2's own litellm
+# path (litellm 1.82.6 round-trips Gemini 3.x thought signatures inside the tool-call ids).
+# System-1 = Gemini 3.5 Flash-Lite verbalised distributions (batched) as a STAND-IN for Jev until
+# openrouter.ai is reachable. Switch to Jev by replacing the `s1:` line with
+#   s1: {type: jev, provider: openrouter}
+# -- nothing else changes (llm_only never uses S1).
+name: pilot_tau2_airline_gemini
+out: runs/pilot/tau2_airline                  # <arm>.jsonl (Trajectories) + raw/<arm>/ (tau2 results + side-car)
+domain: airline
+task_split: base
+num_tasks: 5                                  # the first 5 tasks of the base split (ids 0-4)
+num_trials: 1
+seed: 300                                     # same trial seeds for every arm (paired comparison)
+max_concurrency: 4
+agent_llm: gemini/gemini-3.5-flash
+user_llm: gemini/gemini-3.5-flash-lite
+# minimal thinking: litellm 1.82.x maps `reasoning_effort: minimal` to thinkingLevel "low" for gemini-3.5
+# models, so the Gemini thinking config is passed through explicitly (litellm forwards it unchanged).
+agent_llm_args: {temperature: 0, thinkingConfig: {thinkingLevel: minimal}}
+user_llm_args: {temperature: 0, thinkingConfig: {thinkingLevel: minimal}}
+s1: {type: llm_generative, llm: {provider: gemini, model: gemini-3.5-flash-lite}, reasoning_effort: minimal}
+s1_cache: cache/s1_tau2_gemini.sqlite
+arm_defaults: {log_state: true}
+arms:
+  - {name: llm_only, config: configs/tau2/llm_only.yaml}
+  - {name: jev_ts_cascade_tau0.9, config: configs/tau2/jev_ts_cascade.yaml,
+     set: {tool_select.tau: 0.9, tool_params.tau: 0.9}}
+  - {name: jev_guard, config: configs/tau2/jev_guard.yaml}

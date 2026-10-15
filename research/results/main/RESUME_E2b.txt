@@ -1,0 +1,6 @@
+step E2b (resumed)
+reason container restart at about 2026-10-02T23:31Z killed the run mid pass 1 (no truncated records; in-flight episodes had logged nothing)
+resumed 2026-10-02T23:32:52Z
+commit 016a5ba866551de4e6eebbe7bcf3c307b0b3e709 (since 84f468e no change under src/, configs/ except the new Stage-2 task list, scripts/primaries.py or the registration; PREREG_EFFECTIVE.md regenerated for the frozen Terminal-Bench-Science subset)
+plan sha256 9a2182aa2a975e85
+runs resume by task id (bench/runner.py); passes 2-3 follow as registered

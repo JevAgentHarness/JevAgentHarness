@@ -1,0 +1,16 @@
+# PILOT (real APIs, small): Level-1 static decisions with Gemini-backed deciders vs Gemini native
+# function calling. Add `jev: {type: jev, provider: openrouter}` under backends once openrouter.ai is
+# allow-listed in the environment's network policy.
+name: pilot_decision_gemini
+suites:
+  - {name: bfcl, categories: [simple_python, multiple, live_multiple, irrelevance, live_irrelevance], max_per_cat: 12}
+  - {name: when2call, max_items: 40}
+batch_by_state: true
+s1_cache: cache/s1_gemini.sqlite
+workers: 4
+backends:
+  flashlite_dist: {type: llm_generative, llm: {provider: gemini, model: gemini-3.5-flash-lite}, reasoning_effort: minimal, mode: distribution}
+  flashlite_label: {type: llm_generative, llm: {provider: gemini, model: gemini-3.5-flash-lite}, reasoning_effort: minimal, mode: label}
+  gemma4_dist: {type: llm_generative, llm: {provider: gemini, model: gemma-4-26b-a4b-it}, reasoning_effort: minimal, mode: distribution}
+fc_llms:
+  flash_fc: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}

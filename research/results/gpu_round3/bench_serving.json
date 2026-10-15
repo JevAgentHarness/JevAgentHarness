@@ -1,0 +1,1688 @@
+{
+ "meta": {
+  "torch": "2.14.1+cu130",
+  "transformers": "5.18.0",
+  "python": "3.11.16",
+  "device": "cuda",
+  "gpu": "NVIDIA L4",
+  "args": {
+   "models": [
+    "Qwen/Qwen3-0.6B",
+    "openbmb/MiniCPM5-1B",
+    "Qwen/Qwen3.5-0.8B"
+   ],
+   "lengths": [
+    1000,
+    4000,
+    16000
+   ],
+   "questions": [
+    1,
+    3
+   ],
+   "batch": [
+    1
+   ],
+   "modes": [
+    "stateless",
+    "prefix",
+    "session"
+   ],
+   "steps": 6,
+   "repeats": 3,
+   "warmup": 1,
+   "trajectories": null,
+   "device": null,
+   "max_len": 131072,
+   "prefill_chunk": 4096,
+   "cache_tokens": 1048576,
+   "max_cache_gb": 8.0,
+   "max_batch_tokens": 262144,
+   "smoke": false,
+   "profile": true,
+   "out": "runs/gpu_round3/bench_serving"
+  },
+  "started": "2026-10-02 02:38:15",
+  "smoke": false,
+  "engines": {
+   "Qwen/Qwen3-0.6B": {
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "croppable": true,
+    "cache_class": "DynamicCache",
+    "layer_types": {
+     "DynamicLayer": 28
+    },
+    "bytes_per_token": 114688,
+    "cache_tokens_capped": 74898
+   },
+   "openbmb/MiniCPM5-1B": {
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "croppable": true,
+    "cache_class": "DynamicCache",
+    "layer_types": {
+     "DynamicLayer": 24
+    },
+    "bytes_per_token": 24576,
+    "cache_tokens_capped": 349525
+   },
+   "Qwen/Qwen3.5-0.8B": {
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "croppable": false,
+    "cache_class": "DynamicCache",
+    "layer_types": {
+     "LinearAttentionLayer": 18,
+     "DynamicLayer": 6
+    },
+    "bytes_per_token": 407470,
+    "cache_tokens_capped": 21081
+   }
+  }
+ },
+ "cells": [
+  {
+   "model": "Qwen/Qwen3-0.6B",
+   "source": "synthetic:1000",
+   "state_tokens": 1103,
+   "mode": "stateless",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 31.209681000007095,
+    "p95": 51.194310000028054,
+    "mean": 36.42222133333917
+   },
+   "ms_per_decision": {
+    "p50": 31.209681000007095,
+    "p95": 51.194310000028054,
+    "mean": 36.42222133333917
+   },
+   "prefilled_tokens_per_decision": 891.1666666666666,
+   "stateless_tokens_per_decision": 891.1666666666666,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3-0.6B",
+   "source": "synthetic:1000",
+   "state_tokens": 1103,
+   "mode": "prefix",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 30.964660999984517,
+    "p95": 51.63753900001211,
+    "mean": 36.56471549999512
+   },
+   "ms_per_decision": {
+    "p50": 30.964660999984517,
+    "p95": 51.63753900001211,
+    "mean": 36.56471549999512
+   },
+   "prefilled_tokens_per_decision": 891.1666666666666,
+   "stateless_tokens_per_decision": 891.1666666666666,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3-0.6B",
+   "source": "synthetic:1000",
+   "state_tokens": 1103,
+   "mode": "session",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 1.1359638888911325,
+    "lookup": 0.31190672221883786,
+    "prefill": 34.26806683333123,
+    "store": 0.36087555554963224,
+    "suffix": 0.17433622222521686
+   },
+   "ms_per_request": {
+    "p50": 37.389186999973845,
+    "p95": 37.84609699999919,
+    "mean": 36.52649833333044
+   },
+   "ms_per_decision": {
+    "p50": 37.389186999973845,
+    "p95": 37.84609699999919,
+    "mean": 36.52649833333044
+   },
+   "prefilled_tokens_per_decision": 470.6666666666667,
+   "stateless_tokens_per_decision": 891.1666666666666,
+   "reuse": 1.893413597733711,
+   "cache_hit_rate": 0.8333333333333334,
+   "session_cache_tokens": 74898,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3-0.6B",
+   "source": "synthetic:1000",
+   "state_tokens": 1100,
+   "mode": "stateless",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 106.6887759999986,
+    "p95": 218.9207889999807,
+    "mean": 127.11145583332002
+   },
+   "ms_per_decision": {
+    "p50": 35.56292533333286,
+    "p95": 72.9735963333269,
+    "mean": 42.37048527777334
+   },
+   "prefilled_tokens_per_decision": 750.8333333333334,
+   "stateless_tokens_per_decision": 750.8333333333334,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3-0.6B",
+   "source": "synthetic:1000",
+   "state_tokens": 1100,
+   "mode": "prefix",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 2.780490444450834,
+    "prefill": 33.48892211110726,
+    "suffix": 44.257095999992345
+   },
+   "ms_per_request": {
+    "p50": 74.61648700001433,
+    "p95": 100.32040100003314,
+    "mean": 80.95770000001797
+   },
+   "ms_per_decision": {
+    "p50": 24.87216233333811,
+    "p95": 33.44013366667772,
+    "mean": 26.98590000000599
+   },
+   "prefilled_tokens_per_decision": 328.72222222222223,
+   "stateless_tokens_per_decision": 750.8333333333334,
+   "reuse": 2.2840966706101065,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3-0.6B",
+   "source": "synthetic:1000",
+   "state_tokens": 1100,
+   "mode": "session",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 2.8120786666710904,
+    "lookup": 0.29923172221894373,
+    "prefill": 34.20606133332171,
+    "store": 0.16560161111556226,
+    "suffix": 40.98250455555785
+   },
+   "ms_per_request": {
+    "p50": 76.76334900003212,
+    "p95": 88.3588080000095,
+    "mean": 78.8829838333369
+   },
+   "ms_per_decision": {
+    "p50": 25.587783000010706,
+    "p95": 29.452936000003167,
+    "mean": 26.29432794444563
+   },
+   "prefilled_tokens_per_decision": 188.72222222222223,
+   "stateless_tokens_per_decision": 750.8333333333334,
+   "reuse": 3.9785104503974096,
+   "cache_hit_rate": 0.8333333333333334,
+   "session_cache_tokens": 74898,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3-0.6B",
+   "source": "synthetic:4000",
+   "state_tokens": 4066,
+   "mode": "stateless",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 75.52785599995104,
+    "p95": 205.49825199998395,
+    "mean": 104.52872355554317
+   },
+   "ms_per_decision": {
+    "p50": 75.52785599995104,
+    "p95": 205.49825199998395,
+    "mean": 104.52872355554317
+   },
+   "prefilled_tokens_per_decision": 2374.5,
+   "stateless_tokens_per_decision": 2374.5,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3-0.6B",
+   "source": "synthetic:4000",
+   "state_tokens": 4066,
+   "mode": "prefix",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 75.05027700000255,
+    "p95": 207.8482799999506,
+    "mean": 104.64451872221996
+   },
+   "ms_per_decision": {
+    "p50": 75.05027700000255,
+    "p95": 207.8482799999506,
+    "mean": 104.64451872221996
+   },
+   "prefilled_tokens_per_decision": 2374.5,
+   "stateless_tokens_per_decision": 2374.5,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3-0.6B",
+   "source": "synthetic:4000",
+   "state_tokens": 4066,
+   "mode": "session",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 2.42106138888529,
+    "lookup": 0.3445479444539817,
+    "prefill": 64.01826872222689,
+    "store": 0.396430055572081,
+    "suffix": 0.18038827776775987
+   },
+   "ms_per_request": {
+    "p50": 67.29119800002081,
+    "p95": 96.83608900002127,
+    "mean": 67.7544832777907
+   },
+   "ms_per_decision": {
+    "p50": 67.29119800002081,
+    "p95": 96.83608900002127,
+    "mean": 67.7544832777907
+   },
+   "prefilled_tokens_per_decision": 964.5,
+   "stateless_tokens_per_decision": 2374.5,
+   "reuse": 2.4618973561430795,
+   "cache_hit_rate": 0.8333333333333334,
+   "session_cache_tokens": 74898,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3-0.6B",
+   "source": "synthetic:4000",
+   "state_tokens": 4069,
+   "mode": "stateless",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 369.95777200002067,
+    "p95": 1226.9099829999845,
+    "mean": 548.1267372222254
+   },
+   "ms_per_decision": {
+    "p50": 123.31925733334022,
+    "p95": 408.9699943333282,
+    "mean": 182.7089124074085
+   },
+   "prefilled_tokens_per_decision": 2235.3333333333335,
+   "stateless_tokens_per_decision": 2235.3333333333335,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3-0.6B",
+   "source": "synthetic:4000",
+   "state_tokens": 4069,
+   "mode": "prefix",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 6.776207833335472,
+    "prefill": 98.38995755554771,
+    "suffix": 78.04147444444867
+   },
+   "ms_per_request": {
+    "p50": 137.04325200001222,
+    "p95": 355.5525030000126,
+    "mean": 183.85639783333355
+   },
+   "ms_per_decision": {
+    "p50": 45.68108400000407,
+    "p95": 118.5175010000042,
+    "mean": 61.28546594444452
+   },
+   "prefilled_tokens_per_decision": 823.5555555555555,
+   "stateless_tokens_per_decision": 2235.3333333333335,
+   "reuse": 2.714247166756611,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3-0.6B",
+   "source": "synthetic:4000",
+   "state_tokens": 4069,
+   "mode": "session",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 6.851451555554099,
+    "lookup": 0.33243627777639834,
+    "prefill": 48.69004061110773,
+    "store": 0.1985379999906753,
+    "suffix": 76.0331680000061
+   },
+   "ms_per_request": {
+    "p50": 120.86374099999375,
+    "p95": 199.22427199998083,
+    "mean": 132.7287837777741
+   },
+   "ms_per_decision": {
+    "p50": 40.287913666664586,
+    "p95": 66.40809066666027,
+    "mean": 44.242927925924704
+   },
+   "prefilled_tokens_per_decision": 353.6666666666667,
+   "stateless_tokens_per_decision": 2235.3333333333335,
+   "reuse": 6.320452403393025,
+   "cache_hit_rate": 0.8333333333333334,
+   "session_cache_tokens": 74898,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3-0.6B",
+   "source": "synthetic:16000",
+   "state_tokens": 15947,
+   "mode": "stateless",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 385.39663599999585,
+    "p95": 1339.0455779999684,
+    "mean": 596.0407952777745
+   },
+   "ms_per_decision": {
+    "p50": 385.39663599999585,
+    "p95": 1339.0455779999684,
+    "mean": 596.0407952777745
+   },
+   "prefilled_tokens_per_decision": 8310.333333333334,
+   "stateless_tokens_per_decision": 8310.333333333334,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3-0.6B",
+   "source": "synthetic:16000",
+   "state_tokens": 15947,
+   "mode": "prefix",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 386.70314199998757,
+    "p95": 1345.6100390000074,
+    "mean": 598.8549741666576
+   },
+   "ms_per_decision": {
+    "p50": 386.70314199998757,
+    "p95": 1345.6100390000074,
+    "mean": 598.8549741666576
+   },
+   "prefilled_tokens_per_decision": 8310.333333333334,
+   "stateless_tokens_per_decision": 8310.333333333334,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3-0.6B",
+   "source": "synthetic:16000",
+   "state_tokens": 15947,
+   "mode": "session",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 7.80647816666639,
+    "lookup": 0.460069833340842,
+    "prefill": 426.0214637222141,
+    "store": 0.5378567777856662,
+    "suffix": 0.17784711112906532
+   },
+   "ms_per_request": {
+    "p50": 401.32955699999684,
+    "p95": 767.4550250000038,
+    "mean": 435.8629951111147
+   },
+   "ms_per_decision": {
+    "p50": 401.32955699999684,
+    "p95": 767.4550250000038,
+    "mean": 435.8629951111147
+   },
+   "prefilled_tokens_per_decision": 2944.6666666666665,
+   "stateless_tokens_per_decision": 8310.333333333334,
+   "reuse": 2.8221643649535886,
+   "cache_hit_rate": 0.8333333333333334,
+   "session_cache_tokens": 74898,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3-0.6B",
+   "source": "synthetic:16000",
+   "state_tokens": 15969,
+   "mode": "stateless",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 2540.1991210000006,
+    "p95": 11025.00075399996,
+    "mean": 4442.186492999992
+   },
+   "ms_per_decision": {
+    "p50": 846.7330403333335,
+    "p95": 3675.00025133332,
+    "mean": 1480.7288309999976
+   },
+   "prefilled_tokens_per_decision": 8185.5,
+   "stateless_tokens_per_decision": 8185.5,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3-0.6B",
+   "source": "synthetic:16000",
+   "state_tokens": 15969,
+   "mode": "prefix",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 22.17755799999092,
+    "prefill": 904.7678010555431,
+    "suffix": 200.14995805555537
+   },
+   "ms_per_request": {
+    "p50": 660.3564040000265,
+    "p95": 2662.121806000016,
+    "mean": 1128.6118341111041
+   },
+   "ms_per_decision": {
+    "p50": 220.11880133334216,
+    "p95": 887.3739353333386,
+    "mean": 376.2039447037014
+   },
+   "prefilled_tokens_per_decision": 2806.9444444444443,
+   "stateless_tokens_per_decision": 8185.5,
+   "reuse": 2.9161603166749135,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3-0.6B",
+   "source": "synthetic:16000",
+   "state_tokens": 15969,
+   "mode": "session",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 23.018075555556706,
+    "lookup": 0.452903499984182,
+    "prefill": 396.1618928333274,
+    "store": 0.33224516665894854,
+    "suffix": 201.1274211666508
+   },
+   "ms_per_request": {
+    "p50": 546.73467300006,
+    "p95": 1122.1599160001006,
+    "mean": 622.564201722216
+   },
+   "ms_per_decision": {
+    "p50": 182.24489100001998,
+    "p95": 374.05330533336684,
+    "mean": 207.521400574072
+   },
+   "prefilled_tokens_per_decision": 1014.7777777777778,
+   "stateless_tokens_per_decision": 8185.5,
+   "reuse": 8.066298040074455,
+   "cache_hit_rate": 0.8333333333333334,
+   "session_cache_tokens": 74898,
+   "batch_size": 3
+  },
+  {
+   "model": "openbmb/MiniCPM5-1B",
+   "source": "synthetic:1000",
+   "state_tokens": 1065,
+   "mode": "stateless",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 37.931300999957784,
+    "p95": 61.921479999909934,
+    "mean": 42.75572944444169
+   },
+   "ms_per_decision": {
+    "p50": 37.931300999957784,
+    "p95": 61.921479999909934,
+    "mean": 42.75572944444169
+   },
+   "prefilled_tokens_per_decision": 882.1666666666666,
+   "stateless_tokens_per_decision": 882.1666666666666,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "openbmb/MiniCPM5-1B",
+   "source": "synthetic:1000",
+   "state_tokens": 1065,
+   "mode": "prefix",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 37.70538100002341,
+    "p95": 64.6825759999956,
+    "mean": 43.1148473333312
+   },
+   "ms_per_decision": {
+    "p50": 37.70538100002341,
+    "p95": 64.6825759999956,
+    "mean": 43.1148473333312
+   },
+   "prefilled_tokens_per_decision": 882.1666666666666,
+   "stateless_tokens_per_decision": 882.1666666666666,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "openbmb/MiniCPM5-1B",
+   "source": "synthetic:1000",
+   "state_tokens": 1065,
+   "mode": "session",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 1.4822196666652114,
+    "lookup": 0.2900401111231885,
+    "prefill": 27.917914333342097,
+    "store": 0.32721283330753675,
+    "suffix": 0.17822794443923662
+   },
+   "ms_per_request": {
+    "p50": 31.261397000093893,
+    "p95": 34.197591999941324,
+    "mean": 30.465568611140903
+   },
+   "ms_per_decision": {
+    "p50": 31.261397000093893,
+    "p95": 34.197591999941324,
+    "mean": 30.465568611140903
+   },
+   "prefilled_tokens_per_decision": 474.0,
+   "stateless_tokens_per_decision": 882.1666666666666,
+   "reuse": 1.8611111111111112,
+   "cache_hit_rate": 0.8333333333333334,
+   "session_cache_tokens": 349525,
+   "batch_size": 3
+  },
+  {
+   "model": "openbmb/MiniCPM5-1B",
+   "source": "synthetic:1000",
+   "state_tokens": 1065,
+   "mode": "stateless",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 115.43935899999269,
+    "p95": 221.67535300002328,
+    "mean": 132.6931761111167
+   },
+   "ms_per_decision": {
+    "p50": 38.4797863333309,
+    "p95": 73.89178433334109,
+    "mean": 44.23105870370558
+   },
+   "prefilled_tokens_per_decision": 736.8333333333334,
+   "stateless_tokens_per_decision": 736.8333333333334,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "openbmb/MiniCPM5-1B",
+   "source": "synthetic:1000",
+   "state_tokens": 1065,
+   "mode": "prefix",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 3.7023118888883904,
+    "prefill": 30.99659283333267,
+    "suffix": 50.09362455556735
+   },
+   "ms_per_request": {
+    "p50": 81.45519899994724,
+    "p95": 105.07856399999582,
+    "mean": 85.22155855555032
+   },
+   "ms_per_decision": {
+    "p50": 27.151732999982414,
+    "p95": 35.026187999998605,
+    "mean": 28.40718618518344
+   },
+   "prefilled_tokens_per_decision": 326.72222222222223,
+   "stateless_tokens_per_decision": 736.8333333333334,
+   "reuse": 2.2552287026015985,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "openbmb/MiniCPM5-1B",
+   "source": "synthetic:1000",
+   "state_tokens": 1065,
+   "mode": "session",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 3.778048388887277,
+    "lookup": 0.27785322225781783,
+    "prefill": 24.506371777754843,
+    "store": 0.15080177775593662,
+    "suffix": 47.00592605557732
+   },
+   "ms_per_request": {
+    "p50": 76.8861870000137,
+    "p95": 83.75758600004701,
+    "mean": 76.13248883334083
+   },
+   "ms_per_decision": {
+    "p50": 25.62872900000457,
+    "p95": 27.919195333349005,
+    "mean": 25.377496277780278
+   },
+   "prefilled_tokens_per_decision": 190.66666666666666,
+   "stateless_tokens_per_decision": 736.8333333333334,
+   "reuse": 3.8645104895104896,
+   "cache_hit_rate": 0.8333333333333334,
+   "session_cache_tokens": 349525,
+   "batch_size": 3
+  },
+  {
+   "model": "openbmb/MiniCPM5-1B",
+   "source": "synthetic:4000",
+   "state_tokens": 4064,
+   "mode": "stateless",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 96.00003099990317,
+    "p95": 217.72351499998877,
+    "mean": 113.75594866666461
+   },
+   "ms_per_decision": {
+    "p50": 96.00003099990317,
+    "p95": 217.72351499998877,
+    "mean": 113.75594866666461
+   },
+   "prefilled_tokens_per_decision": 2381.5,
+   "stateless_tokens_per_decision": 2381.5,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "openbmb/MiniCPM5-1B",
+   "source": "synthetic:4000",
+   "state_tokens": 4064,
+   "mode": "prefix",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 94.95711800002482,
+    "p95": 217.75846700006696,
+    "mean": 113.86800811111976
+   },
+   "ms_per_decision": {
+    "p50": 94.95711800002482,
+    "p95": 217.75846700006696,
+    "mean": 113.86800811111976
+   },
+   "prefilled_tokens_per_decision": 2381.5,
+   "stateless_tokens_per_decision": 2381.5,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "openbmb/MiniCPM5-1B",
+   "source": "synthetic:4000",
+   "state_tokens": 4064,
+   "mode": "session",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 3.6551600555614843,
+    "lookup": 0.3402176666516728,
+    "prefill": 59.81827044445254,
+    "store": 0.37370811109364394,
+    "suffix": 0.1809996666553262
+   },
+   "ms_per_request": {
+    "p50": 64.97554500003844,
+    "p95": 91.62796700002218,
+    "mean": 64.7641912777696
+   },
+   "ms_per_decision": {
+    "p50": 64.97554500003844,
+    "p95": 91.62796700002218,
+    "mean": 64.7641912777696
+   },
+   "prefilled_tokens_per_decision": 973.8333333333334,
+   "stateless_tokens_per_decision": 2381.5,
+   "reuse": 2.4454903303097724,
+   "cache_hit_rate": 0.8333333333333334,
+   "session_cache_tokens": 349525,
+   "batch_size": 3
+  },
+  {
+   "model": "openbmb/MiniCPM5-1B",
+   "source": "synthetic:4000",
+   "state_tokens": 4064,
+   "mode": "stateless",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 366.9567189999725,
+    "p95": 1122.0092649999742,
+    "mean": 520.3874402222305
+   },
+   "ms_per_decision": {
+    "p50": 122.31890633332416,
+    "p95": 374.00308833332474,
+    "mean": 173.46248007407684
+   },
+   "prefilled_tokens_per_decision": 2236.5,
+   "stateless_tokens_per_decision": 2236.5,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "openbmb/MiniCPM5-1B",
+   "source": "synthetic:4000",
+   "state_tokens": 4064,
+   "mode": "prefix",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 10.121067388865868,
+    "prefill": 99.90197272222505,
+    "suffix": 71.13853777777497
+   },
+   "ms_per_request": {
+    "p50": 147.90222099998118,
+    "p95": 326.8626089999316,
+    "mean": 181.82525277777333
+   },
+   "ms_per_decision": {
+    "p50": 49.30074033332706,
+    "p95": 108.9542029999772,
+    "mean": 60.60841759259111
+   },
+   "prefilled_tokens_per_decision": 826.6111111111111,
+   "stateless_tokens_per_decision": 2236.5,
+   "reuse": 2.7056253780496,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "openbmb/MiniCPM5-1B",
+   "source": "synthetic:4000",
+   "state_tokens": 4064,
+   "mode": "session",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 10.2104780000079,
+    "lookup": 0.3143949444645639,
+    "prefill": 48.78105833333595,
+    "store": 0.18932866668642923,
+    "suffix": 69.73345077778328
+   },
+   "ms_per_request": {
+    "p50": 126.75138999998126,
+    "p95": 181.4437729999554,
+    "mean": 129.8760054444617
+   },
+   "ms_per_decision": {
+    "p50": 42.25046333332708,
+    "p95": 60.4812576666518,
+    "mean": 43.292001814820566
+   },
+   "prefilled_tokens_per_decision": 357.27777777777777,
+   "stateless_tokens_per_decision": 2236.5,
+   "reuse": 6.259835173378946,
+   "cache_hit_rate": 0.8333333333333334,
+   "session_cache_tokens": 349525,
+   "batch_size": 3
+  },
+  {
+   "model": "openbmb/MiniCPM5-1B",
+   "source": "synthetic:16000",
+   "state_tokens": 16062,
+   "mode": "stateless",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 396.9879690000653,
+    "p95": 1248.5567230000925,
+    "mean": 569.7729828333422
+   },
+   "ms_per_decision": {
+    "p50": 396.9879690000653,
+    "p95": 1248.5567230000925,
+    "mean": 569.7729828333422
+   },
+   "prefilled_tokens_per_decision": 8381.333333333334,
+   "stateless_tokens_per_decision": 8381.333333333334,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "openbmb/MiniCPM5-1B",
+   "source": "synthetic:16000",
+   "state_tokens": 16062,
+   "mode": "prefix",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 401.2063919999491,
+    "p95": 1260.4079629999205,
+    "mean": 573.4686369444388
+   },
+   "ms_per_decision": {
+    "p50": 401.2063919999491,
+    "p95": 1260.4079629999205,
+    "mean": 573.4686369444388
+   },
+   "prefilled_tokens_per_decision": 8381.333333333334,
+   "stateless_tokens_per_decision": 8381.333333333334,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "openbmb/MiniCPM5-1B",
+   "source": "synthetic:16000",
+   "state_tokens": 16062,
+   "mode": "session",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 14.036573444450873,
+    "lookup": 0.5071457222116906,
+    "prefill": 389.5388164999771,
+    "store": 0.5224695555562499,
+    "suffix": 0.20543100001507103
+   },
+   "ms_per_request": {
+    "p50": 373.084877999986,
+    "p95": 714.4920590000083,
+    "mean": 405.70623805554834
+   },
+   "ms_per_decision": {
+    "p50": 373.084877999986,
+    "p95": 714.4920590000083,
+    "mean": 405.70623805554834
+   },
+   "prefilled_tokens_per_decision": 2973.5,
+   "stateless_tokens_per_decision": 8381.333333333334,
+   "reuse": 2.818676083179194,
+   "cache_hit_rate": 0.8333333333333334,
+   "session_cache_tokens": 349525,
+   "batch_size": 3
+  },
+  {
+   "model": "openbmb/MiniCPM5-1B",
+   "source": "synthetic:16000",
+   "state_tokens": 16063,
+   "mode": "stateless",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 2285.032073000025,
+    "p95": 9601.643816999967,
+    "mean": 3887.559172166688
+   },
+   "ms_per_decision": {
+    "p50": 761.677357666675,
+    "p95": 3200.547938999989,
+    "mean": 1295.8530573888959
+   },
+   "prefilled_tokens_per_decision": 8236.166666666666,
+   "stateless_tokens_per_decision": 8236.166666666666,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "openbmb/MiniCPM5-1B",
+   "source": "synthetic:16000",
+   "state_tokens": 16063,
+   "mode": "prefix",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 39.146299555549525,
+    "prefill": 799.0202372777793,
+    "suffix": 143.95941044445712
+   },
+   "ms_per_request": {
+    "p50": 584.7660150000138,
+    "p95": 2311.489730000062,
+    "mean": 983.7698833333473
+   },
+   "ms_per_decision": {
+    "p50": 194.9220050000046,
+    "p95": 770.4965766666874,
+    "mean": 327.9232944444491
+   },
+   "prefilled_tokens_per_decision": 2826.5,
+   "stateless_tokens_per_decision": 8236.166666666666,
+   "reuse": 2.91391001827938,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "openbmb/MiniCPM5-1B",
+   "source": "synthetic:16000",
+   "state_tokens": 16063,
+   "mode": "session",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 39.08861777778662,
+    "lookup": 0.5041449999983646,
+    "prefill": 360.1514816666496,
+    "store": 0.3412442222333488,
+    "suffix": 142.10070161110858
+   },
+   "ms_per_request": {
+    "p50": 480.8599000000413,
+    "p95": 941.94401499999,
+    "mean": 543.804844666656
+   },
+   "ms_per_decision": {
+    "p50": 160.2866333333471,
+    "p95": 313.98133833333003,
+    "mean": 181.268281555552
+   },
+   "prefilled_tokens_per_decision": 1023.8888888888889,
+   "stateless_tokens_per_decision": 8236.166666666666,
+   "reuse": 8.04400434074878,
+   "cache_hit_rate": 0.8333333333333334,
+   "session_cache_tokens": 349525,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3.5-0.8B",
+   "source": "synthetic:1000",
+   "state_tokens": 1111,
+   "mode": "stateless",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 110.69223200001943,
+    "p95": 160.81876500004455,
+    "mean": 118.03160605555578
+   },
+   "ms_per_decision": {
+    "p50": 110.69223200001943,
+    "p95": 160.81876500004455,
+    "mean": 118.03160605555578
+   },
+   "prefilled_tokens_per_decision": 900.3333333333334,
+   "stateless_tokens_per_decision": 900.3333333333334,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3.5-0.8B",
+   "source": "synthetic:1000",
+   "state_tokens": 1111,
+   "mode": "prefix",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 110.56459700000687,
+    "p95": 160.55188400002862,
+    "mean": 117.96421927779319
+   },
+   "ms_per_decision": {
+    "p50": 110.56459700000687,
+    "p95": 160.55188400002862,
+    "mean": 117.96421927779319
+   },
+   "prefilled_tokens_per_decision": 900.3333333333334,
+   "stateless_tokens_per_decision": 900.3333333333334,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3.5-0.8B",
+   "source": "synthetic:1000",
+   "state_tokens": 1111,
+   "mode": "session",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 1.214365388869333,
+    "lookup": 0.47712894445971366,
+    "prefill": 148.1110055555885,
+    "store": 1.4550346666560978,
+    "suffix": 35.998811388885265
+   },
+   "ms_per_request": {
+    "p50": 178.5315270000183,
+    "p95": 244.04686500008665,
+    "mean": 187.69758405556382
+   },
+   "ms_per_decision": {
+    "p50": 178.5315270000183,
+    "p95": 244.04686500008665,
+    "mean": 187.69758405556382
+   },
+   "prefilled_tokens_per_decision": 525.0,
+   "stateless_tokens_per_decision": 900.3333333333334,
+   "reuse": 1.714920634920635,
+   "cache_hit_rate": 0.6666666666666666,
+   "session_cache_tokens": 21081,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3.5-0.8B",
+   "source": "synthetic:1000",
+   "state_tokens": 1108,
+   "mode": "stateless",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 233.6961409999958,
+    "p95": 453.47576200003914,
+    "mean": 268.05220905556047
+   },
+   "ms_per_decision": {
+    "p50": 77.89871366666527,
+    "p95": 151.1585873333464,
+    "mean": 89.3507363518535
+   },
+   "prefilled_tokens_per_decision": 760.0,
+   "stateless_tokens_per_decision": 760.0,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3.5-0.8B",
+   "source": "synthetic:1000",
+   "state_tokens": 1108,
+   "mode": "prefix",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 2.9787553888682954,
+    "prefill": 98.70391916668571,
+    "suffix": 77.49875927777339
+   },
+   "ms_per_request": {
+    "p50": 172.99982999998065,
+    "p95": 220.5655760000127,
+    "mean": 179.6022144999812
+   },
+   "ms_per_decision": {
+    "p50": 57.66660999999355,
+    "p95": 73.5218586666709,
+    "mean": 59.867404833327065
+   },
+   "prefilled_tokens_per_decision": 333.1111111111111,
+   "stateless_tokens_per_decision": 760.0,
+   "reuse": 2.2815210140093396,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3.5-0.8B",
+   "source": "synthetic:1000",
+   "state_tokens": 1108,
+   "mode": "session",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 2.9884358888997062,
+    "lookup": 0.47801505555374507,
+    "prefill": 127.48992311109457,
+    "store": 1.4780505000102393,
+    "suffix": 77.38147849998869
+   },
+   "ms_per_request": {
+    "p50": 201.52890199995,
+    "p95": 266.1177889999635,
+    "mean": 210.34927011111728
+   },
+   "ms_per_decision": {
+    "p50": 67.17630066665,
+    "p95": 88.70592966665451,
+    "mean": 70.11642337037242
+   },
+   "prefilled_tokens_per_decision": 208.16666666666666,
+   "stateless_tokens_per_decision": 760.0,
+   "reuse": 3.6509207365892715,
+   "cache_hit_rate": 0.6666666666666666,
+   "session_cache_tokens": 21081,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3.5-0.8B",
+   "source": "synthetic:4000",
+   "state_tokens": 4074,
+   "mode": "stateless",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 208.1264089999877,
+    "p95": 504.09051400004046,
+    "mean": 270.00956583335284
+   },
+   "ms_per_decision": {
+    "p50": 208.1264089999877,
+    "p95": 504.09051400004046,
+    "mean": 270.00956583335284
+   },
+   "prefilled_tokens_per_decision": 2383.6666666666665,
+   "stateless_tokens_per_decision": 2383.6666666666665,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3.5-0.8B",
+   "source": "synthetic:4000",
+   "state_tokens": 4074,
+   "mode": "prefix",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 207.86178499997732,
+    "p95": 505.5590659999325,
+    "mean": 269.9205189999942
+   },
+   "ms_per_decision": {
+    "p50": 207.86178499997732,
+    "p95": 505.5590659999325,
+    "mean": 269.9205189999942
+   },
+   "prefilled_tokens_per_decision": 2383.6666666666665,
+   "stateless_tokens_per_decision": 2383.6666666666665,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3.5-0.8B",
+   "source": "synthetic:4000",
+   "state_tokens": 4074,
+   "mode": "session",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 2.530011555570076,
+    "lookup": 0.5092489999975037,
+    "prefill": 193.05077405557034,
+    "store": 1.58321499998869,
+    "suffix": 35.98689594444219
+   },
+   "ms_per_request": {
+    "p50": 225.72394600001644,
+    "p95": 335.83705299997746,
+    "mean": 234.25010666666898
+   },
+   "ms_per_decision": {
+    "p50": 225.72394600001644,
+    "p95": 335.83705299997746,
+    "mean": 234.25010666666898
+   },
+   "prefilled_tokens_per_decision": 1118.3333333333333,
+   "stateless_tokens_per_decision": 2383.6666666666665,
+   "reuse": 2.131445603576751,
+   "cache_hit_rate": 0.6666666666666666,
+   "session_cache_tokens": 21081,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3.5-0.8B",
+   "source": "synthetic:4000",
+   "state_tokens": 4077,
+   "mode": "stateless",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 675.4115069999216,
+    "p95": 1654.7046389999878,
+    "mean": 846.1597983333226
+   },
+   "ms_per_decision": {
+    "p50": 225.13716899997385,
+    "p95": 551.5682129999959,
+    "mean": 282.0532661111075
+   },
+   "prefilled_tokens_per_decision": 2244.5,
+   "stateless_tokens_per_decision": 2244.5,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3.5-0.8B",
+   "source": "synthetic:4000",
+   "state_tokens": 4077,
+   "mode": "prefix",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 6.980710944446855,
+    "prefill": 250.6773244999939,
+    "suffix": 83.5408897777812
+   },
+   "ms_per_request": {
+    "p50": 276.35947200008104,
+    "p95": 608.8130800000044,
+    "mean": 341.84121650001646
+   },
+   "ms_per_decision": {
+    "p50": 92.11982400002701,
+    "p95": 202.9376933333348,
+    "mean": 113.94707216667214
+   },
+   "prefilled_tokens_per_decision": 827.9444444444445,
+   "stateless_tokens_per_decision": 2244.5,
+   "reuse": 2.7109306850969603,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3.5-0.8B",
+   "source": "synthetic:4000",
+   "state_tokens": 4077,
+   "mode": "session",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 6.913008500002131,
+    "lookup": 0.5056246111191993,
+    "prefill": 172.995408222227,
+    "store": 1.6215594444209576,
+    "suffix": 80.61706238889126
+   },
+   "ms_per_request": {
+    "p50": 259.84972099990955,
+    "p95": 363.0657079999082,
+    "mean": 263.43750344442344
+   },
+   "ms_per_decision": {
+    "p50": 86.61657366663651,
+    "p95": 121.02190266663608,
+    "mean": 87.81250114814115
+   },
+   "prefilled_tokens_per_decision": 406.0,
+   "stateless_tokens_per_decision": 2244.5,
+   "reuse": 5.528325123152709,
+   "cache_hit_rate": 0.6666666666666666,
+   "session_cache_tokens": 21081,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3.5-0.8B",
+   "source": "synthetic:16000",
+   "state_tokens": 15955,
+   "mode": "stateless",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 848.0321389999972,
+    "p95": 2375.5306680000103,
+    "mean": 1126.5234234444392
+   },
+   "ms_per_decision": {
+    "p50": 848.0321389999972,
+    "p95": 2375.5306680000103,
+    "mean": 1126.5234234444392
+   },
+   "prefilled_tokens_per_decision": 8319.5,
+   "stateless_tokens_per_decision": 8319.5,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3.5-0.8B",
+   "source": "synthetic:16000",
+   "state_tokens": 15955,
+   "mode": "prefix",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 850.1231879999978,
+    "p95": 2382.435094000016,
+    "mean": 1128.8757356111191
+   },
+   "ms_per_decision": {
+    "p50": 850.1231879999978,
+    "p95": 2382.435094000016,
+    "mean": 1128.8757356111191
+   },
+   "prefilled_tokens_per_decision": 8319.5,
+   "stateless_tokens_per_decision": 8319.5,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3.5-0.8B",
+   "source": "synthetic:16000",
+   "state_tokens": 15955,
+   "mode": "session",
+   "questions": 1,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 7.861118888873382,
+    "lookup": 0.520377000005586,
+    "prefill": 771.4021945000064,
+    "store": 2.0403764999880676,
+    "suffix": 36.159908444447964
+   },
+   "ms_per_request": {
+    "p50": 540.9281180000107,
+    "p95": 2279.784669000037,
+    "mean": 819.1810029999892
+   },
+   "ms_per_decision": {
+    "p50": 540.9281180000107,
+    "p95": 2279.784669000037,
+    "mean": 819.1810029999892
+   },
+   "prefilled_tokens_per_decision": 5625.333333333333,
+   "stateless_tokens_per_decision": 8319.5,
+   "reuse": 1.4789345816544204,
+   "cache_hit_rate": 0.5,
+   "session_cache_tokens": 21081,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3.5-0.8B",
+   "source": "synthetic:16000",
+   "state_tokens": 15977,
+   "mode": "stateless",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": null,
+   "ms_per_request": {
+    "p50": 2664.2386450000686,
+    "p95": 7795.64493700002,
+    "mean": 3648.0750087222364
+   },
+   "ms_per_decision": {
+    "p50": 888.0795483333562,
+    "p95": 2598.54831233334,
+    "mean": 1216.0250029074123
+   },
+   "prefilled_tokens_per_decision": 8194.666666666666,
+   "stateless_tokens_per_decision": 8194.666666666666,
+   "reuse": 1.0,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3.5-0.8B",
+   "source": "synthetic:16000",
+   "state_tokens": 15977,
+   "mode": "prefix",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 22.89065366667526,
+    "prefill": 1037.5487642778073,
+    "suffix": 114.3641918333363
+   },
+   "ms_per_request": {
+    "p50": 880.0384929998017,
+    "p95": 2391.4400410001235,
+    "mean": 1176.3198598889126
+   },
+   "ms_per_decision": {
+    "p50": 293.34616433326727,
+    "p95": 797.1466803333745,
+    "mean": 392.10661996297085
+   },
+   "prefilled_tokens_per_decision": 2811.3333333333335,
+   "stateless_tokens_per_decision": 8194.666666666666,
+   "reuse": 2.9148683898506045,
+   "cache_hit_rate": 0.0,
+   "session_cache_tokens": null,
+   "batch_size": 3
+  },
+  {
+   "model": "Qwen/Qwen3.5-0.8B",
+   "source": "synthetic:16000",
+   "state_tokens": 15977,
+   "mode": "session",
+   "questions": 3,
+   "batch": 1,
+   "steps": 6,
+   "repeats": 3,
+   "phase_ms_per_request": {
+    "encode": 22.995345833325903,
+    "lookup": 0.5165381666327247,
+    "prefill": 758.0035446666594,
+    "store": 2.0680550000204474,
+    "suffix": 110.00402133338918
+   },
+   "ms_per_request": {
+    "p50": 612.5957649999236,
+    "p95": 2423.938420000013,
+    "mean": 895.3668521666916
+   },
+   "ms_per_decision": {
+    "p50": 204.19858833330787,
+    "p95": 807.9794733333378,
+    "mean": 298.45561738889717
+   },
+   "prefilled_tokens_per_decision": 1911.5,
+   "stateless_tokens_per_decision": 8194.666666666666,
+   "reuse": 4.287034615049263,
+   "cache_hit_rate": 0.5,
+   "session_cache_tokens": 21081,
+   "batch_size": 3
+  }
+ ]
+}

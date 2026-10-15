@@ -1,0 +1,15 @@
+# E6f smoke (development only; cost projection): the eval arms on the first 2 games (stratified order) of E6a's 48
+# calibration TRAIN games (data/raw/alfworld_e6a; E6c's smoke games). Never valid_seen. Settings copied from eval.yaml.
+#   TMPDIR=/dev/shm/e6f_tmp python -m jevharness.bench.runner configs/explore/e6f_alfworld/smoke.yaml --out runs
+name: e6f_alfworld_smoke
+suite: {name: alfworld, split: train, data_dir: data/raw/alfworld_e6a, n: 2, stratify: true, max_episode_steps: 50}
+n_tasks: 2
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}
+harness_defaults: {max_steps: 50, history_window: 12}
+workers: 8
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}
+  - {name: jev_action_trigger, action: {mode: trigger, tau: 0.5}}
+  - {name: action_verify_all, action: {mode: always}}

@@ -1,0 +1,18 @@
+# PILOT (small-scale, real APIs): Gemini 3.5 Flash as System-2, Gemini 3.5 Flash-Lite (verbalised
+# distribution, batched) as the stand-in System-1 until Jev is reachable (openrouter.ai allow-listed).
+# Swap `s1` to {type: jev, provider: openrouter} for the Jev arms -- nothing else changes.
+name: pilot_jevgym_gemini
+suite: {name: jevgym, n: 20, n_distractors: 30, strict: true}
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+small_llm: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+s1: {type: llm_generative, llm: {provider: gemini, model: gemini-3.5-flash-lite}, reasoning_effort: minimal}
+s1_cache: cache/s1_gemini.sqlite
+workers: 4
+arms:
+  - {name: llm_only}
+  - {name: s1_ts_params_replace, tool_select: {mode: replace}, tool_params: {mode: replace}}
+  - {name: s1_ts_cascade_tau0.9, tool_select: {mode: cascade, tau: 0.9}, tool_params: {mode: cascade, tau: 0.9}}
+  - {name: s1_ts_assist_k3, tool_select: {mode: assist, k: 3}}
+  - {name: s1_ts_guard, tool_select: {mode: guard, tau: 0.5}}
+  - {name: s1_stop_guard, stop: {mode: guard, tau: 0.5}}
+  - {name: s1_route, routing: {mode: trigger, tau: 0.5}}

@@ -1,0 +1,15 @@
+# One node, 8 GPUs (8x H100 80GB), plain DDP. Enough for LoRA on Qwen3-0.6B..8B and full fine-tuning up to ~1.7B.
+# scripts/train/*.sh pass --num_processes $GPUS, so the same file serves 2/4/8 GPUs.
+# Full fine-tuning of >= 4B: switch to DeepSpeed ZeRO-2/3 (`accelerate config`), keep the scripts unchanged.
+compute_environment: LOCAL_MACHINE
+distributed_type: MULTI_GPU
+mixed_precision: bf16
+downcast_bf16: 'no'
+num_machines: 1
+num_processes: 8
+machine_rank: 0
+gpu_ids: all
+main_training_function: main
+rdzv_backend: static
+same_network: true
+use_cpu: false

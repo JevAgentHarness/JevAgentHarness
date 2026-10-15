@@ -1,0 +1,50 @@
+# Codex config.toml snippets for the Jev experiments. Merge into $CODEX_HOME/config.toml (default
+# ~/.codex/config.toml), a project .codex/config.toml, or a profile file $CODEX_HOME/<name>.config.toml
+# selected with `codex -p <name>`. Keys verified against openai/codex @ 60947e2 (see README.md).
+
+# --- (1) Approval reviewer: the Guardian baseline, and the fallback of the Jev cascade arm ----------
+# `codex exec --approve-for-me` sets exactly these three (codex-rs/utils/cli/src/shared_options.rs:80-93).
+# Without approvals_reviewer = "auto_review", `codex exec` forces approval_policy = "never", so no
+# PermissionRequest hook ever fires in headless runs (codex-rs/exec/src/lib.rs:571-577, 758-790).
+approval_policy = "on-request"
+approvals_reviewer = "auto_review"   # "user" (default) | "auto_review" (legacy alias "guardian_subagent")
+sandbox_mode = "workspace-write"
+
+# --- (2) Hooks: inline TOML form, equivalent to adapters/codex/hooks.json ------------------------------
+# Use EITHER this or a hooks.json next to this config.toml -- Codex warns when one layer has both
+# (codex-rs/hooks/src/engine/discovery.rs:154-164). Hooks are on by default ([features] hooks = true).
+# Non-managed hooks only run once trusted (review them with /hooks in the TUI) or with
+# `--dangerously-bypass-hook-trust` (discovery.rs:715-721).
+
+[[hooks.PermissionRequest]]
+[[hooks.PermissionRequest.hooks]]
+type = "command"
+command = "/ABS/PATH/JevAgentHarness/research/.venv/bin/python -m jevharness.adapters.hooks --harness codex"
+timeout = 5
+statusMessage = "Jev: approval gate"
+
+[[hooks.PreToolUse]]
+[[hooks.PreToolUse.hooks]]
+type = "command"
+command = "/ABS/PATH/JevAgentHarness/research/.venv/bin/python -m jevharness.adapters.hooks --harness codex"
+timeout = 5
+statusMessage = "Jev: action guard"
+
+[[hooks.Stop]]
+[[hooks.Stop.hooks]]
+type = "command"
+command = "/ABS/PATH/JevAgentHarness/research/.venv/bin/python -m jevharness.adapters.hooks --harness codex"
+timeout = 5
+statusMessage = "Jev: completion check"
+
+[[hooks.PostToolUse]]
+[[hooks.PostToolUse.hooks]]
+type = "command"
+command = "/ABS/PATH/JevAgentHarness/research/.venv/bin/python -m jevharness.adapters.hooks --harness codex"
+timeout = 5
+
+[[hooks.UserPromptSubmit]]
+[[hooks.UserPromptSubmit.hooks]]
+type = "command"
+command = "/ABS/PATH/JevAgentHarness/research/.venv/bin/python -m jevharness.adapters.hooks --harness codex"
+timeout = 5

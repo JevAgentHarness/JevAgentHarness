@@ -1,0 +1,31 @@
+# Stage 2, S2-3 source arms (docs/PREREG_A7_STAGE2.md A7.10 (c)): tool_select REPLACE with three frozen System-1
+# backends on the first 200 fresh Stage-2 tasks (seeds 300000..300199; the same suite block as
+# configs/experiments/stage2_jevgym.yaml, so the task ids are those of configs/eval/jevgym_stage2_tasks.json), Flash,
+# three passes. Stage 2's own `llm_only` (runs/stage2_jevgym, its first 200 tasks) is the fourth source. The common-state
+# corpus is built from the final valid trajectory of each source (scripts/stage2_corpus.py build) and every backend
+# answers every distinct question through one replay path (scripts/stage2_corpus.py replay); S2-3's clauses are
+# computed on that corpus (scripts/stage2_analysis.py).
+#
+# Backends: Jev (default `s1`); Intern-Decision-4B in-process and JevAgentRL served -- both PLACEHOLDERS, so neither
+# loads or runs until the GPU host sets it; they are loaded sequentially on the L4 (A7.10 (c)):
+#   for pass in 1 2 3; do JEV_EVAL_RUNS=1 jevbench run configs/experiments/stage2_rl_states.yaml --out runs -o workers=8; done   # Jev arm
+#   for pass in 1 2 3; do JEV_EVAL_RUNS=1 jevbench run configs/experiments/stage2_rl_states.yaml --out runs -o workers=4 \
+#     -o 's1_backends.intern={type: intern_decision, model: internlm/Intern-Decision-4B, device: auto, max_length: 8192}'; done
+#   (stop the Intern process, start serve_jev with the frozen checkpoint, then)
+#   for pass in 1 2 3; do JEV_EVAL_RUNS=1 jevbench run configs/experiments/stage2_rl_states.yaml --out runs -o workers=4 \
+#     -o 's1_backends.jevagent_rl={type: jev, name: jevagent-rl, base_url: http://localhost:8081, model: jevagent-rl, api_key: ""}'; done
+# All three backends are frozen before the corpus is collected; no S2-3 source episode runs before A7.10's freeze record.
+name: stage2_rl_states
+suite: {name: jevgym, n: 500, seed0: 300000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # Stage-2 fresh seeds (A7.2 (a))
+n_tasks: 200
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}
+s1_cache: cache/s1_stage2.sqlite
+s1_backends:
+  intern: {type: intern_decision, model: internlm/Intern-Decision-4B, device: auto, max_length: 8192, placeholder: true}
+  jevagent_rl: {type: jev, name: jevagent-rl, base_url: "http://localhost:8081", model: jevagent-rl, api_key: "", placeholder: true}
+workers: 8
+arms:
+  - {name: jev_ts_replace_f, tool_select: {mode: replace}}
+  - {name: intern_ts_replace_f, s1: intern, tool_select: {mode: replace}}
+  - {name: rl_ts_replace_f, s1: jevagent_rl, tool_select: {mode: replace}}

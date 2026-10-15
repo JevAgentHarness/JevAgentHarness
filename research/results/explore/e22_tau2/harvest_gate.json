@@ -1,0 +1,27 @@
+{
+ "what": "E22 harvest-smoke gate (registration (j)): projection = smoke mean $/simulation x (832 + 480 + 240) x 1.3 + spend so far",
+ "smoke": {
+  "simulations": 4,
+  "tasks": {
+   "retail": [
+    "0",
+    "1"
+   ],
+   "airline": [
+    "0",
+    "1"
+   ]
+  },
+  "trials": 1,
+  "seed": 2299,
+  "usd": 0.28,
+  "usd_per_sim": 0.07,
+  "rewards": "4 of 4 reward 1",
+  "errored": 0
+ },
+ "projection_usd": 141.51,
+ "cap_usd": 200.0,
+ "decision": "K = 8 harvest trials; k = 4 evaluation trials; the optional arm kept",
+ "utc": "2026-10-08T16:24:07Z",
+ "note": "user-simulator cost priced from the logged user-message tokens (litellm has no local price for Flash-Lite); judge at the registered $0.003 per retail simulation"
+}

@@ -1,0 +1,77 @@
+# E2b DEV, round 3 (small-scale check of the meta-decision golds on REAL trajectories) -- NOT a paper run.
+# Same calibrated JevGym v2 suite as e2a_dev / e2c_dev (identical tasks, seeds 0..N-1). The default System-1 (`jev_*`
+# arms) is replaced on the command line by the Gemini stand-in (openrouter.ai is blocked):
+#   S1='s1={type: llm_generative, llm: {provider: gemini, model: gemini-3.5-flash-lite}, reasoning_effort: minimal}'
+#   jevbench run configs/dev/e2b_dev.yaml --out runs/dev --max-tasks 30 -o workers=4 "$S1" name=e2b_dev_r3
+# Phase 1 skips the `ratem*` arms (placeholder backends). Read each matched rate off ONE System-1 arm's file, per
+# distinct opportunity, then re-run with the backends replaced (drops the placeholder flag):
+#   python -c "from jevharness.decision.controls import trigger_rates as t; print(t('runs/dev/e2b_dev_r3', by_arm=True))"
+#   jevbench run configs/dev/e2b_dev.yaml --out runs/dev --max-tasks 30 -o workers=4 "$S1" name=e2b_dev_r3 \
+#     -o 's1_backends.ratem_lite={type: rate, rate: <reflection/trigger of jev_reflect_trigger_s2lite>, seed: 0}' ...
+# Analysis: scorecard --pair LIVE:CONTROL --measure-arm meta_shadow_s2lite --measure-arm meta_shadow [--replay ...];
+#   meta_gold replay / h2 / ceiling; threshold_theory --gate reflection (defaults to the measurement arms of one
+#   System-2 family). Notes: runs/dev/R3_NOTES.md.
+# Arms = the measurement arms of jevgym_meta_control.yaml (identical definitions) + the H2 / C5 pairs of
+# baselines_jevgym.yaml (identical definitions, fewer tasks). The round-2 arm list of this file is kept in
+# runs/dev/e2b_dev/experiment.yaml and in git history.
+name: e2b_dev_r3
+suite: {name: jevgym, n: 500, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 10
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+small_llm: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+llms:
+  small_only: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+  flash: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+  lite: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}
+s1_cache: cache/s1.sqlite
+s1_backends:
+  heuristic: {type: heuristic}
+  # matched-rate controls: PLACEHOLDERS until set from this run's System-1 arms (header)
+  ratem_lite: {type: rate, rate: 0.076, seed: 0, placeholder: true}       # reflection/trigger of jev_reflect_trigger_s2lite
+  ratem_stop_lite: {type: rate, rate: 0.5, seed: 0, placeholder: true}    # stop/guard ACCEPTANCE of jev_stop_guard_s2lite
+  ratem_route: {type: rate, rate: 0.066, seed: 0, placeholder: true}      # routing/trigger of jev_route_tau0.5
+  ratem_memw: {type: rate, rate: 0.5, seed: 0, placeholder: true}         # memory_write/trigger of jev_memw
+workers: 4
+arms:
+  - {name: llm_only_s2lite, llm: small_only}
+  # ---------------- measurement arms (shadow-only; golds + counterfactual branches + guard probes)
+  - name: meta_shadow_s2lite              # Flash-Lite: the C5 / H2 measurement arm (routing shadowed here only)
+    llm: small_only
+    n_tasks: 30
+    reflection: {mode: shadow, extra: {wordings: [v2, v1]}}
+    routing: {mode: shadow}
+    stop: {mode: shadow, extra: {augment_trigger: true}}
+    memory_write: {mode: shadow}
+    measure:
+      seed: 0
+      cf: {reflection: true, large_llm: flash, stop_reject: true, placebo: true, sample_negatives: 0.2,
+           fired_steps: false}
+      probes: {stop: [forced_premature, transplant, T5, T6], tool_select: [natural, transplant, T1, T2, T3, T4],
+               rho_edit: 0.5, rho_t5: 0.25, rho_transplant: 0.25, transplant_llm: lite, transplant_temperature: 1.0,
+               tau_ref: 0.5}
+  - name: meta_shadow                     # Flash: memory_write H2 measurement + Flash probe FAR
+    n_tasks: 20
+    reflection: {mode: shadow, extra: {wordings: [v2, v1]}}
+    stop: {mode: shadow, extra: {augment_trigger: true}}
+    memory_write: {mode: shadow}
+    measure:
+      seed: 0
+      probes: {stop: [forced_premature, transplant, T5, T6], tool_select: [natural, transplant, T1, T2, T3, T4],
+               rho_edit: 0.5, rho_t5: 0.25, rho_transplant: 0.25, transplant_llm: lite, transplant_temperature: 0.0,
+               tau_ref: 0.5}
+  # ---------------- C5 / reflection H2 cells (Flash-Lite), fired-step CF on every arm alike
+  - {name: jev_reflect_trigger_s2lite, llm: small_only, n_tasks: 30, reflection: {mode: trigger, tau: 0.5},
+     measure: {cf: {fired_steps: true}}}
+  - {name: heuristic_reflect_trigger_s2lite, llm: small_only, s1: heuristic, n_tasks: 30,
+     reflection: {mode: trigger, tau: 0.5}, measure: {cf: {fired_steps: true}}}
+  # ---------------- stop guard (Flash-Lite), routing (Flash / Flash-Lite), memory write (Flash)
+  - {name: jev_stop_guard_s2lite, llm: small_only, n_tasks: 30, stop: {mode: guard, tau: 0.5}}
+  - {name: jev_route_tau0.5, n_tasks: 30, routing: {mode: trigger, tau: 0.5}}
+  - {name: jev_memw, memory_write: {mode: trigger, tau: 0.5}, memory_read: {mode: always}}
+  # ---------------- matched-rate controls LAST (skipped while their backends are placeholders)
+  - {name: ratem_reflect_trigger_s2lite, llm: small_only, s1: ratem_lite, n_tasks: 30,
+     reflection: {mode: trigger, tau: 0.5}, measure: {cf: {fired_steps: true}}}
+  - {name: ratem_stop_guard_s2lite, llm: small_only, s1: ratem_stop_lite, n_tasks: 30, stop: {mode: guard, tau: 0.5}}
+  - {name: ratem_route, s1: ratem_route, n_tasks: 30, routing: {mode: trigger, tau: 0.5}}
+  - {name: ratem_memw, s1: ratem_memw, memory_write: {mode: trigger, tau: 0.5}, memory_read: {mode: always}}

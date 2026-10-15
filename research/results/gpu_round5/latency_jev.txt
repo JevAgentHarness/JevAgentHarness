@@ -1,0 +1,25 @@
+{
+ "backend": {
+  "backend": "jev",
+  "provider": "openrouter",
+  "model": "typesafe/jev-1.13",
+  "base_url": "https://openrouter.ai/api",
+  "extra_body": {}
+ },
+ "questions_per_req": 3,
+ "state_tokens": 1500,
+ "results": {
+  "c=1": {
+   "p50_ms": 156.97765400182107,
+   "p95_ms": 203.0187179989298,
+   "req_per_s": 6.1607283391090935,
+   "input_tokens_per_req": 3478.63
+  },
+  "c=4": {
+   "p50_ms": 160.88840849988628,
+   "p95_ms": 204.70563300477806,
+   "req_per_s": 22.922901719793437,
+   "input_tokens_per_req": 3478.32
+  }
+ }
+}

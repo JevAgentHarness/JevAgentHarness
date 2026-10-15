@@ -1,0 +1,42 @@
+{
+ "port": 8090,
+ "health": {
+  "status": "ok",
+  "model": "StartLux-Decision-4B",
+  "backend": "torch",
+  "fast_kernels": true,
+  "cuda_graphs": 40
+ },
+ "models": {
+  "models": [
+   {
+    "name": "StartLux-Decision-4B",
+    "description": "StartLux-Decision typed decision model"
+   }
+  ]
+ },
+ "three_questions": {
+  "n": 20,
+  "p50_ms": 26.410917999783123,
+  "p95_ms": 26.587632999962807,
+  "max_ms": 27.973717000350007,
+  "errors": [],
+  "n_errors": 0,
+  "input_tokens": 290
+ },
+ "choice_69": {
+  "n": 10,
+  "p50_ms": 100.07153499964261,
+  "p95_ms": 100.33416999976907,
+  "max_ms": 100.33416999976907,
+  "errors": [],
+  "n_errors": 0,
+  "input_tokens": 1525
+ },
+ "long_state": {
+  "ms": 11416.804218999914,
+  "ok": true,
+  "problems": null,
+  "input_tokens": 13216
+ }
+}

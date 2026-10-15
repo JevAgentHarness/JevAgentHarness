@@ -1,0 +1,441 @@
+{
+ "generated": "2026-10-06T15:27:51+00:00",
+ "label": "exploratory (E7), development",
+ "candidates": [
+  {
+   "candidate": "e7_pilot_amount_k12",
+   "suite": {
+    "name": "jevgym",
+    "n": 30,
+    "seed0": 7150,
+    "families": "multi",
+    "distractor_style": "near",
+    "n_distractors": 60,
+    "noise_lines": 20,
+    "strict": true,
+    "multi_customers": 12,
+    "multi_rule": "amount"
+   },
+   "max_steps": 45,
+   "llm": {
+    "provider": "openrouter",
+    "model": "google/gemini-3.5-flash",
+    "temperature": 0,
+    "reasoning_effort": "minimal"
+   },
+   "n": 30,
+   "errored": 0,
+   "retries": 0,
+   "success": 0.6666666666666666,
+   "by_family": {
+    "multi": [
+     20,
+     30
+    ]
+   },
+   "failure_types": {
+    "wrong_total": 10
+   },
+   "spend": 2.1953049,
+   "seeds": [
+    7150,
+    7179
+   ],
+   "wall_s_mean": 56.20900740313334
+  },
+  {
+   "candidate": "e7_pilot_amount_k8",
+   "suite": {
+    "name": "jevgym",
+    "n": 30,
+    "seed0": 7030,
+    "families": "multi",
+    "distractor_style": "near",
+    "n_distractors": 60,
+    "noise_lines": 20,
+    "strict": true,
+    "multi_customers": 8,
+    "multi_rule": "amount"
+   },
+   "max_steps": 40,
+   "llm": {
+    "provider": "openrouter",
+    "model": "google/gemini-3.5-flash",
+    "temperature": 0,
+    "reasoning_effort": "minimal"
+   },
+   "n": 30,
+   "errored": 0,
+   "retries": 0,
+   "success": 1.0,
+   "by_family": {
+    "multi": [
+     30,
+     30
+    ]
+   },
+   "failure_types": {},
+   "spend": 1.49385045,
+   "seeds": [
+    7030,
+    7059
+   ],
+   "wall_s_mean": 34.46298765423331
+  },
+  {
+   "candidate": "e7_pilot_k10",
+   "suite": {
+    "name": "jevgym",
+    "n": 30,
+    "seed0": 7000,
+    "families": "v2",
+    "distractor_style": "near",
+    "n_distractors": 60,
+    "noise_lines": 20,
+    "strict": true,
+    "multi_customers": 10
+   },
+   "max_steps": 45,
+   "llm": {
+    "provider": "openrouter",
+    "model": "google/gemini-3.5-flash",
+    "temperature": 0,
+    "reasoning_effort": "minimal"
+   },
+   "n": 30,
+   "errored": 0,
+   "retries": 2,
+   "success": 1.0,
+   "by_family": {
+    "clarify": [
+     15,
+     15
+    ],
+    "multi": [
+     15,
+     15
+    ]
+   },
+   "failure_types": {},
+   "spend": 1.0957820999999999,
+   "seeds": [
+    7000,
+    7029
+   ],
+   "wall_s_mean": 23.852566774266666
+  },
+  {
+   "candidate": "e7_pilot_k6",
+   "suite": {
+    "name": "jevgym",
+    "n": 30,
+    "seed0": 7000,
+    "families": "v2",
+    "distractor_style": "near",
+    "n_distractors": 60,
+    "noise_lines": 20,
+    "strict": true,
+    "multi_customers": 6
+   },
+   "max_steps": 30,
+   "llm": {
+    "provider": "openrouter",
+    "model": "google/gemini-3.5-flash",
+    "temperature": 0,
+    "reasoning_effort": "minimal"
+   },
+   "n": 30,
+   "errored": 0,
+   "retries": 2,
+   "success": 1.0,
+   "by_family": {
+    "clarify": [
+     15,
+     15
+    ],
+    "multi": [
+     15,
+     15
+    ]
+   },
+   "failure_types": {},
+   "spend": 0.7933375500000001,
+   "seeds": [
+    7000,
+    7029
+   ],
+   "wall_s_mean": 15.353607648266681
+  },
+  {
+   "candidate": "e7_pilot_tier_k10",
+   "suite": {
+    "name": "jevgym",
+    "n": 30,
+    "seed0": 7090,
+    "families": "multi",
+    "distractor_style": "near",
+    "n_distractors": 60,
+    "noise_lines": 20,
+    "strict": true,
+    "multi_customers": 10,
+    "multi_rule": "tier"
+   },
+   "max_steps": 45,
+   "llm": {
+    "provider": "openrouter",
+    "model": "google/gemini-3.5-flash",
+    "temperature": 0,
+    "reasoning_effort": "minimal"
+   },
+   "n": 30,
+   "errored": 0,
+   "retries": 0,
+   "success": 0.7666666666666667,
+   "by_family": {
+    "multi": [
+     23,
+     30
+    ]
+   },
+   "failure_types": {
+    "wrong_total": 7
+   },
+   "spend": 1.8270379499999998,
+   "seeds": [
+    7090,
+    7119
+   ],
+   "wall_s_mean": 44.074751358900016
+  },
+  {
+   "candidate": "e7_pilot_tier_k11",
+   "suite": {
+    "name": "jevgym",
+    "n": 30,
+    "seed0": 7180,
+    "families": "multi",
+    "distractor_style": "near",
+    "n_distractors": 60,
+    "noise_lines": 20,
+    "strict": true,
+    "multi_customers": 11,
+    "multi_rule": "tier"
+   },
+   "max_steps": 45,
+   "llm": {
+    "provider": "openrouter",
+    "model": "google/gemini-3.5-flash",
+    "temperature": 0,
+    "reasoning_effort": "minimal"
+   },
+   "n": 30,
+   "errored": 0,
+   "retries": 0,
+   "success": 0.8,
+   "by_family": {
+    "multi": [
+     24,
+     30
+    ]
+   },
+   "failure_types": {
+    "wrong_total": 6
+   },
+   "spend": 2.04523995,
+   "seeds": [
+    7180,
+    7209
+   ],
+   "wall_s_mean": 45.61699347310002
+  },
+  {
+   "candidate": "e7_pilot_tier_k11b",
+   "suite": {
+    "name": "jevgym",
+    "n": 30,
+    "seed0": 7210,
+    "families": "multi",
+    "distractor_style": "near",
+    "n_distractors": 60,
+    "noise_lines": 20,
+    "strict": true,
+    "multi_customers": 11,
+    "multi_rule": "tier"
+   },
+   "max_steps": 45,
+   "llm": {
+    "provider": "openrouter",
+    "model": "google/gemini-3.5-flash",
+    "temperature": 0,
+    "reasoning_effort": "minimal"
+   },
+   "n": 30,
+   "errored": 0,
+   "retries": 0,
+   "success": 0.7666666666666667,
+   "by_family": {
+    "multi": [
+     23,
+     30
+    ]
+   },
+   "failure_types": {
+    "wrong_total": 7
+   },
+   "spend": 2.1262919999999994,
+   "seeds": [
+    7210,
+    7239
+   ],
+   "wall_s_mean": 55.95177048856666
+  },
+  {
+   "candidate": "e7_pilot_tier_k12",
+   "suite": {
+    "name": "jevgym",
+    "n": 30,
+    "seed0": 7120,
+    "families": "multi",
+    "distractor_style": "near",
+    "n_distractors": 60,
+    "noise_lines": 20,
+    "strict": true,
+    "multi_customers": 12,
+    "multi_rule": "tier"
+   },
+   "max_steps": 45,
+   "llm": {
+    "provider": "openrouter",
+    "model": "google/gemini-3.5-flash",
+    "temperature": 0,
+    "reasoning_effort": "minimal"
+   },
+   "n": 30,
+   "errored": 0,
+   "retries": 0,
+   "success": 0.5666666666666667,
+   "by_family": {
+    "multi": [
+     17,
+     30
+    ]
+   },
+   "failure_types": {
+    "wrong_total": 13
+   },
+   "spend": 2.24529645,
+   "seeds": [
+    7120,
+    7149
+   ],
+   "wall_s_mean": 55.20708865583334
+  },
+  {
+   "candidate": "e7_pilot_tier_k12b",
+   "suite": {
+    "name": "jevgym",
+    "n": 30,
+    "seed0": 7240,
+    "families": "multi",
+    "distractor_style": "near",
+    "n_distractors": 60,
+    "noise_lines": 20,
+    "strict": true,
+    "multi_customers": 12,
+    "multi_rule": "tier"
+   },
+   "max_steps": 45,
+   "llm": {
+    "provider": "openrouter",
+    "model": "google/gemini-3.5-flash",
+    "temperature": 0,
+    "reasoning_effort": "minimal"
+   },
+   "n": 30,
+   "errored": 0,
+   "retries": 0,
+   "success": 0.36666666666666664,
+   "by_family": {
+    "multi": [
+     11,
+     30
+    ]
+   },
+   "failure_types": {
+    "wrong_total": 19
+   },
+   "spend": 2.3165073000000005,
+   "seeds": [
+    7240,
+    7269
+   ],
+   "wall_s_mean": 60.955898263799995
+  },
+  {
+   "candidate": "e7_pilot_tier_k8",
+   "suite": {
+    "name": "jevgym",
+    "n": 30,
+    "seed0": 7060,
+    "families": "multi",
+    "distractor_style": "near",
+    "n_distractors": 60,
+    "noise_lines": 20,
+    "strict": true,
+    "multi_customers": 8,
+    "multi_rule": "tier"
+   },
+   "max_steps": 40,
+   "llm": {
+    "provider": "openrouter",
+    "model": "google/gemini-3.5-flash",
+    "temperature": 0,
+    "reasoning_effort": "minimal"
+   },
+   "n": 30,
+   "errored": 0,
+   "retries": 0,
+   "success": 0.9,
+   "by_family": {
+    "multi": [
+     27,
+     30
+    ]
+   },
+   "failure_types": {
+    "wrong_total": 3
+   },
+   "spend": 1.5044216999999998,
+   "seeds": [
+    7060,
+    7089
+   ],
+   "wall_s_mean": 33.45176179159999
+  }
+ ],
+ "spend": 17.64307035,
+ "extra": {
+  "aborted_direct_api": {
+   "episodes": 2,
+   "errored": 2,
+   "spend": 0.0,
+   "seeds": "7006, 7008",
+   "note": "direct Gemini API, about 15:00 UTC 2026-10-06: HTTP 503 'high demand'; discarded"
+  },
+  "route_check": {
+   "episodes": 4,
+   "errored": 0,
+   "spend": 0.1023,
+   "seeds": "7290-7291",
+   "note": "llm_only and jevagent_best, 6 customers, Flash and Jev via OpenRouter: the route works"
+  }
+ },
+ "chosen": {
+  "families": "multi",
+  "multi_customers": 10,
+  "multi_rule": "tier",
+  "max_steps": 45,
+  "rule": "among the tier-rule candidates in the 60-80 % band, the one closest to 70 %"
+ },
+ "spend_total": 17.745370349999998
+}

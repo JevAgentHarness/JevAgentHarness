@@ -1,0 +1,20 @@
+{
+ "registered": "PREREG_A7_STAGE2 Deviations 2026-10-08 'E21' (d) 3 / (d) 5",
+ "variant": "nodist",
+ "backend": {
+  "backend": "openjev-hf",
+  "provider": "typesafe",
+  "model": "openjev",
+  "base_url": "http://127.0.0.1:8090",
+  "extra_body": {},
+  "cached": true
+ },
+ "cache": "cache/s1_e21_openjevhf_nodist.sqlite",
+ "workers": 4,
+ "order": "sorted question hash, sharded over workers",
+ "batching": "one question per request (the harness tournament for Choices wider than the backend's max_options)",
+ "retries": 2,
+ "n_questions": 1093,
+ "resumed_with": 0,
+ "written": "2026-10-08T22:36:12+00:00"
+}

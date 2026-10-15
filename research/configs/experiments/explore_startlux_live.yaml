@@ -1,0 +1,31 @@
+# E2 (exploratory, descriptive; outside both registered stages -- docs/PREREG_A7_STAGE2.md, Deviations entry of
+# 2026-10-05): the StartLux-Decision size ladder LIVE. The tool_select REPLACE arm of A7.18 (e) 3 for the ladder sizes
+# 0.8B, 2B and 9B, exactly as `sl4b_ts_replace_f` / `sl27b_ts_replace_f` of configs/experiments/stage2_startlux_states.yaml
+# (the same suite block, the same first 200 fresh Stage-2 tasks, seeds 300000..300199, Flash, workers 4, three passes),
+# so the paper can show model size against static / common-state accuracy / live success. One size on the GPU at a time,
+# served by the vendor's server (scripts/aws/serve_startlux.sh) at the weights revisions of the ladder's corpus replay
+# (results/stage2/gpu/manifest_replay_<size>.json, PIN_MANIFEST). The backends are PLACEHOLDERS until bound on the GPU
+# host (scripts/aws/explore_gpu.sh stage e2):
+#   JEV_EVAL_RUNS=1 jevbench run configs/experiments/explore_startlux_live.yaml --out runs -o workers=4 \
+#     -o 's1_backends.startlux_0_8b={type: jev, name: startlux-0.8b, base_url: "http://127.0.0.1:8092", model: StartLux-Decision-0.8B, api_key: "", price_model: StartLux-Decision-0.8B, timeout: 60.0}' \
+#     -o 'arms=[{name: sl0.8b_ts_replace_f, s1: startlux_0_8b, tool_select: {mode: replace}}]'
+# A new System-1 cache; prices: exact-0 rows (configs/prices/models.yaml; API cost only, as the other StartLux rows).
+# The server answers one request at a time per GPU, so latency includes queueing (descriptive only).
+name: explore_startlux_live
+suite: {name: jevgym, n: 500, seed0: 300000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # Stage-2 fresh seeds (A7.2 (a))
+n_tasks: 200
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}          # unused (every arm binds a StartLux backend)
+s1_cache: cache/s1_explore_startlux_live.sqlite
+s1_backends:
+  startlux_0_8b: {type: jev, name: startlux-0.8b, base_url: "http://localhost:8092", model: StartLux-Decision-0.8B, api_key: "",
+                  price_model: StartLux-Decision-0.8B, timeout: 60.0, placeholder: true}
+  startlux_2b: {type: jev, name: startlux-2b, base_url: "http://localhost:8093", model: StartLux-Decision-2B, api_key: "",
+                price_model: StartLux-Decision-2B, timeout: 60.0, placeholder: true}
+  startlux_9b: {type: jev, name: startlux-9b, base_url: "http://localhost:8094", model: StartLux-Decision-9B, api_key: "",
+                price_model: StartLux-Decision-9B, timeout: 60.0, placeholder: true}
+workers: 4
+arms:
+  - {name: sl0.8b_ts_replace_f, s1: startlux_0_8b, tool_select: {mode: replace}}
+  - {name: sl2b_ts_replace_f, s1: startlux_2b, tool_select: {mode: replace}}
+  - {name: sl9b_ts_replace_f, s1: startlux_9b, tool_select: {mode: replace}}

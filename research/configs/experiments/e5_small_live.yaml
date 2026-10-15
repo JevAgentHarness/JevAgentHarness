@@ -1,0 +1,24 @@
+# Exploratory row E5, the optional live row (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-06 "Exploratory row E5" (g);
+# descriptive, no test). Seeds 300700-300799 (n = 100) of the spare block of A7.2 (a), opened by that entry; the frozen
+# suite settings. Three arms, task-major interleaved (arm order seeded per task, seed 732), ONE worker (at most one episode
+# in flight on the GPU; every arm under the same worker setting in the same session), three passes:
+#   for pass in 1 2 3; do JEV_EVAL_RUNS=1 jevbench run configs/experiments/e5_small_live.yaml --out runs -o workers=1; done
+# (scripts/aws/e5_small.sh live). System-1: the frozen JevAgentRL-4B (sha256-checked) on :8081 and the E5 model on :8082,
+# both behind training/serve_jev.py --fast on the one GPU; no System-1 decision cache. The E5 model (`e5_small`) is the one
+# the registered rule picks from the offline records (scripts/e5_analysis.py live_choice); its thresholds are the offline
+# fit of entry (g) in configs/harness/explore_e5_final.yaml (the runner skips the arm while that block is pending).
+name: e5_small_live
+suite: {name: jevgym, n: 100, seed0: 300700, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 100
+llm: {provider: openrouter, model: google/gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}   # Deviations 2026-10-06 ~18:00 UTC: the OpenRouter route (direct API overloaded)
+s1_backends:
+  jevagent_rl: {type: jev, name: jevagentrl-4b, base_url: "http://127.0.0.1:8081", model: jevagentrl-4b, api_key: "",
+                timeout: 60.0, cache: null}
+  e5_small: {type: jev, name: e5-e5_mc1, base_url: "http://127.0.0.1:8082", model: e5-e5_mc1, api_key: "",
+             timeout: 60.0, cache: null}
+workers: 1
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}
+  - {name: harness_final, s1: jevagent_rl, profile: configs/harness/jevagent_final.yaml, profile_s2: gemini-3.5-flash, profile_backend: jevagent_rl}
+  - {name: e5_final, s1: e5_small, profile: configs/harness/explore_e5_final.yaml, profile_s2: gemini-3.5-flash, profile_backend: e5_small}

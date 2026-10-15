@@ -1,0 +1,40 @@
+# Exploratory row E15 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-07 "E15: more decision-model baselines";
+# descriptive, outside every Holm table): E1's 3,991 static decisions (L1) answered by the E15 candidates. E1's config
+# (configs/decision/bfcl_when2call.yaml) with the same pools, exclusions (C8 population), batching and workers; a new
+# answer cache. One backend per invocation:
+#   python -m jevharness.bench.decision_eval configs/explore/e15_baselines/e1_e15.yaml --out runs --only <slug>
+name: e1_bfcl_when2call_e15
+suites:
+  - {name: bfcl, categories: [simple_python, multiple, live_simple, live_multiple, irrelevance, live_irrelevance], max_per_cat: 200}
+  - {name: when2call, max_items: 1000}
+exclude_ids_file: configs/eval/e1_dev_prefix_ids.json   # A6.13: as E1
+batch_by_state: true
+s1_cache: cache/s1_e15_e1.sqlite
+workers: 4
+backends:
+  # the OpenAI Decisions API (registration (b) 1), from the coordinating container only (the key never goes to AWS)
+  oaidec: {type: openai_decisions, model: gpt-6-luna, timeout: 120.0}
+  # self-hosted models on the E15 host, one at a time on :8090 (scripts/aws/e15_baselines.sh); exact-0 token price,
+  # cost by E9's rule (GPU tariff x logged serving time)
+  clefflash: {type: jev, name: clef-flash, base_url: "http://127.0.0.1:8090", model: clef-flash, api_key: "", timeout: 180.0,
+              price_model: e15-selfhost}
+  clef: {type: jev, name: clef, base_url: "http://127.0.0.1:8090", model: clef, api_key: "", timeout: 600.0,
+         price_model: e15-selfhost}
+  openjev: {type: jev, name: openjev, base_url: "http://127.0.0.1:8090", model: openjev-latest, api_key: "", timeout: 300.0,
+            price_model: e15-selfhost}
+  openjevhf: {type: jev, name: openjev-hf, base_url: "http://127.0.0.1:8090", model: openjev, api_key: "", timeout: 300.0,
+              price_model: e15-selfhost}
+  jevk5: {type: jev, name: jevk5, base_url: "http://127.0.0.1:8090", model: jevk5-0.2, api_key: "", timeout: 180.0,
+          price_model: e15-selfhost}
+  clm: {type: jev, name: clm, base_url: "http://127.0.0.1:8090", model: clm-v0.1, api_key: "", timeout: 180.0,
+        price_model: e15-selfhost}
+  laya: {type: jev, name: laya, base_url: "http://127.0.0.1:8090", model: laya-1.0, api_key: "", timeout: 180.0,
+         price_model: e15-selfhost}
+  verdict: {type: jev, name: verdict, base_url: "http://127.0.0.1:8090", model: verdict-1.4, api_key: "", timeout: 180.0,
+            price_model: e15-selfhost, max_options: 24}    # Verdict reads at most 24 options: the harness knockout above
+  decider: {type: jev, name: decider-4b, base_url: "http://127.0.0.1:8090", model: decider-4b, api_key: "", timeout: 180.0,
+            price_model: e15-selfhost}
+  imajev: {type: jev, name: imajev-4b, base_url: "http://127.0.0.1:8090", model: imajev-4b, api_key: "", timeout: 300.0,
+           price_model: e15-selfhost, max_questions_per_request: 8}   # its server takes at most 8 questions a request
+  bosun: {type: jev, name: bosun, base_url: "http://127.0.0.1:8090", model: bosun-3.1-1.7b, api_key: "", timeout: 300.0,
+          price_model: e15-selfhost}

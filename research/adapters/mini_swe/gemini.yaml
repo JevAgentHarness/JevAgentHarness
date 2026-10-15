@@ -1,0 +1,22 @@
+# Overlay for swebench_jev.yaml: Gemini 3.5 Flash as the System-2 agent (cheap/routing model: Flash-Lite).
+# List it AFTER the base config (later specs win, nested dicts are merged). Pair it with s1_gemini_standin.yaml
+# while Jev is unreachable:
+#
+#   python -m jevharness.adapters.mini_swe run -c adapters/mini_swe/swebench_jev.yaml -c adapters/mini_swe/gemini.yaml \
+#       -c adapters/mini_swe/s1_gemini_standin.yaml --arm action_guard --instance-ids ids.txt -o runs/swe/action_guard
+#   CONFIG_OVERLAY="adapters/mini_swe/gemini.yaml adapters/mini_swe/s1_gemini_standin.yaml" \
+#       adapters/mini_swe/run_swebench.sh baseline action_guard
+#
+# Validated in the L3 smoke (docs/HARNESS_INTEGRATION.md, "L3 smoke"): litellm 1.82.6 prices gemini/gemini-3.5-flash
+# itself (no MSWEA_COST_TRACKING needed, so agent.cost_limit works) and round-trips Gemini 3.x thought signatures
+# inside the tool-call ids. litellm reads GEMINI_API_KEY; run_swebench.sh sources .env.
+model:
+  model_name: "gemini/gemini-3.5-flash"
+  model_kwargs:
+    # litellm 1.82.x maps reasoning_effort=minimal to thinkingLevel "low" for gemini-3.5-*; pass the Gemini
+    # thinking config itself (same as the tau2 pilot). Remove for a higher-effort agent.
+    thinkingConfig: {thinkingLevel: minimal}
+
+jev:
+  cheap_model:
+    model_name: "gemini/gemini-3.5-flash-lite"

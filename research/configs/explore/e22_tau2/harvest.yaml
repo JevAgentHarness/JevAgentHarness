@@ -1,0 +1,8 @@
+# Exploratory row E22 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-08 "E22: the training recipe on tau^2-bench" (c)):
+# the harvest arm. LLM-only (every decision point off, the request tau2's llm_agent sends) on the train tasks; every
+# turn's tool-choice state is logged with the LLM's choice (tool_select/off records keep the S1 state), and
+# `log_params` logs, at every LLM tool call, the argument questions the cascade would ask with the LLM's own value.
+# No System-1 call.
+name: e22_harvest
+log_state: true
+log_params: true

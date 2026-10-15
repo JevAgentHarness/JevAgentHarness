@@ -1,0 +1,135 @@
+# JevAgentHarness best-practice profile, WRITTEN BY scripts/select_profile.py (docs/PREREG_A7_STAGE2.md A7.1); do not edit by hand.
+# backends.startlux_4b filled by scripts/fill_backend_tau.py (A7.1 (f) / A7.18 (e) 4): tool_select: tau 0.975626; tool_params: tau 0.994782
+# backends.jevagent_rl filled by scripts/fill_backend_tau.py (A7.1 (f) / A7.18 (e) 4): tool_select: tau 0.5; tool_params: tau 1
+# backends.jevagentrl_v2 added with calibration: pending by scripts/fill_backend_tau.py --add-pending (A7.19 (f); select_profile.py's rule): tool_params, tool_select
+# backends.jevagentrl_v2 filled by scripts/fill_backend_tau.py (A7.1 (f) / A7.18 (e) 4): tool_select: tau 0.998724; tool_params: tau 0.999889
+kind: jevagent_profile
+version: 1
+name: jevagent_best
+status: selected
+description: Selected per decision-point group from the Stage-1 main-run results by
+  the rule of docs/PREREG_A7_STAGE2.md A7.1 (scripts/select_profile.py); see results/stage2/profile_selection.json
+  for every candidate's statistics.
+selection:
+  generated: '2026-10-03T06:28:20+00:00'
+  git: cdd78765ae7c361bc91e7b46c769e25c2fe923f4
+  rule: docs/PREREG_A7_STAGE2.md A7.1
+  runs:
+    E2a: runs/e2a_jevgym_tool_decisions
+    E2b: runs/e2b_jevgym_meta_control
+    E2c: runs/e2c_jevgym_baselines
+    E6: runs/e6_alfworld_action_only
+  errors: 0
+system2:
+  gemini-3.5-flash:
+    decision_points:
+      tool_select:
+        mode: cascade
+        tau: 1.0
+      tool_params:
+        mode: cascade
+        tau: 0.99
+      reflection:
+        mode: trigger
+        tau: 0.5
+    groups:
+      tool: jev_ts_cascade_tauhat
+      stop: null
+      reflection: jev_reflect_trigger
+      routing: null
+      memory: null
+      action: null
+    best_single:
+      group: tool
+      arm: jev_ts_cascade_tauhat
+      decision_points:
+        tool_select:
+          mode: cascade
+          tau: 1.0
+        tool_params:
+          mode: cascade
+          tau: 0.99
+      stage1:
+        savings: 0.14184199927022678
+        p_ni: 0.00010024314737847021
+        p_cheaper: 5.447570932429587e-53
+        n_pairs: 500
+      original_candidate:
+        arm: jev_ts_cascade_tauhat
+        decision_points:
+          tool_select:
+            mode: cascade
+            tau: 1.0
+          tool_params:
+            mode: cascade
+            tau: 0.99
+        stage1:
+          savings: 0.14184199927022678
+          p_ni: 0.00010024314737847021
+          p_cheaper: 5.447570932429587e-53
+          n_pairs: 500
+    logo:
+      reflection: 'configuration-identical to best_single (the profile without reflection
+        is tool alone): its first 200 tasks are reused (A7.11 (c))'
+      tool: null
+    backends:
+      jevagent_rl:
+        tool_select:
+          tau: 0.4999999999978404
+        tool_params:
+          tau: 0.9999998807907104
+        fitted_from:
+          tool_select:
+            path: results/gpu_round5/cal/tauhat_rl_shadow_cal_tool_select.json
+            sha256: 9f9ed1b0a2c93a84cb59cbf21ff705ccd78a6e36fc60f8bc8f67d25c2b812cce
+          tool_params:
+            path: results/gpu_round5/cal/tauhat_rl_shadow_cal_tool_params.json
+            sha256: 527618daded15118cc5b88f227852269e25818487adc409b2dd72fceaf77e7d2
+          fit_arm: rl_shadow_cal
+      startlux_4b:
+        tool_select:
+          tau: 0.9756255275765149
+        tool_params:
+          tau: 0.994782179209088
+        fitted_from:
+          tool_select:
+            path: results/calibration/tauhat_sl4b_shadow_cal_tool_select.json
+            sha256: fed8106db1bcb164d26f5049d91546f29735f838489bb739a79d8317a4b8852f
+          tool_params:
+            path: results/calibration/tauhat_sl4b_shadow_cal_tool_params.json
+            sha256: f52112f4ade8d6da70eb23119fa0ed8d985873c6974eb1539e28917c2c14f443
+          fit_arm: sl4b_shadow_cal
+      jevagentrl_v2:
+        tool_select:
+          tau: 0.9987240290578037
+        tool_params:
+          tau: 0.99988853931427
+        fitted_from:
+          tool_select:
+            path: results/calibration/tauhat_v2_shadow_cal_tool_select.json
+            sha256: 68d6c045c7feffd848e13f7f002551871164c62073c664ab0d345c3ddefd1f9c
+          tool_params:
+            path: results/calibration/tauhat_v2_shadow_cal_tool_params.json
+            sha256: 3d7efd65d35521bc6ffc6f94dd4e79e6ad070b4374670571696df6979e3ea267
+          fit_arm: v2_shadow_cal
+    alfworld:
+      decision_points:
+        reflection:
+          mode: trigger
+          tau: 0.5
+  gemini-3.5-flash-lite:
+    decision_points: {}
+    groups:
+      tool: null
+      stop: null
+      reflection: null
+      routing: null
+      memory: null
+      action: null
+    skip: not tested (no decision point qualified in Stage 1; the best-practice profile
+      is LLM-only) -- A7.1 (g) 5
+    best_single:
+      skip: no qualifying candidate (A7.1 (g) 5)
+    alfworld:
+      skip: the profile's ALFWorld rendering delegates no decision point (A7.1 (i));
+        S2-L3b is not run

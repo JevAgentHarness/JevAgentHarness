@@ -1,0 +1,494 @@
+{
+ "registered": "docs/PREREG_A7_STAGE2.md, Deviations 2026-10-09 ~16:05 UTC, E29",
+ "code": "1ac1c62",
+ "written": "2026-10-09T19:42:52Z",
+ "pilot": {
+  "tb": {
+   "harness": "tb",
+   "stage": "pilot",
+   "n": 0,
+   "status": "the gate kept every step on the strong LLM",
+   "no_gate": true
+  },
+  "mswe": {
+   "harness": "mswe",
+   "label": "mini-SWE-agent on SWE-bench Verified",
+   "llms": "DeepSeek-V4-Pro / V4-Flash",
+   "ref": "E4r (pooled 300)",
+   "n_listed": 30,
+   "n": 30,
+   "missing": {
+    "baseline": [],
+    "gated": []
+   },
+   "arms": {
+    "baseline": {
+     "n": 30,
+     "solved": 21,
+     "success": 0.7,
+     "cost_mean": 0.05137761104000002,
+     "llm_cost_mean": 0.05137761104000002,
+     "dm_cost_mean": 0.0,
+     "wall_mean": 543.1035903844,
+     "wall_median": 324.5768782079999,
+     "requests_mean": 44.733333333333334,
+     "fast_share": 0.0,
+     "fast_requests": 0,
+     "requests": 1342,
+     "input_tokens_mean": 1345784.5,
+     "cached_share": 0.9153931158121279,
+     "reasons": {
+      "strong": 1342
+     },
+     "segments_per_task": 0.0,
+     "segment_len_mean": null,
+     "segments_capped_share": null,
+     "switches_per_task": 0.0,
+     "decisions_per_task": 0.0,
+     "decision_errors": 0,
+     "fail_open": 0,
+     "dm_latency_per_task_s": 0.0,
+     "waited_per_task_s": 0.0,
+     "llm_errors": 0,
+     "infra_errors": 0,
+     "timeouts": 0,
+     "not_in_proxy_log": 0
+    },
+    "gated": {
+     "n": 30,
+     "solved": 21,
+     "success": 0.7,
+     "cost_mean": 0.04586951983333332,
+     "llm_cost_mean": 0.04016339703333333,
+     "dm_cost_mean": 0.005706122799999999,
+     "wall_mean": 560.8665587435668,
+     "wall_median": 360.88231662699945,
+     "requests_mean": 42.53333333333333,
+     "fast_share": 0.007053291536050157,
+     "fast_requests": 9,
+     "requests": 1276,
+     "input_tokens_mean": 1004169.0333333333,
+     "cached_share": 0.9128377821914511,
+     "reasons": {
+      "first": 30,
+      "below_tau": 1229,
+      "repeat:below_tau": 8,
+      "enter": 6,
+      "continue": 3
+     },
+     "segments_per_task": 0.2,
+     "segment_len_mean": 1.5,
+     "segments_capped_share": 0.0,
+     "switches_per_task": 0.36666666666666664,
+     "decisions_per_task": 42.266666666666666,
+     "decision_errors": 0,
+     "fail_open": 0,
+     "dm_latency_per_task_s": 8.050966666666666,
+     "waited_per_task_s": 1.0565533333333337,
+     "llm_errors": 0,
+     "infra_errors": 0,
+     "timeouts": 0,
+     "not_in_proxy_log": 0
+    }
+   },
+   "spend": {
+    "llm": 2.74623,
+    "decision_model": 0.171184,
+    "total": 2.917414,
+    "by_arm": {
+     "baseline": 1.541328,
+     "gated": 1.376086
+    },
+    "calls": 2618,
+    "decisions": 1268,
+    "unpriced_calls": 4
+   },
+   "reruns": {
+    "baseline": [],
+    "gated": []
+   },
+   "written": "2026-10-09T18:51:50Z",
+   "paired": {
+    "n": 30,
+    "wins": 2,
+    "losses": 2,
+    "both": 19,
+    "neither": 7,
+    "success_base": 0.7,
+    "success_arm": 0.7,
+    "solved_base": 21,
+    "solved_arm": 21,
+    "delta_pt": 0.0,
+    "delta_ci": [
+     -13.333333333333334,
+     13.333333333333334
+    ],
+    "cost_base": 0.05137761104000001,
+    "cost_arm": 0.04586951983333332,
+    "saving": 0.10720800549442366,
+    "saving_ci": [
+     -0.6291475181652441,
+     0.42194111889865826
+    ],
+    "cheaper_share": 0.36666666666666664,
+    "tango": {
+     "n": 30,
+     "diff": 0.0,
+     "ci": [
+      -0.1621800567139749,
+      0.16218005671397484
+     ],
+     "alpha": 0.05,
+     "one_sided": false,
+     "method": "Tango 1998"
+    },
+    "ni_p": 0.5769066433932766,
+    "ni": false,
+    "time_base": 543.1035903843999,
+    "time_arm": 560.8665587435667,
+    "time_saving": -0.032706409373199685,
+    "time_saving_ci": [
+     -0.4454584019662937,
+     0.24616882408887228
+    ],
+    "median_time_base": 324.5768782079999,
+    "median_time_arm": 360.88231662699945,
+    "median_time_saving": -0.11185466635652874,
+    "faster_share": 0.5333333333333333,
+    "n_time": 30
+   },
+   "paired_cc": {
+    "n": 30,
+    "wins": 2,
+    "losses": 2,
+    "both": 19,
+    "neither": 7,
+    "success_base": 0.7,
+    "success_arm": 0.7,
+    "solved_base": 21,
+    "solved_arm": 21,
+    "delta_pt": 0.0,
+    "delta_ci": [
+     -13.333333333333334,
+     13.333333333333334
+    ],
+    "cost_base": 0.05137761104000001,
+    "cost_arm": 0.04586951983333332,
+    "saving": 0.10720800549442366,
+    "saving_ci": [
+     -0.6291475181652441,
+     0.42194111889865826
+    ],
+    "cheaper_share": 0.36666666666666664,
+    "tango": {
+     "n": 30,
+     "diff": 0.0,
+     "ci": [
+      -0.1621800567139749,
+      0.16218005671397484
+     ],
+     "alpha": 0.05,
+     "one_sided": false,
+     "method": "Tango 1998"
+    },
+    "ni_p": 0.5769066433932766,
+    "ni": false,
+    "time_base": 543.1035903843999,
+    "time_arm": 560.8665587435667,
+    "time_saving": -0.032706409373199685,
+    "time_saving_ci": [
+     -0.4454584019662937,
+     0.24616882408887228
+    ],
+    "median_time_base": 324.5768782079999,
+    "median_time_arm": 360.88231662699945,
+    "median_time_saving": -0.11185466635652874,
+    "faster_share": 0.5333333333333333,
+    "n_time": 30
+   },
+   "stage": "pilot"
+  }
+ },
+ "full": {},
+ "gates": {
+  "tb": {
+   "n_steps": 187,
+   "n_episodes": 10,
+   "V_usd": 1.0,
+   "tau": null,
+   "G_max": 0.0,
+   "dC_usd": 0.01213779946524065,
+   "dC_over_V": 0.01213779946524065,
+   "agree_fast": 0.3689839572192513,
+   "agree_self": 0.6042780748663101,
+   "n_routed_sim": 0,
+   "sim_fast_share": 0.0,
+   "routed_agree_fast": null,
+   "routed_agree_self": null,
+   "c_mean": 0.5798395668449251,
+   "reason": "max G <= 0: no step pays, the gate routes nothing",
+   "harness": "tb",
+   "registered": "docs/PREREG_A7_STAGE2.md, Deviations 2026-10-09 ~16:05 UTC, E29",
+   "written": "2026-10-09T16:48:01Z",
+   "logs": "/opt/jev/JevAgentHarness/research/runs/e29/tb/proxy/cal",
+   "decisions_total": 198,
+   "decision_errors": 0,
+   "shadow_calls_failed": 0,
+   "records_after_fit": 1,
+   "descriptive": {
+    "n": 187,
+    "all": {
+     "n": 187,
+     "agree_fast": 0.3689839572192513,
+     "agree_self": 0.6042780748663101,
+     "same_tool_fast": 0.7700534759358288,
+     "same_tool_self": 0.9625668449197861
+    },
+    "by_tool": {
+     "bash": {
+      "n": 106,
+      "agree_fast": 0.2641509433962264,
+      "agree_self": 0.39622641509433965,
+      "same_tool_fast": 0.9339622641509434,
+      "same_tool_self": 0.9716981132075472
+     },
+     "read": {
+      "n": 46,
+      "agree_fast": 0.6304347826086957,
+      "agree_self": 0.8913043478260869,
+      "same_tool_fast": 0.6956521739130435,
+      "same_tool_self": 0.9565217391304348
+     },
+     "write": {
+      "n": 21,
+      "agree_fast": 0.47619047619047616,
+      "agree_self": 0.8571428571428571,
+      "same_tool_fast": 0.5238095238095238,
+      "same_tool_self": 0.9523809523809523
+     },
+     "none": {
+      "n": 10,
+      "agree_fast": 0.1,
+      "agree_self": 0.9,
+      "same_tool_fast": 0.1,
+      "same_tool_self": 0.9
+     },
+     "edit": {
+      "n": 4,
+      "agree_fast": 0.25,
+      "agree_self": 0.75,
+      "same_tool_fast": 0.25,
+      "same_tool_self": 1.0
+     }
+    },
+    "jev_says_fast": {
+     "n": 123,
+     "agree_fast": 0.4065040650406504,
+     "agree_self": 0.6504065040650406,
+     "same_tool_fast": 0.7235772357723578,
+     "same_tool_self": 0.9512195121951219
+    },
+    "jev_says_strong": {
+     "n": 64,
+     "agree_fast": 0.296875,
+     "agree_self": 0.515625,
+     "same_tool_fast": 0.859375,
+     "same_tool_self": 0.984375
+    },
+    "auroc_c_for_fast_agreement": 0.515966592974699,
+    "auroc_c_for_self_agreement": 0.5207486247309256,
+    "fixed_tau_0p5_share": 0.6577540106951871,
+    "note": "post hoc, descriptive; not part of the registered fit"
+   }
+  },
+  "mswe": {
+   "n_steps": 735,
+   "n_episodes": 20,
+   "V_usd": 1.0,
+   "tau": 0.99,
+   "G_max": 2.01565,
+   "dC_usd": 0.0008694235985775514,
+   "dC_over_V": 0.0008694235985775514,
+   "agree_fast": 0.07755102040816327,
+   "agree_self": 0.1510204081632653,
+   "n_routed_sim": 18,
+   "sim_fast_share": 0.024489795918367346,
+   "routed_agree_fast": 0.4444444444444444,
+   "routed_agree_self": 0.3333333333333333,
+   "c_mean": 0.631741489795925,
+   "reason": "argmax G",
+   "harness": "mswe",
+   "registered": "docs/PREREG_A7_STAGE2.md, Deviations 2026-10-09 ~16:05 UTC, E29",
+   "written": "2026-10-09T18:02:26Z",
+   "logs": "/opt/jev/JevAgentHarness/research/runs/e29/mswe/proxy/cal",
+   "decisions_total": 757,
+   "decision_errors": 0,
+   "shadow_calls_failed": 2,
+   "records_after_fit": 0,
+   "descriptive": {
+    "n": 735,
+    "all": {
+     "n": 735,
+     "agree_fast": 0.07755102040816327,
+     "agree_self": 0.1510204081632653,
+     "same_tool_fast": 0.9959183673469387,
+     "same_tool_self": 0.9904761904761905
+    },
+    "by_tool": {
+     "bash": {
+      "n": 735,
+      "agree_fast": 0.07755102040816327,
+      "agree_self": 0.1510204081632653,
+      "same_tool_fast": 0.9959183673469387,
+      "same_tool_self": 0.9904761904761905
+     }
+    },
+    "jev_says_fast": {
+     "n": 535,
+     "agree_fast": 0.08785046728971962,
+     "agree_self": 0.1588785046728972,
+     "same_tool_fast": 0.9962616822429906,
+     "same_tool_self": 0.9906542056074766
+    },
+    "jev_says_strong": {
+     "n": 200,
+     "agree_fast": 0.05,
+     "agree_self": 0.13,
+     "same_tool_fast": 0.995,
+     "same_tool_self": 0.99
+    },
+    "auroc_c_for_fast_agreement": 0.6988433473063189,
+    "auroc_c_for_self_agreement": 0.5931724994224994,
+    "fixed_tau_0p5_share": 0.7278911564625851,
+    "note": "post hoc, descriptive; not part of the registered fit"
+   }
+  }
+ },
+ "go": {
+  "decision": "no-go",
+  "per_harness": {
+   "tb": {
+    "n": 0,
+    "saving": 0.0,
+    "drop": 99,
+    "solved_base": null,
+    "solved_gated": null,
+    "pass": false,
+    "not_worse": false,
+    "no_gate": true
+   },
+   "mswe": {
+    "n": 30,
+    "saving": 0.10720800549442366,
+    "drop": 0,
+    "solved_base": 21,
+    "solved_gated": 21,
+    "pass": false,
+    "not_worse": true,
+    "no_gate": false
+   }
+  },
+  "rule": "GO iff pass(tb) and pass(mswe), or pass of one and not_worse of the other; pass = saving >= 20 % and at most 3 tasks of 30 lost; not_worse = saving >= the reference row's (pi 9.6 %, mini-SWE-agent 10.5 %) and at most 3 tasks lost",
+  "registered": "docs/PREREG_A7_STAGE2.md, Deviations 2026-10-09 ~16:05 UTC, E29",
+  "written": "2026-10-09T18:53:37Z"
+ },
+ "spend": {
+  "tb": {
+   "harness": "tb",
+   "logged": {
+    "llm": 6.998803,
+    "decision_model": 0.025783,
+    "total": 7.024586,
+    "by_arm": {
+     "baseline": 0.148418,
+     "shadow": 6.704068,
+     "smoke_gated": 0.1721
+    },
+    "calls": 778,
+    "decisions": 279,
+    "unpriced_calls": 0
+   },
+   "or_key_usage_start": "18.286930267",
+   "or_key_usage_end": "23.652674787",
+   "written": "2026-10-09T18:53:43Z"
+  },
+  "mswe": {
+   "harness": "mswe",
+   "logged": {
+    "llm": 5.061621,
+    "decision_model": 0.274013,
+    "total": 5.335635,
+    "by_arm": {
+     "baseline": 1.553128,
+     "gated": 1.376086,
+     "shadow": 2.397741,
+     "smoke_gated": 0.008681
+    },
+    "calls": 5016,
+    "decisions": 2064,
+    "unpriced_calls": 13
+   },
+   "or_key_usage_start": "18.314529979",
+   "or_key_usage_end": "23.652674787",
+   "written": "2026-10-09T19:03:34Z"
+  },
+  "swea": {
+   "harness": "swea",
+   "logged": {
+    "llm": 0.986849,
+    "decision_model": 0.004329,
+    "total": 0.991178,
+    "by_arm": {
+     "baseline": 0.284034,
+     "shadow": 0.634945,
+     "smoke_gated": 0.072199
+    },
+    "calls": 185,
+    "decisions": 70,
+    "unpriced_calls": 0
+   },
+   "or_key_usage_start": "18.286930267",
+   "or_key_usage_end": "23.652674787",
+   "written": "2026-10-09T18:53:22Z"
+  },
+  "local_smoke": {
+   "logged": {
+    "llm": 0.030435,
+    "decision_model": 0.000321,
+    "total": 0.030756
+   },
+   "what": "local development smoke of the proxy with pi 0.99.2 and litellm against Gemini (Jev via the author Jev-only key, decision/jev.py), 2026-10-09 16:27-16:31 UTC; development only, never reported as a result"
+  },
+  "total": 13.3822,
+  "cap": 300.0
+ },
+ "leaks": {
+  "tb": {
+   "checks": 3,
+   "max_files": 0,
+   "stages": [
+    "smoke",
+    "cal",
+    "final"
+   ]
+  },
+  "mswe": {
+   "checks": 4,
+   "max_files": 0,
+   "stages": [
+    "smoke",
+    "cal",
+    "pilot",
+    "final"
+   ]
+  },
+  "swea": {
+   "checks": 2,
+   "max_files": 0,
+   "stages": [
+    "smoke",
+    "final"
+   ]
+  }
+ }
+}

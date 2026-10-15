@@ -1,0 +1,42 @@
+# Terminal-Bench-Science "hard pool": static stage of the hard subset (adapters/pi/README.md, "Terminal-Bench-Science").
+# Rule (adapters/pi/tbsci.py HARD_POOL_RULES): published task (tasks/dataset.toml), no GPU, <= 4 CPUs, <= 16 GB RAM,
+# <= 20 GB storage, image build timeout <= 30 min, verifier timeout <= 30 min, expert estimate 4-24 h.
+# Generated at terminal-bench-science@cfff307 with: python adapters/pi/tbsci.py list <clone> hard_pool
+# The final hard subset (tbsci_hard.txt) is chosen from this pool by the calibration pass; do not edit by hand.
+sparse-network-assimilation
+hysteretic-aquifer-control
+duan-thesis
+mendota-ice-phenology
+masked-spherical-remap
+microarch-modeling
+baseline-free-localization
+guided-wave-localization
+inelastic-constitutive-discovery
+virtual-baseline-localization
+betalactam-multimodal-transfer
+diag-chipseq
+genomic-model-ranking
+ont-tn-qc
+protein-active-learning
+clinical-metadata-recovery
+dapi-he-alignment
+longitudinal-clinical-agent
+eeg-erp-recovery
+foraging-cognitive-model
+mri-harmonization
+dna-storage-codec
+ode-law-discovery
+traffic-flux-inversion
+energy-routing
+regularized-game-proof
+3x2pt-inference
+neo-orbit-determination
+rv-astrometry-fitting
+tess-transit-vetting
+geometric-pharmacophore-alignment
+nanoindentation-property-extraction
+si-fracture-fbc
+xrd-multiphase-qpa
+frustrated-heisenberg-nqs
+inverse-lithography
+spin-glass-groundstate

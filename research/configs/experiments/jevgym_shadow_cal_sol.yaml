@@ -1,0 +1,22 @@
+# Stage 2, A7.12 (i) under A7.12 (d): the calibration shadow arm of the optional closed-family row -- identical to
+# `jev_shadow_cal_x` (configs/experiments/jevgym_shadow_cal_x.yaml) except for System-2 (gpt-6.1-sol through the OpenAI
+# Responses API, reasoning effort low = its lowest, no temperature: results/stage2/sol_capability_manifest.json) and
+# the same CALIBRATION seeds 5150..5299 (reserved by A7.12 (d) "for this amendment and any later backend calibration";
+# excluded from training). Fitted per decision point with the registered command (A6.11 (c), A6.19); a fit that accepts
+# no level -> `always_defer: true`. Only cascade parameters are refit on Sol. Not an evaluation run: no JEV_EVAL_RUNS.
+#   for pass in 1 2 3; do jevbench run configs/experiments/jevgym_shadow_cal_sol.yaml --out runs -o workers=4; done
+#   for dp in tool_select tool_params; do
+#     python -m jevharness.bench.threshold_theory runs/e2a_jevgym_shadow_cal_sol --arm jev_shadow_cal_sol --dp $dp \
+#       --calibration-arm --task-value 1.0 --lam-per-hour 0 --v-fallback W --format json \
+#       --out results/calibration/tauhat_jev_shadow_cal_sol_${dp}.json
+#   done
+#   python scripts/render_profile_x.py --s2 gpt-6.1-sol --fit-arm jev_shadow_cal_sol --out configs/harness/jevagent_best_sol.yaml
+name: e2a_jevgym_shadow_cal_sol
+suite: {name: jevgym, n: 150, seed0: 5150, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # calibration seeds 5150..5299 (A7.12 (d), (i))
+n_tasks: 150
+llm: {provider: openai_responses, model: gpt-6.1-sol, reasoning_effort: low}
+s1: {type: jev, provider: openrouter}
+s1_cache: cache/s1_stage2_sol.sqlite
+workers: 4
+arms:
+  - {name: jev_shadow_cal_sol, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}

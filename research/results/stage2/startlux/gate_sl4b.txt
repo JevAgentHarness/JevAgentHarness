@@ -1,0 +1,8 @@
+[ok] effective specification in sync: docs/STAGE2_EFFECTIVE.md
+[ok] Stage-2 fixture tests: .....................................................                    [100%]
+[ok] profile `jevagent_best.yaml` selected: configs/harness/jevagent_best.yaml selected
+[ok] task-major schedule: configs/experiments/stage2_jevgym.yaml: schedule task_major
+[ok] StartLux serving manifest with the 4B served: StartLux-Decision-4B: original
+[ok] StartLux-4B thresholds fitted: backends.startlux_4b: fitted
+[ok] S2-4S tariff frozen: A7.18 (e) 5 tariff: results/stage2/tariff_sl4b.json
+[gate] stage2_jevgym: PASS

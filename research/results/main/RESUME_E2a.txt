@@ -1,0 +1,6 @@
+step E2a (resumed)
+reason container restart at about 2026-10-02T20:32Z killed the run mid pass 1 (no truncated records; in-flight episodes had logged nothing)
+resumed 2026-10-02T20:34:23Z
+commit 345e9e939fd996d5f112c7e5b220d5c142de830d (no change under src/, configs/, scripts/primaries.py or the registration since 256e953)
+plan sha256 9a2182aa2a975e85
+runs resume by task id (bench/runner.py); passes 2-3 follow as registered

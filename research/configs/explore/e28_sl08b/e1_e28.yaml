@@ -1,0 +1,32 @@
+# Exploratory row E28 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-09 "E28: our recipe on StartLux-Decision-0.8B";
+# descriptive, outside every Holm table). L1 (registration (f) 1): E1's 3,991 static decisions answered by StartLux-0.8B (mixed), served by
+# training/serve_jev.py in the v2 venv on :8081 of the E28 host. E12c's E1 config
+# (configs/explore/e12_train/e1_e12c.yaml: E1's pools, exclusions, batching and workers) with this backend and a
+# new answer cache; cost per decision by E9's rule.
+#   python -m jevharness.bench.decision_eval configs/explore/e28_sl08b/e1_e28.yaml --out runs --only e28
+name: e1_bfcl_when2call_e28
+suites:
+- name: bfcl
+  categories:
+  - simple_python
+  - multiple
+  - live_simple
+  - live_multiple
+  - irrelevance
+  - live_irrelevance
+  max_per_cat: 200
+- name: when2call
+  max_items: 1000
+exclude_ids_file: configs/eval/e1_dev_prefix_ids.json
+batch_by_state: true
+s1_cache: cache/s1_e28_e1.sqlite
+workers: 4
+backends:
+  e28:
+    type: jev
+    name: startlux-0.8b-mixed
+    base_url: http://127.0.0.1:8081
+    model: startlux-0.8b-mixed
+    api_key: ''
+    price_model: StartLux-Decision-0.8B
+    timeout: 120.0

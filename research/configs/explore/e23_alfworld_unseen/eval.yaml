@@ -1,0 +1,24 @@
+# E23 (exploratory, descriptive; docs/PREREG_A7_STAGE2.md, Deviations 2026-10-08 "E23: the E11 checkpoint in ALFWorld's
+# unseen rooms (valid_unseen)"), (d): E11's evaluation (configs/explore/e11_alfworld/eval.yaml) with only the split
+# changed: ALFWorld's 134 valid_unseen games (configs/explore/e23_alfworld_unseen/eval_games.json, stratified order),
+# rooms that occur in none of E11's training or calibration games. llm_only is re-run in the same pool (paired
+# wall-clock). e11_action_cascade_tauhat: E11's frozen checkpoint (e11-alfworld-4b: Qwen3-4B + LoRA + temperatures,
+# sha256-checked against E11's record; serve_jev on :8081) at the action point in CASCADE at E11's tau-hat 0.120764 (no
+# refit); e11_action_replace: the trained model alone (secondary). One invocation, task-major interleaved (seed 732, 8
+# workers); E14's pause-and-resume rule on API overload (f). No System-1 cache (honest wall time).
+#   python -m jevharness.bench.runner configs/explore/e23_alfworld_unseen/eval.yaml --out runs
+name: e23_alfworld_unseen_eval
+suite: {name: alfworld, split: eval_out_of_distribution, data_dir: data/raw/alfworld, n: 134, stratify: true,
+        max_episode_steps: 50}
+n_tasks: 134
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1_backends:
+  e11: {type: jev, name: e11-alfworld-4b, base_url: "http://127.0.0.1:8081", model: e11-alfworld-4b, api_key: "",
+        timeout: 60.0, cache: null}
+harness_defaults: {max_steps: 50, history_window: 12}
+workers: 8
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}
+  - {name: e11_action_cascade_tauhat, s1: e11, action: {mode: cascade, tau: 0.120764}}
+  - {name: e11_action_replace, s1: e11, action: {mode: replace}}

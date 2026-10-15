@@ -1,0 +1,781 @@
+{
+ "generated": "2026-10-03T13:08:55+00:00",
+ "git": "cf3dbb4fb9b90f8057dc31fbfb84e59cf38c740e",
+ "registered": "PREREGISTRATION A5.4 (e); A6.20 (f) (code item); Deviations 2026-10-03 (tau^2 runs) item (7)",
+ "rows": [
+  {
+   "configuration": "LLM-only",
+   "e2_arm": "llm_only",
+   "tau2_arm": "llm_only",
+   "tool_params_tau_e2": "-",
+   "tool_params_tau_tau2": "-",
+   "e2": {
+    "n": null,
+    "delta": 0.0,
+    "qualifies": true,
+    "cost_savings": 0.0,
+    "p_decisive": null,
+    "margin": 0.03,
+    "note": "the reference"
+   },
+   "tau2": {
+    "n": null,
+    "delta": 0.0,
+    "qualifies": true,
+    "cost_savings": 0.0,
+    "p_decisive": null,
+    "margin": 0.05,
+    "note": "the reference",
+    "delta_pass1": 0.0
+   },
+   "set": "A5.4 (e) list"
+  },
+  {
+   "configuration": "CASCADE tau=0.5",
+   "e2_arm": "jev_ts_cascade_tau0.5",
+   "tau2_arm": "jev_ts_cascade_tau0.5",
+   "tool_params_tau_e2": "0.9",
+   "tool_params_tau_tau2": "0.5",
+   "e2": {
+    "arm": "jev_ts_cascade_tau0.5",
+    "n": 200,
+    "n_dropped": 0,
+    "delta": -0.215,
+    "delta_ci": [
+     -0.275,
+     -0.16
+    ],
+    "qualifies": false,
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "margin": 0.03,
+    "cost_savings": 0.8454844855143601,
+    "success_arm": 0.785,
+    "success_ref": 1.0,
+    "file": "runs/e2a_jevgym_tool_decisions/jev_ts_cascade_tau0.5.jsonl",
+    "sha256": "e67717a961f6f47ed23cf2a808ead87bd779d8349f0cde56aec39e8ad6fdb3c3"
+   },
+   "tau2": {
+    "arm": "jev_ts_cascade_tau0.5",
+    "n": 35,
+    "n_dropped": 0,
+    "delta": -0.17142857142857143,
+    "delta_ci": [
+     -0.3142857142857143,
+     -0.02857142857142857
+    ],
+    "delta_pass1": -0.12380952380952383,
+    "qualifies": false,
+    "p_decisive": 0.9501287947451315,
+    "rule": "bb_ordered",
+    "margin": 0.05,
+    "cost_savings": -0.24376699664965407,
+    "success_arm": 0.5428571428571428,
+    "success_ref": 0.7142857142857143,
+    "file": "runs/tau2/airline/jev_ts_cascade_tau0.5.jsonl",
+    "sha256": "3fd7f94394c8436365bd8641833caa5ff613f861617d3dbc600c3e19ed21cc54"
+   },
+   "set": "A5.4 (e) list"
+  },
+  {
+   "configuration": "CASCADE tau=0.7",
+   "e2_arm": "jev_ts_cascade_tau0.7",
+   "tau2_arm": "jev_ts_cascade_tau0.7",
+   "tool_params_tau_e2": "0.9",
+   "tool_params_tau_tau2": "0.7",
+   "e2": {
+    "arm": "jev_ts_cascade_tau0.7",
+    "n": 200,
+    "n_dropped": 0,
+    "delta": -0.24,
+    "delta_ci": [
+     -0.305,
+     -0.185
+    ],
+    "qualifies": false,
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "margin": 0.03,
+    "cost_savings": 0.8096085165865587,
+    "success_arm": 0.76,
+    "success_ref": 1.0,
+    "file": "runs/e2a_jevgym_tool_decisions/jev_ts_cascade_tau0.7.jsonl",
+    "sha256": "59cba2fc40cc148de7ce3f7a4c918e172576784ccbe7aab306095df68dda44cf"
+   },
+   "tau2": {
+    "arm": "jev_ts_cascade_tau0.7",
+    "n": 35,
+    "n_dropped": 0,
+    "delta": -0.14285714285714285,
+    "delta_ci": [
+     -0.3142857142857143,
+     0.02857142857142857
+    ],
+    "delta_pass1": -0.08571428571428572,
+    "qualifies": false,
+    "p_decisive": 0.8746518547749207,
+    "rule": "bb_ordered",
+    "margin": 0.05,
+    "cost_savings": -0.05826883814348349,
+    "success_arm": 0.5714285714285714,
+    "success_ref": 0.7142857142857143,
+    "file": "runs/tau2/airline/jev_ts_cascade_tau0.7.jsonl",
+    "sha256": "9e494d61c7cc4fef7decd82c0e5b08d8c0d407653f031fec6085c0f358b17e6e"
+   },
+   "set": "A5.4 (e) list"
+  },
+  {
+   "configuration": "CASCADE tau=0.8",
+   "e2_arm": "jev_ts_cascade_tau0.8",
+   "tau2_arm": "jev_ts_cascade_tau0.8",
+   "tool_params_tau_e2": "0.9",
+   "tool_params_tau_tau2": "0.8",
+   "e2": {
+    "arm": "jev_ts_cascade_tau0.8",
+    "n": 200,
+    "n_dropped": 0,
+    "delta": -0.235,
+    "delta_ci": [
+     -0.3,
+     -0.18
+    ],
+    "qualifies": false,
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "margin": 0.03,
+    "cost_savings": 0.7648481322128643,
+    "success_arm": 0.765,
+    "success_ref": 1.0,
+    "file": "runs/e2a_jevgym_tool_decisions/jev_ts_cascade_tau0.8.jsonl",
+    "sha256": "eec8555f9d3613a078015d955c08ce76990bc8127c0d28bceb74413c4827ebc7"
+   },
+   "tau2": {
+    "arm": "jev_ts_cascade_tau0.8",
+    "n": 35,
+    "n_dropped": 0,
+    "delta": -0.08571428571428572,
+    "delta_ci": [
+     -0.2571428571428571,
+     0.08571428571428572
+    ],
+    "delta_pass1": -0.08571428571428572,
+    "qualifies": false,
+    "p_decisive": 0.6866259599665662,
+    "rule": "bb_ordered",
+    "margin": 0.05,
+    "cost_savings": -0.07243670954620374,
+    "success_arm": 0.6285714285714286,
+    "success_ref": 0.7142857142857143,
+    "file": "runs/tau2/airline/jev_ts_cascade_tau0.8.jsonl",
+    "sha256": "b0a20ac249bd411dee3c448284512a75d104ee119c8a33d61efbd85127ffdbaf"
+   },
+   "set": "A5.4 (e) list"
+  },
+  {
+   "configuration": "CASCADE tau=0.9",
+   "e2_arm": "jev_ts_cascade_tau0.9",
+   "tau2_arm": "jev_ts_cascade_tau0.9",
+   "tool_params_tau_e2": "0.9",
+   "tool_params_tau_tau2": "0.9",
+   "e2": {
+    "arm": "jev_ts_cascade_tau0.9",
+    "n": 200,
+    "n_dropped": 0,
+    "delta": -0.205,
+    "delta_ci": [
+     -0.265,
+     -0.15
+    ],
+    "qualifies": false,
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "margin": 0.03,
+    "cost_savings": 0.719713233122862,
+    "success_arm": 0.795,
+    "success_ref": 1.0,
+    "file": "runs/e2a_jevgym_tool_decisions/jev_ts_cascade_tau0.9.jsonl",
+    "sha256": "e9bd115d95f88b8cde334a76d6fe8371c4bbb257a01ff9a3d8885a1888b9c5ff"
+   },
+   "tau2": {
+    "arm": "jev_ts_cascade_tau0.9",
+    "n": 35,
+    "n_dropped": 0,
+    "delta": -0.02857142857142857,
+    "delta_ci": [
+     -0.14285714285714285,
+     0.05714285714285714
+    ],
+    "delta_pass1": -0.028571428571428577,
+    "qualifies": false,
+    "p_decisive": 0.736249653269693,
+    "rule": "bb_ordered",
+    "margin": 0.05,
+    "cost_savings": -0.18104610740353588,
+    "success_arm": 0.6857142857142857,
+    "success_ref": 0.7142857142857143,
+    "file": "runs/tau2/airline/jev_ts_cascade_tau0.9.jsonl",
+    "sha256": "28ecb2d7d20c3ad68c74ab70f441ec1b99fdef148b27737b074e2b603cd41588"
+   },
+   "set": "A5.4 (e) list"
+  },
+  {
+   "configuration": "CASCADE tau=0.95",
+   "e2_arm": "jev_ts_cascade_tau0.95",
+   "tau2_arm": "jev_ts_cascade_tau0.95",
+   "tool_params_tau_e2": "0.9",
+   "tool_params_tau_tau2": "0.95",
+   "e2": {
+    "arm": "jev_ts_cascade_tau0.95",
+    "n": 200,
+    "n_dropped": 0,
+    "delta": -0.205,
+    "delta_ci": [
+     -0.265,
+     -0.155
+    ],
+    "qualifies": false,
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "margin": 0.03,
+    "cost_savings": 0.6679134154392037,
+    "success_arm": 0.795,
+    "success_ref": 1.0,
+    "file": "runs/e2a_jevgym_tool_decisions/jev_ts_cascade_tau0.95.jsonl",
+    "sha256": "4894df1f752e863fb050f3717605f220231c2bb28ea2f8cde1f4cd70b2ef839d"
+   },
+   "tau2": {
+    "arm": "jev_ts_cascade_tau0.95",
+    "n": 35,
+    "n_dropped": 0,
+    "delta": -0.05714285714285714,
+    "delta_ci": [
+     -0.17142857142857143,
+     0.05714285714285714
+    ],
+    "delta_pass1": -4.758098676964957e-18,
+    "qualifies": false,
+    "p_decisive": 0.7362497729492283,
+    "rule": "bb_ordered",
+    "margin": 0.05,
+    "cost_savings": -0.19160940900692558,
+    "success_arm": 0.6571428571428571,
+    "success_ref": 0.7142857142857143,
+    "file": "runs/tau2/airline/jev_ts_cascade_tau0.95.jsonl",
+    "sha256": "7196537ea2188a46dc8ccb4b449550a73a09493c44d341d0ebcbe16717e29d95"
+   },
+   "set": "A5.4 (e) list"
+  },
+  {
+   "configuration": "CASCADE tau=0.99",
+   "e2_arm": "jev_ts_cascade_tau0.99",
+   "tau2_arm": "jev_ts_cascade_tau0.99",
+   "tool_params_tau_e2": "0.9",
+   "tool_params_tau_tau2": "0.99",
+   "e2": {
+    "arm": "jev_ts_cascade_tau0.99",
+    "n": 200,
+    "n_dropped": 0,
+    "delta": -0.08,
+    "delta_ci": [
+     -0.12,
+     -0.045
+    ],
+    "qualifies": false,
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "margin": 0.03,
+    "cost_savings": 0.39320689163666533,
+    "success_arm": 0.92,
+    "success_ref": 1.0,
+    "file": "runs/e2a_jevgym_tool_decisions/jev_ts_cascade_tau0.99.jsonl",
+    "sha256": "e9c00020314ca37af60bfb2b1b16d51ce1d29e5bd352078dd5130feefcf349ca"
+   },
+   "tau2": {
+    "arm": "jev_ts_cascade_tau0.99",
+    "n": 35,
+    "n_dropped": 0,
+    "delta": -0.02857142857142857,
+    "delta_ci": [
+     -0.14285714285714285,
+     0.08571428571428572
+    ],
+    "delta_pass1": -0.02857142857142857,
+    "qualifies": false,
+    "p_decisive": 0.37845458698986173,
+    "rule": "bb_ordered",
+    "margin": 0.05,
+    "cost_savings": -0.054901811496452346,
+    "success_arm": 0.6857142857142857,
+    "success_ref": 0.7142857142857143,
+    "file": "runs/tau2/airline/jev_ts_cascade_tau0.99.jsonl",
+    "sha256": "57625b097a5a224dfa585f3fcdb9005c5dc38c6f656c72dc011f97f9a9c7006c"
+   },
+   "set": "A5.4 (e) list"
+  },
+  {
+   "configuration": "ASSIST k=3",
+   "e2_arm": "jev_ts_assist_k3",
+   "tau2_arm": "jev_ts_assist_k3",
+   "tool_params_tau_e2": "-",
+   "tool_params_tau_tau2": "-",
+   "e2": {
+    "arm": "jev_ts_assist_k3",
+    "n": 500,
+    "n_dropped": 0,
+    "delta": -0.078,
+    "delta_ci": [
+     -0.102,
+     -0.054
+    ],
+    "qualifies": false,
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "margin": 0.03,
+    "cost_savings": 0.5372917643397359,
+    "success_arm": 0.92,
+    "success_ref": 0.998,
+    "file": "runs/e2a_jevgym_tool_decisions/jev_ts_assist_k3.jsonl",
+    "sha256": "9065c8675fedc24253051aa115f82779ba18b868af206d85f315ea93f54269fd"
+   },
+   "tau2": {
+    "arm": "jev_ts_assist_k3",
+    "n": 35,
+    "n_dropped": 0,
+    "delta": -0.08571428571428572,
+    "delta_ci": [
+     -0.22857142857142856,
+     0.05714285714285714
+    ],
+    "delta_pass1": -0.0380952380952381,
+    "qualifies": false,
+    "p_decisive": 0.7011281920588088,
+    "rule": "bb_ordered",
+    "margin": 0.05,
+    "cost_savings": -0.09171355047012586,
+    "success_arm": 0.6285714285714286,
+    "success_ref": 0.7142857142857143,
+    "file": "runs/tau2/airline/jev_ts_assist_k3.jsonl",
+    "sha256": "526e6aa0f74aab25c19290b76bf2391c9d388e0dc11cb1208428d6910bf7298c"
+   },
+   "set": "A5.4 (e) list"
+  },
+  {
+   "configuration": "policy GUARD",
+   "e2_arm": "jev_ts_guard",
+   "tau2_arm": "jev_guard",
+   "tool_params_tau_e2": "-",
+   "tool_params_tau_tau2": "-",
+   "e2": {
+    "arm": "jev_ts_guard",
+    "n": 200,
+    "n_dropped": 0,
+    "delta": 0.0,
+    "delta_ci": [
+     0.0,
+     0.0
+    ],
+    "qualifies": true,
+    "p_decisive": 0.002363326299121377,
+    "rule": "bb_ordered",
+    "margin": 0.03,
+    "cost_savings": -0.0020221803602999966,
+    "success_arm": 1.0,
+    "success_ref": 1.0,
+    "file": "runs/e2a_jevgym_tool_decisions/jev_ts_guard.jsonl",
+    "sha256": "ac9567ef11cc6465c710505c72d137e8c6cdee060182eb8cbcbad99d28539448"
+   },
+   "tau2": {
+    "arm": "jev_guard",
+    "n": 35,
+    "n_dropped": 0,
+    "delta": 0.0,
+    "delta_ci": [
+     -0.11428571428571428,
+     0.11428571428571428
+    ],
+    "delta_pass1": 0.06666666666666665,
+    "qualifies": false,
+    "p_decisive": 0.3737114010154121,
+    "rule": "bb_ordered",
+    "margin": 0.05,
+    "cost_savings": -0.03895311709608351,
+    "success_arm": 0.7142857142857143,
+    "success_ref": 0.7142857142857143,
+    "file": "runs/tau2/airline/jev_guard.jsonl",
+    "sha256": "3a2735d22a9060bb19df1bdc2442df1ee4084f99bb5e873acfe33a570e3da634"
+   },
+   "set": "A5.4 (e) list"
+  },
+  {
+   "configuration": "CASCADE tau-hat* (E2-carried, 1.00 / 0.99)",
+   "e2_arm": "jev_ts_cascade_tauhat",
+   "tau2_arm": "jev_ts_cascade_tauhat_e2",
+   "tool_params_tau_e2": "0.99",
+   "tool_params_tau_tau2": "0.99",
+   "e2": {
+    "arm": "jev_ts_cascade_tauhat",
+    "n": 500,
+    "n_dropped": 0,
+    "delta": 0.0,
+    "delta_ci": [
+     0.0,
+     0.0
+    ],
+    "qualifies": true,
+    "p_decisive": 0.00010024314737847021,
+    "rule": "bb_ordered",
+    "margin": 0.03,
+    "cost_savings": 0.14184199927022678,
+    "success_arm": 0.998,
+    "success_ref": 0.998,
+    "file": "runs/e2a_jevgym_tool_decisions/jev_ts_cascade_tauhat.jsonl",
+    "sha256": "752dd92afc9e01a5d0c5693be17f40b2a65cb59ab80f97007d1b323b0dbd7909"
+   },
+   "tau2": {
+    "arm": "jev_ts_cascade_tauhat_e2",
+    "n": 35,
+    "n_dropped": 0,
+    "delta": 0.05714285714285714,
+    "delta_ci": [
+     -0.08571428571428572,
+     0.2
+    ],
+    "delta_pass1": 0.047619047619047616,
+    "qualifies": false,
+    "p_decisive": 0.07542812244357898,
+    "rule": "bb_ordered",
+    "margin": 0.05,
+    "cost_savings": 0.05733043581203956,
+    "success_arm": 0.7714285714285715,
+    "success_ref": 0.7142857142857143,
+    "file": "runs/tau2/airline/jev_ts_cascade_tauhat_e2.jsonl",
+    "sha256": "0c36e4564c7d63d70258c3bbb433a58a323e29481e82032fa498a3eeaa901e75"
+   },
+   "set": "sensitivity"
+  }
+ ],
+ "missing": [],
+ "primary": {
+  "configurations": [
+   "LLM-only",
+   "CASCADE tau=0.5",
+   "CASCADE tau=0.7",
+   "CASCADE tau=0.8",
+   "CASCADE tau=0.9",
+   "CASCADE tau=0.95",
+   "CASCADE tau=0.99",
+   "ASSIST k=3",
+   "policy GUARD"
+  ],
+  "delta_success": {
+   "role": "registered",
+   "statistic": "paired Delta-success vs. LLM-only (E2: per-task success; tau^2: majority pass)",
+   "n": 9,
+   "tau_b": 0.6567895774291854,
+   "p_greater": 0.008289241622574956,
+   "p_less": 0.9937830687830688,
+   "p_two_sided": 0.015784832451499118,
+   "method": "exact",
+   "n_permutations": 362880,
+   "e2": [
+    0.0,
+    -0.215,
+    -0.24,
+    -0.235,
+    -0.205,
+    -0.205,
+    -0.08,
+    -0.078,
+    0.0
+   ],
+   "tau2": [
+    0.0,
+    -0.17142857142857143,
+    -0.14285714285714285,
+    -0.08571428571428572,
+    -0.02857142857142857,
+    -0.05714285714285714,
+    -0.02857142857142857,
+    -0.08571428571428572,
+    0.0
+   ]
+  },
+  "iso_quality_savings": {
+   "role": "registered",
+   "statistic": "iso-quality cost savings (qualifying configurations by net savings, the rest tied below)",
+   "n": 9,
+   "tau_b": 0.7302967433402214,
+   "p_greater": 0.1111111111111111,
+   "p_less": 1.0,
+   "p_two_sided": 0.1111111111111111,
+   "method": "exact",
+   "n_permutations": 362880,
+   "e2": [
+    0.0,
+    -1.243766996649654,
+    -1.243766996649654,
+    -1.243766996649654,
+    -1.243766996649654,
+    -1.243766996649654,
+    -1.243766996649654,
+    -1.243766996649654,
+    -0.0020221803602999966
+   ],
+   "tau2": [
+    0.0,
+    -1.243766996649654,
+    -1.243766996649654,
+    -1.243766996649654,
+    -1.243766996649654,
+    -1.243766996649654,
+    -1.243766996649654,
+    -1.243766996649654,
+    -1.243766996649654
+   ]
+  },
+  "delta_success_pass1": {
+   "role": "descriptive",
+   "statistic": "paired Delta-success with tau^2 pass^1 (mean over the 3 trials)",
+   "n": 9,
+   "tau_b": 0.6087595874350709,
+   "p_greater": 0.014936067019400352,
+   "p_less": 0.9921186067019401,
+   "p_two_sided": 0.029530423280423282,
+   "method": "exact",
+   "n_permutations": 362880,
+   "e2": [
+    0.0,
+    -0.215,
+    -0.24,
+    -0.235,
+    -0.205,
+    -0.205,
+    -0.08,
+    -0.078,
+    0.0
+   ],
+   "tau2": [
+    0.0,
+    -0.12380952380952383,
+    -0.08571428571428572,
+    -0.08571428571428572,
+    -0.028571428571428577,
+    -4.758098676964957e-18,
+    -0.02857142857142857,
+    -0.0380952380952381,
+    0.06666666666666665
+   ]
+  },
+  "net_cost_savings": {
+   "role": "descriptive",
+   "statistic": "paired net cost savings without the qualifier",
+   "n": 9,
+   "tau_b": -0.5,
+   "p_greater": 0.9776923500881834,
+   "p_less": 0.037588183421516756,
+   "p_two_sided": 0.07517636684303351,
+   "method": "exact",
+   "n_permutations": 362880,
+   "e2": [
+    0.0,
+    0.8454844855143601,
+    0.8096085165865587,
+    0.7648481322128643,
+    0.719713233122862,
+    0.6679134154392037,
+    0.39320689163666533,
+    0.5372917643397359,
+    -0.0020221803602999966
+   ],
+   "tau2": [
+    0.0,
+    -0.24376699664965407,
+    -0.05826883814348349,
+    -0.07243670954620374,
+    -0.18104610740353588,
+    -0.19160940900692558,
+    -0.054901811496452346,
+    -0.09171355047012586,
+    -0.03895311709608351
+   ]
+  }
+ },
+ "sensitivity_with_tauhat_e2": {
+  "configurations": [
+   "LLM-only",
+   "CASCADE tau=0.5",
+   "CASCADE tau=0.7",
+   "CASCADE tau=0.8",
+   "CASCADE tau=0.9",
+   "CASCADE tau=0.95",
+   "CASCADE tau=0.99",
+   "ASSIST k=3",
+   "policy GUARD",
+   "CASCADE tau-hat* (E2-carried, 1.00 / 0.99)"
+  ],
+  "delta_success": {
+   "role": "registered",
+   "statistic": "paired Delta-success vs. LLM-only (E2: per-task success; tau^2: majority pass)",
+   "n": 10,
+   "tau_b": 0.6988459044322258,
+   "p_greater": 0.0027182539682539682,
+   "p_less": 0.9980621693121693,
+   "p_two_sided": 0.005185185185185185,
+   "method": "exact",
+   "n_permutations": 3628800,
+   "e2": [
+    0.0,
+    -0.215,
+    -0.24,
+    -0.235,
+    -0.205,
+    -0.205,
+    -0.08,
+    -0.078,
+    0.0,
+    0.0
+   ],
+   "tau2": [
+    0.0,
+    -0.17142857142857143,
+    -0.14285714285714285,
+    -0.08571428571428572,
+    -0.02857142857142857,
+    -0.05714285714285714,
+    -0.02857142857142857,
+    -0.08571428571428572,
+    0.0,
+    0.05714285714285714
+   ]
+  },
+  "iso_quality_savings": {
+   "role": "registered",
+   "statistic": "iso-quality cost savings (qualifying configurations by net savings, the rest tied below)",
+   "n": 10,
+   "tau_b": 0.4762896722078402,
+   "p_greater": 0.2,
+   "p_less": 0.9,
+   "p_two_sided": 0.2,
+   "method": "exact",
+   "n_permutations": 3628800,
+   "e2": [
+    0.0,
+    -1.243766996649654,
+    -1.243766996649654,
+    -1.243766996649654,
+    -1.243766996649654,
+    -1.243766996649654,
+    -1.243766996649654,
+    -1.243766996649654,
+    -0.0020221803602999966,
+    0.14184199927022678
+   ],
+   "tau2": [
+    0.0,
+    -1.243766996649654,
+    -1.243766996649654,
+    -1.243766996649654,
+    -1.243766996649654,
+    -1.243766996649654,
+    -1.243766996649654,
+    -1.243766996649654,
+    -1.243766996649654,
+    -1.243766996649654
+   ]
+  },
+  "delta_success_pass1": {
+   "role": "descriptive",
+   "statistic": "paired Delta-success with tau^2 pass^1 (mean over the 3 trials)",
+   "n": 10,
+   "tau_b": 0.6592342530872155,
+   "p_greater": 0.004930555555555555,
+   "p_less": 0.9974834656084656,
+   "p_two_sided": 0.00947089947089947,
+   "method": "exact",
+   "n_permutations": 3628800,
+   "e2": [
+    0.0,
+    -0.215,
+    -0.24,
+    -0.235,
+    -0.205,
+    -0.205,
+    -0.08,
+    -0.078,
+    0.0,
+    0.0
+   ],
+   "tau2": [
+    0.0,
+    -0.12380952380952383,
+    -0.08571428571428572,
+    -0.08571428571428572,
+    -0.028571428571428577,
+    -4.758098676964957e-18,
+    -0.02857142857142857,
+    -0.0380952380952381,
+    0.06666666666666665,
+    0.047619047619047616
+   ]
+  },
+  "net_cost_savings": {
+   "role": "descriptive",
+   "statistic": "paired net cost savings without the qualifier",
+   "n": 10,
+   "tau_b": -0.5111111111111111,
+   "p_greater": 0.9856952711640211,
+   "p_less": 0.023311287477954145,
+   "p_two_sided": 0.04662257495590829,
+   "method": "exact",
+   "n_permutations": 3628800,
+   "e2": [
+    0.0,
+    0.8454844855143601,
+    0.8096085165865587,
+    0.7648481322128643,
+    0.719713233122862,
+    0.6679134154392037,
+    0.39320689163666533,
+    0.5372917643397359,
+    -0.0020221803602999966,
+    0.14184199927022678
+   ],
+   "tau2": [
+    0.0,
+    -0.24376699664965407,
+    -0.05826883814348349,
+    -0.07243670954620374,
+    -0.18104610740353588,
+    -0.19160940900692558,
+    -0.054901811496452346,
+    -0.09171355047012586,
+    -0.03895311709608351,
+    0.05733043581203956
+   ]
+  }
+ },
+ "readings": [
+  "configurations: A5.4 (e)'s parenthetical list (LLM-only, CASCADE at each swept tau, ASSIST k = 3, policy GUARD; the airline proxy-check arms of MAIN_RUN_PLAN step 9); the E2-carried tau-hat* cascade, which also ran on both, is a sensitivity row (n = 10)",
+  "paired Delta-success: E2 per-task success on the arm's registered tasks; tau^2 majority pass (>= 2 of 3; A6.14, A6.16 (e)) on the 35 airline test tasks, pass^1 descriptive",
+  "iso-quality cost savings: paired net savings of the configurations that pass the `noninferior` qualifier at the unadjusted level (A6.18 (c); 3 pt on JevGym, 5 pt on tau^2 majority pass); the others tie below them",
+  "Kendall tau-b; exact permutation p over all n! assignments, one-sided for agreement (tau > 0), two-sided alongside; tau-b undefined when a ranking is constant"
+ ],
+ "stated_difference": "PREREGISTRATION Deviations 2026-10-03 (tau^2 runs) item (7): the airline sweep rows were run with scripts/run_tau2.sh as registered in MAIN_RUN_PLAN step 9, which sets tool_select tau = tool_params tau, whereas the E2a sweep arms fix the argument threshold at 0.90 (A6.16 (h)); the E2 and tau^2 sweep configurations therefore share their argument threshold only at tau = 0.9, and the proxy check is reported with that difference.",
+ "guard_mapping": "tau^2 `jev_guard` (policy guard before WRITE calls + transfer guard) has no E2 twin; E2a's tool-call guard `jev_ts_guard` is read as its E2 counterpart (results/primaries/c7_selection.json, A6.20 (d))",
+ "slip_rule": "A6.20 (f) lists the proxy check's Kendall-tau code as a slip-rule item; it landed after the tau^2 runs and before the check is reported (Deviations item (7)); nothing was re-run",
+ "references": {
+  "e2": {
+   "arm": "llm_only",
+   "file": "runs/e2a_jevgym_tool_decisions/llm_only.jsonl",
+   "sha256": "14d2c35fc9f1d2849482a11acc6d4574637b1b41643b8d3e06977a2376209a22"
+  },
+  "tau2": {
+   "arm": "llm_only",
+   "file": "runs/tau2/airline/llm_only.jsonl",
+   "sha256": "6fb538f76ae21cb93744bdb228215bf3e8cd5fe037e9eeb2b99e41184190cd58",
+   "n_tasks": 35,
+   "trials": 3
+  }
+ },
+ "flags": []
+}

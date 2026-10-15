@@ -1,0 +1,9 @@
+# offline smoke test (needs network access to raw.githubusercontent.com for the data)
+name: sim_smoke
+suites:
+  - {name: bfcl, categories: [simple_python, multiple, irrelevance], max_per_cat: 20}
+  - {name: when2call, max_items: 40}
+backends:
+  sim85: {type: simulated, accuracy: 0.85}
+  random: {type: random}
+workers: 4

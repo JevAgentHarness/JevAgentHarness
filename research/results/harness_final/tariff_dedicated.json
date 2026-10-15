@@ -1,0 +1,36 @@
+{
+ "q_usd_per_episode": 0.004375777777777778,
+ "host_usd_per_hour": 1.624,
+ "serving_hours": 0.26944444444444443,
+ "episodes": 100,
+ "episodes_errored": 0,
+ "window": {
+  "start": "2026-10-05T19:34:50Z",
+  "end": "2026-10-05T19:51:00Z"
+ },
+ "workload": {
+  "run": "runs/harness_final_tariff_dedicated",
+  "arm": "harness_final"
+ },
+ "label": "exploratory, descriptive (post hoc; PREREG_A7_STAGE2 Deviations 2026-10-05 harness_final); no test",
+ "served_model": "jevagentrl-4b",
+ "server": "serve_jev --fast",
+ "instance_type": "g5.4xlarge",
+ "concurrency": 1,
+ "hardware": "1x NVIDIA A10G 24 GB",
+ "precision": "bf16",
+ "host_price_note": "g5.4xlarge on-demand price, us-east-1 (AWS price list, 2026-10-05); S2-4's tariff host was a g6e.2xlarge (1x L40S) at $2.24208/h",
+ "s2_4": {
+  "q_usd_per_episode": 0.00196182,
+  "serving_hours": 0.0875,
+  "episodes": 100,
+  "window": {
+   "start": "2026-10-03T17:54:55Z",
+   "end": "2026-10-03T18:00:10Z"
+  }
+ },
+ "sensitivity": {
+  "zero": 0.0,
+  "s2_4_tariff": 0.00196182
+ }
+}

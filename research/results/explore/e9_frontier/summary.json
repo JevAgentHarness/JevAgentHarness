@@ -1,0 +1,1458 @@
+{
+ "label": "exploratory (E9), descriptive; PREREG_A7_STAGE2 Deviations 2026-10-07 'E9: cost-accuracy frontier of multiple-choice decisions'; outside every Holm table",
+ "e1": {
+  "n": 3991,
+  "families": {
+   "toolchoice": 1114,
+   "args": 1949,
+   "w2c": 928
+  },
+  "models": {
+   "jev": {
+    "n": 3991,
+    "acc": 0.8639438737158607,
+    "acc_ci": [
+     0.8529565080586251,
+     0.8742312989922979
+    ],
+    "families": {
+     "toolchoice": {
+      "n": 1114,
+      "acc": 0.8994614003590664
+     },
+     "args": {
+      "n": 1949,
+      "acc": 0.8958440225756799
+     },
+     "w2c": {
+      "n": 928,
+      "acc": 0.7543103448275862
+     }
+    },
+    "usd": 1.630562916562265e-05,
+    "usd_logged": 1.630562916562265e-05,
+    "priced": true,
+    "n_errors": 0,
+    "lat_ms_median": 206.4321039999868,
+    "lat_ms_p90": 282.6438179999968,
+    "tokens_in": 388.2292658481584,
+    "label": "Jev",
+    "kind": "dm",
+    "cost_rule": "api",
+    "drawn": true,
+    "on_frontier": true
+   },
+   "intern": {
+    "n": 3991,
+    "acc": 0.7339012778752192,
+    "acc_ci": [
+     0.7199707896728565,
+     0.7473819248758776
+    ],
+    "families": {
+     "toolchoice": {
+      "n": 1114,
+      "acc": 0.8824057450628366
+     },
+     "args": {
+      "n": 1949,
+      "acc": 0.7121600820933812
+     },
+     "w2c": {
+      "n": 928,
+      "acc": 0.6012931034482759
+     }
+    },
+    "usd": 3.889218728325902e-05,
+    "usd_logged": 2.9621974442495616e-06,
+    "priced": true,
+    "n_errors": 0,
+    "lat_ms_median": 90.51401000033366,
+    "lat_ms_p90": 136.40897700042842,
+    "tokens_in": 296.2197444249562,
+    "label": "Intern-Decision-4B",
+    "kind": "dm",
+    "cost_rule": "gpu",
+    "drawn": true,
+    "on_frontier": false
+   },
+   "sl0.8b": {
+    "n": 3991,
+    "acc": 0.6998246053620647,
+    "acc_ci": [
+     0.6854183272132466,
+     0.7138465788956081
+    ],
+    "families": {
+     "toolchoice": {
+      "n": 1114,
+      "acc": 0.8824057450628366
+     },
+     "args": {
+      "n": 1949,
+      "acc": 0.6706003078501795
+     },
+     "w2c": {
+      "n": 928,
+      "acc": 0.5420258620689655
+     }
+    },
+    "usd": 1.2677438743756577e-05,
+    "usd_logged": 0.0,
+    "priced": true,
+    "n_errors": 0,
+    "lat_ms_median": 17.49128799974642,
+    "lat_ms_p90": 56.629492999945796,
+    "tokens_in": 247.17464294662992,
+    "label": "StartLux-0.8B",
+    "kind": "dm",
+    "cost_rule": "gpu",
+    "drawn": true,
+    "on_frontier": true
+   },
+   "sl2b": {
+    "n": 3991,
+    "acc": 0.7572037083437735,
+    "acc_ci": [
+     0.7436579358403522,
+     0.7702548241856529
+    ],
+    "families": {
+     "toolchoice": {
+      "n": 1114,
+      "acc": 0.8994614003590664
+     },
+     "args": {
+      "n": 1949,
+      "acc": 0.7311441765007696
+     },
+     "w2c": {
+      "n": 928,
+      "acc": 0.6411637931034483
+     }
+    },
+    "usd": 2.1766171698169576e-05,
+    "usd_logged": 0.0,
+    "priced": true,
+    "n_errors": 0,
+    "lat_ms_median": 50.018114000067726,
+    "lat_ms_p90": 84.75932100009231,
+    "tokens_in": 247.17564520170384,
+    "label": "StartLux-2B",
+    "kind": "dm",
+    "cost_rule": "gpu",
+    "drawn": true,
+    "on_frontier": false
+   },
+   "sl4b": {
+    "n": 3991,
+    "acc": 0.8313705838135805,
+    "acc_ci": [
+     0.8194367600125778,
+     0.8426671125002247
+    ],
+    "families": {
+     "toolchoice": {
+      "n": 1114,
+      "acc": 0.9129263913824057
+     },
+     "args": {
+      "n": 1949,
+      "acc": 0.8122113904566445
+     },
+     "w2c": {
+      "n": 928,
+      "acc": 0.7737068965517241
+     }
+    },
+    "usd": 5.235675281214825e-05,
+    "usd_logged": 0.0,
+    "priced": true,
+    "n_errors": 0,
+    "lat_ms_median": 111.48496299938415,
+    "lat_ms_p90": 194.93683899963798,
+    "tokens_in": 247.1748935103984,
+    "label": "StartLux-4B",
+    "kind": "dm",
+    "cost_rule": "gpu",
+    "drawn": true,
+    "on_frontier": false
+   },
+   "sl9b": {
+    "n": 3991,
+    "acc": 0.8343773490353295,
+    "acc_ci": [
+     0.8225237123501865,
+     0.8455879079661348
+    ],
+    "families": {
+     "toolchoice": {
+      "n": 1114,
+      "acc": 0.921903052064632
+     },
+     "args": {
+      "n": 1949,
+      "acc": 0.8096459722934838
+     },
+     "w2c": {
+      "n": 928,
+      "acc": 0.78125
+     }
+    },
+    "usd": 8.29569901724847e-05,
+    "usd_logged": 0.0,
+    "priced": true,
+    "n_errors": 0,
+    "lat_ms_median": 182.4275519998082,
+    "lat_ms_p90": 312.2846420001224,
+    "tokens_in": 247.17013279879728,
+    "label": "StartLux-9B",
+    "kind": "dm",
+    "cost_rule": "gpu",
+    "drawn": true,
+    "on_frontier": false
+   },
+   "sl27b": {
+    "n": 3991,
+    "acc": 0.8772237534452518,
+    "acc_ci": [
+     0.8666777635051832,
+     0.8870442630112814
+    ],
+    "families": {
+     "toolchoice": {
+      "n": 1114,
+      "acc": 0.90754039497307
+     },
+     "args": {
+      "n": 1949,
+      "acc": 0.8907131862493587
+     },
+     "w2c": {
+      "n": 928,
+      "acc": 0.8125
+     }
+    },
+    "usd": 0.0010922466993828026,
+    "usd_logged": 0.0,
+    "priced": true,
+    "n_errors": 0,
+    "lat_ms_median": 2689.2455180004617,
+    "lat_ms_p90": 3729.9493169994093,
+    "tokens_in": 247.17313956401904,
+    "label": "StartLux-27B (Q8_0)",
+    "kind": "dm",
+    "cost_rule": "gpu",
+    "drawn": true,
+    "on_frontier": false
+   },
+   "rl": {
+    "n": 3991,
+    "acc": 0.7875219243297419,
+    "acc_ci": [
+     0.7745575389733304,
+     0.799933344738156
+    ],
+    "families": {
+     "toolchoice": {
+      "n": 1114,
+      "acc": 0.8842010771992819
+     },
+     "args": {
+      "n": 1949,
+      "acc": 0.8501795792714213
+     },
+     "w2c": {
+      "n": 928,
+      "acc": 0.5398706896551724
+     }
+    },
+    "usd": 9.341654545698217e-05,
+    "usd_logged": 0.0,
+    "priced": true,
+    "n_errors": 0,
+    "lat_ms_median": 268.05961100035347,
+    "lat_ms_p90": 318.798856000285,
+    "tokens_in": 115.15960912052115,
+    "label": "AgentDecision-4B",
+    "kind": "dm",
+    "cost_rule": "gpu",
+    "drawn": true,
+    "on_frontier": false
+   },
+   "base": {
+    "n": 3991,
+    "acc": 0.7141067401653721,
+    "acc_ci": [
+     0.6998879314047086,
+     0.7279137767708603
+    ],
+    "families": {
+     "toolchoice": {
+      "n": 1114,
+      "acc": 0.8752244165170556
+     },
+     "args": {
+      "n": 1949,
+      "acc": 0.7054899948691636
+     },
+     "w2c": {
+      "n": 928,
+      "acc": 0.5387931034482759
+     }
+    },
+    "usd": 9.298568703650689e-05,
+    "usd_logged": 0.0,
+    "priced": true,
+    "n_errors": 0,
+    "lat_ms_median": 266.4507979989139,
+    "lat_ms_p90": 314.24164999953064,
+    "tokens_in": 115.15960912052115,
+    "label": "Qwen3-4B, untrained",
+    "kind": "attr",
+    "cost_rule": "gpu",
+    "drawn": false,
+    "on_frontier": false
+   },
+   "sftv1": {
+    "n": 3991,
+    "acc": 0.7842645953395139,
+    "acc_ci": [
+     0.7712330264727569,
+     0.7967494637849175
+    ],
+    "families": {
+     "toolchoice": {
+      "n": 1114,
+      "acc": 0.8689407540394973
+     },
+     "args": {
+      "n": 1949,
+      "acc": 0.8553104155977425
+     },
+     "w2c": {
+      "n": 928,
+      "acc": 0.5334051724137931
+     }
+    },
+    "usd": 9.437144611038054e-05,
+    "usd_logged": 0.0,
+    "priced": true,
+    "n_errors": 0,
+    "lat_ms_median": 269.5974609996483,
+    "lat_ms_p90": 320.9591590002674,
+    "tokens_in": 115.15960912052115,
+    "label": "SFT only (v1)",
+    "kind": "attr",
+    "cost_rule": "gpu",
+    "drawn": false,
+    "on_frontier": false
+   },
+   "flash": {
+    "n": 3991,
+    "acc": 0.881232773740917,
+    "acc_ci": [
+     0.8708273804001391,
+     0.890904976521017
+    ],
+    "families": {
+     "toolchoice": {
+      "n": 1114,
+      "acc": 0.9030520646319569
+     },
+     "args": {
+      "n": 1949,
+      "acc": 0.9358645459209851
+     },
+     "w2c": {
+      "n": 928,
+      "acc": 0.740301724137931
+     }
+    },
+    "usd": 0.0008107513154597846,
+    "usd_logged": 0.0008107513154597846,
+    "priced": true,
+    "n_errors": 0,
+    "lat_ms_median": 2570.2975340000194,
+    "lat_ms_p90": 5379.177742000138,
+    "tokens_in": 299.61538461538464,
+    "label": "Gemini 3.5 Flash",
+    "kind": "llm",
+    "cost_rule": "api",
+    "drawn": true,
+    "on_frontier": true
+   },
+   "lite": {
+    "n": 3991,
+    "acc": 0.8333750939614132,
+    "acc_ci": [
+     0.8214945784167307,
+     0.8446144592984177
+    ],
+    "families": {
+     "toolchoice": {
+      "n": 1114,
+      "acc": 0.9066427289048474
+     },
+     "args": {
+      "n": 1949,
+      "acc": 0.8902001026167266
+     },
+     "w2c": {
+      "n": 928,
+      "acc": 0.6260775862068966
+     }
+    },
+    "usd": 0.00018613868704585318,
+    "usd_logged": 0.00018613868704585318,
+    "priced": true,
+    "n_errors": 0,
+    "lat_ms_median": 681.2969210000119,
+    "lat_ms_p90": 1494.8401780002314,
+    "tokens_in": 299.61538461538464,
+    "label": "Gemini 3.5 Flash-Lite",
+    "kind": "llm",
+    "cost_rule": "api",
+    "drawn": true,
+    "on_frontier": false
+   },
+   "litelabel": {
+    "n": 3991,
+    "acc": 0.8411425707842646,
+    "acc_ci": [
+     0.8294743795624102,
+     0.8521546733118284
+    ],
+    "families": {
+     "toolchoice": {
+      "n": 1114,
+      "acc": 0.9039497307001796
+     },
+     "args": {
+      "n": 1949,
+      "acc": 0.896870189840944
+     },
+     "w2c": {
+      "n": 928,
+      "acc": 0.6487068965517241
+     }
+    },
+    "usd": 0.00013630859433725885,
+    "usd_logged": 0.00013630859433725885,
+    "priced": true,
+    "n_errors": 0,
+    "lat_ms_median": 582.4866319999273,
+    "lat_ms_p90": 997.5962079997771,
+    "tokens_in": 296.3773490353295,
+    "label": "Flash-Lite, label + confidence",
+    "kind": "llm",
+    "cost_rule": "api",
+    "drawn": false,
+    "on_frontier": false
+   },
+   "gemma": {
+    "n": 3991,
+    "acc": 0.8023051866700075,
+    "acc_ci": [
+     0.7896611018488559,
+     0.8143678752299314
+    ],
+    "families": {
+     "toolchoice": {
+      "n": 1114,
+      "acc": 0.8913824057450629
+     },
+     "args": {
+      "n": 1949,
+      "acc": 0.8742945100051308
+     },
+     "w2c": {
+      "n": 928,
+      "acc": 0.5441810344827587
+     }
+    },
+    "usd": 0.0,
+    "usd_logged": 0.0,
+    "priced": false,
+    "n_errors": 0,
+    "lat_ms_median": 1739.2461790000198,
+    "lat_ms_p90": 6374.532546999944,
+    "tokens_in": 299.61538461538464,
+    "label": "Gemma 4 26B (unpriced)",
+    "kind": "llm",
+    "cost_rule": "api",
+    "drawn": false,
+    "on_frontier": false
+   },
+   "flashfc": {
+    "n": 3991,
+    "acc": 0.7870207967927838,
+    "acc_ci": [
+     0.7740459979239174,
+     0.7994435944869827
+    ],
+    "families": {
+     "toolchoice": {
+      "n": 1114,
+      "acc": 0.8420107719928187
+     },
+     "args": {
+      "n": 1949,
+      "acc": 0.9625448948178553
+     },
+     "w2c": {
+      "n": 928,
+      "acc": 0.35237068965517243
+     }
+    },
+    "usd": 0.0007271854171886745,
+    "usd_logged": 0.0007271854171886745,
+    "priced": true,
+    "n_errors": 4,
+    "lat_ms_median": 884.1629220005416,
+    "lat_ms_p90": 2016.7938690001392,
+    "tokens_in": 300.13580556251566,
+    "label": "Flash, own function call",
+    "kind": "fc",
+    "cost_rule": "api",
+    "drawn": true,
+    "on_frontier": false
+   },
+   "embed": {
+    "n": 3991,
+    "acc": 0.5169130543723378,
+    "acc_ci": [
+     0.5014007781118573,
+     0.532392803282936
+    ],
+    "families": {
+     "toolchoice": {
+      "n": 1114,
+      "acc": 0.7926391382405745
+     },
+     "args": {
+      "n": 1949,
+      "acc": 0.39969214982042073
+     },
+     "w2c": {
+      "n": 928,
+      "acc": 0.43211206896551724
+     }
+    },
+    "usd": 2.564729391130043e-05,
+    "usd_logged": 2.564729391130043e-05,
+    "priced": true,
+    "n_errors": 0,
+    "lat_ms_median": 195.52619099977164,
+    "lat_ms_p90": 274.2642490002254,
+    "tokens_in": 170.9819594086695,
+    "label": "Gemini embedding",
+    "kind": "ctrl",
+    "cost_rule": "api",
+    "drawn": false,
+    "on_frontier": false
+   },
+   "bm25": {
+    "n": 3991,
+    "acc": 0.3936356802806314,
+    "acc_ci": [
+     0.3785876247112188,
+     0.408888296739303
+    ],
+    "families": {
+     "toolchoice": {
+      "n": 1114,
+      "acc": 0.6140035906642729
+     },
+     "args": {
+      "n": 1949,
+      "acc": 0.314520266803489
+     },
+     "w2c": {
+      "n": 928,
+      "acc": 0.2952586206896552
+     }
+    },
+    "usd": 0.0,
+    "usd_logged": 0.0,
+    "priced": true,
+    "n_errors": 0,
+    "lat_ms_median": 0.5028710002079606,
+    "lat_ms_p90": 1.1200919998373138,
+    "tokens_in": 0.0,
+    "label": "BM25",
+    "kind": "ctrl",
+    "cost_rule": "api",
+    "drawn": false,
+    "on_frontier": false
+   },
+   "tfidf": {
+    "n": 3991,
+    "acc": 0.39889751941869206,
+    "acc_ci": [
+     0.383809832596004,
+     0.4141796475106758
+    ],
+    "families": {
+     "toolchoice": {
+      "n": 1114,
+      "acc": 0.6229802513464991
+     },
+     "args": {
+      "n": 1949,
+      "acc": 0.31605951770138535
+     },
+     "w2c": {
+      "n": 928,
+      "acc": 0.30387931034482757
+     }
+    },
+    "usd": 0.0,
+    "usd_logged": 0.0,
+    "priced": true,
+    "n_errors": 0,
+    "lat_ms_median": 0.7639929999641026,
+    "lat_ms_p90": 2.0108929993511993,
+    "tokens_in": 0.0,
+    "label": "TF-IDF",
+    "kind": "ctrl",
+    "cost_rule": "api",
+    "drawn": false,
+    "on_frontier": false
+   }
+  },
+  "frontier": [
+   "sl0.8b",
+   "jev",
+   "flash"
+  ],
+  "gpu_usd_per_h": 2.24208,
+  "comparisons": {
+   "flash": {
+    "jev_gap_pt": {
+     "est": -1.7288900025056377,
+     "ci": [
+      -2.6058631921824107,
+      -0.9020295665246805
+     ],
+     "n": 3991,
+     "n_boot": 2000,
+     "seed": 0
+    },
+    "jev_cost_ratio": 49.722173074382255,
+    "cheapest_dm_at_least_as_accurate": null,
+    "cheapest_dm_cost_ratio": null,
+    "best_dm": "sl27b"
+   },
+   "lite": {
+    "jev_gap_pt": {
+     "est": 3.0568779754447504,
+     "ci": [
+      2.0045101478326237,
+      4.034076672513154
+     ],
+     "n": 3991,
+     "n_boot": 2000,
+     "seed": 0
+    },
+    "jev_cost_ratio": 11.415608999516042,
+    "cheapest_dm_at_least_as_accurate": "jev",
+    "cheapest_dm_cost_ratio": 11.415608999516042,
+    "best_dm": "sl27b"
+   },
+   "litelabel": {
+    "jev_gap_pt": {
+     "est": 2.2801302931596092,
+     "ci": [
+      1.3029315960912053,
+      3.2072162365321977
+     ],
+     "n": 3991,
+     "n_boot": 2000,
+     "seed": 0
+    },
+    "jev_cost_ratio": 8.359603481271355,
+    "cheapest_dm_at_least_as_accurate": "jev",
+    "cheapest_dm_cost_ratio": 8.359603481271355,
+    "best_dm": "sl27b"
+   },
+   "flashfc": {
+    "jev_gap_pt": {
+     "est": 7.6923076923076925,
+     "ci": [
+      6.23903783512904,
+      9.045352042094713
+     ],
+     "n": 3991,
+     "n_boot": 2000,
+     "seed": 0
+    },
+    "jev_cost_ratio": 44.59720074597355,
+    "cheapest_dm_at_least_as_accurate": "jev",
+    "cheapest_dm_cost_ratio": 44.59720074597355,
+    "best_dm": "sl27b"
+   }
+  },
+  "frontier_only_dm_below_top_llm": true,
+  "best_dm": {
+   "key": "sl27b",
+   "acc": 0.8772237534452518,
+   "usd": 0.0010922466993828026,
+   "gap_to_flash_pt": {
+    "est": -0.4009020295665247,
+    "ci": [
+     -1.327987972939113,
+     0.47669756953144227
+    ],
+    "n": 3991,
+    "n_boot": 2000,
+    "seed": 0
+   }
+  },
+  "sensitivity": {
+   "zero": {
+    "usd": {
+     "jev": 1.630562916562265e-05,
+     "intern": 0.0,
+     "sl0.8b": 0.0,
+     "sl2b": 0.0,
+     "sl4b": 0.0,
+     "sl9b": 0.0,
+     "sl27b": 0.0,
+     "rl": 0.0,
+     "flash": 0.0008107513154597846,
+     "lite": 0.00018613868704585318,
+     "flashfc": 0.0007271854171886745
+    },
+    "frontier": [
+     "sl27b",
+     "flash"
+    ],
+    "only_dm_below_top_llm": true
+   },
+   "token_tariff": {
+    "usd": {
+     "jev": 1.630562916562265e-05,
+     "intern": 2.9621974442495616e-06,
+     "sl0.8b": 1.0604516174381148e-05,
+     "sl2b": 1.0604559174059495e-05,
+     "sl4b": 1.0604526924300735e-05,
+     "sl9b": 1.060432267582859e-05,
+     "sl27b": 1.0604451674863629e-05,
+     "rl": 1.0842545031920706e-05,
+     "flash": 0.0008107513154597846,
+     "lite": 0.00018613868704585318,
+     "flashfc": 0.0007271854171886745
+    },
+    "frontier": [
+     "intern",
+     "sl9b",
+     "sl27b",
+     "flash"
+    ],
+    "only_dm_below_top_llm": true
+   }
+  },
+  "token_rates": {
+   "rl": {
+    "usd_per_m": 0.09415232575662318,
+    "usd_per_call": 7.971637545713124e-05,
+    "episodes": 100,
+    "s1_calls": 2461,
+    "s1_input_tokens": 2083666.0,
+    "q": 0.00196182,
+    "host_usd_per_hour": 2.24208,
+    "source": "results/stage2/tariff.json"
+   },
+   "sl4b": {
+    "usd_per_m": 0.04290292907056362,
+    "usd_per_call": 0.00013682727272727271,
+    "episodes": 100,
+    "s1_calls": 1584,
+    "s1_input_tokens": 5051739.0,
+    "q": 0.002167344,
+    "host_usd_per_hour": 2.24208,
+    "source": "results/stage2/tariff_sl4b.json"
+   }
+  }
+ },
+ "check": {
+  "available": true,
+  "n": 299,
+  "models": {
+   "jev": {
+    "n": 299,
+    "acc": 0.9130434782608695,
+    "acc_ci": [
+     0.8756396378182479,
+     0.9399686375890367
+    ],
+    "families": {
+     "toolchoice": {
+      "n": 85,
+      "acc": 0.9647058823529412
+     },
+     "args": {
+      "n": 142,
+      "acc": 0.9507042253521126
+     },
+     "w2c": {
+      "n": 72,
+      "acc": 0.7777777777777778
+     }
+    },
+    "usd": 1.6827672240802676e-05,
+    "usd_logged": 1.6827672240802676e-05,
+    "priced": true,
+    "n_errors": 0,
+    "lat_ms_median": 201.55633200010925,
+    "lat_ms_p90": 332.15046799978154,
+    "tokens_in": 400.6588628762542,
+    "label": "Jev"
+   },
+   "gemini_flash_typed": {
+    "n": 299,
+    "acc": 0.9163879598662207,
+    "acc_ci": [
+     0.8794863638049647,
+     0.9427260271926624
+    ],
+    "families": {
+     "toolchoice": {
+      "n": 85,
+      "acc": 0.9411764705882353
+     },
+     "args": {
+      "n": 142,
+      "acc": 0.971830985915493
+     },
+     "w2c": {
+      "n": 72,
+      "acc": 0.7777777777777778
+     }
+    },
+    "usd": 0.0008137274247491639,
+    "usd_logged": 0.0008137274247491639,
+    "priced": true,
+    "n_errors": 0,
+    "lat_ms_median": 1122.3049649997847,
+    "lat_ms_p90": 3152.736144399931,
+    "tokens_in": 303.9096989966555,
+    "label": "Gemini 3.5 Flash"
+   },
+   "gemini_lite_dist": {
+    "n": 299,
+    "acc": 0.862876254180602,
+    "acc_ci": [
+     0.819259761689026,
+     0.897286779863123
+    ],
+    "families": {
+     "toolchoice": {
+      "n": 85,
+      "acc": 0.9529411764705882
+     },
+     "args": {
+      "n": 142,
+      "acc": 0.9366197183098591
+     },
+     "w2c": {
+      "n": 72,
+      "acc": 0.6111111111111112
+     }
+    },
+    "usd": 0.00018537023411371235,
+    "usd_logged": 0.00018537023411371235,
+    "priced": true,
+    "n_errors": 0,
+    "lat_ms_median": 767.0559060006781,
+    "lat_ms_p90": 1223.6311400001796,
+    "tokens_in": 303.9096989966555,
+    "label": "Gemini 3.5 Flash-Lite"
+   },
+   "luna_dist": {
+    "n": 299,
+    "acc": 0.8461538461538461,
+    "acc_ci": [
+     0.8008906816841593,
+     0.8826352819162776
+    ],
+    "families": {
+     "toolchoice": {
+      "n": 85,
+      "acc": 0.9411764705882353
+     },
+     "args": {
+      "n": 142,
+      "acc": 0.9154929577464789
+     },
+     "w2c": {
+      "n": 72,
+      "acc": 0.5972222222222222
+     }
+    },
+    "usd": 4.4486622073578597e-05,
+    "usd_logged": 4.4486622073578597e-05,
+    "priced": true,
+    "n_errors": 0,
+    "lat_ms_median": 1147.3805870000433,
+    "lat_ms_p90": 1874.2465234001425,
+    "tokens_in": 291.5551839464883,
+    "label": "GPT-6-Luna"
+   },
+   "sol_dist": {
+    "n": 299,
+    "acc": 0.9063545150501672,
+    "acc_ci": [
+     0.8679856106222121,
+     0.9344144336043878
+    ],
+    "families": {
+     "toolchoice": {
+      "n": 85,
+      "acc": 0.9411764705882353
+     },
+     "args": {
+      "n": 142,
+      "acc": 0.9577464788732394
+     },
+     "w2c": {
+      "n": 72,
+      "acc": 0.7638888888888888
+     }
+    },
+    "usd": 0.0009062876254180602,
+    "usd_logged": 0.0009062876254180602,
+    "priced": true,
+    "n_errors": 0,
+    "lat_ms_median": 2322.1663820004323,
+    "lat_ms_p90": 3761.0225759999594,
+    "tokens_in": 291.5551839464883,
+    "label": "GPT-6.1-Sol"
+   }
+  },
+  "comparisons": {
+   "gemini_flash_typed": {
+    "jev_gap_pt": {
+     "est": -0.33444816053511706,
+     "ci": [
+      -2.683946488294314,
+      2.0066889632107023
+     ],
+     "n": 299,
+     "n_boot": 2000,
+     "seed": 0
+    },
+    "jev_cost_ratio": 48.3565054693714
+   },
+   "gemini_lite_dist": {
+    "jev_gap_pt": {
+     "est": 5.016722408026756,
+     "ci": [
+      1.6722408026755853,
+      8.02675585284281
+     ],
+     "n": 299,
+     "n_boot": 2000,
+     "seed": 0
+    },
+    "jev_cost_ratio": 11.015797756283744
+   },
+   "luna_dist": {
+    "jev_gap_pt": {
+     "est": 6.688963210702341,
+     "ci": [
+      3.678929765886288,
+      10.033444816053512
+     ],
+     "n": 299,
+     "n_boot": 2000,
+     "seed": 0
+    },
+    "jev_cost_ratio": 2.64365869723266
+   },
+   "sol_dist": {
+    "jev_gap_pt": {
+     "est": 0.6688963210702341,
+     "ci": [
+      -2.0066889632107023,
+      3.3444816053511706
+     ],
+     "n": 299,
+     "n_boot": 2000,
+     "seed": 0
+    },
+    "jev_cost_ratio": 53.85698107552578
+   }
+  },
+  "frontier": [
+   "jev",
+   "gemini_flash_typed"
+  ],
+  "spend": {
+   "smoke": 0.050572864,
+   "full": 0.5374703100000001,
+   "total": 0.5880431740000002
+  },
+  "cap": 30.0
+ },
+ "reading": [
+  "On E1, the frontier holds 2 decision model(s) (StartLux-0.8B, Jev) and 1 LLM point(s) (Gemini 3.5 Flash); every frontier point cheaper than the most accurate LLM is a decision model: yes.",
+  "Gemini 3.5 Flash (88.1 %, $0.811 per 1,000): Jev is -1.7 points [-2.6, -0.9] at 1/50 of its cost; no decision model is as accurate.",
+  "Gemini 3.5 Flash-Lite (83.3 %, $0.186 per 1,000): Jev is +3.1 points [+2.0, +4.0] at 1/11 of its cost; the cheapest decision model at least as accurate is Jev, 11.4\u00d7 cheaper.",
+  "Flash-Lite, label + confidence (84.1 %, $0.136 per 1,000): Jev is +2.3 points [+1.3, +3.2] at 1/8 of its cost; the cheapest decision model at least as accurate is Jev, 8.4\u00d7 cheaper.",
+  "Flash, own function call (78.7 %, $0.727 per 1,000): Jev is +7.7 points [+6.2, +9.0] at 1/45 of its cost; the cheapest decision model at least as accurate is Jev, 44.6\u00d7 cheaper.",
+  "Sensitivity `zero`: Jev is not on the frontier; frontier = StartLux-27B (Q8_0), Gemini 3.5 Flash; only decision models below the most accurate LLM: yes.",
+  "Sensitivity `token_tariff`: Jev is not on the frontier; frontier = Intern-Decision-4B, StartLux-9B, StartLux-27B (Q8_0), Gemini 3.5 Flash; only decision models below the most accurate LLM: yes.",
+  "Check (299 dev items): Jev \u2212 Gemini 3.5 Flash -0.3 points [-2.7, +2.0], Gemini 3.5 Flash costs 48.4\u00d7 Jev.",
+  "Check (299 dev items): Jev \u2212 Gemini 3.5 Flash-Lite +5.0 points [+1.7, +8.0], Gemini 3.5 Flash-Lite costs 11.0\u00d7 Jev.",
+  "Check (299 dev items): Jev \u2212 GPT-6-Luna +6.7 points [+3.7, +10.0], GPT-6-Luna costs 2.6\u00d7 Jev.",
+  "Check (299 dev items): Jev \u2212 GPT-6.1-Sol +0.7 points [-2.0, +3.3], GPT-6.1-Sol costs 53.9\u00d7 Jev.",
+  "Check frontier: Jev, Gemini 3.5 Flash."
+ ],
+ "written": "2026-10-08T14:45:03+00:00",
+ "git": "0f49df238eebad13fb806283db555492f264063f",
+ "e12": {
+  "available": true,
+  "key": "e12",
+  "label": "AgentDecision-4B (mixed, E12)",
+  "stats": {
+   "n": 3991,
+   "acc": 0.8506639939864695,
+   "acc_ci": [
+    0.8392691743739428,
+    0.8613844132114387
+   ],
+   "families": {
+    "toolchoice": {
+     "n": 1114,
+     "acc": 0.8931777378815081
+    },
+    "args": {
+     "n": 1949,
+     "acc": 0.905079527963058
+    },
+    "w2c": {
+     "n": 928,
+     "acc": 0.6853448275862069
+    }
+   },
+   "usd": 0.00013968413262416287,
+   "usd_logged": 0.0,
+   "priced": true,
+   "n_errors": 0,
+   "lat_ms_median": 344.2439299997204,
+   "lat_ms_p90": 480.4650020014378,
+   "tokens_in": 115.15960912052115
+  },
+  "on_frontier": false,
+  "frontier_alone": [
+   "sl0.8b",
+   "jev",
+   "flash"
+  ],
+  "dominated_by": [
+   "jev"
+  ],
+  "gap_to_frozen_pt": {
+   "est": 6.3142069656727635,
+   "ci": [
+    5.136557253821097,
+    7.492483086945624
+   ],
+   "n": 3991,
+   "n_boot": 2000,
+   "seed": 0
+  },
+  "gap_to_jev_pt": {
+   "est": -1.327987972939113,
+   "ci": [
+    -2.38035580055124,
+    -0.25056376847907796
+   ],
+   "n": 3991,
+   "n_boot": 2000,
+   "seed": 0
+  },
+  "gap_to_sl4b_pt": {
+   "est": 1.9293410172888998,
+   "ci": [
+    0.7015785517414181,
+    3.1076171385617606
+   ],
+   "n": 3991,
+   "n_boot": 2000,
+   "seed": 0
+  },
+  "cost_vs_jev": 8.566620226998696,
+  "rehost_usd": 0.00014281157316406093,
+  "host_factor": 0.6541244759601234,
+  "usd_hostadj": 9.13708100527249e-05,
+  "frontier_hostadj": [
+   "sl0.8b",
+   "jev",
+   "flash"
+  ],
+  "on_frontier_hostadj": false,
+  "frontier_without": [
+   "sl0.8b",
+   "jev",
+   "flash"
+  ],
+  "frontier_with": [
+   "sl0.8b",
+   "jev",
+   "flash"
+  ],
+  "frontier_changed": false,
+  "frontier_dropped": [],
+  "frontier_with16": [
+   "sl0.8b",
+   "jev",
+   "flash"
+  ],
+  "frontier_changed16": false,
+  "extra": {
+   "e12": {
+    "available": true,
+    "key": "e12",
+    "label": "AgentDecision-4B (mixed, E12)",
+    "stats": {
+     "n": 3991,
+     "acc": 0.8506639939864695,
+     "acc_ci": [
+      0.8392691743739428,
+      0.8613844132114387
+     ],
+     "families": {
+      "toolchoice": {
+       "n": 1114,
+       "acc": 0.8931777378815081
+      },
+      "args": {
+       "n": 1949,
+       "acc": 0.905079527963058
+      },
+      "w2c": {
+       "n": 928,
+       "acc": 0.6853448275862069
+      }
+     },
+     "usd": 0.00013968413262416287,
+     "usd_logged": 0.0,
+     "priced": true,
+     "n_errors": 0,
+     "lat_ms_median": 344.2439299997204,
+     "lat_ms_p90": 480.4650020014378,
+     "tokens_in": 115.15960912052115
+    },
+    "on_frontier": false,
+    "frontier_alone": [
+     "sl0.8b",
+     "jev",
+     "flash"
+    ],
+    "dominated_by": [
+     "jev"
+    ],
+    "gap_to_frozen_pt": {
+     "est": 6.3142069656727635,
+     "ci": [
+      5.136557253821097,
+      7.492483086945624
+     ],
+     "n": 3991,
+     "n_boot": 2000,
+     "seed": 0
+    },
+    "gap_to_jev_pt": {
+     "est": -1.327987972939113,
+     "ci": [
+      -2.38035580055124,
+      -0.25056376847907796
+     ],
+     "n": 3991,
+     "n_boot": 2000,
+     "seed": 0
+    },
+    "gap_to_sl4b_pt": {
+     "est": 1.9293410172888998,
+     "ci": [
+      0.7015785517414181,
+      3.1076171385617606
+     ],
+     "n": 3991,
+     "n_boot": 2000,
+     "seed": 0
+    },
+    "cost_vs_jev": 8.566620226998696,
+    "rehost_usd": 0.00014281157316406093,
+    "host_factor": 0.6541244759601234,
+    "usd_hostadj": 9.13708100527249e-05,
+    "frontier_hostadj": [
+     "sl0.8b",
+     "jev",
+     "flash"
+    ],
+    "on_frontier_hostadj": false,
+    "on_frontier_all": false,
+    "on_frontier_all16": false
+   },
+   "e12c": {
+    "available": true,
+    "key": "e12c",
+    "label": "StartLux-4B (mixed, E12c)",
+    "stats": {
+     "n": 3991,
+     "acc": 0.8546730142821348,
+     "acc_ci": [
+      0.8433978645213474,
+      0.865266053468726
+     ],
+     "families": {
+      "toolchoice": {
+       "n": 1114,
+       "acc": 0.8949730700179533
+      },
+      "args": {
+       "n": 1949,
+       "acc": 0.9189327860441252
+      },
+      "w2c": {
+       "n": 928,
+       "acc": 0.6713362068965517
+      }
+     },
+     "usd": 0.0002946322304894477,
+     "usd_logged": 0.0,
+     "priced": true,
+     "n_errors": 0,
+     "lat_ms_median": 713.2906410006399,
+     "lat_ms_p90": 915.4643760011822,
+     "tokens_in": 117.85291906790276
+    },
+    "on_frontier": false,
+    "frontier_alone": [
+     "sl0.8b",
+     "jev",
+     "flash"
+    ],
+    "dominated_by": [
+     "jev"
+    ],
+    "gap_to_frozen_pt": {
+     "est": 6.715108995239288,
+     "ci": [
+      5.3871210223001755,
+      8.068779754447505
+     ],
+     "n": 3991,
+     "n_boot": 2000,
+     "seed": 0
+    },
+    "gap_to_jev_pt": {
+     "est": -0.9270859433725883,
+     "ci": [
+      -2.055249310949637,
+      0.15033826108744675
+     ],
+     "n": 3991,
+     "n_boot": 2000,
+     "seed": 0
+    },
+    "gap_to_sl4b_pt": {
+     "est": 2.3302430468554247,
+     "ci": [
+      1.0523678276121273,
+      3.5580055124029064
+     ],
+     "n": 3991,
+     "n_boot": 2000,
+     "seed": 0
+    },
+    "cost_vs_jev": 18.069356753839607,
+    "host_factor": 0.6541244759601234,
+    "usd_hostadj": 0.00019272615336987225,
+    "frontier_hostadj": [
+     "sl0.8b",
+     "jev",
+     "flash"
+    ],
+    "on_frontier_hostadj": false,
+    "host_factor_source": "the frozen checkpoint re-served on the E12 host (same instance type)",
+    "on_frontier_all": false,
+    "on_frontier_all16": false
+   },
+   "e16a": {
+    "available": true,
+    "key": "e16a",
+    "label": "AgentDecision-4B (mixed+, E16)",
+    "stats": {
+     "n": 3991,
+     "acc": 0.8433976447005763,
+     "acc_ci": [
+      0.8317928613635224,
+      0.8543420023633554
+     ],
+     "families": {
+      "toolchoice": {
+       "n": 1114,
+       "acc": 0.8877917414721723
+      },
+      "args": {
+       "n": 1949,
+       "acc": 0.900974858902001
+      },
+      "w2c": {
+       "n": 928,
+       "acc": 0.6691810344827587
+      }
+     },
+     "usd": 9.08977185940696e-05,
+     "usd_logged": 0.0,
+     "priced": true,
+     "n_errors": 0,
+     "lat_ms_median": 260.01094999992347,
+     "lat_ms_p90": 309.8774130012316,
+     "tokens_in": 115.15960912052115
+    },
+    "on_frontier": false,
+    "frontier_alone": [
+     "sl0.8b",
+     "jev",
+     "flash"
+    ],
+    "dominated_by": [
+     "jev"
+    ],
+    "gap_to_frozen_pt": {
+     "est": 5.587572037083438,
+     "ci": [
+      4.3848659483838635,
+      6.815334502630919
+     ],
+     "n": 3991,
+     "n_boot": 2000,
+     "seed": 0
+    },
+    "gap_to_jev_pt": {
+     "est": -2.054622901528439,
+     "ci": [
+      -3.1821598596842895,
+      -0.952142320220496
+     ],
+     "n": 3991,
+     "n_boot": 2000,
+     "seed": 0
+    },
+    "gap_to_sl4b_pt": {
+     "est": 1.202706088699574,
+     "ci": [
+      -0.07516913054372337,
+      2.4304685542470557
+     ],
+     "n": 3991,
+     "n_boot": 2000,
+     "seed": 0
+    },
+    "cost_vs_jev": 5.574621970779903,
+    "rehost_usd": 9.252159459014138e-05,
+    "host_factor": 1.0096728863224342,
+    "usd_hostadj": 9.177696189299865e-05,
+    "frontier_hostadj": [
+     "sl0.8b",
+     "jev",
+     "flash"
+    ],
+    "on_frontier_hostadj": false,
+    "on_frontier_all": false,
+    "on_frontier_all16": false
+   },
+   "e16b": {
+    "available": true,
+    "key": "e16b",
+    "label": "StartLux-9B (mixed, E16)",
+    "stats": {
+     "n": 3991,
+     "acc": 0.8481583563016788,
+     "acc_ci": [
+      0.8366901431585412,
+      0.8589569879239081
+     ],
+     "families": {
+      "toolchoice": {
+       "n": 1114,
+       "acc": 0.900359066427289
+      },
+      "args": {
+       "n": 1949,
+       "acc": 0.9194458696767573
+      },
+      "w2c": {
+       "n": 928,
+       "acc": 0.6357758620689655
+      }
+     },
+     "usd": 0.0002403957984288067,
+     "usd_logged": 0.0,
+     "priced": true,
+     "n_errors": 0,
+     "lat_ms_median": 603.5337079993042,
+     "lat_ms_p90": 700.7750279990432,
+     "tokens_in": 117.85291906790276
+    },
+    "on_frontier": false,
+    "frontier_alone": [
+     "sl0.8b",
+     "jev",
+     "flash"
+    ],
+    "dominated_by": [
+     "jev"
+    ],
+    "gap_to_frozen_pt": {
+     "est": 6.063643197193685,
+     "ci": [
+      4.610373340015034,
+      7.5169130543723375
+     ],
+     "n": 3991,
+     "n_boot": 2000,
+     "seed": 0
+    },
+    "gap_to_jev_pt": {
+     "est": -1.5785517414181909,
+     "ci": [
+      -2.756201453269857,
+      -0.45101478326234024
+     ],
+     "n": 3991,
+     "n_boot": 2000,
+     "seed": 0
+    },
+    "gap_to_sl4b_pt": {
+     "est": 1.678777248809822,
+     "ci": [
+      0.45101478326234024,
+      2.9566524680531194
+     ],
+     "n": 3991,
+     "n_boot": 2000,
+     "seed": 0
+    },
+    "cost_vs_jev": 14.74311699272764,
+    "rehost_usd": 9.252159459014138e-05,
+    "host_factor": 1.0096728863224342,
+    "usd_hostadj": 0.00024272111965939936,
+    "frontier_hostadj": [
+     "sl0.8b",
+     "jev",
+     "flash"
+    ],
+    "on_frontier_hostadj": false,
+    "on_frontier_all": false,
+    "on_frontier_all16": false
+   }
+  }
+ }
+}

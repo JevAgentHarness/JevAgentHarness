@@ -1,0 +1,15 @@
+# E16 live smoke of arm a (development only, never reported): configs/explore/e16_best_open/live_e16a.yaml on 2 JevGym
+# development tasks (seeds 908-909: the pilot / development range 0-999, outside every evaluation, calibration and
+# training block), the same arm, backend, LLM and suite options; it feeds the registered cost gate
+# (scripts/explore_e16_best_open.py project --arm a).
+name: e16a_live_smoke
+suite: {name: jevgym, n: 2, seed0: 908, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 2
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1_cache: cache/s1_e16a_live_smoke.sqlite
+s1_backends:
+  e16a: {type: jev, name: agentdecision-4b-mixedplus, base_url: "http://127.0.0.1:8081", model: agentdecision-4b-mixedplus, api_key: "",
+         price_model: jevagentrl-4b, timeout: 60.0}   # exact 0 per token (API cost only)
+workers: 2
+arms:
+  - {name: e16a_ts_replace_f, s1: e16a, tool_select: {mode: replace}}

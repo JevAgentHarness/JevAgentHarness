@@ -1,0 +1,17 @@
+# Exploratory row E31 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-10 "E31: GRPO in the agent loop without SFT (RL only,
+# from the untrained base)" (d) 1; descriptive, outside every Holm table): E1's 3,991 static decisions answered by the
+# RL-only checkpoint. E12's e1_e12.yaml (= E1's config configs/decision/bfcl_when2call_rl.yaml: the same pools,
+# exclusions (C8 population), batching and workers) with this backend and a NEW answer cache. On the E31 host
+# (scripts/aws/e31_rl_only.sh stage e1), the checkpoint served on :8081:
+#   python -m jevharness.bench.decision_eval configs/explore/e31_rl_only/e1_e31.yaml --out runs --only e31
+name: e1_bfcl_when2call_e31
+suites:
+  - {name: bfcl, categories: [simple_python, multiple, live_simple, live_multiple, irrelevance, live_irrelevance], max_per_cat: 200}
+  - {name: when2call, max_items: 1000}
+exclude_ids_file: configs/eval/e1_dev_prefix_ids.json   # A6.13: as E1
+batch_by_state: true
+s1_cache: cache/s1_e31_e1.sqlite
+workers: 4
+backends:
+  e31: {type: jev, name: rl-only-e31, base_url: "http://localhost:8081", model: rl-only-e31, api_key: "",
+        price_model: jevagentrl-4b}   # an exact 0 per token (as the frozen row): GPU time is priced by E9's rule

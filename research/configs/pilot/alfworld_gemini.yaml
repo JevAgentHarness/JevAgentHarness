@@ -1,0 +1,20 @@
+# PILOT (real APIs, small): ALFWorld text games, action-only (Jev-action-only, RQ4), 5 OOD games x 3 arms.
+#   jevbench run configs/pilot/alfworld_gemini.yaml --out runs/pilot && jevbench report runs/pilot/pilot_alfworld_gemini
+# Data: docs/ALFWORLD.md "minimal route" into data/raw/alfworld (gitignored), or set ALFWORLD_DATA and drop data_dir.
+# System-2 = Gemini 3.5 Flash (ReAct-style `Action: <cmd>` over the admissible list). System-1 = Gemini 3.5
+# Flash-Lite verbalised distributions as a STAND-IN for Jev until openrouter.ai is reachable; switch with
+#   s1: {type: jev, provider: openrouter}
+# Games: `stratify` interleaves the 6 task types, so n: 5 = one game of each type except pick_two
+# (seed 0 shuffles within each type). Scale up: -o suite.n=134 (drop stratify) or --max-tasks.
+name: pilot_alfworld_gemini
+suite: {name: alfworld, split: eval_out_of_distribution, n: 5, stratify: true, seed: 0,
+        data_dir: data/raw/alfworld, max_episode_steps: 50}
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1: {type: llm_generative, llm: {provider: gemini, model: gemini-3.5-flash-lite}, reasoning_effort: minimal}
+s1_cache: cache/s1_gemini.sqlite
+harness_defaults: {max_steps: 40, history_window: 12}
+workers: 4
+arms:
+  - {name: llm_react}
+  - {name: s1_action_replace, action: {mode: replace}}
+  - {name: s1_action_assist_k3, action: {mode: assist, k: 3}}

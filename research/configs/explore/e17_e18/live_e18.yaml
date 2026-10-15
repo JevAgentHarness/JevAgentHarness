@@ -1,0 +1,46 @@
+# Exploratory row E18 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-08 "E17 and E18: read-out ablation and a
+# deferral-aware objective" (c) 6; descriptive, outside every Holm table): the final harness with E18 = E14 arm A served
+# with the logistic defer head (serve_jev --backend clef --clef-defer-head results/explore/e17_e18/e18_head.json; the
+# served confidence is 1 - P(defer)), tool + argument cascade at tau = 1 - k per decision point (profile
+# configs/harness/explore_e18_final.yaml, written by scripts/explore_e17_e18.py prepare-live before any episode),
+# reflection off, argument questions batched per step. The same 200 tasks and settings as the logged dedicated
+# final-harness rows (runs/harness_final_dedicated/experiment.yaml: seeds 300500-300699, 1 worker, task-major schedule
+# seed 732, the System-1 model alone on its own GPU, no System-1 cache) and as E14's e14_final row; ONLY the new arm runs.
+# Flash on the direct Gemini API.
+#   JEV_EVAL_RUNS=1 jevbench run configs/explore/e17_e18/live_e18.yaml --out runs
+name: e18_live
+suite:
+  name: jevgym
+  n: 200
+  seed0: 300500
+  families: v2
+  distractor_style: near
+  n_distractors: 60
+  noise_lines: 20
+  strict: true
+n_tasks: 200
+llm:
+  provider: gemini
+  model: gemini-3.5-flash
+  temperature: 0
+  reasoning_effort: minimal
+s1_backends:
+  e18:
+    type: jev
+    name: e18
+    base_url: http://127.0.0.1:8083
+    model: e18
+    api_key: ''
+    timeout: 120.0
+    cache: null
+    price_model: jevagentrl-4b
+workers: 1
+schedule:
+  mode: task_major
+  seed: 732
+arms:
+- name: e18_final
+  s1: e18
+  profile: configs/harness/explore_e18_final.yaml
+  profile_s2: gemini-3.5-flash
+  profile_backend: e18

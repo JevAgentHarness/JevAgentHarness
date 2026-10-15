@@ -1,0 +1,24 @@
+# Exploratory row E14 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-07 "E14: a sub-1B decision model with a scoring
+# head"; descriptive, outside every Holm table): E1's 3,991 static decisions answered by the E14 arms (Qwen3.5-0.8B +
+# a Clef scoring head), each served by training/serve_jev.py --backend clef on :8083 of the E14 host, one arm at a time.
+# E1's config (configs/decision/bfcl_when2call_rl.yaml) with the same pools, exclusions (C8 population), batching and
+# workers; a new answer cache. Cost per decision by E9's rule (GPU tariff x logged serving time; the price entry below is
+# an exact 0 per token, as the frozen row's):
+#   python -m jevharness.bench.decision_eval configs/explore/e14_small/e1_e14.yaml --out runs --only e14a
+name: e1_bfcl_when2call_e14
+suites:
+  - {name: bfcl, categories: [simple_python, multiple, live_simple, live_multiple, irrelevance, live_irrelevance], max_per_cat: 200}
+  - {name: when2call, max_items: 1000}
+exclude_ids_file: configs/eval/e1_dev_prefix_ids.json   # A6.13: as E1
+batch_by_state: true
+s1_cache: cache/s1_e14_e1.sqlite
+workers: 4
+backends:
+  e14a: {type: jev, name: e14-a, base_url: "http://127.0.0.1:8083", model: e14-a, api_key: "", timeout: 120.0,
+         price_model: jevagentrl-4b}
+  e14a_v2: {type: jev, name: e14-a-v2, base_url: "http://127.0.0.1:8083", model: e14-a, api_key: "", timeout: 120.0,
+            price_model: jevagentrl-4b}   # engine v2 re-timing (Deviations "E14: serving-engine fix" (d))
+  e14g: {type: jev, name: e14-g, base_url: "http://127.0.0.1:8083", model: e14-g, api_key: "", timeout: 120.0,
+         price_model: jevagentrl-4b}
+  e14ag: {type: jev, name: e14-ag, base_url: "http://127.0.0.1:8083", model: e14-ag, api_key: "", timeout: 120.0,
+          price_model: jevagentrl-4b}

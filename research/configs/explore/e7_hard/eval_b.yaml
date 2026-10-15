@@ -1,0 +1,20 @@
+# Addendum E7b to exploratory row E7, JevGym-Hard (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-06 "E7b (JevGym-Hard,
+# 12 customers)"; descriptive, no test, outside every Holm table). Everything as configs/explore/e7_hard/eval.yaml except
+# 12 customers per task (the pilot's 12-customer candidates) and fresh seeds 310200-310399 (n = 200; the runner refuses
+# them without JEV_EVAL_RUNS=1, bench/registry.py EXPLORE_EVAL_RANGES). Run by scripts/aws/e7_hard.sh with EXP=e7b:
+#   JEV_EVAL_RUNS=1 jevbench run configs/explore/e7_hard/eval_b.yaml --out runs -o workers=12
+name: e7b_hard
+suite: {name: jevgym, n: 200, seed0: 310200, families: multi, multi_customers: 12, multi_rule: tier, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 200
+llm: {provider: openrouter, model: google/gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+harness_defaults: {max_steps: 45}
+s1: {type: jev, provider: openrouter}        # the pinned Jev endpoint of Stage 1; no System-1 cache (fresh answers)
+s1_backends:
+  jevagent_rl: {type: jev, name: jevagentrl-4b, base_url: "http://127.0.0.1:8081", model: jevagentrl-4b, api_key: "",
+                timeout: 60.0, cache: null}
+workers: 12
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}
+  - {name: jevagent_best, profile: configs/harness/jevagent_best.yaml, profile_s2: gemini-3.5-flash}
+  - {name: jevagent_best_rl, s1: jevagent_rl, profile: configs/harness/jevagent_best.yaml, profile_s2: gemini-3.5-flash, profile_backend: jevagent_rl}

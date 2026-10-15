@@ -1,0 +1,28 @@
+# Stage 2 (docs/PREREG_A7_STAGE2.md A7.19 (f): "its own calibration on 5000-5149", as A7.18 (e) 4): the calibration
+# shadow arm for JevAgentRL-v2's cascade thresholds -- identical to `sl4b_shadow_cal` of
+# configs/experiments/jevgym_shadow_cal_startlux.yaml (and to `jev_shadow_cal` / `intern_shadow_cal` / `rl_shadow_cal`)
+# except for System-1: the FROZEN v2 checkpoint (results/gpu_round6_miles/final_FROZEN.txt; StartLux-Decision-4B fully
+# fine-tuned, HF format) served by training/serve_jev.py with the freeze record's temperature file on :8084
+# (scripts/aws/stage2_gpu.sh stages v2_setup v2_fetch v2_serve; results/stage2/v2_eval_plan.json). Flash only.
+# CALIBRATION seeds 5000..5149 (never evaluation, never Stage-2 data). Exploratory (A7.19): no test. Fitted with the
+# registered command (A6.11 (c), A6.19), per decision point (the box writes the fits, stage v2_cal; the session commits
+# them byte-identical and fills the profile before any v2 evaluation episode, stage v2_gate_tau):
+#   jevbench run configs/experiments/jevgym_shadow_cal_v2.yaml --out runs -o workers=4        # three passes
+#   for dp in tool_select tool_params; do
+#     python -m jevharness.bench.threshold_theory runs/e2a_jevgym_shadow_cal_v2 --arm v2_shadow_cal --dp $dp \
+#       --calibration-arm --task-value 1.0 --lam-per-hour 0 --v-fallback W --format json \
+#       --out results/calibration/tauhat_v2_shadow_cal_${dp}.json
+#   done
+#   python scripts/fill_backend_tau.py --backend jevagentrl_v2 --fit-arm v2_shadow_cal     # -> backends.jevagentrl_v2
+# A fit that accepts no level -> always_defer: true; if then nothing can delegate, the profile row is not run.
+# timeout 60 s as the StartLux backends (same Qwen3.5-hybrid architecture; serve_jev answers one request at a time).
+name: e2a_jevgym_shadow_cal_v2
+suite: {name: jevgym, n: 150, seed0: 5000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # calibration seeds 5000..5149
+n_tasks: 150
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, name: jevagentrl-v2, base_url: "http://127.0.0.1:8084", model: jevagentrl-v2, api_key: "",
+     price_model: jevagentrl-v2, timeout: 60.0}
+s1_cache: cache/s1_stage2_v2.sqlite
+workers: 4
+arms:
+  - {name: v2_shadow_cal, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}

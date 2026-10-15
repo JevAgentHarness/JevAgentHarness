@@ -1,0 +1,10 @@
+# tau2 arm: Jev for tool selection + tool parameters, cascade mode.
+# Each agent turn S1 answers a Choice over tau2's tools + `respond_to_user`; if its confidence >= tau it
+# decides (a tool whose required args S1 can also fill -- enums/booleans or spans copied from the
+# conversation -- is emitted with NO LLM call; otherwise the LLM is forced to call that tool), else the
+# turn is deferred to the LLM. scripts/run_tau2.sh sweeps tau with --jev-set tool_select.tau=<tau>.
+name: jev_ts_cascade
+tool_select: {mode: cascade, tau: 0.8}
+tool_params: {mode: cascade, tau: 0.8}
+s1: {type: jev, provider: openrouter}   # A6.20: the same pinned Jev endpoint as E2 (configs/experiments)
+s1_cache: cache/s1_tau2.sqlite

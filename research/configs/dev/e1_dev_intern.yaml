@@ -1,0 +1,23 @@
+# E1 DEV, Jev vs Intern-Decision on identical items (A5 competence comparison; GPU box) -- NOT a paper run.
+# Same suites and stratified item pool as configs/dev/e1_dev.yaml (so --max-items 300 gives the same 299 ids as
+# results/dev_round2/E1_DEV_NOTES.md); the Gemini stand-in and native-FC arms are already measured there.
+#   jevbench decide configs/dev/e1_dev_intern.yaml --out runs/gpu_round2 --max-items 300
+# --max-items takes a stratified prefix of the pool (whole BFCL rows, sources in proportion), so a larger dev
+# run is a superset of a smaller one and the shared s1_cache makes the overlap free.
+name: e1_dev_intern
+suites:
+  - {name: bfcl, categories: [simple_python, multiple, live_simple, live_multiple, irrelevance, live_irrelevance], max_per_cat: 200}
+  - {name: when2call, max_items: 1000}
+batch_by_state: true                            # one System-1 request per (state, decision point)
+s1_cache: cache/s1.sqlite                       # same cache as the full E1 run: dev answers are reused there
+fc_cache: cache/fc.sqlite                       # native-FC + judge responses (the default next to s1_cache)
+workers: 2   # Intern-Decision forwards are serialised on one GPU; 2 keeps the Jev arm busy
+backends:
+  # A5 competence comparison on identical E1 dev items: Jev vs Intern-Decision (local GPU) + lexical floor.
+  jev: {type: jev, provider: openrouter}
+  intern08: {type: intern_decision, model: internlm/Intern-Decision-0.8B}
+  intern2b: {type: intern_decision, model: internlm/Intern-Decision-2B}
+  intern4b: {type: intern_decision, model: internlm/Intern-Decision-4B}
+  intern2b_uncal: {type: intern_decision, model: internlm/Intern-Decision-2B, temperature: 1}
+  bm25: {type: bm25}
+

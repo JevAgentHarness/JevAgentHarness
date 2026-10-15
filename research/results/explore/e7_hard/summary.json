@@ -1,0 +1,449 @@
+{
+ "meta": {
+  "generated": "2026-10-06T16:36:09+00:00",
+  "git": "f88b3474bd5d8ec4c9bbed7ed4a6a8e570376e96",
+  "script": "scripts/explore_e7_hard.py",
+  "run": "runs/e7_hard",
+  "label": "exploratory (E7)",
+  "n_boot": 10000,
+  "seed": 0,
+  "suite": {
+   "name": "jevgym",
+   "n": 200,
+   "seed0": 310000,
+   "families": "multi",
+   "multi_customers": 10,
+   "multi_rule": "tier",
+   "distractor_style": "near",
+   "n_distractors": 60,
+   "noise_lines": 20,
+   "strict": true
+  },
+  "max_steps": 45,
+  "llm": {
+   "provider": "openrouter",
+   "model": "google/gemini-3.5-flash",
+   "temperature": 0,
+   "reasoning_effort": "minimal"
+  },
+  "workers": 12,
+  "spend": {
+   "by_run": {
+    "e7_hard_smoke": {
+     "s2": 0.22493355,
+     "s1": 0.020295576000000003,
+     "total": 0.245229126,
+     "records": 6
+    },
+    "e7_hard": {
+     "s2": 23.0633712,
+     "s1": 1.9523414400000003,
+     "total": 25.015712640000004,
+     "records": 600
+    }
+   },
+   "prior": 0.0,
+   "s2": 23.288304749999998,
+   "s1": 1.9726370160000004,
+   "total": 25.260941766000006,
+   "records": 606,
+   "total_with_prior": 25.260941766000006
+  },
+  "cap": 150.0,
+  "pilot_spend": 17.745370349999998,
+  "projection": {
+   "smoke_per_episode": {
+    "llm_only": 0.05837827499999999,
+    "jevagent_best": 0.058557287999999985,
+    "jevagent_best_rl": 0.005679
+   },
+   "smoke_wall_s": {
+    "llm_only": 32.15118213799997,
+    "jevagent_best": 67.719755609,
+    "jevagent_best_rl": 23.713352662000034
+   },
+   "smoke_n": {
+    "llm_only": 2,
+    "jevagent_best": 2,
+    "jevagent_best_rl": 2
+   },
+   "smoke_errors": {
+    "llm_only": 0,
+    "jevagent_best": 0,
+    "jevagent_best_rl": 0
+   },
+   "missing_arms": [],
+   "spent_so_far": 17.995229126,
+   "prior": 17.75,
+   "safety": 1.5,
+   "cap": 150.0,
+   "per_task_all_arms": 0.12261456299999998,
+   "projected_200": 36.7843689,
+   "fits_200": true,
+   "projected_100": 18.39218445,
+   "fits_100": true,
+   "decision": "run all 200"
+  },
+  "stopped_by_watchdog": false,
+  "pilot_chosen": {
+   "candidates": [
+    "e7_pilot_tier_k10"
+   ],
+   "n": 30,
+   "success": 0.7666666666666667,
+   "band": [
+    0.6,
+    0.8
+   ]
+  }
+ },
+ "tariff": {
+  "q_usd_per_episode": 0.008211,
+  "host_usd_per_hour": 2.448,
+  "instance_type": "g5.8xlarge",
+  "serving_hours": 0.6708333333333333,
+  "episodes": 200,
+  "window": {
+   "start": "2026-10-06T15:52:52Z",
+   "end": "2026-10-06T16:33:07Z"
+  },
+  "workers": 12,
+  "state": "ok",
+  "convention": "S2-4 provisioned tariff (A7.13 (iii)): host $/h x evaluation window / completed JevAgentRL episodes; on-demand price, us-east-1",
+  "sensitivity": {
+   "s2_4": 0.00196182,
+   "zero": 0.0
+  }
+ },
+ "arms": {
+  "llm_only": {
+   "state": "run",
+   "n_ok": 200,
+   "n_records": 200,
+   "success_all": 0.88,
+   "cost_mean": 0.05940231225,
+   "per_episode": {
+    "wall_s_mean": 33.07297479656499,
+    "wall_s_median": 32.49960353999995,
+    "steps": 31.0,
+    "llm_calls": 31.0,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.05940231225,
+    "s1_s": 0.0
+   },
+   "failure_types": {
+    "n_failed": 24,
+    "types": {
+     "wrong_total": 24
+    },
+    "classes": {
+     "wrong_total": 24,
+     "wrong_write": 0,
+     "ask_finish": 0,
+     "other": 0
+    }
+   },
+   "provenance": {
+    "path": "runs/e7_hard/llm_only.jsonl",
+    "sha256": "85e864899a653c5412938188b3735ec8b15e177e9dc9acadf26705f2090357dd",
+    "n_records": 200
+   }
+  },
+  "jevagent_best": {
+   "state": "run",
+   "n_ok": 200,
+   "n_records": 200,
+   "success_all": 0.865,
+   "cost_mean": 0.055711429199999996,
+   "per_episode": {
+    "wall_s_mean": 47.58993151410002,
+    "wall_s_median": 46.91853888300011,
+    "steps": 31.0,
+    "llm_calls": 23.34,
+    "s1_calls": 95.21,
+    "s1_cost": 0.009761707199999999,
+    "s2_cost": 0.04594972199999999,
+    "s1_s": 18.54644919960998
+   },
+   "failure_types": {
+    "n_failed": 27,
+    "types": {
+     "wrong_total": 27
+    },
+    "classes": {
+     "wrong_total": 27,
+     "wrong_write": 0,
+     "ask_finish": 0,
+     "other": 0
+    }
+   },
+   "provenance": {
+    "path": "runs/e7_hard/jevagent_best.jsonl",
+    "sha256": "41eb742a40341854e4c8c9693258c6ada2c2c144420722be6ad73b6fbf9044c4",
+    "n_records": 200
+   },
+   "paired_per_episode": {
+    "wall_s_mean": 47.58993151410002,
+    "wall_s_median": 46.91853888300011,
+    "steps": 31.0,
+    "llm_calls": 23.34,
+    "s1_calls": 95.21,
+    "s1_cost": 0.009761707199999999,
+    "s2_cost": 0.045949722000000005,
+    "s1_s": 18.54644919960998
+   },
+   "ref_paired_per_episode": {
+    "wall_s_mean": 33.07297479656499,
+    "wall_s_median": 32.49960353999995,
+    "steps": 31.0,
+    "llm_calls": 31.0,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.05940231225,
+    "s1_s": 0.0
+   },
+   "points": {
+    "tool_select": {
+     "n": 6200,
+     "coverage": 0.6246774193548387,
+     "n_gold": 6200,
+     "acc": 0.9979032258064516,
+     "acc_accepted": 1.0,
+     "llm_acc_deferred": 0.9922647185217017,
+     "n_accepted": 3873
+    },
+    "tool_params": {
+     "n": 6842,
+     "coverage": 0.6965799473838059,
+     "n_gold": 6842,
+     "acc": 0.997076878105817,
+     "acc_accepted": 1.0,
+     "llm_acc_deferred": null,
+     "n_accepted": 4766
+    },
+    "tool": {
+     "n": 13042,
+     "coverage": 0.662398405152584,
+     "n_gold": 13042,
+     "acc": 0.9974697132341666,
+     "acc_accepted": 1.0,
+     "llm_acc_deferred": 0.9922647185217017,
+     "n_accepted": 8639
+    },
+    "op": {
+     "n": 2009,
+     "coverage": 0.5629666500746641,
+     "acc": 0.9965156794425087,
+     "acc_accepted": 1.0,
+     "accepted_wrong": 0,
+     "llm_acc_deferred": 0.989749430523918,
+     "s1_said_other_op": 2
+    },
+    "reflection": {
+     "n": 6000,
+     "fired": 0.06466666666666666,
+     "acc": 0.9964362081254454,
+     "gold_positive_rate": 0.003563791874554526
+    }
+   },
+   "cmp": {
+    "n_expected": 200,
+    "n": 200,
+    "n_dropped": 0,
+    "dropped": {
+     "missing_arm": 0,
+     "missing_ref": 0,
+     "errored_arm": 0,
+     "errored_ref": 0
+    },
+    "success": 0.865,
+    "success_ref": 0.88,
+    "delta": -0.015,
+    "delta_ci": [
+     -0.075,
+     0.045
+    ],
+    "wins": 16,
+    "losses": 19,
+    "cost": 0.055711429199999996,
+    "cost_ref": 0.05940231225,
+    "saving": 0.06213365962029538,
+    "saving_ci": [
+     0.04353874258190602,
+     0.0803760082931562
+    ],
+    "newcombe_pt": [
+     -7.501019629441311,
+     4.473986857487022
+    ],
+    "api": {
+     "cost": 0.055711429199999996,
+     "saving": 0.06213365962029538,
+     "saving_ci": [
+      0.04353874258190602,
+      0.0803760082931562
+     ]
+    }
+   }
+  },
+  "jevagent_best_rl": {
+   "state": "run",
+   "n_ok": 200,
+   "n_records": 200,
+   "success_all": 0.03,
+   "cost_mean": 0.00996482175,
+   "per_episode": {
+    "wall_s_mean": 60.52055154748499,
+    "wall_s_median": 48.01769322100017,
+    "steps": 13.35,
+    "llm_calls": 6.365,
+    "s1_calls": 47.55,
+    "s1_cost": 0.0,
+    "s2_cost": 0.00996482175,
+    "s1_s": 51.58583722043519
+   },
+   "failure_types": {
+    "n_failed": 194,
+    "types": {
+     "strict_stop": 152,
+     "premature_finish": 37,
+     "wrong_total": 5
+    },
+    "classes": {
+     "wrong_total": 5,
+     "wrong_write": 152,
+     "ask_finish": 37,
+     "other": 0
+    }
+   },
+   "provenance": {
+    "path": "runs/e7_hard/jevagent_best_rl.jsonl",
+    "sha256": "95df248654cce2a2be983b844aa717e301d9dbbd67ddf3912d395eef8855844b",
+    "n_records": 200
+   },
+   "paired_per_episode": {
+    "wall_s_mean": 60.52055154748499,
+    "wall_s_median": 48.01769322100017,
+    "steps": 13.35,
+    "llm_calls": 6.365,
+    "s1_calls": 47.55,
+    "s1_cost": 0.0,
+    "s2_cost": 0.009964821749999998,
+    "s1_s": 51.58583722043519
+   },
+   "ref_paired_per_episode": {
+    "wall_s_mean": 33.07297479656499,
+    "wall_s_median": 32.49960353999995,
+    "steps": 31.0,
+    "llm_calls": 31.0,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.05940231225,
+    "s1_s": 0.0
+   },
+   "points": {
+    "tool_select": {
+     "n": 2670,
+     "coverage": 0.9992509363295881,
+     "n_gold": 2670,
+     "acc": 0.9258426966292135,
+     "acc_accepted": 0.9261619190404797,
+     "llm_acc_deferred": 1.0,
+     "n_accepted": 2668
+    },
+    "tool_params": {
+     "n": 4370,
+     "coverage": 0.6402745995423341,
+     "n_gold": 4038,
+     "acc": 0.9737493808816245,
+     "acc_accepted": 0.9984877126654065,
+     "llm_acc_deferred": null,
+     "n_accepted": 2798
+    },
+    "tool": {
+     "n": 7040,
+     "coverage": 0.7764204545454545,
+     "n_gold": 6708,
+     "acc": 0.9546809779367919,
+     "acc_accepted": 0.9621682665160926,
+     "llm_acc_deferred": 1.0,
+     "n_accepted": 5466
+    },
+    "op": {
+     "n": 877,
+     "coverage": 0.9988597491448119,
+     "acc": 0.8164196123147093,
+     "acc_accepted": 0.817351598173516,
+     "accepted_wrong": 160,
+     "llm_acc_deferred": 1.0,
+     "s1_said_other_op": 151
+    },
+    "reflection": {
+     "n": 2470,
+     "fired": 0.03643724696356275,
+     "acc": 0.9184873949579831,
+     "gold_positive_rate": 0.08151260504201681
+    }
+   },
+   "cmp": {
+    "n_expected": 200,
+    "n": 200,
+    "n_dropped": 0,
+    "dropped": {
+     "missing_arm": 0,
+     "missing_ref": 0,
+     "errored_arm": 0,
+     "errored_ref": 0
+    },
+    "success": 0.03,
+    "success_ref": 0.88,
+    "delta": -0.85,
+    "delta_ci": [
+     -0.9,
+     -0.795
+    ],
+    "wins": 1,
+    "losses": 171,
+    "cost": 0.01817582175,
+    "cost_ref": 0.05940231225,
+    "saving": 0.6940216455968008,
+    "saving_ci": [
+     0.6700094970278199,
+     0.7173741049524699
+    ],
+    "newcombe_pt": [
+     -89.16938808648919,
+     -78.69272368381178
+    ],
+    "api": {
+     "cost": 0.009964821749999998,
+     "saving": 0.8322485881010465,
+     "saving_ci": [
+      0.808338160404742,
+      0.8552272036729273
+     ]
+    },
+    "tariff_q": 0.008211,
+    "sens": {
+     "s2_4": {
+      "cost": 0.01192664175,
+      "saving": 0.7992226009687022,
+      "saving_ci": [
+       0.7753053831982112,
+       0.8222364154441646
+      ]
+     },
+     "zero": {
+      "cost": 0.009964821749999998,
+      "saving": 0.8322485881010465,
+      "saving_ci": [
+       0.808338160404742,
+       0.8552272036729273
+      ]
+     }
+    }
+   }
+  }
+ }
+}

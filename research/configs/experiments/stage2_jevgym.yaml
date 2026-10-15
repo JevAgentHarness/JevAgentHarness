@@ -1,0 +1,64 @@
+# Stage 2 (docs/PREREG_A7_STAGE2.md, A7): JevAgentHarness on FRESH JevGym seeds 300000..300499 (reserved 2026-10-02:
+# never trained on, never piloted; the runner refuses 300000..300999 without JEV_EVAL_RUNS=1, bench/registry.py).
+# Same frozen suite settings as Stage 1 (A1 / P4: families v2, near distractors, 60 distractors, 20 noise lines,
+# strict); the 500 task ids and their sha256 are frozen in configs/eval/jevgym_stage2_tasks.json (A7.2 (a)).
+#
+# The profile arms read configs/harness/jevagent_best.yaml, which `scripts/select_profile.py` writes from the Stage-1
+# main-run results by the mechanical rule of A7.1 (until then it carries `status: pending` and the runner skips every
+# arm that uses it). `profile_s2` picks the profile's System-2 section; `profile_part: best_single` takes the profile
+# restricted to its top group g* (S2-2's reference, A7.11 (a)); `minus_<group>` the leave-one-group-out rows of
+# A7.11 (c); `profile_backend: jevagent_rl` applies the
+# JevAgentRL threshold overrides recorded in the profile (A7.1 (f): refit on the calibration seeds when the profile
+# selects a cascade). An arm that names a profile sets no decision point itself.
+#
+# Arms (A7.3): the four-test family S2-1 (jevagent_best vs llm_only), S2-2 (jevagent_best vs best_single), S2-4
+# (jevagent_best_rl vs llm_only); S2-3 runs on the fresh common-state corpus of configs/experiments/stage2_rl_states.yaml
+# (A7.10 (c); the Stage-1-seed mirror is withdrawn, A7.13 (v)).
+# Secondary: S2-1L (jevagent_best_s2lite vs llm_only_s2lite); S2-4S (jevagent_best_sl4b vs llm_only, A7.18 (e) 5:
+# StartLux-Decision-4B served on the GPU host, bound to the placeholder backend `startlux_4b`, thresholds from the
+# profile's `backends.startlux_4b` block). Descriptive: jevagent_default (development profile).
+#   for pass in 1 2 3; do JEV_EVAL_RUNS=1 jevbench run configs/experiments/stage2_jevgym.yaml --out runs -o workers=4 \
+#     -o 's1_backends.startlux_4b={type: jev, name: startlux-4b, base_url: http://localhost:8090, model: StartLux-Decision-4B, api_key: "", price_model: StartLux-Decision-4B, timeout: 60.0, cache: cache/s1_stage2_startlux.sqlite}'; done
+#
+# Run (A7.6): three passes, every arm at n = 500; the JevAgentRL arm needs the served checkpoint (GPU host), so it is
+# bound to the placeholder backend `jevagent_rl` and skipped until the endpoint is set:
+#   for pass in 1 2 3; do JEV_EVAL_RUNS=1 jevbench run configs/experiments/stage2_jevgym.yaml --out runs -o workers=8; done
+#   for pass in 1 2 3; do JEV_EVAL_RUNS=1 jevbench run configs/experiments/stage2_jevgym.yaml --out runs -o workers=4 \
+#     -o 's1_backends.jevagent_rl={type: jev, name: jevagent-rl, base_url: http://localhost:8081, model: jevagent-rl, api_key: ""}'; done
+name: stage2_jevgym
+suite: {name: jevgym, n: 500, seed0: 300000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # Stage-2 fresh seeds 300000..300499 (A7.2 (a))
+n_tasks: 500
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+small_llm: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}   # used only if the profile selects routing
+llms:
+  lite2: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}      # the pinned Jev endpoint of Stage 1 (§1, A6.20 (c))
+s1_cache: cache/s1_stage2.sqlite           # a separate cache: no Stage-1 or development answer can be replayed here
+s1_backends:
+  # JevAgentRL: the checkpoint frozen under docs/TRAINING_RECIPES.md §18.4, recorded in results/gpu_round5/, served
+  # in the Jev wire format by training/serve_jev.py on the GPU host (A7.3). Placeholder until the endpoint is set.
+  jevagent_rl: {type: jev, name: jevagent-rl, base_url: "http://localhost:8081", model: jevagent-rl, api_key: "", placeholder: true}
+  # StartLux-Decision-4B (A7.18): the vendor's server on the Stage-2 GPU host (scripts/aws/serve_startlux.sh), the Jev
+  # wire format unchanged; its own System-1 cache. Placeholder until the endpoint is confirmed by the smoke test.
+  startlux_4b: {type: jev, name: startlux-4b, base_url: "http://localhost:8090", model: StartLux-Decision-4B, api_key: "",
+                price_model: StartLux-Decision-4B, timeout: 60.0, cache: cache/s1_stage2_startlux.sqlite, placeholder: true}
+workers: 8
+schedule: {mode: task_major, seed: 732}    # A7.16 (a): task by task, arm order seeded per task; schedule.json records it
+arms:
+  # ---------------- Flash (primary System-2; the Stage-2 family)
+  - {name: llm_only}                                                                             # S2-1 / S2-4 reference
+  - {name: jevagent_best, profile: configs/harness/jevagent_best.yaml, profile_s2: gemini-3.5-flash}               # S2-1, S2-2
+  - {name: best_single, profile: configs/harness/jevagent_best.yaml, profile_s2: gemini-3.5-flash, profile_part: best_single}   # S2-2 reference: the profile restricted to g* (A7.11 (a)); skipped for a single-group profile (A7.1 (g) 4)
+  - {name: jevagent_best_rl, s1: jevagent_rl, profile: configs/harness/jevagent_best.yaml, profile_s2: gemini-3.5-flash, profile_backend: jevagent_rl}   # S2-4
+  - {name: jevagent_default, profile: configs/harness/jevagent_default.yaml, profile_s2: gemini-3.5-flash}         # descriptive (development profile)
+  - {name: jevagent_best_sl4b, s1: startlux_4b, profile: configs/harness/jevagent_best.yaml, profile_s2: gemini-3.5-flash, profile_backend: startlux_4b}   # S2-4S (A7.18 (e) 5; secondary)
+  # A7.11 (c), descriptive: leave-one-group-out on the first 200 tasks; the profile's `logo` map (written by
+  # select_profile.py, outcome-blind) says which run -- the others, and groups that are not active, are skipped
+  - {name: jevagent_minus_tool, n_tasks: 200, profile: configs/harness/jevagent_best.yaml, profile_s2: gemini-3.5-flash, profile_part: minus_tool}
+  - {name: jevagent_minus_stop, n_tasks: 200, profile: configs/harness/jevagent_best.yaml, profile_s2: gemini-3.5-flash, profile_part: minus_stop}
+  - {name: jevagent_minus_reflection, n_tasks: 200, profile: configs/harness/jevagent_best.yaml, profile_s2: gemini-3.5-flash, profile_part: minus_reflection}
+  - {name: jevagent_minus_routing, n_tasks: 200, profile: configs/harness/jevagent_best.yaml, profile_s2: gemini-3.5-flash, profile_part: minus_routing}
+  - {name: jevagent_minus_memory, n_tasks: 200, profile: configs/harness/jevagent_best.yaml, profile_s2: gemini-3.5-flash, profile_part: minus_memory}
+  # ---------------- Flash-Lite (secondary row S2-1L)
+  - {name: llm_only_s2lite, llm: lite2}
+  - {name: jevagent_best_s2lite, llm: lite2, profile: configs/harness/jevagent_best.yaml, profile_s2: gemini-3.5-flash-lite}

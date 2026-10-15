@@ -1,0 +1,43 @@
+# Exploratory row E21b (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-08 "E21b: the deployed confidence-gated cascades
+# on DecisionGym-Shift"; descriptive, outside every Holm table). Arm e18_final: E18 = E14 arm A + the logistic defer head (serve_jev --backend clef --clef-defer-head, :8083), profile explore_e18_final.yaml unchanged. The 200 L3 tasks of E21 (seeds 330100-330299; JEV_EVAL_RUNS=1), paired with E21's logged llm_only row.
+# The final harness (tool + argument cascade, reflection off, argument questions batched per step) at the arm's
+# in-domain thresholds, no refit; the model alone on the E21b host's GPU (scripts/aws/e21b_shift_cascade.sh), 1 worker,
+# task-major schedule seed 732, no System-1 cache; Flash on the direct Gemini API (temperature 0, minimal reasoning),
+# the key from SSM into the live process only. Run with scripts/explore_e21b_shift_cascade.py's pause rule.
+name: e21b_e18
+suite:
+  name: jevgym
+  shift: true
+  n: 200
+  seed0: 330100
+  families: v2
+  distractor_style: near
+  n_distractors: 60
+  noise_lines: 20
+  strict: true
+n_tasks: 200
+llm:
+  provider: gemini
+  model: gemini-3.5-flash
+  temperature: 0
+  reasoning_effort: minimal
+s1_backends:
+  e18:
+    type: jev
+    name: e18
+    base_url: http://127.0.0.1:8083
+    model: e18
+    api_key: ''
+    timeout: 120.0
+    cache: null
+    price_model: jevagentrl-4b
+workers: 1
+schedule:
+  mode: task_major
+  seed: 732
+arms:
+- name: e18_final
+  s1: e18
+  profile: configs/harness/explore_e18_final.yaml
+  profile_s2: gemini-3.5-flash
+  profile_backend: e18

@@ -1,0 +1,44 @@
+{
+ "generated": "2026-10-02T22:32:29+00:00",
+ "tasks_file": "configs/eval/jevgym_stage2_tasks.json",
+ "tasks_file_bytes_sha256": "b10636362f2ef87696fccdb35692dfebf2593f6d84af2a95fda2e2ed5a2acdf8",
+ "method": "task generation only (bench/suites/jevgym.py); no episode, no model",
+ "population": "PREREG_A7_STAGE2 A7.2 (a): stage2_jevgym.yaml seeds 300000-300499",
+ "tasks_file_sha256": "c167829adccbf843052d6ea8eb207a37eb13e7e1a8281cbddbbac9af976e704e",
+ "n_tasks": 500,
+ "n_families": 2,
+ "plan_steps_median": 7.5,
+ "plan_steps_mean": 7.5,
+ "plan_steps_min": 5.0,
+ "plan_steps_max": 10.0,
+ "plan_steps_p90": 10.0,
+ "plan_calls_median": 6.5,
+ "plan_calls_mean": 6.5,
+ "n_distinct_plans": 11,
+ "largest_plan_share": 0.248,
+ "n_plan_tools": 7,
+ "tools_offered_median": 69.0,
+ "by_family": {
+  "clarify": {
+   "n": 250,
+   "plan_steps_median": 5.0
+  },
+  "multi": {
+   "n": 250,
+   "plan_steps_median": 10.0
+  }
+ },
+ "distinct_plans": {
+  "ask_user > find_user > get_orders > ship_order > finish": 124,
+  "find_user > get_orders > ask_user > cancel_order > finish": 63,
+  "ask_user > find_user > get_orders > refund > finish": 63,
+  "find_user > get_orders > ship_order > find_user > get_orders > ship_order > find_user > get_orders > ship_order > finish": 38,
+  "find_user > get_orders > cancel_order > find_user > get_orders > ship_order > find_user > get_orders > cancel_order > finish": 36,
+  "find_user > get_orders > cancel_order > find_user > get_orders > ship_order > find_user > get_orders > ship_order > finish": 34,
+  "find_user > get_orders > cancel_order > find_user > get_orders > cancel_order > find_user > get_orders > ship_order > finish": 33,
+  "find_user > get_orders > ship_order > find_user > get_orders > cancel_order > find_user > get_orders > cancel_order > finish": 30,
+  "find_user > get_orders > ship_order > find_user > get_orders > cancel_order > find_user > get_orders > ship_order > finish": 29,
+  "find_user > get_orders > cancel_order > find_user > get_orders > cancel_order > find_user > get_orders > cancel_order > finish": 28,
+  "find_user > get_orders > ship_order > find_user > get_orders > ship_order > find_user > get_orders > cancel_order > finish": 22
+ }
+}

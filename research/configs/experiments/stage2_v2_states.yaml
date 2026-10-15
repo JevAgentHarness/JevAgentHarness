@@ -1,0 +1,24 @@
+# Stage 2, A7.19 (f) (docs/PREREG_A7_STAGE2.md; "as A7.18 (e) 3"): the JevAgentRL-v2 live tool_select REPLACE arm on
+# the first 200 fresh Stage-2 tasks (seeds 300000..300199; the suite block of configs/experiments/stage2_jevgym.yaml),
+# Flash, three passes; exploratory and descriptive (label "exploratory (A7.19)"), paired task by task with
+# `jev_ts_replace_f` / `rl_ts_replace_f` of configs/experiments/stage2_rl_states.yaml: live success, own-state accuracy,
+# trajectory length. These trajectories never enter S2-3's common-state corpus.
+#
+# Backend: the frozen v2 checkpoint (results/gpu_round6_miles/final_FROZEN.txt) served by training/serve_jev.py with its
+# temperature file on :8084 (scripts/aws/stage2_gpu.sh v2_serve). A PLACEHOLDER until the host binds it; a new System-1
+# cache (as A7.18 (e) for StartLux):
+#   for pass in 1 2 3; do JEV_EVAL_RUNS=1 jevbench run configs/experiments/stage2_v2_states.yaml --out runs -o workers=4 \
+#     -o 's1_backends.jevagentrl_v2={type: jev, name: jevagentrl-v2, base_url: "http://127.0.0.1:8084", model: jevagentrl-v2, api_key: "", price_model: jevagentrl-v2, timeout: 60.0}'; done
+# serve_jev answers one request at a time (latency includes queueing; descriptive only).
+name: stage2_v2_states
+suite: {name: jevgym, n: 500, seed0: 300000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # Stage-2 fresh seeds (A7.2 (a))
+n_tasks: 200
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}          # unused (the arm binds jevagentrl_v2)
+s1_cache: cache/s1_stage2_v2.sqlite
+s1_backends:
+  jevagentrl_v2: {type: jev, name: jevagentrl-v2, base_url: "http://127.0.0.1:8084", model: jevagentrl-v2, api_key: "",
+                  price_model: jevagentrl-v2, timeout: 60.0, placeholder: true}
+workers: 4
+arms:
+  - {name: v2_ts_replace_f, s1: jevagentrl_v2, tool_select: {mode: replace}}

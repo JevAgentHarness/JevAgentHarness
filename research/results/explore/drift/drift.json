@@ -1,0 +1,4173 @@
+{
+ "generated": "2026-10-08T05:29:19+00:00",
+ "git": "c8560a809adf",
+ "label": "post hoc, descriptive; stored live logs only (no API call, no GPU, no Jev call); revises no registered result; no registration entry (the convention of scripts/benchmark_difficulty.py)",
+ "corpus": {
+  "questions": 3939,
+  "occurrences": 5314,
+  "tasks": 200,
+  "files": {
+   "occurrences.jsonl.gz": "0710ab15953bf3d6942cbb2d62a67e630cd2f68081248262e5576bdc426371db",
+   "questions.jsonl.gz": "05bbd6df3477dbb339ed2d3ef5e33537851ebc36576a50b7334c8d71f931e8de"
+  },
+  "ask_occurrences": 582,
+  "ask_tasks": 100,
+  "ask_share": 0.10952201731275875,
+  "mustask_occurrences": 267,
+  "mustask_tasks": 100,
+  "mustask_share": 0.05024463680843056
+ },
+ "s3": {
+  "openjev": "s3://<bucket>/e15_baselines/runs/e15_live_openjev/openjev_ts_replace_f.jsonl",
+  "openjevhf": "s3://<bucket>/e15_baselines/runs/e15_live_openjevhf/openjevhf_ts_replace_f.jsonl"
+ },
+ "jev_tau": 1.0,
+ "models": {
+  "jev": {
+   "tasks": 200,
+   "errored": 0,
+   "success": 0.83,
+   "states": {
+    "labelled": 1391,
+    "unlabelled": 0,
+    "fallthrough": 0,
+    "label_mismatch_in_c": 0,
+    "in_c": 1391,
+    "novel": 0,
+    "novel_on_plan": 0,
+    "novel_after_off_plan": 0,
+    "in_c_on_plan": 1269,
+    "in_c_after_off_plan": 122,
+    "in_c_share": 1.0,
+    "novel_share": 0.0,
+    "novel_on_plan_share": 0.0,
+    "novel_after_off_plan_share": 0.0,
+    "after_off_plan_share": 0.08770668583752696,
+    "distinct_in_c": 1391,
+    "distinct_novel": 0
+   },
+   "acc": {
+    "all": {
+     "n": 1391,
+     "acc": 0.9511143062544932
+    },
+    "in_c": {
+     "n": 1391,
+     "acc": 0.9511143062544932
+    },
+    "novel": {
+     "n": 0,
+     "acc": null
+    },
+    "novel_on_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "novel_after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "in_c_on_plan": {
+     "n": 1269,
+     "acc": 0.9637509850275807
+    },
+    "in_c_after_off_plan": {
+     "n": 122,
+     "acc": 0.819672131147541
+    },
+    "on_plan": {
+     "n": 1269,
+     "acc": 0.9637509850275807
+    },
+    "after_off_plan": {
+     "n": 122,
+     "acc": 0.819672131147541
+    },
+    "executed_all": {
+     "n": 1391,
+     "acc": 0.9511143062544932
+    }
+   },
+   "mustask": {
+    "n": 34,
+    "tasks": 34,
+    "acc": 0.7352941176470589,
+    "in_c": 34,
+    "acted": 9,
+    "acted_share": 0.2647058823529412,
+    "step_median": 0.0,
+    "c_acc": 0.27
+   },
+   "askearly": {
+    "n": 25,
+    "tasks": 25,
+    "tasks_share": 0.125
+   },
+   "ask": {
+    "n": 93,
+    "acc": 0.9032258064516129,
+    "in_c": 93,
+    "wrong": 9,
+    "acted": 9,
+    "acted_share": 0.0967741935483871,
+    "acted_share_of_wrong": 1.0,
+    "tasks": 75,
+    "c_acc": 0.6439426406926407
+   },
+   "faith": {
+    "n": 1391,
+    "live_acc": 0.9511143062544932,
+    "offline_acc": 0.9489575844716032,
+    "agree": 0.9928109273903667,
+    "live_wrong_offline_right": 1,
+    "live_right_offline_wrong": 4,
+    "sign_p": 0.375,
+    "missing_offline": 0
+   },
+   "first": {
+    "tasks": 200,
+    "with_wrong_choice": 46,
+    "in_c": 46,
+    "novel": 0,
+    "none": 154,
+    "in_c_share": 0.23,
+    "novel_share": 0.0,
+    "none_share": 0.77,
+    "failed": 34,
+    "failed_with_wrong_choice": 34,
+    "failed_with_wrong_choice_share": 1.0,
+    "failed_without_wrong_choice": 0,
+    "recovered": 12,
+    "recovered_share": 0.2608695652173913,
+    "step_median": 1.0,
+    "step_mean": 1.0,
+    "step_le1_share": 0.8043478260869565,
+    "steps": {
+     "1": 28,
+     "2": 9,
+     "0": 9
+    },
+    "types": {
+     "wrong core tool": 27,
+     "changed state before asking": 9,
+     "unneeded question": 9,
+     "other look-alike": 1
+    },
+    "in_c_offline_right": 0,
+    "in_c_offline_wrong": 46,
+    "in_c_offline_right_share": 0.0,
+    "in_c_same_answer": 45,
+    "consequence": {
+     "wrong write action": 34,
+     "recoverable": 12
+    },
+    "irreversible": 34,
+    "irreversible_share": 0.17,
+    "irreversible_of_failed_share": 1.0,
+    "loss": {
+     "total": 0.17,
+     "irreversible": 0.17,
+     "compounding": 0.0,
+     "no_wrong_choice": 0.0
+    },
+    "recovered_by_consequence": {
+     "wrong write action": 0.0,
+     "premature finish": null,
+     "recoverable": 1.0
+    }
+   },
+   "gate": {
+    "conf_right_mean": 0.9335071806500422,
+    "conf_wrong_mean": 0.6383823529411765,
+    "conf_right_median": 0.99,
+    "conf_wrong_median": 0.595,
+    "n_right": 1323,
+    "n_wrong": 68,
+    "at": {
+     "own": {
+      "tau": 1.0,
+      "wrong_below": 0.9852941176470589,
+      "right_below": 0.6031746031746031,
+      "all_below": 0.6218547807332854,
+      "failed_first_below": 0.9705882352941176,
+      "failed_first_below_n": 33,
+      "failed_first_n": 34
+     },
+     "jev": {
+      "tau": 1.0,
+      "wrong_below": 0.9852941176470589,
+      "right_below": 0.6031746031746031,
+      "all_below": 0.6218547807332854,
+      "failed_first_below": 0.9705882352941176,
+      "failed_first_below_n": 33,
+      "failed_first_n": 34
+     },
+     "fixed_0.5": {
+      "tau": 0.5,
+      "wrong_below": 0.20588235294117646,
+      "right_below": 0.010582010582010581,
+      "all_below": 0.020129403306973402,
+      "failed_first_below": 0.0,
+      "failed_first_below_n": 0,
+      "failed_first_n": 34
+     },
+     "fixed_0.9": {
+      "tau": 0.9,
+      "wrong_below": 0.8676470588235294,
+      "right_below": 0.1889644746787604,
+      "all_below": 0.22214234363767074,
+      "failed_first_below": 0.7352941176470589,
+      "failed_first_below_n": 25,
+      "failed_first_n": 34
+     }
+    }
+   },
+   "pred": {
+    "tasks": 200,
+    "all_sources": 0.72875,
+    "llm_only": 0.635,
+    "on_plan": 0.73375,
+    "early_ask": 0.8
+   },
+   "label": "Jev",
+   "group": "off the shelf",
+   "live_path": "runs/stage2_rl_states/jev_ts_replace_f.jsonl",
+   "live_sha256": "c4051d8652571fa4",
+   "answers_path": "results/stage2/s23/answers_jev.jsonl",
+   "own_tau": 1.0,
+   "tau_used": 1.0,
+   "tau_source": "own fit",
+   "c_acc": 0.9147102984693024,
+   "published": {
+    "c_acc": "91.5",
+    "live_success": "83.0"
+   }
+  },
+  "intern": {
+   "tasks": 200,
+   "errored": 0,
+   "success": 0.265,
+   "states": {
+    "labelled": 925,
+    "unlabelled": 2,
+    "fallthrough": 0,
+    "label_mismatch_in_c": 0,
+    "in_c": 925,
+    "novel": 0,
+    "novel_on_plan": 0,
+    "novel_after_off_plan": 0,
+    "in_c_on_plan": 661,
+    "in_c_after_off_plan": 264,
+    "in_c_share": 1.0,
+    "novel_share": 0.0,
+    "novel_on_plan_share": 0.0,
+    "novel_after_off_plan_share": 0.0,
+    "after_off_plan_share": 0.28540540540540543,
+    "distinct_in_c": 925,
+    "distinct_novel": 0
+   },
+   "acc": {
+    "all": {
+     "n": 925,
+     "acc": 0.6572972972972972
+    },
+    "in_c": {
+     "n": 925,
+     "acc": 0.6572972972972972
+    },
+    "novel": {
+     "n": 0,
+     "acc": null
+    },
+    "novel_on_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "novel_after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "in_c_on_plan": {
+     "n": 661,
+     "acc": 0.7443267776096822
+    },
+    "in_c_after_off_plan": {
+     "n": 264,
+     "acc": 0.4393939393939394
+    },
+    "on_plan": {
+     "n": 661,
+     "acc": 0.7443267776096822
+    },
+    "after_off_plan": {
+     "n": 264,
+     "acc": 0.4393939393939394
+    },
+    "executed_all": {
+     "n": 925,
+     "acc": 0.6572972972972972
+    }
+   },
+   "mustask": {
+    "n": 79,
+    "tasks": 78,
+    "acc": 0.31645569620253167,
+    "in_c": 79,
+    "acted": 52,
+    "acted_share": 0.6582278481012658,
+    "step_median": 2,
+    "c_acc": 0.25
+   },
+   "askearly": {
+    "n": 10,
+    "tasks": 10,
+    "tasks_share": 0.05
+   },
+   "ask": {
+    "n": 180,
+    "acc": 0.65,
+    "in_c": 180,
+    "wrong": 63,
+    "acted": 53,
+    "acted_share": 0.29444444444444445,
+    "acted_share_of_wrong": 0.8412698412698413,
+    "tasks": 87,
+    "c_acc": 0.5963127705627705
+   },
+   "faith": {
+    "n": 925,
+    "live_acc": 0.6572972972972972,
+    "offline_acc": 0.6572972972972972,
+    "agree": 1.0,
+    "live_wrong_offline_right": 0,
+    "live_right_offline_wrong": 0,
+    "sign_p": null,
+    "missing_offline": 0
+   },
+   "first": {
+    "tasks": 200,
+    "with_wrong_choice": 169,
+    "in_c": 169,
+    "novel": 0,
+    "none": 31,
+    "in_c_share": 0.845,
+    "novel_share": 0.0,
+    "none_share": 0.155,
+    "failed": 147,
+    "failed_with_wrong_choice": 147,
+    "failed_with_wrong_choice_share": 1.0,
+    "failed_without_wrong_choice": 0,
+    "recovered": 22,
+    "recovered_share": 0.1301775147928994,
+    "step_median": 1,
+    "step_mean": 1.6627218934911243,
+    "step_le1_share": 0.514792899408284,
+    "steps": {
+     "1": 66,
+     "2": 57,
+     "0": 21,
+     "6": 8,
+     "3": 15,
+     "4": 2
+    },
+    "types": {
+     "wrong core tool": 84,
+     "changed state before asking": 55,
+     "look-alike of the gold tool": 20,
+     "unneeded question": 8,
+     "other look-alike": 2
+    },
+    "in_c_offline_right": 0,
+    "in_c_offline_wrong": 169,
+    "in_c_offline_right_share": 0.0,
+    "in_c_same_answer": 169,
+    "consequence": {
+     "wrong write action": 119,
+     "recoverable": 50
+    },
+    "irreversible": 119,
+    "irreversible_share": 0.595,
+    "irreversible_of_failed_share": 0.8095238095238095,
+    "loss": {
+     "total": 0.735,
+     "irreversible": 0.595,
+     "compounding": 0.14,
+     "no_wrong_choice": 0.0
+    },
+    "recovered_by_consequence": {
+     "wrong write action": 0.0,
+     "premature finish": null,
+     "recoverable": 0.44
+    }
+   },
+   "gate": {
+    "conf_right_mean": 0.8063196917649135,
+    "conf_wrong_mean": 0.7037939155277222,
+    "conf_right_median": 0.8419519539818715,
+    "conf_wrong_median": 0.6888629330766779,
+    "n_right": 608,
+    "n_wrong": 317,
+    "at": {
+     "own": {
+      "tau": Infinity,
+      "wrong_below": 1.0,
+      "right_below": 1.0,
+      "all_below": 1.0,
+      "failed_first_below": 1.0,
+      "failed_first_below_n": 147,
+      "failed_first_n": 147
+     },
+     "jev": {
+      "tau": 1.0,
+      "wrong_below": 1.0,
+      "right_below": 1.0,
+      "all_below": 1.0,
+      "failed_first_below": 1.0,
+      "failed_first_below_n": 147,
+      "failed_first_n": 147
+     },
+     "fixed_0.5": {
+      "tau": 0.5,
+      "wrong_below": 0.0946372239747634,
+      "right_below": 0.018092105263157895,
+      "all_below": 0.04432432432432432,
+      "failed_first_below": 0.034013605442176874,
+      "failed_first_below_n": 5,
+      "failed_first_n": 147
+     },
+     "fixed_0.9": {
+      "tau": 0.9,
+      "wrong_below": 0.8201892744479495,
+      "right_below": 0.6085526315789473,
+      "all_below": 0.6810810810810811,
+      "failed_first_below": 0.6666666666666666,
+      "failed_first_below_n": 98,
+      "failed_first_n": 147
+     }
+    }
+   },
+   "pred": {
+    "tasks": 200,
+    "all_sources": 0.42875,
+    "llm_only": 0.325,
+    "on_plan": 0.43125,
+    "early_ask": 0.44875
+   },
+   "label": "Intern-Decision-4B",
+   "group": "off the shelf",
+   "live_path": "runs/stage2_rl_states/intern_ts_replace_f.jsonl",
+   "live_sha256": "7d6210b6cc07ec2c",
+   "answers_path": "results/stage2/s23/answers_intern.jsonl",
+   "own_tau": Infinity,
+   "tau_used": Infinity,
+   "tau_source": "own fit",
+   "c_acc": 0.7521235058547656,
+   "published": {
+    "c_acc": "75.2",
+    "live_success": "26.5"
+   }
+  },
+  "sl0.8b": {
+   "tasks": 200,
+   "errored": 0,
+   "success": 0.175,
+   "states": {
+    "labelled": 1145,
+    "unlabelled": 255,
+    "fallthrough": 0,
+    "label_mismatch_in_c": 0,
+    "in_c": 284,
+    "novel": 861,
+    "novel_on_plan": 99,
+    "novel_after_off_plan": 762,
+    "in_c_on_plan": 279,
+    "in_c_after_off_plan": 5,
+    "in_c_share": 0.2480349344978166,
+    "novel_share": 0.7519650655021834,
+    "novel_on_plan_share": 0.08646288209606987,
+    "novel_after_off_plan_share": 0.6655021834061136,
+    "after_off_plan_share": 0.6698689956331878,
+    "distinct_in_c": 284,
+    "distinct_novel": 861
+   },
+   "acc": {
+    "all": {
+     "n": 1145,
+     "acc": 0.19825327510917032
+    },
+    "in_c": {
+     "n": 284,
+     "acc": 0.5211267605633803
+    },
+    "novel": {
+     "n": 861,
+     "acc": 0.09175377468060394
+    },
+    "novel_on_plan": {
+     "n": 99,
+     "acc": 0.6464646464646465
+    },
+    "novel_after_off_plan": {
+     "n": 762,
+     "acc": 0.01968503937007874
+    },
+    "in_c_on_plan": {
+     "n": 279,
+     "acc": 0.5304659498207885
+    },
+    "in_c_after_off_plan": {
+     "n": 5,
+     "acc": 0.0
+    },
+    "on_plan": {
+     "n": 378,
+     "acc": 0.5608465608465608
+    },
+    "after_off_plan": {
+     "n": 767,
+     "acc": 0.01955671447196871
+    },
+    "executed_all": {
+     "n": 1145,
+     "acc": 0.19825327510917032
+    }
+   },
+   "mustask": {
+    "n": 25,
+    "tasks": 25,
+    "acc": 1.0,
+    "in_c": 25,
+    "acted": 0,
+    "acted_share": 0.0,
+    "step_median": 0,
+    "c_acc": 0.25
+   },
+   "askearly": {
+    "n": 25,
+    "tasks": 25,
+    "tasks_share": 0.125
+   },
+   "ask": {
+    "n": 75,
+    "acc": 1.0,
+    "in_c": 75,
+    "wrong": 0,
+    "acted": 0,
+    "acted_share": 0.0,
+    "acted_share_of_wrong": null,
+    "tasks": 75,
+    "c_acc": 0.49393145743145744
+   },
+   "faith": {
+    "n": 284,
+    "live_acc": 0.5211267605633803,
+    "offline_acc": 0.5211267605633803,
+    "agree": 1.0,
+    "live_wrong_offline_right": 0,
+    "live_right_offline_wrong": 0,
+    "sign_p": null,
+    "missing_offline": 0
+   },
+   "first": {
+    "tasks": 200,
+    "with_wrong_choice": 166,
+    "in_c": 131,
+    "novel": 35,
+    "none": 34,
+    "in_c_share": 0.655,
+    "novel_share": 0.175,
+    "none_share": 0.17,
+    "failed": 165,
+    "failed_with_wrong_choice": 165,
+    "failed_with_wrong_choice_share": 1.0,
+    "failed_without_wrong_choice": 0,
+    "recovered": 1,
+    "recovered_share": 0.006024096385542169,
+    "step_median": 0.0,
+    "step_mean": 0.5542168674698795,
+    "step_le1_share": 0.9036144578313253,
+    "steps": {
+     "1": 50,
+     "0": 100,
+     "2": 6,
+     "3": 10
+    },
+    "types": {
+     "unneeded question": 109,
+     "wrong core tool": 56,
+     "other look-alike": 1
+    },
+    "in_c_offline_right": 0,
+    "in_c_offline_wrong": 131,
+    "in_c_offline_right_share": 0.0,
+    "in_c_same_answer": 131,
+    "consequence": {
+     "recoverable": 110,
+     "wrong write action": 56
+    },
+    "irreversible": 56,
+    "irreversible_share": 0.28,
+    "irreversible_of_failed_share": 0.3393939393939394,
+    "loss": {
+     "total": 0.825,
+     "irreversible": 0.28,
+     "compounding": 0.545,
+     "no_wrong_choice": 0.0
+    },
+    "recovered_by_consequence": {
+     "wrong write action": 0.0,
+     "premature finish": null,
+     "recoverable": 0.00909090909090909
+    }
+   },
+   "gate": {
+    "conf_right_mean": 0.5666255416985851,
+    "conf_wrong_mean": 0.47852881047843837,
+    "conf_right_median": 0.5705180253065009,
+    "conf_wrong_median": 0.47719488920924136,
+    "n_right": 227,
+    "n_wrong": 918,
+    "at": {
+     "jev": {
+      "tau": 1.0,
+      "wrong_below": 1.0,
+      "right_below": 1.0,
+      "all_below": 1.0,
+      "failed_first_below": 1.0,
+      "failed_first_below_n": 165,
+      "failed_first_n": 165
+     },
+     "fixed_0.5": {
+      "tau": 0.5,
+      "wrong_below": 0.5708061002178649,
+      "right_below": 0.33480176211453744,
+      "all_below": 0.5240174672489083,
+      "failed_first_below": 0.5818181818181818,
+      "failed_first_below_n": 96,
+      "failed_first_n": 165
+     },
+     "fixed_0.9": {
+      "tau": 0.9,
+      "wrong_below": 1.0,
+      "right_below": 0.947136563876652,
+      "all_below": 0.9895196506550218,
+      "failed_first_below": 1.0,
+      "failed_first_below_n": 165,
+      "failed_first_n": 165
+     }
+    }
+   },
+   "pred": {
+    "tasks": 200,
+    "all_sources": 0.6375,
+    "llm_only": 0.595,
+    "on_plan": 0.64375,
+    "early_ask": 0.72125
+   },
+   "label": "StartLux-0.8B",
+   "group": "off the shelf",
+   "live_path": "runs/explore_startlux_live/sl0.8b_ts_replace_f.jsonl",
+   "live_sha256": "5b2c681839995a75",
+   "answers_path": "results/stage2/s23/answers_sl0.8b.jsonl",
+   "own_tau": null,
+   "tau_used": 1.0,
+   "tau_source": "Jev arm's fit (none fitted for this model)",
+   "c_acc": 0.4834793657146014,
+   "published": {
+    "c_acc": "48.3",
+    "live_success": "17.5"
+   }
+  },
+  "sl2b": {
+   "tasks": 200,
+   "errored": 0,
+   "success": 0.065,
+   "states": {
+    "labelled": 755,
+    "unlabelled": 2,
+    "fallthrough": 0,
+    "label_mismatch_in_c": 0,
+    "in_c": 514,
+    "novel": 241,
+    "novel_on_plan": 99,
+    "novel_after_off_plan": 142,
+    "in_c_on_plan": 512,
+    "in_c_after_off_plan": 2,
+    "in_c_share": 0.680794701986755,
+    "novel_share": 0.31920529801324504,
+    "novel_on_plan_share": 0.13112582781456952,
+    "novel_after_off_plan_share": 0.1880794701986755,
+    "after_off_plan_share": 0.19072847682119207,
+    "distinct_in_c": 514,
+    "distinct_novel": 241
+   },
+   "acc": {
+    "all": {
+     "n": 755,
+     "acc": 0.5867549668874172
+    },
+    "in_c": {
+     "n": 514,
+     "acc": 0.7392996108949417
+    },
+    "novel": {
+     "n": 241,
+     "acc": 0.26141078838174275
+    },
+    "novel_on_plan": {
+     "n": 99,
+     "acc": 0.42424242424242425
+    },
+    "novel_after_off_plan": {
+     "n": 142,
+     "acc": 0.14788732394366197
+    },
+    "in_c_on_plan": {
+     "n": 512,
+     "acc": 0.7421875
+    },
+    "in_c_after_off_plan": {
+     "n": 2,
+     "acc": 0.0
+    },
+    "on_plan": {
+     "n": 611,
+     "acc": 0.690671031096563
+    },
+    "after_off_plan": {
+     "n": 144,
+     "acc": 0.14583333333333334
+    },
+    "executed_all": {
+     "n": 755,
+     "acc": 0.5867549668874172
+    }
+   },
+   "mustask": {
+    "n": 78,
+    "tasks": 78,
+    "acc": 0.3333333333333333,
+    "in_c": 65,
+    "acted": 52,
+    "acted_share": 0.6666666666666666,
+    "step_median": 2.0,
+    "c_acc": 0.27
+   },
+   "askearly": {
+    "n": 2,
+    "tasks": 2,
+    "tasks_share": 0.01
+   },
+   "ask": {
+    "n": 177,
+    "acc": 0.6610169491525424,
+    "in_c": 154,
+    "wrong": 60,
+    "acted": 54,
+    "acted_share": 0.3050847457627119,
+    "acted_share_of_wrong": 0.9,
+    "tasks": 89,
+    "c_acc": 0.6176764069264069
+   },
+   "faith": {
+    "n": 514,
+    "live_acc": 0.7392996108949417,
+    "offline_acc": 0.7392996108949417,
+    "agree": 1.0,
+    "live_wrong_offline_right": 0,
+    "live_right_offline_wrong": 0,
+    "sign_p": null,
+    "missing_offline": 0
+   },
+   "first": {
+    "tasks": 200,
+    "with_wrong_choice": 189,
+    "in_c": 132,
+    "novel": 57,
+    "none": 11,
+    "in_c_share": 0.66,
+    "novel_share": 0.285,
+    "none_share": 0.055,
+    "failed": 187,
+    "failed_with_wrong_choice": 187,
+    "failed_with_wrong_choice_share": 1.0,
+    "failed_without_wrong_choice": 0,
+    "recovered": 2,
+    "recovered_share": 0.010582010582010581,
+    "step_median": 2,
+    "step_mean": 1.962962962962963,
+    "step_le1_share": 0.328042328042328,
+    "steps": {
+     "1": 50,
+     "2": 64,
+     "3": 61,
+     "0": 12,
+     "6": 1,
+     "4": 1
+    },
+    "types": {
+     "wrong core tool": 124,
+     "changed state before asking": 58,
+     "look-alike of the gold tool": 4,
+     "unneeded question": 3
+    },
+    "in_c_offline_right": 0,
+    "in_c_offline_wrong": 132,
+    "in_c_offline_right_share": 0.0,
+    "in_c_same_answer": 132,
+    "consequence": {
+     "wrong write action": 166,
+     "recoverable": 23
+    },
+    "irreversible": 166,
+    "irreversible_share": 0.83,
+    "irreversible_of_failed_share": 0.8877005347593583,
+    "loss": {
+     "total": 0.935,
+     "irreversible": 0.83,
+     "compounding": 0.105,
+     "no_wrong_choice": 0.0
+    },
+    "recovered_by_consequence": {
+     "wrong write action": 0.0,
+     "premature finish": null,
+     "recoverable": 0.08695652173913043
+    }
+   },
+   "gate": {
+    "conf_right_mean": 0.5798774719629595,
+    "conf_wrong_mean": 0.5708391598685739,
+    "conf_right_median": 0.5383217337131008,
+    "conf_wrong_median": 0.5377104356541,
+    "n_right": 443,
+    "n_wrong": 312,
+    "at": {
+     "jev": {
+      "tau": 1.0,
+      "wrong_below": 1.0,
+      "right_below": 1.0,
+      "all_below": 1.0,
+      "failed_first_below": 1.0,
+      "failed_first_below_n": 187,
+      "failed_first_n": 187
+     },
+     "fixed_0.5": {
+      "tau": 0.5,
+      "wrong_below": 0.41346153846153844,
+      "right_below": 0.41309255079006774,
+      "all_below": 0.41324503311258276,
+      "failed_first_below": 0.2994652406417112,
+      "failed_first_below_n": 56,
+      "failed_first_n": 187
+     },
+     "fixed_0.9": {
+      "tau": 0.9,
+      "wrong_below": 0.9775641025641025,
+      "right_below": 0.8893905191873589,
+      "all_below": 0.9258278145695364,
+      "failed_first_below": 0.9625668449197861,
+      "failed_first_below_n": 180,
+      "failed_first_n": 187
+     }
+    }
+   },
+   "pred": {
+    "tasks": 200,
+    "all_sources": 0.245,
+    "llm_only": 0.18,
+    "on_plan": 0.2725,
+    "early_ask": 0.2525
+   },
+   "label": "StartLux-2B",
+   "group": "off the shelf",
+   "live_path": "runs/explore_startlux_live/sl2b_ts_replace_f.jsonl",
+   "live_sha256": "dc2197ec21f334c5",
+   "answers_path": "results/stage2/s23/answers_sl2b.jsonl",
+   "own_tau": null,
+   "tau_used": 1.0,
+   "tau_source": "Jev arm's fit (none fitted for this model)",
+   "c_acc": 0.6843949500828106,
+   "published": {
+    "c_acc": "68.4",
+    "live_success": "6.5"
+   }
+  },
+  "sl4b": {
+   "tasks": 200,
+   "errored": 0,
+   "success": 0.6,
+   "states": {
+    "labelled": 1232,
+    "unlabelled": 0,
+    "fallthrough": 0,
+    "label_mismatch_in_c": 0,
+    "in_c": 683,
+    "novel": 549,
+    "novel_on_plan": 519,
+    "novel_after_off_plan": 30,
+    "in_c_on_plan": 683,
+    "in_c_after_off_plan": 0,
+    "in_c_share": 0.5543831168831169,
+    "novel_share": 0.44561688311688313,
+    "novel_on_plan_share": 0.4212662337662338,
+    "novel_after_off_plan_share": 0.024350649350649352,
+    "after_off_plan_share": 0.024350649350649352,
+    "distinct_in_c": 683,
+    "distinct_novel": 549
+   },
+   "acc": {
+    "all": {
+     "n": 1232,
+     "acc": 0.9237012987012987
+    },
+    "in_c": {
+     "n": 683,
+     "acc": 0.890190336749634
+    },
+    "novel": {
+     "n": 549,
+     "acc": 0.9653916211293261
+    },
+    "novel_on_plan": {
+     "n": 519,
+     "acc": 0.9826589595375722
+    },
+    "novel_after_off_plan": {
+     "n": 30,
+     "acc": 0.6666666666666666
+    },
+    "in_c_on_plan": {
+     "n": 683,
+     "acc": 0.890190336749634
+    },
+    "in_c_after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "on_plan": {
+     "n": 1202,
+     "acc": 0.930116472545757
+    },
+    "after_off_plan": {
+     "n": 30,
+     "acc": 0.6666666666666666
+    },
+    "executed_all": {
+     "n": 1232,
+     "acc": 0.9237012987012987
+    }
+   },
+   "mustask": {
+    "n": 90,
+    "tasks": 90,
+    "acc": 0.4111111111111111,
+    "in_c": 77,
+    "acted": 53,
+    "acted_share": 0.5888888888888889,
+    "step_median": 2.0,
+    "c_acc": 0.47
+   },
+   "askearly": {
+    "n": 0,
+    "tasks": 0,
+    "tasks_share": 0.0
+   },
+   "ask": {
+    "n": 190,
+    "acc": 0.7210526315789474,
+    "in_c": 177,
+    "wrong": 53,
+    "acted": 53,
+    "acted_share": 0.2789473684210526,
+    "acted_share_of_wrong": 1.0,
+    "tasks": 90,
+    "c_acc": 0.8405335497835498
+   },
+   "faith": {
+    "n": 683,
+    "live_acc": 0.890190336749634,
+    "offline_acc": 0.890190336749634,
+    "agree": 1.0,
+    "live_wrong_offline_right": 0,
+    "live_right_offline_wrong": 0,
+    "sign_p": null,
+    "missing_offline": 0
+   },
+   "first": {
+    "tasks": 200,
+    "with_wrong_choice": 84,
+    "in_c": 75,
+    "novel": 9,
+    "none": 116,
+    "in_c_share": 0.375,
+    "novel_share": 0.045,
+    "none_share": 0.58,
+    "failed": 80,
+    "failed_with_wrong_choice": 80,
+    "failed_with_wrong_choice_share": 1.0,
+    "failed_without_wrong_choice": 0,
+    "recovered": 4,
+    "recovered_share": 0.047619047619047616,
+    "step_median": 2.0,
+    "step_mean": 1.4642857142857142,
+    "step_le1_share": 0.36904761904761907,
+    "steps": {
+     "0": 14,
+     "2": 53,
+     "1": 17
+    },
+    "types": {
+     "changed state before asking": 53,
+     "wrong core tool": 31
+    },
+    "in_c_offline_right": 0,
+    "in_c_offline_wrong": 75,
+    "in_c_offline_right_share": 0.0,
+    "in_c_same_answer": 75,
+    "consequence": {
+     "wrong write action": 70,
+     "recoverable": 14
+    },
+    "irreversible": 70,
+    "irreversible_share": 0.35,
+    "irreversible_of_failed_share": 0.875,
+    "loss": {
+     "total": 0.4,
+     "irreversible": 0.35,
+     "compounding": 0.05,
+     "no_wrong_choice": 0.0
+    },
+    "recovered_by_consequence": {
+     "wrong write action": 0.0,
+     "premature finish": null,
+     "recoverable": 0.2857142857142857
+    }
+   },
+   "gate": {
+    "conf_right_mean": 0.8683473611927375,
+    "conf_wrong_mean": 0.6396278517650235,
+    "conf_right_median": 0.9292717052077741,
+    "conf_wrong_median": 0.5666073271918867,
+    "n_right": 1138,
+    "n_wrong": 94,
+    "at": {
+     "own": {
+      "tau": 0.9756255275765149,
+      "wrong_below": 1.0,
+      "right_below": 0.7530755711775043,
+      "all_below": 0.7719155844155844,
+      "failed_first_below": 1.0,
+      "failed_first_below_n": 80,
+      "failed_first_n": 80
+     },
+     "jev": {
+      "tau": 1.0,
+      "wrong_below": 1.0,
+      "right_below": 1.0,
+      "all_below": 1.0,
+      "failed_first_below": 1.0,
+      "failed_first_below_n": 80,
+      "failed_first_n": 80
+     },
+     "fixed_0.5": {
+      "tau": 0.5,
+      "wrong_below": 0.3404255319148936,
+      "right_below": 0.022847100175746926,
+      "all_below": 0.04707792207792208,
+      "failed_first_below": 0.2625,
+      "failed_first_below_n": 21,
+      "failed_first_n": 80
+     },
+     "fixed_0.9": {
+      "tau": 0.9,
+      "wrong_below": 0.7340425531914894,
+      "right_below": 0.4305799648506151,
+      "all_below": 0.4537337662337662,
+      "failed_first_below": 0.6875,
+      "failed_first_below_n": 55,
+      "failed_first_n": 80
+     }
+    }
+   },
+   "pred": {
+    "tasks": 200,
+    "all_sources": 0.67375,
+    "llm_only": 0.51,
+    "on_plan": 0.6825,
+    "early_ask": 0.67375
+   },
+   "label": "StartLux-4B",
+   "group": "off the shelf",
+   "live_path": "runs/stage2_startlux_states/sl4b_ts_replace_f.jsonl",
+   "live_sha256": "95075ba3bfa2aba4",
+   "answers_path": "results/stage2/s23/answers_sl4b.jsonl",
+   "own_tau": 0.9756255275765149,
+   "tau_used": 0.9756255275765149,
+   "tau_source": "own fit",
+   "c_acc": 0.8910747350186918,
+   "published": {
+    "c_acc": "89.1",
+    "live_success": "60.0"
+   }
+  },
+  "sl9b": {
+   "tasks": 200,
+   "errored": 0,
+   "success": 0.74,
+   "states": {
+    "labelled": 1416,
+    "unlabelled": 1,
+    "fallthrough": 0,
+    "label_mismatch_in_c": 0,
+    "in_c": 739,
+    "novel": 677,
+    "novel_on_plan": 652,
+    "novel_after_off_plan": 25,
+    "in_c_on_plan": 739,
+    "in_c_after_off_plan": 0,
+    "in_c_share": 0.5218926553672316,
+    "novel_share": 0.4781073446327684,
+    "novel_on_plan_share": 0.4604519774011299,
+    "novel_after_off_plan_share": 0.01765536723163842,
+    "after_off_plan_share": 0.01765536723163842,
+    "distinct_in_c": 739,
+    "distinct_novel": 677
+   },
+   "acc": {
+    "all": {
+     "n": 1416,
+     "acc": 0.9456214689265536
+    },
+    "in_c": {
+     "n": 739,
+     "acc": 0.9472259810554804
+    },
+    "novel": {
+     "n": 677,
+     "acc": 0.9438700147710487
+    },
+    "novel_on_plan": {
+     "n": 652,
+     "acc": 0.9800613496932515
+    },
+    "novel_after_off_plan": {
+     "n": 25,
+     "acc": 0.0
+    },
+    "in_c_on_plan": {
+     "n": 739,
+     "acc": 0.9472259810554804
+    },
+    "in_c_after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "on_plan": {
+     "n": 1391,
+     "acc": 0.9626168224299065
+    },
+    "after_off_plan": {
+     "n": 25,
+     "acc": 0.0
+    },
+    "executed_all": {
+     "n": 1416,
+     "acc": 0.9456214689265536
+    }
+   },
+   "mustask": {
+    "n": 100,
+    "tasks": 100,
+    "acc": 0.5,
+    "in_c": 84,
+    "acted": 50,
+    "acted_share": 0.5,
+    "step_median": 2.0,
+    "c_acc": 0.5
+   },
+   "askearly": {
+    "n": 0,
+    "tasks": 0,
+    "tasks_share": 0.0
+   },
+   "ask": {
+    "n": 200,
+    "acc": 0.75,
+    "in_c": 184,
+    "wrong": 50,
+    "acted": 50,
+    "acted_share": 0.25,
+    "acted_share_of_wrong": 1.0,
+    "tasks": 100,
+    "c_acc": 0.8714426406926407
+   },
+   "faith": {
+    "n": 739,
+    "live_acc": 0.9472259810554804,
+    "offline_acc": 0.9472259810554804,
+    "agree": 1.0,
+    "live_wrong_offline_right": 0,
+    "live_right_offline_wrong": 0,
+    "sign_p": null,
+    "missing_offline": 0
+   },
+   "first": {
+    "tasks": 200,
+    "with_wrong_choice": 52,
+    "in_c": 39,
+    "novel": 13,
+    "none": 148,
+    "in_c_share": 0.195,
+    "novel_share": 0.065,
+    "none_share": 0.74,
+    "failed": 52,
+    "failed_with_wrong_choice": 52,
+    "failed_with_wrong_choice_share": 1.0,
+    "failed_without_wrong_choice": 0,
+    "recovered": 0,
+    "recovered_share": 0.0,
+    "step_median": 2.0,
+    "step_mean": 2.0,
+    "step_le1_share": 0.019230769230769232,
+    "steps": {
+     "2": 50,
+     "3": 1,
+     "1": 1
+    },
+    "types": {
+     "changed state before asking": 50,
+     "unneeded question": 1,
+     "wrong core tool": 1
+    },
+    "in_c_offline_right": 0,
+    "in_c_offline_wrong": 39,
+    "in_c_offline_right_share": 0.0,
+    "in_c_same_answer": 39,
+    "consequence": {
+     "wrong write action": 51,
+     "recoverable": 1
+    },
+    "irreversible": 51,
+    "irreversible_share": 0.255,
+    "irreversible_of_failed_share": 0.9807692307692307,
+    "loss": {
+     "total": 0.26,
+     "irreversible": 0.255,
+     "compounding": 0.005,
+     "no_wrong_choice": 0.0
+    },
+    "recovered_by_consequence": {
+     "wrong write action": 0.0,
+     "premature finish": null,
+     "recoverable": 0.0
+    }
+   },
+   "gate": {
+    "conf_right_mean": 0.9056426004351898,
+    "conf_wrong_mean": 0.6981143632354274,
+    "conf_right_median": 0.9536445085912709,
+    "conf_wrong_median": 0.6760112543779354,
+    "n_right": 1339,
+    "n_wrong": 77,
+    "at": {
+     "jev": {
+      "tau": 1.0,
+      "wrong_below": 1.0,
+      "right_below": 1.0,
+      "all_below": 1.0,
+      "failed_first_below": 1.0,
+      "failed_first_below_n": 52,
+      "failed_first_n": 52
+     },
+     "fixed_0.5": {
+      "tau": 0.5,
+      "wrong_below": 0.12987012987012986,
+      "right_below": 0.0022404779686333084,
+      "all_below": 0.009180790960451978,
+      "failed_first_below": 0.07692307692307693,
+      "failed_first_below_n": 4,
+      "failed_first_n": 52
+     },
+     "fixed_0.9": {
+      "tau": 0.9,
+      "wrong_below": 0.8311688311688312,
+      "right_below": 0.351008215085885,
+      "all_below": 0.3771186440677966,
+      "failed_first_below": 0.75,
+      "failed_first_below_n": 39,
+      "failed_first_n": 52
+     }
+    }
+   },
+   "pred": {
+    "tasks": 200,
+    "all_sources": 0.71,
+    "llm_only": 0.605,
+    "on_plan": 0.72375,
+    "early_ask": 0.71
+   },
+   "label": "StartLux-9B",
+   "group": "off the shelf",
+   "live_path": "runs/explore_startlux_live/sl9b_ts_replace_f.jsonl",
+   "live_sha256": "bdef92c1d9613609",
+   "answers_path": "results/stage2/s23/answers_sl9b.jsonl",
+   "own_tau": null,
+   "tau_used": 1.0,
+   "tau_source": "Jev arm's fit (none fitted for this model)",
+   "c_acc": 0.9180101821499901,
+   "published": {
+    "c_acc": "91.8",
+    "live_success": "74.0"
+   }
+  },
+  "sl27b": {
+   "tasks": 200,
+   "errored": 0,
+   "success": 0.63,
+   "states": {
+    "labelled": 1352,
+    "unlabelled": 0,
+    "fallthrough": 0,
+    "label_mismatch_in_c": 0,
+    "in_c": 746,
+    "novel": 606,
+    "novel_on_plan": 606,
+    "novel_after_off_plan": 0,
+    "in_c_on_plan": 746,
+    "in_c_after_off_plan": 0,
+    "in_c_share": 0.5517751479289941,
+    "novel_share": 0.44822485207100593,
+    "novel_on_plan_share": 0.44822485207100593,
+    "novel_after_off_plan_share": 0.0,
+    "after_off_plan_share": 0.0,
+    "distinct_in_c": 746,
+    "distinct_novel": 606
+   },
+   "acc": {
+    "all": {
+     "n": 1352,
+     "acc": 0.9452662721893491
+    },
+    "in_c": {
+     "n": 746,
+     "acc": 0.920911528150134
+    },
+    "novel": {
+     "n": 606,
+     "acc": 0.9752475247524752
+    },
+    "novel_on_plan": {
+     "n": 606,
+     "acc": 0.9752475247524752
+    },
+    "novel_after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "in_c_on_plan": {
+     "n": 746,
+     "acc": 0.920911528150134
+    },
+    "in_c_after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "on_plan": {
+     "n": 1352,
+     "acc": 0.9452662721893491
+    },
+    "after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "executed_all": {
+     "n": 1352,
+     "acc": 0.9452662721893491
+    }
+   },
+   "mustask": {
+    "n": 100,
+    "tasks": 100,
+    "acc": 0.26,
+    "in_c": 85,
+    "acted": 74,
+    "acted_share": 0.74,
+    "step_median": 2.0,
+    "c_acc": 0.26
+   },
+   "askearly": {
+    "n": 0,
+    "tasks": 0,
+    "tasks_share": 0.0
+   },
+   "ask": {
+    "n": 200,
+    "acc": 0.63,
+    "in_c": 185,
+    "wrong": 74,
+    "acted": 74,
+    "acted_share": 0.37,
+    "acted_share_of_wrong": 1.0,
+    "tasks": 100,
+    "c_acc": 0.6339426406926407
+   },
+   "faith": {
+    "n": 746,
+    "live_acc": 0.920911528150134,
+    "offline_acc": 0.920911528150134,
+    "agree": 1.0,
+    "live_wrong_offline_right": 0,
+    "live_right_offline_wrong": 0,
+    "sign_p": null,
+    "missing_offline": 0
+   },
+   "first": {
+    "tasks": 200,
+    "with_wrong_choice": 74,
+    "in_c": 59,
+    "novel": 15,
+    "none": 126,
+    "in_c_share": 0.295,
+    "novel_share": 0.075,
+    "none_share": 0.63,
+    "failed": 74,
+    "failed_with_wrong_choice": 74,
+    "failed_with_wrong_choice_share": 1.0,
+    "failed_without_wrong_choice": 0,
+    "recovered": 0,
+    "recovered_share": 0.0,
+    "step_median": 2.0,
+    "step_mean": 2.0,
+    "step_le1_share": 0.0,
+    "steps": {
+     "2": 74
+    },
+    "types": {
+     "changed state before asking": 74
+    },
+    "in_c_offline_right": 0,
+    "in_c_offline_wrong": 59,
+    "in_c_offline_right_share": 0.0,
+    "in_c_same_answer": 59,
+    "consequence": {
+     "wrong write action": 74
+    },
+    "irreversible": 74,
+    "irreversible_share": 0.37,
+    "irreversible_of_failed_share": 1.0,
+    "loss": {
+     "total": 0.37,
+     "irreversible": 0.37,
+     "compounding": 0.0,
+     "no_wrong_choice": 0.0
+    },
+    "recovered_by_consequence": {
+     "wrong write action": 0.0,
+     "premature finish": null,
+     "recoverable": null
+    }
+   },
+   "gate": {
+    "conf_right_mean": 0.979631862238453,
+    "conf_wrong_mean": 0.8208168909266242,
+    "conf_right_median": 0.9934235007306162,
+    "conf_wrong_median": 0.8570922230312765,
+    "n_right": 1278,
+    "n_wrong": 74,
+    "at": {
+     "jev": {
+      "tau": 1.0,
+      "wrong_below": 1.0,
+      "right_below": 1.0,
+      "all_below": 1.0,
+      "failed_first_below": 1.0,
+      "failed_first_below_n": 74,
+      "failed_first_n": 74
+     },
+     "fixed_0.5": {
+      "tau": 0.5,
+      "wrong_below": 0.013513513513513514,
+      "right_below": 0.0,
+      "all_below": 0.0007396449704142012,
+      "failed_first_below": 0.013513513513513514,
+      "failed_first_below_n": 1,
+      "failed_first_n": 74
+     },
+     "fixed_0.9": {
+      "tau": 0.9,
+      "wrong_below": 0.6216216216216216,
+      "right_below": 0.03442879499217527,
+      "all_below": 0.06656804733727811,
+      "failed_first_below": 0.6216216216216216,
+      "failed_first_below_n": 46,
+      "failed_first_n": 74
+     }
+    }
+   },
+   "pred": {
+    "tasks": 200,
+    "all_sources": 0.78875,
+    "llm_only": 0.63,
+    "on_plan": 0.79625,
+    "early_ask": 0.78875
+   },
+   "label": "StartLux-27B",
+   "group": "off the shelf",
+   "live_path": "runs/stage2_startlux_states/sl27b_ts_replace_f.jsonl",
+   "live_sha256": "268bc82b3837d7ea",
+   "answers_path": "results/stage2/s23/answers_sl27b.jsonl",
+   "own_tau": null,
+   "tau_used": 1.0,
+   "tau_source": "Jev arm's fit (none fitted for this model)",
+   "c_acc": 0.939450833690428,
+   "published": {
+    "c_acc": "93.9",
+    "live_success": "63.0"
+   }
+  },
+  "oaidec": {
+   "tasks": 200,
+   "errored": 0,
+   "success": 0.785,
+   "states": {
+    "labelled": 1466,
+    "unlabelled": 10,
+    "fallthrough": 0,
+    "label_mismatch_in_c": 0,
+    "in_c": 613,
+    "novel": 853,
+    "novel_on_plan": 610,
+    "novel_after_off_plan": 243,
+    "in_c_on_plan": 608,
+    "in_c_after_off_plan": 5,
+    "in_c_share": 0.41814461118690316,
+    "novel_share": 0.5818553888130968,
+    "novel_on_plan_share": 0.41609822646657574,
+    "novel_after_off_plan_share": 0.16575716234652116,
+    "after_off_plan_share": 0.16916780354706684,
+    "distinct_in_c": 613,
+    "distinct_novel": 853
+   },
+   "acc": {
+    "all": {
+     "n": 1466,
+     "acc": 0.8744884038199181
+    },
+    "in_c": {
+     "n": 613,
+     "acc": 0.9233278955954323
+    },
+    "novel": {
+     "n": 853,
+     "acc": 0.839390386869871
+    },
+    "novel_on_plan": {
+     "n": 610,
+     "acc": 0.9524590163934427
+    },
+    "novel_after_off_plan": {
+     "n": 243,
+     "acc": 0.5555555555555556
+    },
+    "in_c_on_plan": {
+     "n": 608,
+     "acc": 0.9259868421052632
+    },
+    "in_c_after_off_plan": {
+     "n": 5,
+     "acc": 0.6
+    },
+    "on_plan": {
+     "n": 1218,
+     "acc": 0.9392446633825944
+    },
+    "after_off_plan": {
+     "n": 248,
+     "acc": 0.5564516129032258
+    },
+    "executed_all": {
+     "n": 1466,
+     "acc": 0.8744884038199181
+    }
+   },
+   "mustask": {
+    "n": 38,
+    "tasks": 38,
+    "acc": 0.7105263157894737,
+    "in_c": 37,
+    "acted": 11,
+    "acted_share": 0.2894736842105263,
+    "step_median": 0.0,
+    "c_acc": 0.385
+   },
+   "askearly": {
+    "n": 22,
+    "tasks": 22,
+    "tasks_share": 0.11
+   },
+   "ask": {
+    "n": 98,
+    "acc": 0.8877551020408163,
+    "in_c": 97,
+    "wrong": 11,
+    "acted": 11,
+    "acted_share": 0.11224489795918367,
+    "acted_share_of_wrong": 1.0,
+    "tasks": 78,
+    "c_acc": 0.7592835497835496
+   },
+   "faith": {
+    "n": 613,
+    "live_acc": 0.9233278955954323,
+    "offline_acc": 0.9233278955954323,
+    "agree": 1.0,
+    "live_wrong_offline_right": 0,
+    "live_right_offline_wrong": 0,
+    "sign_p": null,
+    "missing_offline": 0
+   },
+   "first": {
+    "tasks": 200,
+    "with_wrong_choice": 74,
+    "in_c": 45,
+    "novel": 29,
+    "none": 126,
+    "in_c_share": 0.225,
+    "novel_share": 0.145,
+    "none_share": 0.63,
+    "failed": 43,
+    "failed_with_wrong_choice": 43,
+    "failed_with_wrong_choice_share": 1.0,
+    "failed_without_wrong_choice": 0,
+    "recovered": 31,
+    "recovered_share": 0.4189189189189189,
+    "step_median": 1.0,
+    "step_mean": 2.2162162162162162,
+    "step_le1_share": 0.6081081081081081,
+    "steps": {
+     "2": 11,
+     "1": 34,
+     "5": 4,
+     "0": 11,
+     "8": 6,
+     "3": 2,
+     "7": 1,
+     "9": 1,
+     "4": 3,
+     "6": 1
+    },
+    "types": {
+     "wrong core tool": 39,
+     "other look-alike": 14,
+     "changed state before asking": 11,
+     "unneeded question": 9,
+     "finished too early": 1
+    },
+    "in_c_offline_right": 0,
+    "in_c_offline_wrong": 45,
+    "in_c_offline_right_share": 0.0,
+    "in_c_same_answer": 45,
+    "consequence": {
+     "recoverable": 39,
+     "wrong write action": 34,
+     "premature finish": 1
+    },
+    "irreversible": 35,
+    "irreversible_share": 0.175,
+    "irreversible_of_failed_share": 0.813953488372093,
+    "loss": {
+     "total": 0.215,
+     "irreversible": 0.175,
+     "compounding": 0.04,
+     "no_wrong_choice": 0.0
+    },
+    "recovered_by_consequence": {
+     "wrong write action": 0.0,
+     "premature finish": 0.0,
+     "recoverable": 0.7948717948717948
+    }
+   },
+   "gate": {
+    "conf_right_mean": 0.7335335413416544,
+    "conf_wrong_mean": 0.503695652173913,
+    "conf_right_median": 0.79,
+    "conf_wrong_median": 0.46,
+    "n_right": 1282,
+    "n_wrong": 184,
+    "at": {
+     "jev": {
+      "tau": 1.0,
+      "wrong_below": 1.0,
+      "right_below": 0.9648985959438378,
+      "all_below": 0.9693042291950886,
+      "failed_first_below": 1.0,
+      "failed_first_below_n": 43,
+      "failed_first_n": 43
+     },
+     "fixed_0.5": {
+      "tau": 0.5,
+      "wrong_below": 0.5489130434782609,
+      "right_below": 0.18408736349453977,
+      "all_below": 0.22987721691678034,
+      "failed_first_below": 0.32558139534883723,
+      "failed_first_below_n": 14,
+      "failed_first_n": 43
+     },
+     "fixed_0.9": {
+      "tau": 0.9,
+      "wrong_below": 0.9293478260869565,
+      "right_below": 0.6661466458658346,
+      "all_below": 0.699181446111869,
+      "failed_first_below": 0.8604651162790697,
+      "failed_first_below_n": 37,
+      "failed_first_n": 43
+     }
+    }
+   },
+   "pred": {
+    "tasks": 200,
+    "all_sources": 0.77375,
+    "llm_only": 0.67,
+    "on_plan": 0.77875,
+    "early_ask": 0.80125
+   },
+   "label": "OpenAI Decisions API (gpt-6-luna)",
+   "group": "off the shelf (E15)",
+   "live_path": "runs/e15_live_oaidec/oaidec_ts_replace_f.jsonl",
+   "live_sha256": "946d3b7db96cf126",
+   "answers_path": "results/explore/e15_baselines/c/answers_oaidec.jsonl.gz",
+   "own_tau": null,
+   "tau_used": 1.0,
+   "tau_source": "Jev arm's fit (none fitted for this model)",
+   "c_acc": 0.9092848190456067,
+   "published": {
+    "c_acc": "90.9",
+    "live_success": "78.5"
+   }
+  },
+  "openjev": {
+   "tasks": 200,
+   "errored": 0,
+   "success": 0.625,
+   "states": {
+    "labelled": 1650,
+    "unlabelled": 10,
+    "fallthrough": 0,
+    "label_mismatch_in_c": 0,
+    "in_c": 677,
+    "novel": 973,
+    "novel_on_plan": 480,
+    "novel_after_off_plan": 493,
+    "in_c_on_plan": 677,
+    "in_c_after_off_plan": 0,
+    "in_c_share": 0.4103030303030303,
+    "novel_share": 0.5896969696969697,
+    "novel_on_plan_share": 0.2909090909090909,
+    "novel_after_off_plan_share": 0.29878787878787877,
+    "after_off_plan_share": 0.29878787878787877,
+    "distinct_in_c": 677,
+    "distinct_novel": 973
+   },
+   "acc": {
+    "all": {
+     "n": 1650,
+     "acc": 0.7593939393939394
+    },
+    "in_c": {
+     "n": 677,
+     "acc": 0.912850812407681
+    },
+    "novel": {
+     "n": 973,
+     "acc": 0.6526207605344296
+    },
+    "novel_on_plan": {
+     "n": 480,
+     "acc": 0.9291666666666667
+    },
+    "novel_after_off_plan": {
+     "n": 493,
+     "acc": 0.38336713995943206
+    },
+    "in_c_on_plan": {
+     "n": 677,
+     "acc": 0.912850812407681
+    },
+    "in_c_after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "on_plan": {
+     "n": 1157,
+     "acc": 0.9196197061365601
+    },
+    "after_off_plan": {
+     "n": 493,
+     "acc": 0.38336713995943206
+    },
+    "executed_all": {
+     "n": 1650,
+     "acc": 0.7593939393939394
+    }
+   },
+   "mustask": {
+    "n": 98,
+    "tasks": 98,
+    "acc": 0.4897959183673469,
+    "in_c": 81,
+    "acted": 50,
+    "acted_share": 0.5102040816326531,
+    "step_median": 2.0,
+    "c_acc": 0.5
+   },
+   "askearly": {
+    "n": 2,
+    "tasks": 2,
+    "tasks_share": 0.01
+   },
+   "ask": {
+    "n": 198,
+    "acc": 0.7474747474747475,
+    "in_c": 181,
+    "wrong": 50,
+    "acted": 50,
+    "acted_share": 0.25252525252525254,
+    "acted_share_of_wrong": 1.0,
+    "tasks": 98,
+    "c_acc": 0.8751926406926407
+   },
+   "faith": {
+    "n": 677,
+    "live_acc": 0.912850812407681,
+    "offline_acc": 0.9113737075332349,
+    "agree": 0.9689807976366323,
+    "live_wrong_offline_right": 7,
+    "live_right_offline_wrong": 8,
+    "sign_p": 1.0,
+    "missing_offline": 0
+   },
+   "first": {
+    "tasks": 200,
+    "with_wrong_choice": 93,
+    "in_c": 59,
+    "novel": 34,
+    "none": 107,
+    "in_c_share": 0.295,
+    "novel_share": 0.17,
+    "none_share": 0.535,
+    "failed": 75,
+    "failed_with_wrong_choice": 75,
+    "failed_with_wrong_choice_share": 1.0,
+    "failed_without_wrong_choice": 0,
+    "recovered": 18,
+    "recovered_share": 0.1935483870967742,
+    "step_median": 2,
+    "step_mean": 2.6666666666666665,
+    "step_le1_share": 0.053763440860215055,
+    "steps": {
+     "2": 50,
+     "1": 3,
+     "0": 2,
+     "3": 28,
+     "7": 4,
+     "5": 1,
+     "4": 1,
+     "6": 4
+    },
+    "types": {
+     "changed state before asking": 50,
+     "wrong core tool": 20,
+     "look-alike of the gold tool": 9,
+     "other look-alike": 8,
+     "unrelated distractor": 4,
+     "unneeded question": 2
+    },
+    "in_c_offline_right": 7,
+    "in_c_offline_wrong": 52,
+    "in_c_offline_right_share": 0.11864406779661017,
+    "in_c_same_answer": 47,
+    "consequence": {
+     "wrong write action": 68,
+     "recoverable": 25
+    },
+    "irreversible": 68,
+    "irreversible_share": 0.34,
+    "irreversible_of_failed_share": 0.8266666666666667,
+    "loss": {
+     "total": 0.375,
+     "irreversible": 0.31,
+     "compounding": 0.065,
+     "no_wrong_choice": 0.0
+    },
+    "recovered_by_consequence": {
+     "wrong write action": 0.08823529411764706,
+     "premature finish": null,
+     "recoverable": 0.48
+    }
+   },
+   "gate": {
+    "conf_right_mean": 0.9035050571670061,
+    "conf_wrong_mean": 0.8232276374638534,
+    "conf_right_median": 0.9531546731849976,
+    "conf_wrong_median": 0.8887856073941398,
+    "n_right": 1253,
+    "n_wrong": 397,
+    "at": {
+     "jev": {
+      "tau": 1.0,
+      "wrong_below": 1.0,
+      "right_below": 1.0,
+      "all_below": 1.0,
+      "failed_first_below": 1.0,
+      "failed_first_below_n": 75,
+      "failed_first_n": 75
+     },
+     "fixed_0.5": {
+      "tau": 0.5,
+      "wrong_below": 0.05793450881612091,
+      "right_below": 0.011971268954509178,
+      "all_below": 0.02303030303030303,
+      "failed_first_below": 0.09333333333333334,
+      "failed_first_below_n": 7,
+      "failed_first_n": 75
+     },
+     "fixed_0.9": {
+      "tau": 0.9,
+      "wrong_below": 0.5239294710327456,
+      "right_below": 0.30965682362330404,
+      "all_below": 0.3612121212121212,
+      "failed_first_below": 0.3466666666666667,
+      "failed_first_below_n": 26,
+      "failed_first_n": 75
+     }
+    }
+   },
+   "pred": {
+    "tasks": 200,
+    "all_sources": 0.715,
+    "llm_only": 0.67,
+    "on_plan": 0.72625,
+    "early_ask": 0.715
+   },
+   "label": "OpenJev (DiffusionGemma-26B-A4B)",
+   "group": "off the shelf (E15)",
+   "live_path": "<tmp>",
+   "live_sha256": "a21c0998291842aa",
+   "answers_path": "results/explore/e15_baselines/c/answers_openjev.jsonl.gz",
+   "own_tau": null,
+   "tau_used": 1.0,
+   "tau_source": "Jev arm's fit (none fitted for this model)",
+   "c_acc": 0.9106130969750613,
+   "published": {
+    "c_acc": "91.1",
+    "live_success": "62.5"
+   }
+  },
+  "openjevhf": {
+   "tasks": 200,
+   "errored": 0,
+   "success": 0.63,
+   "states": {
+    "labelled": 1353,
+    "unlabelled": 0,
+    "fallthrough": 0,
+    "label_mismatch_in_c": 0,
+    "in_c": 736,
+    "novel": 617,
+    "novel_on_plan": 616,
+    "novel_after_off_plan": 1,
+    "in_c_on_plan": 736,
+    "in_c_after_off_plan": 0,
+    "in_c_share": 0.5439763488543976,
+    "novel_share": 0.45602365114560234,
+    "novel_on_plan_share": 0.45528455284552843,
+    "novel_after_off_plan_share": 0.0007390983000739098,
+    "after_off_plan_share": 0.0007390983000739098,
+    "distinct_in_c": 736,
+    "distinct_novel": 617
+   },
+   "acc": {
+    "all": {
+     "n": 1353,
+     "acc": 0.9445676274944568
+    },
+    "in_c": {
+     "n": 736,
+     "acc": 0.9198369565217391
+    },
+    "novel": {
+     "n": 617,
+     "acc": 0.9740680713128039
+    },
+    "novel_on_plan": {
+     "n": 616,
+     "acc": 0.974025974025974
+    },
+    "novel_after_off_plan": {
+     "n": 1,
+     "acc": 1.0
+    },
+    "in_c_on_plan": {
+     "n": 736,
+     "acc": 0.9198369565217391
+    },
+    "in_c_after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "on_plan": {
+     "n": 1352,
+     "acc": 0.9445266272189349
+    },
+    "after_off_plan": {
+     "n": 1,
+     "acc": 1.0
+    },
+    "executed_all": {
+     "n": 1353,
+     "acc": 0.9445676274944568
+    }
+   },
+   "mustask": {
+    "n": 100,
+    "tasks": 100,
+    "acc": 0.26,
+    "in_c": 85,
+    "acted": 74,
+    "acted_share": 0.74,
+    "step_median": 2.0,
+    "c_acc": 0.26
+   },
+   "askearly": {
+    "n": 0,
+    "tasks": 0,
+    "tasks_share": 0.0
+   },
+   "ask": {
+    "n": 200,
+    "acc": 0.63,
+    "in_c": 185,
+    "wrong": 74,
+    "acted": 74,
+    "acted_share": 0.37,
+    "acted_share_of_wrong": 1.0,
+    "tasks": 100,
+    "c_acc": 0.6351926406926407
+   },
+   "faith": {
+    "n": 736,
+    "live_acc": 0.9198369565217391,
+    "offline_acc": 0.9198369565217391,
+    "agree": 1.0,
+    "live_wrong_offline_right": 0,
+    "live_right_offline_wrong": 0,
+    "sign_p": null,
+    "missing_offline": 0
+   },
+   "first": {
+    "tasks": 200,
+    "with_wrong_choice": 75,
+    "in_c": 59,
+    "novel": 16,
+    "none": 125,
+    "in_c_share": 0.295,
+    "novel_share": 0.08,
+    "none_share": 0.625,
+    "failed": 74,
+    "failed_with_wrong_choice": 74,
+    "failed_with_wrong_choice_share": 1.0,
+    "failed_without_wrong_choice": 0,
+    "recovered": 1,
+    "recovered_share": 0.013333333333333334,
+    "step_median": 2,
+    "step_mean": 2.026666666666667,
+    "step_le1_share": 0.0,
+    "steps": {
+     "2": 74,
+     "4": 1
+    },
+    "types": {
+     "changed state before asking": 74,
+     "wrong core tool": 1
+    },
+    "in_c_offline_right": 0,
+    "in_c_offline_wrong": 59,
+    "in_c_offline_right_share": 0.0,
+    "in_c_same_answer": 59,
+    "consequence": {
+     "wrong write action": 74,
+     "recoverable": 1
+    },
+    "irreversible": 74,
+    "irreversible_share": 0.37,
+    "irreversible_of_failed_share": 1.0,
+    "loss": {
+     "total": 0.37,
+     "irreversible": 0.37,
+     "compounding": 0.0,
+     "no_wrong_choice": 0.0
+    },
+    "recovered_by_consequence": {
+     "wrong write action": 0.0,
+     "premature finish": null,
+     "recoverable": 1.0
+    }
+   },
+   "gate": {
+    "conf_right_mean": 0.986182707355242,
+    "conf_wrong_mean": 0.919276,
+    "conf_right_median": 0.9987,
+    "conf_wrong_median": 0.9965,
+    "n_right": 1278,
+    "n_wrong": 75,
+    "at": {
+     "jev": {
+      "tau": 1.0,
+      "wrong_below": 1.0,
+      "right_below": 0.9906103286384976,
+      "all_below": 0.991130820399113,
+      "failed_first_below": 1.0,
+      "failed_first_below_n": 74,
+      "failed_first_n": 74
+     },
+     "fixed_0.5": {
+      "tau": 0.5,
+      "wrong_below": 0.013333333333333334,
+      "right_below": 0.0,
+      "all_below": 0.0007390983000739098,
+      "failed_first_below": 0.0,
+      "failed_first_below_n": 0,
+      "failed_first_n": 74
+     },
+     "fixed_0.9": {
+      "tau": 0.9,
+      "wrong_below": 0.26666666666666666,
+      "right_below": 0.025821596244131457,
+      "all_below": 0.03917220990391722,
+      "failed_first_below": 0.25675675675675674,
+      "failed_first_below_n": 19,
+      "failed_first_n": 74
+     }
+    }
+   },
+   "pred": {
+    "tasks": 200,
+    "all_sources": 0.75625,
+    "llm_only": 0.63,
+    "on_plan": 0.76625,
+    "early_ask": 0.75625
+   },
+   "label": "OpenJev-27B (HF, FP8)",
+   "group": "off the shelf (E15)",
+   "live_path": "<tmp>",
+   "live_sha256": "f264b9344f64e3ae",
+   "answers_path": "results/explore/e15_baselines/c/answers_openjevhf.jsonl.gz",
+   "own_tau": null,
+   "tau_used": 1.0,
+   "tau_source": "Jev arm's fit (none fitted for this model)",
+   "c_acc": 0.9238906979255579,
+   "published": {
+    "c_acc": "92.4",
+    "live_success": "63.0"
+   }
+  },
+  "rl": {
+   "tasks": 200,
+   "errored": 0,
+   "success": 1.0,
+   "states": {
+    "labelled": 1500,
+    "unlabelled": 0,
+    "fallthrough": 0,
+    "label_mismatch_in_c": 0,
+    "in_c": 1500,
+    "novel": 0,
+    "novel_on_plan": 0,
+    "novel_after_off_plan": 0,
+    "in_c_on_plan": 1500,
+    "in_c_after_off_plan": 0,
+    "in_c_share": 1.0,
+    "novel_share": 0.0,
+    "novel_on_plan_share": 0.0,
+    "novel_after_off_plan_share": 0.0,
+    "after_off_plan_share": 0.0,
+    "distinct_in_c": 1500,
+    "distinct_novel": 0
+   },
+   "acc": {
+    "all": {
+     "n": 1500,
+     "acc": 1.0
+    },
+    "in_c": {
+     "n": 1500,
+     "acc": 1.0
+    },
+    "novel": {
+     "n": 0,
+     "acc": null
+    },
+    "novel_on_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "novel_after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "in_c_on_plan": {
+     "n": 1500,
+     "acc": 1.0
+    },
+    "in_c_after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "on_plan": {
+     "n": 1500,
+     "acc": 1.0
+    },
+    "after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "executed_all": {
+     "n": 1500,
+     "acc": 1.0
+    }
+   },
+   "mustask": {
+    "n": 54,
+    "tasks": 54,
+    "acc": 1.0,
+    "in_c": 54,
+    "acted": 0,
+    "acted_share": 0.0,
+    "step_median": 2.0,
+    "c_acc": 1.0
+   },
+   "askearly": {
+    "n": 0,
+    "tasks": 0,
+    "tasks_share": 0.0
+   },
+   "ask": {
+    "n": 109,
+    "acc": 1.0,
+    "in_c": 109,
+    "wrong": 0,
+    "acted": 0,
+    "acted_share": 0.0,
+    "acted_share_of_wrong": null,
+    "tasks": 100,
+    "c_acc": 1.0
+   },
+   "faith": {
+    "n": 1500,
+    "live_acc": 1.0,
+    "offline_acc": 1.0,
+    "agree": 0.998,
+    "live_wrong_offline_right": 0,
+    "live_right_offline_wrong": 0,
+    "sign_p": null,
+    "missing_offline": 0
+   },
+   "first": {
+    "tasks": 200,
+    "with_wrong_choice": 0,
+    "in_c": 0,
+    "novel": 0,
+    "none": 200,
+    "in_c_share": 0.0,
+    "novel_share": 0.0,
+    "none_share": 1.0,
+    "failed": 0,
+    "failed_with_wrong_choice": 0,
+    "failed_with_wrong_choice_share": null,
+    "failed_without_wrong_choice": 0,
+    "recovered": 0,
+    "recovered_share": null,
+    "step_median": null,
+    "step_mean": null,
+    "step_le1_share": null,
+    "steps": {},
+    "types": {},
+    "in_c_offline_right": 0,
+    "in_c_offline_wrong": 0,
+    "in_c_offline_right_share": null,
+    "in_c_same_answer": 0,
+    "consequence": {},
+    "irreversible": 0,
+    "irreversible_share": 0.0,
+    "irreversible_of_failed_share": null,
+    "loss": {
+     "total": 0.0,
+     "irreversible": 0.0,
+     "compounding": 0.0,
+     "no_wrong_choice": 0.0
+    },
+    "recovered_by_consequence": {
+     "wrong write action": null,
+     "premature finish": null,
+     "recoverable": null
+    }
+   },
+   "gate": {
+    "conf_right_mean": 0.9992899012631107,
+    "conf_wrong_mean": null,
+    "conf_right_median": 1.0,
+    "conf_wrong_median": null,
+    "n_right": 1500,
+    "n_wrong": 0,
+    "at": {
+     "own": {
+      "tau": 0.4999999999978404,
+      "wrong_below": null,
+      "right_below": 0.0,
+      "all_below": 0.0,
+      "failed_first_below": null,
+      "failed_first_below_n": 0,
+      "failed_first_n": 0
+     },
+     "jev": {
+      "tau": 1.0,
+      "wrong_below": null,
+      "right_below": 0.35333333333333333,
+      "all_below": 0.35333333333333333,
+      "failed_first_below": null,
+      "failed_first_below_n": 0,
+      "failed_first_n": 0
+     },
+     "fixed_0.5": {
+      "tau": 0.5,
+      "wrong_below": null,
+      "right_below": 0.0006666666666666666,
+      "all_below": 0.0006666666666666666,
+      "failed_first_below": null,
+      "failed_first_below_n": 0,
+      "failed_first_n": 0
+     },
+     "fixed_0.9": {
+      "tau": 0.9,
+      "wrong_below": null,
+      "right_below": 0.002,
+      "all_below": 0.002,
+      "failed_first_below": null,
+      "failed_first_below_n": 0,
+      "failed_first_n": 0
+     }
+    }
+   },
+   "pred": {
+    "tasks": 200,
+    "all_sources": 1.0,
+    "llm_only": 1.0,
+    "on_plan": 1.0,
+    "early_ask": 1.0
+   },
+   "label": "AgentDecision-4B (JevAgentRL-4B, frozen)",
+   "group": "ours",
+   "live_path": "runs/stage2_rl_states/rl_ts_replace_f.jsonl",
+   "live_sha256": "decae4fb1fffd1e3",
+   "answers_path": "results/stage2/s23/answers_rl.jsonl",
+   "own_tau": 0.4999999999978404,
+   "tau_used": 0.4999999999978404,
+   "tau_source": "own fit",
+   "c_acc": 0.9920083177147069,
+   "published": {
+    "c_acc": "99.2",
+    "live_success": "100.0"
+   }
+  },
+  "e12": {
+   "tasks": 200,
+   "errored": 0,
+   "success": 1.0,
+   "states": {
+    "labelled": 1500,
+    "unlabelled": 0,
+    "fallthrough": 0,
+    "label_mismatch_in_c": 0,
+    "in_c": 735,
+    "novel": 765,
+    "novel_on_plan": 765,
+    "novel_after_off_plan": 0,
+    "in_c_on_plan": 735,
+    "in_c_after_off_plan": 0,
+    "in_c_share": 0.49,
+    "novel_share": 0.51,
+    "novel_on_plan_share": 0.51,
+    "novel_after_off_plan_share": 0.0,
+    "after_off_plan_share": 0.0,
+    "distinct_in_c": 735,
+    "distinct_novel": 765
+   },
+   "acc": {
+    "all": {
+     "n": 1500,
+     "acc": 1.0
+    },
+    "in_c": {
+     "n": 735,
+     "acc": 1.0
+    },
+    "novel": {
+     "n": 765,
+     "acc": 1.0
+    },
+    "novel_on_plan": {
+     "n": 765,
+     "acc": 1.0
+    },
+    "novel_after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "in_c_on_plan": {
+     "n": 735,
+     "acc": 1.0
+    },
+    "in_c_after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "on_plan": {
+     "n": 1500,
+     "acc": 1.0
+    },
+    "after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "executed_all": {
+     "n": 1500,
+     "acc": 1.0
+    }
+   },
+   "mustask": {
+    "n": 50,
+    "tasks": 50,
+    "acc": 1.0,
+    "in_c": 45,
+    "acted": 0,
+    "acted_share": 0.0,
+    "step_median": 1.0,
+    "c_acc": 0.9966666666666667
+   },
+   "askearly": {
+    "n": 0,
+    "tasks": 0,
+    "tasks_share": 0.0
+   },
+   "ask": {
+    "n": 100,
+    "acc": 1.0,
+    "in_c": 95,
+    "wrong": 0,
+    "acted": 0,
+    "acted_share": 0.0,
+    "acted_share_of_wrong": null,
+    "tasks": 100,
+    "c_acc": 0.9988888888888888
+   },
+   "faith": {
+    "n": 735,
+    "live_acc": 1.0,
+    "offline_acc": 1.0,
+    "agree": 1.0,
+    "live_wrong_offline_right": 0,
+    "live_right_offline_wrong": 0,
+    "sign_p": null,
+    "missing_offline": 0
+   },
+   "first": {
+    "tasks": 200,
+    "with_wrong_choice": 0,
+    "in_c": 0,
+    "novel": 0,
+    "none": 200,
+    "in_c_share": 0.0,
+    "novel_share": 0.0,
+    "none_share": 1.0,
+    "failed": 0,
+    "failed_with_wrong_choice": 0,
+    "failed_with_wrong_choice_share": null,
+    "failed_without_wrong_choice": 0,
+    "recovered": 0,
+    "recovered_share": null,
+    "step_median": null,
+    "step_mean": null,
+    "step_le1_share": null,
+    "steps": {},
+    "types": {},
+    "in_c_offline_right": 0,
+    "in_c_offline_wrong": 0,
+    "in_c_offline_right_share": null,
+    "in_c_same_answer": 0,
+    "consequence": {},
+    "irreversible": 0,
+    "irreversible_share": 0.0,
+    "irreversible_of_failed_share": null,
+    "loss": {
+     "total": 0.0,
+     "irreversible": 0.0,
+     "compounding": 0.0,
+     "no_wrong_choice": 0.0
+    },
+    "recovered_by_consequence": {
+     "wrong write action": null,
+     "premature finish": null,
+     "recoverable": null
+    }
+   },
+   "gate": {
+    "conf_right_mean": 0.9769291413310164,
+    "conf_wrong_mean": null,
+    "conf_right_median": 0.9938080083574117,
+    "conf_wrong_median": null,
+    "n_right": 1500,
+    "n_wrong": 0,
+    "at": {
+     "jev": {
+      "tau": 1.0,
+      "wrong_below": null,
+      "right_below": 1.0,
+      "all_below": 1.0,
+      "failed_first_below": null,
+      "failed_first_below_n": 0,
+      "failed_first_n": 0
+     },
+     "fixed_0.5": {
+      "tau": 0.5,
+      "wrong_below": null,
+      "right_below": 0.0,
+      "all_below": 0.0,
+      "failed_first_below": null,
+      "failed_first_below_n": 0,
+      "failed_first_n": 0
+     },
+     "fixed_0.9": {
+      "tau": 0.9,
+      "wrong_below": null,
+      "right_below": 0.066,
+      "all_below": 0.066,
+      "failed_first_below": null,
+      "failed_first_below_n": 0,
+      "failed_first_n": 0
+     }
+    }
+   },
+   "pred": {
+    "tasks": 200,
+    "all_sources": 0.9975,
+    "llm_only": 1.0,
+    "on_plan": 1.0,
+    "early_ask": 0.9975
+   },
+   "label": "AgentDecision-4B + public data (E12)",
+   "group": "ours",
+   "live_path": "runs/e12_live/e12_ts_replace_f.jsonl",
+   "live_sha256": "d39d62bae53c5e8c",
+   "answers_path": "results/explore/e12/box/s23/answers_e12_mixed.jsonl",
+   "own_tau": null,
+   "tau_used": 1.0,
+   "tau_source": "Jev arm's fit (none fitted for this model)",
+   "c_acc": 0.9914240109855832,
+   "published": {
+    "c_acc": "99.1",
+    "live_success": "100.0"
+   }
+  },
+  "e12c": {
+   "tasks": 200,
+   "errored": 0,
+   "success": 1.0,
+   "states": {
+    "labelled": 1500,
+    "unlabelled": 0,
+    "fallthrough": 0,
+    "label_mismatch_in_c": 0,
+    "in_c": 722,
+    "novel": 778,
+    "novel_on_plan": 778,
+    "novel_after_off_plan": 0,
+    "in_c_on_plan": 722,
+    "in_c_after_off_plan": 0,
+    "in_c_share": 0.48133333333333334,
+    "novel_share": 0.5186666666666667,
+    "novel_on_plan_share": 0.5186666666666667,
+    "novel_after_off_plan_share": 0.0,
+    "after_off_plan_share": 0.0,
+    "distinct_in_c": 722,
+    "distinct_novel": 778
+   },
+   "acc": {
+    "all": {
+     "n": 1500,
+     "acc": 1.0
+    },
+    "in_c": {
+     "n": 722,
+     "acc": 1.0
+    },
+    "novel": {
+     "n": 778,
+     "acc": 1.0
+    },
+    "novel_on_plan": {
+     "n": 778,
+     "acc": 1.0
+    },
+    "novel_after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "in_c_on_plan": {
+     "n": 722,
+     "acc": 1.0
+    },
+    "in_c_after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "on_plan": {
+     "n": 1500,
+     "acc": 1.0
+    },
+    "after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "executed_all": {
+     "n": 1500,
+     "acc": 1.0
+    }
+   },
+   "mustask": {
+    "n": 50,
+    "tasks": 50,
+    "acc": 1.0,
+    "in_c": 46,
+    "acted": 0,
+    "acted_share": 0.0,
+    "step_median": 1.0,
+    "c_acc": 1.0
+   },
+   "askearly": {
+    "n": 0,
+    "tasks": 0,
+    "tasks_share": 0.0
+   },
+   "ask": {
+    "n": 100,
+    "acc": 1.0,
+    "in_c": 96,
+    "wrong": 0,
+    "acted": 0,
+    "acted_share": 0.0,
+    "acted_share_of_wrong": null,
+    "tasks": 100,
+    "c_acc": 1.0
+   },
+   "faith": {
+    "n": 722,
+    "live_acc": 1.0,
+    "offline_acc": 1.0,
+    "agree": 1.0,
+    "live_wrong_offline_right": 0,
+    "live_right_offline_wrong": 0,
+    "sign_p": null,
+    "missing_offline": 0
+   },
+   "first": {
+    "tasks": 200,
+    "with_wrong_choice": 0,
+    "in_c": 0,
+    "novel": 0,
+    "none": 200,
+    "in_c_share": 0.0,
+    "novel_share": 0.0,
+    "none_share": 1.0,
+    "failed": 0,
+    "failed_with_wrong_choice": 0,
+    "failed_with_wrong_choice_share": null,
+    "failed_without_wrong_choice": 0,
+    "recovered": 0,
+    "recovered_share": null,
+    "step_median": null,
+    "step_mean": null,
+    "step_le1_share": null,
+    "steps": {},
+    "types": {},
+    "in_c_offline_right": 0,
+    "in_c_offline_wrong": 0,
+    "in_c_offline_right_share": null,
+    "in_c_same_answer": 0,
+    "consequence": {},
+    "irreversible": 0,
+    "irreversible_share": 0.0,
+    "irreversible_of_failed_share": null,
+    "loss": {
+     "total": 0.0,
+     "irreversible": 0.0,
+     "compounding": 0.0,
+     "no_wrong_choice": 0.0
+    },
+    "recovered_by_consequence": {
+     "wrong write action": null,
+     "premature finish": null,
+     "recoverable": null
+    }
+   },
+   "gate": {
+    "conf_right_mean": 0.9588154174131192,
+    "conf_wrong_mean": null,
+    "conf_right_median": 0.9737381560066056,
+    "conf_wrong_median": null,
+    "n_right": 1500,
+    "n_wrong": 0,
+    "at": {
+     "jev": {
+      "tau": 1.0,
+      "wrong_below": null,
+      "right_below": 1.0,
+      "all_below": 1.0,
+      "failed_first_below": null,
+      "failed_first_below_n": 0,
+      "failed_first_n": 0
+     },
+     "fixed_0.5": {
+      "tau": 0.5,
+      "wrong_below": null,
+      "right_below": 0.0,
+      "all_below": 0.0,
+      "failed_first_below": null,
+      "failed_first_below_n": 0,
+      "failed_first_n": 0
+     },
+     "fixed_0.9": {
+      "tau": 0.9,
+      "wrong_below": null,
+      "right_below": 0.09066666666666667,
+      "all_below": 0.09066666666666667,
+      "failed_first_below": null,
+      "failed_first_below_n": 0,
+      "failed_first_n": 0
+     }
+    }
+   },
+   "pred": {
+    "tasks": 200,
+    "all_sources": 0.9975,
+    "llm_only": 0.995,
+    "on_plan": 0.99875,
+    "early_ask": 0.9975
+   },
+   "label": "StartLux-4B + our recipe (E12c)",
+   "group": "ours",
+   "live_path": "runs/e12c_live/e12c_ts_replace_f.jsonl",
+   "live_sha256": "9c5c15a8375aa9e5",
+   "answers_path": "results/explore/e12/box_c/s23/answers_e12c_sl4b.jsonl",
+   "own_tau": null,
+   "tau_used": 1.0,
+   "tau_source": "Jev arm's fit (none fitted for this model)",
+   "c_acc": 0.9962855207601694,
+   "published": {
+    "c_acc": "99.6",
+    "live_success": "100.0"
+   }
+  },
+  "e14a": {
+   "tasks": 200,
+   "errored": 0,
+   "success": 1.0,
+   "states": {
+    "labelled": 1500,
+    "unlabelled": 0,
+    "fallthrough": 0,
+    "label_mismatch_in_c": 0,
+    "in_c": 715,
+    "novel": 785,
+    "novel_on_plan": 785,
+    "novel_after_off_plan": 0,
+    "in_c_on_plan": 715,
+    "in_c_after_off_plan": 0,
+    "in_c_share": 0.4766666666666667,
+    "novel_share": 0.5233333333333333,
+    "novel_on_plan_share": 0.5233333333333333,
+    "novel_after_off_plan_share": 0.0,
+    "after_off_plan_share": 0.0,
+    "distinct_in_c": 715,
+    "distinct_novel": 785
+   },
+   "acc": {
+    "all": {
+     "n": 1500,
+     "acc": 1.0
+    },
+    "in_c": {
+     "n": 715,
+     "acc": 1.0
+    },
+    "novel": {
+     "n": 785,
+     "acc": 1.0
+    },
+    "novel_on_plan": {
+     "n": 785,
+     "acc": 1.0
+    },
+    "novel_after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "in_c_on_plan": {
+     "n": 715,
+     "acc": 1.0
+    },
+    "in_c_after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "on_plan": {
+     "n": 1500,
+     "acc": 1.0
+    },
+    "after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "executed_all": {
+     "n": 1500,
+     "acc": 1.0
+    }
+   },
+   "mustask": {
+    "n": 50,
+    "tasks": 50,
+    "acc": 1.0,
+    "in_c": 48,
+    "acted": 0,
+    "acted_share": 0.0,
+    "step_median": 1.0,
+    "c_acc": 1.0
+   },
+   "askearly": {
+    "n": 0,
+    "tasks": 0,
+    "tasks_share": 0.0
+   },
+   "ask": {
+    "n": 100,
+    "acc": 1.0,
+    "in_c": 98,
+    "wrong": 0,
+    "acted": 0,
+    "acted_share": 0.0,
+    "acted_share_of_wrong": null,
+    "tasks": 100,
+    "c_acc": 1.0
+   },
+   "faith": {
+    "n": 715,
+    "live_acc": 1.0,
+    "offline_acc": 1.0,
+    "agree": 1.0,
+    "live_wrong_offline_right": 0,
+    "live_right_offline_wrong": 0,
+    "sign_p": null,
+    "missing_offline": 0
+   },
+   "first": {
+    "tasks": 200,
+    "with_wrong_choice": 0,
+    "in_c": 0,
+    "novel": 0,
+    "none": 200,
+    "in_c_share": 0.0,
+    "novel_share": 0.0,
+    "none_share": 1.0,
+    "failed": 0,
+    "failed_with_wrong_choice": 0,
+    "failed_with_wrong_choice_share": null,
+    "failed_without_wrong_choice": 0,
+    "recovered": 0,
+    "recovered_share": null,
+    "step_median": null,
+    "step_mean": null,
+    "step_le1_share": null,
+    "steps": {},
+    "types": {},
+    "in_c_offline_right": 0,
+    "in_c_offline_wrong": 0,
+    "in_c_offline_right_share": null,
+    "in_c_same_answer": 0,
+    "consequence": {},
+    "irreversible": 0,
+    "irreversible_share": 0.0,
+    "irreversible_of_failed_share": null,
+    "loss": {
+     "total": 0.0,
+     "irreversible": 0.0,
+     "compounding": 0.0,
+     "no_wrong_choice": 0.0
+    },
+    "recovered_by_consequence": {
+     "wrong write action": null,
+     "premature finish": null,
+     "recoverable": null
+    }
+   },
+   "gate": {
+    "conf_right_mean": 0.9999993463534698,
+    "conf_wrong_mean": null,
+    "conf_right_median": 1.0,
+    "conf_wrong_median": null,
+    "n_right": 1500,
+    "n_wrong": 0,
+    "at": {
+     "own": {
+      "tau": 0.9999999997650646,
+      "wrong_below": null,
+      "right_below": 0.168,
+      "all_below": 0.168,
+      "failed_first_below": null,
+      "failed_first_below_n": 0,
+      "failed_first_n": 0
+     },
+     "jev": {
+      "tau": 1.0,
+      "wrong_below": null,
+      "right_below": 0.45466666666666666,
+      "all_below": 0.45466666666666666,
+      "failed_first_below": null,
+      "failed_first_below_n": 0,
+      "failed_first_n": 0
+     },
+     "fixed_0.5": {
+      "tau": 0.5,
+      "wrong_below": null,
+      "right_below": 0.0,
+      "all_below": 0.0,
+      "failed_first_below": null,
+      "failed_first_below_n": 0,
+      "failed_first_n": 0
+     },
+     "fixed_0.9": {
+      "tau": 0.9,
+      "wrong_below": null,
+      "right_below": 0.0,
+      "all_below": 0.0,
+      "failed_first_below": null,
+      "failed_first_below_n": 0,
+      "failed_first_n": 0
+     }
+    }
+   },
+   "pred": {
+    "tasks": 200,
+    "all_sources": 0.99375,
+    "llm_only": 0.98,
+    "on_plan": 0.995,
+    "early_ask": 0.99375
+   },
+   "label": "0.8B scoring head, agent states (E14 A)",
+   "group": "ours",
+   "live_path": "runs/e14_live_a/e14a_ts_replace_f.jsonl",
+   "live_sha256": "9455eb1c77955a8a",
+   "answers_path": "results/explore/e14_small/records/s23/answers_e14a.jsonl.gz",
+   "own_tau": 0.9999999997650646,
+   "tau_used": 0.9999999997650646,
+   "tau_source": "own fit",
+   "c_acc": 0.9920231248583251,
+   "published": {
+    "c_acc": "99.2",
+    "live_success": "100.0"
+   }
+  },
+  "e14g": {
+   "tasks": 200,
+   "errored": 0,
+   "success": 0.0,
+   "states": {
+    "labelled": 225,
+    "unlabelled": 0,
+    "fallthrough": 0,
+    "label_mismatch_in_c": 0,
+    "in_c": 217,
+    "novel": 8,
+    "novel_on_plan": 8,
+    "novel_after_off_plan": 0,
+    "in_c_on_plan": 217,
+    "in_c_after_off_plan": 0,
+    "in_c_share": 0.9644444444444444,
+    "novel_share": 0.035555555555555556,
+    "novel_on_plan_share": 0.035555555555555556,
+    "novel_after_off_plan_share": 0.0,
+    "after_off_plan_share": 0.0,
+    "distinct_in_c": 217,
+    "distinct_novel": 8
+   },
+   "acc": {
+    "all": {
+     "n": 225,
+     "acc": 0.1111111111111111
+    },
+    "in_c": {
+     "n": 217,
+     "acc": 0.1152073732718894
+    },
+    "novel": {
+     "n": 8,
+     "acc": 0.0
+    },
+    "novel_on_plan": {
+     "n": 8,
+     "acc": 0.0
+    },
+    "novel_after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "in_c_on_plan": {
+     "n": 217,
+     "acc": 0.1152073732718894
+    },
+    "in_c_after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "on_plan": {
+     "n": 225,
+     "acc": 0.1111111111111111
+    },
+    "after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "executed_all": {
+     "n": 225,
+     "acc": 0.1111111111111111
+    }
+   },
+   "mustask": {
+    "n": 25,
+    "tasks": 25,
+    "acc": 1.0,
+    "in_c": 25,
+    "acted": 0,
+    "acted_share": 0.0,
+    "step_median": 0,
+    "c_acc": 0.25
+   },
+   "askearly": {
+    "n": 0,
+    "tasks": 0,
+    "tasks_share": 0.0
+   },
+   "ask": {
+    "n": 75,
+    "acc": 0.3333333333333333,
+    "in_c": 75,
+    "wrong": 50,
+    "acted": 50,
+    "acted_share": 0.6666666666666666,
+    "acted_share_of_wrong": 1.0,
+    "tasks": 75,
+    "c_acc": 0.25
+   },
+   "faith": {
+    "n": 217,
+    "live_acc": 0.1152073732718894,
+    "offline_acc": 0.1152073732718894,
+    "agree": 1.0,
+    "live_wrong_offline_right": 0,
+    "live_right_offline_wrong": 0,
+    "sign_p": null,
+    "missing_offline": 0
+   },
+   "first": {
+    "tasks": 200,
+    "with_wrong_choice": 200,
+    "in_c": 192,
+    "novel": 8,
+    "none": 0,
+    "in_c_share": 0.96,
+    "novel_share": 0.04,
+    "none_share": 0.0,
+    "failed": 200,
+    "failed_with_wrong_choice": 200,
+    "failed_with_wrong_choice_share": 1.0,
+    "failed_without_wrong_choice": 0,
+    "recovered": 0,
+    "recovered_share": 0.0,
+    "step_median": 0.0,
+    "step_mean": 0.125,
+    "step_le1_share": 1.0,
+    "steps": {
+     "0": 175,
+     "1": 25
+    },
+    "types": {
+     "wrong core tool": 125,
+     "changed state before asking": 75
+    },
+    "in_c_offline_right": 0,
+    "in_c_offline_wrong": 192,
+    "in_c_offline_right_share": 0.0,
+    "in_c_same_answer": 192,
+    "consequence": {
+     "wrong write action": 200
+    },
+    "irreversible": 200,
+    "irreversible_share": 1.0,
+    "irreversible_of_failed_share": 1.0,
+    "loss": {
+     "total": 1.0,
+     "irreversible": 1.0,
+     "compounding": 0.0,
+     "no_wrong_choice": 0.0
+    },
+    "recovered_by_consequence": {
+     "wrong write action": 0.0,
+     "premature finish": null,
+     "recoverable": null
+    }
+   },
+   "gate": {
+    "conf_right_mean": 0.5774509182311166,
+    "conf_wrong_mean": 0.7770560392433158,
+    "conf_right_median": 0.5774509182311166,
+    "conf_wrong_median": 0.8318124690591808,
+    "n_right": 25,
+    "n_wrong": 200,
+    "at": {
+     "own": {
+      "tau": Infinity,
+      "wrong_below": 1.0,
+      "right_below": 1.0,
+      "all_below": 1.0,
+      "failed_first_below": 1.0,
+      "failed_first_below_n": 200,
+      "failed_first_n": 200
+     },
+     "jev": {
+      "tau": 1.0,
+      "wrong_below": 1.0,
+      "right_below": 1.0,
+      "all_below": 1.0,
+      "failed_first_below": 1.0,
+      "failed_first_below_n": 200,
+      "failed_first_n": 200
+     },
+     "fixed_0.5": {
+      "tau": 0.5,
+      "wrong_below": 0.05,
+      "right_below": 0.0,
+      "all_below": 0.044444444444444446,
+      "failed_first_below": 0.05,
+      "failed_first_below_n": 10,
+      "failed_first_n": 200
+     },
+     "fixed_0.9": {
+      "tau": 0.9,
+      "wrong_below": 0.63,
+      "right_below": 1.0,
+      "all_below": 0.6711111111111111,
+      "failed_first_below": 0.63,
+      "failed_first_below_n": 126,
+      "failed_first_n": 200
+     }
+    }
+   },
+   "pred": {
+    "tasks": 200,
+    "all_sources": 0.0,
+    "llm_only": 0.0,
+    "on_plan": 0.0,
+    "early_ask": 0.0
+   },
+   "label": "0.8B scoring head, generic mix (E14 G)",
+   "group": "ours",
+   "live_path": "runs/e14_live_a_g/e14g_ts_replace_f.jsonl",
+   "live_sha256": "415ed22a7c0c3528",
+   "answers_path": "results/explore/e14_small/records/s23/answers_e14g.jsonl.gz",
+   "own_tau": Infinity,
+   "tau_used": Infinity,
+   "tau_source": "own fit",
+   "c_acc": 0.23941835662582509,
+   "published": {
+    "c_acc": "23.9",
+    "live_success": "0.0"
+   }
+  },
+  "base": {
+   "tasks": 100,
+   "errored": 0,
+   "success": 0.13,
+   "states": {
+    "labelled": 324,
+    "unlabelled": 18,
+    "fallthrough": 0,
+    "label_mismatch_in_c": 0,
+    "in_c": 144,
+    "novel": 180,
+    "novel_on_plan": 44,
+    "novel_after_off_plan": 136,
+    "in_c_on_plan": 143,
+    "in_c_after_off_plan": 1,
+    "in_c_share": 0.4444444444444444,
+    "novel_share": 0.5555555555555556,
+    "novel_on_plan_share": 0.13580246913580246,
+    "novel_after_off_plan_share": 0.41975308641975306,
+    "after_off_plan_share": 0.4228395061728395,
+    "distinct_in_c": 144,
+    "distinct_novel": 180
+   },
+   "acc": {
+    "all": {
+     "n": 324,
+     "acc": 0.30864197530864196
+    },
+    "in_c": {
+     "n": 144,
+     "acc": 0.4861111111111111
+    },
+    "novel": {
+     "n": 180,
+     "acc": 0.16666666666666666
+    },
+    "novel_on_plan": {
+     "n": 44,
+     "acc": 0.6818181818181818
+    },
+    "novel_after_off_plan": {
+     "n": 136,
+     "acc": 0.0
+    },
+    "in_c_on_plan": {
+     "n": 143,
+     "acc": 0.48951048951048953
+    },
+    "in_c_after_off_plan": {
+     "n": 1,
+     "acc": 0.0
+    },
+    "on_plan": {
+     "n": 187,
+     "acc": 0.5347593582887701
+    },
+    "after_off_plan": {
+     "n": 137,
+     "acc": 0.0
+    },
+    "executed_all": {
+     "n": 324,
+     "acc": 0.30864197530864196
+    }
+   },
+   "mustask": {
+    "n": 12,
+    "tasks": 12,
+    "acc": 1.0,
+    "in_c": 12,
+    "acted": 0,
+    "acted_share": 0.0,
+    "step_median": 0.0,
+    "c_acc": 0.24
+   },
+   "askearly": {
+    "n": 13,
+    "tasks": 13,
+    "tasks_share": 0.13
+   },
+   "ask": {
+    "n": 64,
+    "acc": 0.5625,
+    "in_c": 39,
+    "wrong": 28,
+    "acted": 2,
+    "acted_share": 0.03125,
+    "acted_share_of_wrong": 0.07142857142857142,
+    "tasks": 37,
+    "c_acc": 0.47303751803751803
+   },
+   "faith": {
+    "n": 144,
+    "live_acc": 0.4861111111111111,
+    "offline_acc": 0.4791666666666667,
+    "agree": 0.9722222222222222,
+    "live_wrong_offline_right": 0,
+    "live_right_offline_wrong": 1,
+    "sign_p": 1.0,
+    "missing_offline": 0
+   },
+   "first": {
+    "tasks": 100,
+    "with_wrong_choice": 87,
+    "in_c": 73,
+    "novel": 14,
+    "none": 13,
+    "in_c_share": 0.73,
+    "novel_share": 0.14,
+    "none_share": 0.13,
+    "failed": 87,
+    "failed_with_wrong_choice": 87,
+    "failed_with_wrong_choice_share": 1.0,
+    "failed_without_wrong_choice": 0,
+    "recovered": 0,
+    "recovered_share": 0.0,
+    "step_median": 1,
+    "step_mean": 0.7011494252873564,
+    "step_le1_share": 0.8735632183908046,
+    "steps": {
+     "1": 39,
+     "0": 37,
+     "2": 11
+    },
+    "types": {
+     "wrong core tool": 73,
+     "unneeded question": 5,
+     "look-alike of the gold tool": 5,
+     "other look-alike": 2,
+     "changed state before asking": 2
+    },
+    "in_c_offline_right": 0,
+    "in_c_offline_wrong": 73,
+    "in_c_offline_right_share": 0.0,
+    "in_c_same_answer": 70,
+    "consequence": {
+     "wrong write action": 73,
+     "recoverable": 14
+    },
+    "irreversible": 73,
+    "irreversible_share": 0.73,
+    "irreversible_of_failed_share": 0.8390804597701149,
+    "loss": {
+     "total": 0.87,
+     "irreversible": 0.73,
+     "compounding": 0.14,
+     "no_wrong_choice": 0.0
+    },
+    "recovered_by_consequence": {
+     "wrong write action": 0.0,
+     "premature finish": null,
+     "recoverable": 0.0
+    }
+   },
+   "gate": {
+    "conf_right_mean": 0.6882954937012546,
+    "conf_wrong_mean": 0.5202728325192785,
+    "conf_right_median": 0.739893375807759,
+    "conf_wrong_median": 0.5135561399103046,
+    "n_right": 100,
+    "n_wrong": 224,
+    "at": {
+     "jev": {
+      "tau": 1.0,
+      "wrong_below": 1.0,
+      "right_below": 1.0,
+      "all_below": 1.0,
+      "failed_first_below": 1.0,
+      "failed_first_below_n": 87,
+      "failed_first_n": 87
+     },
+     "fixed_0.5": {
+      "tau": 0.5,
+      "wrong_below": 0.47767857142857145,
+      "right_below": 0.15,
+      "all_below": 0.3765432098765432,
+      "failed_first_below": 0.39080459770114945,
+      "failed_first_below_n": 34,
+      "failed_first_n": 87
+     },
+     "fixed_0.9": {
+      "tau": 0.9,
+      "wrong_below": 1.0,
+      "right_below": 1.0,
+      "all_below": 1.0,
+      "failed_first_below": 1.0,
+      "failed_first_below_n": 87,
+      "failed_first_n": 87
+     }
+    }
+   },
+   "pred": {
+    "tasks": 100,
+    "all_sources": 0.2175,
+    "llm_only": 0.18,
+    "on_plan": 0.23,
+    "early_ask": 0.3
+   },
+   "label": "Qwen3-4B (untrained)",
+   "group": "attribution",
+   "live_path": "runs/stage2_rl_attribution/rl_base_ts_replace_f.jsonl",
+   "live_sha256": "03fbe072f79015ef",
+   "answers_path": "results/stage2/s23/answers_base.jsonl",
+   "own_tau": null,
+   "tau_used": 1.0,
+   "tau_source": "Jev arm's fit (none fitted for this model)",
+   "c_acc": 0.5010455808575047,
+   "published": {
+    "c_acc": "50.1",
+    "live_success": "13.0"
+   }
+  },
+  "sft_v1": {
+   "tasks": 100,
+   "errored": 0,
+   "success": 1.0,
+   "states": {
+    "labelled": 750,
+    "unlabelled": 0,
+    "fallthrough": 0,
+    "label_mismatch_in_c": 0,
+    "in_c": 360,
+    "novel": 390,
+    "novel_on_plan": 390,
+    "novel_after_off_plan": 0,
+    "in_c_on_plan": 360,
+    "in_c_after_off_plan": 0,
+    "in_c_share": 0.48,
+    "novel_share": 0.52,
+    "novel_on_plan_share": 0.52,
+    "novel_after_off_plan_share": 0.0,
+    "after_off_plan_share": 0.0,
+    "distinct_in_c": 360,
+    "distinct_novel": 390
+   },
+   "acc": {
+    "all": {
+     "n": 750,
+     "acc": 1.0
+    },
+    "in_c": {
+     "n": 360,
+     "acc": 1.0
+    },
+    "novel": {
+     "n": 390,
+     "acc": 1.0
+    },
+    "novel_on_plan": {
+     "n": 390,
+     "acc": 1.0
+    },
+    "novel_after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "in_c_on_plan": {
+     "n": 360,
+     "acc": 1.0
+    },
+    "in_c_after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "on_plan": {
+     "n": 750,
+     "acc": 1.0
+    },
+    "after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "executed_all": {
+     "n": 750,
+     "acc": 1.0
+    }
+   },
+   "mustask": {
+    "n": 25,
+    "tasks": 25,
+    "acc": 1.0,
+    "in_c": 25,
+    "acted": 0,
+    "acted_share": 0.0,
+    "step_median": 2,
+    "c_acc": 1.0
+   },
+   "askearly": {
+    "n": 0,
+    "tasks": 0,
+    "tasks_share": 0.0
+   },
+   "ask": {
+    "n": 50,
+    "acc": 1.0,
+    "in_c": 50,
+    "wrong": 0,
+    "acted": 0,
+    "acted_share": 0.0,
+    "acted_share_of_wrong": null,
+    "tasks": 50,
+    "c_acc": 1.0
+   },
+   "faith": {
+    "n": 360,
+    "live_acc": 1.0,
+    "offline_acc": 1.0,
+    "agree": 1.0,
+    "live_wrong_offline_right": 0,
+    "live_right_offline_wrong": 0,
+    "sign_p": null,
+    "missing_offline": 0
+   },
+   "first": {
+    "tasks": 100,
+    "with_wrong_choice": 0,
+    "in_c": 0,
+    "novel": 0,
+    "none": 100,
+    "in_c_share": 0.0,
+    "novel_share": 0.0,
+    "none_share": 1.0,
+    "failed": 0,
+    "failed_with_wrong_choice": 0,
+    "failed_with_wrong_choice_share": null,
+    "failed_without_wrong_choice": 0,
+    "recovered": 0,
+    "recovered_share": null,
+    "step_median": null,
+    "step_mean": null,
+    "step_le1_share": null,
+    "steps": {},
+    "types": {},
+    "in_c_offline_right": 0,
+    "in_c_offline_wrong": 0,
+    "in_c_offline_right_share": null,
+    "in_c_same_answer": 0,
+    "consequence": {},
+    "irreversible": 0,
+    "irreversible_share": 0.0,
+    "irreversible_of_failed_share": null,
+    "loss": {
+     "total": 0.0,
+     "irreversible": 0.0,
+     "compounding": 0.0,
+     "no_wrong_choice": 0.0
+    },
+    "recovered_by_consequence": {
+     "wrong write action": null,
+     "premature finish": null,
+     "recoverable": null
+    }
+   },
+   "gate": {
+    "conf_right_mean": 0.999999999999507,
+    "conf_wrong_mean": null,
+    "conf_right_median": 1.0,
+    "conf_wrong_median": null,
+    "n_right": 750,
+    "n_wrong": 0,
+    "at": {
+     "jev": {
+      "tau": 1.0,
+      "wrong_below": null,
+      "right_below": 0.036,
+      "all_below": 0.036,
+      "failed_first_below": null,
+      "failed_first_below_n": 0,
+      "failed_first_n": 0
+     },
+     "fixed_0.5": {
+      "tau": 0.5,
+      "wrong_below": null,
+      "right_below": 0.0,
+      "all_below": 0.0,
+      "failed_first_below": null,
+      "failed_first_below_n": 0,
+      "failed_first_n": 0
+     },
+     "fixed_0.9": {
+      "tau": 0.9,
+      "wrong_below": null,
+      "right_below": 0.0,
+      "all_below": 0.0,
+      "failed_first_below": null,
+      "failed_first_below_n": 0,
+      "failed_first_n": 0
+     }
+    }
+   },
+   "pred": {
+    "tasks": 100,
+    "all_sources": 1.0,
+    "llm_only": 1.0,
+    "on_plan": 1.0,
+    "early_ask": 1.0
+   },
+   "label": "SFT only (v1)",
+   "group": "attribution",
+   "live_path": "runs/stage2_rl_attribution/rl_sft_v1_ts_replace_f.jsonl",
+   "live_sha256": "c1b4b43c1c8ba5d5",
+   "answers_path": "results/stage2/s23/answers_sft_v1.jsonl",
+   "own_tau": null,
+   "tau_used": 1.0,
+   "tau_source": "Jev arm's fit (none fitted for this model)",
+   "c_acc": 0.991909314748326,
+   "published": {
+    "c_acc": "99.2",
+    "live_success": "100.0"
+   }
+  },
+  "v2": {
+   "tasks": 200,
+   "errored": 0,
+   "success": 1.0,
+   "states": {
+    "labelled": 1500,
+    "unlabelled": 0,
+    "fallthrough": 0,
+    "label_mismatch_in_c": 0,
+    "in_c": 746,
+    "novel": 754,
+    "novel_on_plan": 754,
+    "novel_after_off_plan": 0,
+    "in_c_on_plan": 746,
+    "in_c_after_off_plan": 0,
+    "in_c_share": 0.49733333333333335,
+    "novel_share": 0.5026666666666667,
+    "novel_on_plan_share": 0.5026666666666667,
+    "novel_after_off_plan_share": 0.0,
+    "after_off_plan_share": 0.0,
+    "distinct_in_c": 746,
+    "distinct_novel": 754
+   },
+   "acc": {
+    "all": {
+     "n": 1500,
+     "acc": 1.0
+    },
+    "in_c": {
+     "n": 746,
+     "acc": 1.0
+    },
+    "novel": {
+     "n": 754,
+     "acc": 1.0
+    },
+    "novel_on_plan": {
+     "n": 754,
+     "acc": 1.0
+    },
+    "novel_after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "in_c_on_plan": {
+     "n": 746,
+     "acc": 1.0
+    },
+    "in_c_after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "on_plan": {
+     "n": 1500,
+     "acc": 1.0
+    },
+    "after_off_plan": {
+     "n": 0,
+     "acc": null
+    },
+    "executed_all": {
+     "n": 1500,
+     "acc": 1.0
+    }
+   },
+   "mustask": {
+    "n": 50,
+    "tasks": 50,
+    "acc": 1.0,
+    "in_c": 47,
+    "acted": 0,
+    "acted_share": 0.0,
+    "step_median": 1.0,
+    "c_acc": 1.0
+   },
+   "askearly": {
+    "n": 0,
+    "tasks": 0,
+    "tasks_share": 0.0
+   },
+   "ask": {
+    "n": 100,
+    "acc": 1.0,
+    "in_c": 97,
+    "wrong": 0,
+    "acted": 0,
+    "acted_share": 0.0,
+    "acted_share_of_wrong": null,
+    "tasks": 100,
+    "c_acc": 1.0
+   },
+   "faith": {
+    "n": 746,
+    "live_acc": 1.0,
+    "offline_acc": 1.0,
+    "agree": 1.0,
+    "live_wrong_offline_right": 0,
+    "live_right_offline_wrong": 0,
+    "sign_p": null,
+    "missing_offline": 0
+   },
+   "first": {
+    "tasks": 200,
+    "with_wrong_choice": 0,
+    "in_c": 0,
+    "novel": 0,
+    "none": 200,
+    "in_c_share": 0.0,
+    "novel_share": 0.0,
+    "none_share": 1.0,
+    "failed": 0,
+    "failed_with_wrong_choice": 0,
+    "failed_with_wrong_choice_share": null,
+    "failed_without_wrong_choice": 0,
+    "recovered": 0,
+    "recovered_share": null,
+    "step_median": null,
+    "step_mean": null,
+    "step_le1_share": null,
+    "steps": {},
+    "types": {},
+    "in_c_offline_right": 0,
+    "in_c_offline_wrong": 0,
+    "in_c_offline_right_share": null,
+    "in_c_same_answer": 0,
+    "consequence": {},
+    "irreversible": 0,
+    "irreversible_share": 0.0,
+    "irreversible_of_failed_share": null,
+    "loss": {
+     "total": 0.0,
+     "irreversible": 0.0,
+     "compounding": 0.0,
+     "no_wrong_choice": 0.0
+    },
+    "recovered_by_consequence": {
+     "wrong write action": null,
+     "premature finish": null,
+     "recoverable": null
+    }
+   },
+   "gate": {
+    "conf_right_mean": 0.9999376757136229,
+    "conf_wrong_mean": null,
+    "conf_right_median": 0.9999999796885567,
+    "conf_wrong_median": null,
+    "n_right": 1500,
+    "n_wrong": 0,
+    "at": {
+     "own": {
+      "tau": 0.9987240290578037,
+      "wrong_below": null,
+      "right_below": 0.016666666666666666,
+      "all_below": 0.016666666666666666,
+      "failed_first_below": null,
+      "failed_first_below_n": 0,
+      "failed_first_n": 0
+     },
+     "jev": {
+      "tau": 1.0,
+      "wrong_below": null,
+      "right_below": 1.0,
+      "all_below": 1.0,
+      "failed_first_below": null,
+      "failed_first_below_n": 0,
+      "failed_first_n": 0
+     },
+     "fixed_0.5": {
+      "tau": 0.5,
+      "wrong_below": null,
+      "right_below": 0.0,
+      "all_below": 0.0,
+      "failed_first_below": null,
+      "failed_first_below_n": 0,
+      "failed_first_n": 0
+     },
+     "fixed_0.9": {
+      "tau": 0.9,
+      "wrong_below": null,
+      "right_below": 0.0,
+      "all_below": 0.0,
+      "failed_first_below": null,
+      "failed_first_below_n": 0,
+      "failed_first_n": 0
+     }
+    }
+   },
+   "pred": {
+    "tasks": 200,
+    "all_sources": 0.99875,
+    "llm_only": 0.995,
+    "on_plan": 0.99875,
+    "early_ask": 0.99875
+   },
+   "label": "JevAgentRL-v2 (exploratory)",
+   "group": "attribution",
+   "live_path": "runs/stage2_v2_states/v2_ts_replace_f.jsonl",
+   "live_sha256": "bb780bb76560fa9f",
+   "answers_path": "results/stage2/s23/answers_v2.jsonl",
+   "own_tau": 0.9987240290578037,
+   "tau_used": 0.9987240290578037,
+   "tau_source": "own fit",
+   "c_acc": 0.9936077879552162,
+   "published": {
+    "c_acc": "99.4",
+    "live_success": "100.0"
+   }
+  }
+ },
+ "not_found": {},
+ "excluded": {
+  "e14ag (E14 arm AG)": "no live run on seeds 300000-300199 (runs/e14_live_b is arm e14_final on seeds 300500+)",
+  "E5 students": "live on 100 tasks of seeds 300700+ through OpenRouter (runs/e5_small_live), another protocol",
+  "E7/E7c/E7e/E7f rows": "DecisionGym-Hard (seeds 310000+), another suite",
+  "stage2_x / stage2_sol": "DeepSeek-V4-Pro / GPT-6.1-Sol as the agent LLM, not Flash, and profile arms (cascade)",
+  "E16 arms": "in progress in another session; no record read",
+  "llm_only (Flash alone)": "not a decision model; its states are a C source (hash check only)"
+ },
+ "hash_check": {
+  "llm_only": {
+   "labelled_states": 1498,
+   "in_c": 1498,
+   "match": 1.0,
+   "found": true
+  },
+  "jev": {
+   "labelled_states": 1391,
+   "in_c": 1391,
+   "match": 1.0,
+   "found": true
+  },
+  "intern": {
+   "labelled_states": 925,
+   "in_c": 925,
+   "match": 1.0,
+   "found": true
+  },
+  "rl": {
+   "labelled_states": 1500,
+   "in_c": 1500,
+   "match": 1.0,
+   "found": true
+  }
+ },
+ "pred": {
+  "rows": {
+   "jev": {
+    "cmean": 0.9147102984693024,
+    "mustask": 0.27,
+    "pred": 0.72875,
+    "pred_llm": 0.635,
+    "pred_onplan": 0.73375,
+    "pred_earlyask": 0.8,
+    "actual": 0.83,
+    "pred_err": -0.10124999999999995,
+    "pred_llm_err": -0.19499999999999995,
+    "pred_onplan_err": -0.09624999999999995,
+    "pred_earlyask_err": -0.029999999999999916
+   },
+   "intern": {
+    "cmean": 0.7521235058547656,
+    "mustask": 0.25,
+    "pred": 0.42875,
+    "pred_llm": 0.325,
+    "pred_onplan": 0.43125,
+    "pred_earlyask": 0.44875,
+    "actual": 0.265,
+    "pred_err": 0.16375,
+    "pred_llm_err": 0.06,
+    "pred_onplan_err": 0.16625,
+    "pred_earlyask_err": 0.18374999999999997
+   },
+   "sl0.8b": {
+    "cmean": 0.4834793657146014,
+    "mustask": 0.25,
+    "pred": 0.6375,
+    "pred_llm": 0.595,
+    "pred_onplan": 0.64375,
+    "pred_earlyask": 0.72125,
+    "actual": 0.175,
+    "pred_err": 0.46249999999999997,
+    "pred_llm_err": 0.42,
+    "pred_onplan_err": 0.46875000000000006,
+    "pred_earlyask_err": 0.5462499999999999
+   },
+   "sl2b": {
+    "cmean": 0.6843949500828106,
+    "mustask": 0.27,
+    "pred": 0.245,
+    "pred_llm": 0.18,
+    "pred_onplan": 0.2725,
+    "pred_earlyask": 0.2525,
+    "actual": 0.065,
+    "pred_err": 0.18,
+    "pred_llm_err": 0.11499999999999999,
+    "pred_onplan_err": 0.20750000000000002,
+    "pred_earlyask_err": 0.1875
+   },
+   "sl4b": {
+    "cmean": 0.8910747350186918,
+    "mustask": 0.47,
+    "pred": 0.67375,
+    "pred_llm": 0.51,
+    "pred_onplan": 0.6825,
+    "pred_earlyask": 0.67375,
+    "actual": 0.6,
+    "pred_err": 0.07374999999999998,
+    "pred_llm_err": -0.08999999999999997,
+    "pred_onplan_err": 0.08250000000000002,
+    "pred_earlyask_err": 0.07374999999999998
+   },
+   "sl9b": {
+    "cmean": 0.9180101821499901,
+    "mustask": 0.5,
+    "pred": 0.71,
+    "pred_llm": 0.605,
+    "pred_onplan": 0.72375,
+    "pred_earlyask": 0.71,
+    "actual": 0.74,
+    "pred_err": -0.030000000000000027,
+    "pred_llm_err": -0.135,
+    "pred_onplan_err": -0.016249999999999987,
+    "pred_earlyask_err": -0.030000000000000027
+   },
+   "sl27b": {
+    "cmean": 0.939450833690428,
+    "mustask": 0.26,
+    "pred": 0.78875,
+    "pred_llm": 0.63,
+    "pred_onplan": 0.79625,
+    "pred_earlyask": 0.78875,
+    "actual": 0.63,
+    "pred_err": 0.15874999999999995,
+    "pred_llm_err": 0.0,
+    "pred_onplan_err": 0.16625,
+    "pred_earlyask_err": 0.15874999999999995
+   },
+   "oaidec": {
+    "cmean": 0.9092848190456067,
+    "mustask": 0.385,
+    "pred": 0.77375,
+    "pred_llm": 0.67,
+    "pred_onplan": 0.77875,
+    "pred_earlyask": 0.80125,
+    "actual": 0.785,
+    "pred_err": -0.011249999999999982,
+    "pred_llm_err": -0.11499999999999999,
+    "pred_onplan_err": -0.006249999999999978,
+    "pred_earlyask_err": 0.016249999999999987
+   },
+   "openjev": {
+    "cmean": 0.9106130969750613,
+    "mustask": 0.5,
+    "pred": 0.715,
+    "pred_llm": 0.67,
+    "pred_onplan": 0.72625,
+    "pred_earlyask": 0.715,
+    "actual": 0.625,
+    "pred_err": 0.08999999999999997,
+    "pred_llm_err": 0.04500000000000004,
+    "pred_onplan_err": 0.10124999999999995,
+    "pred_earlyask_err": 0.08999999999999997
+   },
+   "openjevhf": {
+    "cmean": 0.9238906979255579,
+    "mustask": 0.26,
+    "pred": 0.75625,
+    "pred_llm": 0.63,
+    "pred_onplan": 0.76625,
+    "pred_earlyask": 0.75625,
+    "actual": 0.63,
+    "pred_err": 0.12624999999999997,
+    "pred_llm_err": 0.0,
+    "pred_onplan_err": 0.13624999999999998,
+    "pred_earlyask_err": 0.12624999999999997
+   },
+   "rl": {
+    "cmean": 0.9920083177147069,
+    "mustask": 1.0,
+    "pred": 1.0,
+    "pred_llm": 1.0,
+    "pred_onplan": 1.0,
+    "pred_earlyask": 1.0,
+    "actual": 1.0,
+    "pred_err": 0.0,
+    "pred_llm_err": 0.0,
+    "pred_onplan_err": 0.0,
+    "pred_earlyask_err": 0.0
+   },
+   "e12": {
+    "cmean": 0.9914240109855832,
+    "mustask": 0.9966666666666667,
+    "pred": 0.9975,
+    "pred_llm": 1.0,
+    "pred_onplan": 1.0,
+    "pred_earlyask": 0.9975,
+    "actual": 1.0,
+    "pred_err": -0.0024999999999999467,
+    "pred_llm_err": 0.0,
+    "pred_onplan_err": 0.0,
+    "pred_earlyask_err": -0.0024999999999999467
+   },
+   "e12c": {
+    "cmean": 0.9962855207601694,
+    "mustask": 1.0,
+    "pred": 0.9975,
+    "pred_llm": 0.995,
+    "pred_onplan": 0.99875,
+    "pred_earlyask": 0.9975,
+    "actual": 1.0,
+    "pred_err": -0.0024999999999999467,
+    "pred_llm_err": -0.0050000000000000044,
+    "pred_onplan_err": -0.0012499999999999734,
+    "pred_earlyask_err": -0.0024999999999999467
+   },
+   "e14a": {
+    "cmean": 0.9920231248583251,
+    "mustask": 1.0,
+    "pred": 0.99375,
+    "pred_llm": 0.98,
+    "pred_onplan": 0.995,
+    "pred_earlyask": 0.99375,
+    "actual": 1.0,
+    "pred_err": -0.006249999999999978,
+    "pred_llm_err": -0.020000000000000018,
+    "pred_onplan_err": -0.0050000000000000044,
+    "pred_earlyask_err": -0.006249999999999978
+   },
+   "e14g": {
+    "cmean": 0.23941835662582509,
+    "mustask": 0.25,
+    "pred": 0.0,
+    "pred_llm": 0.0,
+    "pred_onplan": 0.0,
+    "pred_earlyask": 0.0,
+    "actual": 0.0,
+    "pred_err": 0.0,
+    "pred_llm_err": 0.0,
+    "pred_onplan_err": 0.0,
+    "pred_earlyask_err": 0.0
+   },
+   "base": {
+    "cmean": 0.5010455808575047,
+    "mustask": 0.24,
+    "pred": 0.2175,
+    "pred_llm": 0.18,
+    "pred_onplan": 0.23,
+    "pred_earlyask": 0.3,
+    "actual": 0.13,
+    "pred_err": 0.0875,
+    "pred_llm_err": 0.04999999999999999,
+    "pred_onplan_err": 0.1,
+    "pred_earlyask_err": 0.16999999999999998
+   },
+   "sft_v1": {
+    "cmean": 0.991909314748326,
+    "mustask": 1.0,
+    "pred": 1.0,
+    "pred_llm": 1.0,
+    "pred_onplan": 1.0,
+    "pred_earlyask": 1.0,
+    "actual": 1.0,
+    "pred_err": 0.0,
+    "pred_llm_err": 0.0,
+    "pred_onplan_err": 0.0,
+    "pred_earlyask_err": 0.0
+   },
+   "v2": {
+    "cmean": 0.9936077879552162,
+    "mustask": 1.0,
+    "pred": 0.99875,
+    "pred_llm": 0.995,
+    "pred_onplan": 0.99875,
+    "pred_earlyask": 0.99875,
+    "actual": 1.0,
+    "pred_err": -0.0012499999999999734,
+    "pred_llm_err": -0.0050000000000000044,
+    "pred_onplan_err": -0.0012499999999999734,
+    "pred_earlyask_err": -0.0012499999999999734
+   }
+  },
+  "kendall": {
+   "all": {
+    "cmean": 0.7804991680879021,
+    "mustask": 0.7153284671532847,
+    "pred": 0.8273670178000663,
+    "pred_llm": 0.8272735713437337,
+    "pred_onplan": 0.8329013070423268,
+    "pred_earlyask": 0.8412723458303194
+   },
+   "offtheshelf": {
+    "cmean": 0.5393598899705937,
+    "mustask": 0.2589848851414061,
+    "pred": 0.6292532049656926,
+    "pred_llm": 0.5747506123396285,
+    "pred_onplan": 0.6292532049656926,
+    "pred_earlyask": 0.6292532049656926
+   }
+  },
+  "mae": {
+   "all": {
+    "pred": 0.0831944444444444,
+    "pred_llm": 0.06972222222222221,
+    "pred_onplan": 0.08638888888888889,
+    "pred_earlyask": 0.09027777777777773
+   },
+   "offtheshelf": {
+    "pred": 0.13974999999999999,
+    "pred_llm": 0.11749999999999998,
+    "pred_onplan": 0.14475,
+    "pred_earlyask": 0.14424999999999996
+   }
+  },
+  "n": {
+   "all": 18,
+   "offtheshelf": 10
+  },
+  "sets": {
+   "all": [
+    "jev",
+    "intern",
+    "sl0.8b",
+    "sl2b",
+    "sl4b",
+    "sl9b",
+    "sl27b",
+    "oaidec",
+    "openjev",
+    "openjevhf",
+    "rl",
+    "e12",
+    "e12c",
+    "e14a",
+    "e14g",
+    "base",
+    "sft_v1",
+    "v2"
+   ],
+   "offtheshelf": [
+    "jev",
+    "intern",
+    "sl0.8b",
+    "sl2b",
+    "sl4b",
+    "sl9b",
+    "sl27b",
+    "oaidec",
+    "openjev",
+    "openjevhf"
+   ]
+  }
+ },
+ "kendall": {
+  "novel_share_vs_live": 0.12556441915472805,
+  "novel_after_off_plan_share_vs_live": -0.48504256327254025,
+  "novel_on_plan_share_vs_live": 0.5022576766189122,
+  "n_models": 18
+ }
+}

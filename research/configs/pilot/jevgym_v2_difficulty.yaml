@@ -1,0 +1,17 @@
+# P0-2 difficulty calibration (PILOT, real APIs, no System-1): find JevGym v2 settings where the LLM-only
+# harness lands at 60-85% success (REVIEW_SIMULATION P0-2, PREREGISTRATION §5). Run one variant per
+# suite override, e.g.
+#   jevbench run configs/pilot/jevgym_v2_difficulty.yaml --out runs/pilot/v2cal -o name=v2_near_all \
+#       suite.distractor_style=near suite.families=all
+name: v2_difficulty
+suite: {name: jevgym, n: 30, n_distractors: 30, strict: true, distractor_style: near, families: all, noise_lines: 20}
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+small_llm: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+llms:
+  small_only: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+  gemma4: {provider: gemini, model: gemma-4-26b-a4b-it, temperature: 0, reasoning_effort: minimal}
+s1: {type: simulated}          # unused: no arm consults System-1
+workers: 4
+arms:
+  - {name: llm_only}
+  - {name: small_only, llm: small_only}

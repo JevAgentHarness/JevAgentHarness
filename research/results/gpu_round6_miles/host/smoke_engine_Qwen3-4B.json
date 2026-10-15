@@ -1,0 +1,39 @@
+{
+ "model": "/opt/jev/models/Qwen3-4B",
+ "n": 32,
+ "codes_single_token": true,
+ "prompt_tokens_mean": 864.59375,
+ "sglang_cmd": "/opt/sglang/bin/python -m sglang.launch_server --model-path /opt/jev/models/Qwen3-4B --host 127.0.0.1 --port 30011 --tp 1 --mem-fraction-static 0.6 --attention-backend flashinfer --dtype bfloat16 --log-level warning",
+ "sglang_s": 3.34,
+ "hf_s": 30.31,
+ "sglang_vs_hf_fp32": {
+  "max_abs_dlogp_all": 1.146480709229575,
+  "max_abs_dlogp_p>=0.01": 0.41420849811031557,
+  "mean_abs_dlogp_p>=0.01": 0.026398283856130723,
+  "tv_mean": 0.0040191068561609205,
+  "tv_max": 0.07597376466858274,
+  "argmax_agree": 1.0
+ },
+ "hf_bf16_vs_hf_fp32": {
+  "max_abs_dlogp_all": 1.2671432314735824,
+  "max_abs_dlogp_p>=0.01": 0.41420851080540166,
+  "mean_abs_dlogp_p>=0.01": 0.033608284461690494,
+  "tv_mean": 0.0046905008347678774,
+  "tv_max": 0.07597376654805467,
+  "argmax_agree": 1.0
+ },
+ "sglang_vs_hf_bf16": {
+  "max_abs_dlogp_all": 1.2500001393679092,
+  "max_abs_dlogp_p>=0.01": 0.5969624502247783,
+  "mean_abs_dlogp_p>=0.01": 0.034113499333642196,
+  "tv_mean": 0.00395621252349795,
+  "tv_max": 0.12089422145883373,
+  "argmax_agree": 1.0
+ },
+ "acc_sglang": 0.9375,
+ "acc_hf_fp32": 0.9375,
+ "acc_hf_bf16": 0.9375,
+ "max_abs_dlogp": 1.2500001393679092,
+ "pass_s2_as_written": false,
+ "pass_s2": true
+}

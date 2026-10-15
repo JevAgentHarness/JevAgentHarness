@@ -1,0 +1,102 @@
+{
+ "phase": "pre_cal",
+ "at": "2026-10-07T14:14:01+00:00",
+ "safety": 1.2,
+ "caps": {
+  "llm": 60.0,
+  "jev": 5.0
+ },
+ "spent": {
+  "by_stage": {
+   "smoke": {
+    "llm": 0.022267470000000015,
+    "jev": 0.031243253999999998,
+    "total": 0.053510723999999996,
+    "records": 6
+   },
+   "cal": {
+    "llm": 0.0,
+    "jev": 0.0,
+    "total": 0.0,
+    "records": 0
+   },
+   "eval": {
+    "llm": 0.0,
+    "jev": 0.0,
+    "total": 0.0,
+    "records": 0
+   }
+  },
+  "llm": 0.022267470000000015,
+  "jev": 0.031243253999999998,
+  "total": 0.053510723999999996,
+  "records": 6
+ },
+ "budget": null,
+ "smoke": {
+  "llm_only": {
+   "n": 2,
+   "errors": 0,
+   "no_tool_call": 0,
+   "no_answer": 2,
+   "llm": 0.000732725,
+   "jev": 0.0,
+   "wall_s": 14.09847740550049,
+   "retried_calls": 0,
+   "served_providers": [
+    "None"
+   ]
+  },
+  "jev_shadow_cal": {
+   "n": 2,
+   "errors": 0,
+   "no_tool_call": 0,
+   "no_answer": 2,
+   "llm": 0.00035945,
+   "jev": 0.0017536259999999999,
+   "wall_s": 18.873388406999766,
+   "retried_calls": 0,
+   "served_providers": [
+    "None"
+   ]
+  },
+  "jev_cascade_dev": {
+   "n": 2,
+   "errors": 0,
+   "no_tool_call": 0,
+   "no_answer": 0,
+   "llm": 0.010041560000000008,
+   "jev": 0.013868000999999998,
+   "wall_s": 87.23083105149954,
+   "retried_calls": 0,
+   "served_providers": [
+    "None"
+   ]
+  }
+ },
+ "tiers": [
+  {
+   "n_cal": 100,
+   "n_eval": 100,
+   "projected": {
+    "llm": 1.3583156700000008,
+    "jev": 1.9058384939999997
+   },
+   "new_spend": 3.21064344,
+   "fits": true
+  },
+  {
+   "n_cal": 50,
+   "n_eval": 50,
+   "projected": {
+    "llm": 0.6902915700000004,
+    "jev": 0.9685408739999999
+   },
+   "new_spend": 1.60532172,
+   "fits": true
+  }
+ ],
+ "decision": "run: calibration 100, evaluation 100",
+ "n_cal": 100,
+ "n_eval": 100
+}

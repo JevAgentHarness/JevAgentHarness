@@ -1,0 +1,889 @@
+{
+ "meta": {
+  "generated": "2026-10-06T07:24:54+00:00",
+  "git": "4d4efa2275d2303fc29e4aad6f83d3061ab86a13",
+  "script": "scripts/explore_e6b_modes.py",
+  "run": "runs/e6b_modes",
+  "label": "exploratory (E6b)",
+  "n_boot": 10000,
+  "seed": 0,
+  "spend": {
+   "by_run": {
+    "e6b_modes_smoke": {
+     "gemini": 0.9007898500000001,
+     "jev": 0.008400462000000001,
+     "total": 0.9091903120000001,
+     "records": 22
+    },
+    "e6b_modes": {
+     "gemini": 90.97123984999999,
+     "jev": 0.8607013380000011,
+     "total": 91.83194118799992,
+     "records": 2200
+    }
+   },
+   "gemini": 91.87202969999998,
+   "jev": 0.8691018000000011,
+   "total": 92.74113149999992,
+   "records": 2222
+  },
+  "cap": 150.0,
+  "projection": {
+   "smoke_per_episode": {
+    "llm_only": 0.042689625,
+    "small_only": 0.009876574999999999,
+    "tp_assist": 0.037530057000000006,
+    "tp_guard": 0.040706157,
+    "mw_cascade": 0.05912954100000001,
+    "mw_guard": 0.064338645,
+    "mr_cascade": 0.047646816,
+    "mr_trigger": 0.041729604,
+    "rf_cascade": 0.050769078,
+    "st_cascade": 0.041741217,
+    "rt_cascade": 0.018437841
+   },
+   "smoke_wall_s": {
+    "llm_only": 9.473792347500023,
+    "small_only": 5.899333661500009,
+    "tp_assist": 8.590186119500004,
+    "tp_guard": 7.852362442000014,
+    "mw_cascade": 9.337680855000032,
+    "mw_guard": 16.156605617000025,
+    "mr_cascade": 10.780002728499994,
+    "mr_trigger": 10.406734112000038,
+    "rf_cascade": 14.525673844999972,
+    "st_cascade": 10.817897080500018,
+    "rt_cascade": 10.696169593500029
+   },
+   "smoke_n": {
+    "llm_only": 2,
+    "small_only": 2,
+    "tp_assist": 2,
+    "tp_guard": 2,
+    "mw_cascade": 2,
+    "mw_guard": 2,
+    "mr_cascade": 2,
+    "mr_trigger": 2,
+    "rf_cascade": 2,
+    "st_cascade": 2,
+    "rt_cascade": 2
+   },
+   "smoke_errors": {
+    "llm_only": 0,
+    "small_only": 0,
+    "tp_assist": 0,
+    "tp_guard": 0,
+    "mw_cascade": 0,
+    "mw_guard": 0,
+    "mr_cascade": 0,
+    "mr_trigger": 0,
+    "rf_cascade": 0,
+    "st_cascade": 0,
+    "rt_cascade": 0
+   },
+   "missing_arms": [],
+   "spent_so_far": 0.9091903120000001,
+   "safety": 1.5,
+   "cap": 150.0,
+   "per_task_all_arms": 0.454595156,
+   "projected_200": 136.3785468,
+   "fits_200": true,
+   "projected_100": 68.1892734,
+   "fits_100": true,
+   "decision": "run all 200"
+  },
+  "stopped_by_watchdog": false,
+  "rule": "costs success if delta <= -3 pt; no saving if saving <= 0; takes over safely if delta >= -1 pt, saving > 0 and acted >= 5 %; else mixed (scripts/module_map.py, fixed 2026-10-05)"
+ },
+ "cells": {
+  "tp_assist": {
+   "dp": "tool_params",
+   "mode": "assist",
+   "state": "exploratory",
+   "arm": "tp_assist",
+   "reference": "llm_only",
+   "cmp": {
+    "n_expected": 200,
+    "n": 200,
+    "n_dropped": 0,
+    "dropped": {
+     "missing_arm": 0,
+     "missing_ref": 0,
+     "errored_arm": 0,
+     "errored_ref": 0
+    },
+    "success": 0.995,
+    "success_ref": 0.995,
+    "delta": 0.0,
+    "delta_ci": [
+     0.0,
+     0.0
+    ],
+    "wins": 0,
+    "losses": 0,
+    "cost": 0.0370561014,
+    "cost_ref": 0.04066761825,
+    "saving": 0.08880571337614551,
+    "saving_ci": [
+     0.07655080280518682,
+     0.10163636119904444
+    ],
+    "newcombe_pt": [
+     -2.1031061462973093,
+     2.1031061462973093
+    ],
+    "provenance": {
+     "path": "runs/e6b_modes/tp_assist.jsonl",
+     "sha256": "ca85b38c299de19b5f89c834cb89a7a4586f4add35a644924275a40bb3f2f4e5",
+     "n_records": 200
+    },
+    "ref_provenance": {
+     "path": "runs/e6b_modes/llm_only.jsonl",
+     "sha256": "e437218e3f3442375462ce553a884c6da8299ee2f44349dd1af36aa42bf24f2e",
+     "n_records": 200
+    }
+   },
+   "points": {
+    "n_decisions": 678,
+    "n_gold": 670,
+    "coverage": 0.0,
+    "acted": 1.0,
+    "acted_kind": "shortlist",
+    "binding": 0.6563421828908554,
+    "recall_k": 0.9880597014925373,
+    "acc": 0.9880597014925373,
+    "s1_acc_all": 0.9522388059701492,
+    "llm_final_acc": 0.926865671641791,
+    "in_shortlist": 1.0
+   },
+   "verdict": "takes over safely",
+   "per_episode": {
+    "wall_s_mean": 14.797444836569987,
+    "wall_s_median": 10.344406080499994,
+    "steps": 7.5,
+    "llm_calls": 7.5,
+    "s1_calls": 10.89,
+    "s1_cost": 0.00110396265,
+    "s2_cost": 0.03595213875
+   },
+   "ref_per_episode": {
+    "wall_s_mean": 13.019576781755008,
+    "wall_s_median": 7.730344274999879,
+    "steps": 7.505,
+    "llm_calls": 7.505,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.04066761825
+   },
+   "attempts": 200
+  },
+  "tp_guard": {
+   "dp": "tool_params",
+   "mode": "guard",
+   "state": "exploratory",
+   "arm": "tp_guard",
+   "reference": "llm_only",
+   "cmp": {
+    "n_expected": 200,
+    "n": 200,
+    "n_dropped": 0,
+    "dropped": {
+     "missing_arm": 0,
+     "missing_ref": 0,
+     "errored_arm": 0,
+     "errored_ref": 0
+    },
+    "success": 0.995,
+    "success_ref": 0.995,
+    "delta": 0.0,
+    "delta_ci": [
+     0.0,
+     0.0
+    ],
+    "wins": 0,
+    "losses": 0,
+    "cost": 0.043380399480000005,
+    "cost_ref": 0.04066761825,
+    "saving": -0.06670617426679515,
+    "saving_ci": [
+     -0.08965868244791382,
+     -0.04713349051868369
+    ],
+    "newcombe_pt": [
+     -2.1031061462973093,
+     2.1031061462973093
+    ],
+    "provenance": {
+     "path": "runs/e6b_modes/tp_guard.jsonl",
+     "sha256": "8f3b556648fbc36c128b44921f49503c27ad954c5b87ff9f92eda80b71f38d3a",
+     "n_records": 200
+    },
+    "ref_provenance": {
+     "path": "runs/e6b_modes/llm_only.jsonl",
+     "sha256": "e437218e3f3442375462ce553a884c6da8299ee2f44349dd1af36aa42bf24f2e",
+     "n_records": 200
+    }
+   },
+   "points": {
+    "n_decisions": 2134,
+    "n_gold": 1743,
+    "coverage": 0.0,
+    "n_proposals": 1306,
+    "n_vetoed": 82,
+    "acted": 0.06278713629402756,
+    "acted_kind": "vetoed",
+    "acc": 0.9380378657487092,
+    "n_veto_graded": 47,
+    "veto_llm_was_wrong": 0.0,
+    "veto_on_other": 1.0,
+    "veto_tool_changed": 0.32926829268292684
+   },
+   "verdict": "no saving",
+   "per_episode": {
+    "wall_s_mean": 16.536826998710016,
+    "wall_s_median": 10.35384160700005,
+    "steps": 7.55,
+    "llm_calls": 7.96,
+    "s1_calls": 10.67,
+    "s1_cost": 0.00064188348,
+    "s2_cost": 0.042738516000000004
+   },
+   "ref_per_episode": {
+    "wall_s_mean": 13.019576781755008,
+    "wall_s_median": 7.730344274999879,
+    "steps": 7.505,
+    "llm_calls": 7.505,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.04066761825
+   },
+   "attempts": 200
+  },
+  "mw_cascade": {
+   "dp": "memory_write",
+   "mode": "cascade",
+   "state": "exploratory",
+   "arm": "mw_cascade",
+   "reference": "llm_only",
+   "cmp": {
+    "n_expected": 200,
+    "n": 200,
+    "n_dropped": 0,
+    "dropped": {
+     "missing_arm": 0,
+     "missing_ref": 0,
+     "errored_arm": 0,
+     "errored_ref": 0
+    },
+    "success": 0.985,
+    "success_ref": 0.995,
+    "delta": -0.01,
+    "delta_ci": [
+     -0.03,
+     0.01
+    ],
+    "wins": 1,
+    "losses": 3,
+    "cost": 0.06024247670999999,
+    "cost_ref": 0.04066761825,
+    "saving": -0.4813377154193186,
+    "saving_ci": [
+     -0.5253340086628505,
+     -0.43426149514097423
+    ],
+    "newcombe_pt": [
+     -3.8500618680841106,
+     1.4905999379667967
+    ],
+    "provenance": {
+     "path": "runs/e6b_modes/mw_cascade.jsonl",
+     "sha256": "a2fa53714a0e8119513760d1eee883f21a187cd65a17b2ec3cbebbef011e0ab5",
+     "n_records": 200
+    },
+    "ref_provenance": {
+     "path": "runs/e6b_modes/llm_only.jsonl",
+     "sha256": "e437218e3f3442375462ce553a884c6da8299ee2f44349dd1af36aa42bf24f2e",
+     "n_records": 200
+    }
+   },
+   "points": {
+    "n_decisions": 1308,
+    "n_gold": 1305,
+    "coverage": 0.4396024464831804,
+    "acted": 0.4396024464831804,
+    "acted_kind": "decided",
+    "acc": 1.0,
+    "s1_acc_all": 0.6911877394636016,
+    "llm_acc_deferred": 0.6753424657534246,
+    "n_deferred": 733
+   },
+   "verdict": "no saving",
+   "per_episode": {
+    "wall_s_mean": 19.809104577519996,
+    "wall_s_median": 13.021471074500027,
+    "steps": 7.525,
+    "llm_calls": 11.19,
+    "s1_calls": 6.54,
+    "s1_cost": 0.00049661346,
+    "s2_cost": 0.05974586325
+   },
+   "ref_per_episode": {
+    "wall_s_mean": 13.019576781755008,
+    "wall_s_median": 7.730344274999879,
+    "steps": 7.505,
+    "llm_calls": 7.505,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.04066761825
+   },
+   "attempts": 200
+  },
+  "mw_guard": {
+   "dp": "memory_write",
+   "mode": "guard",
+   "state": "exploratory",
+   "arm": "mw_guard",
+   "reference": "llm_only",
+   "cmp": {
+    "n_expected": 200,
+    "n": 200,
+    "n_dropped": 0,
+    "dropped": {
+     "missing_arm": 0,
+     "missing_ref": 0,
+     "errored_arm": 0,
+     "errored_ref": 0
+    },
+    "success": 0.995,
+    "success_ref": 0.995,
+    "delta": 0.0,
+    "delta_ci": [
+     0.0,
+     0.0
+    ],
+    "wins": 0,
+    "losses": 0,
+    "cost": 0.06517152306,
+    "cost_ref": 0.04066761825,
+    "saving": -0.6025409371004902,
+    "saving_ci": [
+     -0.6513641676217689,
+     -0.5511350889970836
+    ],
+    "newcombe_pt": [
+     -2.1031061462973093,
+     2.1031061462973093
+    ],
+    "provenance": {
+     "path": "runs/e6b_modes/mw_guard.jsonl",
+     "sha256": "0fdaafff5eabe9d09b07325cf3112a8758bac1e4ac4bc2a325219b5d801722f1",
+     "n_records": 200
+    },
+    "ref_provenance": {
+     "path": "runs/e6b_modes/llm_only.jsonl",
+     "sha256": "e437218e3f3442375462ce553a884c6da8299ee2f44349dd1af36aa42bf24f2e",
+     "n_records": 200
+    }
+   },
+   "points": {
+    "n_decisions": 1303,
+    "n_gold": 1302,
+    "coverage": 0.0,
+    "n_proposals": 506,
+    "n_vetoed": 0,
+    "acted": 0.0,
+    "acted_kind": "vetoed",
+    "acc": 0.9683794466403162,
+    "llm_store_rate": 0.3883346124328473,
+    "veto_precision": null
+   },
+   "verdict": "no saving",
+   "per_episode": {
+    "wall_s_mean": 24.438423401400005,
+    "wall_s_median": 14.955488564999996,
+    "steps": 7.51,
+    "llm_calls": 14.025,
+    "s1_calls": 2.53,
+    "s1_cost": 0.00021554106,
+    "s2_cost": 0.064955982
+   },
+   "ref_per_episode": {
+    "wall_s_mean": 13.019576781755008,
+    "wall_s_median": 7.730344274999879,
+    "steps": 7.505,
+    "llm_calls": 7.505,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.04066761825
+   },
+   "attempts": 200
+  },
+  "mr_cascade": {
+   "dp": "memory_read",
+   "mode": "cascade",
+   "state": "exploratory",
+   "arm": "mr_cascade",
+   "reference": "llm_only",
+   "cmp": {
+    "n_expected": 200,
+    "n": 200,
+    "n_dropped": 0,
+    "dropped": {
+     "missing_arm": 0,
+     "missing_ref": 0,
+     "errored_arm": 0,
+     "errored_ref": 0
+    },
+    "success": 0.995,
+    "success_ref": 0.995,
+    "delta": 0.0,
+    "delta_ci": [
+     -0.015,
+     0.015
+    ],
+    "wins": 1,
+    "losses": 1,
+    "cost": 0.049024807260000004,
+    "cost_ref": 0.04066761825,
+    "saving": -0.2054998391748699,
+    "saving_ci": [
+     -0.24009960359706742,
+     -0.1724869984659061
+    ],
+    "newcombe_pt": [
+     -2.316316425158018,
+     2.316316425158018
+    ],
+    "provenance": {
+     "path": "runs/e6b_modes/mr_cascade.jsonl",
+     "sha256": "cad1f2ae491e8c4a90e61082a703704545a41ff4c9f3b0cc5d44d5e47e748026",
+     "n_records": 200
+    },
+    "ref_provenance": {
+     "path": "runs/e6b_modes/llm_only.jsonl",
+     "sha256": "e437218e3f3442375462ce553a884c6da8299ee2f44349dd1af36aa42bf24f2e",
+     "n_records": 200
+    }
+   },
+   "points": {
+    "n_decisions": 711,
+    "n_gold": 711,
+    "coverage": 0.5443037974683544,
+    "acted": 0.5443037974683544,
+    "acted_kind": "decided",
+    "acc": 0.7622739018087855,
+    "s1_acc_all": 0.5724331926863573,
+    "llm_acc_deferred": null,
+    "n_deferred": 324,
+    "mean_injected": 4.493670886075949
+   },
+   "verdict": "no saving",
+   "per_episode": {
+    "wall_s_mean": 15.21653869046001,
+    "wall_s_median": 9.113734344000022,
+    "steps": 7.555,
+    "llm_calls": 7.555,
+    "s1_calls": 3.555,
+    "s1_cost": 0.00044285976000000004,
+    "s2_cost": 0.04858194749999999
+   },
+   "ref_per_episode": {
+    "wall_s_mean": 13.019576781755008,
+    "wall_s_median": 7.730344274999879,
+    "steps": 7.505,
+    "llm_calls": 7.505,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.04066761825
+   },
+   "attempts": 200
+  },
+  "mr_trigger": {
+   "dp": "memory_read",
+   "mode": "trigger",
+   "state": "exploratory",
+   "arm": "mr_trigger",
+   "reference": "llm_only",
+   "cmp": {
+    "n_expected": 200,
+    "n": 200,
+    "n_dropped": 0,
+    "dropped": {
+     "missing_arm": 0,
+     "missing_ref": 0,
+     "errored_arm": 0,
+     "errored_ref": 0
+    },
+    "success": 0.995,
+    "success_ref": 0.995,
+    "delta": 0.0,
+    "delta_ci": [
+     0.0,
+     0.0
+    ],
+    "wins": 0,
+    "losses": 0,
+    "cost": 0.041013785399999995,
+    "cost_ref": 0.04066761825,
+    "saving": -0.00851210778737932,
+    "saving_ci": [
+     -0.015573173298689397,
+     -0.001845731362283751
+    ],
+    "newcombe_pt": [
+     -2.1031061462973093,
+     2.1031061462973093
+    ],
+    "provenance": {
+     "path": "runs/e6b_modes/mr_trigger.jsonl",
+     "sha256": "74627d1d144b359c42fee4f6fe45d9c65c5052ff1b90ee89379b5adcafda55b6",
+     "n_records": 200
+    },
+    "ref_provenance": {
+     "path": "runs/e6b_modes/llm_only.jsonl",
+     "sha256": "e437218e3f3442375462ce553a884c6da8299ee2f44349dd1af36aa42bf24f2e",
+     "n_records": 200
+    }
+   },
+   "points": {
+    "n_decisions": 1300,
+    "n_gold": 1300,
+    "coverage": 1.0,
+    "acted": 0.0,
+    "acted_kind": "fired",
+    "acc": 0.24769230769230768,
+    "gold_positive_rate": 0.7523076923076923
+   },
+   "verdict": "no saving",
+   "per_episode": {
+    "wall_s_mean": 14.227448407534993,
+    "wall_s_median": 9.208323100500138,
+    "steps": 7.5,
+    "llm_calls": 7.5,
+    "s1_calls": 6.5,
+    "s1_cost": 0.0003430959,
+    "s2_cost": 0.040670689499999996
+   },
+   "ref_per_episode": {
+    "wall_s_mean": 13.019576781755008,
+    "wall_s_median": 7.730344274999879,
+    "steps": 7.505,
+    "llm_calls": 7.505,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.04066761825
+   },
+   "attempts": 200
+  },
+  "rf_cascade": {
+   "dp": "reflection",
+   "mode": "cascade",
+   "state": "exploratory",
+   "arm": "rf_cascade",
+   "reference": "llm_only",
+   "cmp": {
+    "n_expected": 200,
+    "n": 200,
+    "n_dropped": 0,
+    "dropped": {
+     "missing_arm": 0,
+     "missing_ref": 0,
+     "errored_arm": 0,
+     "errored_ref": 0
+    },
+    "success": 1.0,
+    "success_ref": 0.995,
+    "delta": 0.005,
+    "delta_ci": [
+     0.0,
+     0.015
+    ],
+    "wins": 1,
+    "losses": 0,
+    "cost": 0.05099362749,
+    "cost_ref": 0.04066761825,
+    "saving": -0.2539123185558081,
+    "saving_ci": [
+     -0.27134095896119725,
+     -0.23699647054431666
+    ],
+    "newcombe_pt": [
+     -1.4289754433115611,
+     2.777370439789306
+    ],
+    "provenance": {
+     "path": "runs/e6b_modes/rf_cascade.jsonl",
+     "sha256": "ef39c3361c513ecdd248d1c0c8a3e568cd39a505c3a64854787013843d2bf1cc",
+     "n_records": 200
+    },
+    "ref_provenance": {
+     "path": "runs/e6b_modes/llm_only.jsonl",
+     "sha256": "e437218e3f3442375462ce553a884c6da8299ee2f44349dd1af36aa42bf24f2e",
+     "n_records": 200
+    }
+   },
+   "points": {
+    "n_decisions": 1306,
+    "n_gold": 1286,
+    "coverage": 0.06355283307810107,
+    "acted": 0.06355283307810107,
+    "acted_kind": "decided",
+    "acc": 1.0,
+    "s1_acc_all": 0.776049766718507,
+    "llm_acc_deferred": 1.0,
+    "n_deferred": 1223
+   },
+   "verdict": "no saving",
+   "per_episode": {
+    "wall_s_mean": 22.167781701240006,
+    "wall_s_median": 14.898649106500102,
+    "steps": 7.53,
+    "llm_calls": 13.745,
+    "s1_calls": 6.53,
+    "s1_cost": 0.00034249823999999996,
+    "s2_cost": 0.05065112925
+   },
+   "ref_per_episode": {
+    "wall_s_mean": 13.019576781755008,
+    "wall_s_median": 7.730344274999879,
+    "steps": 7.505,
+    "llm_calls": 7.505,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.04066761825
+   },
+   "attempts": 200
+  },
+  "st_cascade": {
+   "dp": "stop",
+   "mode": "cascade",
+   "state": "exploratory",
+   "arm": "st_cascade",
+   "reference": "llm_only",
+   "cmp": {
+    "n_expected": 200,
+    "n": 200,
+    "n_dropped": 0,
+    "dropped": {
+     "missing_arm": 0,
+     "missing_ref": 0,
+     "errored_arm": 0,
+     "errored_ref": 0
+    },
+    "success": 0.995,
+    "success_ref": 0.995,
+    "delta": 0.0,
+    "delta_ci": [
+     0.0,
+     0.0
+    ],
+    "wins": 0,
+    "losses": 0,
+    "cost": 0.04096178991,
+    "cost_ref": 0.04066761825,
+    "saving": -0.007233560081920887,
+    "saving_ci": [
+     -0.01373336250854405,
+     -0.0008215382587462997
+    ],
+    "newcombe_pt": [
+     -2.1031061462973093,
+     2.1031061462973093
+    ],
+    "provenance": {
+     "path": "runs/e6b_modes/st_cascade.jsonl",
+     "sha256": "e07f6141bca6e326495f24d4f3105d2bb7a7a0f3b135962ff8cbb89b7f035113",
+     "n_records": 200
+    },
+    "ref_provenance": {
+     "path": "runs/e6b_modes/llm_only.jsonl",
+     "sha256": "e437218e3f3442375462ce553a884c6da8299ee2f44349dd1af36aa42bf24f2e",
+     "n_records": 200
+    }
+   },
+   "points": {
+    "n_decisions": 1500,
+    "n_gold": 1500,
+    "coverage": 0.942,
+    "acted": 0.942,
+    "acted_kind": "decided",
+    "acc": 1.0,
+    "s1_acc_all": 0.9893333333333333,
+    "llm_acc_deferred": 1.0,
+    "n_deferred": 87,
+    "finish_rejected": 0,
+    "early_stops": 0,
+    "n_finish_proposals": 199,
+    "overrode": 0.0
+   },
+   "verdict": "no saving",
+   "per_episode": {
+    "wall_s_mean": 13.600095227680006,
+    "wall_s_median": 9.48709595600019,
+    "steps": 7.5,
+    "llm_calls": 7.5,
+    "s1_calls": 7.5,
+    "s1_cost": 0.0003543426599999999,
+    "s2_cost": 0.040607447250000005
+   },
+   "ref_per_episode": {
+    "wall_s_mean": 13.019576781755008,
+    "wall_s_median": 7.730344274999879,
+    "steps": 7.505,
+    "llm_calls": 7.505,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.04066761825
+   },
+   "attempts": 200
+  },
+  "rt_cascade": {
+   "dp": "routing",
+   "mode": "cascade",
+   "state": "exploratory",
+   "arm": "rt_cascade",
+   "reference": "small_only",
+   "cmp": {
+    "n_expected": 200,
+    "n": 200,
+    "n_dropped": 0,
+    "dropped": {
+     "missing_arm": 0,
+     "missing_ref": 0,
+     "errored_arm": 0,
+     "errored_ref": 0
+    },
+    "success": 0.81,
+    "success_ref": 0.85,
+    "delta": -0.04,
+    "delta_ci": [
+     -0.08,
+     0.0
+    ],
+    "wins": 4,
+    "losses": 12,
+    "cost": 0.020859794380000005,
+    "cost_ref": 0.0097877826,
+    "saving": -1.1312073666205058,
+    "saving_ci": [
+     -1.215867411112576,
+     -1.0453735167921323
+    ],
+    "newcombe_pt": [
+     -8.245944976833606,
+     0.06033778494098779
+    ],
+    "provenance": {
+     "path": "runs/e6b_modes/rt_cascade.jsonl",
+     "sha256": "0a9b7e72860c5097aeb19f4eff20dad0a4317dcbbfa97caa22fcc29fc92d366a",
+     "n_records": 200
+    },
+    "ref_provenance": {
+     "path": "runs/e6b_modes/small_only.jsonl",
+     "sha256": "5ada0111eae6e97e5cc023820b85e0a846fd1b4ee7bc901705f99a4dea9bd506",
+     "n_records": 200
+    }
+   },
+   "points": {
+    "n_decisions": 1515,
+    "n_gold": 1087,
+    "coverage": 0.05478547854785479,
+    "acted": 0.05478547854785479,
+    "acted_kind": "decided",
+    "acc": 1.0,
+    "s1_acc_all": 0.906163753449862,
+    "llm_acc_deferred": 0.9621513944223108,
+    "n_deferred": 1432
+   },
+   "verdict": "costs success",
+   "per_episode": {
+    "wall_s_mean": 11.191207818060011,
+    "wall_s_median": 11.993790119999971,
+    "steps": 7.575,
+    "llm_calls": 14.735,
+    "s1_calls": 7.575,
+    "s1_cost": 0.00036270948,
+    "s2_cost": 0.020497084899999997
+   },
+   "ref_per_episode": {
+    "wall_s_mean": 4.960195811819999,
+    "wall_s_median": 5.205331711999975,
+    "steps": 7.57,
+    "llm_calls": 7.57,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.0097877826
+   },
+   "attempts": 200,
+   "vs_flash": {
+    "n_expected": 200,
+    "n": 200,
+    "n_dropped": 0,
+    "dropped": {
+     "missing_arm": 0,
+     "missing_ref": 0,
+     "errored_arm": 0,
+     "errored_ref": 0
+    },
+    "success": 0.81,
+    "success_ref": 0.995,
+    "delta": -0.185,
+    "delta_ci": [
+     -0.24,
+     -0.13
+    ],
+    "wins": 1,
+    "losses": 38,
+    "cost": 0.020859794379999998,
+    "cost_ref": 0.04066761825,
+    "saving": 0.48706623899716583,
+    "saving_ci": [
+     0.46978240990115,
+     0.5043305241928009
+    ],
+    "newcombe_pt": [
+     -24.529427359196635,
+     -13.087201476361713
+    ],
+    "provenance": {
+     "path": "runs/e6b_modes/rt_cascade.jsonl",
+     "sha256": "0a9b7e72860c5097aeb19f4eff20dad0a4317dcbbfa97caa22fcc29fc92d366a",
+     "n_records": 200
+    },
+    "ref_provenance": {
+     "path": "runs/e6b_modes/llm_only.jsonl",
+     "sha256": "e437218e3f3442375462ce553a884c6da8299ee2f44349dd1af36aa42bf24f2e",
+     "n_records": 200
+    }
+   }
+  }
+ },
+ "references": {
+  "llm_only": {
+   "n_ok": 200,
+   "n_records": 200,
+   "success": 0.995,
+   "cost": 0.04066761825,
+   "wall_s_mean": 13.019576781755008,
+   "wall_s_median": 7.730344274999879,
+   "steps": 7.505,
+   "llm_calls": 7.505,
+   "s1_calls": 0.0,
+   "s1_cost": 0.0,
+   "s2_cost": 0.04066761825
+  },
+  "small_only": {
+   "n_ok": 200,
+   "n_records": 200,
+   "success": 0.85,
+   "cost": 0.0097877826,
+   "wall_s_mean": 4.960195811819999,
+   "wall_s_median": 5.205331711999975,
+   "steps": 7.57,
+   "llm_calls": 7.57,
+   "s1_calls": 0.0,
+   "s1_cost": 0.0,
+   "s2_cost": 0.0097877826
+  }
+ }
+}

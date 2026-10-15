@@ -1,0 +1,68 @@
+# E2c DEV (small-scale shakedown of configs/experiments/baselines_jevgym.yaml) -- NOT a paper run.
+# Keeps only the references and the arms of the pre-registered comparisons (docs/PREREGISTRATION.md §2):
+#   C3  Jev tool_select assist k=3  vs  BM25 / TF-IDF / embedding assist k=3 (same k)      -- System-2 Flash
+#   C5  Jev reflection trigger      vs  matched-rate random gate (+ rate 0.1/0.3/0.5 grid, heuristic rule,
+#                                       the System-2 model deciding for itself)
+# C5 runs on BOTH System-2 models: Flash as in baselines_jevgym.yaml, and Flash-Lite (`*_s2lite`) because the
+# pre-freeze amendment A1 tests C5 with Flash-Lite (Flash is at ceiling) -- baselines_jevgym.yaml has no
+# Flash-Lite arms yet. `s2self` follows the arm's own System-2 model (Flash / Flash-Lite).
+# The default System-1 (`jev_*` arms) is replaced on the command line by the Gemini stand-in:
+#   jevbench run configs/dev/e2c_dev.yaml --out runs/dev --max-tasks 10 -o workers=4 \
+#     's1={type: llm_generative, llm: {provider: gemini, model: gemini-3.5-flash-lite}, reasoning_effort: minimal}' \
+#     name=e2c_dev
+# Matched-rate protocol (docs/BASELINES.md), after the jev_reflect_trigger* arms ran:
+#   python -c "from jevharness.decision.controls import trigger_rates as t; \
+#     print(t('runs/dev/e2c_dev/jev_reflect_trigger.jsonl'), t('runs/dev/e2c_dev/jev_reflect_trigger_s2lite.jsonl'))"
+# then the `ratem*` backends below carry those rates (n=10 dev values; recompute for every new run) and the
+# `ratem_*` arms at the end run on resume (`jevbench run` skips every finished arm).
+# Under the stand-in, `s2self_lite` is the same model as the default System-1 (Flash-Lite), so
+# s2self_reflect_trigger_s2lite vs jev_reflect_trigger_s2lite only differs by backend name / cache key.
+name: e2c_dev
+suite: {name: jevgym, n: 200, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+llms:
+  lite2: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}
+s1_cache: cache/s1.sqlite
+s1_backends:
+  embed: {type: embedding, provider: gemini, model: gemini-embedding-001}
+  s2self: {type: s2_self, llm: {provider: gemini, model: gemini-3.5-flash}, reasoning_effort: minimal}
+  s2self_lite: {type: s2_self, llm: {provider: gemini, model: gemini-3.5-flash-lite}, reasoning_effort: minimal}
+  bm25: {type: bm25}
+  tfidf: {type: tfidf}
+  heuristic: {type: heuristic}
+  rate10: {type: rate, rate: 0.1, seed: 0}
+  rate30: {type: rate, rate: 0.3, seed: 0}
+  rate50: {type: rate, rate: 0.5, seed: 0}
+  # matched-rate controls: trigger_rates() of the stand-in jev_reflect_trigger arms of THIS run (n=10 tasks,
+  # 2026-10-01): Flash 5/65 = 0.077, Flash-Lite 5/66 = 0.076
+  ratem: {type: rate, rate: 0.077, seed: 0}
+  ratem_lite: {type: rate, rate: 0.076, seed: 0}
+workers: 4
+arms:
+  # ---------------- references
+  - {name: llm_only}
+  - {name: llm_only_s2lite, llm: lite2}
+  # ---------------- C5 System-1 arms first (their trigger rates parameterise the matched-rate controls)
+  - {name: jev_reflect_trigger, reflection: {mode: trigger, tau: 0.5}}
+  - {name: jev_reflect_trigger_s2lite, llm: lite2, reflection: {mode: trigger, tau: 0.5}}
+  # ---------------- C3: tool selection, assist k=3 (System-2 Flash)
+  - {name: jev_ts_assist_k3, tool_select: {mode: assist, k: 3}}
+  - {name: bm25_ts_assist_k3, s1: bm25, tool_select: {mode: assist, k: 3}}
+  - {name: tfidf_ts_assist_k3, s1: tfidf, tool_select: {mode: assist, k: 3}}
+  - {name: embed_ts_assist_k3, s1: embed, tool_select: {mode: assist, k: 3}}
+  # ---------------- C5 controls, Flash-Lite System-2 (A1)
+  - {name: rate10_reflect_trigger_s2lite, llm: lite2, s1: rate10, reflection: {mode: trigger, tau: 0.5}}
+  - {name: rate30_reflect_trigger_s2lite, llm: lite2, s1: rate30, reflection: {mode: trigger, tau: 0.5}}
+  - {name: rate50_reflect_trigger_s2lite, llm: lite2, s1: rate50, reflection: {mode: trigger, tau: 0.5}}
+  - {name: heuristic_reflect_trigger_s2lite, llm: lite2, s1: heuristic, reflection: {mode: trigger, tau: 0.5}}
+  - {name: s2self_reflect_trigger_s2lite, llm: lite2, s1: s2self_lite, reflection: {mode: trigger, tau: 0.5}}
+  # ---------------- C5 controls, Flash System-2 (as in baselines_jevgym.yaml)
+  - {name: rate10_reflect_trigger, s1: rate10, reflection: {mode: trigger, tau: 0.5}}
+  - {name: rate30_reflect_trigger, s1: rate30, reflection: {mode: trigger, tau: 0.5}}
+  - {name: rate50_reflect_trigger, s1: rate50, reflection: {mode: trigger, tau: 0.5}}
+  - {name: heuristic_reflect_trigger, s1: heuristic, reflection: {mode: trigger, tau: 0.5}}
+  - {name: s2self_reflect_trigger, s1: s2self, reflection: {mode: trigger, tau: 0.5}}
+  # ---------------- C5 matched-rate controls (added after the jev_reflect_trigger* arms ran; see ratem*)
+  - {name: ratem_reflect_trigger_s2lite, llm: lite2, s1: ratem_lite, reflection: {mode: trigger, tau: 0.5}}
+  - {name: ratem_reflect_trigger, s1: ratem, reflection: {mode: trigger, tau: 0.5}}

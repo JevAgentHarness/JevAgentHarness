@@ -1,0 +1,28 @@
+{
+ "smoke_per_episode": {
+  "llm_only": 0.00700425,
+  "jev_action_replace": 0.0017956260000000003,
+  "jev_action_cascade_tauhat": 0.005926010999999999,
+  "jev_action_assist_k3": 0.047308374
+ },
+ "smoke_wall_s": {
+  "llm_only": 12.486019658500027,
+  "jev_action_replace": 16.54419893299999,
+  "jev_action_cascade_tauhat": 13.256690543500014,
+  "jev_action_assist_k3": 122.00844784249998
+ },
+ "smoke_n": {
+  "llm_only": 2,
+  "jev_action_replace": 2,
+  "jev_action_cascade_tauhat": 2,
+  "jev_action_assist_k3": 2
+ },
+ "spent_so_far": 1.764432878,
+ "safety": 1.5,
+ "cap": 80.0,
+ "projected_140": 13.027194810000001,
+ "fits_140": true,
+ "projected_100": 9.305139149999999,
+ "fits_100": true,
+ "decision": "run all 140"
+}

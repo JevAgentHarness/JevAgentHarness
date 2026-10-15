@@ -1,0 +1,22 @@
+{
+ "stress_opd_i12::ours_stress_ts_params_replace": {
+  "run": "stress_opd_i12",
+  "n": 200,
+  "success": 0.665,
+  "reward_ccps": 0.473,
+  "irreversible_rate": 0.135,
+  "cost_usd": 0.02177267025,
+  "llm_calls": 5.21,
+  "s1_calls": 20.36,
+  "errors": 0,
+  "s1_latency_ms_per_call": 2380.128297477654,
+  "s1_latency_ms_p50": 2375.1017989998218,
+  "s1_latency_ms_p95": 4030.1849280509487,
+  "tool_params/replace/s1_acc": 0.9276729559748428,
+  "tool_params/replace/n": 1908,
+  "tool_params/replace/ece": 0.020390163146474766,
+  "tool_select/replace/s1_acc": 0.9468599033816425,
+  "tool_select/replace/n": 1656,
+  "tool_select/replace/ece": 0.03662224708416698
+ }
+}

@@ -1,0 +1,17 @@
+{
+ "registered": "PREREG_A7_STAGE2 A7.10 (c)",
+ "backend": {
+  "backend": "startlux-27b",
+  "provider": "typesafe",
+  "model": "StartLux-Decision-27B-Q8_0",
+  "base_url": "http://127.0.0.1:8091",
+  "extra_body": {},
+  "cached": true
+ },
+ "cache": "cache/s1_stage2_startlux_replay.sqlite",
+ "order": "sorted question hash",
+ "batching": "one question per request (the harness tournament for Choices wider than the backend's max_options)",
+ "retries": 2,
+ "n_questions": 3939,
+ "resumed_with": 3939
+}

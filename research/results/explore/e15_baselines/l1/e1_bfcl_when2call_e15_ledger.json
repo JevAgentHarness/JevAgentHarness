@@ -1,0 +1,40 @@
+{
+ "fresh_cost_usd": 0.10945340000000009,
+ "backends": {
+  "oaidec": {
+   "total": {
+    "calls": 2633,
+    "input_tokens": 1094534,
+    "output_tokens": 0,
+    "cost_usd": 0.10945340000000009,
+    "latency_ms": 527903.4397820978
+   },
+   "s1": {
+    "calls": 2633,
+    "input_tokens": 1094534,
+    "output_tokens": 0,
+    "cost_usd": 0.10945340000000009,
+    "latency_ms": 527903.4397820978
+   },
+   "by_decision_point": {
+    "tool_params": {
+     "calls": 650,
+     "input_tokens": 330515,
+     "output_tokens": 0,
+     "cost_usd": 0.033051500000000004,
+     "latency_ms": 136625.72218709465
+    },
+    "tool_select": {
+     "calls": 1983,
+     "input_tokens": 764019,
+     "output_tokens": 0,
+     "cost_usd": 0.07640189999999983,
+     "latency_ms": 391277.71759500366
+    }
+   },
+   "unpriced_models": [],
+   "fresh_cost_usd": 0.10945340000000009,
+   "cached_calls": 0
+  }
+ }
+}

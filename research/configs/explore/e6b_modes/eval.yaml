@@ -1,0 +1,36 @@
+# Exploratory row E6b (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-06 "Exploratory row E6b"; outside both registered
+# stages, descriptive, no test): the nine module-map cells added by E6b (harness/config.py E6B_CELLS; semantics and the
+# classification of all 40 cells in results/explore/e6b_modes/cells.md), each in its own arm next to the LLM-only
+# reference, on fresh JevGym seeds 300800..300999 of the held-back spare block of A7.2 (a) (300500..300699: the final
+# harness and its dedicated row; 300700..300799: E5; nothing has run on 300800+). The runner refuses these seeds
+# without JEV_EVAL_RUNS=1. Frozen suite settings of Stage 1 / Stage 2. Thresholds fixed a priori (Deviations entry):
+# the registered tau of the same decision point's trigger / guard where one exists, else 0.9 (every cascade: a
+# confidence threshold), k = 3 as tool ASSIST; nothing tuned on these seeds.
+# Run on the CPU box (scripts/aws/e6b_modes.sh): one invocation, all arms task-major interleaved (seed 732), 8 workers;
+# passes 2-3 re-run infrastructure errors only. A $150 watchdog (scripts/explore_e6b_modes.py watch) covers smoke + eval.
+name: e6b_modes
+suite: {name: jevgym, n: 200, seed0: 300800, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 200
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+small_llm: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}   # routing only
+llms:
+  lite: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}      # the pinned Jev endpoint of Stage 1; no System-1 cache (fresh answers)
+workers: 24     # 8 as registered for the first ~190 episodes; 24 from about 06:15 UTC (Deviations addendum 2026-10-06)
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}                                                        # reference of every cell but routing
+  - {name: small_only, llm: lite}                                           # routing reference (Flash-Lite alone, as C4)
+  # tool arguments: ASSIST behind the registered C1 tool cascade (Flash tau-hat 1.00); GUARD on the LLM's own calls
+  - {name: tp_assist, tool_select: {mode: cascade, tau: 1.0}, tool_params: {mode: assist, k: 3}}
+  - {name: tp_guard, tool_params: {mode: guard, tau: 0.9}}
+  # memory write (reads: always, as the Stage-1 write rows jev_memw / mem_llm_gate)
+  - {name: mw_cascade, memory_write: {mode: cascade, tau: 0.9}, memory_read: {mode: always}}
+  - {name: mw_guard, memory_write: {mode: guard, tau: 0.5}, memory_read: {mode: always}}
+  # memory read (writes: always)
+  - {name: mr_cascade, memory_write: {mode: always}, memory_read: {mode: cascade, tau: 0.9, k: 3}}
+  - {name: mr_trigger, memory_write: {mode: always}, memory_read: {mode: trigger, tau: 0.9}}
+  # yes / no meta decisions
+  - {name: rf_cascade, reflection: {mode: cascade, tau: 0.9}}
+  - {name: st_cascade, stop: {mode: cascade, tau: 0.9}}
+  - {name: rt_cascade, routing: {mode: cascade, tau: 0.9}}

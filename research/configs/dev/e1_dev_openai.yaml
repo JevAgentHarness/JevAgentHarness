@@ -1,0 +1,31 @@
+# E1 DEV with OpenAI deciders (Responses API) -- the OpenAI counterpart of configs/dev/e1_dev.yaml; NOT a paper run.
+# Needs only OPENAI_API_KEY in .env. Same suites and item pool as E1; the backends are the OpenAI arms:
+#   openai_luna_dist     verbalised distributions on gpt-6-luna (any model works here)
+#   openai_luna_logprob  option-token logprobs on gpt-6-luna -- needs `reasoning_effort: none` IN THE llm BLOCK
+#                        (the API rejects top_logprobs unless the effort is none; the client raises
+#                        LogprobsUnavailableError otherwise). gpt-6.1-sol cannot run this arm (no `none` effort).
+#   openai_sol_typed     the s2_self control: the System-2 model (gpt-6.1-sol) answering the same typed questions;
+#                        `low` is its cheapest effort. (`jevbench decide` has no -o flag: add arms here, not on the
+#                        command line.)
+# Model ids: verify against https://api.openai.com/v1/models. Runs go under runs/dev (never paper keys):
+#   jevbench decide configs/dev/e1_dev_openai.yaml --out runs/dev --max-items 300
+name: e1_dev_openai
+suites:
+  - {name: bfcl, categories: [simple_python, multiple, live_simple, live_multiple, irrelevance, live_irrelevance], max_per_cat: 200}
+  - {name: when2call, max_items: 1000}
+batch_by_state: true
+s1_cache: cache/s1.sqlite
+fc_cache: cache/fc.sqlite
+workers: 8
+backends:
+  openai_luna_dist: {type: llm_generative, llm: {provider: openai_responses, model: gpt-6-luna}, reasoning_effort: none, mode: distribution}
+  openai_luna_label: {type: llm_generative, llm: {provider: openai_responses, model: gpt-6-luna}, reasoning_effort: none, mode: label}
+  openai_luna_logprob: {type: llm_logprob, llm: {provider: openai_responses, model: gpt-6-luna, reasoning_effort: none}, top_logprobs: 20}
+  # --- controls: System-2 answering the same typed question, lexical rankers ---
+  openai_sol_typed: {type: s2_self, llm: {provider: openai_responses, model: gpt-6.1-sol}, reasoning_effort: low}
+  bm25: {type: bm25}
+  tfidf: {type: tfidf}
+fc_llms:
+  openai_sol_fc: {provider: openai_responses, model: gpt-6.1-sol, reasoning_effort: low}
+# When2Call judge (classifies the FC arm's text replies); its cost is reported as judge_cost_per_1k_usd
+fc_judge: {provider: openai_responses, model: gpt-6-luna, reasoning_effort: none}

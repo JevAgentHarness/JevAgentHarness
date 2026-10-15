@@ -1,0 +1,27 @@
+# Training data v0 -- JevGym TRAINING-seed episodes for decision harvesting (scripts/train/make_data_v0.sh).
+#
+# One arm only: `shadow` on tool_select / tool_params / stop. Behaviour is exactly LLM-only (Gemini 3.5 Flash
+# decides everything); System-1 (the Gemini Flash-Lite stand-in, because Jev is unreachable from the sandbox that
+# generated v0) is asked the same typed questions in shadow, so every decision is logged with its state, options,
+# oracle gold, the LLM's own choice (s2_value) and the stand-in's distribution (s1_dist). A separate `llm_only` arm
+# would log a strict subset of these decisions on the same episodes, so it is not run.
+#
+# Seeds: the E2 evaluation suite uses seeds 0..199 (dev/GRPO-eval 5000+). v0 uses 10000+ (calibrated v2 suite) and
+# 12000+ (v1 families); harvest.py --min-jevgym-seed 1000 enforces the hold-out.
+#
+# The v1-families suite is selected with ONE -o carrying several pairs (jevbench: repeated -o flags accumulate,
+# one -o with several pairs is the documented form):
+#   jevbench run configs/train/data_v0_jevgym.yaml --out runs/dev -o name=train_v0_jevgym_v1 suite.families=v1 \
+#     suite.seed0=12000 suite.distractor_style=mixed suite.n_distractors=30 suite.noise_lines=0
+name: train_v0_jevgym_v2
+# calibrated v2 suite (E2a/E2b/E2c setting, docs/PILOT_RESULTS.md P4) on training seeds
+suite: {name: jevgym, n: 30, seed0: 10000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20,
+        strict: true}
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1: {type: llm_generative, llm: {provider: gemini, model: gemini-3.5-flash-lite}, reasoning_effort: minimal}
+s1_cache: cache/s1_train_v0.sqlite
+s1_backends: {}
+workers: 6
+arms:
+  - {name: shadow, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}
+sweeps: []

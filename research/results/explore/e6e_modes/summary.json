@@ -1,0 +1,570 @@
+{
+ "meta": {
+  "generated": "2026-10-06T18:44:11+00:00",
+  "git": "aad6883d168bd1d21a1e78c3183e35d0e73c6d7f",
+  "script": "scripts/explore_e6e_modes.py",
+  "run": "runs/e6e_modes",
+  "label": "exploratory (E6e)",
+  "n_boot": 10000,
+  "seed": 0,
+  "spend": {
+   "by_run": {
+    "e6e_modes_smoke": {
+     "gemini": 0.2204485,
+     "jev": 0.00442155,
+     "total": 0.22487005000000002,
+     "records": 14
+    },
+    "e6e_modes": {
+     "gemini": 21.976727459999974,
+     "jev": 0.4455756899999999,
+     "total": 22.422303149999998,
+     "records": 1400
+    }
+   },
+   "gemini": 22.197175959999974,
+   "jev": 0.4499972399999999,
+   "total": 22.647173199999997,
+   "records": 1414
+  },
+  "cap": 60.0,
+  "projection": {
+   "smoke_per_episode": {
+    "llm_only": 0.016708725,
+    "small_only": 0.009870674999999999,
+    "mw_replace": 0.024559557000000003,
+    "mr_replace": 0.017190219,
+    "rf_replace": 0.018167478,
+    "st_replace": 0.01570794,
+    "rt_replace": 0.010230430999999998
+   },
+   "smoke_wall_s": {
+    "llm_only": 8.082779443,
+    "small_only": 7.130927891999999,
+    "mw_replace": 9.211475680499998,
+    "mr_replace": 9.246977901000003,
+    "rf_replace": 12.437465714500004,
+    "st_replace": 9.384871537999999,
+    "rt_replace": 7.864279927999998
+   },
+   "smoke_n": {
+    "llm_only": 2,
+    "small_only": 2,
+    "mw_replace": 2,
+    "mr_replace": 2,
+    "rf_replace": 2,
+    "st_replace": 2,
+    "rt_replace": 2
+   },
+   "smoke_errors": {
+    "llm_only": 0,
+    "small_only": 0,
+    "mw_replace": 0,
+    "mr_replace": 0,
+    "rf_replace": 0,
+    "st_replace": 0,
+    "rt_replace": 0
+   },
+   "missing_arms": [],
+   "spent_so_far": 0.22487005000000002,
+   "safety": 1.5,
+   "cap": 60.0,
+   "per_task_all_arms": 0.112435025,
+   "projected_200": 33.7305075,
+   "fits_200": true,
+   "projected_100": 16.86525375,
+   "fits_100": true,
+   "decision": "run all 200"
+  },
+  "stopped_by_watchdog": false,
+  "rule": "costs success if delta <= -3 pt; no saving if saving <= 0; takes over safely if delta >= -1 pt, saving > 0 and acted >= 5 %; else mixed (scripts/module_map.py, fixed 2026-10-05)"
+ },
+ "cells": {
+  "mw_replace": {
+   "dp": "memory_write",
+   "mode": "replace",
+   "state": "exploratory",
+   "arm": "mw_replace",
+   "reference": "llm_only",
+   "cmp": {
+    "n_expected": 200,
+    "n": 200,
+    "n_dropped": 0,
+    "dropped": {
+     "missing_arm": 0,
+     "missing_ref": 0,
+     "errored_arm": 0,
+     "errored_ref": 0
+    },
+    "success": 1.0,
+    "success_ref": 0.995,
+    "delta": 0.005,
+    "delta_ci": [
+     0.0,
+     0.015
+    ],
+    "wins": 1,
+    "losses": 0,
+    "cost": 0.023657430990000002,
+    "cost_ref": 0.0160488375,
+    "saving": -0.474090007453811,
+    "saving_ci": [
+     -0.5313384430114495,
+     -0.42448946973942253
+    ],
+    "newcombe_pt": [
+     -1.4289754433115611,
+     2.777370439789306
+    ],
+    "provenance": {
+     "path": "runs/e6e_modes/mw_replace.jsonl",
+     "sha256": "8f5dc46a79c1606eb106eab82b4b77fd861644708973ff5c2c579b053e3630c0",
+     "n_records": 200
+    },
+    "ref_provenance": {
+     "path": "runs/e6e_modes/llm_only.jsonl",
+     "sha256": "919d657c5c561cf7616bf335470f781764877b8382f99d9c89ae6f5af3a0d1d9",
+     "n_records": 200
+    }
+   },
+   "equals": "trigger at tau = 0.5: System-1 alone deciding store / skip is the write trigger at 0.5",
+   "points": {
+    "n_decisions": 1326,
+    "n_gold": 1325,
+    "coverage": 1.0,
+    "acted": 1.0,
+    "acted_kind": "decided",
+    "acc": 0.6943396226415094,
+    "model_yes_rate": 0.9849170437405732,
+    "gold_positive_rate": 0.6792452830188679
+   },
+   "verdict": "no saving",
+   "per_episode": {
+    "wall_s_mean": 9.124628614814998,
+    "wall_s_median": 10.369562617499994,
+    "steps": 7.625,
+    "llm_calls": 7.625,
+    "s1_calls": 6.63,
+    "s1_cost": 0.00055996374,
+    "s2_cost": 0.02309746725,
+    "empty_reply_episodes": 0
+   },
+   "ref_per_episode": {
+    "wall_s_mean": 8.051057712305001,
+    "wall_s_median": 8.970907158000017,
+    "steps": 7.485,
+    "llm_calls": 7.485,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.0160488375,
+    "empty_reply_episodes": 1
+   },
+   "attempts": 200,
+   "run": "runs/e6e_modes"
+  },
+  "mr_replace": {
+   "dp": "memory_read",
+   "mode": "replace",
+   "state": "exploratory",
+   "arm": "mr_replace",
+   "reference": "llm_only",
+   "cmp": {
+    "n_expected": 200,
+    "n": 200,
+    "n_dropped": 0,
+    "dropped": {
+     "missing_arm": 0,
+     "missing_ref": 0,
+     "errored_arm": 0,
+     "errored_ref": 0
+    },
+    "success": 1.0,
+    "success_ref": 0.995,
+    "delta": 0.005,
+    "delta_ci": [
+     0.0,
+     0.015
+    ],
+    "wins": 1,
+    "losses": 0,
+    "cost": 0.01783580691,
+    "cost_ref": 0.0160488375,
+    "saving": -0.11134572270421472,
+    "saving_ci": [
+     -0.13905681969214573,
+     -0.0838445443307746
+    ],
+    "newcombe_pt": [
+     -1.4289754433115611,
+     2.777370439789306
+    ],
+    "provenance": {
+     "path": "runs/e6e_modes/mr_replace.jsonl",
+     "sha256": "754913e244bf46ae5cbb4898b396479dd6cf1fccb8ffc3cdc3dc0389eac60ec8",
+     "n_records": 200
+    },
+    "ref_provenance": {
+     "path": "runs/e6e_modes/llm_only.jsonl",
+     "sha256": "919d657c5c561cf7616bf335470f781764877b8382f99d9c89ae6f5af3a0d1d9",
+     "n_records": 200
+    }
+   },
+   "equals": "assist with k = 1: the read assist already injects System-1's selection without an LLM choice",
+   "points": {
+    "n_decisions": 1100,
+    "n_gold": 1100,
+    "coverage": 1.0,
+    "acted": 1.0,
+    "acted_kind": "decided",
+    "acc": 0.5718181818181818,
+    "mean_injected": 0.9963636363636363,
+    "final_covers": 0.6863636363636364
+   },
+   "verdict": "no saving",
+   "per_episode": {
+    "wall_s_mean": 8.77270488588,
+    "wall_s_median": 10.696581842000002,
+    "steps": 7.5,
+    "llm_calls": 7.5,
+    "s1_calls": 5.5,
+    "s1_cost": 0.0005741654100000001,
+    "s2_cost": 0.0172616415,
+    "empty_reply_episodes": 0
+   },
+   "ref_per_episode": {
+    "wall_s_mean": 8.051057712305001,
+    "wall_s_median": 8.970907158000017,
+    "steps": 7.485,
+    "llm_calls": 7.485,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.0160488375,
+    "empty_reply_episodes": 1
+   },
+   "attempts": 200,
+   "run": "runs/e6e_modes"
+  },
+  "rf_replace": {
+   "dp": "reflection",
+   "mode": "replace",
+   "state": "exploratory",
+   "arm": "rf_replace",
+   "reference": "llm_only",
+   "cmp": {
+    "n_expected": 200,
+    "n": 200,
+    "n_dropped": 0,
+    "dropped": {
+     "missing_arm": 0,
+     "missing_ref": 0,
+     "errored_arm": 0,
+     "errored_ref": 0
+    },
+    "success": 0.99,
+    "success_ref": 0.995,
+    "delta": -0.005,
+    "delta_ci": [
+     -0.015,
+     0.0
+    ],
+    "wins": 0,
+    "losses": 1,
+    "cost": 0.01719833556,
+    "cost_ref": 0.0160488375,
+    "saving": -0.07162500461482035,
+    "saving_ci": [
+     -0.09774829926800621,
+     -0.045552971009298934
+    ],
+    "newcombe_pt": [
+     -2.958908431367666,
+     1.6352272315375234
+    ],
+    "provenance": {
+     "path": "runs/e6e_modes/rf_replace.jsonl",
+     "sha256": "4b35e8b97d844a6814ffe81357e2ca31a153c10c9f698b23be9fa0a2cb4010ca",
+     "n_records": 200
+    },
+    "ref_provenance": {
+     "path": "runs/e6e_modes/llm_only.jsonl",
+     "sha256": "919d657c5c561cf7616bf335470f781764877b8382f99d9c89ae6f5af3a0d1d9",
+     "n_records": 200
+    }
+   },
+   "equals": "trigger at tau = 0.5: System-1 alone deciding reflect / skip is the trigger at 0.5",
+   "points": {
+    "n_decisions": 1297,
+    "n_gold": 1115,
+    "coverage": 1.0,
+    "acted": 1.0,
+    "acted_kind": "decided",
+    "acc": 0.9991031390134529,
+    "model_yes_rate": 0.14032382420971473,
+    "gold_positive_rate": 0.0008968609865470852
+   },
+   "verdict": "no saving",
+   "per_episode": {
+    "wall_s_mean": 10.429638238710004,
+    "wall_s_median": 11.722909316999989,
+    "steps": 7.485,
+    "llm_calls": 8.395,
+    "s1_calls": 6.485,
+    "s1_cost": 0.00036685655999999997,
+    "s2_cost": 0.016831478999999996,
+    "empty_reply_episodes": 2
+   },
+   "ref_per_episode": {
+    "wall_s_mean": 8.051057712305001,
+    "wall_s_median": 8.970907158000017,
+    "steps": 7.485,
+    "llm_calls": 7.485,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.0160488375,
+    "empty_reply_episodes": 1
+   },
+   "attempts": 200,
+   "run": "runs/e6e_modes"
+  },
+  "st_replace": {
+   "dp": "stop",
+   "mode": "replace",
+   "state": "exploratory",
+   "arm": "st_replace",
+   "reference": "llm_only",
+   "cmp": {
+    "n_expected": 200,
+    "n": 200,
+    "n_dropped": 0,
+    "dropped": {
+     "missing_arm": 0,
+     "missing_ref": 0,
+     "errored_arm": 0,
+     "errored_ref": 0
+    },
+    "success": 1.0,
+    "success_ref": 0.995,
+    "delta": 0.005,
+    "delta_ci": [
+     0.0,
+     0.015
+    ],
+    "wins": 1,
+    "losses": 0,
+    "cost": 0.01713993144,
+    "cost_ref": 0.0160488375,
+    "saving": -0.06798585505024901,
+    "saving_ci": [
+     -0.10816094699590961,
+     -0.033677324010724013
+    ],
+    "newcombe_pt": [
+     -1.4289754433115611,
+     2.777370439789306
+    ],
+    "provenance": {
+     "path": "runs/e6e_modes/st_replace.jsonl",
+     "sha256": "ccc70d535a58d7c3c0b808315eea06c2236e5c1e8d839c4f7019274bb189ec0a",
+     "n_records": 200
+    },
+    "ref_provenance": {
+     "path": "runs/e6e_modes/llm_only.jsonl",
+     "sha256": "919d657c5c561cf7616bf335470f781764877b8382f99d9c89ae6f5af3a0d1d9",
+     "n_records": 200
+    }
+   },
+   "equals": "cascade at tau = 0.5: System-1 alone deciding stop / continue at every step is the guard and the trigger together at 0.5",
+   "points": {
+    "n_decisions": 1537,
+    "n_gold": 1537,
+    "coverage": 1.0,
+    "acted": 1.0,
+    "acted_kind": "decided",
+    "acc": 0.9811320754716981,
+    "model_yes_rate": 0.13012361743656473,
+    "gold_positive_rate": 0.14899154196486664,
+    "finish_rejected": 32,
+    "early_stops": 1,
+    "n_finish_proposals": 231,
+    "overrode": 0.02147039687703318
+   },
+   "verdict": "no saving",
+   "per_episode": {
+    "wall_s_mean": 9.75329592197,
+    "wall_s_median": 10.549917543499987,
+    "steps": 7.685,
+    "llm_calls": 7.69,
+    "s1_calls": 7.685,
+    "s1_cost": 0.00037592394,
+    "s2_cost": 0.0167640075,
+    "empty_reply_episodes": 2
+   },
+   "ref_per_episode": {
+    "wall_s_mean": 8.051057712305001,
+    "wall_s_median": 8.970907158000017,
+    "steps": 7.485,
+    "llm_calls": 7.485,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.0160488375,
+    "empty_reply_episodes": 1
+   },
+   "attempts": 200,
+   "run": "runs/e6e_modes"
+  },
+  "rt_replace": {
+   "dp": "routing",
+   "mode": "replace",
+   "state": "exploratory",
+   "arm": "rt_replace",
+   "reference": "small_only",
+   "cmp": {
+    "n_expected": 200,
+    "n": 200,
+    "n_dropped": 0,
+    "dropped": {
+     "missing_arm": 0,
+     "missing_ref": 0,
+     "errored_arm": 0,
+     "errored_ref": 0
+    },
+    "success": 0.84,
+    "success_ref": 0.8,
+    "delta": 0.04,
+    "delta_ci": [
+     0.005,
+     0.075
+    ],
+    "wins": 11,
+    "losses": 3,
+    "cost": 0.010445406649999999,
+    "cost_ref": 0.009785766699999998,
+    "saving": -0.06740810099223005,
+    "saving_ci": [
+     -0.08168407267195933,
+     -0.05305087844389062
+    ],
+    "newcombe_pt": [
+     0.18785659450598555,
+     8.003603447066599
+    ],
+    "provenance": {
+     "path": "runs/e6e_modes/rt_replace.jsonl",
+     "sha256": "79ef7e554ae4ac8723193ea3ee2812d2d52e866acf7b285bde797034f811fd86",
+     "n_records": 200
+    },
+    "ref_provenance": {
+     "path": "runs/e6e_modes/small_only.jsonl",
+     "sha256": "14a32954ffcb4fb34b6a809eb6b4d986f9f035a6d1f449bccf3063c7733c17f6",
+     "n_records": 200
+    }
+   },
+   "equals": "trigger at tau = 0.5: System-1 alone choosing the strong or the cheap LLM is the routing trigger at 0.5",
+   "points": {
+    "n_decisions": 1513,
+    "n_gold": 1444,
+    "coverage": 1.0,
+    "acted": 1.0,
+    "acted_kind": "decided",
+    "acc": 0.9778393351800554,
+    "model_yes_rate": 0.04560475875743556,
+    "gold_positive_rate": 0.0221606648199446
+   },
+   "verdict": "no saving",
+   "per_episode": {
+    "wall_s_mean": 6.80802610325,
+    "wall_s_median": 6.809935095999975,
+    "steps": 7.565,
+    "llm_calls": 7.565,
+    "s1_calls": 7.565,
+    "s1_cost": 0.00035096879999999995,
+    "s2_cost": 0.01009443785,
+    "empty_reply_episodes": 0
+   },
+   "ref_per_episode": {
+    "wall_s_mean": 5.3274819366049995,
+    "wall_s_median": 5.25645925500001,
+    "steps": 7.57,
+    "llm_calls": 7.57,
+    "s1_calls": 0.0,
+    "s1_cost": 0.0,
+    "s2_cost": 0.009785766699999998,
+    "empty_reply_episodes": 0
+   },
+   "attempts": 200,
+   "run": "runs/e6e_modes",
+   "vs_flash": {
+    "n_expected": 200,
+    "n": 200,
+    "n_dropped": 0,
+    "dropped": {
+     "missing_arm": 0,
+     "missing_ref": 0,
+     "errored_arm": 0,
+     "errored_ref": 0
+    },
+    "success": 0.84,
+    "success_ref": 0.995,
+    "delta": -0.155,
+    "delta_ci": [
+     -0.21,
+     -0.105
+    ],
+    "wins": 1,
+    "losses": 32,
+    "cost": 0.010445406649999999,
+    "cost_ref": 0.0160488375,
+    "saving": 0.34914870625364613,
+    "saving_ci": [
+     0.3333681529515933,
+     0.364339605459899
+    ],
+    "newcombe_pt": [
+     -21.241571004230266,
+     -10.454321579286887
+    ],
+    "provenance": {
+     "path": "runs/e6e_modes/rt_replace.jsonl",
+     "sha256": "79ef7e554ae4ac8723193ea3ee2812d2d52e866acf7b285bde797034f811fd86",
+     "n_records": 200
+    },
+    "ref_provenance": {
+     "path": "runs/e6e_modes/llm_only.jsonl",
+     "sha256": "919d657c5c561cf7616bf335470f781764877b8382f99d9c89ae6f5af3a0d1d9",
+     "n_records": 200
+    }
+   }
+  }
+ },
+ "references": {
+  "llm_only": {
+   "n_ok": 200,
+   "n_records": 200,
+   "success": 0.995,
+   "cost": 0.0160488375,
+   "wall_s_mean": 8.051057712305001,
+   "wall_s_median": 8.970907158000017,
+   "steps": 7.485,
+   "llm_calls": 7.485,
+   "s1_calls": 0.0,
+   "s1_cost": 0.0,
+   "s2_cost": 0.0160488375,
+   "empty_reply_episodes": 1
+  },
+  "small_only": {
+   "n_ok": 200,
+   "n_records": 200,
+   "success": 0.8,
+   "cost": 0.009785766699999998,
+   "wall_s_mean": 5.3274819366049995,
+   "wall_s_median": 5.25645925500001,
+   "steps": 7.57,
+   "llm_calls": 7.57,
+   "s1_calls": 0.0,
+   "s1_cost": 0.0,
+   "s2_cost": 0.009785766699999998,
+   "empty_reply_episodes": 0
+  }
+ },
+ "invalid": {}
+}

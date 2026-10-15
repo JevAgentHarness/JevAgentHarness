@@ -1,0 +1,569 @@
+{
+ "registered": "docs/PREREG_A7_STAGE2.md A7.12 (i) (Deviations 2026-10-05)",
+ "label": "descriptive (A7.12 (i)): no test, outside every Holm table",
+ "procedure": {
+  "files": {
+   "gate": {
+    "path": "results/stage2/sol_cost_gate.json",
+    "sha256": "74828dacc419853902cba5a48d7c90119016b18f32c878b728de31fef5352ddb"
+   },
+   "manifest": {
+    "path": "results/stage2/sol_capability_manifest.json",
+    "sha256": "a052b2c87cdf7949fcfa31e3645834814e1b0760e48ddef96d926025d92dd9d9"
+   }
+  },
+  "gate": {
+   "eligible": true,
+   "n": 500,
+   "decision": "n = 500",
+   "envelope_usd": 80.0,
+   "predicted_usd": {
+    "500": 23.326329234000003,
+    "300": 15.775305018000001
+   },
+   "members": {
+    "llm_only_sol": {
+     "malformed_rate": 0.0,
+     "infra_errors_left": 0,
+     "served_models": {
+      "gpt-6.1-sol": 375
+     },
+     "cost_per_episode": 0.013826136,
+     "eligible": true
+    },
+    "llm_only_solsmall": {
+     "malformed_rate": 0.0,
+     "infra_errors_left": 0,
+     "served_models": {
+      "gpt-6-luna": 375
+     },
+     "cost_per_episode": 0.0008103289000000001,
+     "eligible": true
+    }
+   }
+  },
+  "manifest": {
+   "written": "2026-10-05T07:04:26+00:00",
+   "eligible_capabilities": true,
+   "served_models_seen": [
+    "gpt-6-luna",
+    "gpt-6.1-sol"
+   ],
+   "request_settings": {
+    "gpt-6.1-sol": {
+     "reasoning_effort": "low (the lowest it accepts: none and minimal are rejected with a 400; stands for A7.12 (a)'s 'reasoning off or minimal')",
+     "temperature": "not sent (the API rejects sampling parameters at an effort other than none)",
+     "store": false,
+     "server_state": false
+    },
+    "gpt-6-luna": {
+     "reasoning_effort": "none",
+     "temperature": 0,
+     "store": false,
+     "server_state": false
+    },
+    "source": "configs/dev/sol_eligibility.yaml, configs/experiments/jevgym_shadow_cal_sol.yaml, configs/experiments/stage2_sol.yaml"
+   }
+  },
+  "fits": {
+   "tool_select": {
+    "path": "results/calibration/tauhat_jev_shadow_cal_sol_tool_select.json",
+    "sha256": "2f933e486b40e6470363140841391ed65d8da3e419e34433aaae0e20a9dae907",
+    "tau_hat": null,
+    "n_records": 1125,
+    "V": 1.0,
+    "delta_c": 0.0015893888
+   },
+   "tool_params": {
+    "path": "results/calibration/tauhat_jev_shadow_cal_sol_tool_params.json",
+    "sha256": "bd6e872f8192dcf21006147cf1cf15705bbd299ee614a7b2266d190fc01d8931",
+    "tau_hat": 0.57,
+    "n_records": 1594,
+    "V": 1.0,
+    "delta_c": 0.0009576080242751179
+   }
+  },
+  "profile": {
+   "path": "configs/harness/jevagent_best_sol.yaml",
+   "sha256": "ba6896ab0b668774f387e14f364ba00f80b3b558e5c81edc8b50b17ca623b0f7",
+   "status": "selected",
+   "decision_points": {
+    "tool_select": {
+     "mode": "cascade",
+     "tau": 0.99,
+     "always_defer": true
+    },
+    "tool_params": {
+     "mode": "cascade",
+     "tau": 0.57
+    },
+    "reflection": {
+     "mode": "trigger",
+     "tau": 0.5
+    }
+   },
+   "notes": [
+    "tool_select: X's fit accepts no level -> always defer",
+    "tool_params: tau 0.57 (X's fit)"
+   ],
+   "skip": null,
+   "derived_from": {
+    "profile": {
+     "path": "configs/harness/jevagent_best.yaml",
+     "sha256": "85289f656c5610a645ea88ad33dd3ffc547f95687d5587eb3abfea14720ad347"
+    },
+    "fit_tool_select": {
+     "path": "results/calibration/tauhat_jev_shadow_cal_sol_tool_select.json",
+     "sha256": "2f933e486b40e6470363140841391ed65d8da3e419e34433aaae0e20a9dae907"
+    },
+    "fit_tool_params": {
+     "path": "results/calibration/tauhat_jev_shadow_cal_sol_tool_params.json",
+     "sha256": "bd6e872f8192dcf21006147cf1cf15705bbd299ee614a7b2266d190fc01d8931"
+    }
+   }
+  }
+ },
+ "arms": {
+  "llm_only_sol": {
+   "arm": "llm_only_sol",
+   "n_expected": 500,
+   "n": 500,
+   "status_counts": {
+    "ok": 500,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0
+   },
+   "attempts": 500,
+   "success": 0.99,
+   "success_ci": [
+    0.9768069002442693,
+    0.9957212461034096
+   ],
+   "cost_usd": 0.0092722124,
+   "cost_usd_incl_cache_writes": 0.0104929224,
+   "s1_cost_usd": 0.0,
+   "latency_s": 19.120882062520018,
+   "wall_s": 19.16165113935197,
+   "s1_calls": 0.0,
+   "input_tokens": 25921.444,
+   "output_tokens": 199.862,
+   "cached_input_tokens": 23457.524,
+   "cache_write_tokens": 2441.42,
+   "reasoning_tokens": 0.084,
+   "coverage": {},
+   "coverage_pooled": {
+    "ratio": 0.0,
+    "n": 3750,
+    "n_delegated": 0,
+    "by_dp": {
+     "tool_select": 0.0
+    },
+    "tool_coverage": 0.0,
+    "arg_coverage": 0.0,
+    "n_arg_slots": 6063,
+    "n_arg_delegated": 0,
+    "arg_coverage_s1_calls": null,
+    "llm_free_steps": 0.0,
+    "llm_calls_per_episode": 7.5,
+    "delegating": false
+   },
+   "served_models": {
+    "gpt-6.1-sol": 3750
+   },
+   "service_tiers": {
+    "default": 3750
+   },
+   "unpriced_models": [],
+   "s2_model": "gpt-6.1-sol",
+   "llm_calls": 7.5,
+   "cached_share": 0.9049466534348936
+  },
+  "jevagent_best_sol": {
+   "arm": "jevagent_best_sol",
+   "n_expected": 500,
+   "n": 500,
+   "status_counts": {
+    "ok": 500,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0
+   },
+   "attempts": 500,
+   "success": 0.984,
+   "success_ci": [
+    0.9687488914666058,
+    0.9918707469666117
+   ],
+   "cost_usd": 0.011108633672,
+   "cost_usd_incl_cache_writes": 0.012304585672,
+   "s1_cost_usd": 0.000347512872,
+   "latency_s": 23.267943135495987,
+   "wall_s": 23.36982281254801,
+   "s1_calls": 6.5,
+   "input_tokens": 26807.89,
+   "output_tokens": 273.198,
+   "cached_input_tokens": 23992.968,
+   "cache_write_tokens": 2391.904,
+   "reasoning_tokens": 0.056,
+   "coverage": {
+    "reflection": 1.0,
+    "tool_select": 0.0
+   },
+   "coverage_pooled": {
+    "ratio": 0.0,
+    "n": 3750,
+    "n_delegated": 0,
+    "by_dp": {
+     "tool_select": 0.0
+    },
+    "tool_coverage": 0.0,
+    "arg_coverage": 0.0,
+    "n_arg_slots": 6063,
+    "n_arg_delegated": 0,
+    "arg_coverage_s1_calls": null,
+    "llm_free_steps": 0.0,
+    "llm_calls_per_episode": 8.426,
+    "delegating": true
+   },
+   "served_models": {
+    "gpt-6.1-sol": 4213
+   },
+   "service_tiers": {
+    "default": 4213
+   },
+   "unpriced_models": [],
+   "s2_model": "gpt-6.1-sol",
+   "llm_calls": 8.426,
+   "cached_share": 0.8949965103557199
+  },
+  "llm_only_solsmall": {
+   "arm": "llm_only_solsmall",
+   "n_expected": 500,
+   "n": 500,
+   "status_counts": {
+    "ok": 500,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0
+   },
+   "attempts": 500,
+   "success": 0.998,
+   "success_ci": [
+    0.9887592932948532,
+    0.9996468636054407
+   ],
+   "cost_usd": 0.00071682698,
+   "cost_usd_incl_cache_writes": 0.00081266873,
+   "s1_cost_usd": 0.0,
+   "latency_s": 12.774793680041933,
+   "wall_s": 12.809609048995997,
+   "s1_calls": 0.0,
+   "input_tokens": 25938.64,
+   "output_tokens": 218.396,
+   "cached_input_tokens": 22069.278,
+   "cache_write_tokens": 3833.67,
+   "reasoning_tokens": 0.0,
+   "coverage": {},
+   "coverage_pooled": {
+    "ratio": 0.0,
+    "n": 3752,
+    "n_delegated": 0,
+    "by_dp": {
+     "tool_select": 0.0
+    },
+    "tool_coverage": 0.0,
+    "arg_coverage": 0.0,
+    "n_arg_slots": 6065,
+    "n_arg_delegated": 0,
+    "arg_coverage_s1_calls": null,
+    "llm_free_steps": 0.0,
+    "llm_calls_per_episode": 7.504,
+    "delegating": false
+   },
+   "served_models": {
+    "gpt-6-luna": 3752
+   },
+   "service_tiers": {
+    "default": 3752
+   },
+   "unpriced_models": [],
+   "s2_model": "gpt-6-luna",
+   "llm_calls": 7.504,
+   "cached_share": 0.850826334765431
+  }
+ },
+ "pairs": {
+  "jevagent_best_sol": {
+   "arm": "jevagent_best_sol",
+   "reference": "llm_only_sol",
+   "n_expected": 500,
+   "n_pairs": 500,
+   "n_dropped": 0,
+   "dropped": [],
+   "success_arm": 0.984,
+   "success_ref": 0.99,
+   "delta": -0.006,
+   "delta_ci": [
+    -0.02,
+    0.006
+   ],
+   "delta_ci_newcombe": [
+    -0.021924427716689135,
+    0.008900782016135369
+   ],
+   "delta_ci_tango": [
+    -0.021635506728519556,
+    0.008202109537367323
+   ],
+   "wins": 4,
+   "losses": 7,
+   "cost": {
+    "cost_arm": 0.011108633672,
+    "cost_ref": 0.0092722124,
+    "cost_savings": -0.19805642847439509,
+    "cost_savings_ci": [
+     -0.25640497013001157,
+     -0.14243124484849073
+    ],
+    "tokens_arm": 26807.89,
+    "tokens_ref": 25921.444,
+    "token_savings": -0.0341974004226
+   },
+   "cost_incl_cache_writes": {
+    "cost_arm": 0.012304585671999999,
+    "cost_ref": 0.010492922400000002,
+    "cost_savings": -0.17265573907227183,
+    "cost_savings_ci": [
+     -0.23691283050338524,
+     -0.1115981457996932
+    ],
+    "tokens_arm": 26807.89,
+    "tokens_ref": 25921.444,
+    "token_savings": -0.0341974004226
+   },
+   "latency_diff_s": 4.147061072975968,
+   "latency_diff_s_ci": [
+    3.844751297399801,
+    4.456026719111057
+   ],
+   "wall_diff_s": 4.208171673196037,
+   "wall_diff_s_ci": [
+    3.9049233027470693,
+    4.517753174040462
+   ],
+   "calls_arm": {
+    "s1_calls": 6.5,
+    "s2_calls": 8.426
+   },
+   "calls_ref": {
+    "s1_calls": 0.0,
+    "s2_calls": 7.5
+   }
+  },
+  "llm_only_solsmall": {
+   "arm": "llm_only_solsmall",
+   "reference": "llm_only_sol",
+   "n_expected": 500,
+   "n_pairs": 500,
+   "n_dropped": 0,
+   "dropped": [],
+   "success_arm": 0.998,
+   "success_ref": 0.99,
+   "delta": 0.008,
+   "delta_ci": [
+    -0.002,
+    0.018
+   ],
+   "delta_ci_newcombe": [
+    -0.0028903188447607503,
+    0.021302839916041275
+   ],
+   "delta_ci_tango": [
+    -0.0022421585550679605,
+    0.021437843613418425
+   ],
+   "wins": 5,
+   "losses": 1,
+   "cost": {
+    "cost_arm": 0.00071682698,
+    "cost_ref": 0.0092722124,
+    "cost_savings": 0.9226908369786697,
+    "cost_savings_ci": [
+     0.9206168853961416,
+     0.9246702008555225
+    ],
+    "tokens_arm": 25938.64,
+    "tokens_ref": 25921.444,
+    "token_savings": -0.0006633889686082917
+   },
+   "cost_incl_cache_writes": {
+    "cost_arm": 0.0008126687299999999,
+    "cost_ref": 0.010492922400000002,
+    "cost_savings": 0.9225507728904963,
+    "cost_savings_ci": [
+     0.9202304959589418,
+     0.9247505255407361
+    ],
+    "tokens_arm": 25938.64,
+    "tokens_ref": 25921.444,
+    "token_savings": -0.0006633889686082917
+   },
+   "latency_diff_s": -6.346088382478085,
+   "latency_diff_s_ci": [
+    -7.139923080385858,
+    -5.622747497942428
+   ],
+   "wall_diff_s": -6.352042090355976,
+   "wall_diff_s_ci": [
+    -7.147538575676036,
+    -5.627590257165455
+   ],
+   "calls_arm": {
+    "s1_calls": 0.0,
+    "s2_calls": 7.504
+   },
+   "calls_ref": {
+    "s1_calls": 0.0,
+    "s2_calls": 7.5
+   }
+  }
+ },
+ "intervention": {
+  "llm_only_sol": {
+   "reference": null,
+   "n": 500,
+   "success": 0.99,
+   "tool_decisions": 3750,
+   "tool_delegated": 0,
+   "tool_coverage": 0.0,
+   "arg_coverage": 0.0,
+   "llm_calls": 7.5,
+   "trigger_questions": 0,
+   "trigger_fires": 0,
+   "trigger_fire_rate": null,
+   "trigger_tasks": 0
+  },
+  "jevagent_best_sol": {
+   "reference": "llm_only_sol",
+   "n": 500,
+   "success": 0.984,
+   "tool_decisions": 3750,
+   "tool_delegated": 0,
+   "tool_coverage": 0.0,
+   "arg_coverage": 0.0,
+   "llm_calls": 8.426,
+   "trigger_questions": 3250,
+   "trigger_fires": 463,
+   "trigger_fire_rate": 0.14246153846153847,
+   "trigger_tasks": 413,
+   "llm_calls_avoided": -0.9260000000000002
+  },
+  "llm_only_solsmall": {
+   "reference": "llm_only_sol",
+   "n": 500,
+   "success": 0.998,
+   "tool_decisions": 3752,
+   "tool_delegated": 0,
+   "tool_coverage": 0.0,
+   "arg_coverage": 0.0,
+   "llm_calls": 7.504,
+   "trigger_questions": 0,
+   "trigger_fires": 0,
+   "trigger_fire_rate": null,
+   "trigger_tasks": 0,
+   "llm_calls_avoided": -0.0039999999999995595
+  }
+ },
+ "flags": [],
+ "provenance": {
+  "run": "runs/stage2_sol",
+  "arms": {
+   "llm_only_sol": {
+    "path": "runs/stage2_sol/llm_only_sol.jsonl",
+    "sha256": "d47af6ff3f7df1f1c875a4dddf1388c0ff3709cc6ae759fe827ece901b1bbd43",
+    "n_records": 500,
+    "n_episodes": 500,
+    "partial_lines": 0,
+    "s2_model": "gpt-6.1-sol",
+    "s1": null
+   },
+   "jevagent_best_sol": {
+    "path": "runs/stage2_sol/jevagent_best_sol.jsonl",
+    "sha256": "60d727013b0e01398a2180263e04c9aed0621ab849468966c3dd029edee1ea12",
+    "n_records": 500,
+    "n_episodes": 500,
+    "partial_lines": 0,
+    "s2_model": "gpt-6.1-sol",
+    "s1": {
+     "backend": "jev",
+     "provider": "openrouter",
+     "model": "typesafe/jev-1.13",
+     "base_url": "https://openrouter.ai/api",
+     "extra_body": {},
+     "cached": true
+    }
+   },
+   "llm_only_solsmall": {
+    "path": "runs/stage2_sol/llm_only_solsmall.jsonl",
+    "sha256": "2f46987e50681b7a701e81545da5bcd820d4b06262fb9b0aa5569d53aa1a8a70",
+    "n_records": 500,
+    "n_episodes": 500,
+    "partial_lines": 0,
+    "s2_model": "gpt-6-luna",
+    "s1": null
+   }
+  }
+ },
+ "status": "complete",
+ "spend": {
+  "at": "2026-10-05T10:00:46+00:00",
+  "probe_usd": 0.0015636,
+  "runs": {
+   "runs/stage2_dev/sol_eligibility/llm_only_sol.jsonl": {
+    "records": 50,
+    "ledger": 0.5955013,
+    "cache_write_surcharge": 0.09580550000000003,
+    "total": 0.6913068
+   },
+   "runs/stage2_dev/sol_eligibility/llm_only_solsmall.jsonl": {
+    "records": 50,
+    "ledger": 0.03572777,
+    "cache_write_surcharge": 0.004788674999999998,
+    "total": 0.04051644499999999
+   },
+   "runs/e2a_jevgym_shadow_cal_sol/jev_shadow_cal_sol.jsonl": {
+    "records": 150,
+    "ledger": 2.059678542000001,
+    "cache_write_surcharge": 0.28749899999999984,
+    "total": 2.3471775420000003
+   },
+   "runs/stage2_sol/jevagent_best_sol.jsonl": {
+    "records": 500,
+    "ledger": 5.554316836,
+    "cache_write_surcharge": 0.5979759999999991,
+    "total": 6.152292836000002
+   },
+   "runs/stage2_sol/llm_only_sol.jsonl": {
+    "records": 500,
+    "ledger": 4.636106200000001,
+    "cache_write_surcharge": 0.6103550000000002,
+    "total": 5.246461200000001
+   },
+   "runs/stage2_sol/llm_only_solsmall.jsonl": {
+    "records": 500,
+    "ledger": 0.3584134899999998,
+    "cache_write_surcharge": 0.04792087500000005,
+    "total": 0.40633436500000003
+   }
+  },
+  "total_usd": 14.885652788000003
+ },
+ "meta": {
+  "generated": "2026-10-05T10:00:46+00:00",
+  "git": "c33243fd6db66dff8e4a5dd8b972869d4c2ac79f",
+  "simulated": false,
+  "n_boot": 10000,
+  "seed": 0
+ }
+}

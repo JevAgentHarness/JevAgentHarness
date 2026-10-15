@@ -1,0 +1,4 @@
+{"note": "E21 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-08 'E21'): the StartLux-Decision weights revisions of the logged rows (A7.18 manifests: 4B and 27B results/stage2/startlux/manifest_{4B,27B}.json; 9B results/explore/gpu/manifest_e2_9B.json), read by scripts/aws/serve_startlux.sh as PIN_MANIFEST",
+ "sizes": [{"size": "4B", "weights_revision": "3890ae0c174215e1555cc94c882ef45c5fe87cad"},
+           {"size": "9B", "weights_revision": "342aad64840be8eee314455428a5a775f18ef547"},
+           {"size": "27B", "weights_revision": "a54b311e3aede0c869bf006116bcfdddb1ef466f"}]}

@@ -1,0 +1,215 @@
+{
+ "fresh_cost_usd": 0.008102660000000001,
+ "backends": {
+  "jev": {
+   "total": {
+    "calls": 210,
+    "input_tokens": 119797,
+    "output_tokens": 20539,
+    "cost_usd": 0.005031474000000001,
+    "latency_ms": 35435.13012900257
+   },
+   "s1": {
+    "calls": 210,
+    "input_tokens": 119797,
+    "output_tokens": 20539,
+    "cost_usd": 0.005031474000000001,
+    "latency_ms": 35435.13012900257
+   },
+   "by_decision_point": {
+    "tool_params": {
+     "calls": 53,
+     "input_tokens": 28901,
+     "output_tokens": 9752,
+     "cost_usd": 0.0012138420000000001,
+     "latency_ms": 9075.302329001715
+    },
+    "tool_select": {
+     "calls": 157,
+     "input_tokens": 90896,
+     "output_tokens": 10787,
+     "cost_usd": 0.0038176319999999983,
+     "latency_ms": 26359.827800000858
+    }
+   },
+   "unpriced_models": [],
+   "fresh_cost_usd": 0.005031474000000001,
+   "cached_calls": 0
+  },
+  "intern08": {
+   "total": {
+    "calls": 210,
+    "input_tokens": 90329,
+    "output_tokens": 299,
+    "cost_usd": 0.0007226319999999999,
+    "latency_ms": 15397.575927003345
+   },
+   "s1": {
+    "calls": 210,
+    "input_tokens": 90329,
+    "output_tokens": 299,
+    "cost_usd": 0.0007226319999999999,
+    "latency_ms": 15397.575927003345
+   },
+   "by_decision_point": {
+    "tool_params": {
+     "calls": 53,
+     "input_tokens": 22192,
+     "output_tokens": 142,
+     "cost_usd": 0.00017753600000000003,
+     "latency_ms": 3608.4318130033353
+    },
+    "tool_select": {
+     "calls": 157,
+     "input_tokens": 68137,
+     "output_tokens": 157,
+     "cost_usd": 0.0005450959999999997,
+     "latency_ms": 11789.14411400001
+    }
+   },
+   "unpriced_models": [],
+   "fresh_cost_usd": 0.0007226319999999999,
+   "cached_calls": 0
+  },
+  "intern2b": {
+   "total": {
+    "calls": 210,
+    "input_tokens": 90329,
+    "output_tokens": 299,
+    "cost_usd": 0.0007226319999999999,
+    "latency_ms": 15855.924575000245
+   },
+   "s1": {
+    "calls": 210,
+    "input_tokens": 90329,
+    "output_tokens": 299,
+    "cost_usd": 0.0007226319999999999,
+    "latency_ms": 15855.924575000245
+   },
+   "by_decision_point": {
+    "tool_params": {
+     "calls": 53,
+     "input_tokens": 22192,
+     "output_tokens": 142,
+     "cost_usd": 0.00017753600000000003,
+     "latency_ms": 3837.4513089956963
+    },
+    "tool_select": {
+     "calls": 157,
+     "input_tokens": 68137,
+     "output_tokens": 157,
+     "cost_usd": 0.0005450959999999997,
+     "latency_ms": 12018.473266004548
+    }
+   },
+   "unpriced_models": [],
+   "fresh_cost_usd": 0.0007226319999999999,
+   "cached_calls": 0
+  },
+  "intern4b": {
+   "total": {
+    "calls": 210,
+    "input_tokens": 90329,
+    "output_tokens": 299,
+    "cost_usd": 0.0009032899999999998,
+    "latency_ms": 33406.9336049879
+   },
+   "s1": {
+    "calls": 210,
+    "input_tokens": 90329,
+    "output_tokens": 299,
+    "cost_usd": 0.0009032899999999998,
+    "latency_ms": 33406.9336049879
+   },
+   "by_decision_point": {
+    "tool_params": {
+     "calls": 53,
+     "input_tokens": 22192,
+     "output_tokens": 142,
+     "cost_usd": 0.00022192000000000002,
+     "latency_ms": 8114.845953999065
+    },
+    "tool_select": {
+     "calls": 157,
+     "input_tokens": 68137,
+     "output_tokens": 157,
+     "cost_usd": 0.0006813699999999999,
+     "latency_ms": 25292.087650988833
+    }
+   },
+   "unpriced_models": [],
+   "fresh_cost_usd": 0.0009032899999999998,
+   "cached_calls": 0
+  },
+  "intern2b_uncal": {
+   "total": {
+    "calls": 210,
+    "input_tokens": 90329,
+    "output_tokens": 299,
+    "cost_usd": 0.0007226319999999999,
+    "latency_ms": 16090.90153899524
+   },
+   "s1": {
+    "calls": 210,
+    "input_tokens": 90329,
+    "output_tokens": 299,
+    "cost_usd": 0.0007226319999999999,
+    "latency_ms": 16090.90153899524
+   },
+   "by_decision_point": {
+    "tool_params": {
+     "calls": 53,
+     "input_tokens": 22192,
+     "output_tokens": 142,
+     "cost_usd": 0.00017753600000000003,
+     "latency_ms": 3872.4490830009017
+    },
+    "tool_select": {
+     "calls": 157,
+     "input_tokens": 68137,
+     "output_tokens": 157,
+     "cost_usd": 0.0005450959999999997,
+     "latency_ms": 12218.452455994338
+    }
+   },
+   "unpriced_models": [],
+   "fresh_cost_usd": 0.0007226319999999999,
+   "cached_calls": 0
+  },
+  "bm25": {
+   "total": {
+    "calls": 210,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cost_usd": 0.0,
+    "latency_ms": 102.25050099688815
+   },
+   "s1": {
+    "calls": 210,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cost_usd": 0.0,
+    "latency_ms": 102.25050099688815
+   },
+   "by_decision_point": {
+    "tool_params": {
+     "calls": 53,
+     "input_tokens": 0,
+     "output_tokens": 0,
+     "cost_usd": 0.0,
+     "latency_ms": 32.76041399840324
+    },
+    "tool_select": {
+     "calls": 157,
+     "input_tokens": 0,
+     "output_tokens": 0,
+     "cost_usd": 0.0,
+     "latency_ms": 69.49008699848491
+    }
+   },
+   "unpriced_models": [],
+   "fresh_cost_usd": 0.0,
+   "cached_calls": 0
+  }
+ }
+}

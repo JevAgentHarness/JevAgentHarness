@@ -1,0 +1,38 @@
+sparse-network-assimilation              earth           18.0 h  eligible  SELECTED   tests passed above the nop floor
+hysteretic-aquifer-control               earth             12 h  dropped    validity oracle reward 0.0 < 1
+duan-thesis                              earth             12 h  dropped    signal baseline reward 0.0, tests passed 0 <= floor 0
+mendota-ice-phenology                    earth           12.0 h  eligible  SELECTED   tests passed above the nop floor
+masked-spherical-remap                   earth           18.0 h  eligible  SELECTED   tests passed above the nop floor
+microarch-modeling                       engineering     16.0 h  eligible  SELECTED   tests passed above the nop floor
+baseline-free-localization               engineering      4.0 h  dropped    signal baseline reward 0.0, tests passed 12 <= floor 12
+guided-wave-localization                 engineering      4.0 h  dropped    signal baseline reward 0.0, tests passed 11 <= floor 11
+inelastic-constitutive-discovery         engineering     12.0 h  eligible  SELECTED   reward 1
+virtual-baseline-localization            engineering      4.0 h  dropped    signal baseline reward 0.0, tests passed 9 <= floor 9
+betalactam-multimodal-transfer           life             4.0 h  dropped    validity oracle agent-run time 2424.749804 s > 1800 s
+diag-chipseq                             life             5.0 h  eligible  SELECTED   tests passed above the nop floor
+genomic-model-ranking                    life             5.0 h  eligible  SELECTED   tests passed above the nop floor
+ont-tn-qc                                life             4.0 h  eligible  SELECTED   tests passed above the nop floor
+protein-active-learning                  life             8.0 h  eligible  SELECTED   tests passed above the nop floor
+clinical-metadata-recovery               life             4.0 h  dropped    signal baseline reward 0.0, tests passed 0 <= floor 0
+dapi-he-alignment                        life             4.0 h  eligible  SELECTED   tests passed above the nop floor
+longitudinal-clinical-agent              life            12.0 h  dropped    signal baseline reward 0.0, tests passed 0 <= floor 0
+eeg-erp-recovery                         life             8.5 h  dropped    signal baseline reward 0.0, tests passed 0 <= floor 0
+foraging-cognitive-model                 life            12.0 h  eligible  SELECTED   tests passed above the nop floor
+mri-harmonization                        life             4.0 h  eligible  SELECTED   tests passed above the nop floor
+dna-storage-codec                        mathematical      12 h  eligible  SELECTED   tests passed above the nop floor
+ode-law-discovery                        mathematical    12.0 h  dropped    validity oracle agent-run time 2521.817179 s > 1800 s
+traffic-flux-inversion                   mathematical    12.0 h  dropped    signal baseline reward 0.0, tests passed 0 <= floor 0
+energy-routing                           mathematical     4.0 h  dropped    validity oracle reward 0.0 < 1
+regularized-game-proof                   mathematical    24.0 h  dropped    signal baseline reward 0.0, tests passed 1 <= floor 1
+3x2pt-inference                          physical          16 h  dropped    validity oracle reward 0.0 < 1
+neo-orbit-determination                  physical         8.0 h  eligible  SELECTED   tests passed above the nop floor
+rv-astrometry-fitting                    physical        20.0 h  dropped    validity oracle agent-run time 2597.177447 s > 1800 s
+tess-transit-vetting                     physical         8.0 h  dropped    signal baseline reward 0.0, tests passed 1 <= floor 1
+geometric-pharmacophore-alignment        physical         8.0 h  dropped    signal baseline reward 0.0, tests passed 0 <= floor 0
+nanoindentation-property-extraction      physical         6.0 h  dropped    signal baseline reward 0.0, tests passed 0 <= floor 0
+si-fracture-fbc                          physical        16.0 h  dropped    validity oracle agent-run time 2678.431258 s > 1800 s
+xrd-multiphase-qpa                       physical        12.0 h  eligible  SELECTED   tests passed above the nop floor
+frustrated-heisenberg-nqs                physical         6.0 h  dropped    validity oracle reward 0.0 < 1
+inverse-lithography                      physical        12.0 h  dropped    signal baseline reward 0.0, tests passed 0 <= floor 0
+spin-glass-groundstate                   physical         6.0 h  dropped    validity oracle agent-run time 3535.925512 s > 1800 s
+/opt/jev/JevAgentHarness/research/adapters/pi/tbsci_hard.txt: 15 task(s); sha256 a935a41f47096de42019b0d4d993e3f8dd7b62fc49c97b352e6900aba8d7d7f5, 846 bytes -- record both in the Deviations section before any evaluation trial (A6.22 (d) 2)

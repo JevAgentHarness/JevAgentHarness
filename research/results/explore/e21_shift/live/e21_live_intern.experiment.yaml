@@ -1,0 +1,30 @@
+name: e21_live_intern
+suite:
+  name: jevgym
+  shift: true
+  n: 200
+  seed0: 330100
+  families: v2
+  distractor_style: near
+  n_distractors: 60
+  noise_lines: 20
+  strict: true
+n_tasks: 200
+llm:
+  provider: gemini
+  model: gemini-3.5-flash
+  temperature: 0
+  reasoning_effort: minimal
+s1_cache: cache/s1_e21_live_intern.sqlite
+s1_backends:
+  intern:
+    type: intern_decision
+    model: internlm/Intern-Decision-4B
+    device: auto
+    max_length: 8192
+workers: 4
+arms:
+- name: intern_ts_replace_f
+  s1: intern
+  tool_select:
+    mode: replace

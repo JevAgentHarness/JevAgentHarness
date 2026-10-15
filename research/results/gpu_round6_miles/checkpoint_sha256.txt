@@ -1,0 +1,6 @@
+sft_v2 d7bfe3ed50bc8d3ff4821500b0975a9c8ba7b626a7129f47a979d99d4c686282  ./model.safetensors
+opd_i12 7d4eb7df860a53762481d8226f0c5a26d58784cab3b4be4b0992ef5fc540bbff  ./model.safetensors
+opd 5da6786ee3c5b811bf8129994f215204e407e0ef47c9b83a0648f760489eff44  ./model.safetensors
+grpo_i15 0017b4add0904dd7cbb36d29b644f34a0fedae90f39d2839b666060c39aed535  ./model.safetensors
+grpo b31900e4dcca427cecbaf521c86cd74a825706e16ab4f4833bc0bf491cdc95a1  ./model.safetensors
+final d7bfe3ed50bc8d3ff4821500b0975a9c8ba7b626a7129f47a979d99d4c686282  ./model.safetensors

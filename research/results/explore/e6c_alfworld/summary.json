@@ -1,0 +1,175 @@
+{
+ "row": "exploratory (E6c)",
+ "label": "descriptive, revises no registered result, not the registered S2-L3b",
+ "generated": "2026-10-06T07:58:50+00:00",
+ "git": "715fa3372270aad30e1c3557181d1fad69f61754",
+ "eval": {
+  "split": "valid_seen",
+  "n_games": 140,
+  "list_sha256": "5a914a32fa171b1db5fe72d5627e891496074c2135ae8995db13c6b43b83af2d",
+  "run": "runs/e6c_alfworld_eval",
+  "files": {
+   "llm_only": {
+    "sha256": "1df5dc0fc45e338afbb02b6e8ae3eabe7dbe094a2f32f5408c74823fef3ccbfc",
+    "records": 140
+   },
+   "jev_action_guard": {
+    "sha256": "a3eb7c9e5838f28b2d51f44e015a37be7bd912db3ab2fca9ef6f5956c81d995f",
+    "records": 140
+   }
+  }
+ },
+ "settings": {
+  "agent_llm": "gemini-3.5-flash (temperature 0, reasoning_effort minimal)",
+  "decision_model": "Jev via OpenRouter (typesafe/jev-1.13)",
+  "max_steps": 50,
+  "history_window": 12,
+  "tau": 0.5,
+  "guard_max_retries": 1,
+  "tau_rule": "fixed: the Stage-1 tool guard's tau on Flash (jev_ts_guard, E2a)",
+  "schedule": "task_major, seed 732"
+ },
+ "reference": {
+  "n": 140,
+  "n_errored": 0,
+  "success": 0.9071428571428571,
+  "cost_usd": 0.019107760714285715,
+  "wall_mean_s": 37.16575297844285,
+  "wall_median_s": 24.615121179499965,
+  "steps": 13.042857142857143,
+  "llm_calls": 13.042857142857143,
+  "decisions": {
+   "n_decisions": 1826,
+   "coverage": 0.0,
+   "n_gold": 1826,
+   "llm_acc": 0.45673603504928806,
+   "acc": 0.45673603504928806
+  }
+ },
+ "arm": {
+  "arm": "jev_action_guard",
+  "status": "run",
+  "n_expected": 140,
+  "n": 140,
+  "n_dropped": 0,
+  "dropped": {
+   "arm": {
+    "missing": 0,
+    "errored": 0
+   },
+   "ref": {
+    "missing": 0,
+    "errored": 0
+   }
+  },
+  "success": 0.9,
+  "success_ref": 0.9071428571428571,
+  "delta_pt": -0.7142857142857117,
+  "delta_ci_pt": [
+   -4.285714285714293,
+   2.857142857142858
+  ],
+  "delta_newcombe_pt": [
+   -5.228371729764124,
+   3.6910535871895434
+  ],
+  "wins": 3,
+  "losses": 4,
+  "cost_usd": 0.03566648125714286,
+  "cost_ref_usd": 0.019107760714285715,
+  "gemini_usd": 0.03526879285714287,
+  "jev_usd": 0.0003976884,
+  "saving": -0.8665966038855195,
+  "saving_ci": [
+   -1.2740237125702345,
+   -0.5660917308662499
+  ],
+  "wall_mean_s": 56.88014141406429,
+  "wall_median_s": 36.08063508700002,
+  "wall_ref_mean_s": 37.16575297844285,
+  "wall_ref_median_s": 24.615121179499965,
+  "wall_delta_median_s": 8.619294104999952,
+  "steps": 15.1,
+  "llm_calls": 22.12142857142857,
+  "s1_calls": 15.1,
+  "decisions": {
+   "n_decisions": 2114,
+   "coverage": 0.4649952696310312,
+   "vetoed": 0.4649952696310312,
+   "n_vetoed": 983,
+   "executed_from_model": 0.0,
+   "vetoes_per_episode": 7.021428571428571,
+   "n_gold": 2114,
+   "acc": 0.6546830652790918,
+   "proposal_acc": 0.44607379375591294,
+   "veto_precision": 0.7243133265513734,
+   "veto_recall": 0.6080273270708796,
+   "rewrite_acc": 0.17090539165818922,
+   "rewrite_same": 0.24720244150559512,
+   "executed_acc": 0.3973509933774834,
+   "mean_p_yes": 0.5459413434247871
+  },
+  "verdict": "no saving"
+ },
+ "e6a_llm_only": {
+  "success": 0.9142857142857143,
+  "n": 140,
+  "cost_usd": 0.018448071428571428,
+  "n_paired": 140,
+  "agree": 137,
+  "e6a_only": 2,
+  "e6c_only": 1
+ },
+ "by_task_type": {
+  "pick_and_place_simple": {
+   "n": 35,
+   "llm_only": 1.0,
+   "guard": 1.0
+  },
+  "look_at_obj_in_light": {
+   "n": 13,
+   "llm_only": 1.0,
+   "guard": 1.0
+  },
+  "pick_clean_then_place_in_recep": {
+   "n": 27,
+   "llm_only": 0.7407407407407407,
+   "guard": 0.7407407407407407
+  },
+  "pick_heat_then_place_in_recep": {
+   "n": 16,
+   "llm_only": 0.9375,
+   "guard": 0.9375
+  },
+  "pick_cool_then_place_in_recep": {
+   "n": 25,
+   "llm_only": 0.8,
+   "guard": 0.76
+  },
+  "pick_two_obj_and_place": {
+   "n": 24,
+   "llm_only": 1.0,
+   "guard": 1.0
+  }
+ },
+ "spend": {
+  "by_run": {
+   "e6c_alfworld_smoke": {
+    "gemini": 0.0330045,
+    "jev": 0.00030555000000000003,
+    "total": 0.03331005,
+    "records": 4
+   },
+   "e6c_alfworld_eval": {
+    "gemini": 7.612717499999998,
+    "jev": 0.05567637599999999,
+    "total": 7.668393875999999,
+    "records": 280
+   }
+  },
+  "gemini": 7.6457219999999975,
+  "jev": 0.055981925999999994,
+  "total": 7.701703925999999,
+  "records": 284
+ }
+}

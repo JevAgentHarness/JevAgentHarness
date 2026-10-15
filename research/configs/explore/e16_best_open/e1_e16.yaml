@@ -1,0 +1,21 @@
+# Exploratory row E16 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-08 "E16: the best open-weights decision model on all
+# three levels"; descriptive, outside every Holm table): E1's 3,991 static decisions answered by the two E16 arms,
+# AgentDecision-4B (mixed+) (arm A, served by training/serve_jev.py in the harness venv) and StartLux-9B (mixed) (arm B,
+# the v2 venv), each on :8081 on the E16 host, and by the frozen AgentDecision-4B re-served on the same host (the
+# serving-path check and the same-host cost reference, as E12). E1's config (configs/decision/bfcl_when2call_rl.yaml)
+# with the same pools, exclusions (C8 population), batching and workers; a new answer cache.
+#   python -m jevharness.bench.decision_eval configs/explore/e16_best_open/e1_e16.yaml --out runs --only e16a
+name: e1_bfcl_when2call_e16
+suites:
+  - {name: bfcl, categories: [simple_python, multiple, live_simple, live_multiple, irrelevance, live_irrelevance], max_per_cat: 200}
+  - {name: when2call, max_items: 1000}
+exclude_ids_file: configs/eval/e1_dev_prefix_ids.json   # A6.13: as E1
+batch_by_state: true
+s1_cache: cache/s1_e16_e1.sqlite
+workers: 4
+backends:
+  e16a: {type: jev, name: agentdecision-4b-mixedplus, base_url: "http://localhost:8081", model: agentdecision-4b-mixedplus,
+         api_key: "", price_model: jevagentrl-4b}   # an exact 0 per token (the frozen row's entry): GPU time is priced by E9's rule
+  e16b: {type: jev, name: startlux-9b-mixed, base_url: "http://localhost:8081", model: startlux-9b-mixed, api_key: "",
+         price_model: StartLux-Decision-9B}         # an exact 0 per token (configs/prices): GPU time is priced by E9's rule
+  frozen_rehost: {type: jev, name: jevagentrl-4b, base_url: "http://localhost:8081", model: jevagentrl-4b, api_key: ""}

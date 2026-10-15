@@ -1,0 +1,15 @@
+# tau2 MEASUREMENT arm (PREREGISTRATION A5.4 c): LLM-only behaviour, Jev logged. At every agent turn System-1
+# answers the cascade arm's tool_select Choice and, for the tool the LLM then calls, the cascade arm's tool_params
+# Choices; before a `transfer_to_human_agents` call it answers the stop guard's question. Nothing S1 says is acted
+# on: the LLM's own action is executed unchanged, S1's answer / confidence, the LLM's choice and the approximate
+# gold are logged side by side (DecisionLog.shadow), and the S1 calls are tagged meta.shadow in the Ledger and kept
+# out of the episode cost (usage.shadow; usage.total == what llm_only costs).
+# Run it on the 15-task airline shadow split only (scripts/run_tau2.sh SPLIT=shadow ARMS=jev_shadow DOMAINS=airline);
+# the side-car feeds the tau-hat* refit:
+#   python -m jevharness.bench.threshold_theory runs/tau2/airline_shadow --arm jev_shadow --dp tool_select
+name: jev_shadow
+tool_select: {mode: shadow}
+tool_params: {mode: shadow}
+stop: {mode: shadow}
+s1: {type: jev, provider: openrouter}   # A6.20: the same pinned Jev endpoint as E2 (configs/experiments)
+s1_cache: cache/s1_tau2.sqlite

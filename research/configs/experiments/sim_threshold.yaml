@@ -1,0 +1,18 @@
+# SIMULATION STUDY (appendix only; clearly labelled): calibrated simulated System-1 of varying
+# accuracy x cascade threshold, simulated LLM with 10% error. Previews the Prop.-1 analysis.
+name: sim_threshold
+suite: {name: jevgym, n: 150, n_distractors: 30, strict: true}
+llm: {provider: simulated, model: scripted, error_rate: 0.10, simulated_latency_ms: 2500}
+s1_backends:
+  acc70: {type: simulated, accuracy: 0.70, latency_ms: 120, price_per_m_input: 0.042}
+  acc80: {type: simulated, accuracy: 0.80, latency_ms: 120, price_per_m_input: 0.042}
+  acc90: {type: simulated, accuracy: 0.90, latency_ms: 120, price_per_m_input: 0.042}
+  acc95: {type: simulated, accuracy: 0.95, latency_ms: 120, price_per_m_input: 0.042}
+workers: 8
+arms:
+  - {name: llm_only}
+sweeps:
+  - {base: {name: acc70_cascade, s1: acc70, tool_select: {mode: cascade}, tool_params: {mode: cascade, tau: 0.9}}, set: tool_select.tau, values: [0.3, 0.5, 0.7, 0.8, 0.9, 0.95, 0.99]}
+  - {base: {name: acc80_cascade, s1: acc80, tool_select: {mode: cascade}, tool_params: {mode: cascade, tau: 0.9}}, set: tool_select.tau, values: [0.3, 0.5, 0.7, 0.8, 0.9, 0.95, 0.99]}
+  - {base: {name: acc90_cascade, s1: acc90, tool_select: {mode: cascade}, tool_params: {mode: cascade, tau: 0.9}}, set: tool_select.tau, values: [0.3, 0.5, 0.7, 0.8, 0.9, 0.95, 0.99]}
+  - {base: {name: acc95_cascade, s1: acc95, tool_select: {mode: cascade}, tool_params: {mode: cascade, tau: 0.9}}, set: tool_select.tau, values: [0.3, 0.5, 0.7, 0.8, 0.9, 0.95, 0.99]}

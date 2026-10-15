@@ -1,0 +1,56 @@
+# JevAgentRL development slice (GPU round 5, phase 1): the trained System-1 vs Intern-Decision-4B vs Jev on the SAME
+# DEVELOPMENT seeds 1100-1149 (A7.10 (a): development rollouts on seeds >= 1000; never the evaluation range 200000-200499, the calibration
+# seeds 5000-5149 or the Stage-2 range 300000+), in the frozen evaluation SETTING (v2 families, 60 near distractors,
+# 20 noise lines, strict) with the E2a System-2 (Gemini 3.5 Flash, T = 0; Flash-Lite for the *_s2lite arms).
+# Development numbers only: they select / gate the checkpoint (TRAINING_RECIPES §18.4), never a headline number.
+#
+# Arm families (scripts/aws/gpu_round5_rl.sh stages e2dev_refs / e2dev_<stage> run subsets of this file by prefix):
+#   llm_only            reference
+#   ours_*              s1 = the checkpoint served in the Jev wire format by training/serve_jev.py on :8081
+#                       (one run per training stage: -o name=e2dev_rl_<stage> s1.name=... s1.model=...)
+#   intern_*            internlm/Intern-Decision-4B in-process (the registered second family, A5.1)
+#   jev_*               Jev via OpenRouter
+# Per family: shadow (decision accuracy on the System-2's own states, all three decision points), replace on tool_select
+# and on tool_select + tool_params (the live-policy accuracy on the System-1's own states, and success), assist k = 3
+# (C2), stop guard (C6), tool guard, and the Flash-Lite assist / stop-guard cells (C2L / C6L).
+name: e2dev_rl
+suite: {name: jevgym, n: 50, seed0: 1100, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # development seeds 1100-1149 (A7.10 (a): >= 1000)
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+llms:
+  lite2: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+n_tasks: 50
+s1: {type: jev, name: jevagentrl-4b, base_url: "http://127.0.0.1:8081", model: jevagentrl-4b, api_key: ""}
+s1_backends:
+  intern: {type: intern_decision, model: internlm/Intern-Decision-4B, device: auto, max_length: 8192}
+  jev: {type: jev, provider: openrouter}
+workers: 4
+arms:
+  - {name: llm_only}
+  - {name: llm_only_s2lite, llm: lite2}
+  # --- ours (served checkpoint) ---
+  - {name: ours_shadow, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}
+  - {name: ours_ts_replace, tool_select: {mode: replace}}
+  - {name: ours_ts_params_replace, tool_select: {mode: replace}, tool_params: {mode: replace}}
+  - {name: ours_ts_assist_k3, tool_select: {mode: assist, k: 3}}
+  - {name: ours_stop_guard, stop: {mode: guard, tau: 0.5}}
+  - {name: ours_ts_guard, tool_select: {mode: guard, tau: 0.5}}
+  - {name: ours_ts_assist_k3_s2lite, llm: lite2, tool_select: {mode: assist, k: 3}}
+  - {name: ours_stop_guard_s2lite, llm: lite2, stop: {mode: guard, tau: 0.5}}
+  # --- Intern-Decision-4B ---
+  - {name: intern_shadow, s1: intern, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}
+  - {name: intern_ts_replace, s1: intern, tool_select: {mode: replace}}
+  - {name: intern_ts_params_replace, s1: intern, tool_select: {mode: replace}, tool_params: {mode: replace}}
+  - {name: intern_ts_assist_k3, s1: intern, tool_select: {mode: assist, k: 3}}
+  - {name: intern_stop_guard, s1: intern, stop: {mode: guard, tau: 0.5}}
+  - {name: intern_ts_guard, s1: intern, tool_select: {mode: guard, tau: 0.5}}
+  - {name: intern_ts_assist_k3_s2lite, s1: intern, llm: lite2, tool_select: {mode: assist, k: 3}}
+  - {name: intern_stop_guard_s2lite, s1: intern, llm: lite2, stop: {mode: guard, tau: 0.5}}
+  # --- Jev ---
+  - {name: jev_shadow, s1: jev, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}
+  - {name: jev_ts_replace, s1: jev, tool_select: {mode: replace}}
+  - {name: jev_ts_params_replace, s1: jev, tool_select: {mode: replace}, tool_params: {mode: replace}}
+  - {name: jev_ts_assist_k3, s1: jev, tool_select: {mode: assist, k: 3}}
+  - {name: jev_stop_guard, s1: jev, stop: {mode: guard, tau: 0.5}}
+  - {name: jev_ts_guard, s1: jev, tool_select: {mode: guard, tau: 0.5}}
+  - {name: jev_ts_assist_k3_s2lite, s1: jev, llm: lite2, tool_select: {mode: assist, k: 3}}
+  - {name: jev_stop_guard_s2lite, s1: jev, llm: lite2, stop: {mode: guard, tau: 0.5}}

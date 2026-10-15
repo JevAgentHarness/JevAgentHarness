@@ -1,0 +1,5312 @@
+{
+ "registered": "PREREGISTRATION \u00a73 H1 as replaced by A6.22 (c); A6.5, A6.11 (c).1, A6.16 (h), A6.19 (d)",
+ "generated": "2026-10-03T13:07:59+00:00",
+ "git": "cf3dbb4fb9b9",
+ "grid": {
+  "dp": [
+   "tool_select",
+   "tool_params"
+  ],
+  "backends": {
+   "jev": "Jev",
+   "intern": "Intern-Decision-4B"
+  },
+  "s2": {
+   "flash": "gemini-3.5-flash",
+   "lite": "gemini-3.5-flash-lite"
+  },
+  "W": [
+   0.1,
+   1.0,
+   10.0
+  ],
+  "lam_per_hour": [
+   0.0,
+   0.5,
+   5.0
+  ],
+  "taus": "h1 (0.5 0.7 0.8 0.9 0.95 0.99)",
+  "default_tau": 0.8,
+  "train_frac": 0.3,
+  "seed": 0,
+  "rule": "general"
+ },
+ "cells": [
+  {
+   "id": "jev_flash_tool_select_W0.1_lam0",
+   "backend": "jev",
+   "s2": "flash",
+   "dp": "tool_select",
+   "W": 0.1,
+   "lam": 0.0,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 0.1 --lam-per-hour 0 --V 0.1 --format json --out results/secondary/h1_cells/jev_flash_tool_select_W0.1_lam0.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": 0.05,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_flash_tool_select_W0.1_lam0.json.gz",
+   "n_paired": 3756,
+   "n_records": 3756,
+   "V": 0.1,
+   "V_plugin": 0.1,
+   "n_train": 1110,
+   "n_test": 2646,
+   "tau_hat": 0.99,
+   "tau_best_test": 0.99,
+   "d": 9.216916099773296e-05,
+   "d_ci": [
+    -0.0003798606155908358,
+    0.00062895547521978
+   ],
+   "outcome": "win",
+   "loss_default": 0.004586843386243387,
+   "loss_hat": 0.004494674225245654,
+   "regret_hat": 0.0,
+   "regret_default": 9.216916099773296e-05,
+   "tau_hat_projection": 0.99,
+   "d_projection": 9.216916099773296e-05,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.03994594594594596,
+    "gap_lb": -0.053124411067812884,
+    "n": 1110,
+    "n_tasks": 150,
+    "raw_regret": 9.216916099773296e-05,
+    "raw_ci": [
+     -0.0003798606155908358,
+     0.00062895547521978
+    ],
+    "recal_regret": 0.0006929896636432347,
+    "recal_ci": [
+     0.00023477879222522948,
+     0.0012252585074791662
+    ],
+    "t1_ci": [
+     -0.00011321949998279424,
+     0.0010974578082515363
+    ],
+    "temperatures": {
+     "global": 1.918165650337839,
+     "per_kind": {
+      "choice": 1.918165650337839
+     },
+     "n": 1110,
+     "n_test_rescaled": 2646,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_flash_tool_select_W0.1_lam0.5",
+   "backend": "jev",
+   "s2": "flash",
+   "dp": "tool_select",
+   "W": 0.1,
+   "lam": 0.5,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 0.1 --lam-per-hour 0.5 --V 0.1 --format json --out results/secondary/h1_cells/jev_flash_tool_select_W0.1_lam0.5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": 0.05,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_flash_tool_select_W0.1_lam0.5.json.gz",
+   "n_paired": 3756,
+   "n_records": 3756,
+   "V": 0.1,
+   "V_plugin": 0.1,
+   "n_train": 1110,
+   "n_test": 2646,
+   "tau_hat": 0.99,
+   "tau_best_test": 0.7,
+   "d": 5.9644924183775705e-06,
+   "d_ci": [
+    -0.00046398491192676947,
+    0.0005383451759385597
+   ],
+   "outcome": "win",
+   "loss_default": 0.0046220401058528595,
+   "loss_hat": 0.004616075613434482,
+   "regret_hat": 9.269879166278264e-05,
+   "regret_default": 9.866328408116021e-05,
+   "tau_hat_projection": 0.99,
+   "d_projection": 5.9644924183775705e-06,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.03994594594594596,
+    "gap_lb": -0.053124411067812884,
+    "n": 1110,
+    "n_tasks": 150,
+    "raw_regret": 9.866328408116021e-05,
+    "raw_ci": [
+     -0.00012084023894250733,
+     0.0002673262657422393
+    ],
+    "recal_regret": 0.000645021018644493,
+    "recal_ci": [
+     0.0001861283547322036,
+     0.0011790743246794075
+    ],
+    "t1_ci": [
+     -0.00021561299698230743,
+     0.000983670033320727
+    ],
+    "temperatures": {
+     "global": 1.918165650337839,
+     "per_kind": {
+      "choice": 1.918165650337839
+     },
+     "n": 1110,
+     "n_test_rescaled": 2646,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_flash_tool_select_W0.1_lam5",
+   "backend": "jev",
+   "s2": "flash",
+   "dp": "tool_select",
+   "W": 0.1,
+   "lam": 5.0,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 0.1 --lam-per-hour 5 --V 0.1 --format json --out results/secondary/h1_cells/jev_flash_tool_select_W0.1_lam5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": 0.05,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_flash_tool_select_W0.1_lam5.json.gz",
+   "n_paired": 3756,
+   "n_records": 3756,
+   "V": 0.1,
+   "V_plugin": 0.1,
+   "n_train": 1110,
+   "n_test": 2646,
+   "tau_hat": 0.78,
+   "tau_best_test": 0.7,
+   "d": 5.501156223334733e-05,
+   "d_ci": [
+    -6.415603371750787e-05,
+    0.00013936489271144375
+   ],
+   "outcome": "win",
+   "loss_default": 0.004938810582338112,
+   "loss_hat": 0.0048837990201047645,
+   "regret_hat": 0.00016037621055104215,
+   "regret_default": 0.00021538777278438948,
+   "tau_hat_projection": 0.99,
+   "d_projection": -0.0007698775247958183,
+   "outcome_projection": "loss",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.03994594594594596,
+    "gap_lb": -0.053124411067812884,
+    "n": 1110,
+    "n_tasks": 150,
+    "raw_regret": 0.00021538777278438948,
+    "raw_ci": [
+     -2.1810854674041072e-06,
+     0.00038103246565847083
+    ],
+    "recal_regret": 0.00021330321365581502,
+    "recal_ci": [
+     -0.00023768433512699803,
+     0.0007397190339901873
+    ],
+    "t1_ci": [
+     -2.7535510255908936e-05,
+     0.00035184719383783437
+    ],
+    "temperatures": {
+     "global": 1.918165650337839,
+     "per_kind": {
+      "choice": 1.918165650337839
+     },
+     "n": 1110,
+     "n_test_rescaled": 2646,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_flash_tool_select_W1_lam0",
+   "backend": "jev",
+   "s2": "flash",
+   "dp": "tool_select",
+   "W": 1.0,
+   "lam": 0.0,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 1 --lam-per-hour 0 --V 1 --format json --out results/secondary/h1_cells/jev_flash_tool_select_W1_lam0.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": 0.5,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_flash_tool_select_W1_lam0.json.gz",
+   "n_paired": 3756,
+   "n_records": 3756,
+   "V": 1.0,
+   "V_plugin": 1.0,
+   "n_train": 1110,
+   "n_test": 2646,
+   "tau_hat": 1.0,
+   "tau_best_test": 0.99,
+   "d": 0.03058311441798942,
+   "d_ci": [
+    0.02421818928745445,
+    0.037852120106834614
+   ],
+   "outcome": "win",
+   "loss_default": 0.03689976855631141,
+   "loss_hat": 0.006316654138321995,
+   "regret_hat": -0.009062373828420258,
+   "regret_default": 0.02152074058956916,
+   "tau_hat_projection": 1.0,
+   "d_projection": 0.03058311441798942,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.03994594594594596,
+    "gap_lb": -0.053124411067812884,
+    "n": 1110,
+    "n_tasks": 150,
+    "raw_regret": 0.02152074058956916,
+    "raw_ci": [
+     0.016458611450454852,
+     0.02719443532478091
+    ],
+    "recal_regret": 0.019400472656840518,
+    "recal_ci": [
+     0.014767301080269022,
+     0.024826765466814015
+    ],
+    "t1_ci": [
+     0.023366756054074976,
+     0.03597171776869539
+    ],
+    "temperatures": {
+     "global": 1.918165650337839,
+     "per_kind": {
+      "choice": 1.918165650337839
+     },
+     "n": 1110,
+     "n_test_rescaled": 2646,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_flash_tool_select_W1_lam0.5",
+   "backend": "jev",
+   "s2": "flash",
+   "dp": "tool_select",
+   "W": 1.0,
+   "lam": 0.5,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 1 --lam-per-hour 0.5 --V 1 --format json --out results/secondary/h1_cells/jev_flash_tool_select_W1_lam0.5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": 0.5,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_flash_tool_select_W1_lam0.5.json.gz",
+   "n_paired": 3756,
+   "n_records": 3756,
+   "V": 1.0,
+   "V_plugin": 1.0,
+   "n_train": 1110,
+   "n_test": 2646,
+   "tau_hat": 1.0,
+   "tau_best_test": 0.99,
+   "d": 0.030468743935450678,
+   "d_ci": [
+    0.02411728431439474,
+    0.03774129840036233
+   ],
+   "outcome": "win",
+   "loss_default": 0.036934965275920884,
+   "loss_hat": 0.006466221340470206,
+   "regret_hat": -0.009034208014460872,
+   "regret_default": 0.021434535920989803,
+   "tau_hat_projection": 1.0,
+   "d_projection": 0.030468743935450678,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.03994594594594596,
+    "gap_lb": -0.053124411067812884,
+    "n": 1110,
+    "n_tasks": 150,
+    "raw_regret": 0.021434535920989803,
+    "raw_ci": [
+     0.016381191479720055,
+     0.027114413775528482
+    ],
+    "recal_regret": 0.01935250401184177,
+    "recal_ci": [
+     0.014719630259639788,
+     0.024777353956767934
+    ],
+    "t1_ci": [
+     0.023267455177558696,
+     0.03587138549723712
+    ],
+    "temperatures": {
+     "global": 1.918165650337839,
+     "per_kind": {
+      "choice": 1.918165650337839
+     },
+     "n": 1110,
+     "n_test_rescaled": 2646,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_flash_tool_select_W1_lam5",
+   "backend": "jev",
+   "s2": "flash",
+   "dp": "tool_select",
+   "W": 1.0,
+   "lam": 5.0,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 1 --lam-per-hour 5 --V 1 --format json --out results/secondary/h1_cells/jev_flash_tool_select_W1_lam5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": 0.5,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_flash_tool_select_W1_lam5.json.gz",
+   "n_paired": 3756,
+   "n_records": 3756,
+   "V": 1.0,
+   "V_plugin": 1.0,
+   "n_train": 1110,
+   "n_test": 2646,
+   "tau_hat": 1.0,
+   "tau_best_test": 0.99,
+   "d": 0.029439409592602033,
+   "d_ci": [
+    0.023209139556857265,
+    0.03667835492789608
+   ],
+   "outcome": "win",
+   "loss_default": 0.03725173575240614,
+   "loss_hat": 0.007812326159804105,
+   "regret_hat": -0.008780715688826424,
+   "regret_default": 0.02065869390377561,
+   "tau_hat_projection": 1.0,
+   "d_projection": 0.029439409592602033,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.03994594594594596,
+    "gap_lb": -0.053124411067812884,
+    "n": 1110,
+    "n_tasks": 150,
+    "raw_regret": 0.02065869390377561,
+    "raw_ci": [
+     0.01564502816037415,
+     0.026355112457271675
+    ],
+    "recal_regret": 0.018920786206853096,
+    "recal_ci": [
+     0.014290592873976514,
+     0.024336207547800033
+    ],
+    "t1_ci": [
+     0.022305239415860222,
+     0.03496839505411211
+    ],
+    "temperatures": {
+     "global": 1.918165650337839,
+     "per_kind": {
+      "choice": 1.918165650337839
+     },
+     "n": 1110,
+     "n_test_rescaled": 2646,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_flash_tool_select_W10_lam0",
+   "backend": "jev",
+   "s2": "flash",
+   "dp": "tool_select",
+   "W": 10.0,
+   "lam": 0.0,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 10 --lam-per-hour 0 --V 10 --format json --out results/secondary/h1_cells/jev_flash_tool_select_W10_lam0.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": 5.0,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_flash_tool_select_W10_lam0.json.gz",
+   "n_paired": 3756,
+   "n_records": 3756,
+   "V": 10.0,
+   "V_plugin": 10.0,
+   "n_train": 1110,
+   "n_test": 2646,
+   "tau_hat": 1.0,
+   "tau_best_test": 0.99,
+   "d": 0.33330420285336354,
+   "d_ci": [
+    0.269220190552234,
+    0.406898916272048
+   ],
+   "outcome": "win",
+   "loss_default": 0.3600290202569917,
+   "loss_hat": 0.02672481740362812,
+   "regret_hat": -0.09749774797808011,
+   "regret_default": 0.23580645487528346,
+   "tau_hat_projection": 1.0,
+   "d_projection": 0.33330420285336354,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.03994594594594596,
+    "gap_lb": -0.053124411067812884,
+    "n": 1110,
+    "n_tasks": 150,
+    "raw_regret": 0.23580645487528346,
+    "raw_ci": [
+     0.18489975611562287,
+     0.2935262612897707
+    ],
+    "recal_regret": 0.21609214391534393,
+    "recal_ci": [
+     0.1665872609289651,
+     0.2747358423175147
+    ],
+    "t1_ci": [
+     0.2581104934620215,
+     0.384711083712882
+    ],
+    "temperatures": {
+     "global": 1.918165650337839,
+     "per_kind": {
+      "choice": 1.918165650337839
+     },
+     "n": 1110,
+     "n_test_rescaled": 2646,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_flash_tool_select_W10_lam0.5",
+   "backend": "jev",
+   "s2": "flash",
+   "dp": "tool_select",
+   "W": 10.0,
+   "lam": 0.5,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 10 --lam-per-hour 0.5 --V 10 --format json --out results/secondary/h1_cells/jev_flash_tool_select_W10_lam0.5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": 5.0,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_flash_tool_select_W10_lam0.5.json.gz",
+   "n_paired": 3756,
+   "n_records": 3756,
+   "V": 10.0,
+   "V_plugin": 10.0,
+   "n_train": 1110,
+   "n_test": 2646,
+   "tau_hat": 1.0,
+   "tau_best_test": 0.99,
+   "d": 0.33318983237082483,
+   "d_ci": [
+    0.2691118238135387,
+    0.4067864670078868
+   ],
+   "outcome": "win",
+   "loss_default": 0.3600642169766012,
+   "loss_hat": 0.026874384605776333,
+   "regret_hat": -0.09746958216412074,
+   "regret_default": 0.23572025020670412,
+   "tau_hat_projection": 1.0,
+   "d_projection": 0.33318983237082483,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.03994594594594596,
+    "gap_lb": -0.053124411067812884,
+    "n": 1110,
+    "n_tasks": 150,
+    "raw_regret": 0.23572025020670412,
+    "raw_ci": [
+     0.18481712130194022,
+     0.29343978051214775
+    ],
+    "recal_regret": 0.21597811808310796,
+    "recal_ci": [
+     0.16647505229724366,
+     0.27462460856160487
+    ],
+    "t1_ci": [
+     0.25801829262564185,
+     0.3846107514414235
+    ],
+    "temperatures": {
+     "global": 1.918165650337839,
+     "per_kind": {
+      "choice": 1.918165650337839
+     },
+     "n": 1110,
+     "n_test_rescaled": 2646,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_flash_tool_select_W10_lam5",
+   "backend": "jev",
+   "s2": "flash",
+   "dp": "tool_select",
+   "W": 10.0,
+   "lam": 5.0,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 10 --lam-per-hour 5 --V 10 --format json --out results/secondary/h1_cells/jev_flash_tool_select_W10_lam5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": 5.0,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_flash_tool_select_W10_lam5.json.gz",
+   "n_paired": 3756,
+   "n_records": 3756,
+   "V": 10.0,
+   "V_plugin": 10.0,
+   "n_train": 1110,
+   "n_test": 2646,
+   "tau_hat": 1.0,
+   "tau_best_test": 0.99,
+   "d": 0.3321604980279762,
+   "d_ci": [
+    0.26813652316527953,
+    0.4057744236304371
+   ],
+   "outcome": "win",
+   "loss_default": 0.36038098745308644,
+   "loss_hat": 0.028220489425110226,
+   "regret_hat": -0.0972160898384863,
+   "regret_default": 0.23494440818948992,
+   "tau_hat_projection": 1.0,
+   "d_projection": 0.3321604980279762,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.03994594594594596,
+    "gap_lb": -0.053124411067812884,
+    "n": 1110,
+    "n_tasks": 150,
+    "raw_regret": 0.23494440818948992,
+    "raw_ci": [
+     0.18407032459530367,
+     0.2926614535135411
+    ],
+    "recal_regret": 0.21495188559298417,
+    "recal_ci": [
+     0.16546517461175023,
+     0.27362350475841596
+    ],
+    "t1_ci": [
+     0.2571884850982238,
+     0.38370776099829906
+    ],
+    "temperatures": {
+     "global": 1.918165650337839,
+     "per_kind": {
+      "choice": 1.918165650337839
+     },
+     "n": 1110,
+     "n_test_rescaled": 2646,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_flash_tool_params_W0.1_lam0",
+   "backend": "jev",
+   "s2": "flash",
+   "dp": "tool_params",
+   "W": 0.1,
+   "lam": 0.0,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 0.1 --lam-per-hour 0 --V 0.1 --format json --out results/secondary/h1_cells/jev_flash_tool_params_W0.1_lam0.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_flash_tool_params_W0.1_lam0.json.gz",
+   "n_paired": 4196,
+   "n_records": 5318,
+   "V": 0.1,
+   "V_plugin": 0.1,
+   "n_train": 1213,
+   "n_test": 2983,
+   "tau_hat": 0.99,
+   "tau_best_test": 0.99,
+   "d": 0.003133995759302716,
+   "d_ci": [
+    0.002350651439263749,
+    0.003954216420459989
+   ],
+   "outcome": "win",
+   "loss_default": 0.004917880338585317,
+   "loss_hat": 0.0017838845792826012,
+   "regret_hat": 0.0,
+   "regret_default": 0.003133995759302716,
+   "tau_hat_projection": 0.99,
+   "d_projection": 0.003133995759302716,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.030313272877164052,
+    "gap_lb": 0.014894813988836832,
+    "n": 1213,
+    "n_tasks": 150,
+    "raw_regret": 0.003133995759302716,
+    "raw_ci": [
+     0.002350651439263749,
+     0.003954216420459989
+    ],
+    "recal_regret": 0.0017454619175326861,
+    "recal_ci": [
+     0.0011598172904802773,
+     0.0023539103512348327
+    ],
+    "t1_ci": [
+     0.002334741867638809,
+     0.0041048230140431395
+    ],
+    "temperatures": {
+     "global": 1.5044220679193654,
+     "per_kind": {
+      "choice": 1.5044220679193654
+     },
+     "n": 1213,
+     "n_test_rescaled": 3750,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_flash_tool_params_W0.1_lam0.5",
+   "backend": "jev",
+   "s2": "flash",
+   "dp": "tool_params",
+   "W": 0.1,
+   "lam": 0.5,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 0.1 --lam-per-hour 0.5 --V 0.1 --format json --out results/secondary/h1_cells/jev_flash_tool_params_W0.1_lam0.5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_flash_tool_params_W0.1_lam0.5.json.gz",
+   "n_paired": 4196,
+   "n_records": 5318,
+   "V": 0.1,
+   "V_plugin": 0.1,
+   "n_train": 1213,
+   "n_test": 2983,
+   "tau_hat": 0.99,
+   "tau_best_test": 0.99,
+   "d": 0.0030860939735858767,
+   "d_ci": [
+    0.0023031743501283957,
+    0.003906739878315853
+   ],
+   "outcome": "win",
+   "loss_default": 0.004937821147272832,
+   "loss_hat": 0.0018517271736869555,
+   "regret_hat": 0.0,
+   "regret_default": 0.0030860939735858767,
+   "tau_hat_projection": 0.99,
+   "d_projection": 0.0030860939735858767,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.030313272877164052,
+    "gap_lb": 0.014894813988836832,
+    "n": 1213,
+    "n_tasks": 150,
+    "raw_regret": 0.0030860939735858767,
+    "raw_ci": [
+     0.0023031743501283957,
+     0.003906739878315853
+    ],
+    "recal_regret": 0.0017181411249960433,
+    "recal_ci": [
+     0.001134551257566179,
+     0.002327985972490777
+    ],
+    "t1_ci": [
+     0.0022856625463709775,
+     0.004049130586799412
+    ],
+    "temperatures": {
+     "global": 1.5044220679193654,
+     "per_kind": {
+      "choice": 1.5044220679193654
+     },
+     "n": 1213,
+     "n_test_rescaled": 3750,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_flash_tool_params_W0.1_lam5",
+   "backend": "jev",
+   "s2": "flash",
+   "dp": "tool_params",
+   "W": 0.1,
+   "lam": 5.0,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 0.1 --lam-per-hour 5 --V 0.1 --format json --out results/secondary/h1_cells/jev_flash_tool_params_W0.1_lam5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_flash_tool_params_W0.1_lam5.json.gz",
+   "n_paired": 4196,
+   "n_records": 5318,
+   "V": 0.1,
+   "V_plugin": 0.1,
+   "n_train": 1213,
+   "n_test": 2983,
+   "tau_hat": 0.99,
+   "tau_best_test": 0.99,
+   "d": 0.0026549779021343258,
+   "d_ci": [
+    0.0019104557109329797,
+    0.003473077609456722
+   ],
+   "outcome": "win",
+   "loss_default": 0.005117288425460469,
+   "loss_hat": 0.0024623105233261434,
+   "regret_hat": 0.0,
+   "regret_default": 0.0026549779021343258,
+   "tau_hat_projection": 0.99,
+   "d_projection": 0.0026549779021343258,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.030313272877164052,
+    "gap_lb": 0.014894813988836832,
+    "n": 1213,
+    "n_tasks": 150,
+    "raw_regret": 0.0026549779021343258,
+    "raw_ci": [
+     0.0019104557109329797,
+     0.003473077609456722
+    ],
+    "recal_regret": 0.0014722539921662625,
+    "recal_ci": [
+     0.0009104716525536362,
+     0.002057463010230609
+    ],
+    "t1_ci": [
+     0.0017836426917739222,
+     0.0035424400082711997
+    ],
+    "temperatures": {
+     "global": 1.5044220679193654,
+     "per_kind": {
+      "choice": 1.5044220679193654
+     },
+     "n": 1213,
+     "n_test_rescaled": 3750,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_flash_tool_params_W1_lam0",
+   "backend": "jev",
+   "s2": "flash",
+   "dp": "tool_params",
+   "W": 1.0,
+   "lam": 0.0,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 1 --lam-per-hour 0 --V 1 --format json --out results/secondary/h1_cells/jev_flash_tool_params_W1_lam0.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_flash_tool_params_W1_lam0.json.gz",
+   "n_paired": 4196,
+   "n_records": 5318,
+   "V": 1.0,
+   "V_plugin": 1.0,
+   "n_train": 1213,
+   "n_test": 2983,
+   "tau_hat": 0.99,
+   "tau_best_test": 0.99,
+   "d": 0.04205454554140127,
+   "d_ci": [
+    0.03369800245029241,
+    0.05067718159106198
+   ],
+   "outcome": "win",
+   "loss_default": 0.04383843012068387,
+   "loss_hat": 0.0017838845792826012,
+   "regret_hat": 0.0,
+   "regret_default": 0.04205454554140127,
+   "tau_hat_projection": 0.99,
+   "d_projection": 0.04205454554140127,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.030313272877164052,
+    "gap_lb": 0.014894813988836832,
+    "n": 1213,
+    "n_tasks": 150,
+    "raw_regret": 0.04205454554140127,
+    "raw_ci": [
+     0.03369800245029241,
+     0.05067718159106198
+    ],
+    "recal_regret": 0.026670421052631583,
+    "recal_ci": [
+     0.02008299627374574,
+     0.03363458500689814
+    ],
+    "t1_ci": [
+     0.035732793471670854,
+     0.05471006618896534
+    ],
+    "temperatures": {
+     "global": 1.5044220679193654,
+     "per_kind": {
+      "choice": 1.5044220679193654
+     },
+     "n": 1213,
+     "n_test_rescaled": 3750,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_flash_tool_params_W1_lam0.5",
+   "backend": "jev",
+   "s2": "flash",
+   "dp": "tool_params",
+   "W": 1.0,
+   "lam": 0.5,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 1 --lam-per-hour 0.5 --V 1 --format json --out results/secondary/h1_cells/jev_flash_tool_params_W1_lam0.5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_flash_tool_params_W1_lam0.5.json.gz",
+   "n_paired": 4196,
+   "n_records": 5318,
+   "V": 1.0,
+   "V_plugin": 1.0,
+   "n_train": 1213,
+   "n_test": 2983,
+   "tau_hat": 0.99,
+   "tau_best_test": 0.99,
+   "d": 0.04200664375568444,
+   "d_ci": [
+    0.033658767689733346,
+    0.050633489755694094
+   ],
+   "outcome": "win",
+   "loss_default": 0.0438583709293714,
+   "loss_hat": 0.0018517271736869555,
+   "regret_hat": 0.0,
+   "regret_default": 0.04200664375568444,
+   "tau_hat_projection": 0.99,
+   "d_projection": 0.04200664375568444,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.030313272877164052,
+    "gap_lb": 0.014894813988836832,
+    "n": 1213,
+    "n_tasks": 150,
+    "raw_regret": 0.04200664375568444,
+    "raw_ci": [
+     0.033658767689733346,
+     0.050633489755694094
+    ],
+    "recal_regret": 0.026625959253768577,
+    "recal_ci": [
+     0.020046287629730198,
+     0.033588792089732825
+    ],
+    "t1_ci": [
+     0.035679888501049674,
+     0.05465255027132718
+    ],
+    "temperatures": {
+     "global": 1.5044220679193654,
+     "per_kind": {
+      "choice": 1.5044220679193654
+     },
+     "n": 1213,
+     "n_test_rescaled": 3750,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_flash_tool_params_W1_lam5",
+   "backend": "jev",
+   "s2": "flash",
+   "dp": "tool_params",
+   "W": 1.0,
+   "lam": 5.0,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 1 --lam-per-hour 5 --V 1 --format json --out results/secondary/h1_cells/jev_flash_tool_params_W1_lam5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_flash_tool_params_W1_lam5.json.gz",
+   "n_paired": 4196,
+   "n_records": 5318,
+   "V": 1.0,
+   "V_plugin": 1.0,
+   "n_train": 1213,
+   "n_test": 2983,
+   "tau_hat": 0.99,
+   "tau_best_test": 0.99,
+   "d": 0.04157552768423289,
+   "d_ci": [
+    0.03329069459542832,
+    0.05021373931133295
+   ],
+   "outcome": "win",
+   "loss_default": 0.04403783820755903,
+   "loss_hat": 0.0024623105233261434,
+   "regret_hat": 0.0,
+   "regret_default": 0.04157552768423289,
+   "tau_hat_projection": 0.99,
+   "d_projection": 0.04157552768423289,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.030313272877164052,
+    "gap_lb": 0.014894813988836832,
+    "n": 1213,
+    "n_tasks": 150,
+    "raw_regret": 0.04157552768423289,
+    "raw_ci": [
+     0.03329069459542832,
+     0.05021373931133295
+    ],
+    "recal_regret": 0.026225803064001574,
+    "recal_ci": [
+     0.019653916858136663,
+     0.03323296745655059
+    ],
+    "t1_ci": [
+     0.03520374376545915,
+     0.05413237782009493
+    ],
+    "temperatures": {
+     "global": 1.5044220679193654,
+     "per_kind": {
+      "choice": 1.5044220679193654
+     },
+     "n": 1213,
+     "n_test_rescaled": 3750,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_flash_tool_params_W10_lam0",
+   "backend": "jev",
+   "s2": "flash",
+   "dp": "tool_params",
+   "W": 10.0,
+   "lam": 0.0,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 10 --lam-per-hour 0 --V 10 --format json --out results/secondary/h1_cells/jev_flash_tool_params_W10_lam0.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_flash_tool_params_W10_lam0.json.gz",
+   "n_paired": 4196,
+   "n_records": 5318,
+   "V": 10.0,
+   "V_plugin": 10.0,
+   "n_train": 1213,
+   "n_test": 2983,
+   "tau_hat": 0.99,
+   "tau_best_test": 0.99,
+   "d": 0.4312600433623869,
+   "d_ci": [
+    0.347333075436872,
+    0.5177086445007175
+   ],
+   "outcome": "win",
+   "loss_default": 0.43304392794166946,
+   "loss_hat": 0.0017838845792826012,
+   "regret_hat": 0.0,
+   "regret_default": 0.4312600433623869,
+   "tau_hat_projection": 0.99,
+   "d_projection": 0.4312600433623869,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.030313272877164052,
+    "gap_lb": 0.014894813988836832,
+    "n": 1213,
+    "n_tasks": 150,
+    "raw_regret": 0.4312600433623869,
+    "raw_ci": [
+     0.347333075436872,
+     0.5177086445007175
+    ],
+    "recal_regret": 0.27708946228628895,
+    "recal_ci": [
+     0.21078322209692438,
+     0.34736539819130635
+    ],
+    "t1_ci": [
+     0.369753226688635,
+     0.560655224358963
+    ],
+    "temperatures": {
+     "global": 1.5044220679193654,
+     "per_kind": {
+      "choice": 1.5044220679193654
+     },
+     "n": 1213,
+     "n_test_rescaled": 3750,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_flash_tool_params_W10_lam0.5",
+   "backend": "jev",
+   "s2": "flash",
+   "dp": "tool_params",
+   "W": 10.0,
+   "lam": 0.5,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 10 --lam-per-hour 0.5 --V 10 --format json --out results/secondary/h1_cells/jev_flash_tool_params_W10_lam0.5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_flash_tool_params_W10_lam0.5.json.gz",
+   "n_paired": 4196,
+   "n_records": 5318,
+   "V": 10.0,
+   "V_plugin": 10.0,
+   "n_train": 1213,
+   "n_test": 2983,
+   "tau_hat": 0.99,
+   "tau_best_test": 0.99,
+   "d": 0.43121214157667,
+   "d_ci": [
+    0.34729384067631286,
+    0.5176649526653498
+   ],
+   "outcome": "win",
+   "loss_default": 0.43306386875035696,
+   "loss_hat": 0.0018517271736869555,
+   "regret_hat": 0.0,
+   "regret_default": 0.43121214157667,
+   "tau_hat_projection": 0.99,
+   "d_projection": 0.43121214157667,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.030313272877164052,
+    "gap_lb": 0.014894813988836832,
+    "n": 1213,
+    "n_tasks": 150,
+    "raw_regret": 0.43121214157667,
+    "raw_ci": [
+     0.34729384067631286,
+     0.5176649526653498
+    ],
+    "recal_regret": 0.277045000487426,
+    "recal_ci": [
+     0.21073402449119655,
+     0.3473165274778832
+    ],
+    "t1_ci": [
+     0.369701007877851,
+     0.5605977084413248
+    ],
+    "temperatures": {
+     "global": 1.5044220679193654,
+     "per_kind": {
+      "choice": 1.5044220679193654
+     },
+     "n": 1213,
+     "n_test_rescaled": 3750,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_flash_tool_params_W10_lam5",
+   "backend": "jev",
+   "s2": "flash",
+   "dp": "tool_params",
+   "W": 10.0,
+   "lam": 5.0,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 10 --lam-per-hour 5 --V 10 --format json --out results/secondary/h1_cells/jev_flash_tool_params_W10_lam5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_flash_tool_params_W10_lam5.json.gz",
+   "n_paired": 4196,
+   "n_records": 5318,
+   "V": 10.0,
+   "V_plugin": 10.0,
+   "n_train": 1213,
+   "n_test": 2983,
+   "tau_hat": 0.99,
+   "tau_best_test": 0.99,
+   "d": 0.4307810255052185,
+   "d_ci": [
+    0.3469407278312814,
+    0.5172717261470386
+   ],
+   "outcome": "win",
+   "loss_default": 0.43324333602854465,
+   "loss_hat": 0.0024623105233261434,
+   "regret_hat": 0.0,
+   "regret_default": 0.4307810255052185,
+   "tau_hat_projection": 0.99,
+   "d_projection": 0.4307810255052185,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.030313272877164052,
+    "gap_lb": 0.014894813988836832,
+    "n": 1213,
+    "n_tasks": 150,
+    "raw_regret": 0.4307810255052185,
+    "raw_ci": [
+     0.3469407278312814,
+     0.5172717261470386
+    ],
+    "recal_regret": 0.27664484429765895,
+    "recal_ci": [
+     0.21029124603964594,
+     0.34687669105707486
+    ],
+    "t1_ci": [
+     0.3692310385807962,
+     0.5600800651825808
+    ],
+    "temperatures": {
+     "global": 1.5044220679193654,
+     "per_kind": {
+      "choice": 1.5044220679193654
+     },
+     "n": 1213,
+     "n_test_rescaled": 3750,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_lite_tool_select_W0.1_lam0",
+   "backend": "jev",
+   "s2": "lite",
+   "dp": "tool_select",
+   "W": 0.1,
+   "lam": 0.0,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow_s2lite --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 0.1 --lam-per-hour 0 --V 0.1 --format json --out results/secondary/h1_cells/jev_lite_tool_select_W0.1_lam0.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": -0.014272030651340995,
+    "V_plugin": -0.01897810218978102,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_lite_tool_select_W0.1_lam0.json.gz",
+   "n_paired": 3787,
+   "n_records": 3787,
+   "V": 0.1,
+   "V_plugin": 0.1,
+   "n_train": 1123,
+   "n_test": 2664,
+   "tau_hat": Infinity,
+   "tau_best_test": 0.99,
+   "d": 0.002136563997747748,
+   "d_ci": [
+    0.0015250423282870394,
+    0.0028626885556609686
+   ],
+   "outcome": "win",
+   "loss_default": 0.004323839538288288,
+   "loss_hat": 0.0021872755405405405,
+   "regret_hat": -0.00028236313063063076,
+   "regret_default": 0.0018542008671171171,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.002136563997747748,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": 0.007479964381121987,
+    "gap_lb": -0.0036510590934284363,
+    "n": 1123,
+    "n_tasks": 150,
+    "raw_regret": 0.0018542008671171171,
+    "raw_ci": [
+     0.00135104580134802,
+     0.0024190914386049817
+    ],
+    "recal_regret": 0.0010350169594594595,
+    "recal_ci": [
+     0.000595680805230823,
+     0.0015022667029142296
+    ],
+    "t1_ci": [
+     0.0016641743018562377,
+     0.0028496432232551078
+    ],
+    "temperatures": {
+     "global": 1.9898346795711768,
+     "per_kind": {
+      "choice": 1.9898346795711768
+     },
+     "n": 1123,
+     "n_test_rescaled": 2664,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_lite_tool_select_W0.1_lam0.5",
+   "backend": "jev",
+   "s2": "lite",
+   "dp": "tool_select",
+   "W": 0.1,
+   "lam": 0.5,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow_s2lite --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 0.1 --lam-per-hour 0.5 --V 0.1 --format json --out results/secondary/h1_cells/jev_lite_tool_select_W0.1_lam0.5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": -0.014272030651340995,
+    "V_plugin": -0.01897810218978102,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_lite_tool_select_W0.1_lam0.5.json.gz",
+   "n_paired": 3787,
+   "n_records": 3787,
+   "V": 0.1,
+   "V_plugin": 0.1,
+   "n_train": 1123,
+   "n_test": 2664,
+   "tau_hat": Infinity,
+   "tau_best_test": 0.99,
+   "d": 0.002041279068883728,
+   "d_ci": [
+    0.0014300947454291978,
+    0.002765916982773886
+   ],
+   "outcome": "win",
+   "loss_default": 0.004334796023976372,
+   "loss_hat": 0.002293516955092644,
+   "regret_hat": -0.0002252964357007006,
+   "regret_default": 0.0018159826331830276,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.002041279068883728,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": 0.007479964381121987,
+    "gap_lb": -0.0036510590934284363,
+    "n": 1123,
+    "n_tasks": 150,
+    "raw_regret": 0.0018159826331830276,
+    "raw_ci": [
+     0.0013136951372405459,
+     0.002379723633199573
+    ],
+    "recal_regret": 0.0010078170629481049,
+    "recal_ci": [
+     0.0005684306373283191,
+     0.0014746014938130845
+    ],
+    "t1_ci": [
+     0.001616955286094365,
+     0.0027982713129076848
+    ],
+    "temperatures": {
+     "global": 1.9898346795711768,
+     "per_kind": {
+      "choice": 1.9898346795711768
+     },
+     "n": 1123,
+     "n_test_rescaled": 2664,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_lite_tool_select_W0.1_lam5",
+   "backend": "jev",
+   "s2": "lite",
+   "dp": "tool_select",
+   "W": 0.1,
+   "lam": 5.0,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow_s2lite --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 0.1 --lam-per-hour 5 --V 0.1 --format json --out results/secondary/h1_cells/jev_lite_tool_select_W0.1_lam5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": -0.014272030651340995,
+    "V_plugin": -0.01897810218978102,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_lite_tool_select_W0.1_lam5.json.gz",
+   "n_paired": 3787,
+   "n_records": 3787,
+   "V": 0.1,
+   "V_plugin": 0.1,
+   "n_train": 1123,
+   "n_test": 2664,
+   "tau_hat": 1.0,
+   "tau_best_test": 0.99,
+   "d": 0.001537699873593392,
+   "d_ci": [
+    0.0009729971931506296,
+    0.002173616368777449
+   ],
+   "outcome": "win",
+   "loss_default": 0.004433404395169126,
+   "loss_hat": 0.002895704521575734,
+   "regret_hat": -6.56813458171728e-05,
+   "regret_default": 0.0014720185277762193,
+   "tau_hat_projection": 1.0,
+   "d_projection": 0.001537699873593392,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": 0.007479964381121987,
+    "gap_lb": -0.0036510590934284363,
+    "n": 1123,
+    "n_tasks": 150,
+    "raw_regret": 0.0014720185277762193,
+    "raw_ci": [
+     0.0009777729101172743,
+     0.0020189290260453057
+    ],
+    "recal_regret": 0.0007630179943459102,
+    "recal_ci": [
+     0.00032484022981092107,
+     0.0012279670097266183
+    ],
+    "t1_ci": [
+     0.0011700401012367644,
+     0.0023313200111861367
+    ],
+    "temperatures": {
+     "global": 1.9898346795711768,
+     "per_kind": {
+      "choice": 1.9898346795711768
+     },
+     "n": 1123,
+     "n_test_rescaled": 2664,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_lite_tool_select_W1_lam0",
+   "backend": "jev",
+   "s2": "lite",
+   "dp": "tool_select",
+   "W": 1.0,
+   "lam": 0.0,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow_s2lite --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 1 --lam-per-hour 0 --V 1 --format json --out results/secondary/h1_cells/jev_lite_tool_select_W1_lam0.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": -0.14272030651340994,
+    "V_plugin": -0.1897810218978102,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_lite_tool_select_W1_lam0.json.gz",
+   "n_paired": 3787,
+   "n_records": 3787,
+   "V": 1.0,
+   "V_plugin": 1.0,
+   "n_train": 1123,
+   "n_test": 2664,
+   "tau_hat": Infinity,
+   "tau_best_test": 0.99,
+   "d": 0.031528455889639644,
+   "d_ci": [
+    0.02540209297639495,
+    0.03882878170804253
+   ],
+   "outcome": "win",
+   "loss_default": 0.04182383953828829,
+   "loss_hat": 0.010295383648648649,
+   "regret_hat": -0.008390471238738742,
+   "regret_default": 0.0231379846509009,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.031528455889639644,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": 0.007479964381121987,
+    "gap_lb": -0.0036510590934284363,
+    "n": 1123,
+    "n_tasks": 150,
+    "raw_regret": 0.0231379846509009,
+    "raw_ci": [
+     0.017940781015163932,
+     0.028937399668531916
+    ],
+    "recal_regret": 0.01719783501501502,
+    "recal_ci": [
+     0.011848857801972814,
+     0.023014036679785688
+    ],
+    "t1_ci": [
+     0.02239377417087922,
+     0.03470162700490569
+    ],
+    "temperatures": {
+     "global": 1.9898346795711768,
+     "per_kind": {
+      "choice": 1.9898346795711768
+     },
+     "n": 1123,
+     "n_test_rescaled": 2664,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_lite_tool_select_W1_lam0.5",
+   "backend": "jev",
+   "s2": "lite",
+   "dp": "tool_select",
+   "W": 1.0,
+   "lam": 0.5,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow_s2lite --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 1 --lam-per-hour 0.5 --V 1 --format json --out results/secondary/h1_cells/jev_lite_tool_select_W1_lam0.5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": -0.14272030651340994,
+    "V_plugin": -0.1897810218978102,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_lite_tool_select_W1_lam0.5.json.gz",
+   "n_paired": 3787,
+   "n_records": 3787,
+   "V": 1.0,
+   "V_plugin": 1.0,
+   "n_train": 1123,
+   "n_test": 2664,
+   "tau_hat": Infinity,
+   "tau_best_test": 0.99,
+   "d": 0.03143317096077562,
+   "d_ci": [
+    0.025304603552743575,
+    0.038733753649482026
+   ],
+   "outcome": "win",
+   "loss_default": 0.04183479602397637,
+   "loss_hat": 0.010401625063200751,
+   "regret_hat": -0.00833340454380881,
+   "regret_default": 0.02309976641696681,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.03143317096077562,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": 0.007479964381121987,
+    "gap_lb": -0.0036510590934284363,
+    "n": 1123,
+    "n_tasks": 150,
+    "raw_regret": 0.02309976641696681,
+    "raw_ci": [
+     0.017904287117228704,
+     0.02889898864194137
+    ],
+    "recal_regret": 0.01712576173130276,
+    "recal_ci": [
+     0.01177834690255046,
+     0.022942439600300693
+    ],
+    "t1_ci": [
+     0.022344553003997816,
+     0.03464901503438066
+    ],
+    "temperatures": {
+     "global": 1.9898346795711768,
+     "per_kind": {
+      "choice": 1.9898346795711768
+     },
+     "n": 1123,
+     "n_test_rescaled": 2664,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_lite_tool_select_W1_lam5",
+   "backend": "jev",
+   "s2": "lite",
+   "dp": "tool_select",
+   "W": 1.0,
+   "lam": 5.0,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow_s2lite --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 1 --lam-per-hour 5 --V 1 --format json --out results/secondary/h1_cells/jev_lite_tool_select_W1_lam5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": -0.14272030651340994,
+    "V_plugin": -0.1897810218978102,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_lite_tool_select_W1_lam5.json.gz",
+   "n_paired": 3787,
+   "n_records": 3787,
+   "V": 1.0,
+   "V_plugin": 1.0,
+   "n_train": 1123,
+   "n_test": 2664,
+   "tau_hat": Infinity,
+   "tau_best_test": 0.99,
+   "d": 0.030575606600999443,
+   "d_ci": [
+    0.024427198739881435,
+    0.037878501122437444
+   ],
+   "outcome": "win",
+   "loss_default": 0.04193340439516913,
+   "loss_hat": 0.011357797794169686,
+   "regret_hat": -0.007819804289439436,
+   "regret_default": 0.022755802311560006,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.030575606600999443,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": 0.007479964381121987,
+    "gap_lb": -0.0036510590934284363,
+    "n": 1123,
+    "n_tasks": 150,
+    "raw_regret": 0.022755802311560006,
+    "raw_ci": [
+     0.017575842035811248,
+     0.028536139399675454
+    ],
+    "recal_regret": 0.01647710217789248,
+    "recal_ci": [
+     0.01114374880774945,
+     0.02230348464264869
+    ],
+    "t1_ci": [
+     0.02190209551339747,
+     0.0341755072996551
+    ],
+    "temperatures": {
+     "global": 1.9898346795711768,
+     "per_kind": {
+      "choice": 1.9898346795711768
+     },
+     "n": 1123,
+     "n_test_rescaled": 2664,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_lite_tool_select_W10_lam0",
+   "backend": "jev",
+   "s2": "lite",
+   "dp": "tool_select",
+   "W": 10.0,
+   "lam": 0.0,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow_s2lite --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 10 --lam-per-hour 0 --V 10 --format json --out results/secondary/h1_cells/jev_lite_tool_select_W10_lam0.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": -1.4272030651340994,
+    "V_plugin": -1.897810218978102,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_lite_tool_select_W10_lam0.json.gz",
+   "n_paired": 3787,
+   "n_records": 3787,
+   "V": 10.0,
+   "V_plugin": 10.0,
+   "n_train": 1123,
+   "n_test": 2664,
+   "tau_hat": Infinity,
+   "tau_best_test": 0.99,
+   "d": 0.32544737480855856,
+   "d_ci": [
+    0.264100915776793,
+    0.39856505324008823
+   ],
+   "outcome": "win",
+   "loss_default": 0.4168238395382883,
+   "loss_hat": 0.09137646472972974,
+   "regret_hat": -0.08947155231981979,
+   "regret_default": 0.23597582248873875,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.32544737480855856,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": 0.007479964381121987,
+    "gap_lb": -0.0036510590934284363,
+    "n": 1123,
+    "n_tasks": 150,
+    "raw_regret": 0.23597582248873875,
+    "raw_ci": [
+     0.18382096519053784,
+     0.2939567461586794
+    ],
+    "recal_regret": 0.17935999717717718,
+    "recal_ci": [
+     0.12589916975526513,
+     0.2374812601759459
+    ],
+    "t1_ci": [
+     0.22978032032473542,
+     0.35328569780136565
+    ],
+    "temperatures": {
+     "global": 1.9898346795711768,
+     "per_kind": {
+      "choice": 1.9898346795711768
+     },
+     "n": 1123,
+     "n_test_rescaled": 2664,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_lite_tool_select_W10_lam0.5",
+   "backend": "jev",
+   "s2": "lite",
+   "dp": "tool_select",
+   "W": 10.0,
+   "lam": 0.5,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow_s2lite --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 10 --lam-per-hour 0.5 --V 10 --format json --out results/secondary/h1_cells/jev_lite_tool_select_W10_lam0.5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": -1.4272030651340994,
+    "V_plugin": -1.897810218978102,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_lite_tool_select_W10_lam0.5.json.gz",
+   "n_paired": 3787,
+   "n_records": 3787,
+   "V": 10.0,
+   "V_plugin": 10.0,
+   "n_train": 1123,
+   "n_test": 2664,
+   "tau_hat": Infinity,
+   "tau_best_test": 0.99,
+   "d": 0.3253520898796946,
+   "d_ci": [
+    0.2640034263531417,
+    0.3984700251815282
+   ],
+   "outcome": "win",
+   "loss_default": 0.41683479602397644,
+   "loss_hat": 0.09148270614428182,
+   "regret_hat": -0.08941448562488989,
+   "regret_default": 0.23593760425480473,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.3253520898796946,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": 0.007479964381121987,
+    "gap_lb": -0.0036510590934284363,
+    "n": 1123,
+    "n_tasks": 150,
+    "raw_regret": 0.23593760425480473,
+    "raw_ci": [
+     0.18378447129260275,
+     0.29391837917382585
+    ],
+    "recal_regret": 0.17928792389346493,
+    "recal_ci": [
+     0.12582865885584293,
+     0.2374096630964611
+    ],
+    "t1_ci": [
+     0.2297310991578543,
+     0.35323308583084045
+    ],
+    "temperatures": {
+     "global": 1.9898346795711768,
+     "per_kind": {
+      "choice": 1.9898346795711768
+     },
+     "n": 1123,
+     "n_test_rescaled": 2664,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_lite_tool_select_W10_lam5",
+   "backend": "jev",
+   "s2": "lite",
+   "dp": "tool_select",
+   "W": 10.0,
+   "lam": 5.0,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow_s2lite --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 10 --lam-per-hour 5 --V 10 --format json --out results/secondary/h1_cells/jev_lite_tool_select_W10_lam5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": -1.4272030651340994,
+    "V_plugin": -1.897810218978102,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_lite_tool_select_W10_lam5.json.gz",
+   "n_paired": 3787,
+   "n_records": 3787,
+   "V": 10.0,
+   "V_plugin": 10.0,
+   "n_train": 1123,
+   "n_test": 2664,
+   "tau_hat": Infinity,
+   "tau_best_test": 0.99,
+   "d": 0.32449452551991836,
+   "d_ci": [
+    0.2631260215402797,
+    0.3976147726544836
+   ],
+   "outcome": "win",
+   "loss_default": 0.4169334043951691,
+   "loss_hat": 0.09243887887525076,
+   "regret_hat": -0.08890088537052052,
+   "regret_default": 0.23559364014939785,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.32449452551991836,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": 0.007479964381121987,
+    "gap_lb": -0.0036510590934284363,
+    "n": 1123,
+    "n_tasks": 150,
+    "raw_regret": 0.23559364014939785,
+    "raw_ci": [
+     0.1834560262111851,
+     0.29357307631014895
+    ],
+    "recal_regret": 0.17863926434005467,
+    "recal_ci": [
+     0.1251940607610421,
+     0.23676528938109592
+    ],
+    "t1_ci": [
+     0.22928810865592203,
+     0.3527595780961151
+    ],
+    "temperatures": {
+     "global": 1.9898346795711768,
+     "per_kind": {
+      "choice": 1.9898346795711768
+     },
+     "n": 1123,
+     "n_test_rescaled": 2664,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_lite_tool_params_W0.1_lam0",
+   "backend": "jev",
+   "s2": "lite",
+   "dp": "tool_params",
+   "W": 0.1,
+   "lam": 0.0,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow_s2lite --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 0.1 --lam-per-hour 0 --V 0.1 --format json --out results/secondary/h1_cells/jev_lite_tool_params_W0.1_lam0.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_lite_tool_params_W0.1_lam0.json.gz",
+   "n_paired": 4932,
+   "n_records": 5355,
+   "V": 0.1,
+   "V_plugin": 0.1,
+   "n_train": 1451,
+   "n_test": 3481,
+   "tau_hat": 0.79,
+   "tau_best_test": 0.5,
+   "d": 4.038210284401048e-06,
+   "d_ci": [
+    2.1564804003081003e-06,
+    6.213313574016416e-06
+   ],
+   "outcome": "win",
+   "loss_default": 9.019923297902902e-05,
+   "loss_hat": 8.616102269462797e-05,
+   "regret_hat": 2.8377546681987923e-05,
+   "regret_default": 3.241575696638897e-05,
+   "tau_hat_projection": 0.55,
+   "d_projection": 3.2199879345015804e-05,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.024734665747760166,
+    "gap_lb": -0.026336969486403527,
+    "n": 1451,
+    "n_tasks": 150,
+    "raw_regret": 3.241575696638897e-05,
+    "raw_ci": [
+     -3.0198649946056452e-05,
+     6.794881022077415e-05
+    ],
+    "recal_regret": 2.5027092789428338e-05,
+    "recal_ci": [
+     -4.697885354759256e-06,
+     8.559855934514936e-05
+    ],
+    "t1_ci": [
+     0.0,
+     0.0
+    ],
+    "temperatures": {
+     "global": 0.2846291263836299,
+     "per_kind": {
+      "choice": 0.2846291263836299
+     },
+     "n": 1451,
+     "n_test_rescaled": 3771,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_lite_tool_params_W0.1_lam0.5",
+   "backend": "jev",
+   "s2": "lite",
+   "dp": "tool_params",
+   "W": 0.1,
+   "lam": 0.5,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow_s2lite --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 0.1 --lam-per-hour 0.5 --V 0.1 --format json --out results/secondary/h1_cells/jev_lite_tool_params_W0.1_lam0.5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_lite_tool_params_W0.1_lam0.5.json.gz",
+   "n_paired": 4932,
+   "n_records": 5355,
+   "V": 0.1,
+   "V_plugin": 0.1,
+   "n_train": 1451,
+   "n_test": 3481,
+   "tau_hat": 0.79,
+   "tau_best_test": 0.5,
+   "d": 4.547266234279735e-06,
+   "d_ci": [
+    2.448521921512601e-06,
+    6.962540370363766e-06
+   ],
+   "outcome": "win",
+   "loss_default": 9.610198865468119e-05,
+   "loss_hat": 9.155472242040145e-05,
+   "regret_hat": 3.370876418011284e-05,
+   "regret_default": 3.825603041439258e-05,
+   "tau_hat_projection": 0.55,
+   "d_projection": 3.801791844481168e-05,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.024734665747760166,
+    "gap_lb": -0.026336969486403527,
+    "n": 1451,
+    "n_tasks": 150,
+    "raw_regret": 3.825603041439258e-05,
+    "raw_ci": [
+     -2.455079230753645e-05,
+     7.44034407612176e-05
+    ],
+    "recal_regret": 2.4574536516965036e-05,
+    "recal_ci": [
+     -5.231342615273504e-06,
+     8.512180310293405e-05
+    ],
+    "t1_ci": [
+     -6.040508097821786e-05,
+     3.405515252798771e-05
+    ],
+    "temperatures": {
+     "global": 0.2846291263836299,
+     "per_kind": {
+      "choice": 0.2846291263836299
+     },
+     "n": 1451,
+     "n_test_rescaled": 3771,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_lite_tool_params_W0.1_lam5",
+   "backend": "jev",
+   "s2": "lite",
+   "dp": "tool_params",
+   "W": 0.1,
+   "lam": 5.0,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow_s2lite --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 0.1 --lam-per-hour 5 --V 0.1 --format json --out results/secondary/h1_cells/jev_lite_tool_params_W0.1_lam5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_lite_tool_params_W0.1_lam5.json.gz",
+   "n_paired": 4932,
+   "n_records": 5355,
+   "V": 0.1,
+   "V_plugin": 0.1,
+   "n_train": 1451,
+   "n_test": 3481,
+   "tau_hat": 0.55,
+   "tau_best_test": 0.5,
+   "d": 9.038027034297455e-05,
+   "d_ci": [
+    2.3396154595986374e-05,
+    0.00013040311076118459
+   ],
+   "outcome": "win",
+   "loss_default": 0.00014922678973555074,
+   "loss_hat": 5.884651939257618e-05,
+   "regret_hat": 4.3822110345048123e-07,
+   "regret_default": 9.081849144642504e-05,
+   "tau_hat_projection": 0.55,
+   "d_projection": 9.038027034297455e-05,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.024734665747760166,
+    "gap_lb": -0.026336969486403527,
+    "n": 1451,
+    "n_tasks": 150,
+    "raw_regret": 9.081849144642504e-05,
+    "raw_ci": [
+     2.418068551198068e-05,
+     0.00013119615708441875
+    ],
+    "recal_regret": 2.050153006479525e-05,
+    "recal_ci": [
+     -1.0139705389412265e-05,
+     8.119181609953732e-05
+    ],
+    "t1_ci": [
+     -3.395848244481118e-05,
+     6.563635877723735e-05
+    ],
+    "temperatures": {
+     "global": 0.2846291263836299,
+     "per_kind": {
+      "choice": 0.2846291263836299
+     },
+     "n": 1451,
+     "n_test_rescaled": 3771,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": true
+   }
+  },
+  {
+   "id": "jev_lite_tool_params_W1_lam0",
+   "backend": "jev",
+   "s2": "lite",
+   "dp": "tool_params",
+   "W": 1.0,
+   "lam": 0.0,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow_s2lite --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 1 --lam-per-hour 0 --V 1 --format json --out results/secondary/h1_cells/jev_lite_tool_params_W1_lam0.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_lite_tool_params_W1_lam0.json.gz",
+   "n_paired": 4932,
+   "n_records": 5355,
+   "V": 1.0,
+   "V_plugin": 1.0,
+   "n_train": 1451,
+   "n_test": 3481,
+   "tau_hat": 0.79,
+   "tau_best_test": 0.99,
+   "d": 4.038210284400886e-06,
+   "d_ci": [
+    2.1564804003079702e-06,
+    6.213313574016352e-06
+   ],
+   "outcome": "win",
+   "loss_default": 0.0003487456276931915,
+   "loss_hat": 0.0003447074174087906,
+   "regret_hat": 7.659217178971565e-05,
+   "regret_default": 8.063038207411653e-05,
+   "tau_hat_projection": 0.92,
+   "d_projection": -4.602456765297354e-05,
+   "outcome_projection": "loss",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.024734665747760166,
+    "gap_lb": -0.026336969486403527,
+    "n": 1451,
+    "n_tasks": 150,
+    "raw_regret": 8.063038207411653e-05,
+    "raw_ci": [
+     -0.00021193082259868498,
+     0.0006832428276855245
+    ],
+    "recal_regret": 0.00028357348750359084,
+    "recal_ci": [
+     -4.697885354759256e-06,
+     0.0008851498906970127
+    ],
+    "t1_ci": [
+     -0.00027396867874536387,
+     0.000621130357636867
+    ],
+    "temperatures": {
+     "global": 0.2846291263836299,
+     "per_kind": {
+      "choice": 0.2846291263836299
+     },
+     "n": 1451,
+     "n_test_rescaled": 3771,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_lite_tool_params_W1_lam0.5",
+   "backend": "jev",
+   "s2": "lite",
+   "dp": "tool_params",
+   "W": 1.0,
+   "lam": 0.5,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow_s2lite --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 1 --lam-per-hour 0.5 --V 1 --format json --out results/secondary/h1_cells/jev_lite_tool_params_W1_lam0.5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_lite_tool_params_W1_lam0.5.json.gz",
+   "n_paired": 4932,
+   "n_records": 5355,
+   "V": 1.0,
+   "V_plugin": 1.0,
+   "n_train": 1451,
+   "n_test": 3481,
+   "tau_hat": 0.79,
+   "tau_best_test": 0.99,
+   "d": 4.547266234279721e-06,
+   "d_ci": [
+    2.4485219215125495e-06,
+    6.962540370363571e-06
+   ],
+   "outcome": "win",
+   "loss_default": 0.0003546483833688437,
+   "loss_hat": 0.000350101117134564,
+   "regret_hat": 5.826003151596776e-05,
+   "regret_default": 6.280729775024748e-05,
+   "tau_hat_projection": 0.92,
+   "d_projection": -5.149505327049222e-05,
+   "outcome_projection": "loss",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.024734665747760166,
+    "gap_lb": -0.026336969486403527,
+    "n": 1451,
+    "n_tasks": 150,
+    "raw_regret": 6.280729775024748e-05,
+    "raw_ci": [
+     -0.00023054125523014137,
+     0.0006646579935807034
+    ],
+    "recal_regret": 0.0002831209312311277,
+    "recal_ci": [
+     -5.231342615273504e-06,
+     0.0008847493875351682
+    ],
+    "t1_ci": [
+     -0.0002963356843724504,
+     0.0005989164343435622
+    ],
+    "temperatures": {
+     "global": 0.2846291263836299,
+     "per_kind": {
+      "choice": 0.2846291263836299
+     },
+     "n": 1451,
+     "n_test_rescaled": 3771,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_lite_tool_params_W1_lam5",
+   "backend": "jev",
+   "s2": "lite",
+   "dp": "tool_params",
+   "W": 1.0,
+   "lam": 5.0,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow_s2lite --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 1 --lam-per-hour 5 --V 1 --format json --out results/secondary/h1_cells/jev_lite_tool_params_W1_lam5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_lite_tool_params_W1_lam5.json.gz",
+   "n_paired": 4932,
+   "n_records": 5355,
+   "V": 1.0,
+   "V_plugin": 1.0,
+   "n_train": 1451,
+   "n_test": 3481,
+   "tau_hat": 0.79,
+   "tau_best_test": 0.8,
+   "d": 9.12876978318805e-06,
+   "d_ci": [
+    4.84834965167098e-06,
+    1.3949513259225683e-05
+   ],
+   "outcome": "win",
+   "loss_default": 0.00040777318444971337,
+   "loss_hat": 0.0003986444146665253,
+   "regret_hat": -9.12876978318805e-06,
+   "regret_default": 0.0,
+   "tau_hat_projection": 0.92,
+   "d_projection": -0.00010072942382816238,
+   "outcome_projection": "loss",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.024734665747760166,
+    "gap_lb": -0.026336969486403527,
+    "n": 1451,
+    "n_tasks": 150,
+    "raw_regret": 0.0,
+    "raw_ci": [
+     0.0,
+     0.0
+    ],
+    "recal_regret": 0.000279047924778958,
+    "recal_ci": [
+     -1.0139705389412265e-05,
+     0.0008811448590785748
+    ],
+    "t1_ci": [
+     0.0,
+     0.0
+    ],
+    "temperatures": {
+     "global": 0.2846291263836299,
+     "per_kind": {
+      "choice": 0.2846291263836299
+     },
+     "n": 1451,
+     "n_test_rescaled": 3771,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_lite_tool_params_W10_lam0",
+   "backend": "jev",
+   "s2": "lite",
+   "dp": "tool_params",
+   "W": 10.0,
+   "lam": 0.0,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow_s2lite --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 10 --lam-per-hour 0 --V 10 --format json --out results/secondary/h1_cells/jev_lite_tool_params_W10_lam0.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_lite_tool_params_W10_lam0.json.gz",
+   "n_paired": 4932,
+   "n_records": 5355,
+   "V": 10.0,
+   "V_plugin": 10.0,
+   "n_train": 1451,
+   "n_test": 3481,
+   "tau_hat": 0.79,
+   "tau_best_test": 0.99,
+   "d": 4.038210284401048e-06,
+   "d_ci": [
+    2.156480400305853e-06,
+    6.213313574015764e-06
+   ],
+   "outcome": "win",
+   "loss_default": 0.0029342095748348175,
+   "loss_hat": 0.0029301713645504164,
+   "regret_hat": 0.0026620561189313417,
+   "regret_default": 0.0026660943292157423,
+   "tau_hat_projection": 0.92,
+   "d_projection": -4.6024567652973216e-05,
+   "outcome_projection": "loss",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.024734665747760166,
+    "gap_lb": -0.026336969486403527,
+    "n": 1451,
+    "n_tasks": 150,
+    "raw_regret": 0.0026660943292157423,
+    "raw_ci": [
+     -0.00021193082259868498,
+     0.008677742518241003
+    ],
+    "recal_regret": 0.002869037434645217,
+    "recal_ci": [
+     -4.697885354759256e-06,
+     0.008878757474211608
+    ],
+    "t1_ci": [
+     -0.00027396867874536387,
+     0.00861442534976265
+    ],
+    "temperatures": {
+     "global": 0.2846291263836299,
+     "per_kind": {
+      "choice": 0.2846291263836299
+     },
+     "n": 1451,
+     "n_test_rescaled": 3771,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_lite_tool_params_W10_lam0.5",
+   "backend": "jev",
+   "s2": "lite",
+   "dp": "tool_params",
+   "W": 10.0,
+   "lam": 0.5,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow_s2lite --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 10 --lam-per-hour 0.5 --V 10 --format json --out results/secondary/h1_cells/jev_lite_tool_params_W10_lam0.5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_lite_tool_params_W10_lam0.5.json.gz",
+   "n_paired": 4932,
+   "n_records": 5355,
+   "V": 10.0,
+   "V_plugin": 10.0,
+   "n_train": 1451,
+   "n_test": 3481,
+   "tau_hat": 0.79,
+   "tau_best_test": 0.99,
+   "d": 4.547266234279559e-06,
+   "d_ci": [
+    2.448521921511815e-06,
+    6.9625403703614395e-06
+   ],
+   "outcome": "win",
+   "loss_default": 0.0029401123305104696,
+   "loss_hat": 0.00293556506427619,
+   "regret_hat": 0.002643723978657594,
+   "regret_default": 0.0026482712448918735,
+   "tau_hat_projection": 0.92,
+   "d_projection": -5.149505327049168e-05,
+   "outcome_projection": "loss",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.024734665747760166,
+    "gap_lb": -0.026336969486403527,
+    "n": 1451,
+    "n_tasks": 150,
+    "raw_regret": 0.0026482712448918735,
+    "raw_ci": [
+     -0.00023054125523014137,
+     0.008659610650529654
+    ],
+    "recal_regret": 0.0028685848783727543,
+    "recal_ci": [
+     -5.231342615273504e-06,
+     0.008878356971049764
+    ],
+    "t1_ci": [
+     -0.0002963356843724504,
+     0.008591608236434208
+    ],
+    "temperatures": {
+     "global": 0.2846291263836299,
+     "per_kind": {
+      "choice": 0.2846291263836299
+     },
+     "n": 1451,
+     "n_test_rescaled": 3771,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "jev_lite_tool_params_W10_lam5",
+   "backend": "jev",
+   "s2": "lite",
+   "dp": "tool_params",
+   "W": 10.0,
+   "lam": 5.0,
+   "run": "e2a_jevgym_tool_decisions",
+   "arm": "jev_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions --arm jev_shadow_s2lite --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 10 --lam-per-hour 5 --V 10 --format json --out results/secondary/h1_cells/jev_lite_tool_params_W10_lam5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/jev_lite_tool_params_W10_lam5.json.gz",
+   "n_paired": 4932,
+   "n_records": 5355,
+   "V": 10.0,
+   "V_plugin": 10.0,
+   "n_train": 1451,
+   "n_test": 3481,
+   "tau_hat": 0.79,
+   "tau_best_test": 0.99,
+   "d": 9.12876978318702e-06,
+   "d_ci": [
+    4.84834965167098e-06,
+    1.394951325922563e-05
+   ],
+   "outcome": "win",
+   "loss_default": 0.002993237131591339,
+   "loss_hat": 0.002984108361808152,
+   "regret_hat": 0.002478734716193864,
+   "regret_default": 0.002487863485977051,
+   "tau_hat_projection": 0.92,
+   "d_projection": -0.00010072942382816216,
+   "outcome_projection": "loss",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.024734665747760166,
+    "gap_lb": -0.026336969486403527,
+    "n": 1451,
+    "n_tasks": 150,
+    "raw_regret": 0.002487863485977051,
+    "raw_ci": [
+     -0.0003966518239064837,
+     0.008496423841127556
+    ],
+    "recal_regret": 0.0028645118719205836,
+    "recal_ci": [
+     -1.0139705389412265e-05,
+     0.008874752442593165
+    ],
+    "t1_ci": [
+     -0.0005009109206863908,
+     0.008386254216478274
+    ],
+    "temperatures": {
+     "global": 0.2846291263836299,
+     "per_kind": {
+      "choice": 0.2846291263836299
+     },
+     "n": 1451,
+     "n_test_rescaled": 3771,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_flash_tool_select_W0.1_lam0",
+   "backend": "intern",
+   "s2": "flash",
+   "dp": "tool_select",
+   "W": 0.1,
+   "lam": 0.0,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 0.1 --lam-per-hour 0 --V 0.1 --format json --out results/secondary/h1_cells/intern_flash_tool_select_W0.1_lam0.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": 0.1,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_flash_tool_select_W0.1_lam0.json.gz",
+   "n_paired": 3755,
+   "n_records": 3755,
+   "V": 0.1,
+   "V_plugin": 0.1,
+   "n_train": 1110,
+   "n_test": 2645,
+   "tau_hat": 0.9731975847311226,
+   "tau_best_test": 0.99,
+   "d": 0.0057884081285444235,
+   "d_ci": [
+    0.004733630399136606,
+    0.006942795485738071
+   ],
+   "outcome": "win",
+   "loss_default": 0.01153189381852552,
+   "loss_hat": 0.005743485689981096,
+   "regret_hat": -0.0001476588279773162,
+   "regret_default": 0.005640749300567107,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.0056361107561436665,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.05032103841654083,
+    "gap_lb": 0.03024670254895456,
+    "n": 1110,
+    "n_tasks": 150,
+    "raw_regret": 0.005640749300567107,
+    "raw_ci": [
+     0.0045901815638548895,
+     0.006817758500791746
+    ],
+    "recal_regret": 0.00875309582230624,
+    "recal_ci": [
+     0.007583768682747035,
+     0.009981930911059485
+    ],
+    "t1_ci": [
+     0.0045901815638548895,
+     0.006817758500791746
+    ],
+    "temperatures": {
+     "global": 0.7295495716626619,
+     "per_kind": {
+      "choice": 0.7295495716626619
+     },
+     "n": 909,
+     "n_test_rescaled": 2645,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_flash_tool_select_W0.1_lam0.5",
+   "backend": "intern",
+   "s2": "flash",
+   "dp": "tool_select",
+   "W": 0.1,
+   "lam": 0.5,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 0.1 --lam-per-hour 0.5 --V 0.1 --format json --out results/secondary/h1_cells/intern_flash_tool_select_W0.1_lam0.5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": 0.1,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_flash_tool_select_W0.1_lam0.5.json.gz",
+   "n_paired": 3755,
+   "n_records": 3755,
+   "V": 0.1,
+   "V_plugin": 0.1,
+   "n_train": 1110,
+   "n_test": 2645,
+   "tau_hat": 0.9731975847311226,
+   "tau_best_test": 0.99,
+   "d": 0.005665410725141777,
+   "d_ci": [
+    0.004618525135830355,
+    0.0068239977981364355
+   ],
+   "outcome": "win",
+   "loss_default": 0.011594218481136948,
+   "loss_hat": 0.0059288077559951705,
+   "regret_hat": -0.00015373282682482666,
+   "regret_default": 0.005511677898316951,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.005506940434561752,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.05032103841654083,
+    "gap_lb": 0.03024670254895456,
+    "n": 1110,
+    "n_tasks": 150,
+    "raw_regret": 0.005511677898316951,
+    "raw_ci": [
+     0.004463556568653152,
+     0.006690804357774752
+    ],
+    "recal_regret": 0.008622253101852023,
+    "recal_ci": [
+     0.007440646231719397,
+     0.009853950438642099
+    ],
+    "t1_ci": [
+     0.004463556568653152,
+     0.006690804357774752
+    ],
+    "temperatures": {
+     "global": 0.7295495716626619,
+     "per_kind": {
+      "choice": 0.7295495716626619
+     },
+     "n": 909,
+     "n_test_rescaled": 2645,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_flash_tool_select_W0.1_lam5",
+   "backend": "intern",
+   "s2": "flash",
+   "dp": "tool_select",
+   "W": 0.1,
+   "lam": 5.0,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 0.1 --lam-per-hour 5 --V 0.1 --format json --out results/secondary/h1_cells/intern_flash_tool_select_W0.1_lam5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": 0.1,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_flash_tool_select_W0.1_lam5.json.gz",
+   "n_paired": 3755,
+   "n_records": 3755,
+   "V": 0.1,
+   "V_plugin": 0.1,
+   "n_train": 1110,
+   "n_test": 2645,
+   "tau_hat": 0.9712199878518807,
+   "tau_best_test": 0.99,
+   "d": 0.004591279560975627,
+   "d_ci": [
+    0.003525015369002252,
+    0.005691791289272529
+   ],
+   "outcome": "win",
+   "loss_default": 0.01215514044463979,
+   "loss_hat": 0.007563860883664163,
+   "regret_hat": -0.00024124428291010143,
+   "regret_default": 0.004350035278065526,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.004344407540324505,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.05032103841654083,
+    "gap_lb": 0.03024670254895456,
+    "n": 1110,
+    "n_tasks": 150,
+    "raw_regret": 0.004350035278065526,
+    "raw_ci": [
+     0.003299797617732139,
+     0.005506565985294501
+    ],
+    "recal_regret": 0.007444668617764114,
+    "recal_ci": [
+     0.006280462690114792,
+     0.008655364415147268
+    ],
+    "t1_ci": [
+     0.003299797617732139,
+     0.005506565985294501
+    ],
+    "temperatures": {
+     "global": 0.7295495716626619,
+     "per_kind": {
+      "choice": 0.7295495716626619
+     },
+     "n": 909,
+     "n_test_rescaled": 2645,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_flash_tool_select_W1_lam0",
+   "backend": "intern",
+   "s2": "flash",
+   "dp": "tool_select",
+   "W": 1.0,
+   "lam": 0.0,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 1 --lam-per-hour 0 --V 1 --format json --out results/secondary/h1_cells/intern_flash_tool_select_W1_lam0.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": 1.0,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_flash_tool_select_W1_lam0.json.gz",
+   "n_paired": 3755,
+   "n_records": 3755,
+   "V": 1.0,
+   "V_plugin": 1.0,
+   "n_train": 1110,
+   "n_test": 2645,
+   "tau_hat": 0.9731975847311226,
+   "tau_best_test": 0.99,
+   "d": 0.08847271814744803,
+   "d_ci": [
+    0.07735181358127992,
+    0.10057037686847427
+   ],
+   "outcome": "win",
+   "loss_default": 0.096598056389414,
+   "loss_hat": 0.008125338241965974,
+   "regret_hat": 0.00019260582230623893,
+   "regret_default": 0.08866532396975427,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.08866068542533083,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.05032103841654083,
+    "gap_lb": 0.03024670254895456,
+    "n": 1110,
+    "n_tasks": 150,
+    "raw_regret": 0.08866532396975427,
+    "raw_ci": [
+     0.0775272449453732,
+     0.10071675767535601
+    ],
+    "recal_regret": 0.12070016576559545,
+    "recal_ci": [
+     0.1089807747194628,
+     0.1331434068899457
+    ],
+    "t1_ci": [
+     0.0775272449453732,
+     0.10071675767535601
+    ],
+    "temperatures": {
+     "global": 0.7295495716626619,
+     "per_kind": {
+      "choice": 0.7295495716626619
+     },
+     "n": 909,
+     "n_test_rescaled": 2645,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_flash_tool_select_W1_lam0.5",
+   "backend": "intern",
+   "s2": "flash",
+   "dp": "tool_select",
+   "W": 1.0,
+   "lam": 0.5,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 1 --lam-per-hour 0.5 --V 1 --format json --out results/secondary/h1_cells/intern_flash_tool_select_W1_lam0.5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": 1.0,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_flash_tool_select_W1_lam0.5.json.gz",
+   "n_paired": 3755,
+   "n_records": 3755,
+   "V": 1.0,
+   "V_plugin": 1.0,
+   "n_train": 1110,
+   "n_test": 2645,
+   "tau_hat": 0.9731975847311226,
+   "tau_best_test": 0.99,
+   "d": 0.08834972074404537,
+   "d_ci": [
+    0.07722483469945296,
+    0.10045666981638557
+   ],
+   "outcome": "win",
+   "loss_default": 0.09666038105202542,
+   "loss_hat": 0.008310660307980047,
+   "regret_hat": 0.00018653182345872502,
+   "regret_default": 0.0885362525675041,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.08853151510374889,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.05032103841654083,
+    "gap_lb": 0.03024670254895456,
+    "n": 1110,
+    "n_tasks": 150,
+    "raw_regret": 0.0885362525675041,
+    "raw_ci": [
+     0.07739458213738398,
+     0.10057052915752009
+    ],
+    "recal_regret": 0.12056932304514123,
+    "recal_ci": [
+     0.10884860155285049,
+     0.13300795821358255
+    ],
+    "t1_ci": [
+     0.07739458213738398,
+     0.10057052915752009
+    ],
+    "temperatures": {
+     "global": 0.7295495716626619,
+     "per_kind": {
+      "choice": 0.7295495716626619
+     },
+     "n": 909,
+     "n_test_rescaled": 2645,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_flash_tool_select_W1_lam5",
+   "backend": "intern",
+   "s2": "flash",
+   "dp": "tool_select",
+   "W": 1.0,
+   "lam": 5.0,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 1 --lam-per-hour 5 --V 1 --format json --out results/secondary/h1_cells/intern_flash_tool_select_W1_lam5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": 1.0,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_flash_tool_select_W1_lam5.json.gz",
+   "n_paired": 3755,
+   "n_records": 3755,
+   "V": 1.0,
+   "V_plugin": 1.0,
+   "n_train": 1110,
+   "n_test": 2645,
+   "tau_hat": 0.9731975847311226,
+   "tau_best_test": 0.99,
+   "d": 0.08724274411342153,
+   "d_ci": [
+    0.07608202476301118,
+    0.09943096143264123
+   ],
+   "outcome": "win",
+   "loss_default": 0.09722130301552825,
+   "loss_hat": 0.009978558902106716,
+   "regret_hat": 0.00013186583383112752,
+   "regret_default": 0.08737460994725267,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.08736898220951164,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.05032103841654083,
+    "gap_lb": 0.03024670254895456,
+    "n": 1110,
+    "n_tasks": 150,
+    "raw_regret": 0.08737460994725267,
+    "raw_ci": [
+     0.076200616865482,
+     0.0992544724969971
+    ],
+    "recal_regret": 0.11939173856105334,
+    "recal_ci": [
+     0.10765904305334055,
+     0.13178785769582663
+    ],
+    "t1_ci": [
+     0.076200616865482,
+     0.0992544724969971
+    ],
+    "temperatures": {
+     "global": 0.7295495716626619,
+     "per_kind": {
+      "choice": 0.7295495716626619
+     },
+     "n": 909,
+     "n_test_rescaled": 2645,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_flash_tool_select_W10_lam0",
+   "backend": "intern",
+   "s2": "flash",
+   "dp": "tool_select",
+   "W": 10.0,
+   "lam": 0.0,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 10 --lam-per-hour 0 --V 10 --format json --out results/secondary/h1_cells/intern_flash_tool_select_W10_lam0.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": 10.0,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_flash_tool_select_W10_lam0.json.gz",
+   "n_paired": 3755,
+   "n_records": 3755,
+   "V": 10.0,
+   "V_plugin": 10.0,
+   "n_train": 1110,
+   "n_test": 2645,
+   "tau_hat": 0.9731975847311226,
+   "tau_best_test": 0.99,
+   "d": 0.915315818336484,
+   "d_ci": [
+    0.8041087834489232,
+    1.0368881344963783
+   ],
+   "outcome": "win",
+   "loss_default": 0.9472596820982988,
+   "loss_hat": 0.03194386376181475,
+   "regret_hat": 0.0035952523251417887,
+   "regret_default": 0.9189110706616258,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.9189064321172024,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.05032103841654083,
+    "gap_lb": 0.03024670254895456,
+    "n": 1110,
+    "n_tasks": 150,
+    "raw_regret": 0.9189110706616258,
+    "raw_ci": [
+     0.8075946490776106,
+     1.0391228305227427
+    ],
+    "recal_regret": 1.2401708651984877,
+    "recal_ci": [
+     1.1229820942225666,
+     1.3643668732428125
+    ],
+    "t1_ci": [
+     0.8075946490776106,
+     1.0391228305227427
+    ],
+    "temperatures": {
+     "global": 0.7295495716626619,
+     "per_kind": {
+      "choice": 0.7295495716626619
+     },
+     "n": 909,
+     "n_test_rescaled": 2645,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_flash_tool_select_W10_lam0.5",
+   "backend": "intern",
+   "s2": "flash",
+   "dp": "tool_select",
+   "W": 10.0,
+   "lam": 0.5,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 10 --lam-per-hour 0.5 --V 10 --format json --out results/secondary/h1_cells/intern_flash_tool_select_W10_lam0.5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": 10.0,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_flash_tool_select_W10_lam0.5.json.gz",
+   "n_paired": 3755,
+   "n_records": 3755,
+   "V": 10.0,
+   "V_plugin": 10.0,
+   "n_train": 1110,
+   "n_test": 2645,
+   "tau_hat": 0.9731975847311226,
+   "tau_best_test": 0.99,
+   "d": 0.9151928209330812,
+   "d_ci": [
+    0.803981804567096,
+    1.03677442744429
+   ],
+   "outcome": "win",
+   "loss_default": 0.94732200676091,
+   "loss_hat": 0.03212918582782882,
+   "regret_hat": 0.0035891783262942643,
+   "regret_default": 0.9187819992593755,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.9187772617956202,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.05032103841654083,
+    "gap_lb": 0.03024670254895456,
+    "n": 1110,
+    "n_tasks": 150,
+    "raw_regret": 0.9187819992593755,
+    "raw_ci": [
+     0.8074618963039008,
+     1.0389766020049063
+    ],
+    "recal_regret": 1.2400400224780335,
+    "recal_ci": [
+     1.122852771487074,
+     1.3642313861622721
+    ],
+    "t1_ci": [
+     0.8074618963039008,
+     1.0389766020049063
+    ],
+    "temperatures": {
+     "global": 0.7295495716626619,
+     "per_kind": {
+      "choice": 0.7295495716626619
+     },
+     "n": 909,
+     "n_test_rescaled": 2645,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_flash_tool_select_W10_lam5",
+   "backend": "intern",
+   "s2": "flash",
+   "dp": "tool_select",
+   "W": 10.0,
+   "lam": 5.0,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 10 --lam-per-hour 5 --V 10 --format json --out results/secondary/h1_cells/intern_flash_tool_select_W10_lam5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": 10.0,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_flash_tool_select_W10_lam5.json.gz",
+   "n_paired": 3755,
+   "n_records": 3755,
+   "V": 10.0,
+   "V_plugin": 10.0,
+   "n_train": 1110,
+   "n_test": 2645,
+   "tau_hat": 0.9731975847311226,
+   "tau_best_test": 0.99,
+   "d": 0.9140858443024575,
+   "d_ci": [
+    0.802838994630653,
+    1.0357510639754905
+   ],
+   "outcome": "win",
+   "loss_default": 0.947882928724413,
+   "loss_hat": 0.03379708442195549,
+   "regret_hat": 0.0035345123366666634,
+   "regret_default": 0.9176203566391242,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.9176147289013832,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.05032103841654083,
+    "gap_lb": 0.03024670254895456,
+    "n": 1110,
+    "n_tasks": 150,
+    "raw_regret": 0.9176203566391242,
+    "raw_ci": [
+     0.8062671213405154,
+     1.037660545344384
+    ],
+    "recal_regret": 1.2388624379939455,
+    "recal_ci": [
+     1.121688866867632,
+     1.363012002437416
+    ],
+    "t1_ci": [
+     0.8062671213405154,
+     1.037660545344384
+    ],
+    "temperatures": {
+     "global": 0.7295495716626619,
+     "per_kind": {
+      "choice": 0.7295495716626619
+     },
+     "n": 909,
+     "n_test_rescaled": 2645,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_flash_tool_params_W0.1_lam0",
+   "backend": "intern",
+   "s2": "flash",
+   "dp": "tool_params",
+   "W": 0.1,
+   "lam": 0.0,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 0.1 --lam-per-hour 0 --V 0.1 --format json --out results/secondary/h1_cells/intern_flash_tool_params_W0.1_lam0.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_flash_tool_params_W0.1_lam0.json.gz",
+   "n_paired": 4202,
+   "n_records": 5317,
+   "V": 0.1,
+   "V_plugin": 0.1,
+   "n_train": 1229,
+   "n_test": 2973,
+   "tau_hat": 0.60105012436413,
+   "tau_best_test": 0.5,
+   "d": 0.0010556816347124117,
+   "d_ci": [
+    0.0009128770337598073,
+    0.0011787095169806432
+   ],
+   "outcome": "win",
+   "loss_default": 0.003352212041708712,
+   "loss_hat": 0.0022965304069963,
+   "regret_hat": -0.0004232408846283216,
+   "regret_default": 0.0006324407500840901,
+   "tau_hat_projection": 0.6534865018957677,
+   "d_projection": 0.0008213017490750086,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.12405445887392413,
+    "gap_lb": -0.14327365789174867,
+    "n": 1229,
+    "n_tasks": 150,
+    "raw_regret": 0.0006324407500840901,
+    "raw_ci": [
+     0.00018108800422427174,
+     0.0010233443336691165
+    ],
+    "recal_regret": 0.0006428732256979481,
+    "recal_ci": [
+     0.0005506794995840867,
+     0.0007141277735643783
+    ],
+    "t1_ci": [
+     0.00018108800422427174,
+     0.0010233443336691165
+    ],
+    "temperatures": {
+     "global": 0.9086136897974706,
+     "per_kind": {
+      "choice": 0.9086136897974706
+     },
+     "n": 1229,
+     "n_test_rescaled": 3749,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_flash_tool_params_W0.1_lam0.5",
+   "backend": "intern",
+   "s2": "flash",
+   "dp": "tool_params",
+   "W": 0.1,
+   "lam": 0.5,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 0.1 --lam-per-hour 0.5 --V 0.1 --format json --out results/secondary/h1_cells/intern_flash_tool_params_W0.1_lam0.5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_flash_tool_params_W0.1_lam0.5.json.gz",
+   "n_paired": 4202,
+   "n_records": 5317,
+   "V": 0.1,
+   "V_plugin": 0.1,
+   "n_train": 1229,
+   "n_test": 2973,
+   "tau_hat": 0.60105012436413,
+   "tau_best_test": 0.5,
+   "d": 0.0010894124705973203,
+   "d_ci": [
+    0.0009476104477684751,
+    0.0012125330918294668
+   ],
+   "outcome": "win",
+   "loss_default": 0.0034577742017175422,
+   "loss_hat": 0.002368361731120222,
+   "regret_hat": -0.0004082288680122021,
+   "regret_default": 0.0006811836025851182,
+   "tau_hat_projection": 0.6534865018957677,
+   "d_projection": 0.0008483666537414509,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.12405445887392413,
+    "gap_lb": -0.14327365789174867,
+    "n": 1229,
+    "n_tasks": 150,
+    "raw_regret": 0.0006811836025851182,
+    "raw_ci": [
+     0.00023329505155517686,
+     0.0010685699800043128
+    ],
+    "recal_regret": 0.0006632001952196626,
+    "recal_ci": [
+     0.0005722837612029624,
+     0.0007348034598753774
+    ],
+    "t1_ci": [
+     0.00023329505155517686,
+     0.0010685699800043128
+    ],
+    "temperatures": {
+     "global": 0.9086136897974706,
+     "per_kind": {
+      "choice": 0.9086136897974706
+     },
+     "n": 1229,
+     "n_test_rescaled": 3749,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_flash_tool_params_W0.1_lam5",
+   "backend": "intern",
+   "s2": "flash",
+   "dp": "tool_params",
+   "W": 0.1,
+   "lam": 5.0,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 0.1 --lam-per-hour 5 --V 0.1 --format json --out results/secondary/h1_cells/intern_flash_tool_params_W0.1_lam5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_flash_tool_params_W0.1_lam5.json.gz",
+   "n_paired": 4202,
+   "n_records": 5317,
+   "V": 0.1,
+   "V_plugin": 0.1,
+   "n_train": 1229,
+   "n_test": 2973,
+   "tau_hat": 0.60105012436413,
+   "tau_best_test": 0.5,
+   "d": 0.0013929899935614994,
+   "d_ci": [
+    0.0012350324002872188,
+    0.0015345068301783724
+   ],
+   "outcome": "win",
+   "loss_default": 0.004407833641797018,
+   "loss_hat": 0.0030148436482355188,
+   "regret_hat": -0.00027312071846712646,
+   "regret_default": 0.001119869275094373,
+   "tau_hat_projection": 0.532989719724546,
+   "d_projection": 0.0012629587826508072,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.12405445887392413,
+    "gap_lb": -0.14327365789174867,
+    "n": 1229,
+    "n_tasks": 150,
+    "raw_regret": 0.001119869275094373,
+    "raw_ci": [
+     0.0006800365990542166,
+     0.0015039066661358528
+    ],
+    "recal_regret": 0.0008461429209150884,
+    "recal_ci": [
+     0.0007344016716063042,
+     0.0009424651775111715
+    ],
+    "t1_ci": [
+     0.0006800365990542166,
+     0.0015039066661358528
+    ],
+    "temperatures": {
+     "global": 0.9086136897974706,
+     "per_kind": {
+      "choice": 0.9086136897974706
+     },
+     "n": 1229,
+     "n_test_rescaled": 3749,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_flash_tool_params_W1_lam0",
+   "backend": "intern",
+   "s2": "flash",
+   "dp": "tool_params",
+   "W": 1.0,
+   "lam": 0.0,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 1 --lam-per-hour 0 --V 1 --format json --out results/secondary/h1_cells/intern_flash_tool_params_W1_lam0.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_flash_tool_params_W1_lam0.json.gz",
+   "n_paired": 4202,
+   "n_records": 5317,
+   "V": 1.0,
+   "V_plugin": 1.0,
+   "n_train": 1229,
+   "n_test": 2973,
+   "tau_hat": 0.8618533581396963,
+   "tau_best_test": 0.95,
+   "d": -0.00015669764547595125,
+   "d_ci": [
+    -0.0005309737552327279,
+    0.0005486615067643656
+   ],
+   "outcome": "loss",
+   "loss_default": 0.00547128368651194,
+   "loss_hat": 0.005627981331987891,
+   "regret_hat": 0.000770179767911201,
+   "regret_default": 0.0006134821224352497,
+   "tau_hat_projection": 0.9583890951006,
+   "d_projection": 0.0004853022031617877,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.12405445887392413,
+    "gap_lb": -0.14327365789174867,
+    "n": 1229,
+    "n_tasks": 150,
+    "raw_regret": 0.0006134821224352497,
+    "raw_ci": [
+     -0.0010451070891928384,
+     0.0023478155670808814
+    ],
+    "recal_regret": 0.0008341156575849299,
+    "recal_ci": [
+     -0.0008824764800935058,
+     0.002708381983119325
+    ],
+    "t1_ci": [
+     -0.0010451070891928384,
+     0.0023478155670808814
+    ],
+    "temperatures": {
+     "global": 0.9086136897974706,
+     "per_kind": {
+      "choice": 0.9086136897974706
+     },
+     "n": 1229,
+     "n_test_rescaled": 3749,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_flash_tool_params_W1_lam0.5",
+   "backend": "intern",
+   "s2": "flash",
+   "dp": "tool_params",
+   "W": 1.0,
+   "lam": 0.5,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 1 --lam-per-hour 0.5 --V 1 --format json --out results/secondary/h1_cells/intern_flash_tool_params_W1_lam0.5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_flash_tool_params_W1_lam0.5.json.gz",
+   "n_paired": 4202,
+   "n_records": 5317,
+   "V": 1.0,
+   "V_plugin": 1.0,
+   "n_train": 1229,
+   "n_test": 2973,
+   "tau_hat": 0.8618533581396963,
+   "tau_best_test": 0.95,
+   "d": -0.00017237475701540814,
+   "d_ci": [
+    -0.0005483596199141277,
+    0.0005323279535664658
+   ],
+   "outcome": "loss",
+   "loss_default": 0.0055768458465207706,
+   "loss_hat": 0.005749220603536179,
+   "regret_hat": 0.0007214282741303205,
+   "regret_default": 0.0005490535171149124,
+   "tau_hat_projection": 0.9583890951006,
+   "d_projection": 0.00041679833830787164,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.12405445887392413,
+    "gap_lb": -0.14327365789174867,
+    "n": 1229,
+    "n_tasks": 150,
+    "raw_regret": 0.0005490535171149124,
+    "raw_ci": [
+     -0.001106633883241178,
+     0.0022882387929392682
+    ],
+    "recal_regret": 0.0007692168151010939,
+    "recal_ci": [
+     -0.0009545489686572033,
+     0.002650304476728731
+    ],
+    "t1_ci": [
+     -0.001106633883241178,
+     0.0022882387929392682
+    ],
+    "temperatures": {
+     "global": 0.9086136897974706,
+     "per_kind": {
+      "choice": 0.9086136897974706
+     },
+     "n": 1229,
+     "n_test_rescaled": 3749,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_flash_tool_params_W1_lam5",
+   "backend": "intern",
+   "s2": "flash",
+   "dp": "tool_params",
+   "W": 1.0,
+   "lam": 5.0,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 1 --lam-per-hour 5 --V 1 --format json --out results/secondary/h1_cells/intern_flash_tool_params_W1_lam5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_flash_tool_params_W1_lam5.json.gz",
+   "n_paired": 4202,
+   "n_records": 5317,
+   "V": 1.0,
+   "V_plugin": 1.0,
+   "n_train": 1229,
+   "n_test": 2973,
+   "tau_hat": 0.60105012436413,
+   "tau_best_test": 0.7,
+   "d": 0.00048481643150297387,
+   "d_ci": [
+    -0.0008960057728731736,
+    0.0015074123875856585
+   ],
+   "outcome": "win",
+   "loss_default": 0.006526905286600247,
+   "loss_hat": 0.0060420888550972735,
+   "regret_hat": -0.0003234304914396238,
+   "regret_default": 0.00016138594006335008,
+   "tau_hat_projection": 0.9583890951006,
+   "d_projection": -0.00019973644537738672,
+   "outcome_projection": "loss",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.12405445887392413,
+    "gap_lb": -0.14327365789174867,
+    "n": 1229,
+    "n_tasks": 150,
+    "raw_regret": 0.00016138594006335008,
+    "raw_ci": [
+     -0.000839043590142329,
+     0.0008781865923032354
+    ],
+    "recal_regret": 0.0005434184002289138,
+    "recal_ci": [
+     -0.00019257059431537356,
+     0.000936783102333089
+    ],
+    "t1_ci": [
+     -0.000839043590142329,
+     0.0008781865923032354
+    ],
+    "temperatures": {
+     "global": 0.9086136897974706,
+     "per_kind": {
+      "choice": 0.9086136897974706
+     },
+     "n": 1229,
+     "n_test_rescaled": 3749,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_flash_tool_params_W10_lam0",
+   "backend": "intern",
+   "s2": "flash",
+   "dp": "tool_params",
+   "W": 10.0,
+   "lam": 0.0,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 10 --lam-per-hour 0 --V 10 --format json --out results/secondary/h1_cells/intern_flash_tool_params_W10_lam0.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_flash_tool_params_W10_lam0.json.gz",
+   "n_paired": 4202,
+   "n_records": 5317,
+   "V": 10.0,
+   "V_plugin": 10.0,
+   "n_train": 1229,
+   "n_test": 2973,
+   "tau_hat": 0.9311787961050145,
+   "tau_best_test": 0.95,
+   "d": 0.018624562916246222,
+   "d_ci": [
+    0.0050935290321563785,
+    0.034879745112000045
+   ],
+   "outcome": "win",
+   "loss_default": 0.02666200013454424,
+   "loss_hat": 0.008037437218298017,
+   "regret_hat": 0.0031796356542213265,
+   "regret_default": 0.02180419857046755,
+   "tau_hat_projection": 0.9583890951006,
+   "d_projection": 0.021676018651194087,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.12405445887392413,
+    "gap_lb": -0.14327365789174867,
+    "n": 1229,
+    "n_tasks": 150,
+    "raw_regret": 0.02180419857046755,
+    "raw_ci": [
+     0.005036251127003746,
+     0.03892948185503332
+    ],
+    "recal_regret": 0.025052077312478983,
+    "recal_ci": [
+     0.008149325402488583,
+     0.0434648994386801
+    ],
+    "t1_ci": [
+     0.005036251127003746,
+     0.03892948185503332
+    ],
+    "temperatures": {
+     "global": 0.9086136897974706,
+     "per_kind": {
+      "choice": 0.9086136897974706
+     },
+     "n": 1229,
+     "n_test_rescaled": 3749,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_flash_tool_params_W10_lam0.5",
+   "backend": "intern",
+   "s2": "flash",
+   "dp": "tool_params",
+   "W": 10.0,
+   "lam": 0.5,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 10 --lam-per-hour 0.5 --V 10 --format json --out results/secondary/h1_cells/intern_flash_tool_params_W10_lam0.5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_flash_tool_params_W10_lam0.5.json.gz",
+   "n_paired": 4202,
+   "n_records": 5317,
+   "V": 10.0,
+   "V_plugin": 10.0,
+   "n_train": 1229,
+   "n_test": 2973,
+   "tau_hat": 0.9311787961050145,
+   "tau_best_test": 0.95,
+   "d": 0.018568483411543893,
+   "d_ci": [
+    0.005031780626634401,
+    0.03482927584507751
+   ],
+   "outcome": "win",
+   "loss_default": 0.02676756229455306,
+   "loss_hat": 0.008199078883009168,
+   "regret_hat": 0.0031712865536033096,
+   "regret_default": 0.021739769965147204,
+   "tau_hat_projection": 0.9583890951006,
+   "d_projection": 0.02160751478634016,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.12405445887392413,
+    "gap_lb": -0.14327365789174867,
+    "n": 1229,
+    "n_tasks": 150,
+    "raw_regret": 0.021739769965147204,
+    "raw_ci": [
+     0.00497352314248562,
+     0.03886632586367964
+    ],
+    "recal_regret": 0.024987178469995142,
+    "recal_ci": [
+     0.008083585241817537,
+     0.04339740531159609
+    ],
+    "t1_ci": [
+     0.00497352314248562,
+     0.03886632586367964
+    ],
+    "temperatures": {
+     "global": 0.9086136897974706,
+     "per_kind": {
+      "choice": 0.9086136897974706
+     },
+     "n": 1229,
+     "n_test_rescaled": 3749,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_flash_tool_params_W10_lam5",
+   "backend": "intern",
+   "s2": "flash",
+   "dp": "tool_params",
+   "W": 10.0,
+   "lam": 5.0,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 10 --lam-per-hour 5 --V 10 --format json --out results/secondary/h1_cells/intern_flash_tool_params_W10_lam5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_flash_tool_params_W10_lam5.json.gz",
+   "n_paired": 4202,
+   "n_records": 5317,
+   "V": 10.0,
+   "V_plugin": 10.0,
+   "n_train": 1229,
+   "n_test": 2973,
+   "tau_hat": 0.9311787961050145,
+   "tau_best_test": 0.95,
+   "d": 0.018063767869222997,
+   "d_ci": [
+    0.00450790122951075,
+    0.03437505244277431
+   ],
+   "outcome": "win",
+   "loss_default": 0.027717621734632537,
+   "loss_hat": 0.00965385386540954,
+   "regret_hat": 0.0030961446480411645,
+   "regret_default": 0.02115991251726416,
+   "tau_hat_projection": 0.9583890951006,
+   "d_projection": 0.020990980002654903,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.12405445887392413,
+    "gap_lb": -0.14327365789174867,
+    "n": 1229,
+    "n_tasks": 150,
+    "raw_regret": 0.02115991251726416,
+    "raw_ci": [
+     0.004430498008724543,
+     0.03829738670658454
+    ],
+    "recal_regret": 0.02440308888764061,
+    "recal_ci": [
+     0.007485163849703921,
+     0.04278995816783955
+    ],
+    "t1_ci": [
+     0.004430498008724543,
+     0.03829738670658454
+    ],
+    "temperatures": {
+     "global": 0.9086136897974706,
+     "per_kind": {
+      "choice": 0.9086136897974706
+     },
+     "n": 1229,
+     "n_test_rescaled": 3749,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_lite_tool_select_W0.1_lam0",
+   "backend": "intern",
+   "s2": "lite",
+   "dp": "tool_select",
+   "W": 0.1,
+   "lam": 0.0,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow_s2lite --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 0.1 --lam-per-hour 0 --V 0.1 --format json --out results/secondary/h1_cells/intern_lite_tool_select_W0.1_lam0.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": -0.016455778340146655,
+    "V_plugin": -0.01970802919708029,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_lite_tool_select_W0.1_lam0.json.gz",
+   "n_paired": 3784,
+   "n_records": 3784,
+   "V": 0.1,
+   "V_plugin": 0.1,
+   "n_train": 1123,
+   "n_test": 2661,
+   "tau_hat": 0.9718950810742911,
+   "tau_best_test": 0.99,
+   "d": 0.007629210462232245,
+   "d_ci": [
+    0.006735185638982367,
+    0.008593073803864192
+   ],
+   "outcome": "win",
+   "loss_default": 0.009757692251033448,
+   "loss_hat": 0.0021284817888012025,
+   "regret_hat": 4.6283491168733985e-05,
+   "regret_default": 0.007675493953400979,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.007674553821871478,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.06078272360496422,
+    "gap_lb": 0.041464151522621846,
+    "n": 1123,
+    "n_tasks": 150,
+    "raw_regret": 0.007675493953400979,
+    "raw_ci": [
+     0.006739089371055562,
+     0.008638585842623094
+    ],
+    "recal_regret": 0.010303572577978207,
+    "recal_ci": [
+     0.009325213411726051,
+     0.011341567353848218
+    ],
+    "t1_ci": [
+     0.006739089371055562,
+     0.008638585842623094
+    ],
+    "temperatures": {
+     "global": 0.7431243300424054,
+     "per_kind": {
+      "choice": 0.7431243300424054
+     },
+     "n": 907,
+     "n_test_rescaled": 2661,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_lite_tool_select_W0.1_lam0.5",
+   "backend": "intern",
+   "s2": "lite",
+   "dp": "tool_select",
+   "W": 0.1,
+   "lam": 0.5,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow_s2lite --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 0.1 --lam-per-hour 0.5 --V 0.1 --format json --out results/secondary/h1_cells/intern_lite_tool_select_W0.1_lam0.5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": -0.016455778340146655,
+    "V_plugin": -0.01970802919708029,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_lite_tool_select_W0.1_lam0.5.json.gz",
+   "n_paired": 3784,
+   "n_records": 3784,
+   "V": 0.1,
+   "V_plugin": 0.1,
+   "n_train": 1123,
+   "n_test": 2661,
+   "tau_hat": 0.9718950810742911,
+   "tau_best_test": 0.99,
+   "d": 0.007573883321102291,
+   "d_ci": [
+    0.006681851325363332,
+    0.00853770906502405
+   ],
+   "outcome": "win",
+   "loss_default": 0.009785009051919234,
+   "loss_hat": 0.002211125730816943,
+   "regret_hat": 4.176864607113081e-05,
+   "regret_default": 0.007615651967173421,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.007614639741901541,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.06078272360496422,
+    "gap_lb": 0.041464151522621846,
+    "n": 1123,
+    "n_tasks": 150,
+    "raw_regret": 0.007615651967173421,
+    "raw_ci": [
+     0.006681837221737281,
+     0.008577955459489004
+    ],
+    "recal_regret": 0.010246975732830914,
+    "recal_ci": [
+     0.009266775670006652,
+     0.011285780750012407
+    ],
+    "t1_ci": [
+     0.006681837221737281,
+     0.008577955459489004
+    ],
+    "temperatures": {
+     "global": 0.7431243300424054,
+     "per_kind": {
+      "choice": 0.7431243300424054
+     },
+     "n": 907,
+     "n_test_rescaled": 2661,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_lite_tool_select_W0.1_lam5",
+   "backend": "intern",
+   "s2": "lite",
+   "dp": "tool_select",
+   "W": 0.1,
+   "lam": 5.0,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow_s2lite --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 0.1 --lam-per-hour 5 --V 0.1 --format json --out results/secondary/h1_cells/intern_lite_tool_select_W0.1_lam5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": -0.016455778340146655,
+    "V_plugin": -0.01970802919708029,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_lite_tool_select_W0.1_lam5.json.gz",
+   "n_paired": 3784,
+   "n_records": 3784,
+   "V": 0.1,
+   "V_plugin": 0.1,
+   "n_train": 1123,
+   "n_test": 2661,
+   "tau_hat": 0.9718950810742911,
+   "tau_best_test": 0.99,
+   "d": 0.007075939050932721,
+   "d_ci": [
+    0.0061887418881779056,
+    0.00803942641546281
+   ],
+   "outcome": "win",
+   "loss_default": 0.010030860259891328,
+   "loss_hat": 0.002954921208958606,
+   "regret_hat": 1.1350401927013622e-06,
+   "regret_default": 0.007077074091125423,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.007075413022172127,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.06078272360496422,
+    "gap_lb": 0.041464151522621846,
+    "n": 1123,
+    "n_tasks": 150,
+    "raw_regret": 0.007077074091125423,
+    "raw_ci": [
+     0.006152983348568786,
+     0.008026864329860526
+    ],
+    "recal_regret": 0.009737604126505293,
+    "recal_ci": [
+     0.008763187111663675,
+     0.01077981632003978
+    ],
+    "t1_ci": [
+     0.006152983348568786,
+     0.008026864329860526
+    ],
+    "temperatures": {
+     "global": 0.7431243300424054,
+     "per_kind": {
+      "choice": 0.7431243300424054
+     },
+     "n": 907,
+     "n_test_rescaled": 2661,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_lite_tool_select_W1_lam0",
+   "backend": "intern",
+   "s2": "lite",
+   "dp": "tool_select",
+   "W": 1.0,
+   "lam": 0.0,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow_s2lite --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 1 --lam-per-hour 0 --V 1 --format json --out results/secondary/h1_cells/intern_lite_tool_select_W1_lam0.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": -0.16455778340146654,
+    "V_plugin": -0.1970802919708029,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_lite_tool_select_W1_lam0.json.gz",
+   "n_paired": 3784,
+   "n_records": 3784,
+   "V": 1.0,
+   "V_plugin": 1.0,
+   "n_train": 1123,
+   "n_test": 2661,
+   "tau_hat": 0.9718950810742911,
+   "tau_best_test": 0.99,
+   "d": 0.08339020257046223,
+   "d_ci": [
+    0.07431065620456441,
+    0.0930754129144438
+   ],
+   "outcome": "win",
+   "loss_default": 0.09363593351371664,
+   "loss_hat": 0.010245730943254419,
+   "regret_hat": 0.001060939635475388,
+   "regret_default": 0.08445114220593761,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.0844502020744081,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.06078272360496422,
+    "gap_lb": 0.041464151522621846,
+    "n": 1123,
+    "n_tasks": 150,
+    "raw_regret": 0.08445114220593761,
+    "raw_ci": [
+     0.07500031574916743,
+     0.0942040052744962
+    ],
+    "recal_regret": 0.11041631214956782,
+    "recal_ci": [
+     0.10062175190284886,
+     0.1207812168517296
+    ],
+    "t1_ci": [
+     0.07500031574916743,
+     0.0942040052744962
+    ],
+    "temperatures": {
+     "global": 0.7431243300424054,
+     "per_kind": {
+      "choice": 0.7431243300424054
+     },
+     "n": 907,
+     "n_test_rescaled": 2661,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_lite_tool_select_W1_lam0.5",
+   "backend": "intern",
+   "s2": "lite",
+   "dp": "tool_select",
+   "W": 1.0,
+   "lam": 0.5,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow_s2lite --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 1 --lam-per-hour 0.5 --V 1 --format json --out results/secondary/h1_cells/intern_lite_tool_select_W1_lam0.5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": -0.16455778340146654,
+    "V_plugin": -0.1970802919708029,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_lite_tool_select_W1_lam0.5.json.gz",
+   "n_paired": 3784,
+   "n_records": 3784,
+   "V": 1.0,
+   "V_plugin": 1.0,
+   "n_train": 1123,
+   "n_test": 2661,
+   "tau_hat": 0.9718950810742911,
+   "tau_best_test": 0.99,
+   "d": 0.08333487542933228,
+   "d_ci": [
+    0.0742568428645947,
+    0.0930200481756036
+   ],
+   "outcome": "win",
+   "loss_default": 0.09366325031460243,
+   "loss_hat": 0.010328374885270155,
+   "regret_hat": 0.0010564247903777808,
+   "regret_default": 0.08439130021971006,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.08439028799443818,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.06078272360496422,
+    "gap_lb": 0.041464151522621846,
+    "n": 1123,
+    "n_tasks": 150,
+    "raw_regret": 0.08439130021971006,
+    "raw_ci": [
+     0.07494201982365295,
+     0.09414511460423021
+    ],
+    "recal_regret": 0.11035971530442054,
+    "recal_ci": [
+     0.10056507351684714,
+     0.12072572161658443
+    ],
+    "t1_ci": [
+     0.07494201982365295,
+     0.09414511460423021
+    ],
+    "temperatures": {
+     "global": 0.7431243300424054,
+     "per_kind": {
+      "choice": 0.7431243300424054
+     },
+     "n": 907,
+     "n_test_rescaled": 2661,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_lite_tool_select_W1_lam5",
+   "backend": "intern",
+   "s2": "lite",
+   "dp": "tool_select",
+   "W": 1.0,
+   "lam": 5.0,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow_s2lite --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 1 --lam-per-hour 5 --V 1 --format json --out results/secondary/h1_cells/intern_lite_tool_select_W1_lam5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": -0.16455778340146654,
+    "V_plugin": -0.1970802919708029,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_lite_tool_select_W1_lam5.json.gz",
+   "n_paired": 3784,
+   "n_records": 3784,
+   "V": 1.0,
+   "V_plugin": 1.0,
+   "n_train": 1123,
+   "n_test": 2661,
+   "tau_hat": 0.9718950810742911,
+   "tau_best_test": 0.99,
+   "d": 0.0828369311591627,
+   "d_ci": [
+    0.07377252280486722,
+    0.09252176552604238
+   ],
+   "outcome": "win",
+   "loss_default": 0.09390910152257452,
+   "loss_hat": 0.01107217036341182,
+   "regret_hat": 0.0010157911844993536,
+   "regret_default": 0.08385272234366205,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.08385106127470876,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.06078272360496422,
+    "gap_lb": 0.041464151522621846,
+    "n": 1123,
+    "n_tasks": 150,
+    "raw_regret": 0.08385272234366205,
+    "raw_ci": [
+     0.07441735649402317,
+     0.09360529999386019
+    ],
+    "recal_regret": 0.10985034369809492,
+    "recal_ci": [
+     0.10005496804283233,
+     0.12022626450027746
+    ],
+    "t1_ci": [
+     0.07441735649402317,
+     0.09360529999386019
+    ],
+    "temperatures": {
+     "global": 0.7431243300424054,
+     "per_kind": {
+      "choice": 0.7431243300424054
+     },
+     "n": 907,
+     "n_test_rescaled": 2661,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_lite_tool_select_W10_lam0",
+   "backend": "intern",
+   "s2": "lite",
+   "dp": "tool_select",
+   "W": 10.0,
+   "lam": 0.0,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow_s2lite --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 10 --lam-per-hour 0 --V 10 --format json --out results/secondary/h1_cells/intern_lite_tool_select_W10_lam0.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": -1.6455778340146654,
+    "V_plugin": -1.970802919708029,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_lite_tool_select_W10_lam0.json.gz",
+   "n_paired": 3784,
+   "n_records": 3784,
+   "V": 10.0,
+   "V_plugin": 10.0,
+   "n_train": 1123,
+   "n_test": 2661,
+   "tau_hat": 0.9718950810742911,
+   "tau_best_test": 0.99,
+   "d": 0.8410001236527621,
+   "d_ci": [
+    0.7500454477288298,
+    0.9378988040202398
+   ],
+   "outcome": "win",
+   "loss_default": 0.9324183461405486,
+   "loss_hat": 0.09141822248778655,
+   "regret_hat": 0.011207501078541918,
+   "regret_default": 0.852207624731304,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.8522066845997744,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.06078272360496422,
+    "gap_lb": 0.041464151522621846,
+    "n": 1123,
+    "n_tasks": 150,
+    "raw_regret": 0.852207624731304,
+    "raw_ci": [
+     0.7576735512909211,
+     0.9497028204936906
+    ],
+    "recal_regret": 1.1115437078654642,
+    "recal_ci": [
+     1.0135165921897507,
+     1.2151214825121728
+    ],
+    "t1_ci": [
+     0.7576735512909211,
+     0.9497028204936906
+    ],
+    "temperatures": {
+     "global": 0.7431243300424054,
+     "per_kind": {
+      "choice": 0.7431243300424054
+     },
+     "n": 907,
+     "n_test_rescaled": 2661,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_lite_tool_select_W10_lam0.5",
+   "backend": "intern",
+   "s2": "lite",
+   "dp": "tool_select",
+   "W": 10.0,
+   "lam": 0.5,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow_s2lite --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 10 --lam-per-hour 0.5 --V 10 --format json --out results/secondary/h1_cells/intern_lite_tool_select_W10_lam0.5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": -1.6455778340146654,
+    "V_plugin": -1.970802919708029,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_lite_tool_select_W10_lam0.5.json.gz",
+   "n_paired": 3784,
+   "n_records": 3784,
+   "V": 10.0,
+   "V_plugin": 10.0,
+   "n_train": 1123,
+   "n_test": 2661,
+   "tau_hat": 0.9718950810742911,
+   "tau_best_test": 0.99,
+   "d": 0.8409447965116322,
+   "d_ci": [
+    0.7499916343888599,
+    0.9378434392814002
+   ],
+   "outcome": "win",
+   "loss_default": 0.9324456629414345,
+   "loss_hat": 0.09150086642980229,
+   "regret_hat": 0.011202986233444304,
+   "regret_default": 0.8521477827450765,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.8521467705198047,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.06078272360496422,
+    "gap_lb": 0.041464151522621846,
+    "n": 1123,
+    "n_tasks": 150,
+    "raw_regret": 0.8521477827450765,
+    "raw_ci": [
+     0.7576152553654063,
+     0.949644244802079
+    ],
+    "recal_regret": 1.1114871110203168,
+    "recal_ci": [
+     1.0134599138037497,
+     1.215065987277028
+    ],
+    "t1_ci": [
+     0.7576152553654063,
+     0.949644244802079
+    ],
+    "temperatures": {
+     "global": 0.7431243300424054,
+     "per_kind": {
+      "choice": 0.7431243300424054
+     },
+     "n": 907,
+     "n_test_rescaled": 2661,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_lite_tool_select_W10_lam5",
+   "backend": "intern",
+   "s2": "lite",
+   "dp": "tool_select",
+   "W": 10.0,
+   "lam": 5.0,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow_s2lite --dp tool_select --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 10 --lam-per-hour 5 --V 10 --format json --out results/secondary/h1_cells/intern_lite_tool_select_W10_lam5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": -1.6455778340146654,
+    "V_plugin": -1.970802919708029,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_lite_tool_select_W10_lam5.json.gz",
+   "n_paired": 3784,
+   "n_records": 3784,
+   "V": 10.0,
+   "V_plugin": 10.0,
+   "n_train": 1123,
+   "n_test": 2661,
+   "tau_hat": 0.9718950810742911,
+   "tau_best_test": 0.99,
+   "d": 0.8404468522414626,
+   "d_ci": [
+    0.7495073143291331,
+    0.937345156631838
+   ],
+   "outcome": "win",
+   "loss_default": 0.9326915141494067,
+   "loss_hat": 0.09224466190794396,
+   "regret_hat": 0.011162352627565889,
+   "regret_default": 0.8516092048690286,
+   "tau_hat_projection": Infinity,
+   "d_projection": 0.8516075438000753,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": true,
+    "gap": 0.06078272360496422,
+    "gap_lb": 0.041464151522621846,
+    "n": 1123,
+    "n_tasks": 150,
+    "raw_regret": 0.8516092048690286,
+    "raw_ci": [
+     0.7570905920357762,
+     0.9491170635775733
+    ],
+    "recal_regret": 1.1109777394139912,
+    "recal_ci": [
+     1.0129498083297346,
+     1.2145665301607205
+    ],
+    "t1_ci": [
+     0.7570905920357762,
+     0.9491170635775733
+    ],
+    "temperatures": {
+     "global": 0.7431243300424054,
+     "per_kind": {
+      "choice": 0.7431243300424054
+     },
+     "n": 907,
+     "n_test_rescaled": 2661,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_lite_tool_params_W0.1_lam0",
+   "backend": "intern",
+   "s2": "lite",
+   "dp": "tool_params",
+   "W": 0.1,
+   "lam": 0.0,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow_s2lite --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 0.1 --lam-per-hour 0 --V 0.1 --format json --out results/secondary/h1_cells/intern_lite_tool_params_W0.1_lam0.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_lite_tool_params_W0.1_lam0.json.gz",
+   "n_paired": 4932,
+   "n_records": 5352,
+   "V": 0.1,
+   "V_plugin": 0.1,
+   "n_train": 1451,
+   "n_test": 3481,
+   "tau_hat": 0.5230837929916846,
+   "tau_best_test": 0.5,
+   "d": 0.00028381211720769904,
+   "d_ci": [
+    0.0001967814877603319,
+    0.00034705140928444213
+   ],
+   "outcome": "win",
+   "loss_default": 0.0007332807095662167,
+   "loss_hat": 0.0004494685923585176,
+   "regret_hat": -7.75237747773629e-05,
+   "regret_default": 0.00020628834243033615,
+   "tau_hat_projection": 0.5479333935451265,
+   "d_projection": 0.00024848970410801496,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.19995603590355449,
+    "gap_lb": -0.2083785376481831,
+    "n": 1451,
+    "n_tasks": 150,
+    "raw_regret": 0.00020628834243033615,
+    "raw_ci": [
+     5.3322200305103154e-05,
+     0.0003278042683794242
+    ],
+    "recal_regret": 0.0011495409968399887,
+    "recal_ci": [
+     0.000820665271832044,
+     0.0015055030945865982
+    ],
+    "t1_ci": [
+     5.3322200305103154e-05,
+     0.0003278042683794242
+    ],
+    "temperatures": {
+     "global": 0.4396632230280206,
+     "per_kind": {
+      "choice": 0.4396632230280206
+     },
+     "n": 1451,
+     "n_test_rescaled": 3766,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_lite_tool_params_W0.1_lam0.5",
+   "backend": "intern",
+   "s2": "lite",
+   "dp": "tool_params",
+   "W": 0.1,
+   "lam": 0.5,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow_s2lite --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 0.1 --lam-per-hour 0.5 --V 0.1 --format json --out results/secondary/h1_cells/intern_lite_tool_params_W0.1_lam0.5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_lite_tool_params_W0.1_lam0.5.json.gz",
+   "n_paired": 4932,
+   "n_records": 5352,
+   "V": 0.1,
+   "V_plugin": 0.1,
+   "n_train": 1451,
+   "n_test": 3481,
+   "tau_hat": 0.5230837929916846,
+   "tau_best_test": 0.5,
+   "d": 0.0003056524679058932,
+   "d_ci": [
+    0.00021827297879801376,
+    0.0003694424702407062
+   ],
+   "outcome": "win",
+   "loss_default": 0.0007807948294562923,
+   "loss_hat": 0.0004751423615503991,
+   "regret_hat": -7.481606853430574e-05,
+   "regret_default": 0.00023083639937158745,
+   "tau_hat_projection": 0.5479333935451265,
+   "d_projection": 0.0002678561995803799,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.19995603590355449,
+    "gap_lb": -0.2083785376481831,
+    "n": 1451,
+    "n_tasks": 150,
+    "raw_regret": 0.00023083639937158745,
+    "raw_ci": [
+     7.810465446108268e-05,
+     0.0003530935258242951
+    ],
+    "recal_regret": 0.0011346538193496877,
+    "recal_ci": [
+     0.0008055683431805441,
+     0.0014900140832564382
+    ],
+    "t1_ci": [
+     7.810465446108268e-05,
+     0.0003530935258242951
+    ],
+    "temperatures": {
+     "global": 0.4396632230280206,
+     "per_kind": {
+      "choice": 0.4396632230280206
+     },
+     "n": 1451,
+     "n_test_rescaled": 3766,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_lite_tool_params_W0.1_lam5",
+   "backend": "intern",
+   "s2": "lite",
+   "dp": "tool_params",
+   "W": 0.1,
+   "lam": 5.0,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow_s2lite --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 0.1 --lam-per-hour 5 --V 0.1 --format json --out results/secondary/h1_cells/intern_lite_tool_params_W0.1_lam5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_lite_tool_params_W0.1_lam5.json.gz",
+   "n_paired": 4932,
+   "n_records": 5352,
+   "V": 0.1,
+   "V_plugin": 0.1,
+   "n_train": 1451,
+   "n_test": 3481,
+   "tau_hat": 0.5230837929916846,
+   "tau_best_test": 0.5,
+   "d": 0.0005022156241896407,
+   "d_ci": [
+    0.0004132805140713206,
+    0.0005715165995431421
+   ],
+   "outcome": "win",
+   "loss_default": 0.001208421908466973,
+   "loss_hat": 0.0007062062842773323,
+   "regret_hat": -5.04467123467919e-05,
+   "regret_default": 0.0004517689118428488,
+   "tau_hat_projection": 0.5479333935451265,
+   "d_projection": 0.0004421546588316643,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.19995603590355449,
+    "gap_lb": -0.2083785376481831,
+    "n": 1451,
+    "n_tasks": 150,
+    "raw_regret": 0.0004517689118428488,
+    "raw_ci": [
+     0.00029712532704563696,
+     0.0005791426711022994
+    ],
+    "recal_regret": 0.0010006692219369784,
+    "recal_ci": [
+     0.0006771462661250928,
+     0.0013575311039515318
+    ],
+    "t1_ci": [
+     0.00029712532704563696,
+     0.0005791426711022994
+    ],
+    "temperatures": {
+     "global": 0.4396632230280206,
+     "per_kind": {
+      "choice": 0.4396632230280206
+     },
+     "n": 1451,
+     "n_test_rescaled": 3766,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_lite_tool_params_W1_lam0",
+   "backend": "intern",
+   "s2": "lite",
+   "dp": "tool_params",
+   "W": 1.0,
+   "lam": 0.0,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow_s2lite --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 1 --lam-per-hour 0 --V 1 --format json --out results/secondary/h1_cells/intern_lite_tool_params_W1_lam0.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_lite_tool_params_W1_lam0.json.gz",
+   "n_paired": 4932,
+   "n_records": 5352,
+   "V": 1.0,
+   "V_plugin": 1.0,
+   "n_train": 1451,
+   "n_test": 3481,
+   "tau_hat": 0.5914726295680607,
+   "tau_best_test": 0.7,
+   "d": 0.000250420574547544,
+   "d_ci": [
+    0.00023702253076748976,
+    0.0002632239234645984
+   ],
+   "outcome": "win",
+   "loss_default": 0.0009918271042803793,
+   "loss_hat": 0.0007414065297328353,
+   "regret_hat": -0.00013661840563056595,
+   "regret_default": 0.00011380216891697804,
+   "tau_hat_projection": 0.6271713355828119,
+   "d_projection": 0.00020796184429761565,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.19995603590355449,
+    "gap_lb": -0.2083785376481831,
+    "n": 1451,
+    "n_tasks": 150,
+    "raw_regret": 0.00011380216891697804,
+    "raw_ci": [
+     0.00010267930166340194,
+     0.000125933452236119
+    ],
+    "recal_regret": 0.013904636653260555,
+    "recal_ci": [
+     0.010546400831198042,
+     0.017355853632936995
+    ],
+    "t1_ci": [
+     0.00010267930166340194,
+     0.000125933452236119
+    ],
+    "temperatures": {
+     "global": 0.4396632230280206,
+     "per_kind": {
+      "choice": 0.4396632230280206
+     },
+     "n": 1451,
+     "n_test_rescaled": 3766,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_lite_tool_params_W1_lam0.5",
+   "backend": "intern",
+   "s2": "lite",
+   "dp": "tool_params",
+   "W": 1.0,
+   "lam": 0.5,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow_s2lite --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 1 --lam-per-hour 0.5 --V 1 --format json --out results/secondary/h1_cells/intern_lite_tool_params_W1_lam0.5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_lite_tool_params_W1_lam0.5.json.gz",
+   "n_paired": 4932,
+   "n_records": 5352,
+   "V": 1.0,
+   "V_plugin": 1.0,
+   "n_train": 1451,
+   "n_test": 3481,
+   "tau_hat": 0.5914726295680607,
+   "tau_best_test": 0.7,
+   "d": 0.0002654307865879056,
+   "d_ci": [
+    0.0002511600671198982,
+    0.0002791512736462743
+   ],
+   "outcome": "win",
+   "loss_default": 0.0010393412241704546,
+   "loss_hat": 0.000773910437582549,
+   "regret_hat": -0.00014524144183544047,
+   "regret_default": 0.00012018934475246511,
+   "tau_hat_projection": 0.6271713355828119,
+   "d_projection": 0.0002201854509270159,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.19995603590355449,
+    "gap_lb": -0.2083785376481831,
+    "n": 1451,
+    "n_tasks": 150,
+    "raw_regret": 0.00012018934475246511,
+    "raw_ci": [
+     0.00010858513974439186,
+     0.0001331145691342977
+    ],
+    "recal_regret": 0.013873335040617643,
+    "recal_ci": [
+     0.010515201237539367,
+     0.017324945904496836
+    ],
+    "t1_ci": [
+     0.00010858513974439186,
+     0.0001331145691342977
+    ],
+    "temperatures": {
+     "global": 0.4396632230280206,
+     "per_kind": {
+      "choice": 0.4396632230280206
+     },
+     "n": 1451,
+     "n_test_rescaled": 3766,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_lite_tool_params_W1_lam5",
+   "backend": "intern",
+   "s2": "lite",
+   "dp": "tool_params",
+   "W": 1.0,
+   "lam": 5.0,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow_s2lite --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 1 --lam-per-hour 5 --V 1 --format json --out results/secondary/h1_cells/intern_lite_tool_params_W1_lam5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_lite_tool_params_W1_lam5.json.gz",
+   "n_paired": 4932,
+   "n_records": 5352,
+   "V": 1.0,
+   "V_plugin": 1.0,
+   "n_train": 1451,
+   "n_test": 3481,
+   "tau_hat": 0.5914726295680607,
+   "tau_best_test": 0.7,
+   "d": 0.00040052269495116383,
+   "d_ci": [
+    0.0003790083825045784,
+    0.0004214119913841602
+   ],
+   "outcome": "win",
+   "loss_default": 0.0014669683031811353,
+   "loss_hat": 0.0010664456082299714,
+   "regret_hat": -0.00022284876767931106,
+   "regret_default": 0.00017767392727185277,
+   "tau_hat_projection": 0.6271713355828119,
+   "d_projection": 0.000330197910591622,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.19995603590355449,
+    "gap_lb": -0.2083785376481831,
+    "n": 1451,
+    "n_tasks": 150,
+    "raw_regret": 0.00017767392727185277,
+    "raw_ci": [
+     0.00016022708179115963,
+     0.00019672920194148928
+    ],
+    "recal_regret": 0.0135916205268314,
+    "recal_ci": [
+     0.010234404894611289,
+     0.017046776348535388
+    ],
+    "t1_ci": [
+     0.00016022708179115963,
+     0.00019672920194148928
+    ],
+    "temperatures": {
+     "global": 0.4396632230280206,
+     "per_kind": {
+      "choice": 0.4396632230280206
+     },
+     "n": 1451,
+     "n_test_rescaled": 3766,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_lite_tool_params_W10_lam0",
+   "backend": "intern",
+   "s2": "lite",
+   "dp": "tool_params",
+   "W": 10.0,
+   "lam": 0.0,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow_s2lite --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 10 --lam-per-hour 0 --V 10 --format json --out results/secondary/h1_cells/intern_lite_tool_params_W10_lam0.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_lite_tool_params_W10_lam0.json.gz",
+   "n_paired": 4932,
+   "n_records": 5352,
+   "V": 10.0,
+   "V_plugin": 10.0,
+   "n_train": 1451,
+   "n_test": 3481,
+   "tau_hat": 0.5914726295680607,
+   "tau_best_test": 0.9,
+   "d": 0.0002504205745475444,
+   "d_ci": [
+    0.00023702253076749005,
+    0.00026322392346459807
+   ],
+   "outcome": "win",
+   "loss_default": 0.0035772910514220058,
+   "loss_hat": 0.0033268704768744614,
+   "regret_hat": 0.0023505151163458774,
+   "regret_default": 0.002600935690893422,
+   "tau_hat_projection": 0.6271713355828119,
+   "d_projection": 0.0002079618442976162,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.19995603590355449,
+    "gap_lb": -0.2083785376481831,
+    "n": 1451,
+    "n_tasks": 150,
+    "raw_regret": 0.002600935690893422,
+    "raw_ci": [
+     -0.0002873350121949098,
+     0.008599368212419089
+    ],
+    "recal_regret": 0.14317783401034187,
+    "recal_ci": [
+     0.10957786946506422,
+     0.1777099176723458
+    ],
+    "t1_ci": [
+     -0.0002873350121949098,
+     0.008599368212419089
+    ],
+    "temperatures": {
+     "global": 0.4396632230280206,
+     "per_kind": {
+      "choice": 0.4396632230280206
+     },
+     "n": 1451,
+     "n_test_rescaled": 3766,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_lite_tool_params_W10_lam0.5",
+   "backend": "intern",
+   "s2": "lite",
+   "dp": "tool_params",
+   "W": 10.0,
+   "lam": 0.5,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow_s2lite --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 10 --lam-per-hour 0.5 --V 10 --format json --out results/secondary/h1_cells/intern_lite_tool_params_W10_lam0.5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_lite_tool_params_W10_lam0.5.json.gz",
+   "n_paired": 4932,
+   "n_records": 5352,
+   "V": 10.0,
+   "V_plugin": 10.0,
+   "n_train": 1451,
+   "n_test": 3481,
+   "tau_hat": 0.5914726295680607,
+   "tau_best_test": 0.9,
+   "d": 0.00026543078658790515,
+   "d_ci": [
+    0.00025116006711989395,
+    0.00027915127364627426
+   ],
+   "outcome": "win",
+   "loss_default": 0.0036248051713120804,
+   "loss_hat": 0.0033593743847241753,
+   "regret_hat": 0.002318729609097841,
+   "regret_default": 0.002584160395685746,
+   "tau_hat_projection": 0.6271713355828119,
+   "d_projection": 0.00022018545092701612,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.19995603590355449,
+    "gap_lb": -0.2083785376481831,
+    "n": 1451,
+    "n_tasks": 150,
+    "raw_regret": 0.002584160395685746,
+    "raw_ci": [
+     -0.0003053062446570239,
+     0.008582284847190744
+    ],
+    "recal_regret": 0.14314653239769895,
+    "recal_ci": [
+     0.10954666987140554,
+     0.17767900994390562
+    ],
+    "t1_ci": [
+     -0.0003053062446570239,
+     0.008582284847190744
+    ],
+    "temperatures": {
+     "global": 0.4396632230280206,
+     "per_kind": {
+      "choice": 0.4396632230280206
+     },
+     "n": 1451,
+     "n_test_rescaled": 3766,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  },
+  {
+   "id": "intern_lite_tool_params_W10_lam5",
+   "backend": "intern",
+   "s2": "lite",
+   "dp": "tool_params",
+   "W": 10.0,
+   "lam": 5.0,
+   "run": "e2a_jevgym_tool_decisions_intern",
+   "arm": "intern_shadow_s2lite",
+   "command": "python -m jevharness.bench.threshold_theory runs/e2a_jevgym_tool_decisions_intern --arm intern_shadow_s2lite --dp tool_params --train-frac 0.3 --seed 0 --taus h1 --rule general --task-value 10 --lam-per-hour 5 --V 10 --format json --out results/secondary/h1_cells/intern_lite_tool_params_W10_lam5.json",
+   "v_source": "--V W (A6.11 (c).1): the counterfactual V of the training split or of the cell is undefined or not positive",
+   "v_registered_run": {
+    "V": NaN,
+    "V_plugin": NaN,
+    "note": "V is not positive (no wrong-decision episodes, or no effect): tau-hat undefined"
+   },
+   "out_file": "results/secondary/h1_cells/intern_lite_tool_params_W10_lam5.json.gz",
+   "n_paired": 4932,
+   "n_records": 5352,
+   "V": 10.0,
+   "V_plugin": 10.0,
+   "n_train": 1451,
+   "n_test": 3481,
+   "tau_hat": 0.5914726295680607,
+   "tau_best_test": 0.9,
+   "d": 0.00040052269495116383,
+   "d_ci": [
+    0.0003790083825045784,
+    0.0004214119913841581
+   ],
+   "outcome": "win",
+   "loss_default": 0.004052432250322761,
+   "loss_hat": 0.003651909555371597,
+   "regret_hat": 0.0020326600438655066,
+   "regret_default": 0.0024331827388166705,
+   "tau_hat_projection": 0.6271713355828119,
+   "d_projection": 0.0003301979105916207,
+   "outcome_projection": "win",
+   "clause2": {
+    "over_confident": false,
+    "gap": -0.19995603590355449,
+    "gap_lb": -0.2083785376481831,
+    "n": 1451,
+    "n_tasks": 150,
+    "raw_regret": 0.0024331827388166705,
+    "raw_ci": [
+     -0.0004642106090505129,
+     0.008428534560135629
+    ],
+    "recal_regret": 0.1428648178839127,
+    "recal_ci": [
+     0.10926587352847751,
+     0.1774008403879443
+    ],
+    "t1_ci": [
+     -0.0004642106090505129,
+     0.008428534560135629
+    ],
+    "temperatures": {
+     "global": 0.4396632230280206,
+     "per_kind": {
+      "choice": 0.4396632230280206
+     },
+     "n": 1451,
+     "n_test_rescaled": 3766,
+     "n_kept_raw": 0
+    },
+    "returns_to_front": false
+   }
+  }
+ ],
+ "clause1": {
+  "n_cells": 72,
+  "n_estimable": 72,
+  "n_absent": 0,
+  "absent": [],
+  "wins": 70,
+  "ties": 0,
+  "losses": 2,
+  "ci_above_0": 66,
+  "ci_below_0": 0,
+  "decision_weighted_win_share": 0.9719271408741962,
+  "min_estimable": 36,
+  "holds": true,
+  "label": "holds"
+ },
+ "projection": {
+  "n": 72,
+  "wins": 64,
+  "ties": 0,
+  "losses": 8,
+  "note": "secondary line (A6.22 (c)): the deployed projection counted like tau-hat*"
+ },
+ "clause2": {
+  "W": 1.0,
+  "lam": 0.0,
+  "cells": [
+   {
+    "id": "jev_flash_tool_select_W1_lam0",
+    "backend": "jev",
+    "s2": "flash",
+    "dp": "tool_select",
+    "over_confident": false,
+    "gap": -0.03994594594594596,
+    "gap_lb": -0.053124411067812884,
+    "raw_ci": [
+     0.016458611450454852,
+     0.02719443532478091
+    ],
+    "recal_ci": [
+     0.014767301080269022,
+     0.024826765466814015
+    ],
+    "t1_ci": [
+     0.023366756054074976,
+     0.03597171776869539
+    ],
+    "returns_to_front": false,
+    "evaluated": true
+   },
+   {
+    "id": "jev_flash_tool_params_W1_lam0",
+    "backend": "jev",
+    "s2": "flash",
+    "dp": "tool_params",
+    "over_confident": true,
+    "gap": 0.030313272877164052,
+    "gap_lb": 0.014894813988836832,
+    "raw_ci": [
+     0.03369800245029241,
+     0.05067718159106198
+    ],
+    "recal_ci": [
+     0.02008299627374574,
+     0.03363458500689814
+    ],
+    "t1_ci": [
+     0.035732793471670854,
+     0.05471006618896534
+    ],
+    "returns_to_front": false,
+    "evaluated": true
+   },
+   {
+    "id": "jev_lite_tool_select_W1_lam0",
+    "backend": "jev",
+    "s2": "lite",
+    "dp": "tool_select",
+    "over_confident": false,
+    "gap": 0.007479964381121987,
+    "gap_lb": -0.0036510590934284363,
+    "raw_ci": [
+     0.017940781015163932,
+     0.028937399668531916
+    ],
+    "recal_ci": [
+     0.011848857801972814,
+     0.023014036679785688
+    ],
+    "t1_ci": [
+     0.02239377417087922,
+     0.03470162700490569
+    ],
+    "returns_to_front": false,
+    "evaluated": true
+   },
+   {
+    "id": "jev_lite_tool_params_W1_lam0",
+    "backend": "jev",
+    "s2": "lite",
+    "dp": "tool_params",
+    "over_confident": false,
+    "gap": -0.024734665747760166,
+    "gap_lb": -0.026336969486403527,
+    "raw_ci": [
+     -0.00021193082259868498,
+     0.0006832428276855245
+    ],
+    "recal_ci": [
+     -4.697885354759256e-06,
+     0.0008851498906970127
+    ],
+    "t1_ci": [
+     -0.00027396867874536387,
+     0.000621130357636867
+    ],
+    "returns_to_front": false,
+    "evaluated": true
+   },
+   {
+    "id": "intern_flash_tool_select_W1_lam0",
+    "backend": "intern",
+    "s2": "flash",
+    "dp": "tool_select",
+    "over_confident": true,
+    "gap": 0.05032103841654083,
+    "gap_lb": 0.03024670254895456,
+    "raw_ci": [
+     0.0775272449453732,
+     0.10071675767535601
+    ],
+    "recal_ci": [
+     0.1089807747194628,
+     0.1331434068899457
+    ],
+    "t1_ci": [
+     0.0775272449453732,
+     0.10071675767535601
+    ],
+    "returns_to_front": false,
+    "evaluated": true
+   },
+   {
+    "id": "intern_flash_tool_params_W1_lam0",
+    "backend": "intern",
+    "s2": "flash",
+    "dp": "tool_params",
+    "over_confident": false,
+    "gap": -0.12405445887392413,
+    "gap_lb": -0.14327365789174867,
+    "raw_ci": [
+     -0.0010451070891928384,
+     0.0023478155670808814
+    ],
+    "recal_ci": [
+     -0.0008824764800935058,
+     0.002708381983119325
+    ],
+    "t1_ci": [
+     -0.0010451070891928384,
+     0.0023478155670808814
+    ],
+    "returns_to_front": false,
+    "evaluated": true
+   },
+   {
+    "id": "intern_lite_tool_select_W1_lam0",
+    "backend": "intern",
+    "s2": "lite",
+    "dp": "tool_select",
+    "over_confident": true,
+    "gap": 0.06078272360496422,
+    "gap_lb": 0.041464151522621846,
+    "raw_ci": [
+     0.07500031574916743,
+     0.0942040052744962
+    ],
+    "recal_ci": [
+     0.10062175190284886,
+     0.1207812168517296
+    ],
+    "t1_ci": [
+     0.07500031574916743,
+     0.0942040052744962
+    ],
+    "returns_to_front": false,
+    "evaluated": true
+   },
+   {
+    "id": "intern_lite_tool_params_W1_lam0",
+    "backend": "intern",
+    "s2": "lite",
+    "dp": "tool_params",
+    "over_confident": false,
+    "gap": -0.19995603590355449,
+    "gap_lb": -0.2083785376481831,
+    "raw_ci": [
+     0.00010267930166340194,
+     0.000125933452236119
+    ],
+    "recal_ci": [
+     0.010546400831198042,
+     0.017355853632936995
+    ],
+    "t1_ci": [
+     0.00010267930166340194,
+     0.000125933452236119
+    ],
+    "returns_to_front": false,
+    "evaluated": true
+   }
+  ],
+  "n_cells": 8,
+  "n_over_confident": 3,
+  "n_return": 0,
+  "label": "does not hold",
+  "holds": false
+ },
+ "verdict": "falsified",
+ "provenance": {
+  "runs/e2a_jevgym_tool_decisions/jev_shadow.jsonl": {
+   "sha256": "c483fccf06e4ba15621b2687bdebf63f1f39c9a5e733ce720dd952e59ca606de",
+   "bytes": 70939067
+  },
+  "runs/e2a_jevgym_tool_decisions/jev_shadow_s2lite.jsonl": {
+   "sha256": "d48d4e9ff44a94f7eab0b928670a123d14be270b808671c67d31ff8ced301264",
+   "bytes": 70245676
+  },
+  "runs/e2a_jevgym_tool_decisions_intern/intern_shadow.jsonl": {
+   "sha256": "ddf31ef330fa3eb05f003dcdb553b7d0c4ef612e52e03ae09e77cf602e550a36",
+   "bytes": 68094687
+  },
+  "runs/e2a_jevgym_tool_decisions_intern/intern_shadow_s2lite.jsonl": {
+   "sha256": "2e4edb8508f023d6330a0e502ef0fbf9ee927e2c4ca300cc3c8526ceb488fa55",
+   "bytes": 67383781
+  }
+ }
+}

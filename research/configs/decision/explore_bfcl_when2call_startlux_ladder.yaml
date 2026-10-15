@@ -1,0 +1,22 @@
+# E2 (exploratory, descriptive; docs/PREREG_A7_STAGE2.md, Deviations entry of 2026-10-05): the StartLux-Decision size
+# ladder (0.8B, 2B, 9B) on the E1 static decisions, GPU only, so the ladder has the static measure beside its common-state
+# (A7.18 (e) 2) and live (E2) rows. Exactly configs/decision/bfcl_when2call_startlux.yaml (A7.18 (e) 1: same pools,
+# exclusions (C8 population) and batching as E1, so the records pair item by item with the 4B / 27B / Jev / Intern rows)
+# with the ladder backends; the vendor's server, one size at a time (scripts/aws/explore_gpu.sh stage e2):
+#   python -m jevharness.bench.decision_eval configs/decision/explore_bfcl_when2call_startlux_ladder.yaml --out runs --only startlux_0_8b
+# Public BFCL / When2Call items: overlap with the vendor's training data cannot be excluded (A7.18 (c)).
+name: e1_bfcl_when2call_startlux_ladder
+suites:
+  - {name: bfcl, categories: [simple_python, multiple, live_simple, live_multiple, irrelevance, live_irrelevance], max_per_cat: 200}
+  - {name: when2call, max_items: 1000}
+exclude_ids_file: configs/eval/e1_dev_prefix_ids.json   # A6.13: as E1
+batch_by_state: true
+s1_cache: cache/s1_explore_startlux_ladder_e1.sqlite
+workers: 4
+backends:
+  startlux_0_8b: {type: jev, name: startlux-0.8b, base_url: "http://127.0.0.1:8092", model: StartLux-Decision-0.8B, api_key: "",
+                  price_model: StartLux-Decision-0.8B, timeout: 60.0}
+  startlux_2b: {type: jev, name: startlux-2b, base_url: "http://127.0.0.1:8093", model: StartLux-Decision-2B, api_key: "",
+                price_model: StartLux-Decision-2B, timeout: 60.0}
+  startlux_9b: {type: jev, name: startlux-9b, base_url: "http://127.0.0.1:8094", model: StartLux-Decision-9B, api_key: "",
+                price_model: StartLux-Decision-9B, timeout: 60.0}

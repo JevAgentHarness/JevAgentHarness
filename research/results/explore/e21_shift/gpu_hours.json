@@ -1,0 +1,27 @@
+{
+ "host_hours": 11.09,
+ "instance_type": "g6e.2xlarge",
+ "gpu": "NVIDIA L40S 48 GB",
+ "instance_id": "<instance-id>",
+ "az": "us-east-1c",
+ "launched_utc": "2026-10-08T16:52:22Z",
+ "final_stage_utc": "2026-10-09T03:56:58Z",
+ "shutdown_scheduled_utc": "2026-10-09T03:57:59Z",
+ "state_verified": "stopped (Client.InstanceInitiatedShutdown), verified from the coordinating container at 2026-10-09T04:04Z",
+ "also_launched": "g5.8xlarge <instance-id> (us-east-1c) at 2026-10-08T16:20:52Z, terminated while pending at 16:21:16Z (under one minute)",
+ "note": "host hours from launch to the scheduled shutdown; the host was never stopped in between, so host hours = GPU hours; cap 12 (the driver's own count at final: 11.072 h from the first boot)",
+ "cap_host_hours": 12,
+ "addendum_2": {
+  "what": "\"E21 addendum 2: the untrained and SFT rows on the shift\": the same host restarted for the two ladder rows; not counted in host_hours (E21 and its first addendum)",
+  "start_requested_utc": "2026-10-09T05:16:51Z (InsufficientInstanceCapacity; again at 05:17:04Z)",
+  "started_utc": "2026-10-09T05:18:08Z",
+  "rearm_utc": "2026-10-09T05:18:45Z (power-off guard 170 min, idle stop 30 min)",
+  "final_stage_utc": "2026-10-09T05:50:20Z",
+  "shutdown_scheduled_utc": "2026-10-09T05:51:21Z",
+  "host_hours": 0.55,
+  "driver_count_h": 0.526,
+  "cap_host_hours": 3,
+  "state_verified": "stopped (Client.InstanceInitiatedShutdown), verified from the coordinating container at 2026-10-09T05:57:22Z",
+  "note": "host hours from the start to the scheduled shutdown (the instance reported 'stopping' until 05:57)"
+ }
+}

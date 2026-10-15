@@ -1,0 +1,197 @@
+{
+ "model": "checkpoints/r6/final",
+ "adapter": null,
+ "calibration": "checkpoints/r6/final/calibration.json",
+ "n_perm": 0,
+ "files": {
+  "data/train_v1/dev.jsonl.gz": {
+   "overall": {
+    "n": 2377,
+    "acc": 0.99621,
+    "nll": 0.01718,
+    "brier": 0.00378,
+    "ece": 0.00109,
+    "ece_adaptive": 0.00114,
+    "auroc": 0.95723,
+    "aurc": 0.00018,
+    "mean_conf": 0.99602
+   },
+   "by_dp": {
+    "stop": {
+     "n": 669,
+     "acc": 0.99253,
+     "nll": 0.0245,
+     "brier": 0.00694,
+     "ece": 0.00544,
+     "ece_adaptive": 0.00604,
+     "auroc": 0.99503,
+     "aurc": 7e-05,
+     "mean_conf": 0.99591
+    },
+    "tool_params": {
+     "n": 824,
+     "acc": 1.0,
+     "nll": 0.00072,
+     "brier": 3e-05,
+     "ece": 0.0007,
+     "ece_adaptive": 0.0007,
+     "auroc": null,
+     "aurc": 0.0,
+     "mean_conf": 0.9993
+    },
+    "tool_select": {
+     "n": 884,
+     "acc": 0.99548,
+     "nll": 0.02697,
+     "brier": 0.00486,
+     "ece": 0.00251,
+     "ece_adaptive": 0.00623,
+     "auroc": 0.85511,
+     "aurc": 0.00075,
+     "mean_conf": 0.99305
+    }
+   },
+   "by_kind": {
+    "choice": {
+     "n": 1492,
+     "acc": 0.99866,
+     "nll": 0.01011,
+     "brier": 0.0016,
+     "ece": 0.00117,
+     "ece_adaptive": 0.00117,
+     "auroc": 0.9094,
+     "aurc": 0.00013,
+     "mean_conf": 0.99749
+    },
+    "noul": {
+     "n": 885,
+     "acc": 0.99209,
+     "nll": 0.02909,
+     "brier": 0.00745,
+     "ece": 0.00353,
+     "ece_adaptive": 0.00508,
+     "auroc": 0.9773,
+     "aurc": 0.00022,
+     "mean_conf": 0.99354
+    }
+   },
+   "seconds": 633.06,
+   "decisions_per_s": 3.75
+  },
+  "data/train_v1/dev_recovery.jsonl.gz": {
+   "overall": {
+    "n": 606,
+    "acc": 0.9967,
+    "nll": 0.01923,
+    "brier": 0.00334,
+    "ece": 0.00041,
+    "ece_adaptive": 0.00235,
+    "auroc": 0.9019,
+    "aurc": 0.00036,
+    "mean_conf": 0.99678
+   },
+   "by_dp": {
+    "stop": {
+     "n": 176,
+     "acc": 1.0,
+     "nll": 0.00306,
+     "brier": 3e-05,
+     "ece": 0.00304,
+     "ece_adaptive": 0.00304,
+     "auroc": null,
+     "aurc": 0.0,
+     "mean_conf": 0.99696
+    },
+    "tool_params": {
+     "n": 188,
+     "acc": 1.0,
+     "nll": 0.00059,
+     "brier": 1e-05,
+     "ece": 0.00059,
+     "ece_adaptive": 0.00059,
+     "auroc": null,
+     "aurc": 0.0,
+     "mean_conf": 0.99941
+    },
+    "tool_select": {
+     "n": 242,
+     "acc": 0.99174,
+     "nll": 0.04547,
+     "brier": 0.00834,
+     "ece": 0.0037,
+     "ece_adaptive": 0.00527,
+     "auroc": 0.84167,
+     "aurc": 0.00153,
+     "mean_conf": 0.99459
+    }
+   },
+   "by_kind": {
+    "choice": {
+     "n": 356,
+     "acc": 0.99719,
+     "nll": 0.01693,
+     "brier": 0.00283,
+     "ece": 0.00206,
+     "ece_adaptive": 0.00197,
+     "auroc": 0.90986,
+     "aurc": 0.00027,
+     "mean_conf": 0.99868
+    },
+    "noul": {
+     "n": 250,
+     "acc": 0.996,
+     "nll": 0.0225,
+     "brier": 0.00407,
+     "ece": 0.00194,
+     "ece_adaptive": 0.0029,
+     "auroc": 0.92972,
+     "aurc": 0.00031,
+     "mean_conf": 0.99406
+    }
+   },
+   "seconds": 141.18,
+   "decisions_per_s": 4.29
+  },
+  "data/train_v1/dev_knockout.jsonl.gz": {
+   "overall": {
+    "n": 656,
+    "acc": 1.0,
+    "nll": 1e-05,
+    "brier": 0.0,
+    "ece": 1e-05,
+    "ece_adaptive": 1e-05,
+    "auroc": null,
+    "aurc": 0.0,
+    "mean_conf": 0.99999
+   },
+   "by_dp": {
+    "tool_select": {
+     "n": 656,
+     "acc": 1.0,
+     "nll": 1e-05,
+     "brier": 0.0,
+     "ece": 1e-05,
+     "ece_adaptive": 1e-05,
+     "auroc": null,
+     "aurc": 0.0,
+     "mean_conf": 0.99999
+    }
+   },
+   "by_kind": {
+    "choice": {
+     "n": 656,
+     "acc": 1.0,
+     "nll": 1e-05,
+     "brier": 0.0,
+     "ece": 1e-05,
+     "ece_adaptive": 1e-05,
+     "auroc": null,
+     "aurc": 0.0,
+     "mean_conf": 0.99999
+    }
+   },
+   "seconds": 228.43,
+   "decisions_per_s": 2.87
+  }
+ }
+}

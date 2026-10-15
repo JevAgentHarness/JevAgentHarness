@@ -1,0 +1,14 @@
+# tau^2 rendering of configs/harness/jevagent_best.yaml (A7.1 (i)), written by scripts/select_profile.py
+# dropped: reflection trigger -> off (not implemented on tau^2)
+name: jevagent_best
+tool_select:
+  mode: cascade
+  tau: 1.0
+tool_params:
+  mode: cascade
+  tau: 0.99
+guard_max_retries: 1
+s1:
+  type: jev
+  provider: openrouter
+s1_cache: cache/s1_stage2_tau2.sqlite

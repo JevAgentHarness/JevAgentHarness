@@ -1,0 +1,14 @@
+# E12 live smoke (development only, never reported): configs/explore/e12_train/live.yaml on 2 JevGym development tasks
+# (seeds 900-901: the pilot / development range 0-999, outside every evaluation, calibration and training block), the
+# same arm, backend, LLM and suite options; it feeds the registered cost gate (scripts/explore_e12_train.py project).
+name: e12_live_smoke
+suite: {name: jevgym, n: 2, seed0: 900, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 2
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1_cache: cache/s1_e12_live_smoke.sqlite
+s1_backends:
+  e12: {type: jev, name: agentdecision-4b-mixed, base_url: "http://127.0.0.1:8081", model: agentdecision-4b-mixed, api_key: "",
+        price_model: jevagentrl-4b, timeout: 60.0}   # exact 0 per token, as the frozen row (API cost only)
+workers: 2
+arms:
+  - {name: e12_ts_replace_f, s1: e12, tool_select: {mode: replace}}

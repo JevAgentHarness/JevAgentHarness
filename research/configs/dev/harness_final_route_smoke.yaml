@@ -1,0 +1,15 @@
+# harness_final (docs/PREREG_A7_STAGE2.md Deviations 2026-10-05): does Gemini 3.5 Flash routed through OpenRouter behave
+# like the direct Gemini API (success, tokens, list-price cost) in the reference loop? 5 DEVELOPMENT tasks (seeds
+# 900-904), LLM-only, temperature 0, minimal reasoning; one arm per route. Development smoke only: no number from it
+# is reported as a result.
+#   jevbench run configs/dev/harness_final_route_smoke.yaml --out runs/harness_final_dev -o workers=5
+name: harness_final_route_smoke
+suite: {name: jevgym, n: 5, seed0: 900, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 5
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+llms:
+  flash_or: {provider: openrouter, model: google/gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+workers: 5
+arms:
+  - {name: llm_only_gemini}
+  - {name: llm_only_openrouter, llm: flash_or}

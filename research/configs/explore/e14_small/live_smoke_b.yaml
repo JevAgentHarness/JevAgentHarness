@@ -1,0 +1,38 @@
+# E14 live smoke of the final-harness arm (development only, never reported): configs/explore/e14_small/live_b.yaml on
+# 2 JevGym development tasks (seeds 906-907); it feeds the registered cost gate (scripts/explore_e14_small.py gate).
+name: e14_live_smoke_b
+suite:
+  name: jevgym
+  n: 2
+  seed0: 906
+  families: v2
+  distractor_style: near
+  n_distractors: 60
+  noise_lines: 20
+  strict: true
+n_tasks: 2
+llm:
+  provider: gemini
+  model: gemini-3.5-flash
+  temperature: 0
+  reasoning_effort: minimal
+s1_backends:
+  e14a:
+    type: jev
+    name: e14-a
+    base_url: http://127.0.0.1:8083
+    model: e14-a
+    api_key: ''
+    timeout: 120.0
+    cache: null
+    price_model: jevagentrl-4b
+workers: 1
+schedule:
+  mode: task_major
+  seed: 732
+arms:
+- name: e14_final
+  s1: e14a
+  profile: configs/harness/explore_e14_final.yaml
+  profile_s2: gemini-3.5-flash
+  profile_backend: e14a

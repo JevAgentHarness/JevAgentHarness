@@ -1,0 +1,104 @@
+{
+ "registered": "PREREGISTRATION A5.1 competence gate (dev set data/train_v0/dev.jsonl, 210 gold decisions; co-primary iff acc >= 0.8 x Jev)",
+ "dev": "data/train_v0/dev.jsonl",
+ "n": 210,
+ "jev_acc": 0.9714285714285714,
+ "threshold": 0.7771,
+ "candidates": {
+  "intern_0.8B": {
+   "acc": 0.5714285714285714,
+   "ratio_to_jev": 0.5882,
+   "per_dp": null,
+   "verdict": "fails the gate",
+   "ratio_ci95": [
+    0.5271,
+    0.6488
+   ],
+   "by_dp": {
+    "tool_select": {
+     "n": 62,
+     "acc": 0.2742
+    },
+    "tool_params": {
+     "n": 86,
+     "acc": 0.5465
+    },
+    "stop": {
+     "n": 62,
+     "acc": 0.9032
+    }
+   }
+  },
+  "intern_2B": {
+   "acc": 0.638095238095238,
+   "ratio_to_jev": 0.6569,
+   "per_dp": null,
+   "verdict": "fails the gate",
+   "ratio_ci95": [
+    0.5971,
+    0.7164
+   ],
+   "by_dp": {
+    "tool_select": {
+     "n": 62,
+     "acc": 0.2903
+    },
+    "tool_params": {
+     "n": 86,
+     "acc": 0.6744
+    },
+    "stop": {
+     "n": 62,
+     "acc": 0.9355
+    }
+   }
+  },
+  "intern_4B": {
+   "acc": 0.861904761904762,
+   "ratio_to_jev": 0.8873,
+   "per_dp": null,
+   "verdict": "co-primary",
+   "ratio_ci95": [
+    0.835,
+    0.9385
+   ],
+   "by_dp": {
+    "tool_select": {
+     "n": 62,
+     "acc": 0.8065
+    },
+    "tool_params": {
+     "n": 86,
+     "acc": 0.814
+    },
+    "stop": {
+     "n": 62,
+     "acc": 0.9839
+    }
+   }
+  }
+ },
+ "verdict": "Intern-Decision-4B is co-primary (0.862 vs 0.971, ratio 0.888 >= 0.8); 2B (0.638) and 0.8B (0.571) fail",
+ "source_files": [
+  "results/pilot_jev/gate_jev_dev.json",
+  "results/gpu_round2/gate_Intern-Decision-0.8B.json",
+  "results/gpu_round2/gate_Intern-Decision-2B.json",
+  "results/gpu_round2/gate_Intern-Decision-4B.json"
+ ],
+ "run": "GPU round 2, 2026-10-01 18:25-18:29 UTC, AWS g6.4xlarge (L4); Jev reference via OpenRouter 2026-10-01",
+ "jev_by_dp": {
+  "tool_select": {
+   "n": 62,
+   "acc": 0.9677
+  },
+  "tool_params": {
+   "n": 86,
+   "acc": 0.9535
+  },
+  "stop": {
+   "n": 62,
+   "acc": 1.0
+  }
+ },
+ "ratio_ci_method": "stratified binomial bootstrap of the accuracy ratio from the per-decision-point counts (B = 20000, seed 20261001; tool_select 62, tool_params 86, stop 62 decisions, both backends independent): descriptive. A5.1's paired per-item bootstrap is not available because GPU round 2 stored per-decision-point counts, not per-item records (A6.18); the gate decides on the point estimate."
+}

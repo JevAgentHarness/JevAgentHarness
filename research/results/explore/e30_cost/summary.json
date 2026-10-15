@@ -1,0 +1,2224 @@
+{
+ "models": {
+  "e12": {
+   "label": "AgentDecision-4B",
+   "family": "code",
+   "ref_key": "e9/e12/acc",
+   "ref_acc_pct": 85.1,
+   "rows": {
+    "bf16": {
+     "state": "ok",
+     "engine": "vllm",
+     "version": "0.31.0",
+     "precision": "bf16",
+     "files": [
+      "e12_bf16.json.gz"
+     ],
+     "dps": 37.8227845223572,
+     "conc": 64,
+     "usdk": 0.005910605429470983,
+     "lg": -5.228368031604086,
+     "passes": [
+      {
+       "c": 64,
+       "dps": 37.8227845223572,
+       "wall_s": 105.51840776400013,
+       "agree_with_first": null,
+       "file": "e12_bf16.json.gz"
+      },
+      {
+       "c": 256,
+       "dps": 35.43924649890112,
+       "wall_s": 112.61526116599998,
+       "agree_with_first": 0.996742671009772,
+       "file": "e12_bf16.json.gz"
+      }
+     ],
+     "lat_p50": 44.62774750004428,
+     "lat_p90": 73.25919590007292,
+     "lat_n": 1000,
+     "load_s": 122.1021038810004,
+     "engine_info": {
+      "enable_prefix_caching": true,
+      "max_num_seqs": 256,
+      "max_num_batched_tokens": 8192,
+      "quantization": null,
+      "dtype": "torch.bfloat16",
+      "max_model_len": 4096,
+      "logprobs_mode": "processed_logits",
+      "num_gpu_blocks": 5127
+     },
+     "extra_args": {
+      "max_num_seqs": 256
+     },
+     "longest_prompt": 2341,
+     "reads": 9182,
+     "wide_reads": 0,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.851916812828865,
+     "acc_pct": 85.19168128288649,
+     "families": {
+      "toolchoice": 0.8931777378815081,
+      "args": 0.9071318624935865,
+      "w2c": 0.6864224137931034
+     },
+     "agree_ref": 0.9959909797043347,
+     "ref_acc_pct_records": 85.06639939864695
+    },
+    "fp8": {
+     "state": "ok",
+     "engine": "vllm",
+     "version": "0.31.0",
+     "precision": "fp8",
+     "files": [
+      "e12_fp8.json.gz"
+     ],
+     "dps": 50.20187754350826,
+     "conc": 256,
+     "usdk": 0.0044531313666865855,
+     "lg": -5.351334493059756,
+     "passes": [
+      {
+       "c": 64,
+       "dps": 49.53752457614515,
+       "wall_s": 80.56518839299997,
+       "agree_with_first": null,
+       "file": "e12_fp8.json.gz"
+      },
+      {
+       "c": 256,
+       "dps": 50.20187754350826,
+       "wall_s": 79.49901866799974,
+       "agree_with_first": 0.9997494362315209,
+       "file": "e12_fp8.json.gz"
+      }
+     ],
+     "lat_p50": 30.943316500042783,
+     "lat_p90": 51.75417430004927,
+     "lat_n": 1000,
+     "load_s": 93.31548500999997,
+     "engine_info": {
+      "enable_prefix_caching": true,
+      "max_num_seqs": 256,
+      "max_num_batched_tokens": 8192,
+      "quantization": "fp8",
+      "dtype": "torch.bfloat16",
+      "max_model_len": 4096,
+      "logprobs_mode": "processed_logits",
+      "num_gpu_blocks": 6517
+     },
+     "extra_args": {
+      "max_num_seqs": 256
+     },
+     "longest_prompt": 2341,
+     "reads": 9182,
+     "wide_reads": 0,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.8476572287647206,
+     "acc_pct": 84.76572287647207,
+     "families": {
+      "toolchoice": 0.8904847396768402,
+      "args": 0.9045664443304259,
+      "w2c": 0.6767241379310345
+     },
+     "agree_ref": 0.9862189927336508,
+     "ref_acc_pct_records": 85.06639939864695
+    }
+   },
+   "plotted": "fp8",
+   "flag": "",
+   "e9_usdk": 0.14,
+   "point": {
+    "usdk": 0.0044531313666865855,
+    "lg": -5.351334493059756,
+    "acc_pct": 84.76572287647207,
+    "dps": 50.20187754350826,
+    "conc": 256,
+    "lat_p50": 30.943316500042783,
+    "lat_p90": 51.75417430004927,
+    "prec": "fp8",
+    "cheaper_than_e9": 31.438551543151302
+   }
+  },
+  "rl": {
+   "label": "Frozen GRPO 4B",
+   "family": "code",
+   "ref_key": "e9/rl/acc",
+   "ref_acc_pct": 78.8,
+   "rows": {
+    "bf16": {
+     "state": "ok",
+     "engine": "vllm",
+     "version": "0.31.0",
+     "precision": "bf16",
+     "files": [
+      "rl_bf16.json.gz"
+     ],
+     "dps": 37.464310263274676,
+     "conc": 64,
+     "usdk": 0.005967160585222397,
+     "lg": -5.224232274484119,
+     "passes": [
+      {
+       "c": 64,
+       "dps": 37.464310263274676,
+       "wall_s": 106.52805221699964,
+       "agree_with_first": null,
+       "file": "rl_bf16.json.gz"
+      },
+      {
+       "c": 256,
+       "dps": 35.419789880227114,
+       "wall_s": 112.67712240800029,
+       "agree_with_first": 0.9989977449260837,
+       "file": "rl_bf16.json.gz"
+      }
+     ],
+     "lat_p50": 44.576441000117484,
+     "lat_p90": 74.54589550034144,
+     "lat_n": 1000,
+     "load_s": 102.42233188499995,
+     "engine_info": {
+      "enable_prefix_caching": true,
+      "max_num_seqs": 256,
+      "max_num_batched_tokens": 8192,
+      "quantization": null,
+      "dtype": "torch.bfloat16",
+      "max_model_len": 4096,
+      "logprobs_mode": "processed_logits",
+      "num_gpu_blocks": 5127
+     },
+     "extra_args": {
+      "max_num_seqs": 256
+     },
+     "longest_prompt": 2341,
+     "reads": 9182,
+     "wide_reads": 0,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.7882736156351792,
+     "acc_pct": 78.82736156351791,
+     "families": {
+      "toolchoice": 0.8850987432675045,
+      "args": 0.8512057465366855,
+      "w2c": 0.5398706896551724
+     },
+     "agree_ref": 0.9979954898521674,
+     "ref_acc_pct_records": 78.7521924329742
+    },
+    "fp8": {
+     "state": "ok",
+     "engine": "vllm",
+     "version": "0.31.0",
+     "precision": "fp8",
+     "files": [
+      "rl_fp8.json.gz"
+     ],
+     "dps": 50.18949015662573,
+     "conc": 256,
+     "usdk": 0.004454230454581397,
+     "lg": -5.351227317036183,
+     "passes": [
+      {
+       "c": 64,
+       "dps": 49.63483998625919,
+       "wall_s": 80.40723010500005,
+       "agree_with_first": null,
+       "file": "rl_fp8.json.gz"
+      },
+      {
+       "c": 256,
+       "dps": 50.18949015662573,
+       "wall_s": 79.51864000900059,
+       "agree_with_first": 0.9994988724630418,
+       "file": "rl_fp8.json.gz"
+      }
+     ],
+     "lat_p50": 30.96892650000882,
+     "lat_p90": 52.328532799856475,
+     "lat_n": 1000,
+     "load_s": 94.76921519900043,
+     "engine_info": {
+      "enable_prefix_caching": true,
+      "max_num_seqs": 256,
+      "max_num_batched_tokens": 8192,
+      "quantization": "fp8",
+      "dtype": "torch.bfloat16",
+      "max_model_len": 4096,
+      "logprobs_mode": "processed_logits",
+      "num_gpu_blocks": 6517
+     },
+     "extra_args": {
+      "max_num_seqs": 256
+     },
+     "longest_prompt": 2341,
+     "reads": 9182,
+     "wide_reads": 0,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.7862691054873465,
+     "acc_pct": 78.62691054873466,
+     "families": {
+      "toolchoice": 0.8833034111310593,
+      "args": 0.8476141611082606,
+      "w2c": 0.540948275862069
+     },
+     "agree_ref": 0.9852167376597344,
+     "ref_acc_pct_records": 78.7521924329742
+    }
+   },
+   "plotted": "fp8",
+   "flag": "",
+   "e9_usdk": 0.093,
+   "point": {
+    "usdk": 0.004454230454581397,
+    "lg": -5.351227317036183,
+    "acc_pct": 78.62691054873466,
+    "dps": 50.18949015662573,
+    "conc": 256,
+    "lat_p50": 30.96892650000882,
+    "lat_p90": 52.328532799856475,
+    "prec": "fp8",
+    "cheaper_than_e9": 20.879027465753346
+   }
+  },
+  "e12c": {
+   "label": "StartLux-4B + our recipe",
+   "family": "code",
+   "ref_key": "e9/e12c/acc",
+   "ref_acc_pct": 85.5,
+   "rows": {
+    "bf16": {
+     "state": "ok",
+     "engine": "vllm",
+     "version": "0.31.0",
+     "precision": "bf16",
+     "files": [
+      "e12c_bf16.json.gz"
+     ],
+     "dps": 23.372040339439238,
+     "conc": 64,
+     "usdk": 0.009565085132012024,
+     "lg": -5.019311160273536,
+     "passes": [
+      {
+       "c": 64,
+       "dps": 23.372040339439238,
+       "wall_s": 170.75958889499998,
+       "agree_with_first": null,
+       "file": "e12c_bf16.json.gz"
+      },
+      {
+       "c": 256,
+       "dps": 22.8756065112519,
+       "wall_s": 174.46531955499995,
+       "agree_with_first": 0.9984966173891255,
+       "file": "e12c_bf16.json.gz"
+      }
+     ],
+     "lat_p50": 57.52664999954504,
+     "lat_p90": 99.46958179971261,
+     "lat_n": 1000,
+     "load_s": 157.2159325950006,
+     "engine_info": {
+      "enable_prefix_caching": true,
+      "max_num_seqs": 256,
+      "max_num_batched_tokens": 8192,
+      "quantization": null,
+      "dtype": "torch.bfloat16",
+      "max_model_len": 4096,
+      "logprobs_mode": "processed_logits",
+      "num_gpu_blocks": 637
+     },
+     "extra_args": {
+      "max_num_seqs": 256
+     },
+     "longest_prompt": 2346,
+     "reads": 9182,
+     "wide_reads": 0,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.8546730142821348,
+     "acc_pct": 85.46730142821347,
+     "families": {
+      "toolchoice": 0.8949730700179533,
+      "args": 0.9184197024114931,
+      "w2c": 0.6724137931034483
+     },
+     "agree_ref": 0.9989977449260837,
+     "ref_acc_pct_records": 85.46730142821347
+    },
+    "fp8": {
+     "state": "ok",
+     "engine": "vllm",
+     "version": "0.31.0",
+     "precision": "fp8",
+     "files": [
+      "e12c_fp8.json.gz"
+     ],
+     "dps": 30.27472599499023,
+     "conc": 64,
+     "usdk": 0.0073842305159937316,
+     "lg": -5.13169475425443,
+     "passes": [
+      {
+       "c": 64,
+       "dps": 30.27472599499023,
+       "wall_s": 131.82613116499942,
+       "agree_with_first": null,
+       "file": "e12c_fp8.json.gz"
+      },
+      {
+       "c": 256,
+       "dps": 29.63859161778299,
+       "wall_s": 134.65552113499962,
+       "agree_with_first": 1.0,
+       "file": "e12c_fp8.json.gz"
+      }
+     ],
+     "lat_p50": 44.73373500013622,
+     "lat_p90": 69.60236300028556,
+     "lat_n": 1000,
+     "load_s": 180.18689445499967,
+     "engine_info": {
+      "enable_prefix_caching": true,
+      "max_num_seqs": 256,
+      "max_num_batched_tokens": 8192,
+      "quantization": "fp8",
+      "dtype": "torch.bfloat16",
+      "max_model_len": 4096,
+      "logprobs_mode": "processed_logits",
+      "num_gpu_blocks": 820
+     },
+     "extra_args": {
+      "max_num_seqs": 256
+     },
+     "longest_prompt": 2346,
+     "reads": 9182,
+     "wide_reads": 0,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.855424705587572,
+     "acc_pct": 85.5424705587572,
+     "families": {
+      "toolchoice": 0.895870736086176,
+      "args": 0.9189327860441252,
+      "w2c": 0.6734913793103449
+     },
+     "agree_ref": 0.9867201202706088,
+     "ref_acc_pct_records": 85.46730142821347
+    }
+   },
+   "plotted": "fp8",
+   "flag": "",
+   "e9_usdk": 0.29,
+   "point": {
+    "usdk": 0.0073842305159937316,
+    "lg": -5.13169475425443,
+    "acc_pct": 85.5424705587572,
+    "dps": 30.27472599499023,
+    "conc": 64,
+    "lat_p50": 44.73373500013622,
+    "lat_p90": 69.60236300028556,
+    "prec": "fp8",
+    "cheaper_than_e9": 39.27288014260661
+   }
+  },
+  "e28": {
+   "label": "AgentDecision-0.8B (StartLux-0.8B + our recipe, E28)",
+   "family": "code",
+   "ref_key": "e28/l1/acc",
+   "ref_acc_pct": 80.5,
+   "rows": {
+    "bf16": {
+     "state": "ok",
+     "engine": "vllm",
+     "version": "0.31.0",
+     "precision": "bf16",
+     "files": [
+      "e28_bf16.json.gz"
+     ],
+     "dps": 113.77223324150263,
+     "conc": 64,
+     "usdk": 0.0019649395040090096,
+     "lg": -5.706650816016038,
+     "passes": [
+      {
+       "c": 64,
+       "dps": 113.77223324150263,
+       "wall_s": 35.07885787499981,
+       "agree_with_first": null,
+       "file": "e28_bf16.json.gz"
+      },
+      {
+       "c": 256,
+       "dps": 109.64281859918852,
+       "wall_s": 36.40001279600028,
+       "agree_with_first": 0.9992483086945627,
+       "file": "e28_bf16.json.gz"
+      }
+     ],
+     "lat_p50": 31.12145000000055,
+     "lat_p90": 33.57080620007764,
+     "lat_n": 1000,
+     "load_s": 136.47023463899995,
+     "engine_info": {
+      "enable_prefix_caching": true,
+      "max_num_seqs": 256,
+      "max_num_batched_tokens": 8192,
+      "quantization": null,
+      "dtype": "torch.bfloat16",
+      "max_model_len": 4096,
+      "logprobs_mode": "processed_logits",
+      "num_gpu_blocks": 2828
+     },
+     "extra_args": {
+      "max_num_seqs": 256
+     },
+     "longest_prompt": 2346,
+     "reads": 9182,
+     "wide_reads": 0,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.8045602605863192,
+     "acc_pct": 80.45602605863192,
+     "families": {
+      "toolchoice": 0.8716337522441652,
+      "args": 0.8717290918419702,
+      "w2c": 0.5829741379310345
+     },
+     "agree_ref": 0.9989977449260837,
+     "ref_acc_pct_records": 80.45602605863192
+    },
+    "fp8": {
+     "state": "ok",
+     "engine": "vllm",
+     "version": "0.31.0",
+     "precision": "fp8",
+     "files": [
+      "e28_fp8.json.gz"
+     ],
+     "dps": 122.48643520827484,
+     "conc": 64,
+     "usdk": 0.0018251454144732325,
+     "lg": -5.7387025283650575,
+     "passes": [
+      {
+       "c": 64,
+       "dps": 122.48643520827484,
+       "wall_s": 32.58319987200002,
+       "agree_with_first": null,
+       "file": "e28_fp8.json.gz"
+      },
+      {
+       "c": 256,
+       "dps": 121.49688981489291,
+       "wall_s": 32.848577491000015,
+       "agree_with_first": 1.0,
+       "file": "e28_fp8.json.gz"
+      }
+     ],
+     "lat_p50": 27.19759499996144,
+     "lat_p90": 29.75253460035674,
+     "lat_n": 1000,
+     "load_s": 141.53391981100003,
+     "engine_info": {
+      "enable_prefix_caching": true,
+      "max_num_seqs": 256,
+      "max_num_batched_tokens": 8192,
+      "quantization": "fp8",
+      "dtype": "torch.bfloat16",
+      "max_model_len": 4096,
+      "logprobs_mode": "processed_logits",
+      "num_gpu_blocks": 2891
+     },
+     "extra_args": {
+      "max_num_seqs": 256
+     },
+     "longest_prompt": 2346,
+     "reads": 9182,
+     "wide_reads": 0,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.8048108243547983,
+     "acc_pct": 80.48108243547983,
+     "families": {
+      "toolchoice": 0.8725314183123878,
+      "args": 0.8727552591072345,
+      "w2c": 0.5808189655172413
+     },
+     "agree_ref": 0.9829616637434228,
+     "ref_acc_pct_records": 80.45602605863192
+    }
+   },
+   "plotted": "fp8",
+   "flag": "",
+   "e9_usdk": 0.01,
+   "point": {
+    "usdk": 0.0018251454144732325,
+    "lg": -5.7387025283650575,
+    "acc_pct": 80.48108243547983,
+    "dps": 122.48643520827484,
+    "conc": 64,
+    "lat_p50": 27.19759499996144,
+    "lat_p90": 29.75253460035674,
+    "prec": "fp8",
+    "cheaper_than_e9": 5.479015491423826
+   }
+  },
+  "sl0.8b": {
+   "label": "StartLux-Decision-0.8B",
+   "family": "startlux",
+   "ref_key": "e9/sl0.8b/acc",
+   "ref_acc_pct": 70.0,
+   "rows": {
+    "bf16": {
+     "state": "ok",
+     "engine": "vllm",
+     "version": "0.31.0",
+     "precision": "bf16",
+     "files": [
+      "sl0.8b_bf16.json.gz"
+     ],
+     "dps": 122.20838919168351,
+     "conc": 64,
+     "usdk": 0.0018292979478267183,
+     "lg": -5.7377155528294015,
+     "passes": [
+      {
+       "c": 64,
+       "dps": 122.20838919168351,
+       "wall_s": 32.65733249899995,
+       "agree_with_first": null,
+       "file": "sl0.8b_bf16.json.gz"
+      },
+      {
+       "c": 256,
+       "dps": 116.12234813665546,
+       "wall_s": 34.368922641000154,
+       "agree_with_first": 0.9959909797043347,
+       "file": "sl0.8b_bf16.json.gz"
+      }
+     ],
+     "lat_p50": 34.620151499893836,
+     "lat_p90": 36.856613700183516,
+     "lat_n": 1000,
+     "load_s": 139.2887514820004,
+     "engine_info": {
+      "enable_prefix_caching": true,
+      "max_num_seqs": 256,
+      "max_num_batched_tokens": 8192,
+      "quantization": null,
+      "dtype": "torch.bfloat16",
+      "max_model_len": 4096,
+      "logprobs_mode": "processed_logits",
+      "num_gpu_blocks": 2813
+     },
+     "extra_args": {
+      "max_num_seqs": 256
+     },
+     "longest_prompt": 2327,
+     "reads": 9218,
+     "wide_reads": 54,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.6990729140566274,
+     "acc_pct": 69.90729140566275,
+     "families": {
+      "toolchoice": 0.8833034111310593,
+      "args": 0.6690610569522832,
+      "w2c": 0.540948275862069
+     },
+     "agree_ref": 0.9914808318717113,
+     "ref_acc_pct_records": 69.98246053620646
+    },
+    "fp8": {
+     "state": "ok",
+     "engine": "vllm",
+     "version": "0.31.0",
+     "precision": "fp8",
+     "files": [
+      "sl0.8b_fp8.json.gz"
+     ],
+     "dps": 131.328561868222,
+     "conc": 64,
+     "usdk": 0.0017022615063726667,
+     "lg": -5.768973721542472,
+     "passes": [
+      {
+       "c": 64,
+       "dps": 131.328561868222,
+       "wall_s": 30.38942894999991,
+       "agree_with_first": null,
+       "file": "sl0.8b_fp8.json.gz"
+      },
+      {
+       "c": 256,
+       "dps": 128.69580198276466,
+       "wall_s": 31.01111254999978,
+       "agree_with_first": 1.0,
+       "file": "sl0.8b_fp8.json.gz"
+      }
+     ],
+     "lat_p50": 31.62296499999684,
+     "lat_p90": 34.018769000203974,
+     "lat_n": 1000,
+     "load_s": 153.11454102100015,
+     "engine_info": {
+      "enable_prefix_caching": true,
+      "max_num_seqs": 256,
+      "max_num_batched_tokens": 8192,
+      "quantization": "fp8",
+      "dtype": "torch.bfloat16",
+      "max_model_len": 4096,
+      "logprobs_mode": "processed_logits",
+      "num_gpu_blocks": 2876
+     },
+     "extra_args": {
+      "max_num_seqs": 256
+     },
+     "longest_prompt": 2327,
+     "reads": 9218,
+     "wide_reads": 54,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.6930593836131296,
+     "acc_pct": 69.30593836131295,
+     "families": {
+      "toolchoice": 0.8761220825852782,
+      "args": 0.6649563878912262,
+      "w2c": 0.5323275862068966
+     },
+     "agree_ref": 0.9694312202455525,
+     "ref_acc_pct_records": 69.98246053620646
+    }
+   },
+   "plotted": "fp8",
+   "flag": "",
+   "e9_usdk": 0.013,
+   "point": {
+    "usdk": 0.0017022615063726667,
+    "lg": -5.768973721542472,
+    "acc_pct": 69.30593836131295,
+    "dps": 131.328561868222,
+    "conc": 64,
+    "lat_p50": 31.62296499999684,
+    "lat_p90": 34.018769000203974,
+    "prec": "fp8",
+    "cheaper_than_e9": 7.63689947245625
+   }
+  },
+  "sl2b": {
+   "label": "StartLux-Decision-2B",
+   "family": "startlux",
+   "ref_key": "e9/sl2b/acc",
+   "ref_acc_pct": 75.7,
+   "rows": {
+    "bf16": {
+     "state": "ok",
+     "engine": "vllm",
+     "version": "0.31.0",
+     "precision": "bf16",
+     "files": [
+      "sl2b_bf16.json.gz"
+     ],
+     "dps": 65.2075518844972,
+     "conc": 64,
+     "usdk": 0.0034283690936832245,
+     "lg": -5.464912428662192,
+     "passes": [
+      {
+       "c": 64,
+       "dps": 65.2075518844972,
+       "wall_s": 61.204567333999876,
+       "agree_with_first": null,
+       "file": "sl2b_bf16.json.gz"
+      },
+      {
+       "c": 256,
+       "dps": 63.29262480516659,
+       "wall_s": 63.05631994699979,
+       "agree_with_first": 0.9982460536206464,
+       "file": "sl2b_bf16.json.gz"
+      }
+     ],
+     "lat_p50": 36.87708399957046,
+     "lat_p90": 39.876970299792454,
+     "lat_n": 1000,
+     "load_s": 135.25593239199952,
+     "engine_info": {
+      "enable_prefix_caching": true,
+      "max_num_seqs": 256,
+      "max_num_batched_tokens": 8192,
+      "quantization": null,
+      "dtype": "torch.bfloat16",
+      "max_model_len": 4096,
+      "logprobs_mode": "processed_logits",
+      "num_gpu_blocks": 2391
+     },
+     "extra_args": {
+      "max_num_seqs": 256
+     },
+     "longest_prompt": 2327,
+     "reads": 9218,
+     "wide_reads": 54,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.758957654723127,
+     "acc_pct": 75.8957654723127,
+     "families": {
+      "toolchoice": 0.9021543985637342,
+      "args": 0.7311441765007696,
+      "w2c": 0.6454741379310345
+     },
+     "agree_ref": 0.9944875970934602,
+     "ref_acc_pct_records": 75.72037083437735
+    },
+    "fp8": {
+     "state": "ok",
+     "engine": "vllm",
+     "version": "0.31.0",
+     "precision": "fp8",
+     "files": [
+      "sl2b_fp8.json.gz"
+     ],
+     "dps": 81.63264732570461,
+     "conc": 64,
+     "usdk": 0.0027385557479668067,
+     "lg": -5.562478413841301,
+     "passes": [
+      {
+       "c": 64,
+       "dps": 81.63264732570461,
+       "wall_s": 48.889753434999875,
+       "agree_with_first": null,
+       "file": "sl2b_fp8.json.gz"
+      },
+      {
+       "c": 256,
+       "dps": 80.44363178866341,
+       "wall_s": 49.61237964100019,
+       "agree_with_first": 1.0,
+       "file": "sl2b_fp8.json.gz"
+      }
+     ],
+     "lat_p50": 34.36934100000144,
+     "lat_p90": 36.01509500040265,
+     "lat_n": 1000,
+     "load_s": 154.45606580000003,
+     "engine_info": {
+      "enable_prefix_caching": true,
+      "max_num_seqs": 256,
+      "max_num_batched_tokens": 8192,
+      "quantization": "fp8",
+      "dtype": "torch.bfloat16",
+      "max_model_len": 4096,
+      "logprobs_mode": "processed_logits",
+      "num_gpu_blocks": 2589
+     },
+     "extra_args": {
+      "max_num_seqs": 256
+     },
+     "longest_prompt": 2327,
+     "reads": 9218,
+     "wide_reads": 54,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.7599599097970433,
+     "acc_pct": 75.99599097970433,
+     "families": {
+      "toolchoice": 0.9030520646319569,
+      "args": 0.736788096459723,
+      "w2c": 0.6368534482758621
+     },
+     "agree_ref": 0.9736908043096968,
+     "ref_acc_pct_records": 75.72037083437735
+    }
+   },
+   "plotted": "fp8",
+   "flag": "",
+   "e9_usdk": 0.022,
+   "point": {
+    "usdk": 0.0027385557479668067,
+    "lg": -5.562478413841301,
+    "acc_pct": 75.99599097970433,
+    "dps": 81.63264732570461,
+    "conc": 64,
+    "lat_p50": 34.36934100000144,
+    "lat_p90": 36.01509500040265,
+    "prec": "fp8",
+    "cheaper_than_e9": 8.033431496267154
+   }
+  },
+  "sl4b": {
+   "label": "StartLux-Decision-4B",
+   "family": "startlux",
+   "ref_key": "e9/sl4b/acc",
+   "ref_acc_pct": 83.1,
+   "rows": {
+    "bf16": {
+     "state": "ok",
+     "engine": "vllm",
+     "version": "0.31.0",
+     "precision": "bf16",
+     "files": [
+      "sl4b_bf16.json.gz"
+     ],
+     "dps": 25.28761747118989,
+     "conc": 64,
+     "usdk": 0.0088405147622251,
+     "lg": -5.053522446312143,
+     "passes": [
+      {
+       "c": 64,
+       "dps": 25.28761747118989,
+       "wall_s": 157.82427919699967,
+       "agree_with_first": null,
+       "file": "sl4b_bf16.json.gz"
+      },
+      {
+       "c": 256,
+       "dps": 24.434022978320595,
+       "wall_s": 163.33781807200012,
+       "agree_with_first": 0.9989977449260837,
+       "file": "sl4b_bf16.json.gz"
+      }
+     ],
+     "lat_p50": 56.02827749999051,
+     "lat_p90": 97.51051320008628,
+     "lat_n": 1000,
+     "load_s": 156.81902558799993,
+     "engine_info": {
+      "enable_prefix_caching": true,
+      "max_num_seqs": 256,
+      "max_num_batched_tokens": 8192,
+      "quantization": null,
+      "dtype": "torch.bfloat16",
+      "max_model_len": 4096,
+      "logprobs_mode": "processed_logits",
+      "num_gpu_blocks": 634
+     },
+     "extra_args": {
+      "max_num_seqs": 256
+     },
+     "longest_prompt": 2327,
+     "reads": 9218,
+     "wide_reads": 54,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.8308694562766225,
+     "acc_pct": 83.08694562766225,
+     "families": {
+      "toolchoice": 0.9111310592459605,
+      "args": 0.8116983068240123,
+      "w2c": 0.7747844827586207
+     },
+     "agree_ref": 0.9969932347782511,
+     "ref_acc_pct_records": 83.13705838135806
+    },
+    "fp8": {
+     "state": "ok",
+     "engine": "vllm",
+     "version": "0.31.0",
+     "precision": "fp8",
+     "files": [
+      "sl4b_fp8.json.gz"
+     ],
+     "dps": 33.03784756201243,
+     "conc": 64,
+     "usdk": 0.006766650131669115,
+     "lg": -5.169626278047874,
+     "passes": [
+      {
+       "c": 64,
+       "dps": 33.03784756201243,
+       "wall_s": 120.80084795199946,
+       "agree_with_first": null,
+       "file": "sl4b_fp8.json.gz"
+      },
+      {
+       "c": 256,
+       "dps": 32.18057009125762,
+       "wall_s": 124.0189340550005,
+       "agree_with_first": 1.0,
+       "file": "sl4b_fp8.json.gz"
+      }
+     ],
+     "lat_p50": 43.88406600037342,
+     "lat_p90": 69.34227400051896,
+     "lat_n": 1000,
+     "load_s": 182.16231627300022,
+     "engine_info": {
+      "enable_prefix_caching": true,
+      "max_num_seqs": 256,
+      "max_num_batched_tokens": 8192,
+      "quantization": "fp8",
+      "dtype": "torch.bfloat16",
+      "max_model_len": 4096,
+      "logprobs_mode": "processed_logits",
+      "num_gpu_blocks": 815
+     },
+     "extra_args": {
+      "max_num_seqs": 256
+     },
+     "longest_prompt": 2327,
+     "reads": 9218,
+     "wide_reads": 54,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.829616637434227,
+     "acc_pct": 82.9616637434227,
+     "families": {
+      "toolchoice": 0.9129263913824057,
+      "args": 0.8116983068240123,
+      "w2c": 0.7672413793103449
+     },
+     "agree_ref": 0.9864695565021298,
+     "ref_acc_pct_records": 83.13705838135806
+    }
+   },
+   "plotted": "fp8",
+   "flag": "",
+   "e9_usdk": 0.052,
+   "point": {
+    "usdk": 0.006766650131669115,
+    "lg": -5.169626278047874,
+    "acc_pct": 82.9616637434227,
+    "dps": 33.03784756201243,
+    "conc": 64,
+    "lat_p50": 43.88406600037342,
+    "lat_p90": 69.34227400051896,
+    "prec": "fp8",
+    "cheaper_than_e9": 7.684747842456171
+   }
+  },
+  "sl9b": {
+   "label": "StartLux-Decision-9B",
+   "family": "startlux",
+   "ref_key": "e9/sl9b/acc",
+   "ref_acc_pct": 83.4,
+   "rows": {
+    "bf16": {
+     "state": "ok",
+     "engine": "vllm",
+     "version": "0.31.0",
+     "precision": "bf16",
+     "files": [
+      "sl9b_bf16.json.gz"
+     ],
+     "dps": 12.895435173519765,
+     "conc": 64,
+     "usdk": 0.017336022596167792,
+     "lg": -4.761050535618523,
+     "passes": [
+      {
+       "c": 64,
+       "dps": 12.895435173519765,
+       "wall_s": 309.48936164599945,
+       "agree_with_first": null,
+       "file": "sl9b_bf16.json.gz"
+      },
+      {
+       "c": 256,
+       "dps": 12.69218627004051,
+       "wall_s": 314.4454324170001,
+       "agree_with_first": 0.9982460536206464,
+       "file": "sl9b_bf16.json.gz"
+      }
+     ],
+     "lat_p50": 98.97729549993528,
+     "lat_p90": 194.70819370053508,
+     "lat_n": 1000,
+     "load_s": 544.7559988360008,
+     "engine_info": {
+      "enable_prefix_caching": true,
+      "max_num_seqs": 64,
+      "max_num_batched_tokens": 8192,
+      "quantization": null,
+      "dtype": "torch.bfloat16",
+      "max_model_len": 4096,
+      "logprobs_mode": "processed_logits",
+      "num_gpu_blocks": 67
+     },
+     "extra_args": {
+      "max_num_seqs": 64
+     },
+     "longest_prompt": 2327,
+     "reads": 9218,
+     "wide_reads": 54,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.8346279128038085,
+     "acc_pct": 83.46279128038086,
+     "families": {
+      "toolchoice": 0.9210053859964094,
+      "args": 0.8106721395587481,
+      "w2c": 0.78125
+     },
+     "agree_ref": 0.9979954898521674,
+     "ref_acc_pct_records": 83.43773490353296
+    },
+    "fp8": {
+     "state": "ok",
+     "engine": "vllm",
+     "version": "0.31.0",
+     "precision": "fp8",
+     "files": [
+      "sl9b_fp8.json.gz"
+     ],
+     "dps": 19.5350379621307,
+     "conc": 64,
+     "usdk": 0.011443824987129545,
+     "lg": -4.941428792574665,
+     "passes": [
+      {
+       "c": 64,
+       "dps": 19.5350379621307,
+       "wall_s": 204.29957739200108,
+       "agree_with_first": null,
+       "file": "sl9b_fp8.json.gz"
+      },
+      {
+       "c": 256,
+       "dps": 18.788976727804773,
+       "wall_s": 212.41178047200083,
+       "agree_with_first": 1.0,
+       "file": "sl9b_fp8.json.gz"
+      }
+     ],
+     "lat_p50": 65.54200949904043,
+     "lat_p90": 117.53590249918489,
+     "lat_n": 1000,
+     "load_s": 240.58709072700003,
+     "engine_info": {
+      "enable_prefix_caching": true,
+      "max_num_seqs": 256,
+      "max_num_batched_tokens": 8192,
+      "quantization": "fp8",
+      "dtype": "torch.bfloat16",
+      "max_model_len": 4096,
+      "logprobs_mode": "processed_logits",
+      "num_gpu_blocks": 433
+     },
+     "extra_args": {
+      "max_num_seqs": 256
+     },
+     "longest_prompt": 2327,
+     "reads": 9218,
+     "wide_reads": 54,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.8331245301929341,
+     "acc_pct": 83.31245301929341,
+     "families": {
+      "toolchoice": 0.9228007181328546,
+      "args": 0.806054386865059,
+      "w2c": 0.7823275862068966
+     },
+     "agree_ref": 0.9874718115760461,
+     "ref_acc_pct_records": 83.43773490353296
+    }
+   },
+   "plotted": "fp8",
+   "flag": "",
+   "e9_usdk": 0.083,
+   "point": {
+    "usdk": 0.011443824987129545,
+    "lg": -4.941428792574665,
+    "acc_pct": 83.31245301929341,
+    "dps": 19.5350379621307,
+    "conc": 64,
+    "lat_p50": 65.54200949904043,
+    "lat_p90": 117.53590249918489,
+    "prec": "fp8",
+    "cheaper_than_e9": 7.252819760294053
+   }
+  },
+  "sl27b": {
+   "label": "StartLux-Decision-27B",
+   "family": "startlux",
+   "ref_key": "e9/sl27b/acc",
+   "ref_acc_pct": 87.7,
+   "rows": {
+    "q4_k_m": {
+     "state": "ok",
+     "engine": "llama.cpp",
+     "version": null,
+     "precision": "q4_k_m",
+     "files": [
+      "sl27b_q4_k_m_p8.json.gz"
+     ],
+     "dps": 1.3472268001089602,
+     "conc": 8,
+     "usdk": 0.16593758047084198,
+     "lg": -3.780055246628815,
+     "passes": [
+      {
+       "c": 8,
+       "dps": 1.3472268001089602,
+       "wall_s": 2962.3816863479988,
+       "agree_with_first": null,
+       "file": "sl27b_q4_k_m_p8.json.gz"
+      }
+     ],
+     "lat_p50": 648.5989200009499,
+     "lat_p90": 1224.312516297505,
+     "lat_n": 1000,
+     "load_s": null,
+     "engine_info": null,
+     "extra_args": null,
+     "longest_prompt": null,
+     "reads": null,
+     "wide_reads": null,
+     "widened_reads": 0,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.8752192432974192,
+     "acc_pct": 87.52192432974192,
+     "families": {
+      "toolchoice": 0.9129263913824057,
+      "args": 0.8866085171883017,
+      "w2c": 0.8060344827586207
+     },
+     "agree_ref": 0.9837133550488599,
+     "ref_acc_pct_records": 87.72237534452518
+    }
+   },
+   "plotted": "q4_k_m",
+   "flag": "",
+   "e9_usdk": 1.1,
+   "point": {
+    "usdk": 0.16593758047084198,
+    "lg": -3.780055246628815,
+    "acc_pct": 87.52192432974192,
+    "dps": 1.3472268001089602,
+    "conc": 8,
+    "lat_p50": 648.5989200009499,
+    "lat_p90": 1224.312516297505,
+    "prec": "q4_k_m",
+    "cheaper_than_e9": 6.628998668528185
+   }
+  },
+  "intern": {
+   "label": "Intern-Decision-4B",
+   "family": "intern",
+   "ref_key": "e9/intern/acc",
+   "ref_acc_pct": 73.4,
+   "rows": {
+    "bf16": {
+     "state": "ok",
+     "engine": "vllm",
+     "version": "0.31.0",
+     "precision": "bf16",
+     "files": [
+      "intern_bf16.json.gz"
+     ],
+     "dps": 13.600202541628674,
+     "conc": 64,
+     "usdk": 0.016437663694439653,
+     "lg": -4.784159909223939,
+     "passes": [
+      {
+       "c": 64,
+       "dps": 13.600202541628674,
+       "wall_s": 293.45151204800095,
+       "agree_with_first": null,
+       "file": "intern_bf16.json.gz"
+      },
+      {
+       "c": 256,
+       "dps": 13.428119460760325,
+       "wall_s": 297.21213098099906,
+       "agree_with_first": 0.9979954898521674,
+       "file": "intern_bf16.json.gz"
+      }
+     ],
+     "lat_p50": 82.74313099991559,
+     "lat_p90": 172.14141249951354,
+     "lat_n": 1000,
+     "load_s": 176.5498750000006,
+     "engine_info": {
+      "enable_prefix_caching": true,
+      "max_num_seqs": 256,
+      "max_num_batched_tokens": 8192,
+      "quantization": null,
+      "dtype": "torch.bfloat16",
+      "max_model_len": 4096,
+      "logprobs_mode": "processed_logits",
+      "num_gpu_blocks": 634
+     },
+     "extra_args": {
+      "max_num_seqs": 256
+     },
+     "longest_prompt": 2613,
+     "reads": 9182,
+     "wide_reads": 0,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.7336507141067402,
+     "acc_pct": 73.36507141067402,
+     "families": {
+      "toolchoice": 0.8833034111310593,
+      "args": 0.7106208311954849,
+      "w2c": 0.6023706896551724
+     },
+     "agree_ref": 0.9939864695565022,
+     "ref_acc_pct_records": 73.39012778752192
+    },
+    "fp8": {
+     "state": "ok",
+     "engine": "vllm",
+     "version": "0.31.0",
+     "precision": "fp8",
+     "files": [
+      "intern_fp8.json.gz"
+     ],
+     "dps": 18.014942895353478,
+     "conc": 64,
+     "usdk": 0.012409451245788647,
+     "lg": -4.906247422868328,
+     "passes": [
+      {
+       "c": 64,
+       "dps": 18.014942895353478,
+       "wall_s": 221.53830979000122,
+       "agree_with_first": null,
+       "file": "intern_fp8.json.gz"
+      },
+      {
+       "c": 256,
+       "dps": 17.79163942461986,
+       "wall_s": 224.3188446410004,
+       "agree_with_first": 1.0,
+       "file": "intern_fp8.json.gz"
+      }
+     ],
+     "lat_p50": 60.89682099991478,
+     "lat_p90": 125.4210992003209,
+     "lat_n": 1000,
+     "load_s": 187.00800001300013,
+     "engine_info": {
+      "enable_prefix_caching": true,
+      "max_num_seqs": 256,
+      "max_num_batched_tokens": 8192,
+      "quantization": "fp8",
+      "dtype": "torch.bfloat16",
+      "max_model_len": 4096,
+      "logprobs_mode": "processed_logits",
+      "num_gpu_blocks": 816
+     },
+     "extra_args": {
+      "max_num_seqs": 256
+     },
+     "longest_prompt": 2613,
+     "reads": 9182,
+     "wide_reads": 0,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.7349035329491356,
+     "acc_pct": 73.49035329491356,
+     "families": {
+      "toolchoice": 0.8833034111310593,
+      "args": 0.7121600820933812,
+      "w2c": 0.6045258620689655
+     },
+     "agree_ref": 0.9706840390879479,
+     "ref_acc_pct_records": 73.39012778752192
+    }
+   },
+   "plotted": "fp8",
+   "flag": "",
+   "e9_usdk": 0.039,
+   "point": {
+    "usdk": 0.012409451245788647,
+    "lg": -4.906247422868328,
+    "acc_pct": 73.49035329491356,
+    "dps": 18.014942895353478,
+    "conc": 64,
+    "lat_p50": 60.89682099991478,
+    "lat_p90": 125.4210992003209,
+    "prec": "fp8",
+    "cheaper_than_e9": 3.1427658828375105
+   }
+  },
+  "e27sp": {
+   "label": "Qwen3.5-0.8B variant (E27, scoring head)",
+   "family": "wire",
+   "ref_key": "e9/e27sp/acc",
+   "ref_acc_pct": 77.2,
+   "rows": {
+    "bf16": {
+     "state": "ok",
+     "engine": "serve_jev (wire)",
+     "version": null,
+     "precision": "bf16",
+     "files": [
+      "e27sp_bf16.json.gz"
+     ],
+     "dps": 26.73759363570469,
+     "conc": 16,
+     "usdk": 0.008361094816589074,
+     "lg": -5.077736851547545,
+     "passes": [
+      {
+       "c": 16,
+       "dps": 26.73759363570469,
+       "wall_s": 149.26548942199952,
+       "agree_with_first": null,
+       "file": "e27sp_bf16.json.gz"
+      },
+      {
+       "c": 64,
+       "dps": 24.4469545288546,
+       "wall_s": 163.25141830199937,
+       "agree_with_first": 0.9984966173891255,
+       "file": "e27sp_bf16.json.gz"
+      }
+     ],
+     "lat_p50": 59.751184498963994,
+     "lat_p90": 63.322446000165655,
+     "lat_n": 1000,
+     "load_s": null,
+     "engine_info": null,
+     "extra_args": null,
+     "longest_prompt": null,
+     "reads": null,
+     "wide_reads": null,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.7729892257579554,
+     "acc_pct": 77.29892257579554,
+     "families": {
+      "toolchoice": 0.8321364452423698,
+      "args": 0.8912262698819907,
+      "w2c": 0.4536637931034483
+     },
+     "agree_ref": 0.9977449260836883,
+     "ref_acc_pct_records": 77.24880982209973
+    }
+   },
+   "plotted": "bf16",
+   "flag": "",
+   "e9_usdk": 0.091,
+   "point": {
+    "usdk": 0.008361094816589074,
+    "lg": -5.077736851547545,
+    "acc_pct": 77.29892257579554,
+    "dps": 26.73759363570469,
+    "conc": 16,
+    "lat_p50": 59.751184498963994,
+    "lat_p90": 63.322446000165655,
+    "prec": "bf16",
+    "cheaper_than_e9": 10.883742140975222
+   }
+  },
+  "openjevhf": {
+   "label": "OpenJev-27B",
+   "family": "openjev",
+   "ref_key": "e9/openjevhf/acc",
+   "ref_acc_pct": 82.7,
+   "rows": {
+    "q4_k_m": {
+     "state": "ok",
+     "engine": "llama.cpp",
+     "version": null,
+     "precision": "q4_k_m",
+     "files": [
+      "openjevhf_q4_k_m_p8.json.gz"
+     ],
+     "dps": 1.259230469805829,
+     "conc": 8,
+     "usdk": 0.17753347057272797,
+     "lg": -3.7507197568922446,
+     "passes": [
+      {
+       "c": 8,
+       "dps": 1.259230469805829,
+       "wall_s": 3169.3959888179998,
+       "agree_with_first": null,
+       "file": "openjevhf_q4_k_m_p8.json.gz"
+      }
+     ],
+     "lat_p50": 744.2499725002563,
+     "lat_p90": 1230.6659897025384,
+     "lat_n": 1000,
+     "load_s": null,
+     "engine_info": null,
+     "extra_args": null,
+     "longest_prompt": null,
+     "reads": null,
+     "wide_reads": null,
+     "widened_reads": 0,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.8298672012027061,
+     "acc_pct": 82.9867201202706,
+     "families": {
+      "toolchoice": 0.9012567324955116,
+      "args": 0.818881477680862,
+      "w2c": 0.7672413793103449
+     },
+     "agree_ref": 0.9842144825858181,
+     "ref_acc_pct_records": 82.73615635179154
+    }
+   },
+   "plotted": "q4_k_m",
+   "flag": "",
+   "e9_usdk": 0.24,
+   "point": {
+    "usdk": 0.17753347057272797,
+    "lg": -3.7507197568922446,
+    "acc_pct": 82.9867201202706,
+    "dps": 1.259230469805829,
+    "conc": 8,
+    "lat_p50": 744.2499725002563,
+    "lat_p90": 1230.6659897025384,
+    "prec": "q4_k_m",
+    "cheaper_than_e9": 1.3518577608253433
+   }
+  },
+  "decider": {
+   "label": "decider-4b",
+   "family": "decider",
+   "ref_key": "e9/decider/acc",
+   "ref_acc_pct": 79.3,
+   "rows": {
+    "bf16": {
+     "state": "ok",
+     "engine": "vllm",
+     "version": "0.31.0",
+     "precision": "bf16",
+     "files": [
+      "decider_bf16.json.gz"
+     ],
+     "dps": 29.017071235854598,
+     "conc": 64,
+     "usdk": 0.007704277035351583,
+     "lg": -5.113268108962276,
+     "passes": [
+      {
+       "c": 64,
+       "dps": 29.017071235854598,
+       "wall_s": 137.53972506600076,
+       "agree_with_first": null,
+       "file": "decider_bf16.json.gz"
+      },
+      {
+       "c": 256,
+       "dps": 27.63485885811696,
+       "wall_s": 144.41904771399822,
+       "agree_with_first": 0.9982460536206464,
+       "file": "decider_bf16.json.gz"
+      }
+     ],
+     "lat_p50": 52.52342200037674,
+     "lat_p90": 95.62979380061735,
+     "lat_n": 1000,
+     "load_s": 157.03561900500063,
+     "engine_info": {
+      "enable_prefix_caching": true,
+      "max_num_seqs": 256,
+      "max_num_batched_tokens": 8192,
+      "quantization": null,
+      "dtype": "torch.bfloat16",
+      "max_model_len": 4096,
+      "logprobs_mode": "processed_logits",
+      "num_gpu_blocks": 637
+     },
+     "extra_args": {
+      "max_num_seqs": 256
+     },
+     "longest_prompt": 2295,
+     "reads": 9182,
+     "wide_reads": 0,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.7930343272362816,
+     "acc_pct": 79.30343272362816,
+     "families": {
+      "toolchoice": 0.9102333931777379,
+      "args": 0.7680861980502822,
+      "w2c": 0.7047413793103449
+     },
+     "agree_ref": 0.9979954898521674,
+     "ref_acc_pct_records": 79.27837634678025
+    },
+    "fp8": {
+     "state": "ok",
+     "engine": "vllm",
+     "version": "0.31.0",
+     "precision": "fp8",
+     "files": [
+      "decider_fp8.json.gz"
+     ],
+     "dps": 37.10697323272918,
+     "conc": 64,
+     "usdk": 0.006024623839660803,
+     "lg": -5.220070064016085,
+     "passes": [
+      {
+       "c": 64,
+       "dps": 37.10697323272918,
+       "wall_s": 107.5539083980002,
+       "agree_with_first": null,
+       "file": "decider_fp8.json.gz"
+      },
+      {
+       "c": 256,
+       "dps": 36.15853626023053,
+       "wall_s": 110.37504315100159,
+       "agree_with_first": 0.9997494362315209,
+       "file": "decider_fp8.json.gz"
+      }
+     ],
+     "lat_p50": 38.74601850111503,
+     "lat_p90": 66.4259203022084,
+     "lat_n": 1000,
+     "load_s": 174.0214676630021,
+     "engine_info": {
+      "enable_prefix_caching": true,
+      "max_num_seqs": 256,
+      "max_num_batched_tokens": 8192,
+      "quantization": "fp8",
+      "dtype": "torch.bfloat16",
+      "max_model_len": 4096,
+      "logprobs_mode": "processed_logits",
+      "num_gpu_blocks": 820
+     },
+     "extra_args": {
+      "max_num_seqs": 256
+     },
+     "longest_prompt": 2295,
+     "reads": 9182,
+     "wide_reads": 0,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.7940365823101979,
+     "acc_pct": 79.40365823101979,
+     "families": {
+      "toolchoice": 0.9111310592459605,
+      "args": 0.7675731144176501,
+      "w2c": 0.709051724137931
+     },
+     "agree_ref": 0.9899774492608369,
+     "ref_acc_pct_records": 79.27837634678025
+    }
+   },
+   "plotted": "fp8",
+   "flag": "",
+   "e9_usdk": 0.054,
+   "point": {
+    "usdk": 0.006024623839660803,
+    "lg": -5.220070064016085,
+    "acc_pct": 79.40365823101979,
+    "dps": 37.10697323272918,
+    "conc": 64,
+    "lat_p50": 38.74601850111503,
+    "lat_p90": 66.4259203022084,
+    "prec": "fp8",
+    "cheaper_than_e9": 8.963215204327229
+   }
+  },
+  "jevk5": {
+   "label": "JevK5 (v0.3, E15's weights)",
+   "family": "jevk5",
+   "ref_key": "e9/jevk5/acc",
+   "ref_acc_pct": 70.3,
+   "rows": {
+    "bf16": {
+     "state": "ok",
+     "engine": "vllm",
+     "version": "0.31.0",
+     "precision": "bf16",
+     "files": [
+      "jevk5m_bf16.json.gz"
+     ],
+     "dps": 19.27065690153539,
+     "conc": 64,
+     "usdk": 0.011600826930697094,
+     "lg": -4.935511052269758,
+     "passes": [
+      {
+       "c": 64,
+       "dps": 19.27065690153539,
+       "wall_s": 207.10243664200243,
+       "agree_with_first": null,
+       "file": "jevk5m_bf16.json.gz"
+      },
+      {
+       "c": 256,
+       "dps": 18.412495801539936,
+       "wall_s": 216.75497135299884,
+       "agree_with_first": 0.9944875970934602,
+       "file": "jevk5m_bf16.json.gz"
+      }
+     ],
+     "lat_p50": 63.49751499874401,
+     "lat_p90": 154.2402778010001,
+     "lat_n": 1000,
+     "load_s": 154.81087795499843,
+     "engine_info": {
+      "enable_prefix_caching": true,
+      "max_num_seqs": 256,
+      "max_num_batched_tokens": 8192,
+      "quantization": null,
+      "dtype": "torch.bfloat16",
+      "max_model_len": 4096,
+      "logprobs_mode": "processed_logits",
+      "num_gpu_blocks": 637
+     },
+     "extra_args": {
+      "max_num_seqs": 256
+     },
+     "longest_prompt": 2361,
+     "reads": 9258,
+     "wide_reads": 109,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.7025808068153345,
+     "acc_pct": 70.25808068153346,
+     "families": {
+      "toolchoice": 0.8644524236983842,
+      "args": 0.6239096972806567,
+      "w2c": 0.6734913793103449
+     },
+     "agree_ref": 0.9942370333249813,
+     "ref_acc_pct_records": 70.25808068153346
+    },
+    "fp8": {
+     "state": "ok",
+     "engine": "vllm",
+     "version": "0.31.0",
+     "precision": "fp8",
+     "files": [
+      "jevk5m_fp8.json.gz"
+     ],
+     "dps": 25.14560753026288,
+     "conc": 64,
+     "usdk": 0.00889044161237724,
+     "lg": -5.051076665907724,
+     "passes": [
+      {
+       "c": 64,
+       "dps": 25.14560753026288,
+       "wall_s": 158.71559258199704,
+       "agree_with_first": null,
+       "file": "jevk5m_fp8.json.gz"
+      },
+      {
+       "c": 256,
+       "dps": 24.550674680793858,
+       "wall_s": 162.56172394000168,
+       "agree_with_first": 0.9997494362315209,
+       "file": "jevk5m_fp8.json.gz"
+      }
+     ],
+     "lat_p50": 46.299705498313415,
+     "lat_p90": 105.24757050116024,
+     "lat_n": 1000,
+     "load_s": 170.2294702379986,
+     "engine_info": {
+      "enable_prefix_caching": true,
+      "max_num_seqs": 256,
+      "max_num_batched_tokens": 8192,
+      "quantization": "fp8",
+      "dtype": "torch.bfloat16",
+      "max_model_len": 4096,
+      "logprobs_mode": "processed_logits",
+      "num_gpu_blocks": 820
+     },
+     "extra_args": {
+      "max_num_seqs": 256
+     },
+     "longest_prompt": 2361,
+     "reads": 9258,
+     "wide_reads": 109,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.700826860435981,
+     "acc_pct": 70.0826860435981,
+     "families": {
+      "toolchoice": 0.8680430879712747,
+      "args": 0.620318111852232,
+      "w2c": 0.6691810344827587
+     },
+     "agree_ref": 0.9644199448759709,
+     "ref_acc_pct_records": 70.25808068153346
+    }
+   },
+   "plotted": "fp8",
+   "flag": "",
+   "e9_usdk": 0.048,
+   "point": {
+    "usdk": 0.00889044161237724,
+    "lg": -5.051076665907724,
+    "acc_pct": 70.0826860435981,
+    "dps": 25.14560753026288,
+    "conc": 64,
+    "lat_p50": 46.299705498313415,
+    "lat_p90": 105.24757050116024,
+    "prec": "fp8",
+    "cheaper_than_e9": 5.399056885225429
+   }
+  },
+  "jevk5v02": {
+   "label": "JevK5 v0.2 (the registered tag, not E15's weights)",
+   "family": "jevk5",
+   "ref_key": "e9/jevk5/acc",
+   "ref_acc_pct": 70.3,
+   "rows": {
+    "bf16": {
+     "state": "ok",
+     "engine": "vllm",
+     "version": "0.31.0",
+     "precision": "bf16",
+     "files": [
+      "jevk5_bf16.json.gz"
+     ],
+     "dps": 18.57032092636051,
+     "conc": 64,
+     "usdk": 0.012038324832513754,
+     "lg": -4.919433942198722,
+     "passes": [
+      {
+       "c": 64,
+       "dps": 18.57032092636051,
+       "wall_s": 214.9128179219988,
+       "agree_with_first": null,
+       "file": "jevk5_bf16.json.gz"
+      },
+      {
+       "c": 256,
+       "dps": 18.423312912156355,
+       "wall_s": 216.6277052899968,
+       "agree_with_first": 0.9939864695565022,
+       "file": "jevk5_bf16.json.gz"
+      }
+     ],
+     "lat_p50": 63.524173499899916,
+     "lat_p90": 153.39724470031808,
+     "lat_n": 1000,
+     "load_s": 151.39276598200013,
+     "engine_info": {
+      "enable_prefix_caching": true,
+      "max_num_seqs": 256,
+      "max_num_batched_tokens": 8192,
+      "quantization": null,
+      "dtype": "torch.bfloat16",
+      "max_model_len": 4096,
+      "logprobs_mode": "processed_logits",
+      "num_gpu_blocks": 637
+     },
+     "extra_args": {
+      "max_num_seqs": 256
+     },
+     "longest_prompt": 2361,
+     "reads": 9258,
+     "wide_reads": 109,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.7308945126534703,
+     "acc_pct": 73.08945126534704,
+     "families": {
+      "toolchoice": 0.8868940754039497,
+      "args": 0.6870189840944074,
+      "w2c": 0.6357758620689655
+     },
+     "agree_ref": 0.8669506389376096,
+     "ref_acc_pct_records": 70.25808068153346
+    },
+    "fp8": {
+     "state": "ok",
+     "engine": "vllm",
+     "version": "0.31.0",
+     "precision": "fp8",
+     "files": [
+      "jevk5_fp8.json.gz"
+     ],
+     "dps": 24.584603599252734,
+     "conc": 64,
+     "usdk": 0.009093315442448326,
+     "lg": -5.041277743198595,
+     "passes": [
+      {
+       "c": 64,
+       "dps": 24.584603599252734,
+       "wall_s": 162.3373744419987,
+       "agree_with_first": null,
+       "file": "jevk5_fp8.json.gz"
+      },
+      {
+       "c": 256,
+       "dps": 24.428581159952298,
+       "wall_s": 163.37420392399872,
+       "agree_with_first": 0.9992483086945627,
+       "file": "jevk5_fp8.json.gz"
+      }
+     ],
+     "lat_p50": 46.54923450107162,
+     "lat_p90": 108.25734769969132,
+     "lat_n": 1000,
+     "load_s": 170.21842484899753,
+     "engine_info": {
+      "enable_prefix_caching": true,
+      "max_num_seqs": 256,
+      "max_num_batched_tokens": 8192,
+      "quantization": "fp8",
+      "dtype": "torch.bfloat16",
+      "max_model_len": 4096,
+      "logprobs_mode": "processed_logits",
+      "num_gpu_blocks": 820
+     },
+     "extra_args": {
+      "max_num_seqs": 256
+     },
+     "longest_prompt": 2361,
+     "reads": 9258,
+     "wide_reads": 109,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.726634928589326,
+     "acc_pct": 72.6634928589326,
+     "families": {
+      "toolchoice": 0.8850987432675045,
+      "args": 0.676757311441765,
+      "w2c": 0.6411637931034483
+     },
+     "agree_ref": 0.8729641693811075,
+     "ref_acc_pct_records": 70.25808068153346
+    }
+   },
+   "plotted": "fp8",
+   "flag": "agreement 87.3 % < 95 %",
+   "e9_usdk": 0.048,
+   "point": {
+    "usdk": 0.009093315442448326,
+    "lg": -5.041277743198595,
+    "acc_pct": 72.6634928589326,
+    "dps": 24.584603599252734,
+    "conc": 64,
+    "lat_p50": 46.54923450107162,
+    "lat_p90": 108.25734769969132,
+    "prec": "fp8",
+    "cheaper_than_e9": 5.27860276087335
+   }
+  },
+  "clefflash": {
+   "label": "Clef-Flash 9B (scoring head)",
+   "family": "wire",
+   "ref_key": "e9/clefflash/acc",
+   "ref_acc_pct": 81.4,
+   "rows": {},
+   "plotted": null,
+   "flag": "not measured",
+   "e9_usdk": 0.11
+  },
+  "imajev": {
+   "label": "Imajev-4B",
+   "family": "imajev",
+   "ref_key": "e9/imajev/acc",
+   "ref_acc_pct": 78.9,
+   "rows": {},
+   "plotted": null,
+   "flag": "not measured",
+   "e9_usdk": 1.1
+  },
+  "openjev": {
+   "label": "OpenJev (DiffusionGemma-26B-A4B)",
+   "family": "wire",
+   "ref_key": "e9/openjev/acc",
+   "ref_acc_pct": 78.8,
+   "rows": {
+    "fp8": {
+     "state": "ok",
+     "engine": "serve_jev (wire)",
+     "version": null,
+     "precision": "fp8",
+     "files": [
+      "openjev_fp8.json.gz"
+     ],
+     "dps": 45.02872136232173,
+     "conc": 64,
+     "usdk": 0.01148032697364139,
+     "lg": -4.940045742528119,
+     "passes": [
+      {
+       "c": 16,
+       "dps": 33.87158532709733,
+       "wall_s": 117.82737540799997,
+       "agree_with_first": null,
+       "file": "openjev_fp8.json.gz"
+      },
+      {
+       "c": 64,
+       "dps": 45.02872136232173,
+       "wall_s": 88.63231909000001,
+       "agree_with_first": 0.9746930593836132,
+       "file": "openjev_fp8.json.gz"
+      }
+     ],
+     "lat_p50": 143.6751120000963,
+     "lat_p90": 162.33303460005573,
+     "lat_n": 1000,
+     "load_s": null,
+     "engine_info": null,
+     "extra_args": null,
+     "longest_prompt": null,
+     "reads": null,
+     "wide_reads": null,
+     "widened_reads": null,
+     "n": 3991,
+     "answered": 3991,
+     "missing": 0,
+     "acc": 0.791029817088449,
+     "acc_pct": 79.10298170884491,
+     "families": {
+      "toolchoice": 0.9129263913824057,
+      "args": 0.7983581323755772,
+      "w2c": 0.6293103448275862
+     },
+     "agree_ref": 0.9611626158857429,
+     "ref_acc_pct_records": 78.82736156351791
+    }
+   },
+   "plotted": "fp8",
+   "flag": "",
+   "e9_usdk": 0.091,
+   "point": {
+    "usdk": 0.01148032697364139,
+    "lg": -4.940045742528119,
+    "acc_pct": 79.10298170884491,
+    "dps": 45.02872136232173,
+    "conc": 64,
+    "lat_p50": 143.6751120000963,
+    "lat_p90": 162.33303460005573,
+    "prec": "fp8",
+    "cheaper_than_e9": 7.92660350257743
+   }
+  }
+ },
+ "price_h": 0.8048,
+ "figure_points": {
+  "sl08b": [
+   1.7022615063726667e-06,
+   69.30593836131295
+  ],
+  "sl2b": [
+   2.738555747966807e-06,
+   75.99599097970433
+  ],
+  "sl4b": [
+   6.766650131669115e-06,
+   82.9616637434227
+  ],
+  "sl9b": [
+   1.1443824987129545e-05,
+   83.31245301929341
+  ],
+  "sl27b": [
+   0.00016593758047084197,
+   87.52192432974192
+  ],
+  "intern": [
+   1.2409451245788646e-05,
+   73.49035329491356
+  ],
+  "ours": [
+   4.453131366686586e-06,
+   84.76572287647207
+  ],
+  "ours08": [
+   1.8251454144732325e-06,
+   80.48108243547983
+  ],
+  "openjev": [
+   1.148032697364139e-05,
+   79.10298170884491
+  ],
+  "jevk5": [
+   8.890441612377239e-06,
+   70.0826860435981
+  ],
+  "decider": [
+   6.024623839660803e-06,
+   79.40365823101979
+  ],
+  "openjevhf": [
+   0.00017753347057272798,
+   82.9867201202706
+  ],
+  "jev": [
+   1.6304218992825645e-05,
+   86.4
+  ],
+  "oaidec": [
+   2.74220551539316e-05,
+   79.2
+  ],
+  "flash": [
+   0.0008107743486660741,
+   88.1
+  ],
+  "lite": [
+   0.00018612298112679395,
+   83.3
+  ],
+  "flashfc": [
+   0.0007271098031596613,
+   78.7
+  ]
+ },
+ "frontier": [
+  "sl08b",
+  "ours08",
+  "ours",
+  "jev",
+  "sl27b",
+  "flash"
+ ],
+ "label": "exploratory (E30), descriptive; post hoc re-measurement; PREREG_A7_STAGE2 Deviations 2026-10-09 'E30: every open decision model at its cheapest common deployment'; outside every Holm table",
+ "written": "2026-10-10T00:50:16+00:00",
+ "git": "8aba289220fcca95232964fe21ddc910027bd80c",
+ "meta": {
+  "instance": "g6.xlarge",
+  "gpu": "NVIDIA L4 24 GB",
+  "price_h": 0.8048,
+  "price_source": "AWS price list (us-east-1, on demand, Linux, shared tenancy, effective 2026-10-01)",
+  "engine": "vLLM",
+  "version": "0.31.0",
+  "vllm_env": "vllm 0.31.0 torch 2.13.0+cu130 transformers 5.17.0",
+  "host": {
+   "instance_id": "<instance-id>",
+   "instance_type": "g6.xlarge",
+   "az": "us-east-1c",
+   "setup_utc": "2026-10-09T16:54:17Z",
+   "gpu": "NVIDIA L4, 23034 MiB",
+   "vcpu": 4,
+   "ram_gib": 15,
+   "mins_left": 352
+  },
+  "host_final": {
+   "final_utc": "2026-10-10T00:48:55Z",
+   "instance_id": "<instance-id>",
+   "instance_type": "g6.xlarge",
+   "hours_used": 7.976
+  },
+  "hours": 7.976,
+  "llama": "llama.cpp",
+  "llama_image": "ghcr.io/ggml-org/llama.cpp@sha256:d87b02aafa74797a2d599b281c50468704bd0bcdc57bfcf31b570d593f1d285b"
+ },
+ "not_measured": {
+  "imajev": "Imajev-4B: its read-out is a trained 255-row code readout over four rotated presentations of the options; no vLLM port was ready by the amendment's 00:30 UTC limit (the remaining host-hours went to the other rows), and its own server (about 2.9 s per decision as E15 logged it) does not fit the cap",
+  "clefflash": "Clef-Flash 9B (scoring head): not run for time. Its first attempt (21:53 UTC) stopped at load before any answer (the v2 venv has no image processor class for the checkpoint); the corrected stage (a new venv for the card's function, then about an hour of one-at-a-time 9B passes) would have ended after the time set for E30's end (about 1.5 h from 23:45 UTC), so the chain ended after JevK5 (execution as run)"
+ },
+ "outside": [
+  "Clef 27B (withdrawn)",
+  "Bosun",
+  "CLM",
+  "Laya",
+  "Verdict",
+  "E14's 0.8B heads (all under 70 %)"
+ ],
+ "reading": [
+  "Cheapest per decision: StartLux-Decision-0.8B at $0.0017 per 1,000 (FP8).",
+  "AgentDecision-4B: FP8, 84.8 % (reference 85.1), 50.2 decisions/s at C = 256, $0.0045 per 1,000, 31.4x below E9's basis.",
+  "Frozen GRPO 4B: FP8, 78.6 % (reference 78.8), 50.2 decisions/s at C = 256, $0.0045 per 1,000, 20.9x below E9's basis.",
+  "StartLux-4B + our recipe: FP8, 85.5 % (reference 85.5), 30.3 decisions/s at C = 64, $0.0074 per 1,000, 39.3x below E9's basis.",
+  "AgentDecision-0.8B (StartLux-0.8B + our recipe, E28): FP8, 80.5 % (reference 80.5), 122.5 decisions/s at C = 64, $0.0018 per 1,000, 5.5x below E9's basis.",
+  "StartLux-Decision-0.8B: FP8, 69.3 % (reference 70.0), 131.3 decisions/s at C = 64, $0.0017 per 1,000, 7.6x below E9's basis.",
+  "StartLux-Decision-2B: FP8, 76.0 % (reference 75.7), 81.6 decisions/s at C = 64, $0.0027 per 1,000, 8.0x below E9's basis.",
+  "StartLux-Decision-4B: FP8, 83.0 % (reference 83.1), 33.0 decisions/s at C = 64, $0.0068 per 1,000, 7.7x below E9's basis.",
+  "StartLux-Decision-9B: FP8, 83.3 % (reference 83.4), 19.5 decisions/s at C = 64, $0.0114 per 1,000, 7.3x below E9's basis.",
+  "StartLux-Decision-27B: Q4_K_M (GGUF), 87.5 % (reference 87.7), 1.3 decisions/s at C = 8, $0.1659 per 1,000, 6.6x below E9's basis.",
+  "Intern-Decision-4B: FP8, 73.5 % (reference 73.4), 18.0 decisions/s at C = 64, $0.0124 per 1,000, 3.1x below E9's basis.",
+  "Qwen3.5-0.8B variant (E27, scoring head): BF16, 77.3 % (reference 77.2), 26.7 decisions/s at C = 16, $0.0084 per 1,000, 10.9x below E9's basis.",
+  "OpenJev-27B: Q4_K_M (GGUF), 83.0 % (reference 82.7), 1.3 decisions/s at C = 8, $0.1775 per 1,000, 1.4x below E9's basis.",
+  "decider-4b: FP8, 79.4 % (reference 79.3), 37.1 decisions/s at C = 64, $0.0060 per 1,000, 9.0x below E9's basis.",
+  "JevK5 (v0.3, E15's weights): FP8, 70.1 % (reference 70.3), 25.1 decisions/s at C = 64, $0.0089 per 1,000, 5.4x below E9's basis.",
+  "OpenJev (DiffusionGemma-26B-A4B): FP8, 79.1 % (reference 78.8), 45.0 decisions/s at C = 64, $0.0115 per 1,000, 7.9x below E9's basis."
+ ],
+ "preds_files": [
+  "results/explore/e30_cost/preds/e12_bf16.jsonl.gz",
+  "results/explore/e30_cost/preds/e12_fp8.jsonl.gz",
+  "results/explore/e30_cost/preds/rl_bf16.jsonl.gz",
+  "results/explore/e30_cost/preds/rl_fp8.jsonl.gz",
+  "results/explore/e30_cost/preds/e12c_bf16.jsonl.gz",
+  "results/explore/e30_cost/preds/e12c_fp8.jsonl.gz",
+  "results/explore/e30_cost/preds/e28_bf16.jsonl.gz",
+  "results/explore/e30_cost/preds/e28_fp8.jsonl.gz",
+  "results/explore/e30_cost/preds/sl0.8b_bf16.jsonl.gz",
+  "results/explore/e30_cost/preds/sl0.8b_fp8.jsonl.gz",
+  "results/explore/e30_cost/preds/sl2b_bf16.jsonl.gz",
+  "results/explore/e30_cost/preds/sl2b_fp8.jsonl.gz",
+  "results/explore/e30_cost/preds/sl4b_bf16.jsonl.gz",
+  "results/explore/e30_cost/preds/sl4b_fp8.jsonl.gz",
+  "results/explore/e30_cost/preds/sl9b_bf16.jsonl.gz",
+  "results/explore/e30_cost/preds/sl9b_fp8.jsonl.gz",
+  "results/explore/e30_cost/preds/sl27b_q4_k_m.jsonl.gz",
+  "results/explore/e30_cost/preds/intern_bf16.jsonl.gz",
+  "results/explore/e30_cost/preds/intern_fp8.jsonl.gz",
+  "results/explore/e30_cost/preds/e27sp_bf16.jsonl.gz",
+  "results/explore/e30_cost/preds/openjevhf_q4_k_m.jsonl.gz",
+  "results/explore/e30_cost/preds/decider_bf16.jsonl.gz",
+  "results/explore/e30_cost/preds/decider_fp8.jsonl.gz",
+  "results/explore/e30_cost/preds/jevk5_bf16.jsonl.gz",
+  "results/explore/e30_cost/preds/jevk5_fp8.jsonl.gz",
+  "results/explore/e30_cost/preds/jevk5v02_bf16.jsonl.gz",
+  "results/explore/e30_cost/preds/jevk5v02_fp8.jsonl.gz",
+  "results/explore/e30_cost/preds/openjev_fp8.jsonl.gz"
+ ]
+}

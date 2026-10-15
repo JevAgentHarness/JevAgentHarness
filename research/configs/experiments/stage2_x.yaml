@@ -1,0 +1,28 @@
+# Stage 2, secondary row S2-1X (docs/PREREG_A7_STAGE2.md A7.12): hosted cross-family transfer of the procedure.
+# System-2 X = deepseek/deepseek-v4-pro and its small model X-small = deepseek/deepseek-v4-flash via OpenRouter, both
+# PINNED to one provider with fallbacks disabled (A7.12 (a), (b): the planned pin is StreamLake, the endpoint serving
+# both at the list price; the eligibility smoke configs/dev/x_eligibility.yaml confirms it from `served_provider` in the
+# ledger's call meta). Fresh seeds 300000.. (n = 500 or 300 by the $25 envelope of A7.12 (c): set n_tasks before the
+# first calibration episode), Jev as System-1, three passes, under A7.16's scheduler.
+#   for pass in 1 2 3; do JEV_EVAL_RUNS=1 jevbench run configs/experiments/stage2_x.yaml --out runs -o workers=8; done
+# `jevagent_best_x` reads configs/harness/jevagent_best_x.yaml, the derived profile written by
+# scripts/render_profile_x.py from the committed selection and X's calibration fits (jevgym_shadow_cal_x.yaml); it is
+# pending until then. A routing group, if selected, routes between X-small (default) and X (A7.12 (e)).
+name: stage2_x
+suite: {name: jevgym, n: 500, seed0: 300000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # Stage-2 fresh seeds (A7.2 (a))
+n_tasks: 500                    # A7.12 (c): 500 if the predicted total fits $25, else 300 -- fixed before calibration
+llm: {provider: openrouter, model: deepseek/deepseek-v4-pro, temperature: 0,
+      extra_body: {provider: {order: [StreamLake], allow_fallbacks: false}, reasoning: {enabled: false}, usage: {include: true}}}
+small_llm: {provider: openrouter, model: deepseek/deepseek-v4-flash, temperature: 0,
+            extra_body: {provider: {order: [StreamLake], allow_fallbacks: false}, reasoning: {enabled: false}, usage: {include: true}}}
+llms:
+  xsmall: {provider: openrouter, model: deepseek/deepseek-v4-flash, temperature: 0,
+           extra_body: {provider: {order: [StreamLake], allow_fallbacks: false}, reasoning: {enabled: false}, usage: {include: true}}}
+s1: {type: jev, provider: openrouter}
+s1_cache: cache/s1_stage2.sqlite
+workers: 8
+schedule: {mode: task_major, seed: 732}    # A7.16 (a)
+arms:
+  - {name: llm_only_x}                                                                                         # S2-1X reference
+  - {name: jevagent_best_x, profile: configs/harness/jevagent_best_x.yaml, profile_s2: deepseek/deepseek-v4-pro}   # S2-1X
+  - {name: llm_only_xsmall, llm: xsmall}                                                                       # descriptive cheap-model reference

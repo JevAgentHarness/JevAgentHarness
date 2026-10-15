@@ -1,0 +1,99 @@
+# Exploratory row E21 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-08 "E21"): the System-1 backend of every model for
+# the L2 replays (scripts/explore_e21_shift.py replay --slug SLUG), as in each model's logged C row. jev and oaidec run
+# from this container only; the others on the E21 GPU host (scripts/aws/e21_shift.sh), one model at a time.
+backends:
+  jev:
+    type: jev
+    provider: openrouter
+  oaidec:
+    type: openai_decisions
+    model: gpt-6-luna
+    timeout: 120.0
+  rl:
+    type: jev
+    name: jevagentrl-4b
+    base_url: http://127.0.0.1:8081
+    model: jevagentrl-4b
+    api_key: ''
+    price_model: jevagentrl-4b
+    timeout: 60.0
+  e14a:
+    type: jev
+    name: e14-a
+    base_url: http://127.0.0.1:8083
+    model: e14-a
+    api_key: ''
+    price_model: jevagentrl-4b
+    timeout: 120.0
+    cache: null
+  e12:
+    type: jev
+    name: agentdecision-4b-mixed
+    base_url: http://127.0.0.1:8081
+    model: agentdecision-4b-mixed
+    api_key: ''
+    price_model: jevagentrl-4b
+    timeout: 60.0
+  sl9b:
+    type: jev
+    name: startlux-9b
+    base_url: http://127.0.0.1:8094
+    model: StartLux-Decision-9B
+    api_key: ''
+    price_model: StartLux-Decision-9B
+    timeout: 60.0
+  e12c:
+    type: jev
+    name: startlux-4b-mixed
+    base_url: http://127.0.0.1:8081
+    model: startlux-4b-mixed
+    api_key: ''
+    price_model: StartLux-Decision-4B
+    timeout: 60.0
+  sl4b:
+    type: jev
+    name: startlux-4b
+    base_url: http://127.0.0.1:8090
+    model: StartLux-Decision-4B
+    api_key: ''
+    price_model: StartLux-Decision-4B
+    timeout: 60.0
+  sl27b:
+    type: jev
+    name: startlux-27b
+    base_url: http://127.0.0.1:8091
+    model: StartLux-Decision-27B-Q8_0
+    api_key: ''
+    price_model: StartLux-Decision-27B
+    timeout: 120.0
+  openjevhf:
+    type: jev
+    name: openjev-hf
+    base_url: http://127.0.0.1:8090
+    model: openjev
+    api_key: ''
+    timeout: 300.0
+    price_model: e15-selfhost
+  # "E21 addendum 2: the untrained and SFT rows on the shift" (Deviations 2026-10-09): the training ladder's first two
+  # rows, served as their Stage-2 rows (results/stage2/rl_eval_plan.json rows base / sft_v1) behind serve_jev on :8081
+  base:
+    type: jev
+    name: rl-base
+    base_url: http://127.0.0.1:8081
+    model: rl-base
+    api_key: ''
+    price_model: jevagentrl-4b
+    timeout: 60.0
+  sft_v1:
+    type: jev
+    name: rl-sft-v1
+    base_url: http://127.0.0.1:8081
+    model: rl-sft-v1
+    api_key: ''
+    price_model: jevagentrl-4b
+    timeout: 60.0
+  intern:
+    type: intern_decision
+    model: internlm/Intern-Decision-4B
+    device: auto
+    max_length: 8192

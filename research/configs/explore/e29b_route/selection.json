@@ -1,0 +1,10 @@
+{
+ "registered": "docs/PREREG_A7_STAGE2.md, Deviations 2026-10-09 ~19:55 UTC, E29b",
+ "rule": "mswe_full = the first 100 of configs/explore/e4r_swe/extension_ids.txt (E29's pilot = its first 30, run afresh); every other list is E29's (configs/explore/e29_port/)",
+ "files": {
+  "mswe_full.txt": {
+   "n": 100,
+   "sha256": "6e0075a75431fa5a9e45c784d8819b5eeb3ba858d5ee97d998344fe3ed1ddf9e"
+  }
+ }
+}

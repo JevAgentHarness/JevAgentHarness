@@ -1,0 +1,890 @@
+{
+ "n_records": 1582,
+ "n_paired": 1105,
+ "task_value": 1.0,
+ "lam_per_hour": 0.0,
+ "n_bins": 10,
+ "min_count": 20,
+ "notes": [
+  "150 task seed(s) outside the calibration range 5000-5149 (e.g. [5150, 5151, 5152, 5153, 5154]): not a registered calibration arm"
+ ],
+ "v_fallback": "W",
+ "fatal_share": {
+  "n_wrong": 138,
+  "n_fatal": 94,
+  "p_fatal": 0.6811594202898551,
+  "unknown_tool": 0,
+  "by_tool": {
+   "ship_order": 52,
+   "get_orders": 44,
+   "cancel_order": 42
+  }
+ },
+ "seeds": {
+  "n_tasks": 150,
+  "min": 5150,
+  "max": 5299
+ },
+ "primary": {
+  "W": 1.0,
+  "lam_per_hour": 0.0,
+  "V": 1.0,
+  "V_ci": null,
+  "delta_c": 0.0001736252150226244,
+  "delta_c_source": "ledger, split over the step's argument decisions",
+  "slots_per_call": 1.7026194144838214,
+  "kappa": 6.179418584070796e-05,
+  "V_source": "fallback W (no episode with a wrong System-2 decision in the calibration log; A6.11)",
+  "n_wrong_episodes": 0,
+  "note": "V = 1 by the A6.11 fallback (W): no episode with a wrong System-2 decision in the calibration log",
+  "projection": {
+   "n": 1105,
+   "V": 1.0,
+   "delta_c": 0.0001736252150226244,
+   "n_bins": 10,
+   "min_count": 20,
+   "bins": [
+    {
+     "lo": -Infinity,
+     "hi": 0.75,
+     "c_min": 0.07,
+     "c_mean": 0.6033027522935779,
+     "n": 109,
+     "n_acceptable": 85,
+     "q_L": 1.0,
+     "g": 0.49411764705882355,
+     "advantage": -0.5057087277261538,
+     "accept": false,
+     "fallback": {
+      "q_L": false,
+      "g": false
+     }
+    },
+    {
+     "lo": 0.75,
+     "hi": 0.92,
+     "c_min": 0.75,
+     "c_mean": 0.8386238532110093,
+     "n": 109,
+     "n_acceptable": 94,
+     "q_L": 1.0,
+     "g": 0.574468085106383,
+     "advantage": -0.42535828967859435,
+     "accept": false,
+     "fallback": {
+      "q_L": false,
+      "g": false
+     }
+    },
+    {
+     "lo": 0.92,
+     "hi": 0.96,
+     "c_min": 0.92,
+     "c_mean": 0.9388157894736842,
+     "n": 76,
+     "n_acceptable": 75,
+     "q_L": 1.0,
+     "g": 0.7333333333333333,
+     "advantage": -0.2664930414516441,
+     "accept": false,
+     "fallback": {
+      "q_L": false,
+      "g": false
+     }
+    },
+    {
+     "lo": 0.96,
+     "hi": 0.98,
+     "c_min": 0.96,
+     "c_mean": 0.9650467289719626,
+     "n": 107,
+     "n_acceptable": 107,
+     "q_L": 1.0,
+     "g": 0.822429906542056,
+     "advantage": -0.17739646824292132,
+     "accept": false,
+     "fallback": {
+      "q_L": false,
+      "g": false
+     }
+    },
+    {
+     "lo": 0.98,
+     "hi": 0.99,
+     "c_min": 0.98,
+     "c_mean": 0.98,
+     "n": 60,
+     "n_acceptable": 60,
+     "q_L": 1.0,
+     "g": 0.75,
+     "advantage": -0.24982637478497738,
+     "accept": false,
+     "fallback": {
+      "q_L": false,
+      "g": false
+     }
+    },
+    {
+     "lo": 0.99,
+     "hi": 1.0,
+     "c_min": 0.99,
+     "c_mean": 0.9899999999999999,
+     "n": 99,
+     "n_acceptable": 99,
+     "q_L": 1.0,
+     "g": 0.98989898989899,
+     "advantage": -0.00992738488598743,
+     "accept": false,
+     "fallback": {
+      "q_L": false,
+      "g": false
+     }
+    },
+    {
+     "lo": 1.0,
+     "hi": Infinity,
+     "c_min": 1.0,
+     "c_mean": 1.0,
+     "n": 545,
+     "n_acceptable": 545,
+     "q_L": 1.0,
+     "g": 1.0,
+     "advantage": 0.0001736252150226244,
+     "accept": true,
+     "fallback": {
+      "q_L": false,
+      "g": false
+     }
+    }
+   ],
+   "k": 0.0001736252150226244,
+   "tail_bin": 6,
+   "tau_hat": 1.0,
+   "crossing": 1.0,
+   "islands": [],
+   "monotone": true,
+   "tau_gain": 1.0,
+   "pointwise": {
+    "accept_rate": 0.49321266968325794,
+    "bins_accepting": [
+     6
+    ]
+   },
+   "scalar_accept_rate": 0.49321266968325794,
+   "disagreement": 0.0
+  },
+  "tau_hat": 1.0,
+  "crossing": 1.0,
+  "tau_gain": 1.0,
+  "monotone": true,
+  "disagreement": 0.0,
+  "plug_in": {
+   "n": 1065,
+   "k": 0.0001736252150226244,
+   "q_L": 1.0,
+   "prop1": 0.9998263747849774,
+   "qL": 1.0,
+   "qL_crossing": 1.0,
+   "qL_interval": true,
+   "qL_disagreement": 0.0,
+   "general": 1.0,
+   "general_crossing": 1.0,
+   "general_interval": true,
+   "general_disagreement": 0.0
+  },
+  "tau_rule": "projection"
+ },
+ "sensitivity": [
+  {
+   "W": 0.1,
+   "lam_per_hour": 0.0,
+   "V": 0.1,
+   "V_ci": null,
+   "delta_c": 0.0001736252150226244,
+   "delta_c_source": "ledger, split over the step's argument decisions",
+   "slots_per_call": 1.7026194144838214,
+   "kappa": 6.179418584070796e-05,
+   "V_source": "fallback W (no episode with a wrong System-2 decision in the calibration log; A6.11)",
+   "n_wrong_episodes": 0,
+   "note": "V = 0.1 by the A6.11 fallback (W): no episode with a wrong System-2 decision in the calibration log",
+   "projection": {
+    "n": 1105,
+    "V": 0.1,
+    "delta_c": 0.0001736252150226244,
+    "n_bins": 10,
+    "min_count": 20,
+    "bins": [
+     {
+      "lo": -Infinity,
+      "hi": 0.75,
+      "c_min": 0.07,
+      "c_mean": 0.6033027522935779,
+      "n": 109,
+      "n_acceptable": 85,
+      "q_L": 1.0,
+      "g": 0.49411764705882355,
+      "advantage": -0.5041461007909502,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.75,
+      "hi": 0.92,
+      "c_min": 0.75,
+      "c_mean": 0.8386238532110093,
+      "n": 109,
+      "n_acceptable": 94,
+      "q_L": 1.0,
+      "g": 0.574468085106383,
+      "advantage": -0.4237956627433907,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.92,
+      "hi": 0.96,
+      "c_min": 0.92,
+      "c_mean": 0.9388157894736842,
+      "n": 76,
+      "n_acceptable": 75,
+      "q_L": 1.0,
+      "g": 0.7333333333333333,
+      "advantage": -0.26493041451644045,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.96,
+      "hi": 0.98,
+      "c_min": 0.96,
+      "c_mean": 0.9650467289719626,
+      "n": 107,
+      "n_acceptable": 107,
+      "q_L": 1.0,
+      "g": 0.822429906542056,
+      "advantage": -0.1758338413077177,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.98,
+      "hi": 0.99,
+      "c_min": 0.98,
+      "c_mean": 0.98,
+      "n": 60,
+      "n_acceptable": 60,
+      "q_L": 1.0,
+      "g": 0.75,
+      "advantage": -0.24826374784977376,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.99,
+      "hi": 1.0,
+      "c_min": 0.99,
+      "c_mean": 0.9899999999999999,
+      "n": 99,
+      "n_acceptable": 99,
+      "q_L": 1.0,
+      "g": 0.98989898989899,
+      "advantage": -0.008364757950783811,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 1.0,
+      "hi": Infinity,
+      "c_min": 1.0,
+      "c_mean": 1.0,
+      "n": 545,
+      "n_acceptable": 545,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.001736252150226244,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     }
+    ],
+    "k": 0.001736252150226244,
+    "tail_bin": 6,
+    "tau_hat": 1.0,
+    "crossing": 1.0,
+    "islands": [],
+    "monotone": true,
+    "tau_gain": 1.0,
+    "pointwise": {
+     "accept_rate": 0.49321266968325794,
+     "bins_accepting": [
+      6
+     ]
+    },
+    "scalar_accept_rate": 0.49321266968325794,
+    "disagreement": 0.0
+   },
+   "tau_hat": 1.0,
+   "crossing": 1.0,
+   "tau_gain": 1.0,
+   "monotone": true,
+   "disagreement": 0.0,
+   "plug_in": {
+    "n": 1065,
+    "k": 0.001736252150226244,
+    "q_L": 1.0,
+    "prop1": 0.9982637478497738,
+    "qL": 1.0,
+    "qL_crossing": 1.0,
+    "qL_interval": true,
+    "qL_disagreement": 0.0,
+    "general": 1.0,
+    "general_crossing": 1.0,
+    "general_interval": true,
+    "general_disagreement": 0.0
+   },
+   "tau_rule": "projection"
+  },
+  {
+   "W": 10.0,
+   "lam_per_hour": 0.0,
+   "V": 10.0,
+   "V_ci": null,
+   "delta_c": 0.0001736252150226244,
+   "delta_c_source": "ledger, split over the step's argument decisions",
+   "slots_per_call": 1.7026194144838214,
+   "kappa": 6.179418584070796e-05,
+   "V_source": "fallback W (no episode with a wrong System-2 decision in the calibration log; A6.11)",
+   "n_wrong_episodes": 0,
+   "note": "V = 10 by the A6.11 fallback (W): no episode with a wrong System-2 decision in the calibration log",
+   "projection": {
+    "n": 1105,
+    "V": 10.0,
+    "delta_c": 0.0001736252150226244,
+    "n_bins": 10,
+    "min_count": 20,
+    "bins": [
+     {
+      "lo": -Infinity,
+      "hi": 0.75,
+      "c_min": 0.07,
+      "c_mean": 0.6033027522935779,
+      "n": 109,
+      "n_acceptable": 85,
+      "q_L": 1.0,
+      "g": 0.49411764705882355,
+      "advantage": -0.5058649904196741,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.75,
+      "hi": 0.92,
+      "c_min": 0.75,
+      "c_mean": 0.8386238532110093,
+      "n": 109,
+      "n_acceptable": 94,
+      "q_L": 1.0,
+      "g": 0.574468085106383,
+      "advantage": -0.4255145523721147,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.92,
+      "hi": 0.96,
+      "c_min": 0.92,
+      "c_mean": 0.9388157894736842,
+      "n": 76,
+      "n_acceptable": 75,
+      "q_L": 1.0,
+      "g": 0.7333333333333333,
+      "advantage": -0.26664930414516447,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.96,
+      "hi": 0.98,
+      "c_min": 0.96,
+      "c_mean": 0.9650467289719626,
+      "n": 107,
+      "n_acceptable": 107,
+      "q_L": 1.0,
+      "g": 0.822429906542056,
+      "advantage": -0.1775527309364417,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.98,
+      "hi": 0.99,
+      "c_min": 0.98,
+      "c_mean": 0.98,
+      "n": 60,
+      "n_acceptable": 60,
+      "q_L": 1.0,
+      "g": 0.75,
+      "advantage": -0.24998263747849775,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.99,
+      "hi": 1.0,
+      "c_min": 0.99,
+      "c_mean": 0.9899999999999999,
+      "n": 99,
+      "n_acceptable": 99,
+      "q_L": 1.0,
+      "g": 0.98989898989899,
+      "advantage": -0.010083647579507792,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 1.0,
+      "hi": Infinity,
+      "c_min": 1.0,
+      "c_mean": 1.0,
+      "n": 545,
+      "n_acceptable": 545,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 1.7362521502262443e-05,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     }
+    ],
+    "k": 1.7362521502262443e-05,
+    "tail_bin": 6,
+    "tau_hat": 1.0,
+    "crossing": 1.0,
+    "islands": [],
+    "monotone": true,
+    "tau_gain": 1.0,
+    "pointwise": {
+     "accept_rate": 0.49321266968325794,
+     "bins_accepting": [
+      6
+     ]
+    },
+    "scalar_accept_rate": 0.49321266968325794,
+    "disagreement": 0.0
+   },
+   "tau_hat": 1.0,
+   "crossing": 1.0,
+   "tau_gain": 1.0,
+   "monotone": true,
+   "disagreement": 0.0,
+   "plug_in": {
+    "n": 1065,
+    "k": 1.7362521502262443e-05,
+    "q_L": 1.0,
+    "prop1": 0.9999826374784977,
+    "qL": 1.0,
+    "qL_crossing": 1.0,
+    "qL_interval": true,
+    "qL_disagreement": 0.0,
+    "general": 1.0,
+    "general_crossing": 1.0,
+    "general_interval": true,
+    "general_disagreement": 0.0
+   },
+   "tau_rule": "projection"
+  },
+  {
+   "W": 1.0,
+   "lam_per_hour": 0.5,
+   "V": 1.0,
+   "V_ci": null,
+   "delta_c": 0.0005262836288430111,
+   "delta_c_source": "ledger, split over the step's argument decisions",
+   "slots_per_call": 1.7026194144838214,
+   "kappa": 9.067801103095634e-05,
+   "V_source": "fallback W (no episode with a wrong System-2 decision in the calibration log; A6.11)",
+   "n_wrong_episodes": 0,
+   "note": "V = 1 by the A6.11 fallback (W): no episode with a wrong System-2 decision in the calibration log",
+   "projection": {
+    "n": 1105,
+    "V": 1.0,
+    "delta_c": 0.0005262836288430111,
+    "n_bins": 10,
+    "min_count": 20,
+    "bins": [
+     {
+      "lo": -Infinity,
+      "hi": 0.75,
+      "c_min": 0.07,
+      "c_mean": 0.6033027522935779,
+      "n": 109,
+      "n_acceptable": 85,
+      "q_L": 1.0,
+      "g": 0.49411764705882355,
+      "advantage": -0.5053560693123335,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.75,
+      "hi": 0.92,
+      "c_min": 0.75,
+      "c_mean": 0.8386238532110093,
+      "n": 109,
+      "n_acceptable": 94,
+      "q_L": 1.0,
+      "g": 0.574468085106383,
+      "advantage": -0.425005631264774,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.92,
+      "hi": 0.96,
+      "c_min": 0.92,
+      "c_mean": 0.9388157894736842,
+      "n": 76,
+      "n_acceptable": 75,
+      "q_L": 1.0,
+      "g": 0.7333333333333333,
+      "advantage": -0.2661403830378237,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.96,
+      "hi": 0.98,
+      "c_min": 0.96,
+      "c_mean": 0.9650467289719626,
+      "n": 107,
+      "n_acceptable": 107,
+      "q_L": 1.0,
+      "g": 0.822429906542056,
+      "advantage": -0.17704380982910092,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.98,
+      "hi": 0.99,
+      "c_min": 0.98,
+      "c_mean": 0.98,
+      "n": 60,
+      "n_acceptable": 60,
+      "q_L": 1.0,
+      "g": 0.75,
+      "advantage": -0.24947371637115698,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.99,
+      "hi": 1.0,
+      "c_min": 0.99,
+      "c_mean": 0.9899999999999999,
+      "n": 99,
+      "n_acceptable": 99,
+      "q_L": 1.0,
+      "g": 0.98989898989899,
+      "advantage": -0.009574726472167044,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 1.0,
+      "hi": Infinity,
+      "c_min": 1.0,
+      "c_mean": 1.0,
+      "n": 545,
+      "n_acceptable": 545,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.0005262836288430111,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     }
+    ],
+    "k": 0.0005262836288430111,
+    "tail_bin": 6,
+    "tau_hat": 1.0,
+    "crossing": 1.0,
+    "islands": [],
+    "monotone": true,
+    "tau_gain": 1.0,
+    "pointwise": {
+     "accept_rate": 0.49321266968325794,
+     "bins_accepting": [
+      6
+     ]
+    },
+    "scalar_accept_rate": 0.49321266968325794,
+    "disagreement": 0.0
+   },
+   "tau_hat": 1.0,
+   "crossing": 1.0,
+   "tau_gain": 1.0,
+   "monotone": true,
+   "disagreement": 0.0,
+   "plug_in": {
+    "n": 1065,
+    "k": 0.0005262836288430111,
+    "q_L": 1.0,
+    "prop1": 0.999473716371157,
+    "qL": 1.0,
+    "qL_crossing": 1.0,
+    "qL_interval": true,
+    "qL_disagreement": 0.0,
+    "general": 1.0,
+    "general_crossing": 1.0,
+    "general_interval": true,
+    "general_disagreement": 0.0
+   },
+   "tau_rule": "projection"
+  },
+  {
+   "W": 1.0,
+   "lam_per_hour": 5.0,
+   "V": 1.0,
+   "V_ci": null,
+   "delta_c": 0.0037002093532264913,
+   "delta_c_source": "ledger, split over the step's argument decisions",
+   "slots_per_call": 1.7026194144838214,
+   "kappa": 0.0003506324377431918,
+   "V_source": "fallback W (no episode with a wrong System-2 decision in the calibration log; A6.11)",
+   "n_wrong_episodes": 0,
+   "note": "V = 1 by the A6.11 fallback (W): no episode with a wrong System-2 decision in the calibration log",
+   "projection": {
+    "n": 1105,
+    "V": 1.0,
+    "delta_c": 0.0037002093532264913,
+    "n_bins": 10,
+    "min_count": 20,
+    "bins": [
+     {
+      "lo": -Infinity,
+      "hi": 0.75,
+      "c_min": 0.07,
+      "c_mean": 0.6033027522935779,
+      "n": 109,
+      "n_acceptable": 85,
+      "q_L": 1.0,
+      "g": 0.49411764705882355,
+      "advantage": -0.50218214358795,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.75,
+      "hi": 0.92,
+      "c_min": 0.75,
+      "c_mean": 0.8386238532110093,
+      "n": 109,
+      "n_acceptable": 94,
+      "q_L": 1.0,
+      "g": 0.574468085106383,
+      "advantage": -0.42183170554039046,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.92,
+      "hi": 0.96,
+      "c_min": 0.92,
+      "c_mean": 0.9388157894736842,
+      "n": 76,
+      "n_acceptable": 75,
+      "q_L": 1.0,
+      "g": 0.7333333333333333,
+      "advantage": -0.2629664573134402,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.96,
+      "hi": 0.98,
+      "c_min": 0.96,
+      "c_mean": 0.9650467289719626,
+      "n": 107,
+      "n_acceptable": 107,
+      "q_L": 1.0,
+      "g": 0.822429906542056,
+      "advantage": -0.17386988410471746,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.98,
+      "hi": 0.99,
+      "c_min": 0.98,
+      "c_mean": 0.98,
+      "n": 60,
+      "n_acceptable": 60,
+      "q_L": 1.0,
+      "g": 0.75,
+      "advantage": -0.24629979064677351,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.99,
+      "hi": 1.0,
+      "c_min": 0.99,
+      "c_mean": 0.9899999999999999,
+      "n": 99,
+      "n_acceptable": 99,
+      "q_L": 1.0,
+      "g": 0.98989898989899,
+      "advantage": -0.006400800747783564,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 1.0,
+      "hi": Infinity,
+      "c_min": 1.0,
+      "c_mean": 1.0,
+      "n": 545,
+      "n_acceptable": 545,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.0037002093532264913,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     }
+    ],
+    "k": 0.0037002093532264913,
+    "tail_bin": 6,
+    "tau_hat": 1.0,
+    "crossing": 1.0,
+    "islands": [],
+    "monotone": true,
+    "tau_gain": 1.0,
+    "pointwise": {
+     "accept_rate": 0.49321266968325794,
+     "bins_accepting": [
+      6
+     ]
+    },
+    "scalar_accept_rate": 0.49321266968325794,
+    "disagreement": 0.0
+   },
+   "tau_hat": 1.0,
+   "crossing": 1.0,
+   "tau_gain": 1.0,
+   "monotone": true,
+   "disagreement": 0.0,
+   "plug_in": {
+    "n": 1065,
+    "k": 0.0037002093532264913,
+    "q_L": 1.0,
+    "prop1": 0.9962997906467735,
+    "qL": 1.0,
+    "qL_crossing": 1.0,
+    "qL_interval": true,
+    "qL_disagreement": 0.0,
+    "general": 1.0,
+    "general_crossing": 1.0,
+    "general_interval": true,
+    "general_disagreement": 0.0
+   },
+   "tau_rule": "projection"
+  }
+ ],
+ "tau_hat": 1.0,
+ "tau_rule": {
+  "rule": "projection",
+  "n_paired": 1105,
+  "registered": "A6.5; A6.22 (b) 5",
+  "text": "n_paired >= 30: the scalar-threshold projection (A6.5, A6.11 (c).7, A6.19)"
+ },
+ "meta": {
+  "run_dir": "runs/e2a_jevgym_shadow_cal_x",
+  "arms": [
+   "jev_shadow_cal_x"
+  ],
+  "dp": "tool_params",
+  "gold": "acceptable"
+ }
+}

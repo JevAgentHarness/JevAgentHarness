@@ -1,0 +1,2 @@
+{"note": "E28 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-09 'E28: our recipe on StartLux-Decision-0.8B' (b), (e)): the StartLux-Decision-0.8B weights revision of the logged rows (the E2 ladder's manifest results/explore/gpu/manifest_e2_0.8B.json; E9's L1 row), read by scripts/aws/serve_startlux.sh as PIN_MANIFEST and by scripts/aws/e28_sl08b.sh for the training base",
+ "sizes": [{"size": "0.8B", "repo": "startlux-models/StartLux-Decision-0.8B", "weights_revision": "bd4f76a600e23227547fee7bfc1825e12a32764c"}]}

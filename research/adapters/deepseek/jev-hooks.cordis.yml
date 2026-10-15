@@ -1,0 +1,16 @@
+# DeepSeek Harness (dsh) overlay: mount the command-hook bridge and point it at the Jev hooks.
+#
+#   dsh --profile headless --patch /ABS/PATH/JevAgentHarness/research/adapters/deepseek/jev-hooks.cordis.yml "<task>" --json
+#
+# or merge the `insert` below into $DSH_HOME/profiles/<name>/cordis.patch.yml to keep it
+# (do not overwrite that file: it may hold other patches). The bridge package ships with the dsh CLI
+# (apps/cli/package.json) but is mounted by no bundle, so it must be inserted.
+# Row shape follows deepseek-harness snapshots/session/text-turn/cordis.yml:71-80 and
+# the bridge's README. configPath is read once at startup; a relative path
+# resolves from the directory that launched dsh, so keep it absolute.
+- insert:
+    - id: <dsh-command-hook-bridge-id>        # fill in from dsh's packages/hooks/
+      name: '<dsh-command-hook-bridge-package>'
+      config:
+        configPath: /ABS/PATH/JevAgentHarness/research/adapters/deepseek/hooks.json
+        defaultTimeoutMs: 10000

@@ -1,0 +1,9 @@
+{
+ "run": "runs/stage2_dev_tariff_rl/jevagent_best_rl.jsonl",
+ "sha256": "0c3806538a628d12",
+ "episodes": 100,
+ "requests_old": 2461,
+ "requests_new": 1398,
+ "out": "results/harness_final/replay_workload.jsonl.gz",
+ "out_sha256": "d95562c088eedfd3"
+}

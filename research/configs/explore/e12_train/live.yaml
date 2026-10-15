@@ -1,0 +1,19 @@
+# Exploratory row E12 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-07 "E12: more training on public tool-use data";
+# descriptive, outside every Holm table): the continued checkpoint AgentDecision-4B (mixed) LIVE, as the frozen row
+# `rl_ts_replace_f` of configs/experiments/stage2_rl_states.yaml and the E2 ladder (configs/experiments/
+# explore_startlux_live.yaml): tool_select REPLACE, the same suite block, the same first 200 fresh Stage-2 tasks (seeds
+# 300000..300199; evaluation seeds: run with JEV_EVAL_RUNS=1, never trained on), Flash on the direct Gemini API
+# (temperature 0, minimal reasoning), workers 4, passes 2-3 re-run infrastructure errors only. The model is served by
+# training/serve_jev.py on the E12 host (:8081, agentdecision-4b-mixed); a new System-1 cache.
+#   JEV_EVAL_RUNS=1 jevbench run configs/explore/e12_train/live.yaml --out runs
+name: e12_live
+suite: {name: jevgym, n: 500, seed0: 300000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # Stage-2 fresh seeds (A7.2 (a))
+n_tasks: 200
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1_cache: cache/s1_e12_live.sqlite
+s1_backends:
+  e12: {type: jev, name: agentdecision-4b-mixed, base_url: "http://127.0.0.1:8081", model: agentdecision-4b-mixed, api_key: "",
+        price_model: jevagentrl-4b, timeout: 60.0}   # exact 0 per token, as the frozen row (API cost only)
+workers: 4
+arms:
+  - {name: e12_ts_replace_f, s1: e12, tool_select: {mode: replace}}

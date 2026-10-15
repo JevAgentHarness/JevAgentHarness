@@ -1,0 +1,24 @@
+{
+ "api_usd": {
+  "e2dev:e2dev_rl_final": 8.709,
+  "e2dev:e2dev_rl_grpo_i15": 8.79,
+  "e2dev:e2dev_rl_grpo": 8.584,
+  "e2dev:e2dev_rl_opd_i12": 8.993,
+  "e2dev:e2dev_rl_opd": 8.82,
+  "e2dev:e2dev_rl_refs_api": 11.599,
+  "e2dev:e2dev_rl_refs_intern": 9.074,
+  "e2dev:e2dev_rl_sft_v0": 10.458,
+  "e2dev:e2dev_rl_sft_v1": 8.702,
+  "e2dev:superseded_seeds0-49_refs_api": 11.965,
+  "opd:rollouts": 10.183,
+  "opd:greedy_evals": 1.546,
+  "opd:teacher_jev": 0.379,
+  "grpo:rollouts": 25.323,
+  "grpo:greedy_evals": 1.209,
+  "cal:shadow_arms": 8.026
+ },
+ "api_usd_total": 142.36,
+ "gpu_hours": 15.07,
+ "gpu_usd": 45.29,
+ "gpu_usd_per_h": 3.004
+}

@@ -1,0 +1,18 @@
+# E7e: itemized final answer (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-06 "E7e: itemized final answer"; exploratory,
+# descriptive, no test, outside every Holm table). E7c's Jev row (llm_only beside the refitted Jev cascade, tau-hat 0.91 /
+# 0.87) on E7c's OTHER 100 registered tasks (seeds 310500-310599, never run), with the task's last sentence asking for one
+# line per customer before the total (suite option answer_style: itemized) in BOTH arms. Same route and key as E7c's Jev
+# row: Flash on the direct Gemini API, Jev via OpenRouter with the author's Jev-only key. Cap $60.
+#   JEV_EVAL_RUNS=1 jevbench run configs/explore/e7_hard/eval_e7e.yaml --out runs -o workers=16
+name: e7e_hard
+suite: {name: jevgym, n: 100, seed0: 310500, families: multi, multi_customers: 12, multi_rule: tier, answer_style: itemized, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 100
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+harness_defaults: {max_steps: 45}
+s1: {type: jev, provider: openrouter}        # the pinned Jev endpoint; no System-1 cache (fresh answers)
+workers: 16
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}
+  # the Stage-2 Jev profile's decision points at the thresholds refitted on E7c's calibration arm (unchanged)
+  - {name: jev_refit, tool_select: {mode: cascade, tau: 0.91}, tool_params: {mode: cascade, tau: 0.87}, reflection: {mode: trigger, tau: 0.5}}

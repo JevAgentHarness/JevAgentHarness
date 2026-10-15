@@ -1,0 +1,20 @@
+# Exploratory row E16 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-08 "E16: the best open-weights decision model on all
+# three levels"; descriptive, outside every Holm table): AgentDecision-4B (mixed+) LIVE, exactly as E12's and E12c's live rows:
+# `rl_ts_replace_f` of configs/experiments/stage2_rl_states.yaml and the E2 ladder (configs/experiments/
+# explore_startlux_live.yaml): tool_select REPLACE, the same suite block, the same first 200 fresh Stage-2 tasks (seeds
+# 300000..300199; evaluation seeds: run with JEV_EVAL_RUNS=1, never trained on), Flash on the direct Gemini API
+# (temperature 0, minimal reasoning), workers 4, passes 2-3 re-run infrastructure errors only. The model is served by
+# training/serve_jev.py on the E16 host (:8081, agentdecision-4b-mixedplus); a new System-1 cache. Run only when the arm's
+# common-state accuracy is within 1 point of AgentDecision-4B's (the registered gate).
+#   JEV_EVAL_RUNS=1 jevbench run configs/explore/e16_best_open/live_e16a.yaml --out runs
+name: e16a_live
+suite: {name: jevgym, n: 500, seed0: 300000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # Stage-2 fresh seeds (A7.2 (a))
+n_tasks: 200
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1_cache: cache/s1_e16a_live.sqlite
+s1_backends:
+  e16a: {type: jev, name: agentdecision-4b-mixedplus, base_url: "http://127.0.0.1:8081", model: agentdecision-4b-mixedplus, api_key: "",
+         price_model: jevagentrl-4b, timeout: 60.0}   # exact 0 per token (API cost only)
+workers: 4
+arms:
+  - {name: e16a_ts_replace_f, s1: e16a, tool_select: {mode: replace}}

@@ -1,0 +1,46 @@
+{
+ "_note": "E29 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-09 ~16:05 UTC): the routing proxy of harness swea. scripts/aws/e29_port.sh sets the stage's arms (gated tau = the fitted gate) and its cap with --set. Gemini prices = configs/prices/models.yaml (tests/test_e29_port.py checks it).",
+ "format": "gemini",
+ "upstream": "https://generativelanguage.googleapis.com/v1beta",
+ "key_env": "GEMINI_API_KEY",
+ "tiers": {
+  "strong": {
+   "model": "gemini-3.5-flash",
+   "prices": {
+    "input_per_m": 1.5,
+    "output_per_m": 9.0,
+    "cached_input_per_m": 0.15
+   }
+  },
+  "fast": {
+   "model": "gemini-3.5-flash-lite",
+   "prices": {
+    "input_per_m": 0.3,
+    "output_per_m": 2.5,
+    "cached_input_per_m": 0.03
+   }
+  }
+ },
+ "arms": {
+  "baseline": {
+   "mode": "strong"
+  },
+  "gated": {
+   "mode": "gated",
+   "tau": null,
+   "k": 4
+  }
+ },
+ "decision": {
+  "backend": {
+   "type": "jev",
+   "provider": "openrouter"
+  },
+  "wait_s": 10,
+  "timeout_s": 30,
+  "threads": 32
+ },
+ "cap_margin_usd": 0.5,
+ "retries": 2,
+ "request_timeout_s": 900
+}

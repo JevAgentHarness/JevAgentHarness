@@ -1,0 +1,110 @@
+{
+ "teacher": "jev",
+ "spec": {
+  "type": "jev",
+  "provider": "openrouter"
+ },
+ "metrics": {
+  "after_error:0": {
+   "n": 1771,
+   "acc": 0.9627,
+   "brier": 0.0296,
+   "ece": 0.0144
+  },
+  "after_error:1": {
+   "n": 606,
+   "acc": 0.9439,
+   "brier": 0.0448,
+   "ece": 0.0189
+  },
+  "bucket:stop_guard:no": {
+   "n": 15,
+   "acc": 0.6667,
+   "brier": 0.1483,
+   "ece": 0.2353
+  },
+  "bucket:stop_guard:yes": {
+   "n": 65,
+   "acc": 0.9385,
+   "brier": 0.0551,
+   "ece": 0.0355
+  },
+  "bucket:stop_trigger:no": {
+   "n": 584,
+   "acc": 1.0,
+   "brier": 0.001,
+   "ece": 0.0295
+  },
+  "bucket:stop_trigger:yes": {
+   "n": 5,
+   "acc": 1.0,
+   "brier": 0.023,
+   "ece": 0.114
+  },
+  "bucket:tool_guard:no": {
+   "n": 91,
+   "acc": 0.989,
+   "brier": 0.0124,
+   "ece": 0.0501
+  },
+  "bucket:tool_guard:yes": {
+   "n": 125,
+   "acc": 0.976,
+   "brier": 0.0347,
+   "ece": 0.1064
+  },
+  "bucket:tool_params": {
+   "n": 821,
+   "acc": 0.9805,
+   "brier": 0.0204,
+   "ece": 0.0241
+  },
+  "bucket:tool_params:OTHER": {
+   "n": 3,
+   "acc": 0.6667,
+   "brier": 0.0858,
+   "ece": 0.2069
+  },
+  "bucket:tool_select": {
+   "n": 668,
+   "acc": 0.8952,
+   "brier": 0.0758,
+   "ece": 0.0369
+  },
+  "dp:stop": {
+   "n": 669,
+   "acc": 0.9865,
+   "brier": 0.0098,
+   "ece": 0.0334
+  },
+  "dp:tool_params": {
+   "n": 824,
+   "acc": 0.9794,
+   "brier": 0.0207,
+   "ece": 0.0243
+  },
+  "dp:tool_select": {
+   "n": 884,
+   "acc": 0.9163,
+   "brier": 0.0635,
+   "ece": 0.0186
+  },
+  "overall": {
+   "n": 2377,
+   "acc": 0.9579,
+   "brier": 0.0335,
+   "ece": 0.0129
+  }
+ },
+ "skipped": {},
+ "ledger": {
+  "calls": 2377,
+  "calls_fresh": 0,
+  "input_tokens": 3300393,
+  "output_tokens": 974793,
+  "cost_usd": 0.13861650600000003,
+  "cost_usd_fresh": 0,
+  "latency_ms_sum": 483398.4223460098,
+  "unpriced_models": []
+ }
+}

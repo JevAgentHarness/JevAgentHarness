@@ -1,0 +1,2012 @@
+{
+ "decision_point": "action",
+ "errored": [],
+ "files": {
+  "occurrences.jsonl.gz": "9f56994d224b41052c864af6298029a715c333848b7ba59730599c941b41cd27",
+  "questions.jsonl.gz": "0c2529c3acd60915e4e3096fee33627bb51e3c868c14d76a8fa10c3981840423"
+ },
+ "games": {
+  "alfworld/valid_seen/look_at_obj_in_light-AlarmClock-None-DeskLamp-323/trial_T20190909_044715_250790": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 4,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_seen/look_at_obj_in_light-Bowl-None-DeskLamp-301/trial_T20190909_150719_492274": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 12,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_seen/look_at_obj_in_light-Bowl-None-DeskLamp-316/trial_T20190908_230702_962704": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 3,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_seen/look_at_obj_in_light-Box-None-DeskLamp-205/trial_T20190907_074425_330493": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 19,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_seen/look_at_obj_in_light-CD-None-DeskLamp-302/trial_T20190907_154618_526741": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 9,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_seen/look_at_obj_in_light-CD-None-DeskLamp-314/trial_T20190907_114323_767231": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 17,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_seen/look_at_obj_in_light-CD-None-DeskLamp-320/trial_T20190907_224451_655673": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 9,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_seen/look_at_obj_in_light-KeyChain-None-DeskLamp-327/trial_T20190906_202601_548273": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 9,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_seen/look_at_obj_in_light-Laptop-None-DeskLamp-328/trial_T20190908_201550_622420": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 3,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_seen/look_at_obj_in_light-Pillow-None-DeskLamp-302/trial_T20190909_150916_682139": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 7,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_seen/look_at_obj_in_light-Pillow-None-DeskLamp-323/trial_T20190908_053153_077977": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 6,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_seen/look_at_obj_in_light-Statue-None-DeskLamp-216/trial_T20190909_193045_208933": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 3,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_seen/look_at_obj_in_light-Vase-None-DeskLamp-303/trial_T20190907_150418_457594": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 5,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-Book-None-SideTable-329/trial_T20190908_050633_745514": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 4,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-Book-None-Sofa-229/trial_T20190907_042856_259139": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-Bowl-None-CoffeeTable-201/trial_T20190907_171639_045329": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 5,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-Box-None-Dresser-224/trial_T20190907_164104_229696": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 5,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-Candle-None-Cart-401/trial_T20190909_081908_677973": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-Candle-None-Toilet-407/trial_T20190909_055248_059513": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 4,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-Candle-None-Toilet-429/trial_T20190908_052232_887934": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 4,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-CellPhone-None-ArmChair-318/trial_T20190909_120047_968274": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-CellPhone-None-Bed-324/trial_T20190907_233817_198528": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 13,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-CreditCard-None-ArmChair-201/trial_T20190908_124340_258012": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 10,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-CreditCard-None-Drawer-227/trial_T20190909_010644_297017": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-Egg-None-Microwave-4/trial_T20190906_234406_356490": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 10,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-Knife-None-SideTable-3/trial_T20190918_184236_557252": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 4,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-Mug-None-Dresser-311/trial_T20190909_152837_739016": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 4,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-Mug-None-SideTable-329/trial_T20190909_032318_169393": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 4,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-Mug-None-SideTable-329/trial_T20190909_032340_274147": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 4,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-Newspaper-None-Sofa-224/trial_T20190909_111324_949106": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 6,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-Pencil-None-Desk-310/trial_T20190909_113054_894334": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 5,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-Pencil-None-Dresser-330/trial_T20190909_071128_012892": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 6,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-RemoteControl-None-ArmChair-230/trial_T20190909_021000_274398": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 4,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-RemoteControl-None-Sofa-207/trial_T20190909_153609_373481": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 4,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-SoapBar-None-Cart-401/trial_T20190907_054906_608944": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 5,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-SoapBottle-None-Cabinet-414/trial_T20190908_110131_524518": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 5,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-SoapBottle-None-CounterTop-417/trial_T20190910_112922_368384": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 12,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-SprayBottle-None-Cabinet-413/trial_T20190907_114931_692464": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 13,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-SprayBottle-None-GarbageCan-409/trial_T20190908_054742_818364": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 4,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-SprayBottle-None-Toilet-415/trial_T20190909_075955_678702": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 4,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-SprayBottle-None-Toilet-418/trial_T20190906_190942_706186": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-TissueBox-None-Toilet-426/trial_T20190910_155319_795672": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 4,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-ToiletPaper-None-ToiletPaperHanger-406/trial_T20190908_122858_883968": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 5,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-ToiletPaper-None-ToiletPaperHanger-415/trial_T20190908_050518_595510": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 12,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-Tomato-None-Microwave-13/trial_T20190908_124829_632660": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-Vase-None-CoffeeTable-207/trial_T20190909_091246_807206": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 5,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-Watch-None-SideTable-222/trial_T20190909_051813_197569": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 21,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_and_place_simple-WineBottle-None-Shelf-7/trial_T20190907_200154_378982": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 6,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-ButterKnife-None-CounterTop-8/trial_T20190909_105559_983897": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-ButterKnife-None-DiningTable-16/trial_T20190909_114508_617301": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-ButterKnife-None-Drawer-2/trial_T20190908_121728_511866": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-ButterKnife-None-Drawer-30/trial_T20190908_052007_212776": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-ButterKnife-None-Drawer-8/trial_T20190909_124425_112757": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 10,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-Cloth-None-Cabinet-405/trial_T20190907_080903_889497": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 15,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-Cloth-None-Drawer-423/trial_T20190908_140701_251653": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-DishSponge-None-Cart-401/trial_T20190907_024634_972453": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 11,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-DishSponge-None-CounterTop-403/trial_T20190908_144357_621068": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 15,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-Fork-None-CounterTop-23/trial_T20190908_233922_171295": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-Fork-None-Drawer-8/trial_T20190908_132152_999725": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-Ladle-None-CounterTop-14/trial_T20190909_113844_191747": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 6,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-Ladle-None-CounterTop-8/trial_T20190909_121908_219603": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-Ladle-None-DiningTable-16/trial_T20190909_183724_205399": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-Ladle-None-DiningTable-27/trial_T20190911_131350_027076": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-Ladle-None-DiningTable-4/trial_T20190909_164840_568811": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 20,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-Lettuce-None-CounterTop-16/trial_T20190909_051630_092360": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 10,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-Lettuce-None-Fridge-19/trial_T20190908_100138_446072": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-Mug-None-CoffeeMachine-26/trial_T20190907_233056_022802": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 6,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-Plate-None-CounterTop-19/trial_T20190908_212725_836398": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-Plate-None-Fridge-5/trial_T20190909_112854_740612": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-SoapBar-None-Cabinet-402/trial_T20190908_055221_984342": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-SoapBar-None-Drawer-423/trial_T20190906_202340_749336": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-SoapBar-None-Toilet-410/trial_T20190906_201106_979461": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-SoapBar-None-Toilet-428/trial_T20190907_041436_588106": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-Spatula-None-DiningTable-4/trial_T20190909_002804_564168": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 20,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_clean_then_place_in_recep-Tomato-None-CounterTop-25/trial_T20190909_012550_586494": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-Apple-None-CounterTop-14/trial_T20190909_044933_815840": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 25,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-Apple-None-GarbageCan-2/trial_T20190906_195943_081289": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-Apple-None-Microwave-19/trial_T20190906_210937_878489": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-Apple-None-Microwave-5/trial_T20190908_150807_823817": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-Bowl-None-Cabinet-20/trial_T20190909_112912_154874": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-Bread-None-CounterTop-7/trial_T20190909_045605_307949": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 15,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-Cup-None-Microwave-17/trial_T20190906_192817_654400": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-Cup-None-SideTable-21/trial_T20190906_192823_237997": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-Egg-None-Microwave-24/trial_T20190908_234112_645480": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-Lettuce-None-CounterTop-1/trial_T20190908_042713_075616": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-Lettuce-None-CounterTop-11/trial_T20190908_222555_651605": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 11,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-Mug-None-CoffeeMachine-16/trial_T20190908_184242_348366": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-Pan-None-DiningTable-7/trial_T20190908_232648_241836": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-Pan-None-StoveBurner-18/trial_T20190906_181023_216915": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 13,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-Pan-None-StoveBurner-23/trial_T20190906_215856_374127": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 35,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-Plate-None-Cabinet-27/trial_T20190906_173120_350651": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-Plate-None-Cabinet-7/trial_T20190907_231206_512424": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-Plate-None-CounterTop-1/trial_T20190906_205324_559361": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 24,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-Pot-None-DiningTable-21/trial_T20190909_004531_429065": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-Tomato-None-CounterTop-12/trial_T20190909_063754_216554": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-Tomato-None-CounterTop-12/trial_T20190909_063844_274181": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 10,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-Tomato-None-GarbageCan-6/trial_T20190909_082934_483899": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 11,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-Tomato-None-Microwave-13/trial_T20190910_173916_331859": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-Tomato-None-Microwave-18/trial_T20190909_012524_159092": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 11,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_cool_then_place_in_recep-WineBottle-None-DiningTable-17/trial_T20190908_024426_412044": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_heat_then_place_in_recep-Apple-None-DiningTable-26/trial_T20190907_060234_011675": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 10,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_heat_then_place_in_recep-Cup-None-Cabinet-22/trial_T20190907_173251_960848": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_heat_then_place_in_recep-Egg-None-CounterTop-2/trial_T20190908_122951_021026": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 27,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_heat_then_place_in_recep-Egg-None-Fridge-14/trial_T20190909_091314_636733": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 11,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_heat_then_place_in_recep-Mug-None-Cabinet-26/trial_T20190909_062333_424779": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 6,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_heat_then_place_in_recep-Mug-None-Cabinet-3/trial_T20190909_014639_335717": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_heat_then_place_in_recep-Mug-None-CoffeeMachine-1/trial_T20190907_222640_487432": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_heat_then_place_in_recep-Mug-None-SideTable-21/trial_T20190909_090729_088825": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 19,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_heat_then_place_in_recep-Plate-None-Cabinet-1/trial_T20190908_070946_578973": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_heat_then_place_in_recep-Plate-None-DiningTable-28/trial_T20190908_001247_096796": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 15,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_heat_then_place_in_recep-Potato-None-Fridge-11/trial_T20190909_011341_436523": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_heat_then_place_in_recep-Potato-None-Fridge-12/trial_T20190908_014451_271080": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_heat_then_place_in_recep-Tomato-None-DiningTable-16/trial_T20190907_201243_698086": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_heat_then_place_in_recep-Tomato-None-Fridge-15/trial_T20190909_020200_054379": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_heat_then_place_in_recep-Tomato-None-Fridge-23/trial_T20190909_082320_103350": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_heat_then_place_in_recep-Tomato-None-Fridge-24/trial_T20190908_033721_967359": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 10,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_seen/pick_two_obj_and_place-AlarmClock-None-Dresser-305/trial_T20190907_165826_194855": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_seen/pick_two_obj_and_place-Book-None-Desk-302/trial_T20190906_181233_363875": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 15,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_seen/pick_two_obj_and_place-Book-None-Desk-313/trial_T20190908_125930_920681": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 11,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_seen/pick_two_obj_and_place-Box-None-CoffeeTable-213/trial_T20190906_200927_069627": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 13,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_seen/pick_two_obj_and_place-CD-None-Drawer-304/trial_T20190907_230232_832893": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 5,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_seen/pick_two_obj_and_place-CreditCard-None-Dresser-311/trial_T20190907_201917_045715": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_seen/pick_two_obj_and_place-CreditCard-None-Safe-323/trial_T20190907_001129_214240": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_seen/pick_two_obj_and_place-Glassbottle-None-Shelf-1/trial_T20190907_122204_941737": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_seen/pick_two_obj_and_place-Knife-None-Drawer-18/trial_T20190907_065232_689984": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 11,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_seen/pick_two_obj_and_place-Newspaper-None-Drawer-224/trial_T20190911_101248_326533": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 15,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_seen/pick_two_obj_and_place-Pan-None-CounterTop-14/trial_T20190907_012519_974044": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 10,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_seen/pick_two_obj_and_place-RemoteControl-None-Ottoman-203/trial_T20190906_182952_858723": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_seen/pick_two_obj_and_place-SoapBar-None-GarbageCan-418/trial_T20190909_055538_380023": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_seen/pick_two_obj_and_place-SoapBar-None-GarbageCan-418/trial_T20190909_055649_717880": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_seen/pick_two_obj_and_place-Spatula-None-Drawer-13/trial_T20190908_183331_203888": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_seen/pick_two_obj_and_place-SprayBottle-None-Cabinet-407/trial_T20190907_144556_144188": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 16,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_seen/pick_two_obj_and_place-SprayBottle-None-GarbageCan-419/trial_T20190908_164236_518264": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_seen/pick_two_obj_and_place-SprayBottle-None-Toilet-402/trial_T20190910_222914_814642": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 17,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_seen/pick_two_obj_and_place-SprayBottle-None-Toilet-429/trial_T20190907_033843_707544": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_seen/pick_two_obj_and_place-TissueBox-None-Toilet-426/trial_T20190909_044602_338962": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_seen/pick_two_obj_and_place-ToiletPaper-None-Drawer-423/trial_T20190907_111251_461099": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_seen/pick_two_obj_and_place-ToiletPaper-None-Toilet-408/trial_T20190909_080302_174780": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_seen/pick_two_obj_and_place-Vase-None-Desk-204/trial_T20190906_181531_703961": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_seen/pick_two_obj_and_place-Watch-None-Dresser-205/trial_T20190907_182211_592010": {
+   "desync_from": null,
+   "split": "seen",
+   "steps": 11,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_unseen/look_at_obj_in_light-AlarmClock-None-DeskLamp-308/trial_T20190908_222917_366542": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 14,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_unseen/look_at_obj_in_light-AlarmClock-None-DeskLamp-308/trial_T20190908_222933_607649": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 5,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_unseen/look_at_obj_in_light-AlarmClock-None-DeskLamp-308/trial_T20190908_222951_616606": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 6,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_unseen/look_at_obj_in_light-Book-None-DeskLamp-308/trial_T20190908_020029_636862": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 13,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_unseen/look_at_obj_in_light-Book-None-DeskLamp-308/trial_T20190908_020048_814402": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 13,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_unseen/look_at_obj_in_light-Book-None-DeskLamp-308/trial_T20190908_144951_587345": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 18,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_unseen/look_at_obj_in_light-Bowl-None-DeskLamp-308/trial_T20190907_133919_856963": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 7,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_unseen/look_at_obj_in_light-Bowl-None-DeskLamp-308/trial_T20190907_133935_066606": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 8,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_unseen/look_at_obj_in_light-Bowl-None-DeskLamp-308/trial_T20190907_133953_562557": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 6,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_unseen/look_at_obj_in_light-CD-None-DeskLamp-308/trial_T20190908_141942_810052": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 8,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_unseen/look_at_obj_in_light-CD-None-DeskLamp-308/trial_T20190908_141958_463362": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 5,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_unseen/look_at_obj_in_light-CD-None-DeskLamp-308/trial_T20190908_142046_281296": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 3,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_unseen/look_at_obj_in_light-Mug-None-DeskLamp-308/trial_T20190908_161733_213242": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 6,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_unseen/look_at_obj_in_light-Mug-None-DeskLamp-308/trial_T20190908_201421_021646": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 3,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_unseen/look_at_obj_in_light-Mug-None-DeskLamp-308/trial_T20190908_201444_037645": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 5,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_unseen/look_at_obj_in_light-Pencil-None-DeskLamp-308/trial_T20190908_220545_153480": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 5,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_unseen/look_at_obj_in_light-Pencil-None-DeskLamp-308/trial_T20190908_220604_010430": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 3,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_unseen/look_at_obj_in_light-Pencil-None-DeskLamp-308/trial_T20190908_220656_510400": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 5,
+   "success": true,
+   "task_type": "look_at_obj_in_light"
+  },
+  "alfworld/valid_unseen/pick_and_place_simple-Mug-None-Desk-308/trial_T20190908_125200_737896": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_unseen/pick_and_place_simple-Mug-None-Desk-308/trial_T20190909_203041_433487": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 6,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_unseen/pick_and_place_simple-Mug-None-Desk-308/trial_T20190909_210238_431966": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 6,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_unseen/pick_and_place_simple-Pencil-None-Shelf-308/trial_T20190908_121952_610012": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 4,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_unseen/pick_and_place_simple-Pencil-None-Shelf-308/trial_T20190908_122024_052056": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 4,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_unseen/pick_and_place_simple-Pencil-None-Shelf-308/trial_T20190908_122154_042763": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 4,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_unseen/pick_and_place_simple-PepperShaker-None-Drawer-10/trial_T20190906_184021_215264": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_unseen/pick_and_place_simple-PepperShaker-None-Drawer-10/trial_T20190918_154326_823501": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 5,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_unseen/pick_and_place_simple-PepperShaker-None-Drawer-10/trial_T20190918_154424_844749": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 5,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_unseen/pick_and_place_simple-SaltShaker-None-Cabinet-10/trial_T20190906_191429_743650": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_unseen/pick_and_place_simple-SaltShaker-None-Cabinet-10/trial_T20190906_191445_723170": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_unseen/pick_and_place_simple-SaltShaker-None-Cabinet-10/trial_T20190906_191501_563086": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 5,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_unseen/pick_and_place_simple-SaltShaker-None-Drawer-10/trial_T20190909_021613_077537": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 13,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_unseen/pick_and_place_simple-SaltShaker-None-Drawer-10/trial_T20190909_021650_880235": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 11,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_unseen/pick_and_place_simple-SaltShaker-None-Drawer-10/trial_T20190909_021728_339782": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_unseen/pick_and_place_simple-SoapBottle-None-Toilet-424/trial_T20190907_004321_405868": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 4,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_unseen/pick_and_place_simple-SoapBottle-None-Toilet-424/trial_T20190907_004351_281384": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 4,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_unseen/pick_and_place_simple-SoapBottle-None-Toilet-424/trial_T20190907_004404_604165": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 4,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_unseen/pick_and_place_simple-Vase-None-Safe-219/trial_T20190908_205204_244321": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 16,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_unseen/pick_and_place_simple-Vase-None-Safe-219/trial_T20190908_205221_748352": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 18,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_unseen/pick_and_place_simple-Vase-None-Safe-219/trial_T20190908_205246_776817": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 13,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_unseen/pick_and_place_simple-Watch-None-Safe-219/trial_T20190907_074524_006355": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 5,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_unseen/pick_and_place_simple-Watch-None-Safe-219/trial_T20190907_074556_124850": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 5,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_unseen/pick_and_place_simple-Watch-None-Safe-219/trial_T20190907_074643_810052": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 28,
+   "success": true,
+   "task_type": "pick_and_place_simple"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Bowl-None-Cabinet-10/trial_T20190909_061130_844814": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Bowl-None-Cabinet-10/trial_T20190909_061158_110530": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Bowl-None-Cabinet-10/trial_T20190909_061232_368489": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 11,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Cloth-None-Cabinet-424/trial_T20190908_022321_380927": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Cloth-None-Cabinet-424/trial_T20190908_022436_073995": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Cloth-None-CounterTop-424/trial_T20190908_100632_546757": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 12,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Cloth-None-CounterTop-424/trial_T20190908_114340_674467": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Egg-None-Microwave-10/trial_T20190909_120554_888709": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Egg-None-Microwave-10/trial_T20190909_120632_691361": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 11,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Egg-None-Microwave-10/trial_T20190909_120712_273910": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Knife-None-CounterTop-10/trial_T20190909_110347_624008": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Knife-None-CounterTop-10/trial_T20190909_110445_675754": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Knife-None-CounterTop-10/trial_T20190909_110531_148235": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Mug-None-CoffeeMachine-10/trial_T20190907_221208_560499": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Mug-None-CoffeeMachine-10/trial_T20190907_221300_362511": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Mug-None-CoffeeMachine-10/trial_T20190907_221355_558505": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Pan-None-CounterTop-10/trial_T20190908_032434_013084": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Pan-None-CounterTop-10/trial_T20190908_032518_891433": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Pan-None-CounterTop-10/trial_T20190908_032543_712058": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 13,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Plate-None-CounterTop-10/trial_T20190908_213356_017769": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 11,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Plate-None-CounterTop-10/trial_T20190908_213420_728917": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Plate-None-CounterTop-10/trial_T20190908_213533_897289": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-SoapBar-None-Cabinet-424/trial_T20190908_214926_337906": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-SoapBar-None-Cabinet-424/trial_T20190908_214946_567644": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-SoapBar-None-Cabinet-424/trial_T20190908_215019_162873": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 17,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-SoapBar-None-CounterTop-424/trial_T20190907_074045_109439": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 14,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-SoapBar-None-CounterTop-424/trial_T20190907_074106_050405": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 13,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-SoapBar-None-CounterTop-424/trial_T20190907_074124_966890": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 6,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Spatula-None-Drawer-10/trial_T20190907_080730_211959": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Spatula-None-Drawer-10/trial_T20190907_080800_275989": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_clean_then_place_in_recep-Spatula-None-Drawer-10/trial_T20190907_080825_222432": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_clean_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_cool_then_place_in_recep-Bread-None-CounterTop-10/trial_T20190908_091747_866951": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 10,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_cool_then_place_in_recep-Bread-None-CounterTop-10/trial_T20190908_091811_414150": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 28,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_cool_then_place_in_recep-Bread-None-CounterTop-10/trial_T20190908_091835_825830": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 26,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_cool_then_place_in_recep-Lettuce-None-CounterTop-10/trial_T20190909_123133_763972": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 10,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_cool_then_place_in_recep-Lettuce-None-CounterTop-10/trial_T20190909_174807_646433": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_cool_then_place_in_recep-Lettuce-None-CounterTop-10/trial_T20190909_174840_771703": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_cool_then_place_in_recep-Mug-None-Cabinet-10/trial_T20190909_121559_082363": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_cool_then_place_in_recep-Mug-None-Cabinet-10/trial_T20190909_121635_622676": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 6,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_cool_then_place_in_recep-Mug-None-Cabinet-10/trial_T20190909_121710_650938": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 6,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_cool_then_place_in_recep-Mug-None-CoffeeMachine-10/trial_T20190907_183715_299073": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 6,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_cool_then_place_in_recep-Mug-None-CoffeeMachine-10/trial_T20190907_183807_477267": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 6,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_cool_then_place_in_recep-Mug-None-CoffeeMachine-10/trial_T20190907_183853_958104": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 10,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_cool_then_place_in_recep-Pan-None-CounterTop-10/trial_T20190908_114545_244903": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 32,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_cool_then_place_in_recep-Pan-None-CounterTop-10/trial_T20190908_114622_738670": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_cool_then_place_in_recep-Pan-None-CounterTop-10/trial_T20190908_114656_768805": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 23,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_cool_then_place_in_recep-Potato-None-Microwave-10/trial_T20190907_033157_424297": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_cool_then_place_in_recep-Potato-None-Microwave-10/trial_T20190907_033228_194678": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 12,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_cool_then_place_in_recep-Potato-None-Microwave-10/trial_T20190907_033306_962974": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 12,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_cool_then_place_in_recep-Tomato-None-Microwave-10/trial_T20190909_102608_318800": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 45,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_cool_then_place_in_recep-Tomato-None-Microwave-10/trial_T20190909_102644_926781": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 10,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_cool_then_place_in_recep-Tomato-None-Microwave-10/trial_T20190909_102710_795182": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_cool_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_heat_then_place_in_recep-Apple-None-Fridge-10/trial_T20190906_182259_116320": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 13,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_heat_then_place_in_recep-Apple-None-Fridge-10/trial_T20190906_182353_418140": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_heat_then_place_in_recep-Apple-None-Fridge-10/trial_T20190906_182435_622538": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 10,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_heat_then_place_in_recep-Apple-None-GarbageCan-10/trial_T20190908_145050_918567": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 6,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_heat_then_place_in_recep-Apple-None-GarbageCan-10/trial_T20190908_145143_820541": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 6,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_heat_then_place_in_recep-Apple-None-GarbageCan-10/trial_T20190908_145356_918528": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_heat_then_place_in_recep-Cup-None-Cabinet-10/trial_T20190907_083346_800823": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 43,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_heat_then_place_in_recep-Cup-None-Cabinet-10/trial_T20190907_083429_887065": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 42,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_heat_then_place_in_recep-Cup-None-Cabinet-10/trial_T20190907_083507_594820": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_heat_then_place_in_recep-Egg-None-GarbageCan-10/trial_T20190908_113432_673307": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 11,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_heat_then_place_in_recep-Egg-None-GarbageCan-10/trial_T20190908_113523_123938": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 50,
+   "success": false,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_heat_then_place_in_recep-Egg-None-GarbageCan-10/trial_T20190908_113610_425142": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_heat_then_place_in_recep-Mug-None-Cabinet-10/trial_T20190909_021100_341887": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 6,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_heat_then_place_in_recep-Mug-None-Cabinet-10/trial_T20190909_021200_669381": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 17,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_heat_then_place_in_recep-Mug-None-Cabinet-10/trial_T20190909_021247_306737": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 6,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_heat_then_place_in_recep-Mug-None-CoffeeMachine-10/trial_T20190907_171806_406231": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_heat_then_place_in_recep-Mug-None-CoffeeMachine-10/trial_T20190907_171850_960211": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 17,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_heat_then_place_in_recep-Mug-None-CoffeeMachine-10/trial_T20190907_171933_349922": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_heat_then_place_in_recep-Potato-None-GarbageCan-10/trial_T20190907_161745_664033": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 6,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_heat_then_place_in_recep-Potato-None-GarbageCan-10/trial_T20190907_161853_945788": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_heat_then_place_in_recep-Tomato-None-GarbageCan-10/trial_T20190908_225046_020282": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 6,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_heat_then_place_in_recep-Tomato-None-GarbageCan-10/trial_T20190908_225359_617900": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_heat_then_place_in_recep-Tomato-None-GarbageCan-10/trial_T20190908_225453_272533": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 7,
+   "success": true,
+   "task_type": "pick_heat_then_place_in_recep"
+  },
+  "alfworld/valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_050942_897916": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 10,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_051013_060265": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_051056_585414": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 10,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_unseen/pick_two_obj_and_place-KeyChain-None-Safe-219/trial_T20190909_011803_423115": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_unseen/pick_two_obj_and_place-KeyChain-None-Safe-219/trial_T20190909_012027_782483": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 10,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_unseen/pick_two_obj_and_place-PepperShaker-None-Drawer-10/trial_T20190908_010306_215435": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 14,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_unseen/pick_two_obj_and_place-PepperShaker-None-Drawer-10/trial_T20190912_221016_460197": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 10,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_unseen/pick_two_obj_and_place-PepperShaker-None-Drawer-10/trial_T20190912_221141_608117": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 11,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_unseen/pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163240_345855": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_unseen/pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163327_486300": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_unseen/pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163408_914117": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_unseen/pick_two_obj_and_place-SoapBar-None-Cabinet-424/trial_T20190909_081720_491733": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 18,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_unseen/pick_two_obj_and_place-SoapBar-None-Cabinet-424/trial_T20190909_081746_857594": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 9,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_unseen/pick_two_obj_and_place-SoapBar-None-GarbageCan-424/trial_T20190909_064053_839817": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_unseen/pick_two_obj_and_place-SoapBar-None-GarbageCan-424/trial_T20190909_064221_368939": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 8,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_unseen/pick_two_obj_and_place-SoapBar-None-GarbageCan-424/trial_T20190909_064309_357168": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 17,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  },
+  "alfworld/valid_unseen/pick_two_obj_and_place-ToiletPaper-None-Cabinet-424/trial_T20190906_202926_527010": {
+   "desync_from": null,
+   "split": "unseen",
+   "steps": 16,
+   "success": true,
+   "task_type": "pick_two_obj_and_place"
+  }
+ },
+ "generated": "2026-10-08T20:56:53+00:00",
+ "git": "a7981f803c7d12d588fc83f9a89f3ffcf9a82066",
+ "label": "exploratory (E24), descriptive; PREREG_A7_STAGE2 Deviations 2026-10-08 'E24: agent-state accuracy (L2) on public benchmarks'; outside every Holm table",
+ "question": "Which action should the agent take next?",
+ "registered": "PREREG_A7_STAGE2 Deviations 2026-10-08 'E24' (b)",
+ "replay_seed": "jev-explore-E24-alfworld-replay-2026-10-08",
+ "sources": {
+  "seen": {
+   "path": "runs/e11_alfworld_eval/llm_only.jsonl",
+   "row": "E11 (valid_seen)",
+   "sha256": "70964b63d4af74471f0a1e1803e7257c4fc309d7a947c989be6360f75ba89227"
+  },
+  "unseen": {
+   "path": "runs/e23_alfworld_unseen_eval/llm_only.jsonl",
+   "row": "E23 (valid_unseen)",
+   "sha256": "202844f6946712d89b2b9758d6a35aa172cff260cabed67fd864960707b9acd3"
+  }
+ },
+ "stats": {
+  "by_split": {
+   "seen": {
+    "by_task_type": {
+     "look_at_obj_in_light": 98,
+     "pick_and_place_simple": 220,
+     "pick_clean_then_place_in_recep": 571,
+     "pick_cool_then_place_in_recep": 328,
+     "pick_heat_then_place_in_recep": 203,
+     "pick_two_obj_and_place": 240
+    },
+    "flash_strict_acc_states": 0.4831325301204819,
+    "games": 140,
+    "games_with_states": 140,
+    "lenient_gt1_share": 0.3096385542168675,
+    "lenient_mean_size": 4.731325301204819,
+    "logged_equals_strict_share": 0.8674698795180723,
+    "off_plan_share": 0.8704819277108434,
+    "options_median": 31.0,
+    "source_walkthrough_share": 0.12951807228915663,
+    "states": 1660,
+    "unique_questions": 1659
+   },
+   "unseen": {
+    "by_task_type": {
+     "look_at_obj_in_light": 133,
+     "pick_and_place_simple": 136,
+     "pick_clean_then_place_in_recep": 537,
+     "pick_cool_then_place_in_recep": 360,
+     "pick_heat_then_place_in_recep": 343,
+     "pick_two_obj_and_place": 186
+    },
+    "flash_strict_acc_states": 0.41651917404129796,
+    "games": 134,
+    "games_with_states": 134,
+    "lenient_gt1_share": 0.2814159292035398,
+    "lenient_mean_size": 4.165781710914454,
+    "logged_equals_strict_share": 0.8224188790560472,
+    "off_plan_share": 0.8949852507374632,
+    "options_median": 28.0,
+    "source_walkthrough_share": 0.10501474926253687,
+    "states": 1695,
+    "unique_questions": 1604
+   }
+  },
+  "checks": {
+   "games_desynced": 0,
+   "obs_mismatch": 0,
+   "options_mismatch": 0,
+   "steps": 3824
+  },
+  "dropped": {
+   "after_expert_fallback": 327,
+   "expert_random_fallback": 142
+  },
+  "errored_games": 0,
+  "games": 274,
+  "hand_kinds": {
+   "None": 2002,
+   "goto": 324,
+   "search": 1029
+  },
+  "states": 3355,
+  "strict_random_instance_states": 114,
+  "unique_questions": 3263
+ }
+}

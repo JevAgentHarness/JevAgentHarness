@@ -1,0 +1,23 @@
+# Exploratory row E6f (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-07 "Exploratory row E6f"; descriptive, no test; not
+# the registered S2-L3b): the action trigger on ALFWorld valid_seen. TRIGGER = System-1 decides whether the LLM runs one
+# verification call on its proposed action (agent.py _verify_action); "always" verifies every proposal. Games, order,
+# models and harness settings exactly as E6a / E6c (configs/explore/e6c_alfworld/eval.yaml): the 140 games of
+# configs/explore/e6a_alfworld/eval_games.json (stratified order), Gemini 3.5 Flash on the direct API (temperature 0,
+# minimal reasoning), Jev via OpenRouter on the Jev-only key, 50 steps, history 12, no System-1 cache. tau = 0.5 (E6b's
+# rule: the registered tau of the point's guard, E6c's action guard). Run locally in invocations over the first 20, 40,
+# ..., 140 games (each resumes; TMPDIR on /dev/shm, because TextWorld keeps a 32 MB library copy per game until its
+# process exits), task-major interleaved (seed 732), 8 workers; a last invocation re-runs infrastructure errors once.
+#   TMPDIR=/dev/shm/e6f_tmp python -m jevharness.bench.runner configs/explore/e6f_alfworld/eval.yaml --out runs --max-tasks 20
+name: e6f_alfworld_eval
+suite: {name: alfworld, split: eval_in_distribution, data_dir: data/raw/alfworld, n: 140, stratify: true,
+        max_episode_steps: 50}
+n_tasks: 140
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}
+harness_defaults: {max_steps: 50, history_window: 12}
+workers: 8
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}
+  - {name: jev_action_trigger, action: {mode: trigger, tau: 0.5}}
+  - {name: action_verify_all, action: {mode: always}}

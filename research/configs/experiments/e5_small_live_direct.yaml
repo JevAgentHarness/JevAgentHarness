@@ -1,0 +1,18 @@
+# E5 live route diagnostic (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-06 ~19:40 UTC; descriptive): the E5 live row's
+# 90 completed tasks (seeds 300700-300789), the same three arms, profiles, thresholds, servers, one worker and
+# task-major order (seed 732); only System-2 changes, to the direct Gemini API. Its own run: runs/e5_small_live_direct.
+name: e5_small_live_direct
+suite: {name: jevgym, n: 90, seed0: 300700, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 90
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}   # the direct Gemini API (Deviations 2026-10-06 ~19:40 UTC, E5 live route diagnostic)
+s1_backends:
+  jevagent_rl: {type: jev, name: jevagentrl-4b, base_url: "http://127.0.0.1:8081", model: jevagentrl-4b, api_key: "",
+                timeout: 60.0, cache: null}
+  e5_small: {type: jev, name: e5-e5_mc1, base_url: "http://127.0.0.1:8082", model: e5-e5_mc1, api_key: "",
+             timeout: 60.0, cache: null}
+workers: 1
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}
+  - {name: harness_final, s1: jevagent_rl, profile: configs/harness/jevagent_final.yaml, profile_s2: gemini-3.5-flash, profile_backend: jevagent_rl}
+  - {name: e5_final, s1: e5_small, profile: configs/harness/explore_e5_final.yaml, profile_s2: gemini-3.5-flash, profile_backend: e5_small}

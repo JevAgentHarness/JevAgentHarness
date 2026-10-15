@@ -1,0 +1,16 @@
+{
+ "generated_at_commit": "7097f3c (pre-E6d harness code)",
+ "n_tasks": 6,
+ "digests": {
+  "e6b_tp_assist": "378b0558578f5c680ade8b7dd3bdc38542fd5ddebc6d00d96154d69381ef9462",
+  "e6b_tp_guard": "4413f54d4a529a333531565a956d9550e23199b612a33e485b12f5c3aa2b9694",
+  "e6b_mw_cascade": "3a70b2d196c1c8f1b5292731cea871fb1ae342bd826cf38bf184c5ce7bae0dc6",
+  "e6b_mw_guard": "0d2d45d3c7f22bd00d30dd059f248d47c3823da000154a5b828ba8daf69cf60e",
+  "e6b_mr_cascade": "15a5d8917c7ca3d8db93c1c440c1483815927037f907d02ea9835ce3ebd2f623",
+  "e6b_mr_trigger": "5218fc62893479fe9118d061df96c916ee03172e7ab88155e58c96e1a673b002",
+  "e6b_rf_cascade": "fb79341f2750eeb326157b104fa3cd1dda77d4bd6c1efa98febc3ee5772f0cb6",
+  "e6b_st_cascade": "93948bd987a9bbb19d24f2dbbba70bb9b7a2f2832edb776bc746aa79aae002cf",
+  "e6b_rt_cascade": "73e4d156fa3f3fbcbce71c5c70e54a51504465cf9db79a057dff644bf60e006d",
+  "action_guard": "1bfe892045be34d7a33bb9ed02f8efa348d45fff3d53cb189b6a19870b0d0dfc"
+ }
+}

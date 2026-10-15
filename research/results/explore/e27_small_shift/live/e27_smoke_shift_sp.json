@@ -1,0 +1,47 @@
+{
+ "run": "e27_smoke_shift_sp",
+ "arms": {
+  "e27sp_ts_replace_f": {
+   "jevgym-shift-sdt-clarify.method-339042-d120-near-strict": {
+    "success": true,
+    "error": false,
+    "error_text": null,
+    "cost": 0.0082005,
+    "s1_cost": 0.0,
+    "s2_cost": 0.0082005,
+    "wall_s": 9.60035597499973,
+    "steps": 5,
+    "s1_calls": 5,
+    "s2_calls": 5,
+    "attempts": 1,
+    "refusals": 0,
+    "own_acc": 1.0
+   },
+   "jevgym-shift-sdt-multi-339043-d120-near-strict": {
+    "success": true,
+    "error": false,
+    "error_text": null,
+    "cost": 0.0347325,
+    "s1_cost": 0.0,
+    "s2_cost": 0.0347325,
+    "wall_s": 41.03487480599961,
+    "steps": 10,
+    "s1_calls": 10,
+    "s2_calls": 10,
+    "attempts": 1,
+    "refusals": 0,
+    "own_acc": 1.0
+   }
+  }
+ },
+ "spend": {
+  "total": 0.042933,
+  "s2": 0.042933,
+  "s1": 0.0,
+  "records": 2,
+  "s1_by_arm": {
+   "e27sp_ts_replace_f": 0.0
+  }
+ },
+ "written": "2026-10-09T15:16:14+00:00"
+}

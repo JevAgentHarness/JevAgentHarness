@@ -1,0 +1,260 @@
+{
+ "registered": "A5.4 (a), (b); A6.9 #11; A6.18 (c)",
+ "tie_pt": 0.02,
+ "candidates": {
+  "llm_only": {
+   "ni_95": true,
+   "cost_savings": 0.0,
+   "tau2_arm": "llm_only",
+   "note": "the reference"
+  },
+  "jev_ts_cascade_tauhat": {
+   "ni_95": true,
+   "p_decisive": 0.00010024314737847021,
+   "rule": "bb_ordered",
+   "n": 500,
+   "diff": 0.0,
+   "cost_savings": 0.14184199927022678,
+   "tau2_arm": "jev_ts_cascade (tau-hat* refit, A5.4 (c))"
+  },
+  "jev_ts_assist_k3": {
+   "ni_95": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "n": 500,
+   "diff": -0.078,
+   "cost_savings": 0.5372917643397359,
+   "tau2_arm": "jev_ts_assist_k3"
+  },
+  "jev_ts_guard": {
+   "ni_95": true,
+   "p_decisive": 0.002363326299121377,
+   "rule": "bb_ordered",
+   "n": 200,
+   "diff": 0.0,
+   "cost_savings": -0.0020221803602999966,
+   "tau2_arm": "jev_guard"
+  },
+  "jev_ts_cascade_tau0.5": {
+   "ni_95": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "n": 200,
+   "diff": -0.215,
+   "cost_savings": 0.8454844855143601,
+   "tau2_arm": "jev_ts_cascade (tau-hat* refit, A5.4 (c))"
+  },
+  "jev_ts_cascade_tau0.7": {
+   "ni_95": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "n": 200,
+   "diff": -0.24,
+   "cost_savings": 0.8096085165865587,
+   "tau2_arm": "jev_ts_cascade (tau-hat* refit, A5.4 (c))"
+  },
+  "jev_ts_cascade_tau0.8": {
+   "ni_95": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "n": 200,
+   "diff": -0.235,
+   "cost_savings": 0.7648481322128643,
+   "tau2_arm": "jev_ts_cascade (tau-hat* refit, A5.4 (c))"
+  },
+  "jev_ts_cascade_tau0.9": {
+   "ni_95": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "n": 200,
+   "diff": -0.205,
+   "cost_savings": 0.719713233122862,
+   "tau2_arm": "jev_ts_cascade (tau-hat* refit, A5.4 (c))"
+  },
+  "jev_ts_cascade_tau0.95": {
+   "ni_95": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "n": 200,
+   "diff": -0.205,
+   "cost_savings": 0.6679134154392037,
+   "tau2_arm": "jev_ts_cascade (tau-hat* refit, A5.4 (c))"
+  },
+  "jev_ts_cascade_tau0.99": {
+   "ni_95": false,
+   "p_decisive": 1.0,
+   "rule": "bb_ordered",
+   "n": 200,
+   "diff": -0.08,
+   "cost_savings": 0.39320689163666533,
+   "tau2_arm": "jev_ts_cascade (tau-hat* refit, A5.4 (c))"
+  }
+ },
+ "selected_e2_arm": "jev_ts_cascade_tauhat",
+ "reason": "most cost-saving NI configuration (14.2 % savings)",
+ "tau2_arm_family": "jev_ts_cascade (tau-hat* refit, A5.4 (c))",
+ "interpretation": "tau^2 `jev_guard` (policy guard + stop guard) has no E2 twin; E2a's tool-call guard `jev_ts_guard` is read as its E2 counterpart",
+ "generated": "2026-10-02T21:38:21+00:00",
+ "git": "84f468e21e2757ee6184c2d750579f7250b92717",
+ "e2a_run": "runs/e2a_jevgym_tool_decisions",
+ "flags": [],
+ "provenance": {
+  "dir": "runs/e2a_jevgym_tool_decisions",
+  "arms": {
+   "jev_ts_cascade_tauhat": {
+    "path": "runs/e2a_jevgym_tool_decisions/jev_ts_cascade_tauhat.jsonl",
+    "sha256": "752dd92afc9e01a5d0c5693be17f40b2a65cb59ab80f97007d1b323b0dbd7909",
+    "n_records": 500,
+    "n_episodes": 500,
+    "partial_lines": 0,
+    "s2_model": "gemini-3.5-flash",
+    "s1": {
+     "backend": "jev",
+     "provider": "openrouter",
+     "model": "typesafe/jev-1.13",
+     "base_url": "https://openrouter.ai/api",
+     "extra_body": {},
+     "cached": true
+    }
+   },
+   "llm_only": {
+    "path": "runs/e2a_jevgym_tool_decisions/llm_only.jsonl",
+    "sha256": "14d2c35fc9f1d2849482a11acc6d4574637b1b41643b8d3e06977a2376209a22",
+    "n_records": 500,
+    "n_episodes": 500,
+    "partial_lines": 0,
+    "s2_model": "gemini-3.5-flash",
+    "s1": null
+   },
+   "jev_ts_assist_k3": {
+    "path": "runs/e2a_jevgym_tool_decisions/jev_ts_assist_k3.jsonl",
+    "sha256": "9065c8675fedc24253051aa115f82779ba18b868af206d85f315ea93f54269fd",
+    "n_records": 500,
+    "n_episodes": 500,
+    "partial_lines": 0,
+    "s2_model": "gemini-3.5-flash",
+    "s1": {
+     "backend": "jev",
+     "provider": "openrouter",
+     "model": "typesafe/jev-1.13",
+     "base_url": "https://openrouter.ai/api",
+     "extra_body": {},
+     "cached": true
+    }
+   },
+   "jev_ts_guard": {
+    "path": "runs/e2a_jevgym_tool_decisions/jev_ts_guard.jsonl",
+    "sha256": "ac9567ef11cc6465c710505c72d137e8c6cdee060182eb8cbcbad99d28539448",
+    "n_records": 200,
+    "n_episodes": 200,
+    "partial_lines": 0,
+    "s2_model": "gemini-3.5-flash",
+    "s1": {
+     "backend": "jev",
+     "provider": "openrouter",
+     "model": "typesafe/jev-1.13",
+     "base_url": "https://openrouter.ai/api",
+     "extra_body": {},
+     "cached": true
+    }
+   },
+   "jev_ts_cascade_tau0.5": {
+    "path": "runs/e2a_jevgym_tool_decisions/jev_ts_cascade_tau0.5.jsonl",
+    "sha256": "e67717a961f6f47ed23cf2a808ead87bd779d8349f0cde56aec39e8ad6fdb3c3",
+    "n_records": 200,
+    "n_episodes": 200,
+    "partial_lines": 0,
+    "s2_model": "gemini-3.5-flash",
+    "s1": {
+     "backend": "jev",
+     "provider": "openrouter",
+     "model": "typesafe/jev-1.13",
+     "base_url": "https://openrouter.ai/api",
+     "extra_body": {},
+     "cached": true
+    }
+   },
+   "jev_ts_cascade_tau0.7": {
+    "path": "runs/e2a_jevgym_tool_decisions/jev_ts_cascade_tau0.7.jsonl",
+    "sha256": "59cba2fc40cc148de7ce3f7a4c918e172576784ccbe7aab306095df68dda44cf",
+    "n_records": 200,
+    "n_episodes": 200,
+    "partial_lines": 0,
+    "s2_model": "gemini-3.5-flash",
+    "s1": {
+     "backend": "jev",
+     "provider": "openrouter",
+     "model": "typesafe/jev-1.13",
+     "base_url": "https://openrouter.ai/api",
+     "extra_body": {},
+     "cached": true
+    }
+   },
+   "jev_ts_cascade_tau0.8": {
+    "path": "runs/e2a_jevgym_tool_decisions/jev_ts_cascade_tau0.8.jsonl",
+    "sha256": "eec8555f9d3613a078015d955c08ce76990bc8127c0d28bceb74413c4827ebc7",
+    "n_records": 201,
+    "n_episodes": 200,
+    "partial_lines": 0,
+    "s2_model": "gemini-3.5-flash",
+    "s1": {
+     "backend": "jev",
+     "provider": "openrouter",
+     "model": "typesafe/jev-1.13",
+     "base_url": "https://openrouter.ai/api",
+     "extra_body": {},
+     "cached": true
+    }
+   },
+   "jev_ts_cascade_tau0.9": {
+    "path": "runs/e2a_jevgym_tool_decisions/jev_ts_cascade_tau0.9.jsonl",
+    "sha256": "e9bd115d95f88b8cde334a76d6fe8371c4bbb257a01ff9a3d8885a1888b9c5ff",
+    "n_records": 200,
+    "n_episodes": 200,
+    "partial_lines": 0,
+    "s2_model": "gemini-3.5-flash",
+    "s1": {
+     "backend": "jev",
+     "provider": "openrouter",
+     "model": "typesafe/jev-1.13",
+     "base_url": "https://openrouter.ai/api",
+     "extra_body": {},
+     "cached": true
+    }
+   },
+   "jev_ts_cascade_tau0.95": {
+    "path": "runs/e2a_jevgym_tool_decisions/jev_ts_cascade_tau0.95.jsonl",
+    "sha256": "4894df1f752e863fb050f3717605f220231c2bb28ea2f8cde1f4cd70b2ef839d",
+    "n_records": 200,
+    "n_episodes": 200,
+    "partial_lines": 0,
+    "s2_model": "gemini-3.5-flash",
+    "s1": {
+     "backend": "jev",
+     "provider": "openrouter",
+     "model": "typesafe/jev-1.13",
+     "base_url": "https://openrouter.ai/api",
+     "extra_body": {},
+     "cached": true
+    }
+   },
+   "jev_ts_cascade_tau0.99": {
+    "path": "runs/e2a_jevgym_tool_decisions/jev_ts_cascade_tau0.99.jsonl",
+    "sha256": "e9c00020314ca37af60bfb2b1b16d51ce1d29e5bd352078dd5130feefcf349ca",
+    "n_records": 200,
+    "n_episodes": 200,
+    "partial_lines": 0,
+    "s2_model": "gemini-3.5-flash",
+    "s1": {
+     "backend": "jev",
+     "provider": "openrouter",
+     "model": "typesafe/jev-1.13",
+     "base_url": "https://openrouter.ai/api",
+     "extra_body": {},
+     "cached": true
+    }
+   }
+  }
+ },
+ "simulated": false
+}

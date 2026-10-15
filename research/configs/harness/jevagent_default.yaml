@@ -1,0 +1,43 @@
+# JevAgentHarness default profile (docs/JEVAGENT_HARNESS.md §3), from DEVELOPMENT evidence only: the calibration fits on
+# seeds 5000-5149 (results/calibration/, A6.5 / A6.11 / A6.19), the development rounds on seeds 0-999, the n = 50
+# pilots on development seeds 0-49 and the retired seeds 100000-100049 (results/pilot_jev/JEV_PILOT_NOTES.md) and the
+# Stage-2 development check on seeds 900-999 (results/stage2_dev/NOTES.md). No Stage-1 main-run result and no Stage-2
+# seed entered it. It is the harness's shipped default until the Stage-2 confirmation of the selected profile
+# (configs/harness/jevagent_best.yaml) is in; it runs on the fresh seeds as a descriptive row (A7.3 (a)).
+#
+# Per decision point: (mode, tau, k, mode-specific keys) exactly as an experiment arm writes them (harness/config.py).
+# Decision points not listed are `off` (the LLM decides, as in the LLM-only harness).
+#
+# History: until 2026-10-02 ~21:30 UTC the Flash section also carried `stop: {mode: trigger, tau: 0.9}` and the
+# Flash-Lite section `reflection: {mode: trigger, tau: 0.5}` (the version the development check ran, commit b41e906);
+# both were dropped on the development check's evidence (see the comments below).
+kind: jevagent_profile
+version: 1
+name: jevagent_default
+status: development
+description: >-
+  Strong System-2 (Flash): System-1 takes the tool choice and its bounded / copy arguments only in its certainty set
+  (cascade at the calibration fit); every other decision stays with the LLM. Weak System-2 (Flash-Lite): every decision
+  stays with the LLM (the calibration fit accepts no tool-selection confidence level, and the evidence on gates is mixed).
+system2:
+  gemini-3.5-flash:
+    decision_points:
+      # calibration fit (jev_shadow_cal, seeds 5000-5149): tool_select tau-hat* 1.00 (Jev's reported-one set, 30 % of
+      # decisions, all correct), tool_params 0.99 (71 %, all correct). Pilot (dev seeds 0-49): cascade at 0.99 kept
+      # 0.98 success at -41 % cost; every lower tau lost ~20 pt. Development check (seeds 900-999): 100 / 100 at -21 %
+      # cost (System-1 decides 25 % of tool choices), +4 s latency per episode
+      tool_select: {mode: cascade, tau: 1.0}
+      tool_params: {mode: cascade, tau: 0.99}
+      # not delegated (development evidence): stop trigger (pilots: never wrong, -1 / -6 % cost; development check: it
+      # never fired in 650 decisions and only added ~6.5 System-1 requests per episode), stop guard (rejected correct
+      # finishes, accuracy 0.71 / 0.94), routing (gate AUROC 0.42-0.70, -6 to -10 pt), reflection trigger and memory
+      # gates (no success to gain on Flash; they add calls), tool assist (-12 pt at k = 3), replace (-20 pt)
+    alfworld:
+      decision_points: {}          # no development evidence with Jev on ALFWorld: the action loop stays with the LLM
+  gemini-3.5-flash-lite:
+    # calibration fit (jev_shadow_cal_s2lite): tool_select accepts no level -> the tool decision stays with the LLM.
+    # Reflection trigger: +8 / +4 pt over the Flash-Lite LLM-only reference in two n = 50 pilots, -5 pt (4 wins, 9 losses)
+    # on the 100 development tasks of the Stage-2 check -> mixed, not delegated. Stop guard -4 pt, tool assist -10 pt.
+    decision_points: {}
+    alfworld:
+      decision_points: {}

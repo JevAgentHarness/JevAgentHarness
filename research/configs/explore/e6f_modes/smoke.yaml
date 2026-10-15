@@ -1,0 +1,16 @@
+# E6f smoke (development only; cost projection): every eval arm on JevGym development seeds 900-901 (E6b / E6d /
+# E6e's smoke tasks; never reported). Settings copied from eval.yaml.
+#   python -m jevharness.bench.runner configs/explore/e6f_modes/smoke.yaml --out runs
+name: e6f_modes_smoke
+suite: {name: jevgym, n: 2, seed0: 900, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 2
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}      # the pinned Jev endpoint of Stage 1; no System-1 cache (fresh answers)
+workers: 12
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}                                              # the reference of both cells
+  - {name: ts_trigger, tool_select: {mode: trigger, tau: 0.5}}    # tool-choice trigger
+  - {name: ts_verify_all, tool_select: {mode: always}}            # reference: verify every tool choice
+  - {name: tp_trigger, tool_params: {mode: trigger, tau: 0.9}}    # argument trigger
+  - {name: tp_verify_all, tool_params: {mode: always}}            # reference: verify every call's arguments

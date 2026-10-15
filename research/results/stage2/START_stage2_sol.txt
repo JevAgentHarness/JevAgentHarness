@@ -1,0 +1,8 @@
+step stage2_sol
+started 2026-10-05T08:04:50Z
+commit dd7b20c704152a9b1a69bed72813c62698388544
+plan sha256 98a614ca9ec89db5
+config configs/experiments/stage2_sol.yaml
+workers 4
+excluded arms none
+extra args  

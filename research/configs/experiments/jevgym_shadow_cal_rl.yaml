@@ -1,0 +1,21 @@
+# Calibration shadow arms for JevAgentRL-4B (GPU round 5): how a NEW System-1 family gets its tau-hat*, exactly as for
+# Intern-Decision (configs/experiments/jevgym_shadow_cal_intern.yaml; PREREGISTRATION A6.5 / A6.11 / A6.19): shadow arms on
+# the calibration seeds 5000..5149 (n = 150, the only use of these seeds in the training programme), the same suite,
+# System-2 models and fit command:
+#   python -m jevharness.bench.threshold_theory runs/e2a_jevgym_shadow_cal_rl --arm rl_shadow_cal[_s2lite] \
+#       --dp tool_select|tool_params --calibration-arm --task-value 1.0 --lam-per-hour 0 --v-fallback W --out ...
+# s1 = the FROZEN checkpoint served in the Jev wire format with its fitted temperatures (training/serve_jev.py
+# --calibration checkpoints/r5/final/calibration.json on :8081); scripts/aws/gpu_round5_rl.sh stage `cal`.
+name: e2a_jevgym_shadow_cal_rl
+suite: {name: jevgym, n: 150, seed0: 5000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # calibration seeds 5000..5149
+n_tasks: 150
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+llms:
+  lite2: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, name: jevagentrl-4b, base_url: "http://127.0.0.1:8081", model: jevagentrl-4b, api_key: ""}
+workers: 8                         # the served model batches concurrent requests; System-2 latency dominates
+arms:
+  # Flash: calibrates the JevAgentRL C1 arm (`rl_ts_cascade_tauhat`)
+  - {name: rl_shadow_cal, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}
+  # Flash-Lite: calibrates the JevAgentRL C1L arm (`rl_ts_cascade_tauhat_s2lite`)
+  - {name: rl_shadow_cal_s2lite, llm: lite2, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}

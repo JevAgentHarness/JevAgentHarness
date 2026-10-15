@@ -1,0 +1,9 @@
+# E29 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-09, "E29: the full harness in open-source harnesses"): mini-SWE-agent
+# talks to the host-side routing proxy (jevharness.adapters.route_proxy, OpenAI chat format, upstream OpenRouter), which
+# holds the OpenRouter key: the agent process gets no key at all. List it AFTER swebench_jev.yaml, s1_jev_openrouter.yaml
+# and e4_deepseek.yaml (E4's models, provider pin, caps and templates stay as they are; the proxy rewrites `model` and
+# `reasoning` for the fast tier). The driver (scripts/aws/e29_port.sh) writes one copy per arm with __ARM__ replaced by
+# the arm (baseline | gated | shadow | smoke_gated); `{instance_id}` is filled per instance by process_instance, so the
+# proxy sees one episode per SWE-bench instance.
+model:
+  api_url: "http://127.0.0.1:8093/e29/__ARM__/{instance_id}/api/v1/chat/completions"

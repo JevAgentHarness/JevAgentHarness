@@ -1,0 +1,45 @@
+# E2a DEV (small-scale shakedown of configs/experiments/jevgym_tool_select.yaml) -- NOT a paper run.
+# Same calibrated JevGym v2 suite, System-2 models, modes and sweep as E2a. openrouter.ai is blocked here, so
+# the default System-1 (`jev_*` arms) is replaced on the command line by the Gemini stand-in; runs go under
+# runs/dev so they can never fill paper keys:
+#   jevbench run configs/dev/e2a_dev.yaml --out runs/dev --max-tasks 10 -o workers=4 \
+#     's1={type: llm_generative, llm: {provider: gemini, model: gemini-3.5-flash-lite}, reasoning_effort: minimal}' \
+#     name=e2a_dev
+# Dropped vs E2a (budget, $25 for E2a+E2b+E2c dev): the `lite_*` arms (lite_ts_params_replace,
+# lite_ts_assist_k3, lite_ts_guard and the lite_ts_cascade sweep). With the stand-in as the default System-1
+# they are the SAME backend as their `jev_*` twins (identical describe() -> identical s1_cache keys), so they
+# would only re-measure System-2 nondeterminism.
+# 2026-10-01: the params_replace / cascade arms were re-run after the copyable-candidate fix (instruction values
+# kept in the tool_params options, harness/tools.py); the old records are in runs/dev/_superseded/. Notes:
+# runs/dev/E2_NOTES.md.
+name: e2a_dev
+suite: {name: jevgym, n: 200, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+llms:
+  lite2: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}
+s1_cache: cache/s1.sqlite
+s1_backends:
+  embed: {type: embedding, provider: gemini, model: gemini-embedding-001}
+  bm25: {type: bm25}
+workers: 4
+arms:
+  - {name: llm_only}
+  - {name: jev_shadow, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}
+  - {name: jev_ts_replace, tool_select: {mode: replace}}
+  - {name: jev_ts_params_replace, tool_select: {mode: replace}, tool_params: {mode: replace}}
+  - {name: jev_ts_assist_k3, tool_select: {mode: assist, k: 3}}
+  - {name: jev_ts_assist_k5, tool_select: {mode: assist, k: 5}}
+  - {name: jev_ts_guard, tool_select: {mode: guard, tau: 0.5}}
+  - {name: embed_ts_assist_k3, s1: embed, tool_select: {mode: assist, k: 3}}
+  # --- weaker System-2 (Flash-Lite) ---
+  - {name: llm_only_s2lite, llm: lite2}
+  - {name: jev_shadow_s2lite, llm: lite2, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}
+  - {name: jev_ts_assist_k3_s2lite, llm: lite2, tool_select: {mode: assist, k: 3}}
+  - {name: jev_ts_guard_s2lite, llm: lite2, tool_select: {mode: guard, tau: 0.5}}
+  - {name: jev_ts_cascade_tau0.9_s2lite, llm: lite2, tool_select: {mode: cascade, tau: 0.9}, tool_params: {mode: cascade, tau: 0.9}}
+  - {name: bm25_ts_assist_k3_s2lite, llm: lite2, s1: bm25, tool_select: {mode: assist, k: 3}}
+sweeps:
+  - base: {name: jev_ts_cascade, tool_select: {mode: cascade}, tool_params: {mode: cascade, tau: 0.9}}
+    set: tool_select.tau
+    values: [0.5, 0.7, 0.8, 0.9, 0.95, 0.99]

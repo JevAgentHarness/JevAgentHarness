@@ -1,0 +1,48 @@
+# E2a DEV with OpenAI System-2 (Responses API) -- a copy of configs/dev/e2a_dev.yaml whose `llm:` blocks point at
+# OpenAI models; NOT a paper run. Needs OPENAI_API_KEY in .env (bash scripts/smoke_openai.sh first).
+# Model ids: verify against `curl -H "Authorization: Bearer $OPENAI_API_KEY" https://api.openai.com/v1/models` --
+# chosen on 2026-10-01 from https://developers.openai.com/api/docs/pricing:
+#   main arms  gpt-6.1-sol  ($2.00 / $10.00 per M; the mid model of the current flagship trio). It accepts neither
+#              `none` nor `minimal` reasoning, so `low` is the cheapest effort and `temperature` is NOT sent (the
+#              API rejects sampling parameters unless the effort is none; the client drops and counts them).
+#   `_s2lite`  gpt-6-luna   ($0.10 / $0.50 per M; the cheapest current model with native function calling).
+#              `reasoning_effort: none` keeps it a plain tool-calling model (temperature 0 allowed, logprobs allowed).
+#              Cheaper alternative with the same API: gpt-5-nano ($0.05 / $0.40), older generation.
+# Everything is stateless (`store: false`); add `-o llm.server_state=true` to chain turns with previous_response_id
+# and compare ledger meta `wire_input_tokens_est` (sent) with `input_tokens` (billed) -- see HARNESS_INTEGRATION.md.
+# openrouter.ai may be blocked, so the default System-1 (`jev_*` arms) is replaced on the command line; the
+# stand-in below needs only the OpenAI key. Runs go under runs/dev so they can never fill paper keys:
+#   jevbench run configs/dev/e2a_dev_openai.yaml --out runs/dev --max-tasks 10 -o workers=4 \
+#     's1={type: llm_generative, llm: {provider: openai_responses, model: gpt-6-luna}, reasoning_effort: none}' \
+#     name=e2a_dev_openai
+name: e2a_dev_openai
+suite: {name: jevgym, n: 200, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+llm: {provider: openai_responses, model: gpt-6.1-sol, reasoning_effort: low}                    # verify against /v1/models
+llms:
+  lite2: {provider: openai_responses, model: gpt-6-luna, reasoning_effort: none, temperature: 0}  # verify against /v1/models
+s1: {type: jev, provider: openrouter}
+s1_cache: cache/s1.sqlite
+s1_backends:
+  embed: {type: embedding, provider: openai, model: text-embedding-3-small}
+  bm25: {type: bm25}
+workers: 4
+arms:
+  - {name: llm_only}
+  - {name: jev_shadow, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}
+  - {name: jev_ts_replace, tool_select: {mode: replace}}
+  - {name: jev_ts_params_replace, tool_select: {mode: replace}, tool_params: {mode: replace}}
+  - {name: jev_ts_assist_k3, tool_select: {mode: assist, k: 3}}
+  - {name: jev_ts_assist_k5, tool_select: {mode: assist, k: 5}}
+  - {name: jev_ts_guard, tool_select: {mode: guard, tau: 0.5}}
+  - {name: embed_ts_assist_k3, s1: embed, tool_select: {mode: assist, k: 3}}
+  # --- weaker / cheaper System-2 (gpt-6-luna) ---
+  - {name: llm_only_s2lite, llm: lite2}
+  - {name: jev_shadow_s2lite, llm: lite2, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}
+  - {name: jev_ts_assist_k3_s2lite, llm: lite2, tool_select: {mode: assist, k: 3}}
+  - {name: jev_ts_guard_s2lite, llm: lite2, tool_select: {mode: guard, tau: 0.5}}
+  - {name: jev_ts_cascade_tau0.9_s2lite, llm: lite2, tool_select: {mode: cascade, tau: 0.9}, tool_params: {mode: cascade, tau: 0.9}}
+  - {name: bm25_ts_assist_k3_s2lite, llm: lite2, s1: bm25, tool_select: {mode: assist, k: 3}}
+sweeps:
+  - base: {name: jev_ts_cascade, tool_select: {mode: cascade}, tool_params: {mode: cascade, tau: 0.9}}
+    set: tool_select.tau
+    values: [0.5, 0.7, 0.8, 0.9, 0.95, 0.99]

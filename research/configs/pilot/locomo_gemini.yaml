@@ -1,0 +1,27 @@
+# PILOT (real APIs, small): Jev-for-memory on LoCoMo, 1 conversation (conv-26, 419 turns) x 40 questions
+# (shuffled with question_seed so every category appears), 5 arms.
+#   python -m jevharness.bench.suites.memory_qa --config configs/pilot/locomo_gemini.yaml --out runs/pilot
+#   (arms run one after another; `--arms a,b` in separate processes + `--report-only` at the end parallelises)
+# Answerer = Gemini 3.5 Flash-Lite. LLM write gate = Gemini 3.5 Flash (the System-2 of the other pilots).
+# System-1 = Gemini 3.5 Flash-Lite verbalised distributions as a STAND-IN for Jev until openrouter.ai is
+# reachable; switch with  s1: {type: jev, provider: openrouter}  (Jev's 255-option Choice also shrinks the
+# S1 read tournament from ~9 calls to 2-3 per question).
+# Judge = Gemini 3.5 Flash with LongMemEval's yes/no prompt (the paper default is gpt-4o-2024-08-06).
+# Scale up: -o dataset.n_conversations=10 -o dataset.max_questions=null (1,540 QA; see docs/MEMORY.md).
+name: pilot_locomo_gemini
+dataset: {name: locomo, n_conversations: 1, include_adversarial: false, max_questions: 40, question_seed: 0}
+granularity: turn
+write_context_turns: 3
+answer: {style: short, max_context_tokens: 120000, max_tokens: 64}
+llm: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+write_llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+judge: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1: {type: llm_generative, llm: {provider: gemini, model: gemini-3.5-flash-lite}, reasoning_effort: minimal}
+s1_cache: cache/s1_gemini.sqlite
+workers: 4
+arms:
+  - {name: full_context, read: {policy: full_context}}
+  - {name: all_bm25_k5, write: {mode: always}, read: {policy: bm25, k: 5}}
+  - {name: all_s1read_k5, write: {mode: always}, read: {policy: s1, k: 5}}
+  - {name: s1write_s1read_k5, write: {mode: trigger, tau: 0.5}, read: {policy: s1, k: 5}}
+  - {name: llmwrite_bm25_k5, write: {mode: llm}, read: {policy: bm25, k: 5}}

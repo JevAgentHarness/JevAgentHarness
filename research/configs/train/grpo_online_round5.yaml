@@ -1,0 +1,74 @@
+# GPU round 5 (JevAgentRL) -- stage R8: episode-level GRPO INSIDE the harness, from the OPD checkpoint.
+#   python -m jevharness.training.grpo_online --config configs/train/grpo_online_round5.yaml   (gpu_round5_rl.sh stage grpo)
+# Reward = success - lambda * cost in its anti-cheapness form (`gated`, TRAINING_RECIPES §5):
+#   R = 1[success] * (1 - 0.5 * min(1, System-2 calls / 10)) - 0.2 * 1[irreversible error]
+# so a cheap failure earns nothing, deferring / rejecting costs System-2 calls, and success dominates. Decision accuracy
+# vs the oracle is logged, never rewarded. Seeds (seed_policy: strict, training/seed_guard.py): training pool
+# 50000-52999 (disjoint from OPD's 40000-43999 and data v0 / v1); greedy dev evaluation 1000-1047; never calibration,
+# evaluation or Stage-2 seeds.
+name: r5_grpo_online
+model: Qwen/Qwen3-4B
+init: checkpoints/r5/opd
+ref: init                       # exact KL to the frozen OPD policy
+out: checkpoints/r5/grpo
+lora: {r: 32, alpha: 64, dropout: 0.0, target_modules: all-linear}
+seed_policy: strict
+
+suite: {name: jevgym, n: 3000, seed0: 50000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+eval_suite: {name: jevgym, n: 48, seed0: 1000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+
+executor: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0.7, reasoning_effort: minimal}
+executors:
+  flash: {provider: gemini, model: gemini-3.5-flash, temperature: 0.3, reasoning_effort: minimal}
+harness_defaults: {max_steps: 20}
+
+# one policy, four WHERE x HOW cells (round-robin over task groups): the student's own replace states, its top-k as the
+# executor's candidate set, commit-vs-defer (cascade), and verification of the executor's proposals (guards)
+arms:
+  - {name: rl_ts_params_replace, tool_select: {mode: replace}, tool_params: {mode: replace}, stop: {mode: guard, tau: 0.5}}
+  - {name: rl_ts_assist_k3, tool_select: {mode: assist, k: 3}}
+  - {name: rl_cascade, tool_select: {mode: cascade, tau: 0.9}, tool_params: {mode: cascade, tau: 0.9}}
+  - {name: rl_guard_flash, llm: flash, tool_select: {mode: guard, tau: 0.5}, stop: {mode: guard, tau: 0.5}}
+eval_arms: [rl_ts_params_replace, rl_ts_assist_k3]
+
+decider:
+  temperature: 1.0
+  max_len: 4096
+  batch_size: 8                 # prompts per decider forward in rollouts (long states)
+  max_wait_ms: 5.0
+  price_model: Qwen/Qwen3-4B
+  name: jevagentrl-grpo
+
+grpo:
+  iterations: 30
+  tasks_per_iter: 8
+  group_size: 8                 # 64 episodes per iteration
+  inner_epochs: 1
+  minibatch_size: 64
+  micro_batch_size: 8
+  max_batch_tokens: 2560        # token-budget micro-batches (no activation checkpointing on the L40S)
+  clip_eps: 0.2
+  clip_eps_high: 0.28
+  kl_beta: 0.02
+  entropy_coef: 0.0
+  adv_scale: group
+  drop_zero_std_groups: true
+  drop_error_episodes: true
+  loss_agg: decision
+  gigpo: {enabled: true, omega: 1.0, gamma: 0.95, scale: std}
+
+reward:
+  kind: gated
+  lambda_gate: 0.5
+  cost_unit: calls
+  cost_scale: 10.0
+  irreversible_penalty: 0.2
+
+optim: {lr: 1.0e-5, weight_decay: 0.0, grad_clip: 1.0, warmup_steps: 3}
+
+workers: 16
+eval_every: 10
+save_every: 5
+seed: 0
+gradient_checkpointing: false
+log_rollouts: true

@@ -1,0 +1,67 @@
+# GPU round 5 (JevAgentRL) -- stage R9: ON-POLICY DISTILLATION from Jev at scale, from SFT v1 (R3-v1).
+#   python -m jevharness.training.opd --config configs/train/opd_round5.yaml        (scripts/aws/gpu_round5_rl.sh stage opd)
+# Every key is a flag of opd.py (CLI flags override). Seeds (training/seed_guard.py, --strict-seeds):
+#   training pool 40000-43999 (disjoint from data v0 10000-12059 / v1 30000-30599 and from GRPO's 50000+); greedy dev
+#   rollouts on 1000-1047 (development range); never calibration 5000-5149, evaluation 200000-200499 or Stage-2 300000+.
+# The student acts in SIX harness arms (round-robin over the iteration's tasks), so the teacher labels the states every
+# integration mode reaches: its own replace states (incl. after its mistakes), assist / cascade / guard states on the
+# executor's proposals, and Flash's natural states (shadow). Teacher = Jev (typesafe/jev-1.13 via OpenRouter); the
+# target is the Jev distribution with 0.3 of the oracle gold mixed in, and the gold one-hot where Jev's argmax is not
+# the gold (data v1's rule, --gold-fallback); gold never reaches the teacher (Question.meta is not on the wire).
+student: Qwen/Qwen3-4B
+init: checkpoints/r5/sft_v1
+out: checkpoints/r5/opd
+teacher: jev-openrouter
+teacher_cache: cache/opd_teacher_r5.sqlite
+teacher_temperature: 1.0
+gold_alpha: 0.3
+gold_fallback: true
+
+executor: jevgym
+llm: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0.7, reasoning_effort: minimal}
+llms:
+  flash: {provider: gemini, model: gemini-3.5-flash, temperature: 0.3, reasoning_effort: minimal}
+suite: {families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # = the frozen evaluation setting
+seeds: 40000
+n_tasks: 4000
+strict_seeds: true
+arms:
+  - {name: opd_ts_params_replace, tool_select: {mode: replace}, tool_params: {mode: replace}, stop: {mode: guard, tau: 0.5}}
+  - {name: opd_ts_replace, tool_select: {mode: replace}}
+  - {name: opd_ts_assist_k3, tool_select: {mode: assist, k: 3}}
+  - {name: opd_cascade, tool_select: {mode: cascade, tau: 0.9}, tool_params: {mode: cascade, tau: 0.9}}
+  - {name: opd_guard, tool_select: {mode: guard, tau: 0.5}, stop: {mode: guard, tau: 0.5}}
+  - {name: opd_shadow_flash, llm: flash, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}
+max_steps: 20
+
+iterations: 24
+tasks_per_iter: 36              # 6 per arm
+rollouts_per_task: 1
+rollout_temperature: 1.0        # the student's sampled policy drives the agent
+loss: forward_kl
+replay_frac: 0.5
+max_questions: 600              # labelled decisions per iteration (seeded subsample of the visits)
+questions_per_request: 16
+teacher_workers: 8
+budget_usd: 8.0                 # teacher ledger hard stop (Jev ~ $0.09 / 1k requests)
+
+lora_r: 32
+lora_alpha: 64
+lr: 5.0e-5
+warmup_steps: 5
+epochs_per_iter: 1
+minibatch: 32
+micro_batch: 8
+max_batch_tokens: 2560          # token-budget micro-batches, no activation checkpointing (L40S 48 GB; rollout buffers share it)
+max_len: 4096
+workers: 16
+decider_batch: 8                # prompts per student forward in rollouts (long states)
+price_model: Qwen/Qwen3-4B
+
+eval_every: 6
+eval_n: 48
+eval_seed0: 1000
+eval_arms: opd_ts_params_replace,opd_ts_assist_k3
+save_every: 2
+seed: 0
+log_rollouts: true

@@ -1,0 +1,132 @@
+{
+ "model": "Qwen/Qwen3-1.7B",
+ "adapter": null,
+ "calibration": null,
+ "n_perm": 1,
+ "files": {
+  "data/train_v0/dev.jsonl": {
+   "overall": {
+    "n": 210,
+    "acc": 0.6381,
+    "nll": 7.58084,
+    "brier": 0.33459,
+    "ece": 0.33811,
+    "ece_adaptive": 0.33811,
+    "auroc": 0.71907,
+    "aurc": 0.23897,
+    "mean_conf": 0.9762,
+    "flip_rate": 0.21429
+   },
+   "by_dp": {
+    "stop": {
+     "n": 62,
+     "acc": 0.95161,
+     "nll": 0.27965,
+     "brier": 0.04195,
+     "ece": 0.03864,
+     "ece_adaptive": 0.02829,
+     "auroc": 0.90678,
+     "aurc": 0.0064,
+     "mean_conf": 0.97991,
+     "flip_rate": 0.09677
+    },
+    "tool_params": {
+     "n": 86,
+     "acc": 0.67442,
+     "nll": 6.3054,
+     "brier": 0.29225,
+     "ece": 0.30654,
+     "ece_adaptive": 0.30654,
+     "auroc": 0.82266,
+     "aurc": 0.15783,
+     "mean_conf": 0.98096,
+     "flip_rate": 0.23256
+    },
+    "tool_select": {
+     "n": 62,
+     "acc": 0.27419,
+     "nll": 16.65118,
+     "brier": 0.68598,
+     "ece": 0.69172,
+     "ece_adaptive": 0.69171,
+     "auroc": 0.57908,
+     "aurc": 0.68799,
+     "mean_conf": 0.96591,
+     "flip_rate": 0.30645
+    }
+   },
+   "by_kind": {
+    "choice": {
+     "n": 148,
+     "acc": 0.50676,
+     "nll": 10.63944,
+     "brier": 0.45719,
+     "ece": 0.4679,
+     "ece_adaptive": 0.4679,
+     "auroc": 0.73333,
+     "aurc": 0.34687,
+     "mean_conf": 0.97465,
+     "flip_rate": 0.26351
+    },
+    "noul": {
+     "n": 62,
+     "acc": 0.95161,
+     "nll": 0.27965,
+     "brier": 0.04195,
+     "ece": 0.03864,
+     "ece_adaptive": 0.02829,
+     "auroc": 0.90678,
+     "aurc": 0.0064,
+     "mean_conf": 0.97991,
+     "flip_rate": 0.09677
+    }
+   },
+   "seconds": 34.83,
+   "decisions_per_s": 6.03
+  },
+  "data/train_v0/dev_when2call.jsonl.gz": {
+   "overall": {
+    "n": 300,
+    "acc": 0.10333,
+    "nll": 17.05541,
+    "brier": 0.86978,
+    "ece": 0.87917,
+    "ece_adaptive": 0.87917,
+    "auroc": 0.26946,
+    "aurc": 0.9512,
+    "mean_conf": 0.9825,
+    "flip_rate": 0.12
+   },
+   "by_dp": {
+    "tool_select": {
+     "n": 300,
+     "acc": 0.10333,
+     "nll": 17.05541,
+     "brier": 0.86978,
+     "ece": 0.87917,
+     "ece_adaptive": 0.87917,
+     "auroc": 0.26946,
+     "aurc": 0.9512,
+     "mean_conf": 0.9825,
+     "flip_rate": 0.12
+    }
+   },
+   "by_kind": {
+    "choice": {
+     "n": 300,
+     "acc": 0.10333,
+     "nll": 17.05541,
+     "brier": 0.86978,
+     "ece": 0.87917,
+     "ece_adaptive": 0.87917,
+     "auroc": 0.26946,
+     "aurc": 0.9512,
+     "mean_conf": 0.9825,
+     "flip_rate": 0.12
+    }
+   },
+   "seconds": 19.8,
+   "decisions_per_s": 15.15
+  }
+ }
+}

@@ -1,0 +1,7 @@
+# local outputs of the research code (never committed)
+runs/
+cache/
+checkpoints/
+data/raw/
+third_party/
+.env

@@ -1,0 +1,240 @@
+{
+ "ByteDance__Ouro-1.4B": {
+  "skipped": "model_type ouro is not native in this transformers"
+ },
+ "ByteDance__Ouro-1.4B-Thinking": {
+  "skipped": "model_type ouro is not native in this transformers"
+ },
+ "HuggingFaceTB__SmolLM2-1.7B-Instruct": {
+  "model_type": "llama",
+  "class": "LlamaForCausalLM",
+  "layers_probe": 7,
+  "cache_class": "DynamicCache",
+  "cache_layer_types": {
+   "DynamicLayer": 7
+  },
+  "croppable": true,
+  "cached_vs_stateless_maxabs": 2.9802322387695312e-08,
+  "kv_bytes_per_token_probe": 1792
+ },
+ "LiquidAI__LFM2-1.2B": {
+  "model_type": "lfm2",
+  "class": "Lfm2ForCausalLM",
+  "layers_probe": 7,
+  "cache_class": "DynamicCache",
+  "cache_layer_types": {
+   "LinearAttentionLayer": 5,
+   "DynamicLayer": 2
+  },
+  "croppable": false,
+  "crop_error": "RuntimeError: `crop` was called, but the current layer does not track past states. Call `activate_past_recording` before `crop` to be able to rollback the",
+  "cached_vs_stateless_maxabs": 1.9371509552001953e-07,
+  "kv_bytes_per_token_probe": 608
+ },
+ "LiquidAI__LFM2.5-1.2B-Instruct": {
+  "model_type": "lfm2",
+  "class": "Lfm2ForCausalLM",
+  "layers_probe": 8,
+  "cache_class": "DynamicCache",
+  "cache_layer_types": {
+   "LinearAttentionLayer": 6,
+   "DynamicLayer": 2
+  },
+  "croppable": false,
+  "crop_error": "RuntimeError: `crop` was called, but the current layer does not track past states. Call `activate_past_recording` before `crop` to be able to rollback the",
+  "cached_vs_stateless_maxabs": 8.940696716308594e-08,
+  "kv_bytes_per_token_probe": 627
+ },
+ "MadeAgents__Hammer2.1-1.5b": {
+  "model_type": "qwen2",
+  "class": "Qwen2ForCausalLM",
+  "layers_probe": 7,
+  "cache_class": "DynamicCache",
+  "cache_layer_types": {
+   "DynamicLayer": 7
+  },
+  "croppable": true,
+  "cached_vs_stateless_maxabs": 8.195638656616211e-08,
+  "kv_bytes_per_token_probe": 1792
+ },
+ "Qwen__Qwen3-0.6B": {
+  "model_type": "qwen3",
+  "class": "Qwen3ForCausalLM",
+  "layers_probe": 7,
+  "cache_class": "DynamicCache",
+  "cache_layer_types": {
+   "DynamicLayer": 7
+  },
+  "croppable": true,
+  "cached_vs_stateless_maxabs": 1.1175870895385742e-07,
+  "kv_bytes_per_token_probe": 1792
+ },
+ "Qwen__Qwen3-1.7B": {
+  "model_type": "qwen3",
+  "class": "Qwen3ForCausalLM",
+  "layers_probe": 7,
+  "cache_class": "DynamicCache",
+  "cache_layer_types": {
+   "DynamicLayer": 7
+  },
+  "croppable": true,
+  "cached_vs_stateless_maxabs": 1.1920928955078125e-07,
+  "kv_bytes_per_token_probe": 1792
+ },
+ "Qwen__Qwen3-4B": {
+  "model_type": "qwen3",
+  "class": "Qwen3ForCausalLM",
+  "layers_probe": 7,
+  "cache_class": "DynamicCache",
+  "cache_layer_types": {
+   "DynamicLayer": 7
+  },
+  "croppable": true,
+  "cached_vs_stateless_maxabs": 1.4901161193847656e-07,
+  "kv_bytes_per_token_probe": 1792
+ },
+ "Qwen__Qwen3.5-0.8B": {
+  "model_type": "qwen3_5",
+  "class": "Qwen3_5ForCausalLM",
+  "layers_probe": 8,
+  "cache_class": "DynamicCache",
+  "cache_layer_types": {
+   "LinearAttentionLayer": 6,
+   "DynamicLayer": 2
+  },
+  "croppable": false,
+  "crop_error": "RuntimeError: `crop` was called, but the current layer does not track past states. Call `activate_past_recording` before `crop` to be able to rollback the",
+  "cached_vs_stateless_maxabs": 8.940696716308594e-08,
+  "kv_bytes_per_token_probe": 1049
+ },
+ "Qwen__Qwen3.5-2B": {
+  "model_type": "qwen3_5",
+  "class": "Qwen3_5ForCausalLM",
+  "layers_probe": 8,
+  "cache_class": "DynamicCache",
+  "cache_layer_types": {
+   "LinearAttentionLayer": 6,
+   "DynamicLayer": 2
+  },
+  "croppable": false,
+  "crop_error": "RuntimeError: `crop` was called, but the current layer does not track past states. Call `activate_past_recording` before `crop` to be able to rollback the",
+  "cached_vs_stateless_maxabs": 5.960464477539063e-08,
+  "kv_bytes_per_token_probe": 1049
+ },
+ "Salesforce__xLAM-2-1b-fc-r": {
+  "model_type": "qwen2",
+  "class": "Qwen2ForCausalLM",
+  "layers_probe": 7,
+  "cache_class": "DynamicCache",
+  "cache_layer_types": {
+   "DynamicLayer": 7
+  },
+  "croppable": true,
+  "cached_vs_stateless_maxabs": 5.960464477539063e-08,
+  "kv_bytes_per_token_probe": 1792
+ },
+ "ibm-granite__granite-4.0-1b": {
+  "model_type": "granitemoehybrid",
+  "class": "GraniteMoeHybridForCausalLM",
+  "layers_probe": 8,
+  "cache_class": "DynamicCache",
+  "cache_layer_types": {
+   "DynamicLayer": 8
+  },
+  "croppable": true,
+  "cached_vs_stateless_maxabs": 5.960464477539063e-08,
+  "kv_bytes_per_token_probe": 2048
+ },
+ "ibm-granite__granite-4.0-h-1b": {
+  "model_type": "granitemoehybrid",
+  "class": "GraniteMoeHybridForCausalLM",
+  "layers_probe": 8,
+  "cache_class": "DynamicCache",
+  "cache_layer_types": {
+   "LinearAttentionLayer": 7,
+   "DynamicLayer": 1
+  },
+  "croppable": false,
+  "crop_error": "RuntimeError: `crop` was called, but the current layer does not track past states. Call `activate_past_recording` before `crop` to be able to rollback the",
+  "cached_vs_stateless_maxabs": 5.960464477539063e-08,
+  "kv_bytes_per_token_probe": 2137
+ },
+ "openbmb__MiniCPM5-1B": {
+  "model_type": "llama",
+  "class": "LlamaForCausalLM",
+  "layers_probe": 7,
+  "cache_class": "DynamicCache",
+  "cache_layer_types": {
+   "DynamicLayer": 7
+  },
+  "croppable": true,
+  "cached_vs_stateless_maxabs": 6.705522537231445e-08,
+  "kv_bytes_per_token_probe": 1792
+ },
+ "tiiuae__Falcon-H1-0.5B-Instruct": {
+  "model_type": "falcon_h1",
+  "class": "FalconH1ForCausalLM",
+  "layers_probe": 2,
+  "cache_class": "DynamicCache",
+  "cache_layer_types": {
+   "LinearAttentionAndFullAttentionLayer": 2
+  },
+  "croppable": false,
+  "crop_error": "RuntimeError: `crop` was called, but the current layer does not track past states. Call `activate_past_recording` before `crop` to be able to rollback the",
+  "cached_vs_stateless_maxabs": 1.3969838619232178e-09,
+  "kv_bytes_per_token_probe": 1049
+ },
+ "tiiuae__Falcon-H1-1.5B-Deep-Instruct": {
+  "model_type": "falcon_h1",
+  "class": "FalconH1ForCausalLM",
+  "layers_probe": 2,
+  "cache_class": "DynamicCache",
+  "cache_layer_types": {
+   "LinearAttentionAndFullAttentionLayer": 2
+  },
+  "croppable": false,
+  "crop_error": "RuntimeError: `crop` was called, but the current layer does not track past states. Call `activate_past_recording` before `crop` to be able to rollback the",
+  "cached_vs_stateless_maxabs": 9.313225746154785e-10,
+  "kv_bytes_per_token_probe": 1049
+ },
+ "unsloth__Llama-3.2-1B-Instruct": {
+  "model_type": "llama",
+  "class": "LlamaForCausalLM",
+  "layers_probe": 7,
+  "cache_class": "DynamicCache",
+  "cache_layer_types": {
+   "DynamicLayer": 7
+  },
+  "croppable": true,
+  "cached_vs_stateless_maxabs": 5.960464477539063e-08,
+  "kv_bytes_per_token_probe": 1792
+ },
+ "unsloth__functiongemma-270m-it": {
+  "model_type": "gemma3_text",
+  "class": "Gemma3ForCausalLM",
+  "layers_probe": 7,
+  "cache_class": "DynamicCache",
+  "cache_layer_types": {
+   "DynamicSlidingWindowLayer": 6,
+   "DynamicLayer": 1
+  },
+  "croppable": false,
+  "crop_error": "RuntimeError: `crop` was called, but the current layer does not track past states, and the sliding window size was already reached. Call `activate_past_re",
+  "cached_vs_stateless_maxabs": 2.35741026699543e-07,
+  "kv_bytes_per_token_probe": 263
+ },
+ "unsloth__gemma-3-1b-it": {
+  "model_type": "gemma3_text",
+  "class": "Gemma3ForCausalLM",
+  "layers_probe": 7,
+  "cache_class": "DynamicCache",
+  "cache_layer_types": {
+   "DynamicSlidingWindowLayer": 6,
+   "DynamicLayer": 1
+  },
+  "croppable": false,
+  "crop_error": "RuntimeError: `crop` was called, but the current layer does not track past states, and the sliding window size was already reached. Call `activate_past_re",
+  "cached_vs_stateless_maxabs": 3.632158041000366e-07,
+  "kv_bytes_per_token_probe": 263
+ }
+}

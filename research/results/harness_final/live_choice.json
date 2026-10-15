@@ -1,0 +1,21 @@
+{
+ "recorded": "2026-10-05T19:09:55+00:00",
+ "rule": "PREREG_A7_STAGE2 Deviations 2026-10-05 harness_final (e): the serving setup with the lower mean System-1 time per step at c = 4 on the development replay, provided neither changes a decision against the logged answers",
+ "choice": {
+  "replicas": 1,
+  "server": "serve_jev --fast",
+  "workers": 8
+ },
+ "reason": "the two-replica setup could not run on this host: both replicas of the 4B model ran out of memory on the 24 GB A10G (results/harness_final/gpu/serve_v2r2_{0,1}.out, CUDA OOM at 19:05 UTC), so the single fast server is the only candidate",
+ "evidence": {
+  "v2_new_c4_s1_ms_per_step": 1622.6990912480037,
+  "v0_old_c4_s1_ms_per_step": 2409.2579802280025,
+  "v2_new_vs_v0_old_c1_shared_questions": 281,
+  "v2_new_vs_v0_old_c1_decision_flips": 0,
+  "v2_new_vs_v0_old_c1_max_abs_dp": 0.19299434432279125,
+  "note": "same-host equivalence (A10G): the fast server with the new call graph makes the same decisions as the Stage-2 server with the old one on every shared question at c = 1. The 'flips vs logged' column of replay_bench.md as first generated compared against the logged s1_dist, which the harness stores smoothed; the decisions themselves are re-checked against the logged s1_value / deferred in the regenerated report."
+ },
+ "host": "g5.4xlarge (1x NVIDIA A10G 24 GB)",
+ "replay_bench": "results/harness_final/replay_bench.md",
+ "before_live": true
+}

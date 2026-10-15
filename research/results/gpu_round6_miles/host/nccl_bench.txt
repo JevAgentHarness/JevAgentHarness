@@ -1,0 +1,112 @@
+=== env: default
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 13.0.3
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+# Out of bounds values : 0 OK
+# Avg bus bandwidth    : 1.04174 
+#
+# Collective test concluded: all_gather_perf
+#
+
+# Out of bounds values : 0 OK
+# Avg bus bandwidth    : 1.03314 
+#
+# Collective test concluded: reduce_scatter_perf
+#
+
+=== env: NCCL_P2P_LEVEL=SYS
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 13.0.3
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+# Out of bounds values : 0 OK
+# Avg bus bandwidth    : 1.0404 
+#
+# Collective test concluded: all_gather_perf
+#
+
+# Out of bounds values : 0 OK
+# Avg bus bandwidth    : 1.16528 
+#
+# Collective test concluded: reduce_scatter_perf
+#
+
+=== env: NCCL_P2P_DISABLE=1
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 13.0.3
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+# Out of bounds values : 0 OK
+# Avg bus bandwidth    : 1.20402 
+#
+# Collective test concluded: all_gather_perf
+#
+
+# Out of bounds values : 0 OK
+# Avg bus bandwidth    : 1.1827 
+#
+# Collective test concluded: reduce_scatter_perf
+#
+
+=== env: NCCL_P2P_LEVEL=SYS NCCL_PROTO=Simple
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 13.0.3
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+# Out of bounds values : 0 OK
+# Avg bus bandwidth    : 1.19768 
+#
+# Collective test concluded: all_gather_perf
+#
+
+# Out of bounds values : 0 OK
+# Avg bus bandwidth    : 1.20397 
+#
+# Collective test concluded: reduce_scatter_perf
+#
+

@@ -1,0 +1,10 @@
+{
+ "label": "exploratory (E9), descriptive; PREREG_A7_STAGE2 Deviations 2026-10-07 'E9: cost-accuracy frontier of multiple-choice decisions'; outside every Holm table",
+ "smoke_items": 29,
+ "smoke_fresh_usd": 0.050572864,
+ "projection_total": 0.728423630786207,
+ "cap": 30.0,
+ "factor": 1.3,
+ "go": true,
+ "written": "2026-10-07T05:47:00+00:00"
+}

@@ -1,0 +1,198 @@
+{
+ "run": "e7b_hard (a copy outside the checkout)",
+ "arm": "jevagent_best_rl",
+ "arm_sha256": "b96084ba12ec455210df2132f6140f18983fc46ec667d777089a9bb46ea06061",
+ "n_episodes": 200,
+ "n_records": 200,
+ "thresholds": {
+  "tool_select": {
+   "mode": "cascade",
+   "tau": 0.4999999999978404
+  },
+  "tool_params": {
+   "mode": "cascade",
+   "tau": 0.9999998807907104
+  },
+  "reflection": {
+   "mode": "trigger",
+   "tau": 0.5
+  }
+ },
+ "threshold_check": {
+  "tool_select": {
+   "n": 2881,
+   "consistent": 2881,
+   "other_deferred": 0,
+   "violations": 0,
+   "examples": []
+  },
+  "tool_params": {
+   "n": 4751,
+   "consistent": 4751,
+   "other_deferred": 997,
+   "violations": 0,
+   "examples": []
+  }
+ },
+ "s1_describe": {
+  "{\"backend\": \"jevagentrl-4b\", \"base_url\": \"http://127.0.0.1:8081\", \"extra_body\": {}, \"model\": \"jevagentrl-4b\", \"provider\": \"typesafe\"}": 200
+ },
+ "s1_calls": {
+  "jevagentrl-4b / jevagentrl-4b": 10313
+ },
+ "s1_state_max_chars": 12000,
+ "write_states": {
+  "n": 957,
+  "both_writes_offered": 957,
+  "policy_in_task": 957,
+  "tier_and_amount_seen": 950,
+  "job_found": 950,
+  "state_chars_max": 5102,
+  "state_at_cap": 0
+ },
+ "cells": {
+  "basic | above limit | gold cancel_order": {
+   "n": 207,
+   "model_wrong": 10,
+   "accepted_wrong": 10
+  },
+  "basic | above limit | gold ship_order": {
+   "n": 2,
+   "model_wrong": 1,
+   "accepted_wrong": 1
+  },
+  "basic | at or below limit | gold ship_order": {
+   "n": 92,
+   "model_wrong": 44,
+   "accepted_wrong": 44
+  },
+  "gold | gold tier | gold ship_order": {
+   "n": 332,
+   "model_wrong": 6,
+   "accepted_wrong": 6
+  },
+  "silver | above limit | gold cancel_order": {
+   "n": 115,
+   "model_wrong": 20,
+   "accepted_wrong": 20
+  },
+  "silver | at or below limit | gold ship_order": {
+   "n": 202,
+   "model_wrong": 97,
+   "accepted_wrong": 97
+  }
+ },
+ "cancel_rate": {
+  "basic | 0-150": {
+   "n": 45,
+   "model_cancel": 16,
+   "gold_cancel": 0
+  },
+  "basic | 150-300": {
+   "n": 47,
+   "model_cancel": 28,
+   "gold_cancel": 0
+  },
+  "basic | 300-450": {
+   "n": 56,
+   "model_cancel": 53,
+   "gold_cancel": 55
+  },
+  "basic | 450-600": {
+   "n": 65,
+   "model_cancel": 61,
+   "gold_cancel": 65
+  },
+  "basic | 600-750": {
+   "n": 41,
+   "model_cancel": 38,
+   "gold_cancel": 40
+  },
+  "basic | 750-900": {
+   "n": 47,
+   "model_cancel": 46,
+   "gold_cancel": 47
+  },
+  "gold | 0-150": {
+   "n": 53,
+   "model_cancel": 0,
+   "gold_cancel": 0
+  },
+  "gold | 150-300": {
+   "n": 50,
+   "model_cancel": 0,
+   "gold_cancel": 0
+  },
+  "gold | 300-450": {
+   "n": 71,
+   "model_cancel": 0,
+   "gold_cancel": 0
+  },
+  "gold | 450-600": {
+   "n": 50,
+   "model_cancel": 0,
+   "gold_cancel": 0
+  },
+  "gold | 600-750": {
+   "n": 54,
+   "model_cancel": 0,
+   "gold_cancel": 0
+  },
+  "gold | 750-900": {
+   "n": 54,
+   "model_cancel": 0,
+   "gold_cancel": 0
+  },
+  "silver | 0-150": {
+   "n": 43,
+   "model_cancel": 1,
+   "gold_cancel": 0
+  },
+  "silver | 150-300": {
+   "n": 51,
+   "model_cancel": 18,
+   "gold_cancel": 0
+  },
+  "silver | 300-450": {
+   "n": 61,
+   "model_cancel": 44,
+   "gold_cancel": 0
+  },
+  "silver | 450-600": {
+   "n": 47,
+   "model_cancel": 32,
+   "gold_cancel": 0
+  },
+  "silver | 600-750": {
+   "n": 60,
+   "model_cancel": 50,
+   "gold_cancel": 60
+  },
+  "silver | 750-900": {
+   "n": 55,
+   "model_cancel": 45,
+   "gold_cancel": 55
+  }
+ },
+ "failures": {
+  "strict_stop": 169,
+  "premature_finish": 24,
+  "wrong_total": 5,
+  "no_answer": 1
+ },
+ "attribution": {
+  "strict_stop: wrong tool cancel_order (gold ship_order), tool chosen by the model": 139,
+  "strict_stop: wrong tool ship_order (gold cancel_order), tool chosen by the model": 30,
+  "premature_finish: finish chosen by the model": 24,
+  "wrong_total: last step finish chosen by the model": 5,
+  "no_answer: last step find_user chosen by the model": 1
+ },
+ "premature_finish_after_writes": {
+  "6": 1,
+  "7": 1,
+  "8": 4,
+  "9": 2,
+  "10": 10,
+  "11": 6
+ }
+}

@@ -1,0 +1,48 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "JEV_ENV_FILE=/ABS/PATH/JevAgentHarness/research/.env /ABS/PATH/JevAgentHarness/research/.venv/bin/python -m jevharness.adapters.hooks --harness deepseek",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "JEV_ENV_FILE=/ABS/PATH/JevAgentHarness/research/.env /ABS/PATH/JevAgentHarness/research/.venv/bin/python -m jevharness.adapters.hooks --harness deepseek",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "JEV_ENV_FILE=/ABS/PATH/JevAgentHarness/research/.env /ABS/PATH/JevAgentHarness/research/.venv/bin/python -m jevharness.adapters.hooks --harness deepseek",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "JEV_ENV_FILE=/ABS/PATH/JevAgentHarness/research/.env /ABS/PATH/JevAgentHarness/research/.venv/bin/python -m jevharness.adapters.hooks --harness deepseek",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

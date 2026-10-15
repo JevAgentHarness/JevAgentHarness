@@ -1,0 +1,191 @@
+{
+ "run": "e7_hard (a copy outside the checkout)",
+ "arm": "jevagent_best_rl",
+ "arm_sha256": "95df248654cce2a2be983b844aa717e301d9dbbd67ddf3912d395eef8855844b",
+ "n_episodes": 200,
+ "n_records": 200,
+ "thresholds": {
+  "tool_select": {
+   "mode": "cascade",
+   "tau": 0.4999999999978404
+  },
+  "tool_params": {
+   "mode": "cascade",
+   "tau": 0.9999998807907104
+  },
+  "reflection": {
+   "mode": "trigger",
+   "tau": 0.5
+  }
+ },
+ "threshold_check": {
+  "tool_select": {
+   "n": 2670,
+   "consistent": 2670,
+   "other_deferred": 0,
+   "violations": 0,
+   "examples": []
+  },
+  "tool_params": {
+   "n": 4370,
+   "consistent": 4370,
+   "other_deferred": 853,
+   "violations": 0,
+   "examples": []
+  }
+ },
+ "s1_describe": {
+  "{\"backend\": \"jevagentrl-4b\", \"base_url\": \"http://127.0.0.1:8081\", \"extra_body\": {}, \"model\": \"jevagentrl-4b\", \"provider\": \"typesafe\"}": 200
+ },
+ "s1_calls": {
+  "jevagentrl-4b / jevagentrl-4b": 9510
+ },
+ "s1_state_max_chars": 12000,
+ "write_states": {
+  "n": 877,
+  "both_writes_offered": 877,
+  "policy_in_task": 877,
+  "tier_and_amount_seen": 876,
+  "job_found": 876,
+  "state_chars_max": 5097,
+  "state_at_cap": 0
+ },
+ "cells": {
+  "basic | above limit | gold cancel_order": {
+   "n": 210,
+   "model_wrong": 7,
+   "accepted_wrong": 7
+  },
+  "basic | at or below limit | gold ship_order": {
+   "n": 102,
+   "model_wrong": 52,
+   "accepted_wrong": 52
+  },
+  "gold | gold tier | gold ship_order": {
+   "n": 273,
+   "model_wrong": 9,
+   "accepted_wrong": 8
+  },
+  "silver | above limit | gold cancel_order": {
+   "n": 102,
+   "model_wrong": 10,
+   "accepted_wrong": 10
+  },
+  "silver | at or below limit | gold ship_order": {
+   "n": 189,
+   "model_wrong": 83,
+   "accepted_wrong": 83
+  }
+ },
+ "cancel_rate": {
+  "basic | 0-150": {
+   "n": 45,
+   "model_cancel": 16,
+   "gold_cancel": 0
+  },
+  "basic | 150-300": {
+   "n": 57,
+   "model_cancel": 36,
+   "gold_cancel": 0
+  },
+  "basic | 300-450": {
+   "n": 45,
+   "model_cancel": 40,
+   "gold_cancel": 45
+  },
+  "basic | 450-600": {
+   "n": 57,
+   "model_cancel": 55,
+   "gold_cancel": 57
+  },
+  "basic | 600-750": {
+   "n": 57,
+   "model_cancel": 57,
+   "gold_cancel": 57
+  },
+  "basic | 750-900": {
+   "n": 51,
+   "model_cancel": 51,
+   "gold_cancel": 51
+  },
+  "gold | 0-150": {
+   "n": 38,
+   "model_cancel": 0,
+   "gold_cancel": 0
+  },
+  "gold | 150-300": {
+   "n": 55,
+   "model_cancel": 0,
+   "gold_cancel": 0
+  },
+  "gold | 300-450": {
+   "n": 44,
+   "model_cancel": 0,
+   "gold_cancel": 0
+  },
+  "gold | 450-600": {
+   "n": 47,
+   "model_cancel": 0,
+   "gold_cancel": 0
+  },
+  "gold | 600-750": {
+   "n": 48,
+   "model_cancel": 2,
+   "gold_cancel": 0
+  },
+  "gold | 750-900": {
+   "n": 41,
+   "model_cancel": 0,
+   "gold_cancel": 0
+  },
+  "silver | 0-150": {
+   "n": 39,
+   "model_cancel": 1,
+   "gold_cancel": 0
+  },
+  "silver | 150-300": {
+   "n": 61,
+   "model_cancel": 15,
+   "gold_cancel": 0
+  },
+  "silver | 300-450": {
+   "n": 45,
+   "model_cancel": 35,
+   "gold_cancel": 0
+  },
+  "silver | 450-600": {
+   "n": 44,
+   "model_cancel": 29,
+   "gold_cancel": 0
+  },
+  "silver | 600-750": {
+   "n": 39,
+   "model_cancel": 33,
+   "gold_cancel": 39
+  },
+  "silver | 750-900": {
+   "n": 63,
+   "model_cancel": 59,
+   "gold_cancel": 63
+  }
+ },
+ "failures": {
+  "strict_stop": 152,
+  "premature_finish": 37,
+  "wrong_total": 5
+ },
+ "attribution": {
+  "strict_stop: wrong tool cancel_order (gold ship_order), tool chosen by the model": 134,
+  "premature_finish: finish chosen by the model": 37,
+  "strict_stop: wrong tool ship_order (gold cancel_order), tool chosen by the model": 17,
+  "wrong_total: last step finish chosen by the model": 5,
+  "strict_stop: ship_order with a wrong argument, tool chosen by the model": 1
+ },
+ "premature_finish_after_writes": {
+  "4": 3,
+  "5": 14,
+  "6": 4,
+  "8": 6,
+  "9": 10
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "a": "checkpoints/r6/final/regression_image.json",
+ "b": "checkpoints/r6/final/regression_venv.json",
+ "n": 64,
+ "max_abs_dprob": 0.009572029113769531,
+ "argmax_agree": 1.0,
+ "tol": 0.02,
+ "pass": true
+}

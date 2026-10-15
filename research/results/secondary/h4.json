@@ -1,0 +1,20 @@
+{
+ "generated": "2026-10-03T13:08:55+00:00",
+ "registered": "PREREGISTRATION \u00a73 H4 as replaced by A6.22 (c)",
+ "matching": {
+  "matched": false,
+  "step": null,
+  "gap": null,
+  "reason": "no R3 development accuracy"
+ },
+ "verdict": "not tested at matched accuracy",
+ "note": "A6.22 (c): with no R4 checkpoint within 1 pt of R3, H4 is not tested at matched accuracy and the comparison is descriptive, with the gap; Stage 1 closed without an R4 checkpoint or the downstream runs, so no gap and no comparison exist",
+ "inputs": {
+  "r3_dev_acc": null,
+  "r4_dev_acc": {},
+  "dev_file": "results/training/h4_dev_acc.json",
+  "dev_file_exists": false,
+  "r3_run": null,
+  "r4_run": null
+ }
+}

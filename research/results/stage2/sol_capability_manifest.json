@@ -1,0 +1,183 @@
+{
+ "registered": "docs/PREREG_A7_STAGE2.md A7.12 (i) under A7.12 (a): capability manifest of the optional closed-family pair, written before the eligibility smoke",
+ "written": "2026-10-05T07:04:26+00:00",
+ "provider": "OpenAI, https://api.openai.com/v1/responses (Responses API), called directly: no router, no provider fallback",
+ "members": {
+  "X": {
+   "id": "gpt-6.1-sol",
+   "listed": true,
+   "created": 1790552874,
+   "dated_snapshots_listed": [],
+   "prices_per_M": {
+    "input": 2.0,
+    "output": 10.0,
+    "cached_input": 0.1,
+    "cache_write": 2.5
+   },
+   "price_source": "A7.12 (i) frozen price; pricing page re-read 2026-10-05 (standard tier, short context): input / cached input / cache writes / output as listed here; reasoning tokens are billed as output tokens (usage.output_tokens includes them); long-context (> 272k) rates do not arise",
+   "reasoning_efforts": {
+    "none": {
+     "status": 400,
+     "served_model": null,
+     "error": "Unsupported value: 'none' is not supported with the 'gpt-6.1-sol' model. Supported values are: 'low', 'medium', 'high', 'xhigh', and 'max'.",
+     "rate_limits": {}
+    },
+    "minimal": {
+     "status": 400,
+     "served_model": null,
+     "error": "Unsupported value: 'minimal' is not supported with the 'gpt-6.1-sol' model. Supported values are: 'low', 'medium', 'high', 'xhigh', and 'max'.",
+     "rate_limits": {}
+    },
+    "low": {
+     "status": 200,
+     "served_model": "gpt-6.1-sol",
+     "error": null,
+     "rate_limits": {
+      "x-ratelimit-limit-requests": "500",
+      "x-ratelimit-limit-tokens": "500000"
+     }
+    }
+   },
+   "checks": {
+    "tool_call_auto": {
+     "ok": true,
+     "call": [
+      [
+       "get_weather",
+       {
+        "city": "Paris"
+       }
+      ]
+     ]
+    },
+    "round_trip_forced_tool": {
+     "ok": true,
+     "reasoning_items_echoed": 0,
+     "call": [
+      [
+       "finish",
+       {
+        "answer": "It\u2019s currently 18\u00b0C with light rain in Paris."
+       }
+      ]
+     ]
+    },
+    "structured_output_json_schema": {
+     "ok": true,
+     "text": "{\"capital\":\"Paris\"}"
+    },
+    "previous_response_id_chaining": {
+     "ok": true,
+     "chained_calls": 1,
+     "used_in_runs": false
+    }
+   },
+   "dropped_params": {}
+  },
+  "X-small": {
+   "id": "gpt-6-luna",
+   "listed": true,
+   "created": 1789406102,
+   "dated_snapshots_listed": [],
+   "prices_per_M": {
+    "input": 0.1,
+    "output": 0.5,
+    "cached_input": 0.01,
+    "cache_write": 0.125
+   },
+   "price_source": "configs/prices/models.yaml (verified 2026-10-01); pricing page re-read 2026-10-05 (standard tier, short context): input / cached input / cache writes / output as listed here; reasoning tokens are billed as output tokens (usage.output_tokens includes them); long-context (> 272k) rates do not arise",
+   "reasoning_efforts": {
+    "none": {
+     "status": 200,
+     "served_model": "gpt-6-luna",
+     "error": null,
+     "rate_limits": {
+      "x-ratelimit-limit-requests": "500",
+      "x-ratelimit-limit-tokens": "200000"
+     }
+    },
+    "minimal": {
+     "status": 400,
+     "served_model": null,
+     "error": "Unsupported value: 'minimal' is not supported with the 'gpt-6-luna' model. Supported values are: 'none', 'low', 'medium', 'high', 'xhigh', and 'max'.",
+     "rate_limits": {}
+    },
+    "low": {
+     "status": 200,
+     "served_model": "gpt-6-luna",
+     "error": null,
+     "rate_limits": {
+      "x-ratelimit-limit-requests": "500",
+      "x-ratelimit-limit-tokens": "200000"
+     }
+    }
+   },
+   "checks": {
+    "tool_call_auto": {
+     "ok": true,
+     "call": [
+      [
+       "get_weather",
+       {
+        "city": "Paris"
+       }
+      ]
+     ]
+    },
+    "round_trip_forced_tool": {
+     "ok": true,
+     "reasoning_items_echoed": 0,
+     "call": [
+      [
+       "finish",
+       {
+        "answer": "Paris is currently 18\u00b0C with light rain."
+       }
+      ]
+     ]
+    },
+    "structured_output_json_schema": {
+     "ok": true,
+     "text": "{\"capital\":\"Paris\"}"
+    },
+    "previous_response_id_chaining": {
+     "ok": true,
+     "chained_calls": 1,
+     "used_in_runs": false
+    }
+   },
+   "dropped_params": {}
+  }
+ },
+ "served_models_seen": [
+  "gpt-6-luna",
+  "gpt-6.1-sol"
+ ],
+ "service_tiers_seen": [
+  "default"
+ ],
+ "probe_calls": 10,
+ "probe_cost_usd": 0.0015636,
+ "pin": "the model id itself: /v1/models lists no dated snapshot of either id and the API reports the served model per response (ledger meta served_model); a served model other than the id during the runs is a deviation; no provider routing exists, so no fallback can occur",
+ "request_settings": {
+  "gpt-6.1-sol": {
+   "reasoning_effort": "low (the lowest it accepts: none and minimal are rejected with a 400; stands for A7.12 (a)'s 'reasoning off or minimal')",
+   "temperature": "not sent (the API rejects sampling parameters at an effort other than none)",
+   "store": false,
+   "server_state": false
+  },
+  "gpt-6-luna": {
+   "reasoning_effort": "none",
+   "temperature": 0,
+   "store": false,
+   "server_state": false
+  },
+  "source": "configs/dev/sol_eligibility.yaml, configs/experiments/jevgym_shadow_cal_sol.yaml, configs/experiments/stage2_sol.yaml"
+ },
+ "harness_needs": "System-2 native function calling with tool_choice auto and a forced named tool (tool_params fill, final tool), the reasoning items echoed between a call and its output; no structured output and no chaining are used by the System-2 loop",
+ "sources": [
+  "https://api.openai.com/v1/models (read 2026-10-05T07:04:26+00:00)",
+  "https://developers.openai.com/api/docs/pricing (read 2026-10-05)"
+ ],
+ "eligible_capabilities": true
+}

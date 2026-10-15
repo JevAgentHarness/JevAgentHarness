@@ -1,0 +1,47 @@
+name: e9_e1dev_check_smoke
+suites:
+- name: bfcl
+  categories:
+  - simple_python
+  - multiple
+  - live_simple
+  - live_multiple
+  - irrelevance
+  - live_irrelevance
+  max_per_cat: 200
+- name: when2call
+  max_items: 1000
+batch_by_state: true
+s1_cache: cache/s1_e9.sqlite
+workers: 4
+backends:
+  jev:
+    type: jev
+    provider: openrouter
+  gemini_flash_typed:
+    type: s2_self
+    llm:
+      provider: gemini
+      model: gemini-3.5-flash
+    reasoning_effort: minimal
+  gemini_lite_dist:
+    type: llm_generative
+    llm:
+      provider: gemini
+      model: gemini-3.5-flash-lite
+    reasoning_effort: minimal
+    mode: distribution
+  luna_dist:
+    type: llm_generative
+    llm:
+      provider: openai_responses
+      model: gpt-6-luna
+    reasoning_effort: none
+    mode: distribution
+  sol_dist:
+    type: llm_generative
+    llm:
+      provider: openai_responses
+      model: gpt-6.1-sol
+    reasoning_effort: low
+    mode: distribution

@@ -1,0 +1,31 @@
+# Exploratory row E6e (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-06 "Exploratory row E6e"; outside both registered
+# stages, descriptive, no test): the five REPLACE cells of the module map that E6b classified as "equivalent" -- memory
+# write, memory read, reflection, stop and routing -- each run as its own arm (harness/config.py E6E_CELLS; semantics in
+# results/explore/e6e_modes/cells.md): System-1's argmax decides alone, the LLM is never asked at that point. Each
+# behaves as another cell at a fixed threshold (EQUIVALENT_NOTES: the trigger at 0.5; stop: the cascade at 0.5; memory
+# read: the assist with k = 1) and is still run, so that every cell has its own paired numbers. References in the same
+# pool: llm_only (every cell but routing) and small_only (routing; Flash-Lite alone, as C4). Fresh JevGym seeds
+# 301400..301599 (unused: checked against runs/, configs/, docs/, results/), the E6b / E6d evaluation setting.
+# Route (Deviations entry: probe 18:11 UTC, the direct Flash API still slow and retrying): Flash on OpenRouter, every
+# Flash-Lite call on the direct Gemini API (healthy; OpenRouter's Flash-Lite returned empty replies in E6d) -- the
+# route of E6d's routing repair. Run on the CPU box (scripts/aws/e6e_modes.sh): one invocation, all arms task-major
+# interleaved (seed 732), 24 workers; passes 2-3 re-run infrastructure errors only. A $60 watchdog covers smoke + eval.
+name: e6e_modes
+suite: {name: jevgym, n: 200, seed0: 301400, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 200
+llm: {provider: openrouter, model: google/gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+small_llm: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}   # routing only
+llms:
+  lite: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}      # the pinned Jev endpoint of Stage 1; no System-1 cache (fresh answers)
+workers: 24
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}                                                        # reference of every cell but routing
+  - {name: small_only, llm: lite}                                           # routing reference (Flash-Lite alone, as C4)
+  # replace: System-1's argmax alone (p_yes >= 0.5; memory read: its single top memory, or none)
+  - {name: mw_replace, memory_write: {mode: replace}, memory_read: {mode: always}}
+  - {name: mr_replace, memory_write: {mode: always}, memory_read: {mode: replace}}
+  - {name: rf_replace, reflection: {mode: replace}}
+  - {name: st_replace, stop: {mode: replace}}
+  - {name: rt_replace, routing: {mode: replace}}

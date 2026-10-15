@@ -1,0 +1,133 @@
+# USD per 1M tokens. !!! VERIFY every number against the provider's pricing page before the
+# paper's cost tables are finalised (prices change; entries marked `verify` are from memory).
+# Lookup is by exact model id, then by a suffix match on whole path segments (so "openrouter/qwen/qwen3-8b" matches
+# "qwen/qwen3-8b" and "deepseek-chat" matches "deepseek/deepseek-chat", but a bare "flash" matches nothing).
+models:
+  # ---- System-1 decision models --------------------------------------------------------
+  jev-latest:        {input_per_m: 0.042, output_per_m: 0.0}   # TypeSafe docs: $0.042/M input, output free
+  jev-preview:       {input_per_m: 0.042, output_per_m: 0.0}
+  jev-1.13.0:        {input_per_m: 0.042, output_per_m: 0.0}
+  # self-hosted OpenJev: amortised GPU cost. Example: 1x H100 @ $2.50/h serving ~10 req/s at
+  # ~1.5k input tokens/req -> ~$0.046/M. Recompute with your measured throughput (scripts/measure_openjev.py).
+  openjev-selfhost:  {input_per_m: 0.046, output_per_m: 0.0}
+  openjev-latest:    {input_per_m: 0.046, output_per_m: 0.0}
+  codiv-openjev:     {input_per_m: 0.0, output_per_m: 0.0}      # free hosted OpenJev endpoint (100M tokens)
+  # self-hosted Intern-Decision (in-process `{type: intern_decision}`): ASSUMED amortised GPU cost, same method as
+  # openjev-selfhost. 1x RTX 4090 @ $0.40/h (verify) at the model card's unbatched end-to-end latency on that GPU
+  # (0.8B 34 ms, 2B 33 ms, 4B 44 ms per query -> 29 / 30 / 23 req/s) and ~500 input tokens/query:
+  # $/h / (req/s * 3600 * tok/req) * 1e6 = 0.0077 / 0.0074 / 0.0098 $/M. Output tokens = scored fields, free.
+  # RECOMPUTE from measured throughput (scripts/bench_serving.py) before any cost table; batching lowers it further.
+  internlm/Intern-Decision-0.8B: {input_per_m: 0.008, output_per_m: 0.0}   # assumption, see above
+  internlm/Intern-Decision-2B:   {input_per_m: 0.008, output_per_m: 0.0}   # assumption, see above
+  internlm/Intern-Decision-4B:   {input_per_m: 0.010, output_per_m: 0.0}   # assumption, see above
+  # StartLux-Decision (PREREG_A7_STAGE2 A7.18), self-hosted with the vendor's server: an exact 0 per token, because its GPU
+  # cost is charged as a provisioned per-episode tariff (S2-4S, results/stage2/tariff_sl4b.json, A7.13 (iii)) -- nothing
+  # is charged twice; the descriptive StartLux rows therefore report API cost only (stated with them).
+  StartLux-Decision-4B:          {input_per_m: 0.0, output_per_m: 0.0}
+  StartLux-Decision-27B:         {input_per_m: 0.0, output_per_m: 0.0}
+  # the size ladder's live rows (exploratory E2, PREREG_A7_STAGE2 Deviations 2026-10-05): API cost only, as above
+  StartLux-Decision-0.8B:        {input_per_m: 0.0, output_per_m: 0.0}
+  StartLux-Decision-2B:          {input_per_m: 0.0, output_per_m: 0.0}
+  StartLux-Decision-9B:          {input_per_m: 0.0, output_per_m: 0.0}
+  # JevAgentRL (A7.10, A7.13 (iii)), served by training/serve_jev.py on the Stage-2 GPU host: an exact 0 per token, because
+  # its GPU cost is the provisioned per-episode tariff q of S2-4 (results/stage2/tariff.json), charged by the analysis --
+  # nothing is charged twice. The A7.13 attribution rows (served under their own names) report API cost only (descriptive).
+  jevagentrl-4b:                 {input_per_m: 0.0, output_per_m: 0.0}   # the frozen checkpoint's served name (freeze record)
+  rl-base:                       {input_per_m: 0.0, output_per_m: 0.0}
+  rl-sft-v1:                     {input_per_m: 0.0, output_per_m: 0.0}
+  # JevAgentRL-v2 (A7.19 (f), exploratory), served by training/serve_jev.py on the Stage-2 GPU host: an exact 0 per token,
+  # its GPU cost is its own provisioned per-episode tariff (results/stage2/tariff_v2.json, A7.13 (iii)) -- nothing is
+  # charged twice; its corpus-replay and live replace rows report API cost only.
+  jevagentrl-v2:                 {input_per_m: 0.0, output_per_m: 0.0}   # the frozen v2 checkpoint's served name
+  # exploratory row E5 (PREREG_A7_STAGE2 Deviations 2026-10-06), served by training/serve_jev.py on the E5 GPU host
+  # under e5-<slot>: an exact 0 per token, their GPU cost is the live row's tariff q (host $/h x episode wall-clock),
+  # charged by scripts/e5_analysis.py -- nothing is charged twice
+  e5-e5_q17:                     {input_per_m: 0.0, output_per_m: 0.0}   # Qwen/Qwen3-1.7B + E5 SFT adapter
+  e5-e5_q06:                     {input_per_m: 0.0, output_per_m: 0.0}   # Qwen/Qwen3-0.6B + E5 SFT adapter
+  e5-e5_mc1:                     {input_per_m: 0.0, output_per_m: 0.0}   # openbmb/MiniCPM5-1B + E5 SFT adapter
+  e5-e5_gr1:                     {input_per_m: 0.0, output_per_m: 0.0}   # ibm-granite/granite-4.0-1b (backup slot)
+  # exploratory row E15 (PREREG_A7_STAGE2 Deviations 2026-10-07 "E15: more decision-model baselines"):
+  # OpenAI's Decisions API (public beta; POST /v1/decisions, model gpt-6-luna): $0.10 per 1M input tokens, no output,
+  # cache-read or cache-write charge, default region (https://developers.openai.com/api/docs/guides/decisions, read
+  # 2026-10-07) -- verify before any cost table
+  openai-decisions/gpt-6-luna:   {input_per_m: 0.10, output_per_m: 0.0}
+  # the self-hosted E15 decision models (one at a time on the E15 GPU host): an exact 0 per token; their cost is E9's
+  # rule (GPU tariff x logged serving time), charged by scripts/explore_e15_baselines.py -- nothing is charged twice
+  e15-selfhost:                  {input_per_m: 0.0, output_per_m: 0.0}
+
+  # ---- System-2 / small LLMs (verify) ---------------------------------------------------
+  gpt-4.1:           {input_per_m: 2.00, output_per_m: 8.00, cached_input_per_m: 0.50}    # verify
+  gpt-4.1-mini:      {input_per_m: 0.40, output_per_m: 1.60, cached_input_per_m: 0.10}    # verify
+  gpt-4.1-nano:      {input_per_m: 0.10, output_per_m: 0.40, cached_input_per_m: 0.025}   # verify
+  gpt-4o-mini:       {input_per_m: 0.15, output_per_m: 0.60, cached_input_per_m: 0.075}   # verify
+  deepseek-chat:     {input_per_m: 0.28, output_per_m: 0.42, cached_input_per_m: 0.028}   # verify (V3.2 pricing)
+  deepseek-reasoner: {input_per_m: 0.28, output_per_m: 0.42, cached_input_per_m: 0.028}   # verify
+  # Add current frontier models here (e.g. GPT-5.x/6, Gemini 3.x, DeepSeek V4) once
+  # you confirm prices -- unknown models are reported as `unpriced_models` in every run summary.
+
+  # ---- self-hosted small models via vLLM (amortised GPU cost; set from measured throughput) --
+  Qwen/Qwen3-0.6B:   {input_per_m: 0.01, output_per_m: 0.02}
+  Qwen/Qwen3-1.7B:   {input_per_m: 0.02, output_per_m: 0.04}
+  Qwen/Qwen3-4B:     {input_per_m: 0.03, output_per_m: 0.06}
+  Qwen/Qwen3-8B:     {input_per_m: 0.05, output_per_m: 0.10}
+  text-embedding-3-small: {input_per_m: 0.02, output_per_m: 0.0}   # verify
+
+  # ---- offline test doubles ---------------------------------------------------------------
+  scripted:          {input_per_m: 1.00, output_per_m: 4.00}
+  scripted-small:    {input_per_m: 0.10, output_per_m: 0.40}
+
+  # ---- added 2026-09-30 (secondary sources: metacto / pricepertoken / apidog blogs; VERIFY on ai.google.dev/pricing)
+  typesafe/jev-1.13:       {input_per_m: 0.042, output_per_m: 0.0}   # via OpenRouter (usage.cost is used when reported)
+  gemini-3.5-flash:        {input_per_m: 1.50, output_per_m: 9.00, cached_input_per_m: 0.15}   # verify; cache reads = 10% of input (third-party pricing pages, 2026-09-30)
+  gemini-3.5-flash-lite:   {input_per_m: 0.30, output_per_m: 2.50, cached_input_per_m: 0.03}   # verify; cached = 10% rule assumed
+  gemini-3.8-flash:        {input_per_m: 0.75, output_per_m: 3.75, cached_input_per_m: 0.075}   # verified 2026-10-05 ~23:50 UTC on ai.google.dev/gemini-api/docs/pricing (paid standard; output incl. thinking; context caching $0.075); intro price through 2026-12-31, then $1.50 / $7.50 / $0.15 (E4b)
+  # gemini-3.6-flash / gemini-3.1-pro-preview / gemma-4-*: unknown -> reported as unpriced_models until added
+  gemini-embedding-001:    {input_per_m: 0.15, output_per_m: 0.0}   # verify
+
+  # ---- DeepSeek V4 via OpenRouter: S2-1X's pair X / X-small (docs/PREREG_A7_STAGE2.md A7.12 (a), (h)); pinned to the
+  # StreamLake (fp8) endpoint with allow_fallbacks false. OpenRouter list price (= the pinned endpoint's price), re-read
+  # on the run date, 2026-10-03 06:46 UTC, from https://openrouter.ai/api/v1/models and
+  # https://openrouter.ai/api/v1/models/<id>/endpoints: unchanged from the A7.12 (a) verification of 2026-10-02 21:43 UTC.
+  # Canonical snapshot slugs deepseek/deepseek-v4-pro-20260423 / deepseek/deepseek-v4-flash-20260423 ("0423"); no
+  # reasoning or per-request charge listed. OpenRouter's reported usage.cost is logged beside it (provider_cost_usd).
+  deepseek/deepseek-v4-pro:   {input_per_m: 0.2088, output_per_m: 0.4176, cached_input_per_m: 0.0174}   # verified (OpenRouter listing)
+  deepseek/deepseek-v4-flash: {input_per_m: 0.028, output_per_m: 0.056, cached_input_per_m: 0.0056}    # verified (OpenRouter listing)
+
+  # ---- E13 agent LLMs via OpenRouter (PREREG_A7_STAGE2 Deviations 2026-10-07 "E13: other agent LLMs on DecisionGym-Hard").
+  # Source: https://openrouter.ai/api/v1/models and https://openrouter.ai/api/v1/models/<id>/endpoints, read 2026-10-07
+  # 13:23 UTC; the price of the pinned endpoint (fallbacks off). DeepSeek-V4-Flash on StreamLake (fp8) now lists $0.042 /
+  # $0.084 / cache reads $0.0084 per M; the row above keeps the 2026-10-03 price S2-1X was charged, so E13 charges this
+  # dated row through the llm block's `price_model` (never sent to the provider).
+  deepseek/deepseek-v4-flash@streamlake-2026-10-07: {input_per_m: 0.042, output_per_m: 0.084, cached_input_per_m: 0.0084}   # verified (OpenRouter endpoint listing)
+
+  # ---- OpenAI, added 2026-10-01 (Responses API client: src/jevharness/llm/openai_responses.py) ----------------------
+  # Standard tier, short context. Model ids as the API expects them (aliases; the client maps a returned dated
+  # snapshot id back to the configured alias, snapshot rows below are for the Chat Completions client).
+  # "verified" = read on 2026-10-01 from https://developers.openai.com/api/docs/pricing (flagship table) or the
+  # model page https://developers.openai.com/api/docs/models/<id>; "verify" = taken from the pricing page through a
+  # summariser (the non-flagship rows are rendered client-side) -- re-check before the cost tables are final.
+  # Not modelled (ledger meta only): cache WRITES at 1.25x input on gpt-5.6+ (`cache_write_tokens`), the 2x input /
+  # 1.5x output uplift for prompts > 272k tokens on the gpt-6 family, Batch/Flex/Fast tiers.
+  gpt-6-astra:            {input_per_m: 10.00, output_per_m: 50.00, cached_input_per_m: 1.00}   # verified (pricing page)
+  gpt-6.1-sol:            {input_per_m: 2.00, output_per_m: 10.00, cached_input_per_m: 0.10}    # verified (pricing page; cache reads 5%)
+  gpt-6-luna:             {input_per_m: 0.10, output_per_m: 0.50, cached_input_per_m: 0.01}     # verified (pricing page + model page)
+  gpt-5.6-sol:            {input_per_m: 4.00, output_per_m: 20.00, cached_input_per_m: 0.40}    # verify
+  gpt-5.6-terra:          {input_per_m: 2.00, output_per_m: 12.00, cached_input_per_m: 0.20}    # verify
+  gpt-5.6-luna:           {input_per_m: 0.20, output_per_m: 1.20, cached_input_per_m: 0.02}     # verify
+  gpt-5.5:                {input_per_m: 5.00, output_per_m: 30.00, cached_input_per_m: 0.50}    # verify
+  gpt-5.4:                {input_per_m: 2.50, output_per_m: 15.00, cached_input_per_m: 0.25}    # verify
+  gpt-5.4-mini:           {input_per_m: 0.75, output_per_m: 4.50, cached_input_per_m: 0.075}    # verify (input $0.75 verified on model pages)
+  gpt-5.4-nano:           {input_per_m: 0.20, output_per_m: 1.25, cached_input_per_m: 0.02}     # verified (model page)
+  gpt-5.4-nano-2026-03-17: {input_per_m: 0.20, output_per_m: 1.25, cached_input_per_m: 0.02}    # verified (snapshot of gpt-5.4-nano)
+  gpt-5.2:                {input_per_m: 1.75, output_per_m: 14.00, cached_input_per_m: 0.175}   # verify
+  gpt-5.1:                {input_per_m: 1.25, output_per_m: 10.00, cached_input_per_m: 0.125}   # verify
+  gpt-5:                  {input_per_m: 1.25, output_per_m: 10.00, cached_input_per_m: 0.125}   # verify
+  gpt-5-mini:             {input_per_m: 0.25, output_per_m: 2.00, cached_input_per_m: 0.025}    # verify (input $0.25 verified on model pages)
+  gpt-5-nano:             {input_per_m: 0.05, output_per_m: 0.40, cached_input_per_m: 0.005}    # verified (model page)
+  gpt-5-nano-2025-08-07:  {input_per_m: 0.05, output_per_m: 0.40, cached_input_per_m: 0.005}    # verified (snapshot of gpt-5-nano)
+  gpt-4.1-mini-2025-04-14: {input_per_m: 0.40, output_per_m: 1.60, cached_input_per_m: 0.10}    # verified (snapshot; alias row above)
+  gpt-4.1-nano-2025-04-14: {input_per_m: 0.10, output_per_m: 0.40, cached_input_per_m: 0.025}   # verified (snapshot; alias row above)
+  gpt-4o:                 {input_per_m: 2.50, output_per_m: 10.00, cached_input_per_m: 1.25}    # verify
+  o3:                     {input_per_m: 2.00, output_per_m: 8.00, cached_input_per_m: 0.50}     # verify
+  o4-mini:                {input_per_m: 1.10, output_per_m: 4.40, cached_input_per_m: 0.275}    # verify
+  text-embedding-3-large: {input_per_m: 0.13, output_per_m: 0.0}                                 # verify

@@ -1,0 +1,45 @@
+name: e13_luna_smoke
+suite:
+  name: jevgym
+  n: 2
+  seed0: 7276
+  families: multi
+  multi_customers: 12
+  multi_rule: tier
+  answer_style: itemized
+  distractor_style: near
+  n_distractors: 60
+  noise_lines: 20
+  strict: true
+n_tasks: 2
+llm:
+  provider: openai_responses
+  model: gpt-6-luna
+  reasoning_effort: none
+  temperature: 0
+harness_defaults:
+  max_steps: 45
+s1:
+  type: jev
+  provider: openrouter
+workers: 6
+schedule:
+  mode: task_major
+  seed: 732
+arms:
+- name: llm_only
+- name: jev_shadow_cal
+  tool_select:
+    mode: shadow
+  tool_params:
+    mode: shadow
+- name: jev_cascade_dev
+  tool_select:
+    mode: cascade
+    tau: 0.91
+  tool_params:
+    mode: cascade
+    tau: 0.87
+  reflection:
+    mode: trigger
+    tau: 0.5

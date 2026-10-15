@@ -1,0 +1,29 @@
+name: e21_live_oaidec_smoke
+suite:
+  name: jevgym
+  shift: true
+  n: 2
+  seed0: 339004
+  families: v2
+  distractor_style: near
+  n_distractors: 60
+  noise_lines: 20
+  strict: true
+n_tasks: 2
+llm:
+  provider: gemini
+  model: gemini-3.5-flash
+  temperature: 0
+  reasoning_effort: minimal
+s1_cache: cache/s1_e21_live_oaidec_smoke.sqlite
+s1_backends:
+  oaidec:
+    type: openai_decisions
+    model: gpt-6-luna
+    timeout: 120.0
+workers: 2
+arms:
+- name: oaidec_ts_replace_f
+  s1: oaidec
+  tool_select:
+    mode: replace

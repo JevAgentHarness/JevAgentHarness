@@ -1,0 +1,2099 @@
+{
+ "source": "runs/e2a_jevgym_shadow_cal/jev_shadow_cal.jsonl",
+ "sha256": "fff21516e0aad24334066232225144f4406da1448e8ceb0326be390a9a303fd8",
+ "seed_range": [
+  5000,
+  5149
+ ],
+ "n_sample": 1000,
+ "n": 1000,
+ "n_tasks": 150,
+ "missing": {
+  "g3": 0,
+  "g4": 0
+ },
+ "spend": {
+  "g3": 0.04927847399999999,
+  "g4": 2.440201500000004,
+  "total": 2.489479974000004
+ },
+ "cap": 40.0,
+ "V": 1.0,
+ "V_grid": [
+  0.1,
+  1.0,
+  10.0
+ ],
+ "coverages": [
+  0.25,
+  0.5,
+  0.75,
+  0.9
+ ],
+ "llm": {
+  "provider": "gemini",
+  "model": "gemini-3.5-flash",
+  "temperature": 0,
+  "reasoning_effort": "minimal"
+ },
+ "points": {
+  "tool_select": {
+   "n": 500,
+   "n_wrong": 30,
+   "model_acc": 0.94,
+   "llm_acc": 1.0,
+   "n_tasks": 144,
+   "dc_usd": 0.0057062604,
+   "dl_ms": 1160.3430511839945,
+   "kappa_usd": 0.00011504278800000001,
+   "kappa_ms": 223.93420122799216,
+   "tau_hat": 1.0,
+   "share_above_tau": 0.328,
+   "g3_call_usd": 4.80354e-05,
+   "g3_call_ms": 203.23581513399677,
+   "g4_call_usd": 0.0032869320000000002,
+   "g4_call_ms": 1781.419197757998,
+   "median_ms": {
+    "llm": 937.7232705001006,
+    "model": 208.07499349939462,
+    "g3": 189.21426049996626,
+    "g4": 1009.7959269999137
+   },
+   "gates": {
+    "g1": {
+     "label": "G1 model's confidence (registered)",
+     "extra_call": "none",
+     "auroc": 0.7352836879432624,
+     "sel_acc": {
+      "25": 1.0,
+      "50": 0.9782439024390244,
+      "75": 0.9546666666666667,
+      "90": 0.9533333333333334
+     },
+     "gate_call_usd": 0.0,
+     "gate_call_ms": 0.0,
+     "consulted": 1.0,
+     "econ": {
+      "V0.1": {
+       "usd": 0.001722758411999999,
+       "threshold": 0.99,
+       "coverage": 0.46,
+       "latency_ms": 323.2501302960262,
+       "pct_of_llm_cost": 30.190672896736345,
+       "final_acc": 0.994,
+       "accepted_acc": 0.9869565217391304
+      },
+      "V0.1_free": {
+       "usd": 0.001722758411999999,
+       "threshold": 0.99,
+       "coverage": 0.46,
+       "latency_ms": 323.2501302960262,
+       "pct_of_llm_cost": 30.190672896736345,
+       "final_acc": 0.994,
+       "accepted_acc": 0.9869565217391304
+      },
+      "V1": {
+       "usd": 0.0016142706119999998,
+       "threshold": 1.0,
+       "coverage": 0.328,
+       "latency_ms": 169.56236745001297,
+       "pct_of_llm_cost": 28.28946628513483,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": -7.066096800000016e-05,
+       "heldout_pct": -1.2383060541716633,
+       "heldout_range_pct": [
+        -70.89639631587792,
+        28.289466285134832
+       ]
+      },
+      "V1_free": {
+       "usd": 0.0016142706119999998,
+       "threshold": 1.0,
+       "coverage": 0.328,
+       "latency_ms": 169.56236745001297,
+       "pct_of_llm_cost": 28.28946628513483,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": -7.066096800000016e-05,
+       "heldout_pct": -1.2383060541716633,
+       "heldout_range_pct": [
+        -70.89639631587792,
+        28.289466285134832
+       ]
+      },
+      "V10": {
+       "usd": 0.0016142706119999998,
+       "threshold": 1.0,
+       "coverage": 0.328,
+       "latency_ms": 169.56236745001297,
+       "pct_of_llm_cost": 28.28946628513483,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V10_free": {
+       "usd": 0.0016142706119999998,
+       "threshold": 1.0,
+       "coverage": 0.328,
+       "latency_ms": 169.56236745001297,
+       "pct_of_llm_cost": 28.28946628513483,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      }
+     },
+     "auroc_ci": [
+      0.6548311737444434,
+      0.8080146397974604
+     ],
+     "auroc_diff_g1": 0.0,
+     "auroc_diff_g1_ci": [
+      0.0,
+      0.0
+     ]
+    },
+    "g1tau": {
+     "label": "G1 at the registered tau-hat (fixed, the deployed rule)",
+     "extra_call": "none",
+     "auroc": 0.7352836879432624,
+     "sel_acc": {
+      "25": 1.0,
+      "50": 0.9782439024390244,
+      "75": 0.9546666666666667,
+      "90": 0.9533333333333334
+     },
+     "gate_call_usd": 0.0,
+     "gate_call_ms": 0.0,
+     "consulted": 1.0,
+     "econ": {
+      "V0.1": {
+       "usd": 0.001614270612,
+       "threshold": 1.0,
+       "coverage": 0.328,
+       "latency_ms": 169.56236745001297,
+       "pct_of_llm_cost": 28.289466285134832,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V0.1_free": {
+       "usd": 0.001614270612,
+       "threshold": 1.0,
+       "coverage": 0.328,
+       "latency_ms": 169.56236745001297,
+       "pct_of_llm_cost": 28.289466285134832,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V1": {
+       "usd": 0.001614270612,
+       "threshold": 1.0,
+       "coverage": 0.328,
+       "latency_ms": 169.56236745001297,
+       "pct_of_llm_cost": 28.289466285134832,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": 0.001614270612,
+       "heldout_pct": 28.289466285134832,
+       "heldout_range_pct": [
+        28.289466285134832,
+        28.289466285134832
+       ]
+      },
+      "V1_free": {
+       "usd": 0.001614270612,
+       "threshold": 1.0,
+       "coverage": 0.328,
+       "latency_ms": 169.56236745001297,
+       "pct_of_llm_cost": 28.289466285134832,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": 0.001614270612,
+       "heldout_pct": 28.289466285134832,
+       "heldout_range_pct": [
+        28.289466285134832,
+        28.289466285134832
+       ]
+      },
+      "V10": {
+       "usd": 0.001614270612,
+       "threshold": 1.0,
+       "coverage": 0.328,
+       "latency_ms": 169.56236745001297,
+       "pct_of_llm_cost": 28.289466285134832,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V10_free": {
+       "usd": 0.001614270612,
+       "threshold": 1.0,
+       "coverage": 0.328,
+       "latency_ms": 169.56236745001297,
+       "pct_of_llm_cost": 28.289466285134832,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      }
+     },
+     "auroc_ci": [
+      0.6548311737444434,
+      0.8080146397974604
+     ],
+     "auroc_diff_g1": 0.0,
+     "auroc_diff_g1_ci": [
+      0.0,
+      0.0
+     ]
+    },
+    "g2": {
+     "label": "G2 top-two margin",
+     "extra_call": "none",
+     "auroc": 0.7298936170212766,
+     "sel_acc": {
+      "25": 1.0,
+      "50": 0.974,
+      "75": 0.9546666666666667,
+      "90": 0.9533333333333334
+     },
+     "gate_call_usd": 0.0,
+     "gate_call_ms": 0.0,
+     "consulted": 1.0,
+     "econ": {
+      "V0.1": {
+       "usd": 0.0019050564119999988,
+       "threshold": 0.9799343443989296,
+       "coverage": 0.384,
+       "latency_ms": 224.1943248760144,
+       "pct_of_llm_cost": 33.38537463169397,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V0.1_free": {
+       "usd": 0.0019050564119999988,
+       "threshold": 0.9799343443989296,
+       "coverage": 0.384,
+       "latency_ms": 224.1943248760144,
+       "pct_of_llm_cost": 33.38537463169397,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V1": {
+       "usd": 0.0019050564119999988,
+       "threshold": 0.9799343443989296,
+       "coverage": 0.384,
+       "latency_ms": 224.1943248760144,
+       "pct_of_llm_cost": 33.38537463169397,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": -0.0014003067280000004,
+       "heldout_pct": -24.539832216559912,
+       "heldout_range_pct": [
+        -69.1503666394194,
+        -0.29830198425574905
+       ]
+      },
+      "V1_free": {
+       "usd": 0.0019050564119999988,
+       "threshold": 0.9799343443989296,
+       "coverage": 0.384,
+       "latency_ms": 224.1943248760144,
+       "pct_of_llm_cost": 33.38537463169397,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": -0.0014003067280000004,
+       "heldout_pct": -24.539832216559912,
+       "heldout_range_pct": [
+        -69.1503666394194,
+        -0.29830198425574905
+       ]
+      },
+      "V10": {
+       "usd": 0.0019050564119999988,
+       "threshold": 0.9799343443989296,
+       "coverage": 0.384,
+       "latency_ms": 224.1943248760144,
+       "pct_of_llm_cost": 33.38537463169397,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V10_free": {
+       "usd": 0.0019050564119999988,
+       "threshold": 0.9799343443989296,
+       "coverage": 0.384,
+       "latency_ms": 224.1943248760144,
+       "pct_of_llm_cost": 33.38537463169397,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      }
+     },
+     "auroc_ci": [
+      0.6465909462682838,
+      0.8051277421573444
+     ],
+     "auroc_diff_g1": -0.0053900709219857346,
+     "auroc_diff_g1_ci": [
+      -0.021142326412199822,
+      0.010100107583355982
+     ]
+    },
+    "g3": {
+     "label": "G3 second decision-model call (yes/no)",
+     "extra_call": "1 decision-model call",
+     "auroc": 0.7343971631205674,
+     "sel_acc": {
+      "25": 1.0,
+      "50": 0.968,
+      "75": 0.9567407407407408,
+      "90": 0.9622222222222222
+     },
+     "gate_call_usd": 4.80354e-05,
+     "gate_call_ms": 203.23581513399677,
+     "consulted": 1.0,
+     "econ": {
+      "V0.1": {
+       "usd": 0.0015720611119999983,
+       "threshold": 0.81,
+       "coverage": 0.912,
+       "latency_ms": 623.6367216480147,
+       "pct_of_llm_cost": 27.549761171081474,
+       "final_acc": 0.966,
+       "accepted_acc": 0.9627192982456141
+      },
+      "V0.1_free": {
+       "usd": 0.0016200965119999983,
+       "threshold": 0.81,
+       "coverage": 0.912,
+       "latency_ms": 826.8725367820115,
+       "pct_of_llm_cost": 28.391562922715522,
+       "final_acc": 0.966,
+       "accepted_acc": 0.9627192982456141
+      },
+      "V1": {
+       "usd": 0.0014511771119999999,
+       "threshold": 0.94,
+       "coverage": 0.312,
+       "latency_ms": -35.021633873976505,
+       "pct_of_llm_cost": 25.431315963078028,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": -0.0015530728580000002,
+       "heldout_pct": -27.21699938544691,
+       "heldout_range_pct": [
+        -41.44018713201382,
+        25.431315963078028
+       ]
+      },
+      "V1_free": {
+       "usd": 0.0014992125119999999,
+       "threshold": 0.94,
+       "coverage": 0.312,
+       "latency_ms": 168.21418126002027,
+       "pct_of_llm_cost": 26.273117714712075,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": -0.0015050374580000002,
+       "heldout_pct": -26.375197633812864,
+       "heldout_range_pct": [
+        -40.598385380379774,
+        26.27311771471208
+       ]
+      },
+      "V10": {
+       "usd": 0.0014511771119999999,
+       "threshold": 0.94,
+       "coverage": 0.312,
+       "latency_ms": -35.021633873976505,
+       "pct_of_llm_cost": 25.431315963078028,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V10_free": {
+       "usd": 0.0014992125119999999,
+       "threshold": 0.94,
+       "coverage": 0.312,
+       "latency_ms": 168.21418126002027,
+       "pct_of_llm_cost": 26.273117714712075,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      }
+     },
+     "auroc_ci": [
+      0.6432808842751061,
+      0.8156756149111863
+     ],
+     "auroc_diff_g1": -0.0008865248226950229,
+     "auroc_diff_g1_ci": [
+      -0.03981849754853555,
+      0.035919873949943976
+     ]
+    },
+    "g4": {
+     "label": "G4 LLM verifier (Flash, yes/no + 0-100)",
+     "extra_call": "1 LLM call",
+     "auroc": 0.5,
+     "sel_acc": {
+      "25": 0.94,
+      "50": 0.94,
+      "75": 0.94,
+      "90": 0.94
+     },
+     "gate_call_usd": 0.0032869320000000002,
+     "gate_call_ms": 1781.419197757998,
+     "consulted": 1.0,
+     "econ": {
+      "V0.1": {
+       "usd": -0.003401974788,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": -2005.35339898599,
+       "pct_of_llm_cost": -59.61828850292216,
+       "final_acc": 1.0,
+       "accepted_acc": null
+      },
+      "V0.1_free": {
+       "usd": -0.00011504278800000001,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": -223.93420122799216,
+       "pct_of_llm_cost": -2.0160802335624224,
+       "final_acc": 1.0,
+       "accepted_acc": null
+      },
+      "V1": {
+       "usd": -0.003401974788,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": -2005.35339898599,
+       "pct_of_llm_cost": -59.61828850292216,
+       "final_acc": 1.0,
+       "accepted_acc": null,
+       "heldout_usd": -0.0034019747879999998,
+       "heldout_pct": -59.618288502922155,
+       "heldout_range_pct": [
+        -59.61828850292216,
+        -59.618288502922155
+       ]
+      },
+      "V1_free": {
+       "usd": -0.00011504278800000001,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": -223.93420122799216,
+       "pct_of_llm_cost": -2.0160802335624224,
+       "final_acc": 1.0,
+       "accepted_acc": null,
+       "heldout_usd": -0.00011504278800000001,
+       "heldout_pct": -2.0160802335624224,
+       "heldout_range_pct": [
+        -2.0160802335624224,
+        -2.0160802335624224
+       ]
+      },
+      "V10": {
+       "usd": -0.003401974788,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": -2005.35339898599,
+       "pct_of_llm_cost": -59.61828850292216,
+       "final_acc": 1.0,
+       "accepted_acc": null
+      },
+      "V10_free": {
+       "usd": -0.00011504278800000001,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": -223.93420122799216,
+       "pct_of_llm_cost": -2.0160802335624224,
+       "final_acc": 1.0,
+       "accepted_acc": null
+      }
+     },
+     "auroc_ci": [
+      0.5,
+      0.5
+     ],
+     "auroc_diff_g1": -0.23528368794326238,
+     "auroc_diff_g1_ci": [
+      -0.30801463979746035,
+      -0.15483117374444344
+     ]
+    },
+    "g4v": {
+     "label": "G4v LLM verifier, its verdict as the score (post hoc)",
+     "extra_call": "1 LLM call",
+     "auroc": 0.6890070921985816,
+     "sel_acc": {
+      "25": 0.9631236442516269,
+      "50": 0.9631236442516269,
+      "75": 0.9631236442516269,
+      "90": 0.9631236442516269
+     },
+     "gate_call_usd": 0.0032869320000000002,
+     "gate_call_ms": 1781.419197757998,
+     "consulted": 1.0,
+     "econ": {
+      "V0.1": {
+       "usd": -0.001655812288000001,
+       "threshold": 1.0,
+       "coverage": 0.922,
+       "latency_ms": -939.2501315959859,
+       "pct_of_llm_cost": -29.01746804264315,
+       "final_acc": 0.966,
+       "accepted_acc": 0.9631236442516269
+      },
+      "V0.1_free": {
+       "usd": 0.0016311197119999994,
+       "threshold": 1.0,
+       "coverage": 0.922,
+       "latency_ms": 842.1690661620122,
+       "pct_of_llm_cost": 28.5847402267166,
+       "final_acc": 0.966,
+       "accepted_acc": 0.9631236442516269
+      },
+      "V1": {
+       "usd": -0.003401974788,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": -2005.35339898599,
+       "pct_of_llm_cost": -59.61828850292216,
+       "final_acc": 1.0,
+       "accepted_acc": null,
+       "heldout_usd": -0.0034019747879999998,
+       "heldout_pct": -59.618288502922155,
+       "heldout_range_pct": [
+        -59.61828850292216,
+        -59.618288502922155
+       ]
+      },
+      "V1_free": {
+       "usd": -0.00011504278800000001,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": -223.93420122799216,
+       "pct_of_llm_cost": -2.0160802335624224,
+       "final_acc": 1.0,
+       "accepted_acc": null,
+       "heldout_usd": -0.00011504278800000001,
+       "heldout_pct": -2.0160802335624224,
+       "heldout_range_pct": [
+        -2.0160802335624224,
+        -2.0160802335624224
+       ]
+      },
+      "V10": {
+       "usd": -0.003401974788,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": -2005.35339898599,
+       "pct_of_llm_cost": -59.61828850292216,
+       "final_acc": 1.0,
+       "accepted_acc": null
+      },
+      "V10_free": {
+       "usd": -0.00011504278800000001,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": -223.93420122799216,
+       "pct_of_llm_cost": -2.0160802335624224,
+       "final_acc": 1.0,
+       "accepted_acc": null
+      }
+     },
+     "auroc_ci": [
+      0.5965737656739811,
+      0.7760538292856343
+     ],
+     "auroc_diff_g1": -0.04627659574468079,
+     "auroc_diff_g1_ci": [
+      -0.09438790708460934,
+      0.001142443715249349
+     ]
+    },
+    "g5": {
+     "label": "G5 agreement with the LLM's own choice",
+     "extra_call": "the agent's own LLM call",
+     "auroc": 0.9287234042553192,
+     "sel_acc": {
+      "25": 1.0,
+      "50": 1.0,
+      "75": 1.0,
+      "90": 0.9676975945017182
+     },
+     "gate_call_usd": 0.0,
+     "gate_call_ms": 0.0,
+     "consulted": 1.0,
+     "econ": {
+      "V0.1": {
+       "usd": -0.00011504278800000001,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": 0.0,
+       "pct_of_llm_cost": -2.0160802335624224,
+       "final_acc": 1.0,
+       "accepted_acc": null
+      },
+      "V0.1_free": {
+       "usd": -0.00011504278800000001,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": 0.0,
+       "pct_of_llm_cost": -2.0160802335624224,
+       "final_acc": 1.0,
+       "accepted_acc": null
+      },
+      "V1": {
+       "usd": -0.00011504278800000001,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": 0.0,
+       "pct_of_llm_cost": -2.0160802335624224,
+       "final_acc": 1.0,
+       "accepted_acc": null,
+       "heldout_usd": -0.00011504278800000001,
+       "heldout_pct": -2.0160802335624224,
+       "heldout_range_pct": [
+        -2.0160802335624224,
+        -2.0160802335624224
+       ]
+      },
+      "V1_free": {
+       "usd": -0.00011504278800000001,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": 0.0,
+       "pct_of_llm_cost": -2.0160802335624224,
+       "final_acc": 1.0,
+       "accepted_acc": null,
+       "heldout_usd": -0.00011504278800000001,
+       "heldout_pct": -2.0160802335624224,
+       "heldout_range_pct": [
+        -2.0160802335624224,
+        -2.0160802335624224
+       ]
+      },
+      "V10": {
+       "usd": -0.00011504278800000001,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": 0.0,
+       "pct_of_llm_cost": -2.0160802335624224,
+       "final_acc": 1.0,
+       "accepted_acc": null
+      },
+      "V10_free": {
+       "usd": -0.00011504278800000001,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": 0.0,
+       "pct_of_llm_cost": -2.0160802335624224,
+       "final_acc": 1.0,
+       "accepted_acc": null
+      }
+     },
+     "auroc_ci": [
+      0.9092872570194385,
+      0.9466856156095593
+     ],
+     "auroc_diff_g1": 0.1934397163120568,
+     "auroc_diff_g1_ci": [
+      0.11693791716453222,
+      0.2744039947989339
+     ]
+    },
+    "g1g3": {
+     "label": "G1, then G3 below tau-hat",
+     "extra_call": "1 decision-model call below tau-hat",
+     "auroc": 0.7482624113475177,
+     "sel_acc": {
+      "25": 1.0,
+      "50": 0.9733333333333334,
+      "75": 0.9568888888888889,
+      "90": 0.9622222222222222
+     },
+     "gate_call_usd": 2.8710024e-05,
+     "gate_call_ms": 135.48900400999585,
+     "consulted": 0.672,
+     "econ": {
+      "V0.1": {
+       "usd": 0.0019028129880000002,
+       "threshold": 0.94,
+       "coverage": 0.402,
+       "latency_ms": 128.2006461980167,
+       "pct_of_llm_cost": 33.34605949633845,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V0.1_free": {
+       "usd": 0.0019315230120000003,
+       "threshold": 0.94,
+       "coverage": 0.402,
+       "latency_ms": 263.68965020801255,
+       "pct_of_llm_cost": 33.849191530060565,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V1": {
+       "usd": 0.0019028129880000002,
+       "threshold": 0.94,
+       "coverage": 0.402,
+       "latency_ms": 128.2006461980167,
+       "pct_of_llm_cost": 33.34605949633845,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": -0.001185990932,
+       "heldout_pct": -20.784031026694823,
+       "heldout_range_pct": [
+        -34.96670800372166,
+        33.34605949633845
+       ]
+      },
+      "V1_free": {
+       "usd": 0.0019315230120000003,
+       "threshold": 0.94,
+       "coverage": 0.402,
+       "latency_ms": 263.68965020801255,
+       "pct_of_llm_cost": 33.849191530060565,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": -0.0011572809080000004,
+       "heldout_pct": -20.28089899297271,
+       "heldout_range_pct": [
+        -34.463575969999546,
+        33.849191530060565
+       ]
+      },
+      "V10": {
+       "usd": 0.0019028129880000002,
+       "threshold": 0.94,
+       "coverage": 0.402,
+       "latency_ms": 128.2006461980167,
+       "pct_of_llm_cost": 33.34605949633845,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V10_free": {
+       "usd": 0.0019315230120000003,
+       "threshold": 0.94,
+       "coverage": 0.402,
+       "latency_ms": 263.68965020801255,
+       "pct_of_llm_cost": 33.849191530060565,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      }
+     },
+     "auroc_ci": [
+      0.6643150976496934,
+      0.8231782004830918
+     ],
+     "auroc_diff_g1": 0.012978723404255321,
+     "auroc_diff_g1_ci": [
+      -0.021611598036430552,
+      0.04733087100580976
+     ]
+    },
+    "g1g4": {
+     "label": "G1, then G4 below tau-hat",
+     "extra_call": "1 LLM call below tau-hat",
+     "auroc": 0.674468085106383,
+     "sel_acc": {
+      "25": 1.0,
+      "50": 0.9692857142857143,
+      "75": 0.9497619047619048,
+      "90": 0.9432539682539682
+     },
+     "gate_call_usd": 0.002077791,
+     "gate_call_ms": 1277.1940859060041,
+     "consulted": 0.672,
+     "econ": {
+      "V0.1": {
+       "usd": -0.00046352038799999984,
+       "threshold": "inf",
+       "coverage": 0.328,
+       "latency_ms": -1107.631718455991,
+       "pct_of_llm_cost": -8.12301499595076,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V0.1_free": {
+       "usd": 0.001614270612,
+       "threshold": "inf",
+       "coverage": 0.328,
+       "latency_ms": 169.56236745001297,
+       "pct_of_llm_cost": 28.289466285134832,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V1": {
+       "usd": -0.00046352038799999984,
+       "threshold": "inf",
+       "coverage": 0.328,
+       "latency_ms": -1107.631718455991,
+       "pct_of_llm_cost": -8.12301499595076,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": -0.0004635203879999999,
+       "heldout_pct": -8.123014995950761,
+       "heldout_range_pct": [
+        -8.123014995950768,
+        -8.12301499595076
+       ]
+      },
+      "V1_free": {
+       "usd": 0.001614270612,
+       "threshold": "inf",
+       "coverage": 0.328,
+       "latency_ms": 169.56236745001297,
+       "pct_of_llm_cost": 28.289466285134832,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": 0.0016142706119999998,
+       "heldout_pct": 28.28946628513483,
+       "heldout_range_pct": [
+        28.28946628513483,
+        28.289466285134832
+       ]
+      },
+      "V10": {
+       "usd": -0.00046352038799999984,
+       "threshold": "inf",
+       "coverage": 0.328,
+       "latency_ms": -1107.631718455991,
+       "pct_of_llm_cost": -8.12301499595076,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V10_free": {
+       "usd": 0.001614270612,
+       "threshold": "inf",
+       "coverage": 0.328,
+       "latency_ms": 169.56236745001297,
+       "pct_of_llm_cost": 28.289466285134832,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      }
+     },
+     "auroc_ci": [
+      0.6513845104015419,
+      0.6964665054159217
+     ],
+     "auroc_diff_g1": -0.06081560283687937,
+     "auroc_diff_g1_ci": [
+      -0.13190066286633811,
+      0.01428967330063468
+     ]
+    },
+    "g1g4v": {
+     "label": "G1, then G4v below tau-hat (post hoc)",
+     "extra_call": "1 LLM call below tau-hat",
+     "auroc": 0.7878723404255319,
+     "sel_acc": {
+      "25": 1.0,
+      "50": 0.9803097643097644,
+      "75": 0.9677934904601572,
+      "90": 0.9636213991769548
+     },
+     "gate_call_usd": 0.002077791,
+     "gate_call_ms": 1277.1940859060041,
+     "consulted": 0.672,
+     "econ": {
+      "V0.1": {
+       "usd": -0.00044667128800000025,
+       "threshold": 1.0,
+       "coverage": 0.922,
+       "latency_ms": -435.0250197439919,
+       "pct_of_llm_cost": -7.8277410543689925,
+       "final_acc": 0.966,
+       "accepted_acc": 0.9631236442516269
+      },
+      "V0.1_free": {
+       "usd": 0.0016311197119999996,
+       "threshold": 1.0,
+       "coverage": 0.922,
+       "latency_ms": 842.1690661620122,
+       "pct_of_llm_cost": 28.5847402267166,
+       "final_acc": 0.966,
+       "accepted_acc": 0.9631236442516269
+      },
+      "V1": {
+       "usd": -0.00046352038799999984,
+       "threshold": "inf",
+       "coverage": 0.328,
+       "latency_ms": -1107.631718455991,
+       "pct_of_llm_cost": -8.12301499595076,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": -0.0004635203879999999,
+       "heldout_pct": -8.123014995950761,
+       "heldout_range_pct": [
+        -8.123014995950768,
+        -8.12301499595076
+       ]
+      },
+      "V1_free": {
+       "usd": 0.001614270612,
+       "threshold": "inf",
+       "coverage": 0.328,
+       "latency_ms": 169.56236745001297,
+       "pct_of_llm_cost": 28.289466285134832,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": 0.0016142706119999998,
+       "heldout_pct": 28.28946628513483,
+       "heldout_range_pct": [
+        28.28946628513483,
+        28.289466285134832
+       ]
+      },
+      "V10": {
+       "usd": -0.00046352038799999984,
+       "threshold": "inf",
+       "coverage": 0.328,
+       "latency_ms": -1107.631718455991,
+       "pct_of_llm_cost": -8.12301499595076,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V10_free": {
+       "usd": 0.001614270612,
+       "threshold": "inf",
+       "coverage": 0.328,
+       "latency_ms": 169.56236745001297,
+       "pct_of_llm_cost": 28.289466285134832,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      }
+     },
+     "auroc_ci": [
+      0.722503235229277,
+      0.8465736855245783
+     ],
+     "auroc_diff_g1": 0.052588652482269516,
+     "auroc_diff_g1_ci": [
+      0.01761010943946546,
+      0.09057840475059076
+     ]
+    },
+    "perfect": {
+     "label": "answer key (reference, not a gate)",
+     "extra_call": "none",
+     "auroc": 1.0,
+     "sel_acc": {
+      "25": 1.0,
+      "50": 1.0,
+      "75": 1.0,
+      "90": 1.0
+     },
+     "gate_call_usd": 0.0,
+     "gate_call_ms": 0.0,
+     "consulted": 1.0,
+     "econ": {
+      "V0.1": {
+       "usd": 0.0052070745120000005,
+       "threshold": 1.0,
+       "coverage": 0.94,
+       "latency_ms": 861.5542626299864,
+       "pct_of_llm_cost": 91.25196095151917,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V0.1_free": {
+       "usd": 0.0052070745120000005,
+       "threshold": 1.0,
+       "coverage": 0.94,
+       "latency_ms": 861.5542626299864,
+       "pct_of_llm_cost": 91.25196095151917,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V1": {
+       "usd": 0.0052070745120000005,
+       "threshold": 1.0,
+       "coverage": 0.94,
+       "latency_ms": 861.5542626299864,
+       "pct_of_llm_cost": 91.25196095151917,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": 0.005207074512,
+       "heldout_pct": 91.25196095151914,
+       "heldout_range_pct": [
+        91.25196095151912,
+        91.25196095151917
+       ]
+      },
+      "V1_free": {
+       "usd": 0.0052070745120000005,
+       "threshold": 1.0,
+       "coverage": 0.94,
+       "latency_ms": 861.5542626299864,
+       "pct_of_llm_cost": 91.25196095151917,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": 0.005207074512,
+       "heldout_pct": 91.25196095151914,
+       "heldout_range_pct": [
+        91.25196095151912,
+        91.25196095151917
+       ]
+      },
+      "V10": {
+       "usd": 0.0052070745120000005,
+       "threshold": 1.0,
+       "coverage": 0.94,
+       "latency_ms": 861.5542626299864,
+       "pct_of_llm_cost": 91.25196095151917,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V10_free": {
+       "usd": 0.0052070745120000005,
+       "threshold": 1.0,
+       "coverage": 0.94,
+       "latency_ms": 861.5542626299864,
+       "pct_of_llm_cost": 91.25196095151917,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      }
+     }
+    }
+   },
+   "g4_verdicts": {
+    "yes": 461,
+    "no": 39,
+    "none": 0,
+    "no_with_conf_ge_50": 39,
+    "yes_with_conf_lt_50": 0,
+    "auroc_verdict_only": 0.6890070921985816,
+    "conf_100": 500
+   }
+  },
+  "tool_params": {
+   "n": 500,
+   "n_wrong": 22,
+   "model_acc": 0.956,
+   "llm_acc": 1.0,
+   "n_tasks": 141,
+   "dc_usd": 0.0033753270500000002,
+   "dl_ms": 695.5294465659875,
+   "kappa_usd": 5.943588e-05,
+   "kappa_ms": 223.58195935395997,
+   "tau_hat": 0.99,
+   "share_above_tau": 0.726,
+   "g3_call_usd": 5.0521548e-05,
+   "g3_call_ms": 206.46399815400312,
+   "g4_call_usd": 0.0015934710000000002,
+   "g4_call_ms": 1657.8398054459897,
+   "median_ms": {
+    "llm": 491.318708000108,
+    "model": 208.37922949976928,
+    "g3": 188.40088850004122,
+    "g4": 723.7897470001826
+   },
+   "gates": {
+    "g1": {
+     "label": "G1 model's confidence (registered)",
+     "extra_call": "none",
+     "auroc": 0.8850798782807151,
+     "sel_acc": {
+      "25": 1.0,
+      "50": 1.0,
+      "75": 0.9946666666666667,
+      "90": 0.9711111111111111
+     },
+     "gate_call_usd": 0.0,
+     "gate_call_ms": 0.0,
+     "consulted": 1.0,
+     "econ": {
+      "V0.1": {
+       "usd": 0.0019933013200000025,
+       "threshold": 0.99,
+       "coverage": 0.726,
+       "latency_ms": 207.76220398735978,
+       "pct_of_llm_cost": 59.05505719808699,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V0.1_free": {
+       "usd": 0.0019933013200000025,
+       "threshold": 0.99,
+       "coverage": 0.726,
+       "latency_ms": 207.76220398735978,
+       "pct_of_llm_cost": 59.05505719808699,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V1": {
+       "usd": 0.0019933013200000025,
+       "threshold": 0.99,
+       "coverage": 0.726,
+       "latency_ms": 207.76220398735978,
+       "pct_of_llm_cost": 59.05505719808699,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": 3.7698349999999886e-05,
+       "heldout_pct": 1.1168799183474645,
+       "heldout_range_pct": [
+        -172.44527993220683,
+        59.055057198086914
+       ]
+      },
+      "V1_free": {
+       "usd": 0.0019933013200000025,
+       "threshold": 0.99,
+       "coverage": 0.726,
+       "latency_ms": 207.76220398735978,
+       "pct_of_llm_cost": 59.05505719808699,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": 3.7698349999999886e-05,
+       "heldout_pct": 1.1168799183474645,
+       "heldout_range_pct": [
+        -172.44527993220683,
+        59.055057198086914
+       ]
+      },
+      "V10": {
+       "usd": 0.0019933013200000025,
+       "threshold": 0.99,
+       "coverage": 0.726,
+       "latency_ms": 207.76220398735978,
+       "pct_of_llm_cost": 59.05505719808699,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V10_free": {
+       "usd": 0.0019933013200000025,
+       "threshold": 0.99,
+       "coverage": 0.726,
+       "latency_ms": 207.76220398735978,
+       "pct_of_llm_cost": 59.05505719808699,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      }
+     },
+     "auroc_ci": [
+      0.8504349889449715,
+      0.9169407894736842
+     ],
+     "auroc_diff_g1": 0.0,
+     "auroc_diff_g1_ci": [
+      0.0,
+      0.0
+     ]
+    },
+    "g1tau": {
+     "label": "G1 at the registered tau-hat (fixed, the deployed rule)",
+     "extra_call": "none",
+     "auroc": 0.8850798782807151,
+     "sel_acc": {
+      "25": 1.0,
+      "50": 1.0,
+      "75": 0.9946666666666667,
+      "90": 0.9711111111111111
+     },
+     "gate_call_usd": 0.0,
+     "gate_call_ms": 0.0,
+     "consulted": 1.0,
+     "econ": {
+      "V0.1": {
+       "usd": 0.00199330132,
+       "threshold": 0.99,
+       "coverage": 0.726,
+       "latency_ms": 207.76220398735978,
+       "pct_of_llm_cost": 59.055057198086914,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V0.1_free": {
+       "usd": 0.00199330132,
+       "threshold": 0.99,
+       "coverage": 0.726,
+       "latency_ms": 207.76220398735978,
+       "pct_of_llm_cost": 59.055057198086914,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V1": {
+       "usd": 0.00199330132,
+       "threshold": 0.99,
+       "coverage": 0.726,
+       "latency_ms": 207.76220398735978,
+       "pct_of_llm_cost": 59.055057198086914,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": 0.00199330132,
+       "heldout_pct": 59.055057198086914,
+       "heldout_range_pct": [
+        59.055057198086914,
+        59.055057198086914
+       ]
+      },
+      "V1_free": {
+       "usd": 0.00199330132,
+       "threshold": 0.99,
+       "coverage": 0.726,
+       "latency_ms": 207.76220398735978,
+       "pct_of_llm_cost": 59.055057198086914,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": 0.00199330132,
+       "heldout_pct": 59.055057198086914,
+       "heldout_range_pct": [
+        59.055057198086914,
+        59.055057198086914
+       ]
+      },
+      "V10": {
+       "usd": 0.00199330132,
+       "threshold": 0.99,
+       "coverage": 0.726,
+       "latency_ms": 207.76220398735978,
+       "pct_of_llm_cost": 59.055057198086914,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V10_free": {
+       "usd": 0.00199330132,
+       "threshold": 0.99,
+       "coverage": 0.726,
+       "latency_ms": 207.76220398735978,
+       "pct_of_llm_cost": 59.055057198086914,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      }
+     },
+     "auroc_ci": [
+      0.8504349889449715,
+      0.9169407894736842
+     ],
+     "auroc_diff_g1": 0.0,
+     "auroc_diff_g1_ci": [
+      0.0,
+      0.0
+     ]
+    },
+    "g2": {
+     "label": "G2 top-two margin",
+     "extra_call": "none",
+     "auroc": 0.8825599087105364,
+     "sel_acc": {
+      "25": 1.0,
+      "50": 1.0,
+      "75": 0.992,
+      "90": 0.9688888888888889
+     },
+     "gate_call_usd": 0.0,
+     "gate_call_ms": 0.0,
+     "consulted": 1.0,
+     "econ": {
+      "V0.1": {
+       "usd": 0.0020885840200000018,
+       "threshold": 0.9799510024498781,
+       "coverage": 0.742,
+       "latency_ms": 225.30831826335753,
+       "pct_of_llm_cost": 61.87797475803127,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V0.1_free": {
+       "usd": 0.0020885840200000018,
+       "threshold": 0.9799510024498781,
+       "coverage": 0.742,
+       "latency_ms": 225.30831826335753,
+       "pct_of_llm_cost": 61.87797475803127,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V1": {
+       "usd": 0.0020885840200000018,
+       "threshold": 0.9799510024498781,
+       "coverage": 0.742,
+       "latency_ms": 225.30831826335753,
+       "pct_of_llm_cost": 61.87797475803127,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": 0.00032936391999999984,
+       "heldout_pct": 9.757985378039137,
+       "heldout_range_pct": [
+        -225.64082879020572,
+        61.555814865406894
+       ]
+      },
+      "V1_free": {
+       "usd": 0.0020885840200000018,
+       "threshold": 0.9799510024498781,
+       "coverage": 0.742,
+       "latency_ms": 225.30831826335753,
+       "pct_of_llm_cost": 61.87797475803127,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": 0.00032936391999999984,
+       "heldout_pct": 9.757985378039137,
+       "heldout_range_pct": [
+        -225.64082879020572,
+        61.555814865406894
+       ]
+      },
+      "V10": {
+       "usd": 0.0020885840200000018,
+       "threshold": 0.9799510024498781,
+       "coverage": 0.742,
+       "latency_ms": 225.30831826335753,
+       "pct_of_llm_cost": 61.87797475803127,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V10_free": {
+       "usd": 0.0020885840200000018,
+       "threshold": 0.9799510024498781,
+       "coverage": 0.742,
+       "latency_ms": 225.30831826335753,
+       "pct_of_llm_cost": 61.87797475803127,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      }
+     },
+     "auroc_ci": [
+      0.8487256051949816,
+      0.9132751451036408
+     ],
+     "auroc_diff_g1": -0.0025199695701787483,
+     "auroc_diff_g1_ci": [
+      -0.009584633292307182,
+      0.004510352228421681
+     ]
+    },
+    "g3": {
+     "label": "G3 second decision-model call (yes/no)",
+     "extra_call": "1 decision-model call",
+     "auroc": 0.8333016356028908,
+     "sel_acc": {
+      "25": 1.0,
+      "50": 1.0,
+      "75": 0.9774222222222222,
+      "90": 0.9666666666666667
+     },
+     "gate_call_usd": 5.0521548e-05,
+     "gate_call_ms": 206.46399815400312,
+     "consulted": 1.0,
+     "econ": {
+      "V0.1": {
+       "usd": 0.0021216548720000023,
+       "threshold": 0.9,
+       "coverage": 0.68,
+       "latency_ms": 51.81938398536327,
+       "pct_of_llm_cost": 62.85775690980825,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V0.1_free": {
+       "usd": 0.0021721764200000023,
+       "threshold": 0.9,
+       "coverage": 0.68,
+       "latency_ms": 258.2833821393664,
+       "pct_of_llm_cost": 64.35454662089714,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V1": {
+       "usd": 0.0021216548720000023,
+       "threshold": 0.9,
+       "coverage": 0.68,
+       "latency_ms": 51.81938398536327,
+       "pct_of_llm_cost": 62.85775690980825,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": 0.0015228789920000002,
+       "heldout_pct": 45.11796840546163,
+       "heldout_range_pct": [
+        -114.54012813365743,
+        62.8577569098082
+       ]
+      },
+      "V1_free": {
+       "usd": 0.0021721764200000023,
+       "threshold": 0.9,
+       "coverage": 0.68,
+       "latency_ms": 258.2833821393664,
+       "pct_of_llm_cost": 64.35454662089714,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": 0.0015734005400000004,
+       "heldout_pct": 46.61475811655052,
+       "heldout_range_pct": [
+        -113.04333842256854,
+        64.35454662089708
+       ]
+      },
+      "V10": {
+       "usd": 0.0021216548720000023,
+       "threshold": 0.9,
+       "coverage": 0.68,
+       "latency_ms": 51.81938398536327,
+       "pct_of_llm_cost": 62.85775690980825,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V10_free": {
+       "usd": 0.0021721764200000023,
+       "threshold": 0.9,
+       "coverage": 0.68,
+       "latency_ms": 258.2833821393664,
+       "pct_of_llm_cost": 64.35454662089714,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      }
+     },
+     "auroc_ci": [
+      0.7806287457716442,
+      0.8780325505574539
+     ],
+     "auroc_diff_g1": -0.05177824267782427,
+     "auroc_diff_g1_ci": [
+      -0.09778962157831005,
+      -0.014952286540267474
+     ]
+    },
+    "g4": {
+     "label": "G4 LLM verifier (Flash, yes/no + 0-100)",
+     "extra_call": "1 LLM call",
+     "auroc": 0.5,
+     "sel_acc": {
+      "25": 0.956,
+      "50": 0.956,
+      "75": 0.956,
+      "90": 0.956
+     },
+     "gate_call_usd": 0.0015934710000000002,
+     "gate_call_ms": 1657.8398054459897,
+     "consulted": 1.0,
+     "econ": {
+      "V0.1": {
+       "usd": -0.0016529068800000002,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": -1881.4217647999494,
+       "pct_of_llm_cost": -48.97027326581583,
+       "final_acc": 1.0,
+       "accepted_acc": null
+      },
+      "V0.1_free": {
+       "usd": -5.943588e-05,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": -223.58195935395997,
+       "pct_of_llm_cost": -1.760892474108546,
+       "final_acc": 1.0,
+       "accepted_acc": null
+      },
+      "V1": {
+       "usd": -0.0016529068800000002,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": -1881.4217647999494,
+       "pct_of_llm_cost": -48.97027326581583,
+       "final_acc": 1.0,
+       "accepted_acc": null,
+       "heldout_usd": -0.0016529068800000002,
+       "heldout_pct": -48.97027326581583,
+       "heldout_range_pct": [
+        -48.97027326581583,
+        -48.97027326581581
+       ]
+      },
+      "V1_free": {
+       "usd": -5.943588e-05,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": -223.58195935395997,
+       "pct_of_llm_cost": -1.760892474108546,
+       "final_acc": 1.0,
+       "accepted_acc": null,
+       "heldout_usd": -5.9435879999999996e-05,
+       "heldout_pct": -1.7608924741085459,
+       "heldout_range_pct": [
+        -1.760892474108546,
+        -1.7608924741085459
+       ]
+      },
+      "V10": {
+       "usd": -0.0016529068800000002,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": -1881.4217647999494,
+       "pct_of_llm_cost": -48.97027326581583,
+       "final_acc": 1.0,
+       "accepted_acc": null
+      },
+      "V10_free": {
+       "usd": -5.943588e-05,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": -223.58195935395997,
+       "pct_of_llm_cost": -1.760892474108546,
+       "final_acc": 1.0,
+       "accepted_acc": null
+      }
+     },
+     "auroc_ci": [
+      0.5,
+      0.5
+     ],
+     "auroc_diff_g1": -0.3850798782807151,
+     "auroc_diff_g1_ci": [
+      -0.41694078947368424,
+      -0.35043498894497155
+     ]
+    },
+    "g4v": {
+     "label": "G4v LLM verifier, its verdict as the score (post hoc)",
+     "extra_call": "1 LLM call",
+     "auroc": 0.9213579307721567,
+     "sel_acc": {
+      "25": 0.9936305732484076,
+      "50": 0.9936305732484076,
+      "75": 0.9936305732484076,
+      "90": 0.9936305732484076
+     },
+     "gate_call_usd": 0.0015934710000000002,
+     "gate_call_ms": 1657.8398054459897,
+     "consulted": 1.0,
+     "econ": {
+      "V0.1": {
+       "usd": 0.00090247937,
+       "threshold": 1.0,
+       "coverage": 0.942,
+       "latency_ms": -1227.207949786969,
+       "pct_of_llm_cost": 26.737538514971458,
+       "final_acc": 0.994,
+       "accepted_acc": 0.9936305732484076
+      },
+      "V0.1_free": {
+       "usd": 0.00249595037,
+       "threshold": 1.0,
+       "coverage": 0.942,
+       "latency_ms": 430.63185565902074,
+       "pct_of_llm_cost": 73.94691930667874,
+       "final_acc": 0.994,
+       "accepted_acc": 0.9936305732484076
+      },
+      "V1": {
+       "usd": -0.0016529068800000002,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": -1881.4217647999494,
+       "pct_of_llm_cost": -48.97027326581583,
+       "final_acc": 1.0,
+       "accepted_acc": null,
+       "heldout_usd": -0.0025453485999999996,
+       "heldout_pct": -75.41042874645287,
+       "heldout_range_pct": [
+        -183.516570046153,
+        -48.97027326581581
+       ]
+      },
+      "V1_free": {
+       "usd": -5.943588e-05,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": -223.58195935395997,
+       "pct_of_llm_cost": -1.760892474108546,
+       "final_acc": 1.0,
+       "accepted_acc": null,
+       "heldout_usd": -0.0009518775999999998,
+       "heldout_pct": -28.201047954745594,
+       "heldout_range_pct": [
+        -136.30718925444572,
+        -1.7608924741085459
+       ]
+      },
+      "V10": {
+       "usd": -0.0016529068800000002,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": -1881.4217647999494,
+       "pct_of_llm_cost": -48.97027326581583,
+       "final_acc": 1.0,
+       "accepted_acc": null
+      },
+      "V10_free": {
+       "usd": -5.943588e-05,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": -223.58195935395997,
+       "pct_of_llm_cost": -1.760892474108546,
+       "final_acc": 1.0,
+       "accepted_acc": null
+      }
+     },
+     "auroc_ci": [
+      0.8447133942810303,
+      0.9894232293868922
+     ],
+     "auroc_diff_g1": 0.03627805249144156,
+     "auroc_diff_g1_ci": [
+      -0.04705517452882792,
+      0.10976855834582551
+     ]
+    },
+    "g5": {
+     "label": "G5 agreement with the LLM's own choice",
+     "extra_call": "the agent's own LLM call",
+     "auroc": 1.0,
+     "sel_acc": {
+      "25": 1.0,
+      "50": 1.0,
+      "75": 1.0,
+      "90": 1.0
+     },
+     "gate_call_usd": 0.0,
+     "gate_call_ms": 0.0,
+     "consulted": 1.0,
+     "econ": {
+      "V0.1": {
+       "usd": -5.943588e-05,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": 0.0,
+       "pct_of_llm_cost": -1.760892474108546,
+       "final_acc": 1.0,
+       "accepted_acc": null
+      },
+      "V0.1_free": {
+       "usd": -5.943588e-05,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": 0.0,
+       "pct_of_llm_cost": -1.760892474108546,
+       "final_acc": 1.0,
+       "accepted_acc": null
+      },
+      "V1": {
+       "usd": -5.943588e-05,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": 0.0,
+       "pct_of_llm_cost": -1.760892474108546,
+       "final_acc": 1.0,
+       "accepted_acc": null,
+       "heldout_usd": -5.9435879999999996e-05,
+       "heldout_pct": -1.7608924741085459,
+       "heldout_range_pct": [
+        -1.760892474108546,
+        -1.7608924741085459
+       ]
+      },
+      "V1_free": {
+       "usd": -5.943588e-05,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": 0.0,
+       "pct_of_llm_cost": -1.760892474108546,
+       "final_acc": 1.0,
+       "accepted_acc": null,
+       "heldout_usd": -5.9435879999999996e-05,
+       "heldout_pct": -1.7608924741085459,
+       "heldout_range_pct": [
+        -1.760892474108546,
+        -1.7608924741085459
+       ]
+      },
+      "V10": {
+       "usd": -5.943588e-05,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": 0.0,
+       "pct_of_llm_cost": -1.760892474108546,
+       "final_acc": 1.0,
+       "accepted_acc": null
+      },
+      "V10_free": {
+       "usd": -5.943588e-05,
+       "threshold": "inf",
+       "coverage": 0.0,
+       "latency_ms": 0.0,
+       "pct_of_llm_cost": -1.760892474108546,
+       "final_acc": 1.0,
+       "accepted_acc": null
+      }
+     },
+     "auroc_ci": [
+      1.0,
+      1.0
+     ],
+     "auroc_diff_g1": 0.1149201217192849,
+     "auroc_diff_g1_ci": [
+      0.08305921052631576,
+      0.14956501105502845
+     ]
+    },
+    "g1g3": {
+     "label": "G1, then G3 below tau-hat",
+     "extra_call": "1 decision-model call below tau-hat",
+     "auroc": 0.9419931532902244,
+     "sel_acc": {
+      "25": 1.0,
+      "50": 1.0,
+      "75": 1.0,
+      "90": 0.98
+     },
+     "gate_call_usd": 1.240134e-05,
+     "gate_call_ms": 56.67268223800147,
+     "consulted": 0.274,
+     "econ": {
+      "V0.1": {
+       "usd": 0.00273623948,
+       "threshold": 0.91,
+       "coverage": 0.876,
+       "latency_ms": 309.9693047430122,
+       "pct_of_llm_cost": 81.06590678375892,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V0.1_free": {
+       "usd": 0.0027486408200000003,
+       "threshold": 0.91,
+       "coverage": 0.876,
+       "latency_ms": 366.6419869810137,
+       "pct_of_llm_cost": 81.43331829133416,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V1": {
+       "usd": 0.00273623948,
+       "threshold": 0.91,
+       "coverage": 0.876,
+       "latency_ms": 309.9693047430122,
+       "pct_of_llm_cost": 81.06590678375892,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": 0.0027235806799999996,
+       "heldout_pct": 80.69086757089211,
+       "heldout_range_pct": [
+        80.12830875159193,
+        81.06590678375892
+       ]
+      },
+      "V1_free": {
+       "usd": 0.0027486408200000003,
+       "threshold": 0.91,
+       "coverage": 0.876,
+       "latency_ms": 366.6419869810137,
+       "pct_of_llm_cost": 81.43331829133416,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": 0.0027359820199999996,
+       "heldout_pct": 81.05827907846735,
+       "heldout_range_pct": [
+        80.49572025916717,
+        81.43331829133416
+       ]
+      },
+      "V10": {
+       "usd": 0.00273623948,
+       "threshold": 0.91,
+       "coverage": 0.876,
+       "latency_ms": 309.9693047430122,
+       "pct_of_llm_cost": 81.06590678375892,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V10_free": {
+       "usd": 0.0027486408200000003,
+       "threshold": 0.91,
+       "coverage": 0.876,
+       "latency_ms": 366.6419869810137,
+       "pct_of_llm_cost": 81.43331829133416,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      }
+     },
+     "auroc_ci": [
+      0.9172056793906127,
+      0.9626394668941243
+     ],
+     "auroc_diff_g1": 0.05691327500950927,
+     "auroc_diff_g1_ci": [
+      0.027726146481158526,
+      0.08418531243918283
+     ]
+    },
+    "g1g4": {
+     "label": "G1, then G4 below tau-hat",
+     "extra_call": "1 LLM call below tau-hat",
+     "auroc": 0.8797071129707112,
+     "sel_acc": {
+      "25": 1.0,
+      "50": 1.0,
+      "75": 0.9948613138686131,
+      "90": 0.9689537712895377
+     },
+     "gate_call_usd": 0.000384354,
+     "gate_call_ms": 453.76390339800264,
+     "consulted": 0.274,
+     "econ": {
+      "V0.1": {
+       "usd": 0.00160894732,
+       "threshold": "inf",
+       "coverage": 0.726,
+       "latency_ms": -246.00169941064283,
+       "pct_of_llm_cost": 47.66789398970982,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V0.1_free": {
+       "usd": 0.00199330132,
+       "threshold": "inf",
+       "coverage": 0.726,
+       "latency_ms": 207.76220398735978,
+       "pct_of_llm_cost": 59.055057198086914,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V1": {
+       "usd": 0.00160894732,
+       "threshold": "inf",
+       "coverage": 0.726,
+       "latency_ms": -246.00169941064283,
+       "pct_of_llm_cost": 47.66789398970982,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": 0.00160894732,
+       "heldout_pct": 47.66789398970982,
+       "heldout_range_pct": [
+        47.66789398970982,
+        47.667893989709825
+       ]
+      },
+      "V1_free": {
+       "usd": 0.00199330132,
+       "threshold": "inf",
+       "coverage": 0.726,
+       "latency_ms": 207.76220398735978,
+       "pct_of_llm_cost": 59.055057198086914,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": 0.0019933013200000003,
+       "heldout_pct": 59.05505719808693,
+       "heldout_range_pct": [
+        59.055057198086914,
+        59.055057198086914
+       ]
+      },
+      "V10": {
+       "usd": 0.00160894732,
+       "threshold": "inf",
+       "coverage": 0.726,
+       "latency_ms": -246.00169941064283,
+       "pct_of_llm_cost": 47.66789398970982,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V10_free": {
+       "usd": 0.00199330132,
+       "threshold": "inf",
+       "coverage": 0.726,
+       "latency_ms": 207.76220398735978,
+       "pct_of_llm_cost": 59.055057198086914,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      }
+     },
+     "auroc_ci": [
+      0.8625459297264723,
+      0.8968009319610093
+     ],
+     "auroc_diff_g1": -0.0053727653100038575,
+     "auroc_diff_g1_ci": [
+      -0.03421439386446665,
+      0.022093783205917348
+     ]
+    },
+    "g1g4v": {
+     "label": "G1, then G4v below tau-hat (post hoc)",
+     "extra_call": "1 LLM call below tau-hat",
+     "auroc": 0.9731361734499809,
+     "sel_acc": {
+      "25": 1.0,
+      "50": 1.0,
+      "75": 0.9991111111111111,
+      "90": 0.9946296296296296
+     },
+     "gate_call_usd": 0.000384354,
+     "gate_call_ms": 453.76390339800264,
+     "consulted": 0.274,
+     "econ": {
+      "V0.1": {
+       "usd": 0.00211159637,
+       "threshold": 1.0,
+       "coverage": 0.942,
+       "latency_ms": -23.1320477389819,
+       "pct_of_llm_cost": 62.55975609830164,
+       "final_acc": 0.994,
+       "accepted_acc": 0.9936305732484076
+      },
+      "V0.1_free": {
+       "usd": 0.00249595037,
+       "threshold": 1.0,
+       "coverage": 0.942,
+       "latency_ms": 430.63185565902074,
+       "pct_of_llm_cost": 73.94691930667874,
+       "final_acc": 0.994,
+       "accepted_acc": 0.9936305732484076
+      },
+      "V1": {
+       "usd": 0.00160894732,
+       "threshold": "inf",
+       "coverage": 0.726,
+       "latency_ms": -246.00169941064283,
+       "pct_of_llm_cost": 47.66789398970982,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": 0.0005184005200000002,
+       "heldout_pct": 15.358527109247094,
+       "heldout_range_pct": [
+        -116.64437020999192,
+        47.667893989709825
+       ]
+      },
+      "V1_free": {
+       "usd": 0.00199330132,
+       "threshold": "inf",
+       "coverage": 0.726,
+       "latency_ms": 207.76220398735978,
+       "pct_of_llm_cost": 59.055057198086914,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": 0.0009027545200000001,
+       "heldout_pct": 26.745690317624184,
+       "heldout_range_pct": [
+        -105.25720700161483,
+        59.055057198086914
+       ]
+      },
+      "V10": {
+       "usd": 0.00160894732,
+       "threshold": "inf",
+       "coverage": 0.726,
+       "latency_ms": -246.00169941064283,
+       "pct_of_llm_cost": 47.66789398970982,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V10_free": {
+       "usd": 0.00199330132,
+       "threshold": "inf",
+       "coverage": 0.726,
+       "latency_ms": 207.76220398735978,
+       "pct_of_llm_cost": 59.055057198086914,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      }
+     },
+     "auroc_ci": [
+      0.9529394063180827,
+      0.9898323720998956
+     ],
+     "auroc_diff_g1": 0.08805629516926583,
+     "auroc_diff_g1_ci": [
+      0.050622082287403156,
+      0.12403970986895457
+     ]
+    },
+    "perfect": {
+     "label": "answer key (reference, not a gate)",
+     "extra_call": "none",
+     "auroc": 1.0,
+     "sel_acc": {
+      "25": 1.0,
+      "50": 1.0,
+      "75": 1.0,
+      "90": 1.0
+     },
+     "gate_call_usd": 0.0,
+     "gate_call_ms": 0.0,
+     "consulted": 1.0,
+     "econ": {
+      "V0.1": {
+       "usd": 0.003207515570000004,
+       "threshold": 1.0,
+       "coverage": 0.956,
+       "latency_ms": 447.7948614430346,
+       "pct_of_llm_cost": 95.02828977713445,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V0.1_free": {
+       "usd": 0.003207515570000004,
+       "threshold": 1.0,
+       "coverage": 0.956,
+       "latency_ms": 447.7948614430346,
+       "pct_of_llm_cost": 95.02828977713445,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V1": {
+       "usd": 0.003207515570000004,
+       "threshold": 1.0,
+       "coverage": 0.956,
+       "latency_ms": 447.7948614430346,
+       "pct_of_llm_cost": 95.02828977713445,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": 0.0032075155700000005,
+       "heldout_pct": 95.02828977713435,
+       "heldout_range_pct": [
+        95.02828977713433,
+        95.02828977713433
+       ]
+      },
+      "V1_free": {
+       "usd": 0.003207515570000004,
+       "threshold": 1.0,
+       "coverage": 0.956,
+       "latency_ms": 447.7948614430346,
+       "pct_of_llm_cost": 95.02828977713445,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0,
+       "heldout_usd": 0.0032075155700000005,
+       "heldout_pct": 95.02828977713435,
+       "heldout_range_pct": [
+        95.02828977713433,
+        95.02828977713433
+       ]
+      },
+      "V10": {
+       "usd": 0.003207515570000004,
+       "threshold": 1.0,
+       "coverage": 0.956,
+       "latency_ms": 447.7948614430346,
+       "pct_of_llm_cost": 95.02828977713445,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      },
+      "V10_free": {
+       "usd": 0.003207515570000004,
+       "threshold": 1.0,
+       "coverage": 0.956,
+       "latency_ms": 447.7948614430346,
+       "pct_of_llm_cost": 95.02828977713445,
+       "final_acc": 1.0,
+       "accepted_acc": 1.0
+      }
+     }
+    }
+   },
+   "g4_verdicts": {
+    "yes": 471,
+    "no": 29,
+    "none": 0,
+    "no_with_conf_ge_50": 29,
+    "yes_with_conf_lt_50": 0,
+    "auroc_verdict_only": 0.9213579307721567,
+    "conf_100": 500
+   }
+  }
+ },
+ "written": "2026-10-07T04:35:53+00:00",
+ "git": "34adfa3c15161d0ed46b1e183f8a7176a624c4c6",
+ "reading": [
+  "- Tool choice: AUROC G1 0.735, G1@tau 0.735, G2 0.730, G3 0.734, G4 0.500, G4v 0.689, G5 0.929, G1>G3 0.748, G1>G4 0.674, G1>G4v 0.788. Best saving per decision (V = $1): G1 +28.3 %, G1@tau +28.3 %, G2 +33.4 %, G3 +25.4 % (free: +26.3 %), G4 -59.6 %, G4v -59.6 % (free: -2.0 %), G5 -2.0 %, G1>G3 +33.3 %, G1>G4 -8.1 %, G1>G4v -8.1 % (free: +28.3 %); held out: G1 -1.2 %, G1@tau +28.3 %, G2 -24.5 %, G3 -27.2 %, G4 -59.6 %, G4v -59.6 %, G5 -2.0 %, G1>G3 -20.8 %, G1>G4 -8.1 %, G1>G4v -8.1 %; a perfect free gate +91.3 %. Highest: G2 top-two margin. One G4 call costs 0.58 \u00d7 the LLM's cost of the decision; G4's 0-100 confidence was 100 in 500 of 500 replies.",
+  "- Tool arguments: AUROC G1 0.885, G1@tau 0.885, G2 0.883, G3 0.833, G4 0.500, G4v 0.921, G5 1.000, G1>G3 0.942, G1>G4 0.880, G1>G4v 0.973. Best saving per decision (V = $1): G1 +59.1 %, G1@tau +59.1 %, G2 +61.9 %, G3 +62.9 % (free: +64.4 %), G4 -49.0 %, G4v -49.0 % (free: -1.8 %), G5 -1.8 %, G1>G3 +81.1 %, G1>G4 +47.7 %, G1>G4v +47.7 % (free: +59.1 %); held out: G1 +1.1 %, G1@tau +59.1 %, G2 +9.8 %, G3 +45.1 %, G4 -49.0 %, G4v -75.4 %, G5 -1.8 %, G1>G3 +80.7 %, G1>G4 +47.7 %, G1>G4v +15.4 %; a perfect free gate +95.0 %. Highest: G1, then G3 below tau-hat. One G4 call costs 0.47 \u00d7 the LLM's cost of the decision; G4's 0-100 confidence was 100 in 500 of 500 replies."
+ ]
+}

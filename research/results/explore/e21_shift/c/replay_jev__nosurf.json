@@ -1,0 +1,20 @@
+{
+ "registered": "PREREG_A7_STAGE2 Deviations 2026-10-08 'E21' (d) 3 / (d) 5",
+ "variant": "nosurf",
+ "backend": {
+  "backend": "jev",
+  "provider": "openrouter",
+  "model": "typesafe/jev-1.13",
+  "base_url": "https://openrouter.ai/api",
+  "extra_body": {},
+  "cached": true
+ },
+ "cache": "cache/s1_e21_jev_nosurf.sqlite",
+ "workers": 4,
+ "order": "sorted question hash, sharded over workers",
+ "batching": "one question per request (the harness tournament for Choices wider than the backend's max_options)",
+ "retries": 2,
+ "n_questions": 1093,
+ "resumed_with": 0,
+ "written": "2026-10-08T16:03:46+00:00"
+}

@@ -1,0 +1,22 @@
+# E1 (exploratory, Deviations 2026-10-05): the tau^2 rendering (A7.1 (i)) of configs/harness/jevagent_best.yaml's
+# Flash section with its backends.jevagent_rl thresholds (A7.1 (f)); System-1 = the frozen JevAgentRL-4B served
+# by training/serve_jev.py on the Stage-2 GPU host. WRITTEN BY scripts/explore_telecom_rl.py render from the profile
+# (sha256 85289f656c5610a6); do not edit by hand.
+# dropped: reflection trigger -> off (not implemented on tau^2)
+name: jevagent_best_rl
+tool_select:
+  mode: cascade
+  tau: 0.4999999999978404
+tool_params:
+  mode: cascade
+  tau: 0.9999998807907104
+guard_max_retries: 1
+s1:
+  type: jev
+  name: jevagentrl-4b
+  base_url: http://127.0.0.1:8081
+  model: jevagentrl-4b
+  api_key: ''
+  timeout: 60.0
+s1_cache: cache/s1_explore_telecom_rl.sqlite
+respond_fallback: defer

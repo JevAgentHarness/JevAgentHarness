@@ -1,0 +1,5 @@
+step E2a_intern (GPU, resumed)
+reason the 600-min budget guard of scripts/aws/gpu_round4_main.sh stopped <instance-id> (A10G) in pass 1 at about 2026-10-03T03:11Z; run data intact on the volume, nothing synced yet
+resumed 2026-10-03T04:19:15Z with scripts/aws/gpu_round4_resume.sh (no bundle pulled: the checkout stays at the start commit 8941f54; git rev-parse printed empty under the SSM root user)
+cut final lines dropped: none
+runs resume by task id; passes 1-3 follow as registered; new guard 720 min

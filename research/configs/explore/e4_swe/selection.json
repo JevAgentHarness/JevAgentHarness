@@ -1,0 +1,21 @@
+{
+ "rule": "pool = SWE-bench Verified test (500) minus H5's 100 evaluation ids (results/hard/swe/instance_ids.txt) and the H5 smoke pair (results/hard/smoke/swe/instance_ids.txt, = E4's smoke); ordered by sha256('jev-explore-E4-swe-2026-10-05' + newline + id); dev = first 45, eval = next 100",
+ "salt": "jev-explore-E4-swe-2026-10-05",
+ "pool_sha256": "a6b0fd7c8c2969a0eef892e032250adcfa6d32362d395c246930e61b575ac9b9",
+ "n_pool_after_exclusion": 398,
+ "smoke": {
+  "file": "configs/explore/e4_swe/smoke_ids.txt",
+  "n": 2,
+  "sha256": "7b474a955d1beddc839dd909e9f4753286a3eb279bce6f4fbeecfe2f461e1614"
+ },
+ "dev": {
+  "file": "configs/explore/e4_swe/dev_ids.txt",
+  "n": 45,
+  "sha256": "c5d0a510cab2b4094c5ea71deed85e84adafdd7682e4c0c21fbe3c077b742d24"
+ },
+ "eval": {
+  "file": "configs/explore/e4_swe/eval_ids.txt",
+  "n": 100,
+  "sha256": "8d67497edcc71e78e2c0d49496f0bb9333dc87959addf7a3cf20eb440b89a1ee"
+ }
+}

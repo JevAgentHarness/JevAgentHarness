@@ -1,0 +1,29 @@
+# Stage 2, the optional closed-family row (docs/PREREG_A7_STAGE2.md A7.12 (i); descriptive: no test, outside every
+# Holm table): System-2 gpt-6.1-sol and its small model gpt-6-luna through the OpenAI Responses API, the same three arms
+# as S2-1X (configs/experiments/stage2_x.yaml) under the same procedure. Request settings as the eligibility smoke
+# (configs/dev/sol_eligibility.yaml, results/stage2/sol_capability_manifest.json): Sol at reasoning effort low (its
+# lowest accepted; no temperature is sent), Luna at effort none and temperature 0; stateless (store false). Fresh seeds
+# 300000.. (n = 500 or 300 by A7.12 (c)'s rule against the row's own envelope: results/stage2/sol_cost_gate.json, set
+# before the first calibration episode), Jev as System-1, three passes, under A7.16's scheduler (seed 732). Workers 4
+# (operational: the account's limits are 500k tokens / min on Sol and 200k on Luna).
+#   python scripts/stage2_spec.py --gate stage2_sol
+#   RUN=stage2_sol WORKERS=4 bash scripts/run_stage2.sh
+# `jevagent_best_sol` reads configs/harness/jevagent_best_sol.yaml, the derived profile written by
+# scripts/render_profile_x.py --s2 gpt-6.1-sol from the committed selection and Sol's calibration fits
+# (jevgym_shadow_cal_sol.yaml); it is pending until then. A routing group, if selected, routes between Luna (default)
+# and Sol (A7.12 (e)).
+name: stage2_sol
+suite: {name: jevgym, n: 500, seed0: 300000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # Stage-2 fresh seeds (A7.2 (a))
+n_tasks: 500                    # A7.12 (c), (i): 500 if the predicted total fits the envelope, else 300 -- fixed before calibration
+llm: {provider: openai_responses, model: gpt-6.1-sol, reasoning_effort: low}
+small_llm: {provider: openai_responses, model: gpt-6-luna, reasoning_effort: none, temperature: 0}
+llms:
+  solsmall: {provider: openai_responses, model: gpt-6-luna, reasoning_effort: none, temperature: 0}
+s1: {type: jev, provider: openrouter}
+s1_cache: cache/s1_stage2_sol.sqlite
+workers: 4
+schedule: {mode: task_major, seed: 732}    # A7.16 (a)
+arms:
+  - {name: llm_only_sol}                                                                                  # reference
+  - {name: jevagent_best_sol, profile: configs/harness/jevagent_best_sol.yaml, profile_s2: gpt-6.1-sol}   # the derived profile
+  - {name: llm_only_solsmall, llm: solsmall}                                                              # cheap-model reference

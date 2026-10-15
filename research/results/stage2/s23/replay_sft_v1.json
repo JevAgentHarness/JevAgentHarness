@@ -1,0 +1,17 @@
+{
+ "registered": "PREREG_A7_STAGE2 A7.10 (c)",
+ "backend": {
+  "backend": "rl-sft-v1",
+  "provider": "typesafe",
+  "model": "rl-sft-v1",
+  "base_url": "http://127.0.0.1:8081",
+  "extra_body": {},
+  "cached": true
+ },
+ "cache": "cache/s1_stage2_replay.sqlite",
+ "order": "sorted question hash",
+ "batching": "one question per request (the harness tournament for Choices wider than the backend's max_options)",
+ "retries": 2,
+ "n_questions": 3939,
+ "resumed_with": 3939
+}

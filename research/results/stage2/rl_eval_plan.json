@@ -1,0 +1,66 @@
+{
+ "what": "the JevAgentRL rows of Stage 2 (docs/PREREG_A7_STAGE2.md A7.10, A7.13 (i), (ii), A7.1 (f)) as scripts/aws/stage2_gpu.sh serves them; written from results/gpu_round5/FREEZE_RECORD.json and committed before the chain starts",
+ "freeze_record": "results/gpu_round5/FREEZE_RECORD.json",
+ "frozen_utc": "2026-10-03T10:17:50Z",
+ "base_model_repo": "Qwen/Qwen3-4B",
+ "base_model_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+ "serving_commit_of_the_freeze": "c6c1cc1a3ceed69a21759d5d6a4f286741239125",
+ "serve_args": [],
+ "rows": {
+  "frozen": {
+   "stage": "grpo_i15",
+   "s3": "s3://<bucket>/checkpoints/round5/jevagentrl-4b/",
+   "dir": "jevagentrl-4b",
+   "adapter": "jevagentrl-4b",
+   "calibration": "jevagentrl-4b/calibration.json",
+   "served_name": "jevagentrl-4b",
+   "backend": "jevagent_rl",
+   "sha256": {
+    "adapter_model.safetensors": "b5eb0250228355212c2b9b08f0ac6312db1a8d632314febcc384174194994d1c",
+    "adapter_config.json": "2e45249c2e7675b80c8d86b05aa50ff0bc4e461974367e14b39b6b8c9b3b946e",
+    "calibration.json": "0c4b9534b689fa0fc569107bb58281ea0fbb9c3987059012d8caae5fc4e26373",
+    "tokenizer.json": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506",
+    "tokenizer_config.json": "2e3bd3cb5055f7a903a54e7062b2fd14d21b70f4174c3ffcd9fc81ec50a25631",
+    "chat_template.jinja": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+    "decision_config.json": "0899eb97ea63fa91c2a9d6ada7adad20f045da183cb14436b04dcdf599231592"
+   }
+  },
+  "base": {
+   "stage": "untrained Qwen/Qwen3-4B, no adapter",
+   "s3": null,
+   "dir": "",
+   "adapter": null,
+   "calibration": "results/gpu_round5/base_calibration.json",
+   "served_name": "rl-base",
+   "backend": "rl_base",
+   "repo_sha256": {
+    "results/gpu_round5/base_calibration.json": "d75673a4d1c14b7426d6b43badd5dc1bc84a55327c4de900d780ca135fca48c5"
+   }
+  },
+  "sft_v1": {
+   "stage": "SFT v1 (R3-v1)",
+   "s3": "s3://<bucket>/checkpoints/round5/sft_v1/",
+   "dir": "sft_v1",
+   "adapter": "sft_v1",
+   "calibration": "results/stage2/rl_attr/sft_v1_calibration.json",
+   "served_name": "rl-sft-v1",
+   "backend": "rl_sft_v1",
+   "sha256": {
+    "adapter_model.safetensors": "6736730a858caed8744de9032b73ab104f410c0c011c975cbae50c978d42be91",
+    "adapter_config.json": "fbaae782ba37addadb0cba8eb19329622a21a83a568777dfbde3671b72bf1eaa"
+   },
+   "note": "the freeze record lists no temperature file for SFT v1; for comparability with the base and frozen rows its temperatures were fitted by the evaluation session after the freeze, on v1 dev only, with the command and settings that produced final_calibration.json and base_calibration.json (training/calibrate.py --min-bucket 200 on data/train_v1/dev.jsonl.gz, sha256 9301ae53...); the same command refitted on the frozen model reproduced final_calibration.json exactly (results/stage2/rl_attr/reproduction_check.json)",
+   "repo_sha256": {
+    "results/stage2/rl_attr/sft_v1_calibration.json": "b73c7b8b9d2eab154d32895b6c8f93f0076142c5663c0cc0232fe7cdd5c17e48"
+   }
+  }
+ },
+ "attribution_rows": [
+  "base",
+  "sft_v1"
+ ],
+ "not_run": {
+  "sft_v1_opd": "not run (dropped by the chain): OPD does not precede the frozen checkpoint in its chain (freeze record, A7.13 (i))"
+ },
+ "frozen_row_live": "the frozen model's live row reuses the first 100 tasks of rl_ts_replace_f (stage2_rl_states), A7.13 (ii)"
+}

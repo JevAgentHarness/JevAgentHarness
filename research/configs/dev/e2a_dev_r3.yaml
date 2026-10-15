@@ -1,0 +1,30 @@
+# E2a DEV, round 3 -- NOT a paper run. The shadow arms of e2a_dev.yaml (identical definitions; threshold theory on
+# tool_select / stop with the A4 golds and the tournament ranking `s1_rank`), the live Flash-Lite tool guard (natural
+# FAR / FRR, retries) and the guard-INJECTION arm: a Flash-Lite measurement arm whose tool-select / stop guards are
+# fed wrong proposals after each episode (probes: natural, transplant, T1-T6; never executed; META_GOLD_SPEC §6).
+# Plus assist k = 5 on Flash-Lite to check that the stand-in's tournament now offers a genuine top-5.
+#   S1='s1={type: llm_generative, llm: {provider: gemini, model: gemini-3.5-flash-lite}, reasoning_effort: minimal}'
+#   jevbench run configs/dev/e2a_dev_r3.yaml --out runs/dev --max-tasks 10 -o workers=4 "$S1" name=e2a_dev_r3
+#   python -m jevharness.bench.threshold_theory runs/dev/e2a_dev_r3 --arm jev_shadow --dp tool_select --V 0.1 1 10
+name: e2a_dev_r3
+suite: {name: jevgym, n: 200, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+llms:
+  lite2: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}
+s1_cache: cache/s1.sqlite
+workers: 4
+arms:
+  - {name: jev_shadow, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}
+  - {name: jev_shadow_s2lite, llm: lite2, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}
+  - {name: jev_ts_guard_s2lite, llm: lite2, tool_select: {mode: guard, tau: 0.5}}
+  - {name: jev_ts_assist_k5_s2lite, llm: lite2, tool_select: {mode: assist, k: 5}}
+  - name: ts_guard_inject_s2lite          # guard-injection (probe) measurement arm, Flash-Lite
+    llm: lite2
+    tool_select: {mode: shadow}
+    stop: {mode: shadow}
+    measure:
+      seed: 0
+      probes: {stop: [forced_premature, transplant, T5, T6], tool_select: [natural, transplant, T1, T2, T3, T4],
+               rho_edit: 0.5, rho_t5: 0.25, rho_transplant: 0.25, transplant_llm: lite2, transplant_temperature: 1.0,
+               tau_ref: 0.5}

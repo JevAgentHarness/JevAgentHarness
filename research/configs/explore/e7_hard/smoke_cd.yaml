@@ -1,0 +1,18 @@
+# E7c direct-API row smoke (development only, never reported as a result): its two arms on 2 development tasks (seeds
+# 7294, 7295: E7c's registered smoke seeds, never run), the same settings as eval_cd.yaml; its mean $ per episode per
+# arm gives the row's projection (scripts/explore_e7_hard.py --exp e7cd project).
+name: e7cd_hard_smoke
+suite: {name: jevgym, n: 2, seed0: 7294, families: multi, multi_customers: 12, multi_rule: tier, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 2
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+harness_defaults: {max_steps: 45}
+s1_backends:
+  jevagent_rl: {type: jev, name: jevagentrl-4b, base_url: "http://127.0.0.1:8081", model: jevagentrl-4b, api_key: "",
+                timeout: 60.0, cache: null}
+workers: 24
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}
+  # the 4B's tool_select fit accepts no confidence level: always defer (A6.11 (c): System-1 not asked there); tool_params
+  # tau-hat 1.0 is reached only inside System-1-chosen calls, so it never fires; the reflection trigger (0.5) asks the 4B
+  - {name: rl_refit, s1: jevagent_rl, tool_select: {mode: cascade, tau: 1.0, always_defer: true}, tool_params: {mode: cascade, tau: 1.0}, reflection: {mode: trigger, tau: 0.5}}

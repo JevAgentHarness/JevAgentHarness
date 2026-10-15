@@ -1,0 +1,56 @@
+{
+ "smoke_per_episode": {
+  "llm_only": 0.015341175,
+  "small_only": 0.003218095,
+  "mw_assist": 0.029803113,
+  "rf_assist": 0.024581286,
+  "st_assist": 0.018965598,
+  "rt_assist": 0.002613762,
+  "rf_guard": 0.025517174999999996,
+  "rt_guard": 0.002197717,
+  "mr_guard": 0.040361331
+ },
+ "smoke_wall_s": {
+  "llm_only": 7.7451402935,
+  "small_only": 6.956924393999998,
+  "mw_assist": 15.163292974499994,
+  "rf_assist": 13.739024527499993,
+  "st_assist": 9.116360820999999,
+  "rt_assist": 6.426816661000004,
+  "rf_guard": 12.077409656999997,
+  "rt_guard": 6.1040980595,
+  "mr_guard": 17.615319432
+ },
+ "smoke_n": {
+  "llm_only": 2,
+  "small_only": 2,
+  "mw_assist": 2,
+  "rf_assist": 2,
+  "st_assist": 2,
+  "rt_assist": 2,
+  "rf_guard": 2,
+  "rt_guard": 2,
+  "mr_guard": 2
+ },
+ "smoke_errors": {
+  "llm_only": 0,
+  "small_only": 0,
+  "mw_assist": 0,
+  "rf_assist": 0,
+  "st_assist": 0,
+  "rt_assist": 0,
+  "rf_guard": 0,
+  "rt_guard": 0,
+  "mr_guard": 0
+ },
+ "missing_arms": [],
+ "spent_so_far": 0.95047094,
+ "safety": 1.5,
+ "cap": 120.0,
+ "per_task_all_arms": 0.16259925199999997,
+ "projected_200": 48.779775599999994,
+ "fits_200": true,
+ "projected_100": 24.389887799999997,
+ "fits_100": true,
+ "decision": "run all 200"
+}

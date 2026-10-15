@@ -1,0 +1,2 @@
+name, memory.used [MiB], utilization.gpu [%]
+NVIDIA A10G, 0 MiB, 0 %

@@ -1,0 +1,318 @@
+{
+ "row": "exploratory (E6a)",
+ "label": "descriptive, revises no registered result, not the registered S2-L3b",
+ "generated": "2026-10-06T06:23:50+00:00",
+ "git": "6b8175ef6fa5287213ddc619d9baeefafac5310f",
+ "eval": {
+  "split": "valid_seen",
+  "n_games": 140,
+  "list_sha256": "5a914a32fa171b1db5fe72d5627e891496074c2135ae8995db13c6b43b83af2d",
+  "run": "runs/e6a_alfworld_eval",
+  "files": {
+   "llm_only": {
+    "sha256": "9959b5e4445da3c93d30921147bd0cea2ebe38ef75dd8c808e6a84477798e0a7",
+    "records": 140
+   },
+   "jev_action_replace": {
+    "sha256": "08242a31a8a77f9dd8b986df11db31fe755d716b5498e314ade7b527b33dd8bc",
+    "records": 141
+   },
+   "jev_action_cascade_tauhat": {
+    "sha256": "23d47b36a0c6ec57e89b4dc1bc015bafd2e5d5c96683ae6140b47876d85dc908",
+    "records": 140
+   },
+   "jev_action_assist_k3": {
+    "sha256": "38b2c2df8c3a9532c19f36f7bed96ff847062131b1344c2e148d7f245d534ec1",
+    "records": 140
+   }
+  }
+ },
+ "settings": {
+  "agent_llm": "gemini-3.5-flash (temperature 0, reasoning_effort minimal)",
+  "decision_model": "Jev via OpenRouter (typesafe/jev-1.13)",
+  "max_steps": 50,
+  "history_window": 12,
+  "assist_k": 3,
+  "schedule": "task_major, seed 732"
+ },
+ "tau": {
+  "tau_hat": 0.95,
+  "deploy": {
+   "mode": "cascade",
+   "tau": 0.95
+  },
+  "rule": "projection",
+  "n_paired": 707,
+  "cal_games": 48,
+  "V": 0.08695652173913049,
+  "V_source": "counterfactual",
+  "delta_c": 0.0014811555869872703
+ },
+ "reference": {
+  "n": 140,
+  "n_errored": 0,
+  "success": 0.9142857142857143,
+  "cost_usd": 0.018448071428571428,
+  "wall_mean_s": 24.11132399245712,
+  "wall_median_s": 13.652774865500078,
+  "steps": 12.692857142857143,
+  "llm_calls": 12.692857142857143,
+  "decisions": {
+   "n_decisions": 1777,
+   "coverage": 0.0,
+   "n_gold": 1777,
+   "llm_acc": 0.4670793472144063,
+   "acc": 0.4670793472144063
+  }
+ },
+ "arms": {
+  "replace": {
+   "arm": "jev_action_replace",
+   "status": "run",
+   "n_expected": 140,
+   "n": 140,
+   "n_dropped": 0,
+   "dropped": {
+    "arm": {
+     "missing": 0,
+     "errored": 0
+    },
+    "ref": {
+     "missing": 0,
+     "errored": 0
+    }
+   },
+   "success": 0.2714285714285714,
+   "success_ref": 0.9142857142857143,
+   "delta_pt": -64.28571428571428,
+   "delta_ci_pt": [
+    -72.14285714285714,
+    -56.42857142857143
+   ],
+   "delta_newcombe_pt": [
+    -71.35711792336737,
+    -55.24592432002701
+   ],
+   "wins": 0,
+   "losses": 90,
+   "cost_usd": 0.0017097426000000002,
+   "cost_ref_usd": 0.018448071428571428,
+   "gemini_usd": 0.0,
+   "jev_usd": 0.0017097426000000002,
+   "saving": 0.9073213367250932,
+   "saving_ci": [
+    0.879750838895306,
+    0.9261976304201341
+   ],
+   "wall_mean_s": 18.729913965264288,
+   "wall_median_s": 19.818589579499985,
+   "wall_ref_mean_s": 24.11132399245712,
+   "wall_ref_median_s": 13.652774865500078,
+   "wall_delta_median_s": 1.5908908554999925,
+   "steps": 40.542857142857144,
+   "llm_calls": 0.0,
+   "s1_calls": 40.542857142857144,
+   "decisions": {
+    "n_decisions": 5676,
+    "coverage": 1.0,
+    "n_gold": 5676,
+    "s1_acc": 0.1767089499647639,
+    "mean_conf": 0.5071229739252996,
+    "llm_acc": null,
+    "acc": 0.1767089499647639
+   }
+  },
+  "cascade": {
+   "arm": "jev_action_cascade_tauhat",
+   "status": "run",
+   "n_expected": 140,
+   "n": 140,
+   "n_dropped": 0,
+   "dropped": {
+    "arm": {
+     "missing": 0,
+     "errored": 0
+    },
+    "ref": {
+     "missing": 0,
+     "errored": 0
+    }
+   },
+   "success": 0.9142857142857143,
+   "success_ref": 0.9142857142857143,
+   "delta_pt": 0.0,
+   "delta_ci_pt": [
+    -4.285714285714281,
+    3.571428571428581
+   ],
+   "delta_newcombe_pt": [
+    -4.6973133930575965,
+    4.6973133930575965
+   ],
+   "wins": 4,
+   "losses": 4,
+   "cost_usd": 0.015868187785714288,
+   "cost_ref_usd": 0.018448071428571428,
+   "gemini_usd": 0.015348664285714284,
+   "jev_usd": 0.0005195235000000001,
+   "saving": 0.13984570977221766,
+   "saving_ci": [
+    -0.027998183147956546,
+    0.2824489221857017
+   ],
+   "wall_mean_s": 22.28128121482857,
+   "wall_median_s": 12.931583834499975,
+   "wall_ref_mean_s": 24.11132399245712,
+   "wall_ref_median_s": 13.652774865500078,
+   "wall_delta_median_s": -0.8648170684998604,
+   "steps": 13.185714285714285,
+   "llm_calls": 10.107142857142858,
+   "s1_calls": 13.185714285714285,
+   "decisions": {
+    "n_decisions": 1846,
+    "coverage": 0.233477789815818,
+    "n_gold": 1846,
+    "s1_acc": 0.41874322860238355,
+    "mean_conf": 0.6936890574214519,
+    "accepted_acc": 0.7354988399071926,
+    "deferred_llm_acc": 0.3448763250883392,
+    "llm_acc": 0.3448763250883392,
+    "acc": 0.7354988399071926
+   }
+  },
+  "assist": {
+   "arm": "jev_action_assist_k3",
+   "status": "run",
+   "n_expected": 140,
+   "n": 140,
+   "n_dropped": 0,
+   "dropped": {
+    "arm": {
+     "missing": 0,
+     "errored": 0
+    },
+    "ref": {
+     "missing": 0,
+     "errored": 0
+    }
+   },
+   "success": 0.5071428571428571,
+   "success_ref": 0.9142857142857143,
+   "delta_pt": -40.714285714285715,
+   "delta_ci_pt": [
+    -49.28571428571429,
+    -32.14285714285714
+   ],
+   "delta_newcombe_pt": [
+    -48.85221026646348,
+    -31.87946298641161
+   ],
+   "wins": 1,
+   "losses": 58,
+   "cost_usd": 0.05202787752857143,
+   "cost_ref_usd": 0.018448071428571428,
+   "gemini_usd": 0.050733321428571426,
+   "jev_usd": 0.0012945561000000001,
+   "saving": -1.8202339594150376,
+   "saving_ci": [
+    -2.6730832481089486,
+    -1.2255834989972436
+   ],
+   "wall_mean_s": 57.08760659727142,
+   "wall_median_s": 53.14384186099983,
+   "wall_ref_mean_s": 24.11132399245712,
+   "wall_ref_median_s": 13.652774865500078,
+   "wall_delta_median_s": 23.08305573749976,
+   "steps": 29.97142857142857,
+   "llm_calls": 29.97142857142857,
+   "s1_calls": 29.97142857142857,
+   "decisions": {
+    "n_decisions": 4196,
+    "coverage": 0.0,
+    "n_gold": 4196,
+    "s1_acc": 0.2361773117254528,
+    "mean_conf": 0.5652502383222117,
+    "recall_k": 0.3753574833174452,
+    "k": 3,
+    "llm_acc": 0.22259294566253573,
+    "acc": 0.3753574833174452
+   }
+  }
+ },
+ "by_task_type": {
+  "pick_and_place_simple": {
+   "n": 35,
+   "llm_only": 1.0,
+   "replace": 0.45714285714285713,
+   "cascade": 1.0,
+   "assist": 0.7142857142857143
+  },
+  "look_at_obj_in_light": {
+   "n": 13,
+   "llm_only": 1.0,
+   "replace": 0.38461538461538464,
+   "cascade": 1.0,
+   "assist": 0.46153846153846156
+  },
+  "pick_clean_then_place_in_recep": {
+   "n": 27,
+   "llm_only": 0.7407407407407407,
+   "replace": 0.2962962962962963,
+   "cascade": 0.7777777777777778,
+   "assist": 0.37037037037037035
+  },
+  "pick_heat_then_place_in_recep": {
+   "n": 16,
+   "llm_only": 0.9375,
+   "replace": 0.1875,
+   "cascade": 0.875,
+   "assist": 0.5625
+  },
+  "pick_cool_then_place_in_recep": {
+   "n": 25,
+   "llm_only": 0.84,
+   "replace": 0.08,
+   "cascade": 0.84,
+   "assist": 0.24
+  },
+  "pick_two_obj_and_place": {
+   "n": 24,
+   "llm_only": 1.0,
+   "replace": 0.16666666666666666,
+   "cascade": 1.0,
+   "assist": 0.625
+  }
+ },
+ "spend": {
+  "by_run": {
+   "e6a_alfworld_cal": {
+    "gemini": 1.0471769999999998,
+    "jev": 0.027187356,
+    "total": 1.074364356,
+    "records": 48
+   },
+   "e6a_alfworld_smoke": {
+    "gemini": 0.11768700000000003,
+    "jev": 0.006381522000000001,
+    "total": 0.124068522,
+    "records": 8
+   },
+   "e6a_alfworld_eval": {
+    "gemini": 11.834208,
+    "jev": 0.49496227199999987,
+    "total": 12.329170271999999,
+    "records": 561
+   },
+   "e6a_alfworld_cal_container_aborted": {
+    "gemini": 0.553,
+    "jev": 0.013,
+    "total": 0.566,
+    "records": 48
+   }
+  },
+  "gemini": 13.552072,
+  "jev": 0.5415311499999999,
+  "total": 14.09360315,
+  "records": 665
+ }
+}

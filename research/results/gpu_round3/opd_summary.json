@@ -1,0 +1,30 @@
+{
+ "out": "checkpoints/v0/r9-opd-pilot",
+ "iterations_done": 2,
+ "stop_reason": "iterations",
+ "student": "Qwen/Qwen3-4B",
+ "init": "checkpoints/v0/r2",
+ "teacher": {
+  "type": "jev",
+  "provider": "openrouter"
+ },
+ "executor": {
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "reasoning_effort": "minimal"
+ },
+ "loss": "forward_kl",
+ "teacher_ledger": {
+  "calls": 211,
+  "calls_fresh": 211,
+  "input_tokens": 332484,
+  "output_tokens": 107204,
+  "cost_usd": 0.013964328000000002,
+  "cost_usd_fresh": 0.013964328000000002,
+  "latency_ms_sum": 34143.21057501911,
+  "unpriced_models": [],
+  "cost_usd_total_incl_resumed": 0.013964328000000002,
+  "calls_total_incl_resumed": 211
+ }
+}

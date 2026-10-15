@@ -1,0 +1,24 @@
+# Stage 2 (docs/PREREG_A7_STAGE2.md A7.18 (e) 1): StartLux-Decision on the E1 static decisions, descriptive. The E1
+# config (configs/decision/bfcl_when2call.yaml) with the StartLux backends (the vendor's server in the Jev wire format,
+# scripts/aws/serve_startlux.sh): same pools, exclusions (C8 population) and batching as E1, so the records pair item by
+# item with the Stage-1 `jev` and Intern-Decision rows. The vendor states that 14 of the 38 Decision Index benchmarks'
+# public train splits are in its training data (BFCL and When2Call are not among them); public items, so an overlap note
+# goes with these rows (A7.18 (c)). One size at a time on its own host:
+#   python -m jevharness.bench.decision_eval configs/decision/bfcl_when2call_startlux.yaml --out runs --only startlux_4b
+#   python -m jevharness.bench.decision_eval configs/decision/bfcl_when2call_startlux.yaml --out runs --only startlux_27b
+name: e1_bfcl_when2call_startlux
+suites:
+  - {name: bfcl, categories: [simple_python, multiple, live_simple, live_multiple, irrelevance, live_irrelevance], max_per_cat: 200}
+  - {name: when2call, max_items: 1000}
+exclude_ids_file: configs/eval/e1_dev_prefix_ids.json   # A6.13: as E1
+batch_by_state: true
+s1_cache: cache/s1_stage2_startlux.sqlite
+workers: 4
+backends:
+  startlux_4b: {type: jev, name: startlux-4b, base_url: "http://localhost:8090", model: StartLux-Decision-4B, api_key: "",
+                price_model: StartLux-Decision-4B, timeout: 60.0}
+  startlux_27b: {type: jev, name: startlux-27b, base_url: "http://localhost:8091", model: StartLux-Decision-27B, api_key: "",
+                 price_model: StartLux-Decision-27B, timeout: 120.0}
+  # Intern-Decision-4B (in-process, GPU): Stage 1's E1 config has no Intern backend, so the static-vs-in-the-loop table
+  # of A7.18 (h) takes Intern's E1 row from here (descriptive)
+  intern_4b: {type: intern_decision, model: internlm/Intern-Decision-4B, device: auto, max_length: 8192}

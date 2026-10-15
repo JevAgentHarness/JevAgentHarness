@@ -1,0 +1,1095 @@
+{
+ "n_records": 1594,
+ "n_paired": 1328,
+ "task_value": 1.0,
+ "lam_per_hour": 0.0,
+ "n_bins": 10,
+ "min_count": 20,
+ "notes": [],
+ "v_fallback": "W",
+ "fatal_share": {
+  "n_wrong": 29,
+  "n_fatal": 11,
+  "p_fatal": 0.3793103448275862,
+  "unknown_tool": 0,
+  "by_tool": {
+   "ask_user": 18,
+   "ship_order": 10,
+   "cancel_order": 1
+  }
+ },
+ "seeds": {
+  "n_tasks": 150,
+  "min": 5000,
+  "max": 5149
+ },
+ "primary": {
+  "W": 1.0,
+  "lam_per_hour": 0.0,
+  "V": 1.0,
+  "V_ci": null,
+  "delta_c": 0.0034651068524096384,
+  "delta_c_source": "ledger, split over the step's argument decisions",
+  "slots_per_call": 1.6704402515723271,
+  "kappa": 0.0,
+  "V_source": "fallback W (no episode with a wrong System-2 decision in the calibration log; A6.11)",
+  "n_wrong_episodes": 0,
+  "note": "V = 1 by the A6.11 fallback (W): no episode with a wrong System-2 decision in the calibration log",
+  "projection": {
+   "n": 1328,
+   "V": 1.0,
+   "delta_c": 0.0034651068524096384,
+   "n_bins": 10,
+   "min_count": 20,
+   "bins": [
+    {
+     "lo": -Infinity,
+     "hi": 0.9679150581359863,
+     "c_min": 0.49995362758636475,
+     "c_mean": 0.8587258108576438,
+     "n": 133,
+     "n_acceptable": 120,
+     "q_L": 1.0,
+     "g": 0.7666666666666667,
+     "advantage": -0.22986822648092364,
+     "accept": false,
+     "fallback": {
+      "q_L": false,
+      "g": false
+     }
+    },
+    {
+     "lo": 0.9679150581359863,
+     "hi": 0.9906814694404602,
+     "c_min": 0.9679150581359863,
+     "c_mean": 0.9805163476700173,
+     "n": 133,
+     "n_acceptable": 123,
+     "q_L": 1.0,
+     "g": 1.0,
+     "advantage": 0.0034651068524096384,
+     "accept": true,
+     "fallback": {
+      "q_L": false,
+      "g": false
+     }
+    },
+    {
+     "lo": 0.9906814694404602,
+     "hi": 0.9947022795677185,
+     "c_min": 0.9906814694404602,
+     "c_mean": 0.9926340288685677,
+     "n": 133,
+     "n_acceptable": 132,
+     "q_L": 1.0,
+     "g": 1.0,
+     "advantage": 0.0034651068524096384,
+     "accept": true,
+     "fallback": {
+      "q_L": false,
+      "g": false
+     }
+    },
+    {
+     "lo": 0.9947022795677185,
+     "hi": 0.9965857267379761,
+     "c_min": 0.9947022795677185,
+     "c_mean": 0.9957917761622053,
+     "n": 132,
+     "n_acceptable": 128,
+     "q_L": 1.0,
+     "g": 1.0,
+     "advantage": 0.0034651068524096384,
+     "accept": true,
+     "fallback": {
+      "q_L": false,
+      "g": false
+     }
+    },
+    {
+     "lo": 0.9965857267379761,
+     "hi": 0.9989569187164307,
+     "c_min": 0.9965857267379761,
+     "c_mean": 0.9976323255986879,
+     "n": 132,
+     "n_acceptable": 120,
+     "q_L": 1.0,
+     "g": 0.9916666666666667,
+     "advantage": -0.004868226480923665,
+     "accept": false,
+     "fallback": {
+      "q_L": false,
+      "g": false
+     }
+    },
+    {
+     "lo": 0.9989569187164307,
+     "hi": 0.9999027252197266,
+     "c_min": 0.9989569187164307,
+     "c_mean": 0.9996678602339616,
+     "n": 134,
+     "n_acceptable": 124,
+     "q_L": 1.0,
+     "g": 1.0,
+     "advantage": 0.0034651068524096384,
+     "accept": true,
+     "fallback": {
+      "q_L": false,
+      "g": false
+     }
+    },
+    {
+     "lo": 0.9999027252197266,
+     "hi": 0.9999994039535522,
+     "c_min": 0.9999027252197266,
+     "c_mean": 0.9999622259140014,
+     "n": 125,
+     "n_acceptable": 100,
+     "q_L": 1.0,
+     "g": 1.0,
+     "advantage": 0.0034651068524096384,
+     "accept": true,
+     "fallback": {
+      "q_L": false,
+      "g": false
+     }
+    },
+    {
+     "lo": 0.9999994039535522,
+     "hi": 1.0,
+     "c_min": 0.9999994039535522,
+     "c_mean": 0.9999997286420119,
+     "n": 76,
+     "n_acceptable": 71,
+     "q_L": 1.0,
+     "g": 1.0,
+     "advantage": 0.0034651068524096384,
+     "accept": true,
+     "fallback": {
+      "q_L": false,
+      "g": false
+     }
+    },
+    {
+     "lo": 1.0,
+     "hi": Infinity,
+     "c_min": 1.0,
+     "c_mean": 1.0,
+     "n": 330,
+     "n_acceptable": 330,
+     "q_L": 1.0,
+     "g": 1.0,
+     "advantage": 0.0034651068524096384,
+     "accept": true,
+     "fallback": {
+      "q_L": false,
+      "g": false
+     }
+    }
+   ],
+   "k": 0.0034651068524096384,
+   "tail_bin": 5,
+   "tau_hat": 0.9989569187164307,
+   "crossing": 0.9679150581359863,
+   "islands": [
+    1,
+    2,
+    3
+   ],
+   "monotone": false,
+   "tau_gain": 0.9679150581359863,
+   "pointwise": {
+    "accept_rate": 0.8004518072289156,
+    "bins_accepting": [
+     1,
+     2,
+     3,
+     5,
+     6,
+     7,
+     8
+    ]
+   },
+   "scalar_accept_rate": 0.5007530120481928,
+   "disagreement": 0.2996987951807229
+  },
+  "tau_hat": 0.9989569187164307,
+  "crossing": 0.9679150581359863,
+  "tau_gain": 0.9679150581359863,
+  "monotone": false,
+  "disagreement": 0.2996987951807229,
+  "plug_in": {
+   "n": 1248,
+   "k": 0.0034651068524096384,
+   "q_L": 1.0,
+   "prop1": 0.9965348931475904,
+   "qL": 0.9965399503707886,
+   "qL_crossing": 0.9965399503707886,
+   "qL_interval": true,
+   "qL_disagreement": 0.0,
+   "general": 0.9657243490219116,
+   "general_crossing": 0.9657243490219116,
+   "general_interval": true,
+   "general_disagreement": 0.0
+  },
+  "tau_rule": "projection"
+ },
+ "sensitivity": [
+  {
+   "W": 0.1,
+   "lam_per_hour": 0.0,
+   "V": 0.1,
+   "V_ci": null,
+   "delta_c": 0.0034651068524096384,
+   "delta_c_source": "ledger, split over the step's argument decisions",
+   "slots_per_call": 1.6704402515723271,
+   "kappa": 0.0,
+   "V_source": "fallback W (no episode with a wrong System-2 decision in the calibration log; A6.11)",
+   "n_wrong_episodes": 0,
+   "note": "V = 0.1 by the A6.11 fallback (W): no episode with a wrong System-2 decision in the calibration log",
+   "projection": {
+    "n": 1328,
+    "V": 0.1,
+    "delta_c": 0.0034651068524096384,
+    "n_bins": 10,
+    "min_count": 20,
+    "bins": [
+     {
+      "lo": -Infinity,
+      "hi": 0.9679150581359863,
+      "c_min": 0.49995362758636475,
+      "c_mean": 0.8587258108576438,
+      "n": 133,
+      "n_acceptable": 120,
+      "q_L": 1.0,
+      "g": 0.7666666666666667,
+      "advantage": -0.1986822648092369,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9679150581359863,
+      "hi": 0.9906814694404602,
+      "c_min": 0.9679150581359863,
+      "c_mean": 0.9805163476700173,
+      "n": 133,
+      "n_acceptable": 123,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.034651068524096384,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9906814694404602,
+      "hi": 0.9947022795677185,
+      "c_min": 0.9906814694404602,
+      "c_mean": 0.9926340288685677,
+      "n": 133,
+      "n_acceptable": 132,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.034651068524096384,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9947022795677185,
+      "hi": 0.9965857267379761,
+      "c_min": 0.9947022795677185,
+      "c_mean": 0.9957917761622053,
+      "n": 132,
+      "n_acceptable": 128,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.034651068524096384,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9965857267379761,
+      "hi": 0.9989569187164307,
+      "c_min": 0.9965857267379761,
+      "c_mean": 0.9976323255986879,
+      "n": 132,
+      "n_acceptable": 120,
+      "q_L": 1.0,
+      "g": 0.9916666666666667,
+      "advantage": 0.02631773519076308,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9989569187164307,
+      "hi": 0.9999027252197266,
+      "c_min": 0.9989569187164307,
+      "c_mean": 0.9996678602339616,
+      "n": 134,
+      "n_acceptable": 124,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.034651068524096384,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9999027252197266,
+      "hi": 0.9999994039535522,
+      "c_min": 0.9999027252197266,
+      "c_mean": 0.9999622259140014,
+      "n": 125,
+      "n_acceptable": 100,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.034651068524096384,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9999994039535522,
+      "hi": 1.0,
+      "c_min": 0.9999994039535522,
+      "c_mean": 0.9999997286420119,
+      "n": 76,
+      "n_acceptable": 71,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.034651068524096384,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 1.0,
+      "hi": Infinity,
+      "c_min": 1.0,
+      "c_mean": 1.0,
+      "n": 330,
+      "n_acceptable": 330,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.034651068524096384,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     }
+    ],
+    "k": 0.034651068524096384,
+    "tail_bin": 1,
+    "tau_hat": 0.9679150581359863,
+    "crossing": 0.9679150581359863,
+    "islands": [],
+    "monotone": true,
+    "tau_gain": 0.9679150581359863,
+    "pointwise": {
+     "accept_rate": 0.8998493975903614,
+     "bins_accepting": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+     ]
+    },
+    "scalar_accept_rate": 0.8998493975903614,
+    "disagreement": 0.0
+   },
+   "tau_hat": 0.9679150581359863,
+   "crossing": 0.9679150581359863,
+   "tau_gain": 0.9679150581359863,
+   "monotone": true,
+   "disagreement": 0.0,
+   "plug_in": {
+    "n": 1248,
+    "k": 0.034651068524096384,
+    "q_L": 1.0,
+    "prop1": 0.9653489314759036,
+    "qL": 0.965645432472229,
+    "qL_crossing": 0.965645432472229,
+    "qL_interval": true,
+    "qL_disagreement": 0.0,
+    "general": 0.8581660389900208,
+    "general_crossing": 0.8581660389900208,
+    "general_interval": true,
+    "general_disagreement": 0.0
+   },
+   "tau_rule": "projection"
+  },
+  {
+   "W": 10.0,
+   "lam_per_hour": 0.0,
+   "V": 10.0,
+   "V_ci": null,
+   "delta_c": 0.0034651068524096384,
+   "delta_c_source": "ledger, split over the step's argument decisions",
+   "slots_per_call": 1.6704402515723271,
+   "kappa": 0.0,
+   "V_source": "fallback W (no episode with a wrong System-2 decision in the calibration log; A6.11)",
+   "n_wrong_episodes": 0,
+   "note": "V = 10 by the A6.11 fallback (W): no episode with a wrong System-2 decision in the calibration log",
+   "projection": {
+    "n": 1328,
+    "V": 10.0,
+    "delta_c": 0.0034651068524096384,
+    "n_bins": 10,
+    "min_count": 20,
+    "bins": [
+     {
+      "lo": -Infinity,
+      "hi": 0.9679150581359863,
+      "c_min": 0.49995362758636475,
+      "c_mean": 0.8587258108576438,
+      "n": 133,
+      "n_acceptable": 120,
+      "q_L": 1.0,
+      "g": 0.7666666666666667,
+      "advantage": -0.2329868226480923,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9679150581359863,
+      "hi": 0.9906814694404602,
+      "c_min": 0.9679150581359863,
+      "c_mean": 0.9805163476700173,
+      "n": 133,
+      "n_acceptable": 123,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.00034651068524096387,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9906814694404602,
+      "hi": 0.9947022795677185,
+      "c_min": 0.9906814694404602,
+      "c_mean": 0.9926340288685677,
+      "n": 133,
+      "n_acceptable": 132,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.00034651068524096387,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9947022795677185,
+      "hi": 0.9965857267379761,
+      "c_min": 0.9947022795677185,
+      "c_mean": 0.9957917761622053,
+      "n": 132,
+      "n_acceptable": 128,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.00034651068524096387,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9965857267379761,
+      "hi": 0.9989569187164307,
+      "c_min": 0.9965857267379761,
+      "c_mean": 0.9976323255986879,
+      "n": 132,
+      "n_acceptable": 120,
+      "q_L": 1.0,
+      "g": 0.9916666666666667,
+      "advantage": -0.00798682264809234,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9989569187164307,
+      "hi": 0.9999027252197266,
+      "c_min": 0.9989569187164307,
+      "c_mean": 0.9996678602339616,
+      "n": 134,
+      "n_acceptable": 124,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.00034651068524096387,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9999027252197266,
+      "hi": 0.9999994039535522,
+      "c_min": 0.9999027252197266,
+      "c_mean": 0.9999622259140014,
+      "n": 125,
+      "n_acceptable": 100,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.00034651068524096387,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9999994039535522,
+      "hi": 1.0,
+      "c_min": 0.9999994039535522,
+      "c_mean": 0.9999997286420119,
+      "n": 76,
+      "n_acceptable": 71,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.00034651068524096387,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 1.0,
+      "hi": Infinity,
+      "c_min": 1.0,
+      "c_mean": 1.0,
+      "n": 330,
+      "n_acceptable": 330,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.00034651068524096387,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     }
+    ],
+    "k": 0.00034651068524096387,
+    "tail_bin": 5,
+    "tau_hat": 0.9989569187164307,
+    "crossing": 0.9679150581359863,
+    "islands": [
+     1,
+     2,
+     3
+    ],
+    "monotone": false,
+    "tau_gain": 0.9989569187164307,
+    "pointwise": {
+     "accept_rate": 0.8004518072289156,
+     "bins_accepting": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8
+     ]
+    },
+    "scalar_accept_rate": 0.5007530120481928,
+    "disagreement": 0.2996987951807229
+   },
+   "tau_hat": 0.9989569187164307,
+   "crossing": 0.9679150581359863,
+   "tau_gain": 0.9989569187164307,
+   "monotone": false,
+   "disagreement": 0.2996987951807229,
+   "plug_in": {
+    "n": 1248,
+    "k": 0.00034651068524096387,
+    "q_L": 1.0,
+    "prop1": 0.9996534893147591,
+    "qL": 0.9996603727340698,
+    "qL_crossing": 0.9996603727340698,
+    "qL_interval": true,
+    "qL_disagreement": 0.0,
+    "general": 0.9970159530639648,
+    "general_crossing": 0.9970159530639648,
+    "general_interval": true,
+    "general_disagreement": 0.0
+   },
+   "tau_rule": "projection"
+  },
+  {
+   "W": 1.0,
+   "lam_per_hour": 0.5,
+   "V": 1.0,
+   "V_ci": null,
+   "delta_c": 0.0035413690718298267,
+   "delta_c_source": "ledger, split over the step's argument decisions",
+   "slots_per_call": 1.6704402515723271,
+   "kappa": 1.844190035837661e-05,
+   "V_source": "fallback W (no episode with a wrong System-2 decision in the calibration log; A6.11)",
+   "n_wrong_episodes": 0,
+   "note": "V = 1 by the A6.11 fallback (W): no episode with a wrong System-2 decision in the calibration log",
+   "projection": {
+    "n": 1328,
+    "V": 1.0,
+    "delta_c": 0.0035413690718298267,
+    "n_bins": 10,
+    "min_count": 20,
+    "bins": [
+     {
+      "lo": -Infinity,
+      "hi": 0.9679150581359863,
+      "c_min": 0.49995362758636475,
+      "c_mean": 0.8587258108576438,
+      "n": 133,
+      "n_acceptable": 120,
+      "q_L": 1.0,
+      "g": 0.7666666666666667,
+      "advantage": -0.22979196426150345,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9679150581359863,
+      "hi": 0.9906814694404602,
+      "c_min": 0.9679150581359863,
+      "c_mean": 0.9805163476700173,
+      "n": 133,
+      "n_acceptable": 123,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.0035413690718298267,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9906814694404602,
+      "hi": 0.9947022795677185,
+      "c_min": 0.9906814694404602,
+      "c_mean": 0.9926340288685677,
+      "n": 133,
+      "n_acceptable": 132,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.0035413690718298267,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9947022795677185,
+      "hi": 0.9965857267379761,
+      "c_min": 0.9947022795677185,
+      "c_mean": 0.9957917761622053,
+      "n": 132,
+      "n_acceptable": 128,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.0035413690718298267,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9965857267379761,
+      "hi": 0.9989569187164307,
+      "c_min": 0.9965857267379761,
+      "c_mean": 0.9976323255986879,
+      "n": 132,
+      "n_acceptable": 120,
+      "q_L": 1.0,
+      "g": 0.9916666666666667,
+      "advantage": -0.004791964261503477,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9989569187164307,
+      "hi": 0.9999027252197266,
+      "c_min": 0.9989569187164307,
+      "c_mean": 0.9996678602339616,
+      "n": 134,
+      "n_acceptable": 124,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.0035413690718298267,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9999027252197266,
+      "hi": 0.9999994039535522,
+      "c_min": 0.9999027252197266,
+      "c_mean": 0.9999622259140014,
+      "n": 125,
+      "n_acceptable": 100,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.0035413690718298267,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9999994039535522,
+      "hi": 1.0,
+      "c_min": 0.9999994039535522,
+      "c_mean": 0.9999997286420119,
+      "n": 76,
+      "n_acceptable": 71,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.0035413690718298267,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 1.0,
+      "hi": Infinity,
+      "c_min": 1.0,
+      "c_mean": 1.0,
+      "n": 330,
+      "n_acceptable": 330,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.0035413690718298267,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     }
+    ],
+    "k": 0.0035413690718298267,
+    "tail_bin": 5,
+    "tau_hat": 0.9989569187164307,
+    "crossing": 0.9679150581359863,
+    "islands": [
+     1,
+     2,
+     3
+    ],
+    "monotone": false,
+    "tau_gain": 0.9679150581359863,
+    "pointwise": {
+     "accept_rate": 0.8004518072289156,
+     "bins_accepting": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8
+     ]
+    },
+    "scalar_accept_rate": 0.5007530120481928,
+    "disagreement": 0.2996987951807229
+   },
+   "tau_hat": 0.9989569187164307,
+   "crossing": 0.9679150581359863,
+   "tau_gain": 0.9679150581359863,
+   "monotone": false,
+   "disagreement": 0.2996987951807229,
+   "plug_in": {
+    "n": 1248,
+    "k": 0.0035413690718298267,
+    "q_L": 1.0,
+    "prop1": 0.9964586309281702,
+    "qL": 0.9964602589607239,
+    "qL_crossing": 0.9964602589607239,
+    "qL_interval": true,
+    "qL_disagreement": 0.0,
+    "general": 0.9657243490219116,
+    "general_crossing": 0.9657243490219116,
+    "general_interval": true,
+    "general_disagreement": 0.0
+   },
+   "tau_rule": "projection"
+  },
+  {
+   "W": 1.0,
+   "lam_per_hour": 5.0,
+   "V": 1.0,
+   "V_ci": null,
+   "delta_c": 0.0042277290466115214,
+   "delta_c_source": "ledger, split over the step's argument decisions",
+   "slots_per_call": 1.6704402515723271,
+   "kappa": 0.00018441900358376613,
+   "V_source": "fallback W (no episode with a wrong System-2 decision in the calibration log; A6.11)",
+   "n_wrong_episodes": 0,
+   "note": "V = 1 by the A6.11 fallback (W): no episode with a wrong System-2 decision in the calibration log",
+   "projection": {
+    "n": 1328,
+    "V": 1.0,
+    "delta_c": 0.0042277290466115214,
+    "n_bins": 10,
+    "min_count": 20,
+    "bins": [
+     {
+      "lo": -Infinity,
+      "hi": 0.9679150581359863,
+      "c_min": 0.49995362758636475,
+      "c_mean": 0.8587258108576438,
+      "n": 133,
+      "n_acceptable": 120,
+      "q_L": 1.0,
+      "g": 0.7666666666666667,
+      "advantage": -0.22910560428672175,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9679150581359863,
+      "hi": 0.9906814694404602,
+      "c_min": 0.9679150581359863,
+      "c_mean": 0.9805163476700173,
+      "n": 133,
+      "n_acceptable": 123,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.0042277290466115214,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9906814694404602,
+      "hi": 0.9947022795677185,
+      "c_min": 0.9906814694404602,
+      "c_mean": 0.9926340288685677,
+      "n": 133,
+      "n_acceptable": 132,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.0042277290466115214,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9947022795677185,
+      "hi": 0.9965857267379761,
+      "c_min": 0.9947022795677185,
+      "c_mean": 0.9957917761622053,
+      "n": 132,
+      "n_acceptable": 128,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.0042277290466115214,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9965857267379761,
+      "hi": 0.9989569187164307,
+      "c_min": 0.9965857267379761,
+      "c_mean": 0.9976323255986879,
+      "n": 132,
+      "n_acceptable": 120,
+      "q_L": 1.0,
+      "g": 0.9916666666666667,
+      "advantage": -0.004105604286721782,
+      "accept": false,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9989569187164307,
+      "hi": 0.9999027252197266,
+      "c_min": 0.9989569187164307,
+      "c_mean": 0.9996678602339616,
+      "n": 134,
+      "n_acceptable": 124,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.0042277290466115214,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9999027252197266,
+      "hi": 0.9999994039535522,
+      "c_min": 0.9999027252197266,
+      "c_mean": 0.9999622259140014,
+      "n": 125,
+      "n_acceptable": 100,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.0042277290466115214,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 0.9999994039535522,
+      "hi": 1.0,
+      "c_min": 0.9999994039535522,
+      "c_mean": 0.9999997286420119,
+      "n": 76,
+      "n_acceptable": 71,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.0042277290466115214,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     },
+     {
+      "lo": 1.0,
+      "hi": Infinity,
+      "c_min": 1.0,
+      "c_mean": 1.0,
+      "n": 330,
+      "n_acceptable": 330,
+      "q_L": 1.0,
+      "g": 1.0,
+      "advantage": 0.0042277290466115214,
+      "accept": true,
+      "fallback": {
+       "q_L": false,
+       "g": false
+      }
+     }
+    ],
+    "k": 0.0042277290466115214,
+    "tail_bin": 5,
+    "tau_hat": 0.9989569187164307,
+    "crossing": 0.9679150581359863,
+    "islands": [
+     1,
+     2,
+     3
+    ],
+    "monotone": false,
+    "tau_gain": 0.9679150581359863,
+    "pointwise": {
+     "accept_rate": 0.8004518072289156,
+     "bins_accepting": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8
+     ]
+    },
+    "scalar_accept_rate": 0.5007530120481928,
+    "disagreement": 0.2996987951807229
+   },
+   "tau_hat": 0.9989569187164307,
+   "crossing": 0.9679150581359863,
+   "tau_gain": 0.9679150581359863,
+   "monotone": false,
+   "disagreement": 0.2996987951807229,
+   "plug_in": {
+    "n": 1248,
+    "k": 0.0042277290466115214,
+    "q_L": 1.0,
+    "prop1": 0.9957722709533885,
+    "qL": 0.9957846999168396,
+    "qL_crossing": 0.9957846999168396,
+    "qL_interval": true,
+    "qL_disagreement": 0.0,
+    "general": 0.9657243490219116,
+    "general_crossing": 0.9657243490219116,
+    "general_interval": true,
+    "general_disagreement": 0.0
+   },
+   "tau_rule": "projection"
+  }
+ ],
+ "tau_hat": 0.9989569187164307,
+ "tau_rule": {
+  "rule": "projection",
+  "n_paired": 1328,
+  "registered": "A6.5; A6.22 (b) 5",
+  "text": "n_paired >= 30: the scalar-threshold projection (A6.5, A6.11 (c).7, A6.19)"
+ },
+ "meta": {
+  "run_dir": "runs/e28_cal",
+  "arms": [
+   "e28cal"
+  ],
+  "dp": "tool_params",
+  "gold": "acceptable"
+ }
+}

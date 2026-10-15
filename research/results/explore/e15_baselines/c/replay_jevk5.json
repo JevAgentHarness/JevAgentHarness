@@ -1,0 +1,19 @@
+{
+ "registered": "PREREG_A7_STAGE2 Deviations 2026-10-07 'E15: more decision-model baselines' (c) 3",
+ "backend": {
+  "backend": "jevk5",
+  "provider": "typesafe",
+  "model": "jevk5-0.2",
+  "base_url": "http://127.0.0.1:8090",
+  "extra_body": {},
+  "cached": true
+ },
+ "cache": "cache/s1_e15_jevk5_c.sqlite",
+ "order": "sorted question hash, sharded over workers",
+ "workers": 4,
+ "batching": "one question per request (the harness tournament for Choices wider than the backend's max_options)",
+ "retries": 2,
+ "n_questions": 3939,
+ "resumed_with": 0,
+ "written": "2026-10-07T18:55:46+00:00"
+}

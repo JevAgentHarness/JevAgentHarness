@@ -1,0 +1,82 @@
+{
+ "model": "/opt/jev/models/Qwen3-4B",
+ "adapter": null,
+ "calibration": null,
+ "n_perm": 0,
+ "files": {
+  "data/train_v1/dev.jsonl.gz": {
+   "overall": {
+    "n": 2377,
+    "acc": 0.70635,
+    "nll": 5.4837,
+    "brier": 0.27606,
+    "ece": 0.27327,
+    "ece_adaptive": 0.27327,
+    "auroc": 0.6907,
+    "aurc": 0.19492,
+    "mean_conf": 0.97963
+   },
+   "by_dp": {
+    "stop": {
+     "n": 669,
+     "acc": 0.81315,
+     "nll": 1.51305,
+     "brier": 0.1712,
+     "ece": 0.163,
+     "ece_adaptive": 0.1615,
+     "auroc": 0.79495,
+     "aurc": 0.06552,
+     "mean_conf": 0.97465
+    },
+    "tool_params": {
+     "n": 824,
+     "acc": 0.81917,
+     "nll": 3.06586,
+     "brier": 0.16817,
+     "ece": 0.16535,
+     "ece_adaptive": 0.16407,
+     "auroc": 0.7052,
+     "aurc": 0.11372,
+     "mean_conf": 0.98325
+    },
+    "tool_select": {
+     "n": 884,
+     "acc": 0.52036,
+     "nll": 10.74237,
+     "brier": 0.45598,
+     "ece": 0.45966,
+     "ece_adaptive": 0.45966,
+     "auroc": 0.63897,
+     "aurc": 0.39209,
+     "mean_conf": 0.98002
+    }
+   },
+   "by_kind": {
+    "choice": {
+     "n": 1492,
+     "acc": 0.62735,
+     "nll": 7.94936,
+     "brier": 0.35228,
+     "ece": 0.35238,
+     "ece_adaptive": 0.35238,
+     "auroc": 0.66686,
+     "aurc": 0.27601,
+     "mean_conf": 0.97972
+    },
+    "noul": {
+     "n": 885,
+     "acc": 0.83955,
+     "nll": 1.32691,
+     "brier": 0.14755,
+     "ece": 0.14105,
+     "ece_adaptive": 0.13991,
+     "auroc": 0.81375,
+     "aurc": 0.05294,
+     "mean_conf": 0.97946
+    }
+   },
+   "seconds": 556.29,
+   "decisions_per_s": 4.27
+  }
+ }
+}

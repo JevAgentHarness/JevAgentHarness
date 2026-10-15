@@ -1,0 +1,38 @@
+{
+ "checks": {
+  "startlux": {
+   "S1_miles_fsdp_sft_finite": true,
+   "losses": [
+    0.5724831819534302,
+    0.5150839686393738,
+    0.2950519025325775,
+    0.5787748098373413
+   ],
+   "S2_sglang_vs_hf_max_abs_dlogp": 0.12487856226331306,
+   "S2": true,
+   "zeroshot_v1_dev_acc": 0.94194,
+   "S3_kernels": true,
+   "S4": true
+  },
+  "qwen": {
+   "S1_miles_fsdp_sft_finite": true,
+   "losses": [
+    7.271059989929199,
+    8.06739616394043,
+    2.5876004695892334,
+    1.4071930646896362
+   ],
+   "S2_sglang_vs_hf_max_abs_dlogp": 1.2500001393679092,
+   "S2": true,
+   "zeroshot_v1_dev_acc": 0.70635
+  }
+ },
+ "kernels": {
+  "causal_conv1d": "ok (1, 64, 32)",
+  "fla_gated_delta_rule": "ok (1, 64, 2, 64)",
+  "transformers_qwen3_5_fast_path": true
+ },
+ "base": "startlux",
+ "name": "StartLux-Decision-4B",
+ "path": "/opt/jev/models/StartLux-Decision-4B"
+}

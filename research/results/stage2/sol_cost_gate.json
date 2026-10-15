@@ -1,0 +1,96 @@
+{
+ "registered": "PREREG_A7_STAGE2 A7.12 (i) with A7.12 (b), (c)",
+ "written": "2026-10-05T07:17:02+00:00",
+ "members": {
+  "llm_only_sol": {
+   "model": "gpt-6.1-sol",
+   "path": "runs/stage2_dev/sol_eligibility/llm_only_sol.jsonl",
+   "episodes": 50,
+   "attempts": 50,
+   "steps": 375,
+   "malformed": 0,
+   "malformed_rate": 0.0,
+   "infra_errors_left": 0,
+   "context_errors": 0,
+   "s2_calls": 375,
+   "served_models": {
+    "gpt-6.1-sol": 375
+   },
+   "service_tiers": {
+    "default": 375
+   },
+   "pinned": "gpt-6.1-sol",
+   "eligible": true,
+   "cost_per_episode_frozen": 0.011910026,
+   "cost_per_episode": 0.013826136,
+   "smoke_spend": 0.6913068,
+   "tokens_per_episode": {
+    "input": 25918.58,
+    "output": 199.42,
+    "cached": 22063.86,
+    "cache_write": 3832.22,
+    "reasoning": 0.36
+   }
+  },
+  "llm_only_solsmall": {
+   "model": "gpt-6-luna",
+   "path": "runs/stage2_dev/sol_eligibility/llm_only_solsmall.jsonl",
+   "episodes": 50,
+   "attempts": 50,
+   "steps": 375,
+   "malformed": 0,
+   "malformed_rate": 0.0,
+   "infra_errors_left": 0,
+   "context_errors": 0,
+   "s2_calls": 375,
+   "served_models": {
+    "gpt-6-luna": 375
+   },
+   "service_tiers": {
+    "default": 375
+   },
+   "pinned": "gpt-6-luna",
+   "eligible": true,
+   "cost_per_episode_frozen": 0.0007145554000000001,
+   "cost_per_episode": 0.0008103289000000001,
+   "smoke_spend": 0.04051644499999999,
+   "tokens_per_episode": {
+    "input": 25916.58,
+    "output": 217.16,
+    "cached": 22063.14,
+    "cache_write": 3830.94,
+    "reasoning": 0.0
+   }
+  }
+ },
+ "eligible": true,
+ "predicted_usd": {
+  "500": 23.326329234000003,
+  "300": 15.775305018000001
+ },
+ "envelope_usd": 80.0,
+ "n": 500,
+ "decision": "n = 500",
+ "assumptions": {
+  "probe_usd": 0.0015636,
+  "jev_calibration_per_episode_usd": 0.006,
+  "jev_profile_per_episode_usd": 0.003,
+  "calibration_episodes": 150,
+  "jevagent_best_sol_bound": "llm_only_sol per-episode cost",
+  "contingency": 1.2,
+  "prices_per_M": {
+   "gpt-6.1-sol": {
+    "input": 2.0,
+    "output": 10.0,
+    "cached_input": 0.1,
+    "cache_write": 2.5
+   },
+   "gpt-6-luna": {
+    "input": 0.1,
+    "output": 0.5,
+    "cached_input": 0.01,
+    "cache_write": 0.125
+   }
+  }
+ }
+}

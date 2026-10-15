@@ -1,0 +1,78 @@
+{
+ "label": "exploratory (E27), descriptive; PREREG_A7_STAGE2 Deviations 2026-10-09 'E27: a 0.8B decision model that holds under shift'; outside every Holm table",
+ "at": "2026-10-09T13:40:12+00:00",
+ "selected": "SP",
+ "questions": 2719,
+ "answered": 2719,
+ "errors": 0,
+ "derive": {
+  "replaced": 2719,
+  "missing": 0,
+  "dropped_other_dps": 1125
+ },
+ "fits": {
+  "tool_select": {
+   "tau_hat": 0.9999751860066713,
+   "n_paired": 1125,
+   "tau_rule": "projection",
+   "path": "results/explore/e27_small_shift/cal/tauhat_e27cal_sel_tool_select.json"
+  },
+  "tool_params": {
+   "tau_hat": 0.9999751693727809,
+   "n_paired": 1328,
+   "tau_rule": "projection",
+   "path": "results/explore/e27_small_shift/cal/tauhat_e27cal_sel_tool_params.json"
+  }
+ },
+ "coverage_at_tau": {
+  "tool_select": {
+   "tau": 0.9999751860066713,
+   "always_defer": false,
+   "n_paired": 1125,
+   "accepted": 563,
+   "coverage": 0.5004444444444445,
+   "accepted_errors": 0,
+   "s1_acc_all": 0.9973333333333333,
+   "s2_acc_all": 1.0
+  },
+  "tool_params": {
+   "tau": 0.9999751693727809,
+   "always_defer": false,
+   "n_paired": 1328,
+   "accepted": 1033,
+   "coverage": 0.7778614457831325,
+   "accepted_errors": 0,
+   "s1_acc_all": 0.9796686746987951,
+   "s2_acc_all": 1.0
+  }
+ },
+ "profile": {
+  "path": "configs/harness/explore_e27_final.yaml",
+  "sha256": "9067f22b9f886c535ef949798a70b57ad800667cf9af8604fac8cd02658219a0",
+  "backend": {
+   "tool_select": {
+    "tau": 0.9999751860066713
+   },
+   "tool_params": {
+    "tau": 0.9999751693727809
+   },
+   "fitted_from": {
+    "tool_select": {
+     "path": "results/explore/e27_small_shift/cal/tauhat_e27cal_sel_tool_select.json",
+     "sha256": "36284abd7f52dff41b19bde38e5e4ddf1ba34fcc7aa0d6a03b94985dc1173c24"
+    },
+    "tool_params": {
+     "path": "results/explore/e27_small_shift/cal/tauhat_e27cal_sel_tool_params.json",
+     "sha256": "67ce306667dc9c30796aa79661eca8493cf1f50b794f94a16b03d2ad7279d920"
+    }
+   },
+   "notes": "E27 (f) 6: AgentDecision-0.8B (arm SP) fitted in-domain by the registered command on rl_shadow_cal (seeds 5000-5149)"
+  },
+  "rule": "E27 (f) 6: AgentDecision-0.8B (arm SP) fitted in-domain by the registered command on rl_shadow_cal (seeds 5000-5149)"
+ },
+ "requests_sha256": "d46701e8e9bdc69e6a9e047227eabb1e52578ddc527342dda10b33f7dc5fff5e",
+ "answers": {
+  "path": "results/explore/e27_small_shift/cal/answers_sel_cal.jsonl.gz",
+  "sha256_raw": "800a2b0deca70e8be9f1d7cfa2f23d372516a11d97629374b6cb5af440a198b8"
+ }
+}

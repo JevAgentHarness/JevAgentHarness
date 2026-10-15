@@ -1,0 +1,815 @@
+{
+ "hits": {
+  "toolace-00681954e7ef": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-02707f810b55": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-056430de3f7c": {
+   "e1": "ngram",
+   "e1_dev": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-05ce2b62ca45": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-05de6012fc0b": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-09743a6adef3": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-09a1f27eae2a": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-1031b2e83537": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-10392eb2a007": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-111580616c0a": {
+   "public_test_pools": "ngram"
+  },
+  "toolace-1119c347f1c1": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-1152596489ff": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-13ec05174ac4": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-17987af136b6": {
+   "public_test_pools": "ngram"
+  },
+  "toolace-1c1d9a397b87": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-1d4cb5ece7b4": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-221bc123710a": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-2393b8804705": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-29a9e8d5c327": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-2eafbe513fcc": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-30536b26bfca": {
+   "public_test_pools": "ngram"
+  },
+  "toolace-30736608ba98": {
+   "public_test_pools": "ngram"
+  },
+  "toolace-33a09db34457": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-34b41e70bf66": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-35bfac0a9fa9": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-36cd668e73ad": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-3717e345a64a": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-37e8617ead56": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-386765f24ce2": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-39a0837f2592": {
+   "public_test_pools": "ngram"
+  },
+  "toolace-39e72cc8610c": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-3e232a6a72e5": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-3ea621167a31": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-3f787e86d5df": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-3ff666e47557": {
+   "public_test_pools": "ngram"
+  },
+  "toolace-42458b5a0c61": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-42c80b592dd3": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-49f88ef63a90": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-4a0a59387480": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-4b0c65cbac9b": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-4b2eedf3109a": {
+   "public_test_pools": "ngram"
+  },
+  "toolace-4df359bb52dd": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-537fa20944d3": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-53a447a7deee": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-552d03d2f4bf": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-55a6a1c94b2b": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-58ebc1b23536": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-5967a81740d0": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-5b925f7b0cbe": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-606dd7c981fb": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-60b26730d4be": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-6363513f84e3": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-643809eb02c5": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-6473abb0ca30": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-675356060c1f": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-68d2cc33a7dc": {
+   "public_test_pools": "ngram"
+  },
+  "toolace-699969bcb504": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-6bc4ba18cfa0": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-6e648aeaedc5": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-6e738d453c4d": {
+   "public_test_pools": "ngram"
+  },
+  "toolace-71faabe2bde0": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-745d90e6bbbf": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-747dc4dc3ada": {
+   "e1": "ngram",
+   "e1_dev": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-7524efba05f9": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-7590419e39b2": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-75c2d0959760": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-75e49bdff5ca": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-778cff65e48d": {
+   "public_test_pools": "ngram"
+  },
+  "toolace-783071848014": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-7c2090088f8f": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-7c708a0a6547": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-7cac2073c8af": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-7f8250e98201": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-7ff6fc5ef219": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-826bae2a5227": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-83bf6207f6b4": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-8419c42093a8": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-8b35b92cad76": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-8fbe0ab7511d": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-924837f55c2b": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-931883ecd756": {
+   "public_test_pools": "ngram"
+  },
+  "toolace-9420ab71cb3a": {
+   "public_test_pools": "ngram"
+  },
+  "toolace-95e390f6136b": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-9a2acc027841": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-9dd806ad3523": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-a0b6831fb5a3": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-a3732332860b": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-a51d6569e166": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-a5c4d65cdc78": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-a7870afe794c": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-a7bc3bff5cc3": {
+   "public_test_pools": "ngram"
+  },
+  "toolace-a7fca6308d56": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-ab98900a2f77": {
+   "public_test_pools": "ngram"
+  },
+  "toolace-ac94d886bd34": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-adae9744af75": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-aec62cb2c199": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-afe03db5bf6e": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-b2756bb536b9": {
+   "e1": "ngram",
+   "e1_dev": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-b68693b0f7df": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-ba985cb7d1bf": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-bc942bceb8db": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-bdd6815d9094": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-be9da347836a": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-c17480384ba2": {
+   "public_test_pools": "ngram"
+  },
+  "toolace-c34b293506b0": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-c52ad9971947": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-c7153ab5f9e7": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-c934e713ecc1": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-c956be98752c": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-cce1a915e080": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-cfdf5346767a": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-d1e6859661be": {
+   "public_test_pools": "ngram"
+  },
+  "toolace-d5850e3418ae": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-d7a529e98150": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-dd525192969b": {
+   "public_test_pools": "ngram"
+  },
+  "toolace-dd764883b8e6": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-ded65f3afa1e": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-df0b6213c166": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-e02f5191da3a": {
+   "e1": "ngram",
+   "e1_dev": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-e154371e3c1a": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-e434d8b2a74d": {
+   "public_test_pools": "ngram"
+  },
+  "toolace-e46faff547a7": {
+   "e1_dev": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-ea13e01faaef": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-eb43213b11f1": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-ee3691d2dffa": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-ef8d562ca48d": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-efc2936a70d0": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-f11c2608cb10": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-f12f849bc6ef": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-f1b14cce68d5": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-f2036c6a8d34": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-f3e70ad973d5": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-f7a77a645db7": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-fb995d3668a1": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-fcd8805b348d": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-fe1099a939f5": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-fe97d3517948": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "toolace-fed86b8ce566": {
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-051476634b65": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-0ce1928f5fc9": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-10066b6e4cc6": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-13ae730897b9": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-16f4b46c13e6": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-1969018e617a": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-1ac20f4069e5": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-1bb079f6cb89": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-1e290c37ff17": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-1f434f0afb2a": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-2010c37283e1": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-24b3233007b6": {
+   "public_test_pools": "exact"
+  },
+  "w2ctrain-28a7406699e4": {
+   "e1_dev": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-2a538947e195": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-2e508d965e57": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-3590a99873c1": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-37056ed3ec86": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-3ab465ca78a1": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-41157b5ad34a": {
+   "e1_dev": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-4871713afd34": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-4d84b1ad4b7c": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-4dcc7efc359c": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-512726e5a2ce": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-53894ea63e47": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-5441156e7adf": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-5703eb76f8a2": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-5b9d8ed0be78": {
+   "e1_dev": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-5f15c7843261": {
+   "e1_dev": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-6411efc72fd6": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-6ac96abf9d62": {
+   "public_test_pools": "exact"
+  },
+  "w2ctrain-6db77e73f08a": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-709865451e57": {
+   "e1": "ngram",
+   "e1_dev": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-7ba46df601d4": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-7d094c0a0648": {
+   "e1_dev": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-7ed2e2bec6de": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-83375c422a65": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-8672d281b50a": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-87daa7e84155": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-87e708f44919": {
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-8d9f77cecddd": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-9023b8a0400f": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-910ce8c0c2cf": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-9b7507c69633": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-a26a3cc6dcb3": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-a85425f0089e": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-a8f64385f106": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-adaf3f16a955": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-b0bbdf9e5a8b": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-b26963d55f83": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-b274c3d41e57": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-bbdf633ddaaa": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-bc200c9976c6": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-bebba121bb62": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-c18bc91bcc2f": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-c300b60f0647": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-c369658c09ec": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-cf7a170b38e9": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-d1032cbdf0fb": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-d46a0af520d7": {
+   "e1_dev": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-daafe21ea86d": {
+   "e1_dev": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-dad635b2d862": {
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-e164e41a22c1": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-e2a19e927266": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-e3642d7b336f": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-e7a72586693e": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-eb68a9d98f3f": {
+   "e1_dev": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-ed097b8471d9": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-ee953aff7f57": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  },
+  "w2ctrain-fa0eb306d70e": {
+   "e1": "ngram",
+   "public_test_pools": "ngram"
+  }
+ },
+ "label": "exploratory (E12), descriptive; PREREG_A7_STAGE2 Deviations 2026-10-07 'E12: more training on public tool-use data'; outside every Holm table"
+}

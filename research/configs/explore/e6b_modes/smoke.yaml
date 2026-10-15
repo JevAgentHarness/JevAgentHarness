@@ -1,0 +1,29 @@
+# E6b smoke (development only, never reported as a result): every E6b arm on 2 development JevGym tasks (seeds 900,
+# 901; outside every reserved range), the same settings as eval.yaml. Its mean $ per episode per arm gives the cost
+# projection of the Deviations entry (scripts/explore_e6b_modes.py project).
+name: e6b_modes_smoke
+suite: {name: jevgym, n: 2, seed0: 900, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 2
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+small_llm: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}   # routing only
+llms:
+  lite: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}      # the pinned Jev endpoint of Stage 1; no System-1 cache (fresh answers)
+workers: 8
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}                                                        # reference of every cell but routing
+  - {name: small_only, llm: lite}                                           # routing reference (Flash-Lite alone, as C4)
+  # tool arguments: ASSIST behind the registered C1 tool cascade (Flash tau-hat 1.00); GUARD on the LLM's own calls
+  - {name: tp_assist, tool_select: {mode: cascade, tau: 1.0}, tool_params: {mode: assist, k: 3}}
+  - {name: tp_guard, tool_params: {mode: guard, tau: 0.9}}
+  # memory write (reads: always, as the Stage-1 write rows jev_memw / mem_llm_gate)
+  - {name: mw_cascade, memory_write: {mode: cascade, tau: 0.9}, memory_read: {mode: always}}
+  - {name: mw_guard, memory_write: {mode: guard, tau: 0.5}, memory_read: {mode: always}}
+  # memory read (writes: always)
+  - {name: mr_cascade, memory_write: {mode: always}, memory_read: {mode: cascade, tau: 0.9, k: 3}}
+  - {name: mr_trigger, memory_write: {mode: always}, memory_read: {mode: trigger, tau: 0.9}}
+  # yes / no meta decisions
+  - {name: rf_cascade, reflection: {mode: cascade, tau: 0.9}}
+  - {name: st_cascade, stop: {mode: cascade, tau: 0.9}}
+  - {name: rt_cascade, routing: {mode: cascade, tau: 0.9}}

@@ -1,0 +1,22 @@
+# Stage 2, A7.12 (d): the calibration shadow arm for the second System-2 family -- identical to `jev_shadow_cal`
+# (configs/experiments/jevgym_shadow_cal.yaml) except for System-2 (X = deepseek/deepseek-v4-pro via OpenRouter, pinned)
+# and the seeds: CALIBRATION seeds 5150..5299 (reserved from 2026-10-02 by A7.12 (d); never used before, excluded from
+# training). Fitted per decision point with the registered command (A6.11 (c), A6.19); a fit that accepts no level ->
+# `always_defer: true`. Only cascade parameters are refit on X.
+#   jevbench run configs/experiments/jevgym_shadow_cal_x.yaml --out runs -o workers=8
+#   for dp in tool_select tool_params; do
+#     python -m jevharness.bench.threshold_theory runs/e2a_jevgym_shadow_cal_x --arm jev_shadow_cal_x --dp $dp \
+#       --calibration-arm --task-value 1.0 --lam-per-hour 0 --v-fallback W --format json \
+#       --out results/calibration/tauhat_jev_shadow_cal_x_${dp}.json
+#   done
+#   python scripts/render_profile_x.py      # -> configs/harness/jevagent_best_x.yaml (A7.12 (e))
+name: e2a_jevgym_shadow_cal_x
+suite: {name: jevgym, n: 150, seed0: 5150, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # calibration seeds 5150..5299 (A7.12 (d))
+n_tasks: 150
+llm: {provider: openrouter, model: deepseek/deepseek-v4-pro, temperature: 0,
+      extra_body: {provider: {order: [StreamLake], allow_fallbacks: false}, reasoning: {enabled: false}, usage: {include: true}}}
+s1: {type: jev, provider: openrouter}
+s1_cache: cache/s1_stage2.sqlite
+workers: 8
+arms:
+  - {name: jev_shadow_cal_x, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}

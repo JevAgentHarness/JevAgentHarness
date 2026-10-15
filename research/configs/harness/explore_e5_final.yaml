@@ -1,0 +1,52 @@
+# Exploratory row E5's live profile (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-06 "Exploratory row E5" (g)):
+# configs/harness/jevagent_final.yaml copied unchanged (tool + argument cascade, reflection off, batch_s1; the frozen
+# JevAgentRL-4B at its frozen thresholds in backends.jevagent_rl) plus backends.e5_small, filled from the offline fit of
+# entry (g) (scripts/e5_cal_replay.py -> threshold_theory --calibration-arm -> fill_backend_tau.fill). The runner skips
+# every arm with profile_backend: e5_small while the block is pending.
+# backends.e5_small filled by scripts/e5_analysis.py --prepare-live for e5-e5_mc1: tool_select: tau 1; tool_params: tau 0.999998
+kind: jevagent_profile
+version: 1
+name: explore_e5_final
+status: development
+description: 'Exploratory row E5''s live profile (PREREG_A7_STAGE2 Deviations 2026-10-06
+  (g)): a copy of configs/harness/jevagent_final.yaml (tool + argument cascade, reflection
+  off, batch_s1; the frozen JevAgentRL-4B block unchanged) with backends.e5_small,
+  the E5 model''s offline-fitted thresholds.'
+system2:
+  gemini-3.5-flash:
+    decision_points:
+      tool_select:
+        mode: cascade
+        tau: 1.0
+      tool_params:
+        mode: cascade
+        tau: 0.99
+        batch_s1: true
+    backends:
+      jevagent_rl:
+        tool_select:
+          tau: 0.4999999999978404
+        tool_params:
+          tau: 0.9999998807907104
+        notes: frozen thresholds of configs/harness/jevagent_best.yaml backends.jevagent_rl
+          (fitted on the calibration seeds, results/gpu_round5/cal/), copied unchanged
+      e5_small:
+        tool_select:
+          tau: 0.9999996543779215
+        tool_params:
+          tau: 0.9999979734420776
+        fitted_from:
+          tool_select:
+            path: results/explore/e5_small/cal/tauhat_e5cal_e5_mc1_tool_select.json
+            sha256: 582e0c0d31bcafbbca94878ec0765904e7fc607b7bb53057b69573473c7a74c5
+          tool_params:
+            path: results/explore/e5_small/cal/tauhat_e5cal_e5_mc1_tool_params.json
+            sha256: b44e314f61b4e44ecb4c0932ec1cba5c89e42173112e160bcafc1439e078ec3e
+          fit_arm: e5cal_e5_mc1
+          model: e5-e5_mc1
+          rule: 'PREREG_A7_STAGE2 Deviations 2026-10-06 (g): offline fit on rl_shadow_cal''s
+            states'
+  gemini-3.5-flash-lite:
+    decision_points: {}
+    skip: not part of the final harness (no decision point qualified for Flash-Lite
+      in Stage 1)

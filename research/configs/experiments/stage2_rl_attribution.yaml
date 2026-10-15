@@ -1,0 +1,22 @@
+# Stage 2, JevAgentRL attribution rows (docs/PREREG_A7_STAGE2.md A7.13 (i), (ii); descriptive): live tool-selection
+# REPLACE on the first 100 fresh Stage-2 tasks (seeds 300000..300099), Flash, for the untrained base, SFT v1 and
+# SFT v1 + OPD rows of the freeze record (the frozen model's row reuses the first 100 tasks of `rl_ts_replace_f`,
+# configs/experiments/stage2_rl_states.yaml). Every backend is a PLACEHOLDER: each row runs only after the freeze record
+# exists, with its served endpoint set, one at a time on the L4. A stage that was never trained is not run (stated).
+#   JEV_EVAL_RUNS=1 jevbench run configs/experiments/stage2_rl_attribution.yaml --out runs -o workers=4 \
+#     -o 's1_backends.rl_base={type: jev, name: rl-base, base_url: http://localhost:8081, model: rl-base, api_key: ""}'
+name: stage2_rl_attribution
+suite: {name: jevgym, n: 500, seed0: 300000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # Stage-2 fresh seeds (A7.2 (a))
+n_tasks: 100
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}          # unused: every arm binds a placeholder backend
+s1_cache: cache/s1_stage2.sqlite
+s1_backends:
+  rl_base: {type: jev, name: rl-base, base_url: "http://localhost:8081", model: rl-base, api_key: "", placeholder: true}
+  rl_sft_v1: {type: jev, name: rl-sft-v1, base_url: "http://localhost:8081", model: rl-sft-v1, api_key: "", placeholder: true}
+  rl_sft_v1_opd: {type: jev, name: rl-sft-v1-opd, base_url: "http://localhost:8081", model: rl-sft-v1-opd, api_key: "", placeholder: true}
+workers: 4
+arms:
+  - {name: rl_base_ts_replace_f, s1: rl_base, tool_select: {mode: replace}}
+  - {name: rl_sft_v1_ts_replace_f, s1: rl_sft_v1, tool_select: {mode: replace}}
+  - {name: rl_sft_v1_opd_ts_replace_f, s1: rl_sft_v1_opd, tool_select: {mode: replace}}

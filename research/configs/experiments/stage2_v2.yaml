@@ -1,0 +1,35 @@
+# Stage 2, A7.19 (f) (docs/PREREG_A7_STAGE2.md; "as A7.18 (e) 5"): the JevAgentRL-v2 profile row -- exploratory,
+# descriptive, outside every Holm table, no test. JevAgentHarness[profile, JevAgentRL-v2] (`jevagent_best_v2`: the
+# selected profile's Flash section with the cascade thresholds of v2's OWN calibration, `backends.jevagentrl_v2`, fitted
+# on configs/experiments/jevgym_shadow_cal_v2.yaml (seeds 5000..5149) by the registered command and written by
+# scripts/fill_backend_tau.py, as A7.1 (f) / A7.18 (e) 4; guard / trigger tau and assist k carried over unchanged) on the
+# FRESH Stage-2 seeds 300000..300499 (n = 500, three passes), read beside `llm_only` of
+# configs/experiments/stage2_jevgym.yaml (runs/stage2_jevgym; the same suite block, so the same frozen task list
+# configs/eval/jevgym_stage2_tasks.json) with its own provisioned per-episode tariff q_v2 (results/stage2/tariff_v2.json,
+# measured as A7.13 (iii) on the committed plan results/stage2/tariff_v2_plan.json). Reported beside JevAgentRL with the
+# label "exploratory (A7.19)"; never under the JevAgentRL name (A7.19 (a)).
+#
+# Its own config and run directory (runs/stage2_v2) so that stage2_jevgym.yaml's registered arm list is not edited and
+# the run records of the S2-4 / S2-4S invocations (experiment.yaml, profiles.json) are not overwritten; every setting
+# that is not System-1 is stage2_jevgym.yaml's (suite, System-2, small_llm, the task-major schedule and its seed) and
+# workers 4 as the S2-4 / S2-4S invocations. Backend: the frozen v2 checkpoint served by training/serve_jev.py on :8084
+# (scripts/aws/stage2_gpu.sh v2_serve), a PLACEHOLDER until the host binds it; until backends.jevagentrl_v2 is fitted
+# the profile marks it `calibration: pending` and the runner skips the arm. Launch gate:
+# `python scripts/stage2_spec.py --gate stage2_v2` (profile selected, task-major, v2 freeze record, v2 thresholds fitted
+# from v2_shadow_cal, tariff_v2 frozen). Its own System-1 cache:
+#   for pass in 1 2 3; do JEV_EVAL_RUNS=1 jevbench run configs/experiments/stage2_v2.yaml --out runs -o workers=4 \
+#     -o 's1_backends.jevagentrl_v2={type: jev, name: jevagentrl-v2, base_url: "http://127.0.0.1:8084", model: jevagentrl-v2, api_key: "", price_model: jevagentrl-v2, timeout: 60.0, cache: cache/s1_stage2_v2.sqlite}'; done
+name: stage2_v2
+suite: {name: jevgym, n: 500, seed0: 300000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # Stage-2 fresh seeds 300000..300499 (A7.2 (a))
+n_tasks: 500
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+small_llm: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}   # as stage2_jevgym.yaml (used only if the profile selects routing)
+s1: {type: jev, provider: openrouter}      # unused (the arm binds jevagentrl_v2)
+s1_cache: cache/s1_stage2_v2.sqlite
+s1_backends:
+  jevagentrl_v2: {type: jev, name: jevagentrl-v2, base_url: "http://127.0.0.1:8084", model: jevagentrl-v2, api_key: "",
+                  price_model: jevagentrl-v2, timeout: 60.0, cache: cache/s1_stage2_v2.sqlite, placeholder: true}
+workers: 4
+schedule: {mode: task_major, seed: 732}    # A7.16 (a), as stage2_jevgym.yaml
+arms:
+  - {name: jevagent_best_v2, s1: jevagentrl_v2, profile: configs/harness/jevagent_best.yaml, profile_s2: gemini-3.5-flash, profile_backend: jevagentrl_v2}   # A7.19 (f), exploratory

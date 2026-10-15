@@ -1,0 +1,235 @@
+{
+ "stages": {
+  "sft_v1": {
+   "kept": true,
+   "retained": "sft_v1"
+  },
+  "opd": {
+   "kept": false,
+   "retained": null,
+   "against": "sft_v1",
+   "continuations": {
+    "opd_i12": {
+     "pass": false,
+     "rule_A": {
+      "acc>=base+0.01": false,
+      "recovery>=base": false,
+      "ece<=base+0.01": true
+     },
+     "rule_A_pass": false,
+     "rule_B": {
+      "acc>=base-0.005": false,
+      "recovery>=base-0.01": false,
+      "ece<=base+0.01": true,
+      "own_state_ts_acc>=base+0.02": false,
+      "success_live>=base-0.01": true
+     },
+     "rule_B_pass": false
+    },
+    "opd": {
+     "pass": false,
+     "rule_A": {
+      "acc>=base+0.01": false,
+      "recovery>=base": false,
+      "ece<=base+0.01": true
+     },
+     "rule_A_pass": false,
+     "rule_B": {
+      "acc>=base-0.005": false,
+      "recovery>=base-0.01": false,
+      "ece<=base+0.01": true,
+      "own_state_ts_acc>=base+0.02": false,
+      "success_live>=base-0.01": true
+     },
+     "rule_B_pass": false
+    }
+   }
+  },
+  "grpo": {
+   "kept": true,
+   "retained": "grpo_i15",
+   "against": "sft_v1",
+   "continuations": {
+    "grpo_i15": {
+     "pass": true,
+     "rule": {
+      "validity_tests_passed": true,
+      "acc>=init-0.01": true,
+      "recovery>=init-0.01": true,
+      "ece<=init+0.02": true,
+      "reward_live>init": true,
+      "success_live>=init-0.01": true
+     }
+    },
+    "grpo": {
+     "pass": true,
+     "rule": {
+      "validity_tests_passed": true,
+      "acc>=init-0.01": true,
+      "recovery>=init-0.01": true,
+      "ece<=init+0.02": true,
+      "reward_live>init": true,
+      "success_live>=init-0.01": true
+     }
+    }
+   }
+  }
+ },
+ "decision_level": {
+  "sft_v1": {
+   "acc": 0.99706,
+   "recovery": 0.99835,
+   "ece": 0.02927,
+   "intern_reference": "v1 dev",
+   "go": true,
+   "gates": {
+    "G1_min_gate": true,
+    "G2_static_vs_intern": true,
+    "G3_in_harness_vs_intern": true,
+    "G4_vs_teacher": true,
+    "G5_calibration": true
+   }
+  },
+  "opd_i12": {
+   "acc": 0.98948,
+   "recovery": 0.97855,
+   "ece": 0.02262,
+   "intern_reference": "v1 dev",
+   "go": true,
+   "gates": {
+    "G1_min_gate": true,
+    "G2_static_vs_intern": true,
+    "G3_in_harness_vs_intern": true,
+    "G4_vs_teacher": true,
+    "G5_calibration": true
+   }
+  },
+  "opd": {
+   "acc": 0.98906,
+   "recovery": 0.9802,
+   "ece": 0.02077,
+   "intern_reference": "v1 dev",
+   "go": true,
+   "gates": {
+    "G1_min_gate": true,
+    "G2_static_vs_intern": true,
+    "G3_in_harness_vs_intern": true,
+    "G4_vs_teacher": true,
+    "G5_calibration": true
+   }
+  },
+  "grpo_i15": {
+   "acc": 0.99706,
+   "recovery": 0.99835,
+   "ece": 0.00419,
+   "intern_reference": "v1 dev",
+   "go": true,
+   "gates": {
+    "G1_min_gate": true,
+    "G2_static_vs_intern": true,
+    "G3_in_harness_vs_intern": true,
+    "G4_vs_teacher": true,
+    "G5_calibration": true
+   }
+  },
+  "grpo": {
+   "acc": 0.99411,
+   "recovery": 0.99505,
+   "ece": 0.00264,
+   "intern_reference": "v1 dev",
+   "go": true,
+   "gates": {
+    "G1_min_gate": true,
+    "G2_static_vs_intern": true,
+    "G3_in_harness_vs_intern": true,
+    "G4_vs_teacher": true,
+    "G5_calibration": true
+   }
+  }
+ },
+ "dev_slice": {
+  "sft_v1": {
+   "n_live_arms": 5,
+   "success_live": 0.9960000000000001,
+   "reward_live": 0.6788000000000001,
+   "own_state_ts_acc": 1.0,
+   "shadow_ts_acc": 1.0,
+   "ts_replace_success": 1.0,
+   "ts_replace_acc": 1.0
+  },
+  "opd_i12": {
+   "n_live_arms": 5,
+   "success_live": 1.0,
+   "reward_live": 0.6724,
+   "own_state_ts_acc": 1.0,
+   "shadow_ts_acc": 1.0,
+   "ts_replace_success": 1.0,
+   "ts_replace_acc": 1.0
+  },
+  "opd": {
+   "n_live_arms": 5,
+   "success_live": 1.0,
+   "reward_live": 0.673,
+   "own_state_ts_acc": 1.0,
+   "shadow_ts_acc": 1.0,
+   "ts_replace_success": 1.0,
+   "ts_replace_acc": 1.0
+  },
+  "grpo_i15": {
+   "n_live_arms": 5,
+   "success_live": 1.0,
+   "reward_live": 0.6822000000000001,
+   "own_state_ts_acc": 1.0,
+   "shadow_ts_acc": 1.0,
+   "ts_replace_success": 1.0,
+   "ts_replace_acc": 1.0
+  },
+  "grpo": {
+   "n_live_arms": 5,
+   "success_live": 1.0,
+   "reward_live": 0.6846,
+   "own_state_ts_acc": 1.0,
+   "shadow_ts_acc": 1.0,
+   "ts_replace_success": 1.0,
+   "ts_replace_acc": 1.0
+  }
+ },
+ "grpo_init": "sft_v1",
+ "kept": [
+  "sft_v1",
+  "grpo_i15"
+ ],
+ "frozen": "grpo_i15",
+ "go": true,
+ "rl_claim": true,
+ "label": "GO: the frozen JevAgentRL-4B passes G1-G5 (in-domain, generator-adapted vs off-the-shelf)",
+ "confirmation_dev_slice": {
+  "ours": {
+   "n_live_arms": 5,
+   "success_live": 1.0,
+   "reward_live": 0.6822000000000001,
+   "own_state_ts_acc": 1.0,
+   "shadow_ts_acc": 1.0,
+   "ts_replace_success": 1.0,
+   "ts_replace_acc": 1.0
+  },
+  "intern": {
+   "n_live_arms": 5,
+   "success_live": 0.6799999999999999,
+   "reward_live": 0.375,
+   "own_state_ts_acc": 0.5910780669144982,
+   "shadow_ts_acc": 0.7386666666666667,
+   "ts_replace_success": 0.26,
+   "ts_replace_acc": 0.5435684647302904
+  },
+  "shadow_ts_acc>=intern": true,
+  "ts_replace_success>=intern": true,
+  "ts_replace_acc>=intern": true
+ },
+ "inputs": {
+  "eval_dir": "runs/gpu_round5/eval",
+  "e2dev": "runs/gpu_round5/e2dev",
+  "grpo_validity": "runs/gpu_round5/grpo_validity.txt",
+  "grpo_validity_ok": true
+ }
+}

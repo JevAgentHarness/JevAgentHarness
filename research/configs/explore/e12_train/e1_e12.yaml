@@ -1,0 +1,20 @@
+# Exploratory row E12 (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-07 "E12: more training on public tool-use data";
+# descriptive, outside every Holm table): E1's 3,991 static decisions answered by the continued checkpoint
+# AgentDecision-4B (mixed) and, as the serving-path check and same-host cost reference, by the frozen AgentDecision-4B
+# re-served on the E12 host. E1's config (configs/decision/bfcl_when2call_rl.yaml) with the same pools, exclusions (C8
+# population), batching and workers; a NEW answer cache, so every answer is measured on the E12 host. One server at a
+# time on :8081 (scripts/aws/e12_train.sh):
+#   python -m jevharness.bench.decision_eval configs/explore/e12_train/e1_e12.yaml --out runs --only e12_mixed
+#   python -m jevharness.bench.decision_eval configs/explore/e12_train/e1_e12.yaml --out runs --only frozen_rehost
+name: e1_bfcl_when2call_e12
+suites:
+  - {name: bfcl, categories: [simple_python, multiple, live_simple, live_multiple, irrelevance, live_irrelevance], max_per_cat: 200}
+  - {name: when2call, max_items: 1000}
+exclude_ids_file: configs/eval/e1_dev_prefix_ids.json   # A6.13: as E1
+batch_by_state: true
+s1_cache: cache/s1_e12_e1.sqlite
+workers: 4
+backends:
+  e12_mixed: {type: jev, name: agentdecision-4b-mixed, base_url: "http://localhost:8081", model: agentdecision-4b-mixed, api_key: "",
+              price_model: jevagentrl-4b}   # an exact 0 per token (the frozen row's entry): GPU time is priced by E9's rule
+  frozen_rehost: {type: jev, name: jevagentrl-4b, base_url: "http://localhost:8081", model: jevagentrl-4b, api_key: ""}

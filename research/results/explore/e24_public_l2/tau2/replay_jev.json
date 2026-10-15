@@ -1,0 +1,22 @@
+{
+ "registered": "PREREG_A7_STAGE2 Deviations 2026-10-08 'E24' (c)",
+ "backend": {
+  "backend": "jev",
+  "provider": "openrouter",
+  "model": "typesafe/jev-1.13",
+  "base_url": "https://openrouter.ai/api",
+  "extra_body": {},
+  "cached": true
+ },
+ "cache": "cache/s1_e24_tau2_jev.sqlite",
+ "workers": 4,
+ "question": "Which action should the agent take next?",
+ "decision_point": "action",
+ "order": "sorted question hash, sharded over workers",
+ "batching": "one question per request (the harness tournament for Choices wider than the backend's max_options)",
+ "retries": 2,
+ "n_questions": 1867,
+ "resumed_with": 0,
+ "cap_usd": 3.0,
+ "written": "2026-10-09T01:54:27+00:00"
+}

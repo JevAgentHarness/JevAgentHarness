@@ -1,0 +1,128 @@
+{
+ "what": "E22 records (registration (d)); built by scripts/explore_e22_tau2.py build",
+ "stats": {
+  "retail": {
+   "episodes": 592,
+   "episode_success": 395,
+   "states": 7104,
+   "kept_success": 4681,
+   "ref_tool_states": 3010,
+   "ref_tool_agree": 2060,
+   "arg_rows": 5528,
+   "arg_other": 734,
+   "episode_failed": 197,
+   "drop_failed_message": 866,
+   "kept_failed_exact": 504,
+   "drop_failed_unmatched": 883,
+   "drop_tool_error": 149,
+   "drop_unmatched_write": 21
+  },
+  "airline": {
+   "episodes": 240,
+   "episode_success": 175,
+   "states": 2855,
+   "kept_success": 1776,
+   "ref_tool_states": 696,
+   "ref_tool_agree": 547,
+   "arg_rows": 1733,
+   "arg_other": 139,
+   "drop_tool_error": 12,
+   "episode_failed": 65,
+   "drop_failed_unmatched": 596,
+   "drop_failed_message": 316,
+   "kept_failed_exact": 155
+  }
+ },
+ "files": {
+  "fit.jsonl.gz": {
+   "records": 11096,
+   "duplicates_dropped": 273,
+   "by_domain_dp": {
+    "airline/tool_params": 1267,
+    "airline/tool_select": 1365,
+    "retail/tool_params": 4403,
+    "retail/tool_select": 4061
+   },
+   "by_source": {
+    "success": 9576,
+    "failed_exact": 1520
+   },
+   "labels_tool_select": {
+    "respond_to_user": 1777,
+    "find_user_id_by_email": 100,
+    "get_user_details": 476,
+    "get_order_details": 936,
+    "find_user_id_by_name_zip": 268,
+    "get_product_details": 328,
+    "calculate": 232,
+    "exchange_delivered_order_items": 101,
+    "list_all_product_types": 36,
+    "return_delivered_order_items": 149,
+    "modify_pending_order_items": 82,
+    "transfer_to_human_agents": 62,
+    "cancel_pending_order": 98,
+    "modify_user_address": 39,
+    "modify_pending_order_address": 82,
+    "get_item_details": 8,
+    "get_reservation_details": 347,
+    "get_flight_status": 82,
+    "search_direct_flight": 72,
+    "update_reservation_flights": 29,
+    "search_onestop_flight": 40,
+    "update_reservation_baggages": 18,
+    "list_all_airports": 8,
+    "cancel_reservation": 40,
+    "update_reservation_passengers": 14,
+    "book_reservation": 2
+   },
+   "other_share_args": 0.119,
+   "max_options": 52,
+   "state_chars_max": 11904
+  },
+  "dev.jsonl.gz": {
+   "records": 2940,
+   "duplicates_dropped": 68,
+   "by_domain_dp": {
+    "airline/tool_params": 375,
+    "airline/tool_select": 455,
+    "retail/tool_params": 1061,
+    "retail/tool_select": 1049
+   },
+   "by_source": {
+    "success": 2696,
+    "failed_exact": 244
+   },
+   "labels_tool_select": {
+    "respond_to_user": 522,
+    "find_user_id_by_email": 11,
+    "get_user_details": 137,
+    "get_order_details": 250,
+    "return_delivered_order_items": 45,
+    "list_all_product_types": 16,
+    "get_product_details": 54,
+    "find_user_id_by_name_zip": 84,
+    "calculate": 63,
+    "modify_pending_order_items": 41,
+    "get_item_details": 6,
+    "modify_pending_order_address": 18,
+    "cancel_pending_order": 14,
+    "exchange_delivered_order_items": 2,
+    "get_reservation_details": 164,
+    "get_flight_status": 44,
+    "search_direct_flight": 12,
+    "list_all_airports": 4,
+    "search_onestop_flight": 7,
+    "transfer_to_human_agents": 7,
+    "book_reservation": 3
+   },
+   "other_share_args": 0.1253,
+   "max_options": 52,
+   "state_chars_max": 11903
+  }
+ },
+ "sha256": {
+  "dev.jsonl.gz": "1bcb9776a95e9732f89fc452d2fd36f08224e65d63810ef05288bad55fb7a6b3",
+  "dev_replay.jsonl.gz": "28444393abe0e07a25c1651dbd6c8c2079cd879acd61d19f0f2d1bd418be6a31",
+  "fit.jsonl.gz": "b3b6cdc5736dd667b5dabff3ec45b0260102adec191c48e818b2759c71998b23"
+ }
+}

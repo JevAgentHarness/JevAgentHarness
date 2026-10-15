@@ -1,0 +1,5 @@
+# Overlay for the E4b arm `always_fast` (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-05, Exploratory row E4b): list it
+# AFTER e4b_gemini.yaml. Every step on the fast path: the same gemini/gemini-3.8-flash with thinkingLevel low.
+model:
+  model_kwargs:
+    thinkingConfig: {thinkingLevel: low}

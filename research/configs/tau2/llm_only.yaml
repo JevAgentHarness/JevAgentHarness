@@ -1,0 +1,7 @@
+# tau2 arm: LLM-only baseline, run through `jev_agent` with every System-1 decision point off.
+# Behaviourally identical to tau2's stock `llm_agent` (same system prompt, same litellm call), but every
+# turn is logged in the jevharness format (StepLog/DecisionLog + Ledger) for `jevbench report` and for
+# harvesting S1 training data (tool_select/off records keep the S1 state + the LLM's choice).
+# Flat HarnessConfig fields (src/jevharness/harness/config.py) + tau2 keys (Tau2JevConfig in
+# src/jevharness/bench/suites/tau2.py). See docs/TAU2.md.
+name: llm_only

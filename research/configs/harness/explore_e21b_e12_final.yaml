@@ -1,0 +1,45 @@
+# Exploratory row E21b's profile for arm e12_final (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-08 "E21b: the
+# deployed confidence-gated cascades on DecisionGym-Shift" (b) 3); written by `scripts/explore_e21b_shift_cascade.py
+# cal-fit` from results/explore/e21b_shift_cascade/cal/fits.json before any E21b episode of this arm: a copy of
+# configs/harness/jevagent_final.yaml plus backends.e12 (E12's in-domain fitted thresholds; no shifted state used).
+kind: jevagent_profile
+version: 1
+name: explore_e21b_e12_final
+status: development
+description: 'Exploratory row E21b, arm e12_final (PREREG_A7_STAGE2 Deviations 2026-10-08 ''E21b'' (b) 3): a copy of configs/harness/jevagent_final.yaml
+  (tool + argument cascade, reflection off, batch_s1) with backends.e12 = E12''s in-domain thresholds. E21b (b) 3: E12''s
+  in-domain fit by the registered command on rl_shadow_cal (seeds 5000-5149).'
+system2:
+  gemini-3.5-flash:
+    decision_points:
+      tool_select:
+        mode: cascade
+        tau: 1.0
+      tool_params:
+        mode: cascade
+        tau: 0.99
+        batch_s1: true
+    backends:
+      jevagent_rl:
+        tool_select:
+          tau: 0.4999999999978404
+        tool_params:
+          tau: 0.9999998807907104
+        notes: frozen thresholds of configs/harness/jevagent_best.yaml backends.jevagent_rl (fitted on the calibration seeds,
+          results/gpu_round5/cal/), copied unchanged
+      e12:
+        tool_select:
+          tau: 0.44503032941063925
+        tool_params:
+          tau: 0.9958731532096863
+        fitted_from:
+          tool_select:
+            path: results/explore/e21b_shift_cascade/cal/tauhat_e21bcal_e12_tool_select.json
+            sha256: ed598114470acc889f751e33a681b5ab4550aa5905776bb05dbe8dd76a20457e
+          tool_params:
+            path: results/explore/e21b_shift_cascade/cal/tauhat_e21bcal_e12_tool_params.json
+            sha256: b1a65eddb359c829368b8558de7159c3ccf68d3ad366815ed3fe0bfd02433339
+        notes: 'E21b (b) 3: E12''s in-domain fit by the registered command on rl_shadow_cal (seeds 5000-5149)'
+  gemini-3.5-flash-lite:
+    decision_points: {}
+    skip: not part of the final harness (no decision point qualified for Flash-Lite in Stage 1)

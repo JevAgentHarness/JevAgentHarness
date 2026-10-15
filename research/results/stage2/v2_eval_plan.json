@@ -1,0 +1,60 @@
+{
+ "what": "the JevAgentRL-v2 rows of Stage 2 (docs/PREREG_A7_STAGE2.md A7.19 (f); exploratory, descriptive, outside every Holm table) as scripts/aws/stage2_gpu.sh stages v2_* serve and run them; written from results/gpu_round6_miles/final_FROZEN.txt and committed before the v2 chain",
+ "label": "exploratory (A7.19)",
+ "freeze_record": "results/gpu_round6_miles/final_FROZEN.txt",
+ "frozen_utc": "2026-10-04T00:53:20Z",
+ "deadline_utc": "2026-10-07T12:00:00Z",
+ "training_manifest": "results/gpu_round6_miles/TRAINING_MANIFEST.md",
+ "checkpoint": {
+  "stage": "sft_v2 (frozen = SFT v2 on StartLux-Decision-4B, full fine-tune exported to Hugging Face format; results/gpu_round6_miles/chain_decision.json)",
+  "s3": "s3://<bucket>/checkpoints/round6_miles/jevagentrl-v2-final/",
+  "dir": "jevagentrl-v2-final",
+  "calibration": "calibration.json",
+  "calibration_note": "the freeze record's temperature file (training/calibrate.py --min-bucket 200 on v1 dev, gpu_round6_stages.sh stage freeze; identical to results/gpu_round6_miles/final_calibration.json); every v2 row is served with it, as the frozen JevAgentRL is served with its own",
+  "sha256_from": "the freeze record's sha256 lines (results/gpu_round6_miles/final_FROZEN.txt); the downloaded FROZEN.txt must be byte-identical to it",
+  "served_name": "jevagentrl-v2",
+  "backend": "jevagentrl_v2",
+  "port": 8084
+ },
+ "serving_commit_of_the_freeze": "4c0bdf8691d317b415f1e0fcd6b3140059953f41",
+ "serving_code": ["src/jevharness/training/serve_jev.py", "src/jevharness/training/data.py",
+                  "src/jevharness/training/decision_model.py"],
+ "serve_args": [],
+ "serving_env": {
+  "venv": "/opt/jev/v2venv",
+  "why": "StartLux-Decision-4B is a Qwen3.5 hybrid (linear attention): serve_jev needs the flash-linear-attention and causal-conv1d kernels for a usable speed. The harness venv (/opt/jev/hvenv, Intern-Decision in-process, the runner) and the StartLux vendor environment (/opt/startlux/venv, A7.18 (d) manifest) are left untouched; the v2 venv is the harness venv's stack plus the kernels.",
+  "torch": "torch==2.14.1",
+  "torch_index": "https://download.pytorch.org/whl/cu130",
+  "pins": ["transformers==5.18.0", "accelerate==1.15.0"],
+  "constraints": "uv pip freeze of /opt/jev/hvenv without the harness, torch, triton and nvidia-* lines (recorded as results/stage2/gpu/v2/v2venv_constraints.txt)",
+  "kernels": ["flash-linear-attention==0.5.2", "causal-conv1d==1.7.0"],
+  "kernel_versions_source": "the StartLux vendor environment on the same host (results/stage2/startlux_manifest.json: flash-linear-attention 0.5.2, causal-conv1d 1.7.0, torch 2.14.1, CUDA 13 toolkit)",
+  "causal_conv1d_wheel": "the host's own build of causal_conv1d-1.7.0-cp311 (pip wheel cache of the StartLux setup) if present, else built with --no-build-isolation against the CUDA toolkit of torch's CUDA major version, as scripts/aws/serve_startlux.sh does",
+  "check": "transformers' Qwen3.5 module binds the kernel implementations (causal_conv1d_fn / causal_conv1d_update / chunk and recurrent gated delta rule are not the torch fallbacks) and both kernels run on the GPU (jevharness.training.miles_port.smoke kernel_check); else the stage fails"
+ },
+ "regression": {
+  "what": "before the first request: the serving path's option probabilities of the frozen model on the freeze's 64-row regression corpus, on this host and environment, compared with the freeze-time files of the checkpoint (regression_image.json: the Miles image with the kernels, transformers 5.12.1; regression_venv.json: the Miles host's project venv, transformers 5.18.0)",
+  "dev": "data/train_v1/dev_recovery.jsonl.gz",
+  "dev_sha256": "0eef019656936f4b13736ade83d993afc4f63a263482aa9726cb032998e3afcf",
+  "n": 64,
+  "reference": "regression_image.json",
+  "tol_max_abs_dprob": 0.02,
+  "rule": "the host must reproduce the image's probabilities within the freeze's tolerance (max |dprob| <= 0.02, as results/gpu_round6_miles/final_regression_compare.json), else nothing is served; the comparison with regression_venv.json is recorded beside it"
+ },
+ "rows": {
+  "calibration": {"config": "configs/experiments/jevgym_shadow_cal_v2.yaml", "run": "runs/e2a_jevgym_shadow_cal_v2", "arm": "v2_shadow_cal", "seeds": "5000-5149", "passes": 3, "fits": "results/calibration/tauhat_v2_shadow_cal_{tool_select,tool_params}.json", "profile": "configs/harness/jevagent_best.yaml backends.jevagentrl_v2 (scripts/fill_backend_tau.py --backend jevagentrl_v2 --fit-arm v2_shadow_cal)"},
+  "tariff": {"plan": "results/stage2/tariff_v2_plan.json", "out": "results/stage2/tariff_v2.json"},
+  "profile": {"config": "configs/experiments/stage2_v2.yaml", "run": "runs/stage2_v2", "arm": "jevagent_best_v2", "reference": "runs/stage2_jevgym/llm_only", "seeds": "300000-300499", "n": 500, "passes": 3},
+  "live_replace": {"config": "configs/experiments/stage2_v2_states.yaml", "run": "runs/stage2_v2_states", "arm": "v2_ts_replace_f", "seeds": "300000-300199", "n": 200, "passes": 3},
+  "corpus_replay": {"corpus": "results/stage2/s23 (frozen, committed)", "name": "v2", "cache": "cache/s1_stage2_v2_replay.sqlite", "answers": "results/stage2/s23/answers_v2.jsonl"}
+ },
+ "system1_caches": {"evaluation": "cache/s1_stage2_v2.sqlite (new: calibration, live replace and profile rows)", "tariff": "cache/s1_dev_tariff_v2.sqlite (fresh)", "replay": "cache/s1_stage2_v2_replay.sqlite (new)"},
+ "order": ["v2_setup", "v2_fetch", "v2_serve", "v2_cal", "v2_gate_tau", "v2_tariff", "v2_gate_tariff", "v2_profile", "v2_states", "v2_replay", "v2_final"],
+ "api": {
+  "what": "A7.19 (g): the track's API cap is a ceiling. The rows' Flash spend is summed from every record (errored attempts included) of the runs below before each priced stage; a stage whose reserve would cross cap_rows_usd does not start",
+  "cap_rows_usd": 45.0,
+  "cap_note": "A7.19 (g): <= $100 API for the whole track; the training chain's ledger (scripts/train/r6_spend.py) was $42.43 before its final E2 dev slice (results/gpu_round6_miles/spend_before_e2dev_v2_final.txt), so ~$45 remains for the rows (planned ~$35); the session may lower this before the chain, never raise it past $100 minus the training ledger",
+  "reserve_usd": {"cal": 8.0, "tariff": 5.0, "profile": 20.0, "states": 9.0},
+  "runs": ["e2a_jevgym_shadow_cal_v2", "stage2_dev_tariff_v2_warmup", "stage2_dev_tariff_v2", "stage2_v2", "stage2_v2_states"]
+ }
+}

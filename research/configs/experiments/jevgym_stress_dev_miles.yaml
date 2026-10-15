@@ -1,0 +1,30 @@
+# JevAgentRL-v2 STRESS instrument (results/gpu_round6_miles/TRAINING_MANIFEST.md §4): a harder development slice
+# for the keep / freeze rules, next to the decision-level gates G1-G5 (which are at their ceiling for checkpoints
+# trained on data v1). DEVELOPMENT seeds 2000-2199 (never training, calibration 5000-5149, evaluation 200000-200499 or
+# Stage-2 300000-300999), with generator settings the training data never used: 120 distractors (the 31 near
+# duplicates + 89 random ones; data v1 / OPD / GRPO use 60), 40 noise lines (20), `multi` tasks with 5 customers (3);
+# families v2 (clarify + multi), strict. With ~128 tools every tool choice goes through the serving knockout (three
+# 52-option chunks), and the states are about twice as long as the training states.
+#
+# The instrument is ONE arm: the System-1 selects the tool and fills its arguments (replace on tool_select +
+# tool_params), System-2 = Gemini 3.5 Flash at T = 0 (the E2a System-2) for everything else (stop / final answers).
+# Read-outs per checkpoint (scripts/train/r6_chain.py): success S, own-state tool_select accuracy A (pooled decisions vs
+# the JevGym oracle), tool_params accuracy P, call-count-penalised success R (the GRPO reward formula on the episode).
+# Replace decisions are argmax decisions, so the read-outs do not depend on the temperature file.
+#
+#   ours_*    the checkpoint served by training/serve_jev.py on :8082 (-o name=stress_<tag> s1.name=... s1.model=...)
+#   intern_*  Intern-Decision-4B in-process (reference for G6, run once)
+#   jev_*     Jev via OpenRouter (descriptive reference, run once)
+name: stress_dev_miles
+suite: {name: jevgym, n: 200, seed0: 2000, families: v2, distractor_style: near, n_distractors: 120, noise_lines: 40, strict: true, multi_customers: 5}
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+n_tasks: 200
+s1: {type: jev, name: jevagentrl-v2, base_url: "http://127.0.0.1:8082", model: jevagentrl-v2, api_key: ""}
+s1_backends:
+  intern: {type: intern_decision, model: internlm/Intern-Decision-4B, device: auto, max_length: 16384}
+  jev: {type: jev, provider: openrouter}
+workers: 8
+arms:
+  - {name: ours_stress_ts_params_replace, tool_select: {mode: replace}, tool_params: {mode: replace}, max_steps: 30}
+  - {name: intern_stress_ts_params_replace, s1: intern, tool_select: {mode: replace}, tool_params: {mode: replace}, max_steps: 30}
+  - {name: jev_stress_ts_params_replace, s1: jev, tool_select: {mode: replace}, tool_params: {mode: replace}, max_steps: 30}

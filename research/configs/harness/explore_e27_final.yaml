@@ -1,0 +1,47 @@
+# Exploratory row E27's final-harness profile (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-09 "E27: a 0.8B decision
+# model that holds under shift" (f) 6-8); written by `scripts/explore_e27_small_shift.py cal-fit` from
+# results/explore/e27_small_shift/cal/fits.json before any E27 final-harness episode: a copy of
+# configs/harness/jevagent_final.yaml plus backends.e27 (in-domain fitted thresholds; no shifted state used).
+kind: jevagent_profile
+version: 1
+name: explore_e27_final
+status: development
+description: 'Exploratory row E27 (AgentDecision-0.8B, PREREG_A7_STAGE2 Deviations 2026-10-09 ''E27'' (f) 6-8): a copy of
+  configs/harness/jevagent_final.yaml (tool + argument cascade, reflection off, batch_s1) with backends.e27 = the selected
+  arm''s in-domain thresholds. E27 (f) 6: AgentDecision-0.8B (arm SP) fitted in-domain by the registered command on rl_shadow_cal
+  (seeds 5000-5149).'
+system2:
+  gemini-3.5-flash:
+    decision_points:
+      tool_select:
+        mode: cascade
+        tau: 1.0
+      tool_params:
+        mode: cascade
+        tau: 0.99
+        batch_s1: true
+    backends:
+      jevagent_rl:
+        tool_select:
+          tau: 0.4999999999978404
+        tool_params:
+          tau: 0.9999998807907104
+        notes: frozen thresholds of configs/harness/jevagent_best.yaml backends.jevagent_rl (fitted on the calibration seeds,
+          results/gpu_round5/cal/), copied unchanged
+      e27:
+        tool_select:
+          tau: 0.9999751860066713
+        tool_params:
+          tau: 0.9999751693727809
+        fitted_from:
+          tool_select:
+            path: results/explore/e27_small_shift/cal/tauhat_e27cal_sel_tool_select.json
+            sha256: 36284abd7f52dff41b19bde38e5e4ddf1ba34fcc7aa0d6a03b94985dc1173c24
+          tool_params:
+            path: results/explore/e27_small_shift/cal/tauhat_e27cal_sel_tool_params.json
+            sha256: 67ce306667dc9c30796aa79661eca8493cf1f50b794f94a16b03d2ad7279d920
+        notes: 'E27 (f) 6: AgentDecision-0.8B (arm SP) fitted in-domain by the registered command on rl_shadow_cal (seeds
+          5000-5149)'
+  gemini-3.5-flash-lite:
+    decision_points: {}
+    skip: not part of the final harness (no decision point qualified for Flash-Lite in Stage 1)

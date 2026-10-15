@@ -1,0 +1,22 @@
+{
+ "registered": "PREREG_A7_STAGE2 Deviations 2026-10-08 'E24' (c)",
+ "backend": {
+  "backend": "e22-tau2-0.8b",
+  "provider": "typesafe",
+  "model": "e22-tau2-0.8b",
+  "base_url": "http://127.0.0.1:8083",
+  "extra_body": {},
+  "cached": true
+ },
+ "cache": "cache/s1_e24_tau2_e22.sqlite",
+ "workers": 4,
+ "question": "Which action should the agent take next?",
+ "decision_point": "action",
+ "order": "sorted question hash, sharded over workers",
+ "batching": "one question per request (the harness tournament for Choices wider than the backend's max_options)",
+ "retries": 2,
+ "n_questions": 1867,
+ "resumed_with": 0,
+ "cap_usd": null,
+ "written": "2026-10-09T02:26:37+00:00"
+}

@@ -1,0 +1,7 @@
+arm,instance_id,resolved,exit_status,error,agent_run_s,steps,llm_calls,fast_calls,deep_calls,llm_cost_usd,s1_cost_usd,total_cost_usd,s1_calls
+always_deep,django__django-16502,0,Submitted,,362.9,42,42,0,42,0.038690,0.000000,0.038690,0
+always_deep,scikit-learn__scikit-learn-13496,1,Submitted,,125.8,20,20,0,20,0.007576,0.000000,0.007576,0
+always_fast,django__django-16502,0,Submitted,,267.5,47,47,47,0,0.013002,0.000000,0.013002,0
+always_fast,scikit-learn__scikit-learn-13496,1,Submitted,,91.9,22,22,22,0,0.003463,0.000000,0.003463,0
+jevagent_t050,django__django-16502,0,Submitted,,311.2,31,31,10,21,0.018245,0.002847,0.021092,31
+jevagent_t050,scikit-learn__scikit-learn-13496,1,Submitted,,123.9,25,25,15,10,0.009154,0.001985,0.011139,25

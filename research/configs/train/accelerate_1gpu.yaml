@@ -1,0 +1,14 @@
+# Single GPU (1x H100 80GB). Used by scripts/train/*.sh when GPUS=1 and you still want `accelerate launch`
+# (ACCEL=1); plain `python -m ...` is equivalent on one device.
+compute_environment: LOCAL_MACHINE
+distributed_type: 'NO'
+mixed_precision: bf16
+downcast_bf16: 'no'
+num_machines: 1
+num_processes: 1
+machine_rank: 0
+gpu_ids: all
+main_training_function: main
+rdzv_backend: static
+same_network: true
+use_cpu: false

@@ -1,0 +1,182 @@
+{
+ "what": "tau^2 main runs (MAIN_RUN_PLAN steps 8-9): operational record (simulations, errored, re-runs, spend); no outcome fields",
+ "start_record": "results/main/START_tau2.txt",
+ "tau2_bench": "5bfa7e3 (v1.0.1-47-g5bfa7e3)",
+ "litellm": "1.82.6",
+ "agent": "gemini/gemini-3.5-flash",
+ "user_simulator": "gemini/gemini-3.5-flash-lite",
+ "llm_args": {
+  "temperature": 0,
+  "thinkingConfig": {
+   "thinkingLevel": "minimal"
+  }
+ },
+ "seed": 300,
+ "num_trials": 3,
+ "max_concurrency": 4,
+ "task_split_name": "base",
+ "s1": {
+  "type": "jev",
+  "provider": "openrouter",
+  "served": "typesafe/jev-1.13-20260917"
+ },
+ "nl_judge": "gpt-4.1-2025-04-14 (tau2 default; official protocol)",
+ "refit": {
+  "tool_select": 0.28,
+  "tool_params": 1.0,
+  "files": [
+   "results/calibration/tauhat_tau2_jev_shadow_tool_select.json",
+   "results/calibration/tauhat_tau2_jev_shadow_tool_params.json"
+  ]
+ },
+ "cost_basis": "tau2 agent_cost (litellm, Gemini implicit-cache discounts applied; includes System-1 for acting arms) + user_cost + shadow System-1 from the side-car; the retail NL judge is not logged by tau2 (estimate below)",
+ "arms": {
+  "airline/jev_guard": {
+   "simulations": 150,
+   "errored": 0,
+   "re_run": 0,
+   "agent_cost_usd": 11.803,
+   "user_cost_usd": 0.2941,
+   "s1_shadow_cost_usd": 0.0,
+   "total_usd": 12.0971
+  },
+  "airline/jev_shadow": {
+   "simulations": 45,
+   "errored": 0,
+   "re_run": 0,
+   "agent_cost_usd": 2.9899,
+   "user_cost_usd": 0.0881,
+   "s1_shadow_cost_usd": 0.1156,
+   "total_usd": 3.1935
+  },
+  "airline/jev_ts_assist_k3": {
+   "simulations": 150,
+   "errored": 0,
+   "re_run": 0,
+   "agent_cost_usd": 13.0697,
+   "user_cost_usd": 0.2523,
+   "s1_shadow_cost_usd": 0.0,
+   "total_usd": 13.322
+  },
+  "airline/jev_ts_cascade_tau0.5": {
+   "simulations": 150,
+   "errored": 0,
+   "re_run": 0,
+   "agent_cost_usd": 17.5632,
+   "user_cost_usd": 0.2402,
+   "s1_shadow_cost_usd": 0.0,
+   "total_usd": 17.8034
+  },
+  "airline/jev_ts_cascade_tau0.7": {
+   "simulations": 150,
+   "errored": 0,
+   "re_run": 0,
+   "agent_cost_usd": 12.2272,
+   "user_cost_usd": 0.2581,
+   "s1_shadow_cost_usd": 0.0,
+   "total_usd": 12.4853
+  },
+  "airline/jev_ts_cascade_tau0.8": {
+   "simulations": 150,
+   "errored": 0,
+   "re_run": 0,
+   "agent_cost_usd": 12.3836,
+   "user_cost_usd": 0.272,
+   "s1_shadow_cost_usd": 0.0,
+   "total_usd": 12.6556
+  },
+  "airline/jev_ts_cascade_tau0.9": {
+   "simulations": 150,
+   "errored": 0,
+   "re_run": 0,
+   "agent_cost_usd": 13.2686,
+   "user_cost_usd": 0.2726,
+   "s1_shadow_cost_usd": 0.0,
+   "total_usd": 13.5412
+  },
+  "airline/jev_ts_cascade_tau0.95": {
+   "simulations": 150,
+   "errored": 0,
+   "re_run": 0,
+   "agent_cost_usd": 14.3654,
+   "user_cost_usd": 0.288,
+   "s1_shadow_cost_usd": 0.0,
+   "total_usd": 14.6534
+  },
+  "airline/jev_ts_cascade_tau0.99": {
+   "simulations": 150,
+   "errored": 0,
+   "re_run": 0,
+   "agent_cost_usd": 11.668,
+   "user_cost_usd": 0.2736,
+   "s1_shadow_cost_usd": 0.0,
+   "total_usd": 11.9416
+  },
+  "airline/jev_ts_cascade_tauhat_e2": {
+   "simulations": 150,
+   "errored": 0,
+   "re_run": 0,
+   "agent_cost_usd": 10.9241,
+   "user_cost_usd": 0.2721,
+   "s1_shadow_cost_usd": 0.0,
+   "total_usd": 11.1963
+  },
+  "airline/jev_ts_cascade_tauhat_refit": {
+   "simulations": 150,
+   "errored": 0,
+   "re_run": 0,
+   "agent_cost_usd": 14.632,
+   "user_cost_usd": 0.2397,
+   "s1_shadow_cost_usd": 0.0,
+   "total_usd": 14.8716
+  },
+  "airline/llm_only": {
+   "simulations": 150,
+   "errored": 0,
+   "re_run": 0,
+   "agent_cost_usd": 11.5369,
+   "user_cost_usd": 0.2897,
+   "s1_shadow_cost_usd": 0.0,
+   "total_usd": 11.8266
+  },
+  "retail/jev_ts_cascade_tauhat_e2": {
+   "simulations": 342,
+   "errored": 0,
+   "re_run": 0,
+   "agent_cost_usd": 27.9195,
+   "user_cost_usd": 0.6421,
+   "s1_shadow_cost_usd": 0.0,
+   "total_usd": 28.5617
+  },
+  "retail/jev_ts_cascade_tauhat_refit": {
+   "simulations": 342,
+   "errored": 0,
+   "re_run": 0,
+   "agent_cost_usd": 30.1534,
+   "user_cost_usd": 0.6345,
+   "s1_shadow_cost_usd": 0.0,
+   "total_usd": 30.7879
+  },
+  "retail/llm_only": {
+   "simulations": 342,
+   "errored": 0,
+   "re_run": 0,
+   "agent_cost_usd": 25.6226,
+   "user_cost_usd": 0.6435,
+   "s1_shadow_cost_usd": 0.0,
+   "total_usd": 26.2661
+  }
+ },
+ "total_logged_usd": 235.2,
+ "nl_judge_estimate_usd": {
+  "value": 3.4,
+  "basis": "360 retail simulations with judged NL assertions; trajectory chars / 4 + 600 prompt tokens + 120 output tokens per assertion at $2 / $8 per M"
+ },
+ "timeline_utc": {
+  "shadow": "2026-10-03T06:29:53Z-06:34:55Z",
+  "llm_only": "06:35-07:17",
+  "c7_refit_arm": "07:18-08:10",
+  "e2_carried_row": "08:10-09:05",
+  "airline_sweep": "09:05-11:44"
+ }
+}

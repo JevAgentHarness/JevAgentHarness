@@ -1,0 +1,19 @@
+# The final JevAgentHarness on a DEDICATED GPU -- EXPLORATORY / DESCRIPTIVE provisioning row (docs/PREREG_A7_STAGE2.md,
+# Deviations entry of 2026-10-05 "harness_final_dedicated"; no test). Same profile, server, seeds (300500..300699), suite
+# and System-2 as harness_final_live.yaml; ONE worker, so at most one harness episode is in flight on the GPU, and a
+# same-session LLM-only arm under the same worker setting (task-major interleaved, arm order seeded per task); three passes:
+#   for pass in 1 2 3; do JEV_EVAL_RUNS=1 jevbench run configs/experiments/harness_final_dedicated.yaml --out runs -o workers=1; done
+name: harness_final_dedicated
+suite: {name: jevgym, n: 200, seed0: 300500, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 200
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1_backends:
+  # the frozen JevAgentRL-4B (results/stage2/rl_eval_plan.json row `frozen`, sha256-checked before serving) behind
+  # training/serve_jev.py --fast on the GPU host; no System-1 decision cache (the final harness does not use one)
+  jevagent_rl: {type: jev, name: jevagentrl-4b, base_url: "http://127.0.0.1:8081", model: jevagentrl-4b, api_key: "",
+                timeout: 60.0, cache: null}
+workers: 1
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}
+  - {name: harness_final, s1: jevagent_rl, profile: configs/harness/jevagent_final.yaml, profile_s2: gemini-3.5-flash, profile_backend: jevagent_rl}

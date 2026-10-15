@@ -1,0 +1,33 @@
+name: e21_live_openjevhf
+suite:
+  name: jevgym
+  shift: true
+  n: 200
+  seed0: 330100
+  families: v2
+  distractor_style: near
+  n_distractors: 60
+  noise_lines: 20
+  strict: true
+n_tasks: 200
+llm:
+  provider: gemini
+  model: gemini-3.5-flash
+  temperature: 0
+  reasoning_effort: minimal
+s1_cache: cache/s1_e21_live_openjevhf.sqlite
+s1_backends:
+  openjevhf:
+    type: jev
+    name: openjev-hf
+    base_url: http://127.0.0.1:8090
+    model: openjev
+    api_key: ''
+    timeout: 300.0
+    price_model: e15-selfhost
+workers: 4
+arms:
+- name: openjevhf_ts_replace_f
+  s1: openjevhf
+  tool_select:
+    mode: replace

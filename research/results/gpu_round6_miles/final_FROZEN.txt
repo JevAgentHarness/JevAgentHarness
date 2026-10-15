@@ -1,0 +1,18 @@
+name JevAgentRL-v2 (Miles track; exploratory, A7.19)
+frozen_from sft_v2 (checkpoints/r6/sft_v2)
+label GO: the frozen JevAgentRL-v2 passes G1-G6 (development; generator-adapted vs off-the-shelf)
+base /opt/jev/models/StartLux-Decision-4B (StartLux-Decision-4B)
+serving / training commit 4c0bdf8691d317b415f1e0fcd6b3140059953f41 (training/serve_jev.py, training/data.py render, decision_model.chat_text)
+miles image radixark/miles@sha256:f753e21ab1c7d8bd1f66c06fc9cc83d0fac6a9e0d11827649b2df90e33c84101
+chain_decision sha256 483afc4e3be293279da5f07cf14f84bc5d199bb1726cd7e2a6018d7b226aa05a
+frozen_at 2026-10-04T00:53:20Z
+d7bfe3ed50bc8d3ff4821500b0975a9c8ba7b626a7129f47a979d99d4c686282  ./model.safetensors
+a1c80f0efa6f83f631eaa9c25ffa166e3b1f9db395cc3b14374dfc0962261f60  config.json
+5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42  tokenizer.json
+316230d6a809701f4db5ea8f8fc862bc3a6f3229c937c174e674ff3ca0a64ac8  tokenizer_config.json
+a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715  chat_template.jinja
+10f5889fb0ce58b3fe2e71f7b2b4e3a33442e4ce39d997c74736ef461c09e625  calibration.json
+aa04eb5844041f9c67292152ee88152c77389734e052a6d9d0828c3ab6f8c66d  export.json
+c136ed506a71a0e7a1a94701f558de533bec1504f04ef987d01db510d975e7e2  decision_config.json
+58365c9b07c79098c1b88b49d9bcf1b73e1b4316eb4355a6301534148608ec00  regression_image.json
+0027913df5e25465ec19fc47f5b68100462d5be2e11d89e71f511b1d061d5c68  regression_venv.json

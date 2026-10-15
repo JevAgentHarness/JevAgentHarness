@@ -1,0 +1,10 @@
+python-sudoku-solver-backtracking
+cube-grid-cross-expansion
+parse-bitcoin-tx-to-json
+optimize-postgresql-analytics-query
+fix-neural-net-weight-init
+mongodb-sales-aggregation-engine
+implement-nonogram-solver
+fix-nested-transform-independence-matrix
+configure-apache-logging-and-rate-limit
+advanced-poker-hand-classifier

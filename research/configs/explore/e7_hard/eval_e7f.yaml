@@ -1,0 +1,24 @@
+# E7f: AgentDecision-4B (tier) live (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-07 "E7f: AgentDecision-4B (tier)
+# live"; exploratory, descriptive, no test, outside every Holm table). E7e's setting (12 customers, tier rule, itemized
+# final answer) on fresh seeds 310600-310699 (n = 100; the block 310600-310799 is reserved for E7f and the runner
+# refuses it without JEV_EVAL_RUNS=1, bench/registry.py EXPLORE_EVAL_RANGES). rl_tier = the Stage-2 profile's decision
+# points on E7d's continued checkpoint "AgentDecision-4B (tier)" (records: e7d_tier; served by training/serve_jev.py as
+# agentdecision-4b-tier on :8081 with E7d's refitted temperatures) at the thresholds E7d fitted with the registered
+# estimator on E7c's calibration states (results/explore/e7_hard/box_e7d/cal/tauhat_tier_*.json). Flash on the direct
+# Gemini API in both arms. Run by scripts/aws/e7_hard.sh with EXP=e7f:
+#   JEV_EVAL_RUNS=1 jevbench run configs/explore/e7_hard/eval_e7f.yaml --out runs -o workers=12
+name: e7f_hard
+suite: {name: jevgym, n: 100, seed0: 310600, families: multi, multi_customers: 12, multi_rule: tier, answer_style: itemized, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+n_tasks: 100
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+harness_defaults: {max_steps: 45}
+s1_backends:
+  agentdecision_tier: {type: jev, name: agentdecision-4b-tier, base_url: "http://127.0.0.1:8081", model: agentdecision-4b-tier,
+                       api_key: "", timeout: 60.0, cache: null}
+workers: 12
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}
+  # E7d's fit (registered calibration-arm estimator, calibration seeds 5300-5319): tool choice 0.9999322567940803,
+  # arguments 0.9929112792015076; the profile's fixed reflection trigger (0.5) asks the same model
+  - {name: rl_tier, s1: agentdecision_tier, tool_select: {mode: cascade, tau: 0.9999322567940803}, tool_params: {mode: cascade, tau: 0.9929112792015076}, reflection: {mode: trigger, tau: 0.5}}

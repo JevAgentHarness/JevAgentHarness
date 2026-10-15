@@ -1,0 +1,27 @@
+{
+ "backend": {
+  "backend": "jevagentrl-4b",
+  "provider": "typesafe",
+  "model": "jevagentrl-4b",
+  "base_url": "http://127.0.0.1:8081",
+  "extra_body": {}
+ },
+ "questions_per_req": 3,
+ "state_tokens": 1500,
+ "results": {
+  "c=1": {
+   "p50_ms": 306.87776550257695,
+   "p95_ms": 309.9000829970464,
+   "req_per_s": 3.2587334581210827,
+   "input_tokens_per_req": 2955.475,
+   "amortised_usd_per_m_input": 0.08664056941537317
+  },
+  "c=4": {
+   "p50_ms": 1212.7876519989513,
+   "p95_ms": 1216.2386130003142,
+   "req_per_s": 3.2992850189364544,
+   "input_tokens_per_req": 2956.34,
+   "amortised_usd_per_m_input": 0.08555063018455625
+  }
+ }
+}

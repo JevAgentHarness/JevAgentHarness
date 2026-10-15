@@ -1,0 +1,22 @@
+# E6a (exploratory, descriptive; docs/PREREG_A7_STAGE2.md, Deviations 2026-10-06 "Exploratory row E6a"): action-only
+# control on ALFWorld valid_seen (eval_in_distribution, the 140 games of eval_games.json, stratified order). Not the
+# registered S2-L3b; revises no registered result. Agent LLM Gemini 3.5 Flash (temperature 0, minimal reasoning);
+# decision model Jev via OpenRouter; harness and suite settings as E6 / stage2_alfworld.yaml (50 steps, history 12).
+# CASCADE: tau-hat = 0.95 from the calibration shadow arm on 48 TRAIN games (cal.yaml; tauhat_action.json), written here
+# before any valid_seen episode. ASSIST: k = 3 (the registered tool-ASSIST k). One invocation, task-major interleaved
+# (seed 732, 8 workers); a second invocation re-runs infrastructure errors once. No System-1 cache (honest wall time).
+#   python -m jevharness.bench.runner configs/explore/e6a_alfworld/eval.yaml --out runs
+name: e6a_alfworld_eval
+suite: {name: alfworld, split: eval_in_distribution, data_dir: data/raw/alfworld, n: 140, stratify: true,
+        max_episode_steps: 50}
+n_tasks: 140
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}
+harness_defaults: {max_steps: 50, history_window: 12}
+workers: 8
+schedule: {mode: task_major, seed: 732}
+arms:
+  - {name: llm_only}
+  - {name: jev_action_replace, action: {mode: replace}}
+  - {name: jev_action_cascade_tauhat, action: {mode: cascade, tau: 0.95}}
+  - {name: jev_action_assist_k3, action: {mode: assist, k: 3}}

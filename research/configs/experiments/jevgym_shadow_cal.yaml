@@ -1,0 +1,32 @@
+# Calibration shadow arms for the C1 thresholds (PREREGISTRATION amendment A6.5, 2026-10-01, review-round-5 P0-6).
+# tau-hat* for the C1F / C1L arms of jevgym_tool_select.yaml (`jev_ts_cascade_tauhat`, `jev_ts_cascade_tau0.9_s2lite`)
+# is fitted HERE, on the 150 CALIBRATION seeds 5000..5149 (BENCHMARK_SPEC s8 range 5000-5999), never on the evaluation
+# tasks (seeds 200000..200499, A6.13). The runner builds one task list per experiment (bench/runner.py: every arm takes
+# the first `n_tasks` of `suite`), so the calibration arms live in this file rather than as arms of the evaluation YAML.
+# Same suite settings, System-2 models, System-1 (Jev) and shadow points as `jev_shadow` / `jev_shadow_s2lite`, which
+# stay the n = 500 EVALUATION shadow logs (H1 regret on their 30/70 split; Prop. 1 tests) and never set a deployed tau.
+# Cost ~ $8 (Flash ~ $6, Flash-Lite ~ $1.5, Jev ~ $0.3).
+#   jevbench run configs/experiments/jevgym_shadow_cal.yaml
+#   python -m jevharness.bench.threshold_theory runs/e2a_jevgym_shadow_cal --arm jev_shadow_cal --dp tool_select \
+#       --rule general --task-value 1.0 --lam-per-hour 0 --train-frac 1 --out runs/cal/tauhat_jev_flash_tool_select.json
+#   (the registered fit is the calibration-arm mode: add --calibration-arm; A6.11: when the log holds no wrong System-2
+#   decision the counterfactual V is undefined and the fit uses V = W, recorded as V_source = fallback W)
+#   likewise --dp tool_params, and --arm jev_shadow_cal_s2lite for the Flash-Lite C1L arm: one tau-hat* per decision
+#   point and System-2 model. Primary operating point W = $1, lambda = 0 (W in {0.1, 10}, lambda in {0.5, 5} $/h are
+#   sensitivity rows). The deployed value is the scalar threshold projection of Eq. 3 (`general_crossing`; the
+#   gain-maximising `general` threshold when {a >= 0} is not an interval), at full precision (A6.11 (c).3) and written into the
+#   `tau:` of the C1 arms before they run; < 30 paired decisions at a decision point -> `--rule prop1`; < 10 -> tau 0.9.
+name: e2a_jevgym_shadow_cal
+suite: {name: jevgym, n: 150, seed0: 5000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # calibration seeds 5000..5149
+n_tasks: 150
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+llms:
+  lite2: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}
+s1_cache: cache/s1.sqlite
+workers: 8
+arms:
+  # Flash: calibrates C1F (`jev_ts_cascade_tauhat`); identical to `jev_shadow` except for the task list
+  - {name: jev_shadow_cal, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}
+  # Flash-Lite: calibrates C1L (`jev_ts_cascade_tau0.9_s2lite`); identical to `jev_shadow_s2lite` except for the task list
+  - {name: jev_shadow_cal_s2lite, llm: lite2, tool_select: {mode: shadow}, tool_params: {mode: shadow}, stop: {mode: shadow}}

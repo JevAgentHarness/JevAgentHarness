@@ -1,0 +1,51 @@
+# Exploratory row E18's live profile (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-08 'E17 and E18: read-out
+# ablation and a deferral-aware objective' (c) 3 and (c) 6): configs/harness/jevagent_final.yaml copied unchanged
+# (tool + argument cascade, reflection off, batch_s1; the frozen JevAgentRL-4B block unchanged) plus backends.e18:
+# tau = 1 - k_dp (the cost margins of the frozen 4B's calibration fits), the served confidence being 1 - P(defer)
+# of the logistic defer head results/explore/e17_e18/e18_head.json. Written by scripts/explore_e17_e18.py
+# prepare-live before any live episode; nothing fitted or searched on any evaluation data.
+kind: jevagent_profile
+version: 1
+name: explore_e18_final
+status: development
+description: 'Exploratory row E18''s live profile (PREREG_A7_STAGE2 Deviations 2026-10-08
+  ''E17 and E18'' (c) 3 and 6): a copy of configs/harness/jevagent_final.yaml (tool
+  + argument cascade, reflection off, batch_s1; the frozen JevAgentRL-4B block unchanged)
+  with backends.e18: tau = 1 - k per decision point, so the cascade accepts iff the
+  defer head''s P(defer) <= k. No threshold was fitted or searched.'
+system2:
+  gemini-3.5-flash:
+    decision_points:
+      tool_select:
+        mode: cascade
+        tau: 1.0
+      tool_params:
+        mode: cascade
+        tau: 0.99
+        batch_s1: true
+    backends:
+      jevagent_rl:
+        tool_select:
+          tau: 0.4999999999978404
+        tool_params:
+          tau: 0.9999998807907104
+        notes: frozen thresholds of configs/harness/jevagent_best.yaml backends.jevagent_rl
+          (fitted on the calibration seeds, results/gpu_round5/cal/), copied unchanged
+      e18:
+        tool_select:
+          tau: 0.9941678
+        tool_params:
+          tau: 0.9965348931475904
+        fitted_from:
+          head: results/explore/e17_e18/e18_head.json
+          head_sha256: 23dbbbee77c7f9df29ef6613ce703068a89c378f08340cd2748aec8a7e09187f
+          rule: 'served confidence = 1 - P(defer); tau = 1 - k_dp with k from results/gpu_round5/cal
+            (the frozen 4B''s calibration fits: Delta c / V, V = W = $1); PREREG_A7_STAGE2
+            Deviations 2026-10-08 ''E17 and E18'' (c) 3'
+          k:
+            tool_select: 0.0058322
+            tool_params: 0.0034651068524096384
+  gemini-3.5-flash-lite:
+    decision_points: {}
+    skip: not part of the final harness (no decision point qualified for Flash-Lite
+      in Stage 1)

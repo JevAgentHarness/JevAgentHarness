@@ -1,0 +1,42 @@
+{
+ "what": "S2-4 provisioned per-episode tariff q for JevAgentRL (docs/PREREG_A7_STAGE2.md A7.13 (iii)), measured as the S2-4S tariff (results/stage2/tariff_sl4b_plan.json)",
+ "committed_before_measurement": true,
+ "configuration": {
+  "arm": "jevagent_best_rl",
+  "config": "configs/experiments/stage2_jevgym.yaml",
+  "profile": "configs/harness/jevagent_best.yaml (Flash section with the fitted backends.jevagent_rl block, A7.1 (f))",
+  "system1": "JevAgentRL (the frozen checkpoint of results/gpu_round5/FREEZE_RECORD.json: Qwen/Qwen3-4B + its LoRA adapter and temperature file) served by training/serve_jev.py on :8081 under the name jevagentrl-4b: session cache on, multi-question suffix batching on, serve_jev defaults otherwise",
+  "system2": "gemini-3.5-flash (temperature 0, minimal reasoning)",
+  "workers": 4,
+  "system1_cache": "cache/s1_dev_tariff_rl.sqlite (fresh; never an evaluation cache)"
+ },
+ "warmup": {
+  "seed0": 590,
+  "n": 10,
+  "run_name": "stage2_dev_tariff_rl_warmup",
+  "purpose": "the server's first requests (CUDA allocation, session cache) outside the window; not counted"
+ },
+ "workload": {
+  "suite": "jevgym (Stage-1 suite settings), development seeds",
+  "seed0": 600,
+  "n": 100,
+  "task_seeds": "600-699 (the S2-4S tariff's seeds, so the two tariffs are measured on one workload)",
+  "run_name": "stage2_dev_tariff_rl"
+ },
+ "window": {
+  "start": "the UTC time the workload command is launched (after the warm-up)",
+  "end": "the UTC time the workload command exits",
+  "recorded_in": "results/stage2/gpu/tariff_rl_window.json (scripts/aws/stage2_gpu.sh stage tariff_rl)",
+  "contents": "only the workload: no other job runs on the GPU host inside the window; executor waiting and provisioned idle time inside it are included"
+ },
+ "host": {
+  "instance_type": "g6e.2xlarge (1x NVIDIA L40S 48 GB, 8 vCPU)",
+  "region": "us-east-1",
+  "usd_per_hour": 2.24208,
+  "price_source": "AWS Price List API (AmazonEC2, Linux, shared tenancy, on demand), read 2026-10-03"
+ },
+ "formula": "q = host $/h x (window end - window start) / completed development episodes (latest record without an infrastructure error); scripts/stage2_tariff.py --arm jevagent_best_rl --served-model jevagentrl-4b --out results/stage2/tariff.json",
+ "served_model_price": "jevagentrl-4b is an exact 0 per-token entry in configs/prices/models.yaml (nothing charged twice)",
+ "sensitivity": "busy-throughput tariff (union of in-flight System-1 calls x host $/h / episodes), Jev's API price ($0.042 / M System-1 input tokens), $0, and the realised evaluation-host bill beside it (A7.13 (iii))",
+ "note": "A7.7 and A7.10 (h) planned the JevAgentRL serving on one L4; the persistent Stage-2 host is the L40S that served StartLux (one box for the whole remaining GPU chain), so q is that host's tariff, its hardware recorded with it (dated Deviations entry)"
+}

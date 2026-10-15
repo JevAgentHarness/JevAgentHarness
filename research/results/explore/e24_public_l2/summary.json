@@ -1,0 +1,3297 @@
+{
+ "row": "E24",
+ "label": "exploratory (E24), descriptive; PREREG_A7_STAGE2 Deviations 2026-10-08 'E24: agent-state accuracy (L2) on public benchmarks'; outside every Holm table",
+ "generated": "2026-10-09T06:47:57+00:00",
+ "git": "6b820ba3cf4a8fc3f23bea1ac60427592a4d1633",
+ "corpus": {
+  "by_split": {
+   "seen": {
+    "by_task_type": {
+     "look_at_obj_in_light": 98,
+     "pick_and_place_simple": 220,
+     "pick_clean_then_place_in_recep": 571,
+     "pick_cool_then_place_in_recep": 328,
+     "pick_heat_then_place_in_recep": 203,
+     "pick_two_obj_and_place": 240
+    },
+    "flash_strict_acc_states": 0.4831325301204819,
+    "games": 140,
+    "games_with_states": 140,
+    "lenient_gt1_share": 0.3096385542168675,
+    "lenient_mean_size": 4.731325301204819,
+    "logged_equals_strict_share": 0.8674698795180723,
+    "off_plan_share": 0.8704819277108434,
+    "options_median": 31.0,
+    "source_walkthrough_share": 0.12951807228915663,
+    "states": 1660,
+    "unique_questions": 1659
+   },
+   "unseen": {
+    "by_task_type": {
+     "look_at_obj_in_light": 133,
+     "pick_and_place_simple": 136,
+     "pick_clean_then_place_in_recep": 537,
+     "pick_cool_then_place_in_recep": 360,
+     "pick_heat_then_place_in_recep": 343,
+     "pick_two_obj_and_place": 186
+    },
+    "flash_strict_acc_states": 0.41651917404129796,
+    "games": 134,
+    "games_with_states": 134,
+    "lenient_gt1_share": 0.2814159292035398,
+    "lenient_mean_size": 4.165781710914454,
+    "logged_equals_strict_share": 0.8224188790560472,
+    "off_plan_share": 0.8949852507374632,
+    "options_median": 28.0,
+    "source_walkthrough_share": 0.10501474926253687,
+    "states": 1695,
+    "unique_questions": 1604
+   }
+  },
+  "checks": {
+   "games_desynced": 0,
+   "obs_mismatch": 0,
+   "options_mismatch": 0,
+   "steps": 3824
+  },
+  "dropped": {
+   "after_expert_fallback": 327,
+   "expert_random_fallback": 142
+  },
+  "errored_games": 0,
+  "games": 274,
+  "hand_kinds": {
+   "None": 2002,
+   "goto": 324,
+   "search": 1029
+  },
+  "states": 3355,
+  "strict_random_instance_states": 114,
+  "unique_questions": 3263
+ },
+ "tau2": {
+  "run": true,
+  "corpus": {
+   "arg_questions": 1445,
+   "by_domain": {
+    "airline": {
+     "arg_not_asked": 144,
+     "arg_other_label": 4,
+     "arg_questions": 424,
+     "not_write_due": 924,
+     "sims": 80,
+     "turns": 1023,
+     "write_due": 99
+    },
+    "retail": {
+     "arg_not_asked": 396,
+     "arg_other_label": 14,
+     "arg_questions": 1021,
+     "not_write_due": 1523,
+     "sims": 160,
+     "turns": 1846,
+     "write_due": 323
+    }
+   },
+   "by_label_tool": {
+    "book_reservation": 28,
+    "cancel_pending_order": 22,
+    "cancel_reservation": 8,
+    "exchange_delivered_order_items": 73,
+    "modify_pending_order_address": 61,
+    "modify_pending_order_items": 103,
+    "modify_pending_order_payment": 6,
+    "modify_user_address": 14,
+    "return_delivered_order_items": 44,
+    "update_reservation_baggages": 3,
+    "update_reservation_flights": 60
+   },
+   "questions": 1867,
+   "states": 422,
+   "tasks": 46,
+   "tool_questions": 422
+  },
+  "files": {
+   "occurrences.jsonl.gz": "a1d3cbec06bc783efa6de160a075a0c80bddc62fb084ee98da231e26ed59f082",
+   "questions.jsonl.gz": "7be0fcd7f0bd2ec9e228878b4edc89bcc7e2891cd45accdd743f0fd9499b4ee7"
+  },
+  "sources": {
+   "airline/jev_decisions.jsonl.gz": "622a046f447f93d07d0cfdccd7eed6699e75fdabaa302c483a7816b36b6e079c",
+   "airline/results.json.gz": "de81083e10456a8a4d8dc35cb754f7b07cb049a4da4d89ae6cc3a2621196929a",
+   "retail/jev_decisions.jsonl.gz": "54837dd6100f54656c19122c65061722f8258a02a2162ebbab21ef16afb70f48",
+   "retail/results.json.gz": "a5c4cffe87d06adef9d7cf0d8dacff8e8e61d0698883bf93f6e7d29c47bbc788"
+  },
+  "rows": {
+   "qwen4b": {
+    "name": "Qwen3-4B (untrained base)",
+    "group": "offshelf",
+    "score": {
+     "retail": {
+      "n_tasks": 35,
+      "n_states": 323,
+      "tool": 0.6514238241405426,
+      "tool_ci": [
+       0.5553618220792591,
+       0.7507555740244817
+      ],
+      "call": 0.5366614932072695,
+      "wrong_write": 0.09372056829929451,
+      "args": 0.8709026748492904
+     },
+     "airline": {
+      "n_tasks": 11,
+      "n_states": 99,
+      "tool": 0.4042666929030565,
+      "tool_ci": [
+       0.22501147842056932,
+       0.5926768496654858
+      ],
+      "call": 0.3020857929948839,
+      "wrong_write": 0.07677095631641086,
+      "args": 0.8562519130700948
+     },
+     "pooled": {
+      "n_tasks": 46,
+      "n_states": 422,
+      "tool": 0.5923210318881001,
+      "tool_ci": [
+       0.49904461089268937,
+       0.6805911289484322
+      ],
+      "call": 0.4805673040260468,
+      "wrong_write": 0.08966740021643103,
+      "args": 0.8673992318151349
+     }
+    },
+    "n_errors": 0,
+    "n_refusals": 0,
+    "cost_usd": 0.0
+   },
+   "e12": {
+    "name": "AgentDecision-4B (released)",
+    "group": "transfer",
+    "score": {
+     "retail": {
+      "n_tasks": 35,
+      "n_states": 323,
+      "tool": 0.6821846655891326,
+      "tool_ci": [
+       0.5837003823459208,
+       0.7736254724111866
+      ],
+      "call": 0.5802551056409968,
+      "wrong_write": 0.09558796573060173,
+      "args": 0.9000156779155846
+     },
+     "airline": {
+      "n_tasks": 11,
+      "n_states": 99,
+      "tool": 0.45326807031352484,
+      "tool_ci": [
+       0.29162009707464254,
+       0.6269989669421488
+      ],
+      "call": 0.38515512265512264,
+      "wrong_write": 0.10159386068476978,
+      "args": 0.8637052341597795
+     },
+     "pooled": {
+      "n_tasks": 46,
+      "n_states": 422,
+      "tool": 0.6274437406319221,
+      "tool_ci": [
+       0.5372780667126306,
+       0.7098281062448092
+      ],
+      "call": 0.5336007618835052,
+      "wrong_write": 0.09702415800225062,
+      "args": 0.8913327457131095
+     }
+    },
+    "n_errors": 0,
+    "n_refusals": 0,
+    "cost_usd": 0.0
+   },
+   "e14a": {
+    "name": "0.8B scoring head",
+    "group": "transfer",
+    "score": {
+     "retail": {
+      "n_tasks": 35,
+      "n_states": 323,
+      "tool": 0.6889792097675779,
+      "tool_ci": [
+       0.58909511787171,
+       0.781750842003468
+      ],
+      "call": 0.262658922318365,
+      "wrong_write": 0.16630767196667243,
+      "args": 0.6177565636030055
+     },
+     "airline": {
+      "n_tasks": 11,
+      "n_states": 99,
+      "tool": 0.39197166469893746,
+      "tool_ci": [
+       0.14403778040141677,
+       0.6517119244391971
+      ],
+      "call": 0.16883116883116883,
+      "wrong_write": 0.14315230224321132,
+      "args": 0.7305172941536578
+     },
+     "pooled": {
+      "n_tasks": 46,
+      "n_states": 422,
+      "tool": 0.6179556663815985,
+      "tool_ci": [
+       0.5073392079056958,
+       0.7156123122205788
+      ],
+      "call": 0.24022185083229639,
+      "wrong_write": 0.1607705183371491,
+      "args": 0.6447210861259876
+     }
+    },
+    "n_errors": 0,
+    "n_refusals": 0,
+    "cost_usd": 0.0
+   },
+   "sl4b": {
+    "name": "StartLux-4B",
+    "group": "offshelf",
+    "score": {
+     "retail": {
+      "n_tasks": 35,
+      "n_states": 323,
+      "tool": 0.6467454570672172,
+      "tool_ci": [
+       0.5561237232859855,
+       0.73443879876512
+      ],
+      "call": 0.5284019325228968,
+      "wrong_write": 0.09215562653311436,
+      "args": 0.8252791814704189
+     },
+     "airline": {
+      "n_tasks": 11,
+      "n_states": 99,
+      "tool": 0.41680112816476456,
+      "tool_ci": [
+       0.26166666666666666,
+       0.5806477928637019
+      ],
+      "call": 0.3262823035550308,
+      "wrong_write": 0.07922405876951333,
+      "args": 0.712290108881018
+     },
+     "pooled": {
+      "n_tasks": 46,
+      "n_states": 422,
+      "tool": 0.5917587697209786,
+      "tool_ci": [
+       0.5093579941485741,
+       0.6729503302295946
+      ],
+      "call": 0.4800689777697114,
+      "wrong_write": 0.08906329511138367,
+      "args": 0.7982600554164317
+     }
+    },
+    "n_errors": 0,
+    "n_refusals": 0,
+    "cost_usd": 0.0
+   },
+   "sl9b": {
+    "name": "StartLux-9B",
+    "group": "offshelf",
+    "score": {
+     "retail": {
+      "n_tasks": 35,
+      "n_states": 323,
+      "tool": 0.6388654463134782,
+      "tool_ci": [
+       0.5530390068308024,
+       0.7271366265804567
+      ],
+      "call": 0.5953265395226917,
+      "wrong_write": 0.08067059302353419,
+      "args": 0.9406951722741196
+     },
+     "airline": {
+      "n_tasks": 11,
+      "n_states": 99,
+      "tool": 0.44583005378459917,
+      "tool_ci": [
+       0.2855150941230486,
+       0.6137734897678078
+      ],
+      "call": 0.41489571035025574,
+      "wrong_write": 0.06104224058769514,
+      "args": 0.8949828370282915
+     },
+     "pooled": {
+      "n_tasks": 46,
+      "n_states": 422,
+      "tool": 0.5927048089696157,
+      "tool_ci": [
+       0.5106735897747053,
+       0.670887801204718
+      ],
+      "call": 0.5521800368945005,
+      "wrong_write": 0.07597685657148572,
+      "args": 0.9297639616718563
+     }
+    },
+    "n_errors": 0,
+    "n_refusals": 0,
+    "cost_usd": 0.0
+   },
+   "sl27b": {
+    "name": "StartLux-27B (Q8_0)",
+    "group": "offshelf",
+    "score": {
+     "retail": {
+      "n_tasks": 35,
+      "n_states": 323,
+      "tool": 0.5417224006111666,
+      "tool_ci": [
+       0.4554575562681213,
+       0.6262293134190248
+      ],
+      "call": 0.5144816797614232,
+      "wrong_write": 0.047481548174825486,
+      "args": 0.8882124149127524
+     },
+     "airline": {
+      "n_tasks": 11,
+      "n_states": 99,
+      "tool": 0.435166601075692,
+      "tool_ci": [
+       0.2708458776072412,
+       0.6017718581923125
+      ],
+      "call": 0.4092827626918536,
+      "wrong_write": 0.07455234159779614,
+      "args": 0.8888014342559797
+     },
+     "pooled": {
+      "n_tasks": 46,
+      "n_states": 422,
+      "tool": 0.51624166593964,
+      "tool_ci": [
+       0.43794942660196234,
+       0.5932368103856317
+      ],
+      "call": 0.4893254169839175,
+      "wrong_write": 0.053954998775970646,
+      "args": 0.8883532673643935
+     }
+    },
+    "n_errors": 0,
+    "n_refusals": 0,
+    "cost_usd": 0.0
+   },
+   "jev": {
+    "name": "Jev",
+    "group": "offshelf",
+    "score": {
+     "retail": {
+      "n_tasks": 35,
+      "n_states": 323,
+      "tool": 0.5485987201898302,
+      "tool_ci": [
+       0.46668763777440797,
+       0.6363513475565664
+      ],
+      "call": 0.4937124966945843,
+      "wrong_write": 0.05076953003423591,
+      "args": 0.9142062954530957
+     },
+     "airline": {
+      "n_tasks": 11,
+      "n_states": 99,
+      "tool": 0.4277285845467663,
+      "tool_ci": [
+       0.26998015873015874,
+       0.5922910107569198
+      ],
+      "call": 0.356964121736849,
+      "wrong_write": 0.05763314967860422,
+      "args": 0.9091291704928067
+     },
+     "pooled": {
+      "n_tasks": 46,
+      "n_states": 422,
+      "tool": 0.5196949921012716,
+      "tool_ci": [
+       0.43888425252564095,
+       0.5994222354620373
+      ],
+      "call": 0.4610117983351258,
+      "wrong_write": 0.05241083038397616,
+      "args": 0.912992200353896
+     }
+    },
+    "n_errors": 0,
+    "n_refusals": 0,
+    "cost_usd": 0.31845819599999997
+   },
+   "oaidec": {
+    "name": "OpenAI Decisions API",
+    "group": "offshelf",
+    "score": {
+     "retail": {
+      "n_tasks": 35,
+      "n_states": 323,
+      "tool": 0.39616843633539783,
+      "tool_ci": [
+       0.3171643461028137,
+       0.48580150008721434
+      ],
+      "call": 0.3788309457836216,
+      "wrong_write": 0.03353030100929261,
+      "args": 0.9106502136830043
+     },
+     "airline": {
+      "n_tasks": 11,
+      "n_states": 99,
+      "tool": 0.3154417552144825,
+      "tool_ci": [
+       0.1991262052341598,
+       0.44170356158992513
+      ],
+      "call": 0.2484651711924439,
+      "wrong_write": 0.03149678604224059,
+      "args": 0.8732399755127027
+     },
+     "pooled": {
+      "n_tasks": 46,
+      "n_states": 422,
+      "tool": 0.37686422998039626,
+      "tool_ci": [
+       0.30446672890924303,
+       0.44916287929588833
+      ],
+      "call": 0.3476565214248617,
+      "wrong_write": 0.033044025691084514,
+      "args": 0.9017042871640193
+     }
+    },
+    "n_errors": 0,
+    "n_refusals": 3,
+    "cost_usd": 0.6121932999999983
+   },
+   "e22": {
+    "name": "tau^2-trained 0.8B head (E22)",
+    "group": "tau2",
+    "score": {
+     "retail": {
+      "n_tasks": 35,
+      "n_states": 323,
+      "tool": 0.47038841852530483,
+      "tool_ci": [
+       0.38555516022198355,
+       0.561234753550543
+      ],
+      "call": 0.4357780831630898,
+      "wrong_write": 0.0461368992041261,
+      "args": 0.9195167538811696
+     },
+     "airline": {
+      "n_tasks": 11,
+      "n_states": 99,
+      "tool": 0.4522809261445625,
+      "tool_ci": [
+       0.2941949527744982,
+       0.5944441984782893
+      ],
+      "call": 0.39793060474878655,
+      "wrong_write": 0.04690082644628099,
+      "args": 0.9237029384756656
+     },
+     "pooled": {
+      "n_tasks": 46,
+      "n_states": 422,
+      "tool": 0.4660583659994752,
+      "tool_ci": [
+       0.39158307133528814,
+       0.5398754529289005
+      ],
+      "call": 0.4267275991944521,
+      "wrong_write": 0.04631957745768488,
+      "args": 0.9205177980233316
+     }
+    },
+    "n_errors": 0,
+    "n_refusals": 0,
+    "cost_usd": 0.0
+   }
+  },
+  "flash": {
+   "retail": {
+    "n_tasks": 35,
+    "n_states": 323,
+    "tool": 0.49829989980697637,
+    "tool_ci": [
+     0.4163636621765216,
+     0.5840101277353047
+    ],
+    "call": 0.48424094289087655,
+    "wrong_write": 0.03810891023075897,
+    "args": 0.9836993888464477
+   },
+   "airline": {
+    "n_tasks": 11,
+    "n_states": 99,
+    "tool": 0.41005181686999864,
+    "tool_ci": [
+     0.2590793486816214,
+     0.5517316017316016
+    ],
+    "call": 0.3841679784861603,
+    "wrong_write": 0.04626951331496786,
+    "args": 0.9702581369248036
+   },
+   "pooled": {
+    "n_tasks": 46,
+    "n_states": 422,
+    "tool": 0.4771970973655251,
+    "tool_ci": [
+     0.40089250942160576,
+     0.5514382782496341
+    ],
+    "call": 0.4603104514027923,
+    "wrong_write": 0.04006035879437414,
+    "args": 0.9808861035605222
+   }
+  },
+  "kendall_alf_tau2": {
+   "n": 8,
+   "tau_b": -0.42857142857142855
+  }
+ },
+ "corpus_files": {
+  "occurrences.jsonl.gz": "9f56994d224b41052c864af6298029a715c333848b7ba59730599c941b41cd27",
+  "questions.jsonl.gz": "0c2529c3acd60915e4e3096fee33627bb51e3c868c14d76a8fa10c3981840423"
+ },
+ "corpus_sources": {
+  "seen": {
+   "path": "runs/e11_alfworld_eval/llm_only.jsonl",
+   "row": "E11 (valid_seen)",
+   "sha256": "70964b63d4af74471f0a1e1803e7257c4fc309d7a947c989be6360f75ba89227"
+  },
+  "unseen": {
+   "path": "runs/e23_alfworld_unseen_eval/llm_only.jsonl",
+   "row": "E23 (valid_unseen)",
+   "sha256": "202844f6946712d89b2b9758d6a35aa172cff260cabed67fd864960707b9acd3"
+  }
+ },
+ "models": {
+  "e11": {
+   "name": "ALFWorld-trained 4B (E11)",
+   "group": "alfworld",
+   "serving": "serve_jev, E11's adapter and temperatures",
+   "run": true,
+   "n_questions": 3263,
+   "n_answers": 3263,
+   "n_errors": 0,
+   "n_refusals": 0,
+   "n_invalid": 0,
+   "cost_usd": 0.0,
+   "mean_conf": 0.8176389798219206,
+   "latency_ms_median": 476.2657010000453,
+   "score": {
+    "acceptable": {
+     "seen": {
+      "acc": 0.9392713464511857,
+      "ci": [
+       0.9209425069332442,
+       0.9553127896268027
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.915469102255502,
+      "ci": [
+       0.8942465260692872,
+       0.9354038823467241
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.9276308328664353,
+      "ci": [
+       0.9134865446930933,
+       0.9412264473383738
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "lenient": {
+     "seen": {
+      "acc": 0.8917953523098733,
+      "ci": [
+       0.8669435980404687,
+       0.9123777462150995
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.8791671079774934,
+      "ci": [
+       0.8579643677446829,
+       0.898814661719815
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.885619495592578,
+      "ci": [
+       0.8699478231235254,
+       0.8999797480795045
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "strict": {
+     "seen": {
+      "acc": 0.8320261427882889,
+      "ci": [
+       0.8054824424859556,
+       0.858163108395662
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.8591655001082384,
+      "ci": [
+       0.8364015459953771,
+       0.8797630365979525
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.845298675200235,
+      "ci": [
+       0.8278186073908557,
+       0.8619384645162932
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "logged": {
+     "seen": {
+      "acc": 0.7919788124262234,
+      "ci": [
+       0.757637592904444,
+       0.8237057837634839
+      ],
+      "n_games": 140,
+      "n_states": 1612
+     },
+     "unseen": {
+      "acc": 0.8049856582220497,
+      "ci": [
+       0.775703472367185,
+       0.8321680146565462
+      ],
+      "n_games": 134,
+      "n_states": 1453
+     },
+     "pooled": {
+      "acc": 0.7983398246037443,
+      "ci": [
+       0.7770343209737015,
+       0.8190956844440466
+      ],
+      "n_games": 274,
+      "n_states": 3065
+     }
+    },
+    "occ_weighted": {
+     "seen": 0.9439759036144578,
+     "unseen": 0.8967551622418879,
+     "pooled": 0.9201192250372578
+    },
+    "by_task_type": {
+     "seen": {
+      "pick_and_place_simple": 0.9296598639455782,
+      "look_at_obj_in_light": 0.9016829403826307,
+      "pick_clean_then_place_in_recep": 0.9414344599450983,
+      "pick_heat_then_place_in_recep": 0.9352794312169312,
+      "pick_cool_then_place_in_recep": 0.9414809989963001,
+      "pick_two_obj_and_place": 0.9715745311333546
+     },
+     "unseen": {
+      "pick_and_place_simple": 0.8405257936507936,
+      "look_at_obj_in_light": 0.9100664767331433,
+      "pick_clean_then_place_in_recep": 0.9354540434616335,
+      "pick_heat_then_place_in_recep": 0.9044901305003606,
+      "pick_cool_then_place_in_recep": 0.9452394789493351,
+      "pick_two_obj_and_place": 0.9686274509803923
+     },
+     "pooled": {
+      "pick_and_place_simple": 0.8934019370460047,
+      "look_at_obj_in_light": 0.9065508001990575,
+      "pick_clean_then_place_in_recep": 0.9382380304453154,
+      "pick_heat_then_place_in_recep": 0.9171216384866461,
+      "pick_cool_then_place_in_recep": 0.9431968268009463,
+      "pick_two_obj_and_place": 0.9703525710699312
+     }
+    },
+    "off_plan": {
+     "seen": {
+      "on": 0.694404761904762,
+      "after": 0.976412914029531
+     },
+     "unseen": {
+      "on": 0.6412935323383084,
+      "after": 0.9607718675620607
+     },
+     "pooled": {
+      "on": 0.6684306569343066,
+      "after": 0.9685308118726955
+     }
+    },
+    "by_task_type_strict": {
+     "seen": {
+      "pick_and_place_simple": 0.8054212454212455,
+      "look_at_obj_in_light": 0.754142898724942,
+      "pick_clean_then_place_in_recep": 0.8533595478158126,
+      "pick_heat_then_place_in_recep": 0.9042609126984127,
+      "pick_cool_then_place_in_recep": 0.8470232538429028,
+      "pick_two_obj_and_place": 0.8252331240382711
+     },
+     "unseen": {
+      "pick_and_place_simple": 0.82311611999112,
+      "look_at_obj_in_light": 0.8452872744539411,
+      "pick_clean_then_place_in_recep": 0.8639100456083378,
+      "pick_heat_then_place_in_recep": 0.8557330308225448,
+      "pick_cool_then_place_in_recep": 0.8768348326543232,
+      "pick_two_obj_and_place": 0.89891862270755
+     },
+     "pooled": {
+      "pick_and_place_simple": 0.8126191605005163,
+      "look_at_obj_in_light": 0.8070654394708126,
+      "pick_clean_then_place_in_recep": 0.8589986069807828,
+      "pick_heat_then_place_in_recep": 0.8756419054382855,
+      "pick_cool_then_place_in_recep": 0.8606328876481164,
+      "pick_two_obj_and_place": 0.8557856478767527
+     }
+    },
+    "off_plan_strict": {
+     "seen": {
+      "on": 0.41588435374149657,
+      "after": 0.9177636850917843
+     },
+     "unseen": {
+      "on": 0.35563847429519074,
+      "after": 0.9349814153944735
+     },
+     "pooled": {
+      "on": 0.38642104043563896,
+      "after": 0.9264403365829031
+     }
+    },
+    "missing_pairs": 0
+   }
+  },
+  "qwen4b": {
+   "name": "Qwen3-4B (untrained base)",
+   "group": "offshelf",
+   "serving": "serve_jev, no adapter",
+   "run": true,
+   "n_questions": 3263,
+   "n_answers": 3263,
+   "n_errors": 0,
+   "n_refusals": 0,
+   "n_invalid": 0,
+   "cost_usd": 0.0,
+   "mean_conf": 0.9637558857739228,
+   "latency_ms_median": 476.9014529999822,
+   "score": {
+    "acceptable": {
+     "seen": {
+      "acc": 0.6467924906850471,
+      "ci": [
+       0.6069431350984189,
+       0.6821924652373433
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.5727168421864657,
+      "ci": [
+       0.5301071664847813,
+       0.6135279718036247
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.6105657136820912,
+      "ci": [
+       0.5827532690612708,
+       0.6381098903808751
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "lenient": {
+     "seen": {
+      "acc": 0.5740404187190552,
+      "ci": [
+       0.5394994689493512,
+       0.6060369065166822
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.5006703939756189,
+      "ci": [
+       0.4580693673800936,
+       0.5403544118609888
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.5381587277861338,
+      "ci": [
+       0.5127233016050641,
+       0.5656548517729854
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "strict": {
+     "seen": {
+      "acc": 0.45791592823511806,
+      "ci": [
+       0.42094952920717577,
+       0.4924223216869815
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.39027847194302884,
+      "ci": [
+       0.3525522154547347,
+       0.4277990267280763
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.42483775617986275,
+      "ci": [
+       0.3988969330360188,
+       0.4502156867107414
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "logged": {
+     "seen": {
+      "acc": 0.44979116228837634,
+      "ci": [
+       0.41367836456773416,
+       0.4836731612139836
+      ],
+      "n_games": 140,
+      "n_states": 1612
+     },
+     "unseen": {
+      "acc": 0.3860997574353589,
+      "ci": [
+       0.3490837431416338,
+       0.4219777774618644
+      ],
+      "n_games": 134,
+      "n_states": 1453
+     },
+     "pooled": {
+      "acc": 0.4186428110098933,
+      "ci": [
+       0.3927801639709267,
+       0.4427326586514382
+      ],
+      "n_games": 274,
+      "n_states": 3065
+     }
+    },
+    "occ_weighted": {
+     "seen": 0.5807228915662651,
+     "unseen": 0.4625368731563422,
+     "pooled": 0.5210134128166916
+    },
+    "by_task_type": {
+     "seen": {
+      "pick_and_place_simple": 0.7846572475143905,
+      "look_at_obj_in_light": 0.45383122209747595,
+      "pick_clean_then_place_in_recep": 0.59587266774028,
+      "pick_heat_then_place_in_recep": 0.589487842201658,
+      "pick_cool_then_place_in_recep": 0.5064956135886729,
+      "pick_two_obj_and_place": 0.7918908875710345
+     },
+     "unseen": {
+      "pick_and_place_simple": 0.7506649600399601,
+      "look_at_obj_in_light": 0.3756478089811423,
+      "pick_clean_then_place_in_recep": 0.4964301139158825,
+      "pick_heat_then_place_in_recep": 0.5357373189470376,
+      "pick_cool_then_place_in_recep": 0.49553884284781297,
+      "pick_two_obj_and_place": 0.8146370401993239
+     },
+     "pooled": {
+      "pick_and_place_simple": 0.7708298763383509,
+      "look_at_obj_in_light": 0.40843440157831445,
+      "pick_clean_then_place_in_recep": 0.5427223372479296,
+      "pick_heat_then_place_in_recep": 0.5577888156668819,
+      "pick_cool_then_place_in_recep": 0.5014936095548022,
+      "pick_two_obj_and_place": 0.801322219148618
+     }
+    },
+    "off_plan": {
+     "seen": {
+      "on": 0.404141156462585,
+      "after": 0.7004319268268362
+     },
+     "unseen": {
+      "on": 0.33545960672826347,
+      "after": 0.5911689540060266
+     },
+     "pooled": {
+      "on": 0.370552369366238,
+      "after": 0.6453702712320976
+     }
+    },
+    "by_task_type_strict": {
+     "seen": {
+      "pick_and_place_simple": 0.5517791732077447,
+      "look_at_obj_in_light": 0.3101620945274196,
+      "pick_clean_then_place_in_recep": 0.4608714339683607,
+      "pick_heat_then_place_in_recep": 0.4187651487158066,
+      "pick_cool_then_place_in_recep": 0.29352615327172166,
+      "pick_two_obj_and_place": 0.5950802805582217
+     },
+     "unseen": {
+      "pick_and_place_simple": 0.444340034965035,
+      "look_at_obj_in_light": 0.21343779677113012,
+      "pick_clean_then_place_in_recep": 0.38004140985165646,
+      "pick_heat_then_place_in_recep": 0.34341079068700553,
+      "pick_cool_then_place_in_recep": 0.3260978261310487,
+      "pick_two_obj_and_place": 0.6625581070217749
+     },
+     "pooled": {
+      "pick_and_place_simple": 0.508075116973422,
+      "look_at_obj_in_light": 0.2539995990560257,
+      "pick_clean_then_place_in_recep": 0.4176691796990878,
+      "pick_heat_then_place_in_recep": 0.37432539910907775,
+      "pick_cool_then_place_in_recep": 0.3083958300118493,
+      "pick_two_obj_and_place": 0.6230588915309144
+     }
+    },
+    "off_plan_strict": {
+     "seen": {
+      "on": 0.13144557823129252,
+      "after": 0.5388895113545981
+     },
+     "unseen": {
+      "on": 0.07112651030561477,
+      "after": 0.43100506647306625
+     },
+     "pooled": {
+      "on": 0.1019464720194647,
+      "after": 0.48452254700484976
+     }
+    },
+    "missing_pairs": 0
+   }
+  },
+  "e12": {
+   "name": "AgentDecision-4B (released)",
+   "group": "transfer",
+   "serving": "serve_jev, E12's adapter and temperatures",
+   "run": true,
+   "n_questions": 3263,
+   "n_answers": 3263,
+   "n_errors": 0,
+   "n_refusals": 0,
+   "n_invalid": 0,
+   "cost_usd": 0.0,
+   "mean_conf": 0.9478054749332834,
+   "latency_ms_median": 477.4035489999733,
+   "score": {
+    "acceptable": {
+     "seen": {
+      "acc": 0.664719400217849,
+      "ci": [
+       0.6167096347744462,
+       0.7087248412647442
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.6286625769164511,
+      "ci": [
+       0.5878325003903694,
+       0.6657850766039826
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.6470857713040268,
+      "ci": [
+       0.6163563045872794,
+       0.6773986014165416
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "lenient": {
+     "seen": {
+      "acc": 0.592122582440132,
+      "ci": [
+       0.5515064650372394,
+       0.6287649797946625
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.5582245464452674,
+      "ci": [
+       0.518197347203234,
+       0.5948477388184156
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.5755447108222056,
+      "ci": [
+       0.547754264264229,
+       0.6031677207812253
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "strict": {
+     "seen": {
+      "acc": 0.4774979684165576,
+      "ci": [
+       0.4400169114454954,
+       0.5135419647893769
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.4591802198811866,
+      "ci": [
+       0.42077370239794376,
+       0.49629001078304186
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.4685396534394054,
+      "ci": [
+       0.44207419726075015,
+       0.49448363881982405
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "logged": {
+     "seen": {
+      "acc": 0.4739687450239898,
+      "ci": [
+       0.43600759680053175,
+       0.509510004014319
+      ],
+      "n_games": 140,
+      "n_states": 1612
+     },
+     "unseen": {
+      "acc": 0.4547270171216615,
+      "ci": [
+       0.41513673853785793,
+       0.4929235104939122
+      ],
+      "n_games": 134,
+      "n_states": 1453
+     },
+     "pooled": {
+      "acc": 0.46455855692577086,
+      "ci": [
+       0.43854939791656733,
+       0.4904204099657701
+      ],
+      "n_games": 274,
+      "n_states": 3065
+     }
+    },
+    "occ_weighted": {
+     "seen": 0.6030120481927711,
+     "unseen": 0.5533923303834808,
+     "pooled": 0.5779433681073025
+    },
+    "by_task_type": {
+     "seen": {
+      "pick_and_place_simple": 0.8338147566718995,
+      "look_at_obj_in_light": 0.3866856054162555,
+      "pick_clean_then_place_in_recep": 0.6356181660909793,
+      "pick_heat_then_place_in_recep": 0.5777314413169676,
+      "pick_cool_then_place_in_recep": 0.4923065803996397,
+      "pick_two_obj_and_place": 0.8390511925438396
+     },
+     "unseen": {
+      "pick_and_place_simple": 0.7533750971250971,
+      "look_at_obj_in_light": 0.38442884276217604,
+      "pick_clean_then_place_in_recep": 0.5863719146831101,
+      "pick_heat_then_place_in_recep": 0.6068843943780005,
+      "pick_cool_then_place_in_recep": 0.6218934127682745,
+      "pick_two_obj_and_place": 0.8261430418869865
+     },
+     "pooled": {
+      "pick_and_place_simple": 0.8010935392291324,
+      "look_at_obj_in_light": 0.3853752271009836,
+      "pick_clean_then_place_in_recep": 0.6092968937867732,
+      "pick_heat_then_place_in_recep": 0.5949242085068074,
+      "pick_cool_then_place_in_recep": 0.551465786480973,
+      "pick_two_obj_and_place": 0.8336990325153883
+     }
+    },
+    "off_plan": {
+     "seen": {
+      "on": 0.31868197278911564,
+      "after": 0.7217524301169779
+     },
+     "unseen": {
+      "on": 0.302333570244018,
+      "after": 0.669321812706291
+     },
+     "pooled": {
+      "on": 0.31068676862472483,
+      "after": 0.695330701658049
+     }
+    },
+    "by_task_type_strict": {
+     "seen": {
+      "pick_and_place_simple": 0.5811198325484039,
+      "look_at_obj_in_light": 0.2543551563675403,
+      "pick_clean_then_place_in_recep": 0.4965567197009277,
+      "pick_heat_then_place_in_recep": 0.4309831938285886,
+      "pick_cool_then_place_in_recep": 0.3390086759777738,
+      "pick_two_obj_and_place": 0.6010802072382955
+     },
+     "unseen": {
+      "pick_and_place_simple": 0.5037951631701633,
+      "look_at_obj_in_light": 0.259296567629901,
+      "pick_clean_then_place_in_recep": 0.4589857187580148,
+      "pick_heat_then_place_in_recep": 0.44339101506620693,
+      "pick_cool_then_place_in_recep": 0.42738323302553644,
+      "pick_two_obj_and_place": 0.6688311064176117
+     },
+     "pooled": {
+      "pick_and_place_simple": 0.5496657297504755,
+      "look_at_obj_in_light": 0.25722436290697553,
+      "pick_clean_then_place_in_recep": 0.4764756674728191,
+      "pick_heat_then_place_in_recep": 0.4383006268661583,
+      "pick_cool_then_place_in_recep": 0.37935358245610024,
+      "pick_two_obj_and_place": 0.6291720434833779
+     }
+    },
+    "off_plan_strict": {
+     "seen": {
+      "on": 0.11289115646258503,
+      "after": 0.5601307887938941
+     },
+     "unseen": {
+      "on": 0.08011134802179577,
+      "after": 0.5115760076543994
+     },
+     "pooled": {
+      "on": 0.09686015525431584,
+      "after": 0.5356622376684794
+     }
+    },
+    "missing_pairs": 0
+   }
+  },
+  "e14a": {
+   "name": "0.8B scoring head",
+   "group": "transfer",
+   "serving": "serve_jev --backend clef (E14 arm A)",
+   "run": true,
+   "n_questions": 3263,
+   "n_answers": 3263,
+   "n_errors": 0,
+   "n_refusals": 0,
+   "n_invalid": 0,
+   "cost_usd": 0.0,
+   "mean_conf": 0.923734176128091,
+   "latency_ms_median": 249.2158059999383,
+   "score": {
+    "acceptable": {
+     "seen": {
+      "acc": 0.4917676691452502,
+      "ci": [
+       0.4520324454157412,
+       0.5282902850209574
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.4838901016435369,
+      "ci": [
+       0.4475708724831566,
+       0.5203376223793484
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.4879151361334634,
+      "ci": [
+       0.46079991281832167,
+       0.5139367319269417
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "lenient": {
+     "seen": {
+      "acc": 0.3853177304175806,
+      "ci": [
+       0.35029222394669307,
+       0.41935062218427827
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.39126285987649484,
+      "ci": [
+       0.3594225185517654,
+       0.422032345880596
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.3882252024887285,
+      "ci": [
+       0.36590817119313257,
+       0.4124377100881413
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "strict": {
+     "seen": {
+      "acc": 0.305559681425164,
+      "ci": [
+       0.27377503324130203,
+       0.3374507488116457
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.2979570836119828,
+      "ci": [
+       0.26752662218967704,
+       0.3277272126078312
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.30184162264061554,
+      "ci": [
+       0.2810046267618975,
+       0.3235338295188038
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "logged": {
+     "seen": {
+      "acc": 0.30750290100663674,
+      "ci": [
+       0.277456182493172,
+       0.33850254424082205
+      ],
+      "n_games": 140,
+      "n_states": 1612
+     },
+     "unseen": {
+      "acc": 0.3039836949055561,
+      "ci": [
+       0.2737152708443314,
+       0.332561219744714
+      ],
+      "n_games": 134,
+      "n_states": 1453
+     },
+     "pooled": {
+      "acc": 0.30578182940975795,
+      "ci": [
+       0.285066916746546,
+       0.32783585562478884
+      ],
+      "n_games": 274,
+      "n_states": 3065
+     }
+    },
+    "occ_weighted": {
+     "seen": 0.46265060240963857,
+     "unseen": 0.4206489675516224,
+     "pooled": 0.44143070044709387
+    },
+    "by_task_type": {
+     "seen": {
+      "pick_and_place_simple": 0.632650444793302,
+      "look_at_obj_in_light": 0.4675136181328131,
+      "pick_clean_then_place_in_recep": 0.4130492430256024,
+      "pick_heat_then_place_in_recep": 0.5084058570571729,
+      "pick_cool_then_place_in_recep": 0.33554334111273876,
+      "pick_two_obj_and_place": 0.5396510114340997
+     },
+     "unseen": {
+      "pick_and_place_simple": 0.6845890220890221,
+      "look_at_obj_in_light": 0.3909764618097952,
+      "pick_clean_then_place_in_recep": 0.3776234377752404,
+      "pick_heat_then_place_in_recep": 0.5148539269766891,
+      "pick_cool_then_place_in_recep": 0.42059953909344827,
+      "pick_two_obj_and_place": 0.5290002097095522
+     },
+     "pooled": {
+      "pick_and_place_simple": 0.6537780016593576,
+      "look_at_obj_in_light": 0.42307268865493175,
+      "pick_clean_then_place_in_recep": 0.3941147609090296,
+      "pick_heat_then_place_in_recep": 0.512208564958426,
+      "pick_cool_then_place_in_recep": 0.37437334453871474,
+      "pick_two_obj_and_place": 0.5352348253531898
+     }
+    },
+    "off_plan": {
+     "seen": {
+      "on": 0.45321428571428574,
+      "after": 0.4762312329438484
+     },
+     "unseen": {
+      "on": 0.4317223406775646,
+      "after": 0.4788334260639543
+     },
+     "pooled": {
+      "on": 0.4427036264627506,
+      "after": 0.47754257435870495
+     }
+    },
+    "by_task_type_strict": {
+     "seen": {
+      "pick_and_place_simple": 0.3891862899005756,
+      "look_at_obj_in_light": 0.3049633888643176,
+      "pick_clean_then_place_in_recep": 0.22142460813855613,
+      "pick_heat_then_place_in_recep": 0.2912042526187263,
+      "pick_cool_then_place_in_recep": 0.19311518473001846,
+      "pick_two_obj_and_place": 0.40527912991148285
+     },
+     "unseen": {
+      "pick_and_place_simple": 0.37853119103119104,
+      "look_at_obj_in_light": 0.2246404829738163,
+      "pick_clean_then_place_in_recep": 0.2225299575679082,
+      "pick_heat_then_place_in_recep": 0.32974255639217276,
+      "pick_cool_then_place_in_recep": 0.28490986946690156,
+      "pick_two_obj_and_place": 0.37249159913519775
+     },
+     "pooled": {
+      "pick_and_place_simple": 0.38485201239438527,
+      "look_at_obj_in_light": 0.2583242822182201,
+      "pick_clean_then_place_in_recep": 0.22201539835079606,
+      "pick_heat_then_place_in_recep": 0.31393197022870756,
+      "pick_cool_then_place_in_recep": 0.23502145384903037,
+      "pick_two_obj_and_place": 0.3916843000774134
+     }
+    },
+    "off_plan_strict": {
+     "seen": {
+      "on": 0.17688775510204083,
+      "after": 0.3197047738567596
+     },
+     "unseen": {
+      "on": 0.17094290452499405,
+      "after": 0.3109300347205527
+     },
+     "pooled": {
+      "on": 0.17398041941837564,
+      "after": 0.31528285807158446
+     }
+    },
+    "missing_pairs": 0
+   }
+  },
+  "sl4b": {
+   "name": "StartLux-4B",
+   "group": "offshelf",
+   "serving": "the vendor's server",
+   "run": true,
+   "n_questions": 3263,
+   "n_answers": 3263,
+   "n_errors": 0,
+   "n_refusals": 0,
+   "n_invalid": 0,
+   "cost_usd": 0.0,
+   "mean_conf": 0.6077793807788642,
+   "latency_ms_median": 876.0661890000847,
+   "score": {
+    "acceptable": {
+     "seen": {
+      "acc": 0.6923875150265354,
+      "ci": [
+       0.6440415784988007,
+       0.7346600149415424
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.6364761289524954,
+      "ci": [
+       0.5935042199068375,
+       0.676953685817872
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.66504399045018,
+      "ci": [
+       0.6350469514302086,
+       0.695757203284215
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "lenient": {
+     "seen": {
+      "acc": 0.6172318234930584,
+      "ci": [
+       0.5758028522207551,
+       0.6550541245276889
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.5680289734583331,
+      "ci": [
+       0.5270326409559289,
+       0.6085405043119338
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.5931691158118424,
+      "ci": [
+       0.5655215760081577,
+       0.6224362526907024
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "strict": {
+     "seen": {
+      "acc": 0.48978869746530296,
+      "ci": [
+       0.4508913644015426,
+       0.5254058927577057
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.4607951142364489,
+      "ci": [
+       0.41912754218430864,
+       0.5010818865244087
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.47560935384243275,
+      "ci": [
+       0.4481024020785376,
+       0.5042836475278298
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "logged": {
+     "seen": {
+      "acc": 0.4984229227855536,
+      "ci": [
+       0.4597616699221033,
+       0.5359139329743384
+      ],
+      "n_games": 140,
+      "n_states": 1612
+     },
+     "unseen": {
+      "acc": 0.45983330110854254,
+      "ci": [
+       0.4165473480990931,
+       0.5016214996470703
+      ],
+      "n_games": 134,
+      "n_states": 1453
+     },
+     "pooled": {
+      "acc": 0.4795506260530008,
+      "ci": [
+       0.4508437771065418,
+       0.5083396090122181
+      ],
+      "n_games": 274,
+      "n_states": 3065
+     }
+    },
+    "occ_weighted": {
+     "seen": 0.6114457831325302,
+     "unseen": 0.5345132743362832,
+     "pooled": 0.5725782414307005
+    },
+    "by_task_type": {
+     "seen": {
+      "pick_and_place_simple": 0.8617059131344844,
+      "look_at_obj_in_light": 0.5729468845567917,
+      "pick_clean_then_place_in_recep": 0.6540837574998333,
+      "pick_heat_then_place_in_recep": 0.4521430512713408,
+      "pick_cool_then_place_in_recep": 0.5017221431555676,
+      "pick_two_obj_and_place": 0.9120263247101482
+     },
+     "unseen": {
+      "pick_and_place_simple": 0.8180565961815963,
+      "look_at_obj_in_light": 0.49411545244878574,
+      "pick_clean_then_place_in_recep": 0.5836492055277634,
+      "pick_heat_then_place_in_recep": 0.5407579306172655,
+      "pick_cool_then_place_in_recep": 0.5264766790569669,
+      "pick_two_obj_and_place": 0.8925762818496382
+     },
+     "pooled": {
+      "pick_and_place_simple": 0.8439502587807671,
+      "look_at_obj_in_light": 0.5271737949456915,
+      "pick_clean_then_place_in_recep": 0.616437703859589,
+      "pick_heat_then_place_in_recep": 0.5044031083215017,
+      "pick_cool_then_place_in_recep": 0.5130231269366413,
+      "pick_two_obj_and_place": 0.9039616727923758
+     }
+    },
+    "off_plan": {
+     "seen": {
+      "on": 0.4763605442176871,
+      "after": 0.7198140532361488
+     },
+     "unseen": {
+      "on": 0.4252902155887231,
+      "after": 0.6634731070768611
+     },
+     "pooled": {
+      "on": 0.451384544085274,
+      "after": 0.6914217654078463
+     }
+    },
+    "by_task_type_strict": {
+     "seen": {
+      "pick_and_place_simple": 0.608152799581371,
+      "look_at_obj_in_light": 0.4174552142044402,
+      "pick_clean_then_place_in_recep": 0.4974134350020875,
+      "pick_heat_then_place_in_recep": 0.35245962796949637,
+      "pick_cool_then_place_in_recep": 0.3192110187330577,
+      "pick_two_obj_and_place": 0.6170149839267486
+     },
+     "unseen": {
+      "pick_and_place_simple": 0.5791919885669886,
+      "look_at_obj_in_light": 0.3047636005969339,
+      "pick_clean_then_place_in_recep": 0.451928250609465,
+      "pick_heat_then_place_in_recep": 0.37728165412308634,
+      "pick_cool_then_place_in_recep": 0.38412852559031957,
+      "pick_two_obj_and_place": 0.6827199953065005
+     },
+     "pooled": {
+      "pick_and_place_simple": 0.5963721306941645,
+      "look_at_obj_in_light": 0.352021374045243,
+      "pick_clean_then_place_in_recep": 0.47310238817154787,
+      "pick_heat_then_place_in_recep": 0.3670982587780238,
+      "pick_cool_then_place_in_recep": 0.34884727186354686,
+      "pick_two_obj_and_place": 0.6442585252305482
+     }
+    },
+    "off_plan_strict": {
+     "seen": {
+      "on": 0.1721173469387755,
+      "after": 0.5411221674105742
+     },
+     "unseen": {
+      "on": 0.15829187396351574,
+      "after": 0.4965446783743017
+     },
+     "pooled": {
+      "on": 0.16535598424284556,
+      "after": 0.5186579209670983
+     }
+    },
+    "missing_pairs": 0
+   }
+  },
+  "sl9b": {
+   "name": "StartLux-9B",
+   "group": "offshelf",
+   "serving": "the vendor's server",
+   "run": true,
+   "n_questions": 3263,
+   "n_answers": 3263,
+   "n_errors": 0,
+   "n_refusals": 0,
+   "n_invalid": 0,
+   "cost_usd": 0.0,
+   "mean_conf": 0.6586308001622979,
+   "latency_ms_median": 464.5322819999933,
+   "score": {
+    "acceptable": {
+     "seen": {
+      "acc": 0.7485686448201995,
+      "ci": [
+       0.7104029630604678,
+       0.7817054864581627
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.7064721809642384,
+      "ci": [
+       0.6657036192455967,
+       0.7449514921396595
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.7279813230804228,
+      "ci": [
+       0.70094304133299,
+       0.7554719855254696
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "lenient": {
+     "seen": {
+      "acc": 0.6776801961932596,
+      "ci": [
+       0.643191340140928,
+       0.7094934383771304
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.6329140510049661,
+      "ci": [
+       0.5923579539812224,
+       0.6708125079557927
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.6557872638748972,
+      "ci": [
+       0.6300819158285003,
+       0.6828839320674964
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "strict": {
+     "seen": {
+      "acc": 0.5562963413145644,
+      "ci": [
+       0.5221570672395561,
+       0.588548793131491
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.542920221093726,
+      "ci": [
+       0.5044496718659552,
+       0.5806435612809956
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.5497547350751762,
+      "ci": [
+       0.5242311523948728,
+       0.5748938097735409
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "logged": {
+     "seen": {
+      "acc": 0.5561444242781858,
+      "ci": [
+       0.5207584165938826,
+       0.589236667339031
+      ],
+      "n_games": 140,
+      "n_states": 1612
+     },
+     "unseen": {
+      "acc": 0.5268226489879255,
+      "ci": [
+       0.48545286915735225,
+       0.5672053258723035
+      ],
+      "n_games": 134,
+      "n_states": 1453
+     },
+     "pooled": {
+      "acc": 0.5418045779683506,
+      "ci": [
+       0.514053643990219,
+       0.5683901622673927
+      ],
+      "n_games": 274,
+      "n_states": 3065
+     }
+    },
+    "occ_weighted": {
+     "seen": 0.686144578313253,
+     "unseen": 0.5952802359882006,
+     "pooled": 0.6402384500745156
+    },
+    "by_task_type": {
+     "seen": {
+      "pick_and_place_simple": 0.8451072736787023,
+      "look_at_obj_in_light": 0.555627190147314,
+      "pick_clean_then_place_in_recep": 0.7252766631844648,
+      "pick_heat_then_place_in_recep": 0.6589708847439111,
+      "pick_cool_then_place_in_recep": 0.6582406811872903,
+      "pick_two_obj_and_place": 0.8923200471913706
+     },
+     "unseen": {
+      "pick_and_place_simple": 0.8235119047619047,
+      "look_at_obj_in_light": 0.5728666395333062,
+      "pick_clean_then_place_in_recep": 0.681164399940491,
+      "pick_heat_then_place_in_recep": 0.6331044133473801,
+      "pick_cool_then_place_in_recep": 0.6491413846397235,
+      "pick_two_obj_and_place": 0.898936472984916
+     },
+     "pooled": {
+      "pick_and_place_simple": 0.8363227168311913,
+      "look_at_obj_in_light": 0.5656371930165996,
+      "pick_clean_then_place_in_recep": 0.7016994190368235,
+      "pick_heat_then_place_in_recep": 0.6437162990485211,
+      "pick_cool_then_place_in_recep": 0.6540866545025316,
+      "pick_two_obj_and_place": 0.895063443252109
+     }
+    },
+    "off_plan": {
+     "seen": {
+      "on": 0.5199829931972789,
+      "after": 0.7674079687150536
+     },
+     "unseen": {
+      "on": 0.5688225538971807,
+      "after": 0.7129478122865882
+     },
+     "pooled": {
+      "on": 0.5438680338315375,
+      "after": 0.7399634804361418
+     }
+    },
+    "by_task_type_strict": {
+     "seen": {
+      "pick_and_place_simple": 0.6307796964939824,
+      "look_at_obj_in_light": 0.43513062444950984,
+      "pick_clean_then_place_in_recep": 0.5839387484068335,
+      "pick_heat_then_place_in_recep": 0.5423867896236317,
+      "pick_cool_then_place_in_recep": 0.4208971269903627,
+      "pick_two_obj_and_place": 0.6325223863826804
+     },
+     "unseen": {
+      "pick_and_place_simple": 0.629160422910423,
+      "look_at_obj_in_light": 0.3843338760005427,
+      "pick_clean_then_place_in_recep": 0.5262636804477412,
+      "pick_heat_then_place_in_recep": 0.48201499977714807,
+      "pick_cool_then_place_in_recep": 0.5295078359973157,
+      "pick_two_obj_and_place": 0.7184274155294916
+     },
+     "pooled": {
+      "pick_and_place_simple": 0.6301210089345683,
+      "look_at_obj_in_light": 0.4056357382533353,
+      "pick_clean_then_place_in_recep": 0.5531124189804221,
+      "pick_heat_then_place_in_recep": 0.5067829135603209,
+      "pick_cool_then_place_in_recep": 0.4704802767544063,
+      "pick_two_obj_and_place": 0.6681415448094071
+     }
+    },
+    "off_plan_strict": {
+     "seen": {
+      "on": 0.17622448979591837,
+      "after": 0.6235109294783908
+     },
+     "unseen": {
+      "on": 0.14883913764510778,
+      "after": 0.5865732607501616
+     },
+     "pooled": {
+      "on": 0.16283165334260224,
+      "after": 0.6048966712216453
+     }
+    },
+    "missing_pairs": 0
+   }
+  },
+  "sl27b": {
+   "name": "StartLux-27B (Q8_0)",
+   "group": "offshelf",
+   "serving": "the vendor's GGUF server",
+   "run": true,
+   "n_questions": 3263,
+   "n_answers": 3263,
+   "n_errors": 0,
+   "n_refusals": 0,
+   "n_invalid": 0,
+   "cost_usd": 0.0,
+   "mean_conf": 0.6624380772592825,
+   "latency_ms_median": 5703.266712000186,
+   "score": {
+    "acceptable": {
+     "seen": {
+      "acc": 0.7305211404032597,
+      "ci": [
+       0.6959464408353156,
+       0.7631071552980068
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.6820934883389964,
+      "ci": [
+       0.6406145954744309,
+       0.7203409026680339
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.7068375441382551,
+      "ci": [
+       0.6802393266886926,
+       0.7333761413459612
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "lenient": {
+     "seen": {
+      "acc": 0.6716310756407075,
+      "ci": [
+       0.6367414507887731,
+       0.7024760021255922
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.6357536942240731,
+      "ci": [
+       0.5925120028469285,
+       0.6745026361472028
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.6540852029770979,
+      "ci": [
+       0.6276598902325097,
+       0.6806198315520461
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "strict": {
+     "seen": {
+      "acc": 0.5571962124147145,
+      "ci": [
+       0.5228803637350387,
+       0.5909751832206599
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.5473360134262956,
+      "ci": [
+       0.5077981378709246,
+       0.5842370368378655
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.55237407130359,
+      "ci": [
+       0.5266465846928938,
+       0.5787968277432152
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "logged": {
+     "seen": {
+      "acc": 0.5541382026938132,
+      "ci": [
+       0.5192983720564307,
+       0.5888310832469653
+      ],
+      "n_games": 140,
+      "n_states": 1612
+     },
+     "unseen": {
+      "acc": 0.5314886150333911,
+      "ci": [
+       0.490707714914585,
+       0.570625994658205
+      ],
+      "n_games": 134,
+      "n_states": 1453
+     },
+     "pooled": {
+      "acc": 0.5430613970496653,
+      "ci": [
+       0.5158394447868218,
+       0.5694227069013407
+      ],
+      "n_games": 274,
+      "n_states": 3065
+     }
+    },
+    "occ_weighted": {
+     "seen": 0.6572289156626506,
+     "unseen": 0.5592920353982301,
+     "pooled": 0.6077496274217585
+    },
+    "by_task_type": {
+     "seen": {
+      "pick_and_place_simple": 0.8065907901622188,
+      "look_at_obj_in_light": 0.6813269977356666,
+      "pick_clean_then_place_in_recep": 0.6916981083884157,
+      "pick_heat_then_place_in_recep": 0.5441173446436605,
+      "pick_cool_then_place_in_recep": 0.6733778757934503,
+      "pick_two_obj_and_place": 0.8737024039413744
+     },
+     "unseen": {
+      "pick_and_place_simple": 0.7466977466977468,
+      "look_at_obj_in_light": 0.7493844118844118,
+      "pick_clean_then_place_in_recep": 0.5897157077232978,
+      "pick_heat_then_place_in_recep": 0.5801228595218365,
+      "pick_cool_then_place_in_recep": 0.6721015283473756,
+      "pick_two_obj_and_place": 0.8383951352376959
+     },
+     "pooled": {
+      "pick_and_place_simple": 0.7822275182444672,
+      "look_at_obj_in_light": 0.720844205951067,
+      "pick_clean_then_place_in_recep": 0.6371902735501631,
+      "pick_heat_then_place_in_recep": 0.5653513662384823,
+      "pick_cool_then_place_in_recep": 0.6727951954376336,
+      "pick_two_obj_and_place": 0.859062804722776
+     }
+    },
+    "off_plan": {
+     "seen": {
+      "on": 0.41766156462585036,
+      "after": 0.7695285326531035
+     },
+     "unseen": {
+      "on": 0.32247097844112765,
+      "after": 0.7265782069441575
+     },
+     "pooled": {
+      "on": 0.3711085042289422,
+      "after": 0.7478842740281227
+     }
+    },
+    "by_task_type_strict": {
+     "seen": {
+      "pick_and_place_simple": 0.6493118785975929,
+      "look_at_obj_in_light": 0.5357878104008136,
+      "pick_clean_then_place_in_recep": 0.5690569324730081,
+      "pick_heat_then_place_in_recep": 0.44013985283722123,
+      "pick_cool_then_place_in_recep": 0.44819031729360687,
+      "pick_two_obj_and_place": 0.6126991540594481
+     },
+     "unseen": {
+      "pick_and_place_simple": 0.6208756521256521,
+      "look_at_obj_in_light": 0.4820292361959029,
+      "pick_clean_then_place_in_recep": 0.4849039596288171,
+      "pick_heat_then_place_in_recep": 0.45880382050458773,
+      "pick_cool_then_place_in_recep": 0.5707367135550968,
+      "pick_two_obj_and_place": 0.7173824877544601
+     },
+     "pooled": {
+      "pick_and_place_simple": 0.6377446000327355,
+      "look_at_obj_in_light": 0.5045731544108654,
+      "pick_clean_then_place_in_recep": 0.5240786194011131,
+      "pick_heat_then_place_in_recep": 0.4511468081282324,
+      "pick_cool_then_place_in_recep": 0.5041354112390696,
+      "pick_two_obj_and_place": 0.656104438762258
+     }
+    },
+    "off_plan_strict": {
+     "seen": {
+      "on": 0.15211734693877552,
+      "after": 0.6306581493018081
+     },
+     "unseen": {
+      "on": 0.10522388059701493,
+      "after": 0.6089479760844186
+     },
+     "pooled": {
+      "on": 0.12918404588112617,
+      "after": 0.6197175895702104
+     }
+    },
+    "missing_pairs": 0
+   }
+  },
+  "jev": {
+   "name": "Jev",
+   "group": "offshelf",
+   "serving": "hosted (OpenRouter, Jev-only key)",
+   "run": true,
+   "n_questions": 3263,
+   "n_answers": 3263,
+   "n_errors": 0,
+   "n_refusals": 0,
+   "n_invalid": 0,
+   "cost_usd": 0.1242132359999999,
+   "mean_conf": 0.6745265093472265,
+   "latency_ms_median": 206.74086999861174,
+   "score": {
+    "acceptable": {
+     "seen": {
+      "acc": 0.7049713760014165,
+      "ci": [
+       0.6576473723180971,
+       0.7465638092555791
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.6526126607461212,
+      "ci": [
+       0.6101537741014357,
+       0.6938288189823949
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.6793652889787539,
+      "ci": [
+       0.6476153655611384,
+       0.7090516627641259
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "lenient": {
+     "seen": {
+      "acc": 0.6159234759127039,
+      "ci": [
+       0.5732999807062144,
+       0.6529540138113057
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.5850773111332913,
+      "ci": [
+       0.5460055672782571,
+       0.6228763710906101
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.6008381252541591,
+      "ci": [
+       0.5732608776580641,
+       0.6289662521034232
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "strict": {
+     "seen": {
+      "acc": 0.4968505914012328,
+      "ci": [
+       0.4582445067830594,
+       0.5325589353845304
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.48340085787487114,
+      "ci": [
+       0.442560540541887,
+       0.5227731969827558
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.4902729844941801,
+      "ci": [
+       0.4634037372279874,
+       0.5168668189390918
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "logged": {
+     "seen": {
+      "acc": 0.5019894936773056,
+      "ci": [
+       0.46109616866424386,
+       0.5388064269011847
+      ],
+      "n_games": 140,
+      "n_states": 1612
+     },
+     "unseen": {
+      "acc": 0.4897384356449326,
+      "ci": [
+       0.44749516187158855,
+       0.5293630214045052
+      ],
+      "n_games": 134,
+      "n_states": 1453
+     },
+     "pooled": {
+      "acc": 0.4959981003330063,
+      "ci": [
+       0.46764781222056295,
+       0.5232799828411334
+      ],
+      "n_games": 274,
+      "n_states": 3065
+     }
+    },
+    "occ_weighted": {
+     "seen": 0.6301204819277109,
+     "unseen": 0.5793510324483776,
+     "pooled": 0.6044709388971684
+    },
+    "by_task_type": {
+     "seen": {
+      "pick_and_place_simple": 0.8717608581894295,
+      "look_at_obj_in_light": 0.32500028351421545,
+      "pick_clean_then_place_in_recep": 0.6707767519233241,
+      "pick_heat_then_place_in_recep": 0.6603154922562817,
+      "pick_cool_then_place_in_recep": 0.5710300850847813,
+      "pick_two_obj_and_place": 0.8753161088639029
+     },
+     "unseen": {
+      "pick_and_place_simple": 0.7745050088800088,
+      "look_at_obj_in_light": 0.36791649708316376,
+      "pick_clean_then_place_in_recep": 0.6289699379262947,
+      "pick_heat_then_place_in_recep": 0.610591321153981,
+      "pick_cool_then_place_in_recep": 0.6442553199640686,
+      "pick_two_obj_and_place": 0.8922617175212331
+     },
+     "pooled": {
+      "pick_and_place_simple": 0.8321991567754279,
+      "look_at_obj_in_light": 0.3499193752639274,
+      "pick_clean_then_place_in_recep": 0.6484317306490498,
+      "pick_heat_then_place_in_recep": 0.6309909810933865,
+      "pick_cool_then_place_in_recep": 0.6044589966601082,
+      "pick_two_obj_and_place": 0.8823423368437717
+     }
+    },
+    "off_plan": {
+     "seen": {
+      "on": 0.4957057823129251,
+      "after": 0.7340304954377552
+     },
+     "unseen": {
+      "on": 0.4364842454394693,
+      "after": 0.6682452260294098
+     },
+     "pooled": {
+      "on": 0.4667434248638628,
+      "after": 0.7008788636099276
+     }
+    },
+    "by_task_type_strict": {
+     "seen": {
+      "pick_and_place_simple": 0.6032077446363161,
+      "look_at_obj_in_light": 0.25084241523870004,
+      "pick_clean_then_place_in_recep": 0.5185978123093963,
+      "pick_heat_then_place_in_recep": 0.4734207246213825,
+      "pick_cool_then_place_in_recep": 0.3598584611437597,
+      "pick_two_obj_and_place": 0.6088552617045264
+     },
+     "unseen": {
+      "pick_and_place_simple": 0.5246284965034965,
+      "look_at_obj_in_light": 0.2644112060778727,
+      "pick_clean_then_place_in_recep": 0.4987050043217026,
+      "pick_heat_then_place_in_recep": 0.4489080044706643,
+      "pick_cool_then_place_in_recep": 0.47725454337303724,
+      "pick_two_obj_and_place": 0.6834202754185454
+     },
+     "pooled": {
+      "pick_and_place_simple": 0.5712433047178809,
+      "look_at_obj_in_light": 0.25872106798402617,
+      "pick_clean_then_place_in_recep": 0.5079654494194221,
+      "pick_heat_then_place_in_recep": 0.4589645050453179,
+      "pick_cool_then_place_in_recep": 0.41345232477016913,
+      "pick_two_obj_and_place": 0.6397724625127782
+     }
+    },
+    "off_plan_strict": {
+     "seen": {
+      "on": 0.1307482993197279,
+      "after": 0.5700438895153703
+     },
+     "unseen": {
+      "on": 0.10125562662876095,
+      "after": 0.5239213189268384
+     },
+     "pooled": {
+      "on": 0.11632487544896303,
+      "after": 0.5468010192975274
+     }
+    },
+    "missing_pairs": 0
+   }
+  },
+  "oaidec": {
+   "name": "OpenAI Decisions API",
+   "group": "offshelf",
+   "serving": "hosted (POST /v1/decisions, gpt-6-luna)",
+   "run": true,
+   "n_questions": 3263,
+   "n_answers": 3263,
+   "n_errors": 0,
+   "n_refusals": 0,
+   "n_invalid": 0,
+   "cost_usd": 0.20516230000000016,
+   "mean_conf": 0.5507539074471346,
+   "latency_ms_median": 143.27175700236694,
+   "score": {
+    "acceptable": {
+     "seen": {
+      "acc": 0.719794875636442,
+      "ci": [
+       0.675669735415162,
+       0.759290153159082
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.642005480246236,
+      "ci": [
+       0.5979673737340345,
+       0.6826150975843981
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.681751886649991,
+      "ci": [
+       0.6516872509759541,
+       0.7113060146589064
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "lenient": {
+     "seen": {
+      "acc": 0.6290581134388652,
+      "ci": [
+       0.5880177805351608,
+       0.6685112612986995
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.5688822347228588,
+      "ci": [
+       0.5239127699082186,
+       0.6109070605784267
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.5996290340668038,
+      "ci": [
+       0.5713318381491154,
+       0.6294768066055226
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "strict": {
+     "seen": {
+      "acc": 0.4968875429375219,
+      "ci": [
+       0.4587307602693819,
+       0.5357100094370041
+      ],
+      "n_games": 140,
+      "n_states": 1660
+     },
+     "unseen": {
+      "acc": 0.4639225805503599,
+      "ci": [
+       0.4194416630296303,
+       0.5056403963419438
+      ],
+      "n_games": 134,
+      "n_states": 1695
+     },
+     "pooled": {
+      "acc": 0.48076599198905584,
+      "ci": [
+       0.45166904106531747,
+       0.509627288131556
+      ],
+      "n_games": 274,
+      "n_states": 3355
+     }
+    },
+    "logged": {
+     "seen": {
+      "acc": 0.5043768101626876,
+      "ci": [
+       0.46448135379004984,
+       0.5439011546656014
+      ],
+      "n_games": 140,
+      "n_states": 1612
+     },
+     "unseen": {
+      "acc": 0.4622641009691054,
+      "ci": [
+       0.4160516648567022,
+       0.5027387203263519
+      ],
+      "n_games": 134,
+      "n_states": 1453
+     },
+     "pooled": {
+      "acc": 0.4837815436227605,
+      "ci": [
+       0.4542538329826481,
+       0.5122931166129174
+      ],
+      "n_games": 274,
+      "n_states": 3065
+     }
+    },
+    "occ_weighted": {
+     "seen": 0.6325301204819277,
+     "unseen": 0.5262536873156343,
+     "pooled": 0.5788375558867362
+    },
+    "by_task_type": {
+     "seen": {
+      "pick_and_place_simple": 0.8527341705913134,
+      "look_at_obj_in_light": 0.5996796289365949,
+      "pick_clean_then_place_in_recep": 0.6573944184700686,
+      "pick_heat_then_place_in_recep": 0.6381967137394768,
+      "pick_cool_then_place_in_recep": 0.5838279133415213,
+      "pick_two_obj_and_place": 0.8572190370903606
+     },
+     "unseen": {
+      "pick_and_place_simple": 0.7552083333333334,
+      "look_at_obj_in_light": 0.4981820648487315,
+      "pick_clean_then_place_in_recep": 0.5877624715575381,
+      "pick_heat_then_place_in_recep": 0.577602312436072,
+      "pick_cool_then_place_in_recep": 0.620050451373818,
+      "pick_two_obj_and_place": 0.8476416413267626
+     },
+     "pooled": {
+      "pick_and_place_simple": 0.813062643571118,
+      "look_at_obj_in_light": 0.5407455594662227,
+      "pick_clean_then_place_in_recep": 0.6201773433961296,
+      "pick_heat_then_place_in_recep": 0.6024615539964433,
+      "pick_cool_then_place_in_recep": 0.6003642893997436,
+      "pick_two_obj_and_place": 0.8532479217737466
+     }
+    },
+    "off_plan": {
+     "seen": {
+      "on": 0.457015306122449,
+      "after": 0.7578478335343428
+     },
+     "unseen": {
+      "on": 0.3693200663349917,
+      "after": 0.6772732530811347
+     },
+     "pooled": {
+      "on": 0.4141278530877071,
+      "after": 0.717243320550049
+     }
+    },
+    "by_task_type_strict": {
+     "seen": {
+      "pick_and_place_simple": 0.5872213500784929,
+      "look_at_obj_in_light": 0.49771355235751524,
+      "pick_clean_then_place_in_recep": 0.49222606086672277,
+      "pick_heat_then_place_in_recep": 0.4014805175331491,
+      "pick_cool_then_place_in_recep": 0.3653042169518755,
+      "pick_two_obj_and_place": 0.5706181345887228
+     },
+     "unseen": {
+      "pick_and_place_simple": 0.5104239510489511,
+      "look_at_obj_in_light": 0.36291547958214626,
+      "pick_clean_then_place_in_recep": 0.4419114931733527,
+      "pick_heat_then_place_in_recep": 0.4058955821104158,
+      "pick_cool_then_place_in_recep": 0.4347606179555238,
+      "pick_two_obj_and_place": 0.6598908636538394
+     },
+     "pooled": {
+      "pick_and_place_simple": 0.5559817301342724,
+      "look_at_obj_in_light": 0.4194437036492364,
+      "pick_clean_then_place_in_recep": 0.465333791927163,
+      "pick_heat_then_place_in_recep": 0.40408427356589616,
+      "pick_cool_then_place_in_recep": 0.39701257393180195,
+      "pick_two_obj_and_place": 0.6076336563962101
+     }
+    },
+    "off_plan_strict": {
+     "seen": {
+      "on": 0.13431972789115645,
+      "after": 0.5541169401043103
+     },
+     "unseen": {
+      "on": 0.08011134802179577,
+      "after": 0.5116991044331962
+     },
+     "pooled": {
+      "on": 0.10780906036380489,
+      "after": 0.5327410229157173
+     }
+    },
+    "missing_pairs": 0
+   }
+  },
+  "e22": {
+   "name": "tau^2-trained 0.8B head (E22)",
+   "group": "tau2",
+   "serving": "serve_jev --backend clef, E22's final checkpoint",
+   "run": false
+  }
+ },
+ "flash": {
+  "name": "Flash (the agent LLM's own action; in sample)",
+  "score": {
+   "acceptable": {
+    "seen": {
+     "acc": 0.8112650351048661,
+     "ci": [
+      0.7710539735703339,
+      0.846071501016759
+     ],
+     "n_games": 140,
+     "n_states": 1660
+    },
+    "unseen": {
+     "acc": 0.807549505956207,
+     "ci": [
+      0.7634169521670964,
+      0.8475997064662063
+     ],
+     "n_games": 134,
+     "n_states": 1695
+    },
+    "pooled": {
+     "acc": 0.8094479515066167,
+     "ci": [
+      0.781642638652471,
+      0.8375423149789211
+     ],
+     "n_games": 274,
+     "n_states": 3355
+    }
+   },
+   "lenient": {
+    "seen": {
+     "acc": 0.7487552240467449,
+     "ci": [
+      0.7080873802862158,
+      0.7851482630017329
+     ],
+     "n_games": 140,
+     "n_states": 1660
+    },
+    "unseen": {
+     "acc": 0.7171660705091703,
+     "ci": [
+      0.6733719637588289,
+      0.7548989606242129
+     ],
+     "n_games": 134,
+     "n_states": 1695
+    },
+    "pooled": {
+     "acc": 0.7333065139225297,
+     "ci": [
+      0.7059392530322578,
+      0.7613271171619252
+     ],
+     "n_games": 274,
+     "n_states": 3355
+    }
+   },
+   "strict": {
+    "seen": {
+     "acc": 0.5929769604359643,
+     "ci": [
+      0.5543598056604883,
+      0.6291472391866593
+     ],
+     "n_games": 140,
+     "n_states": 1660
+    },
+    "unseen": {
+     "acc": 0.5807984757499072,
+     "ci": [
+      0.5379915984335987,
+      0.6200105108807503
+     ],
+     "n_games": 134,
+     "n_states": 1695
+    },
+    "pooled": {
+     "acc": 0.5870210591661407,
+     "ci": [
+      0.5590138247441674,
+      0.6148578136503385
+     ],
+     "n_games": 274,
+     "n_states": 3355
+    }
+   },
+   "logged": {
+    "seen": {
+     "acc": 0.5959873357003963,
+     "ci": [
+      0.5553530449945588,
+      0.6353628219625854
+     ],
+     "n_games": 140,
+     "n_states": 1612
+    },
+    "unseen": {
+     "acc": 0.5766924629852637,
+     "ci": [
+      0.5330415405490032,
+      0.6160901573307193
+     ],
+     "n_games": 134,
+     "n_states": 1453
+    },
+    "pooled": {
+     "acc": 0.5865511570732876,
+     "ci": [
+      0.5576890116139713,
+      0.6150997048425859
+     ],
+     "n_games": 274,
+     "n_states": 3065
+    }
+   },
+   "occ_weighted": {
+    "seen": 0.6987951807228916,
+    "unseen": 0.623598820058997,
+    "pooled": 0.6608047690014903
+   },
+   "by_task_type": {
+    "seen": {
+     "pick_and_place_simple": 0.8749162742019885,
+     "look_at_obj_in_light": 0.8029194403807407,
+     "pick_clean_then_place_in_recep": 0.7431900762751827,
+     "pick_heat_then_place_in_recep": 0.7968421253454148,
+     "pick_cool_then_place_in_recep": 0.6714586223313094,
+     "pick_two_obj_and_place": 0.9547921237259472
+    },
+    "unseen": {
+     "pick_and_place_simple": 0.8946924603174603,
+     "look_at_obj_in_light": 0.805972730972731,
+     "pick_clean_then_place_in_recep": 0.674367694291793,
+     "pick_heat_then_place_in_recep": 0.83806703952484,
+     "pick_cool_then_place_in_recep": 0.777861985846482,
+     "pick_two_obj_and_place": 0.9244390269476774
+    },
+    "pooled": {
+     "pick_and_place_simple": 0.8829608244862482,
+     "look_at_obj_in_light": 0.8046923187889932,
+     "pick_clean_then_place_in_recep": 0.7064056996978536,
+     "pick_heat_then_place_in_recep": 0.8211542542204605,
+     "pick_cool_then_place_in_recep": 0.7200340708925839,
+     "pick_two_obj_and_place": 0.9422066933544697
+    }
+   },
+   "off_plan": {
+    "seen": {
+     "on": 0.4904761904761904,
+     "after": 0.8714737329585931
+    },
+    "unseen": {
+     "on": 0.6094527363184079,
+     "after": 0.8357111040377103
+    },
+    "pooled": {
+     "on": 0.548661800486618,
+     "after": 0.8534516207464947
+    }
+   },
+   "by_task_type_strict": {
+    "seen": {
+     "pick_and_place_simple": 0.6588330716902147,
+     "look_at_obj_in_light": 0.667866498826251,
+     "pick_clean_then_place_in_recep": 0.5267617987476144,
+     "pick_heat_then_place_in_recep": 0.6152344603495918,
+     "pick_cool_then_place_in_recep": 0.4478849085261291,
+     "pick_two_obj_and_place": 0.6671629092584975
+    },
+    "unseen": {
+     "pick_and_place_simple": 0.7157665251415252,
+     "look_at_obj_in_light": 0.5000847917514584,
+     "pick_clean_then_place_in_recep": 0.45733342734291493,
+     "pick_heat_then_place_in_recep": 0.581491779036536,
+     "pick_cool_then_place_in_recep": 0.5508833756785031,
+     "pick_two_obj_and_place": 0.7368749906379665
+    },
+    "pooled": {
+     "pick_and_place_simple": 0.6819924425856628,
+     "look_at_obj_in_light": 0.5704448624602425,
+     "pick_clean_then_place_in_recep": 0.48965353127268885,
+     "pick_heat_then_place_in_recep": 0.5953349303444564,
+     "pick_cool_then_place_in_recep": 0.4949059478782998,
+     "pick_two_obj_and_place": 0.6960679186109603
+    }
+   },
+   "off_plan_strict": {
+    "seen": {
+     "on": 0.16821428571428573,
+     "after": 0.6649366339467517
+    },
+    "unseen": {
+     "on": 0.0870646766169154,
+     "after": 0.6517486540500825
+    },
+    "pooled": {
+     "on": 0.1285279805352798,
+     "after": 0.6582907228177216
+    }
+   },
+   "missing_pairs": 0
+  }
+ },
+ "live": {
+  "replace": {
+   "e11": {
+    "seen": {
+     "success": 0.9571428571428572,
+     "n": 140,
+     "row": "E11"
+    },
+    "unseen": {
+     "success": 0.8805970149253731,
+     "n": 134,
+     "row": "E23"
+    }
+   },
+   "jev": {
+    "seen": {
+     "success": 0.2714285714285714,
+     "n": 140,
+     "row": "E6A"
+    }
+   }
+  },
+  "cascade": {
+   "e11": {
+    "seen": {
+     "success": 0.95,
+     "n": 140,
+     "row": "E11"
+    },
+    "unseen": {
+     "success": 0.8955223880597015,
+     "n": 134,
+     "row": "E23"
+    }
+   },
+   "jev": {
+    "seen": {
+     "success": 0.9142857142857143,
+     "n": 140,
+     "row": "E6A"
+    }
+   }
+  },
+  "flash": {
+   "seen": {
+    "success": 0.9071428571428571,
+    "n": 140,
+    "row": "E11"
+   },
+   "unseen": {
+    "success": 0.8880597014925373,
+    "n": 134,
+    "row": "E23"
+   }
+  },
+  "by_task_type": {
+   "e11": {
+    "seen": {
+     "pick_and_place_simple": 0.9714285714285714,
+     "look_at_obj_in_light": 1.0,
+     "pick_clean_then_place_in_recep": 1.0,
+     "pick_heat_then_place_in_recep": 0.8125,
+     "pick_cool_then_place_in_recep": 0.96,
+     "pick_two_obj_and_place": 0.9583333333333334
+    },
+    "unseen": {
+     "pick_and_place_simple": 0.875,
+     "look_at_obj_in_light": 0.7777777777777778,
+     "pick_clean_then_place_in_recep": 0.9032258064516129,
+     "pick_heat_then_place_in_recep": 0.9130434782608695,
+     "pick_cool_then_place_in_recep": 0.8571428571428571,
+     "pick_two_obj_and_place": 0.9411764705882353
+    }
+   },
+   "jev": {
+    "seen": {
+     "pick_and_place_simple": 0.45714285714285713,
+     "look_at_obj_in_light": 0.38461538461538464,
+     "pick_clean_then_place_in_recep": 0.2962962962962963,
+     "pick_heat_then_place_in_recep": 0.1875,
+     "pick_cool_then_place_in_recep": 0.08,
+     "pick_two_obj_and_place": 0.16666666666666666
+    }
+   }
+  }
+ },
+ "kendall": {
+  "across": {
+   "n": 3,
+   "cells": [
+    {
+     "model": "e11",
+     "split": "seen",
+     "l2": 0.9392713464511857,
+     "live": 0.9571428571428572
+    },
+    {
+     "model": "e11",
+     "split": "unseen",
+     "l2": 0.915469102255502,
+     "live": 0.8805970149253731
+    },
+    {
+     "model": "jev",
+     "split": "seen",
+     "l2": 0.7049713760014165,
+     "live": 0.2714285714285714
+    }
+   ],
+   "tau_b": 1.0
+  },
+  "within": {
+   "e11": {
+    "n": 12,
+    "tau_b": 0.0763381020690574,
+    "cells": [
+     [
+      "seen",
+      "pick_and_place_simple"
+     ],
+     [
+      "seen",
+      "look_at_obj_in_light"
+     ],
+     [
+      "seen",
+      "pick_clean_then_place_in_recep"
+     ],
+     [
+      "seen",
+      "pick_heat_then_place_in_recep"
+     ],
+     [
+      "seen",
+      "pick_cool_then_place_in_recep"
+     ],
+     [
+      "seen",
+      "pick_two_obj_and_place"
+     ],
+     [
+      "unseen",
+      "pick_and_place_simple"
+     ],
+     [
+      "unseen",
+      "look_at_obj_in_light"
+     ],
+     [
+      "unseen",
+      "pick_clean_then_place_in_recep"
+     ],
+     [
+      "unseen",
+      "pick_heat_then_place_in_recep"
+     ],
+     [
+      "unseen",
+      "pick_cool_then_place_in_recep"
+     ],
+     [
+      "unseen",
+      "pick_two_obj_and_place"
+     ]
+    ]
+   },
+   "jev": {
+    "n": 6,
+    "tau_b": 0.06666666666666667,
+    "cells": [
+     [
+      "seen",
+      "pick_and_place_simple"
+     ],
+     [
+      "seen",
+      "look_at_obj_in_light"
+     ],
+     [
+      "seen",
+      "pick_clean_then_place_in_recep"
+     ],
+     [
+      "seen",
+      "pick_heat_then_place_in_recep"
+     ],
+     [
+      "seen",
+      "pick_cool_then_place_in_recep"
+     ],
+     [
+      "seen",
+      "pick_two_obj_and_place"
+     ]
+    ]
+   },
+   "pooled": {
+    "n": 18,
+    "tau_b": 0.48524850980819084
+   }
+  }
+ },
+ "kendall_strict": {
+  "across": {
+   "n": 3,
+   "cells": [
+    {
+     "model": "e11",
+     "split": "seen",
+     "l2": 0.8320261427882889,
+     "live": 0.9571428571428572
+    },
+    {
+     "model": "e11",
+     "split": "unseen",
+     "l2": 0.8591655001082384,
+     "live": 0.8805970149253731
+    },
+    {
+     "model": "jev",
+     "split": "seen",
+     "l2": 0.4968505914012328,
+     "live": 0.2714285714285714
+    }
+   ],
+   "tau_b": 0.3333333333333333
+  },
+  "within": {
+   "e11": {
+    "n": 12,
+    "tau_b": -0.381690510345287,
+    "cells": [
+     [
+      "seen",
+      "pick_and_place_simple"
+     ],
+     [
+      "seen",
+      "look_at_obj_in_light"
+     ],
+     [
+      "seen",
+      "pick_clean_then_place_in_recep"
+     ],
+     [
+      "seen",
+      "pick_heat_then_place_in_recep"
+     ],
+     [
+      "seen",
+      "pick_cool_then_place_in_recep"
+     ],
+     [
+      "seen",
+      "pick_two_obj_and_place"
+     ],
+     [
+      "unseen",
+      "pick_and_place_simple"
+     ],
+     [
+      "unseen",
+      "look_at_obj_in_light"
+     ],
+     [
+      "unseen",
+      "pick_clean_then_place_in_recep"
+     ],
+     [
+      "unseen",
+      "pick_heat_then_place_in_recep"
+     ],
+     [
+      "unseen",
+      "pick_cool_then_place_in_recep"
+     ],
+     [
+      "unseen",
+      "pick_two_obj_and_place"
+     ]
+    ]
+   },
+   "jev": {
+    "n": 6,
+    "tau_b": 0.06666666666666667,
+    "cells": [
+     [
+      "seen",
+      "pick_and_place_simple"
+     ],
+     [
+      "seen",
+      "look_at_obj_in_light"
+     ],
+     [
+      "seen",
+      "pick_clean_then_place_in_recep"
+     ],
+     [
+      "seen",
+      "pick_heat_then_place_in_recep"
+     ],
+     [
+      "seen",
+      "pick_cool_then_place_in_recep"
+     ],
+     [
+      "seen",
+      "pick_two_obj_and_place"
+     ]
+    ]
+   },
+   "pooled": {
+    "n": 18,
+    "tau_b": 0.31475579014585353
+   }
+  }
+ },
+ "reading": {
+  "spread_pt": 43.971569673297196,
+  "best": "e11",
+  "worst": "e14a",
+  "ranking": [
+   "e11",
+   "sl9b",
+   "sl27b",
+   "oaidec",
+   "jev",
+   "sl4b",
+   "e12",
+   "qwen4b",
+   "e14a"
+  ],
+  "best_alfworld": {
+   "slug": "e11",
+   "acc": 0.9276308328664353
+  },
+  "best_transfer": {
+   "slug": "e12",
+   "acc": 0.6470857713040268
+  },
+  "best_offshelf": {
+   "slug": "sl9b",
+   "acc": 0.7279813230804228
+  },
+  "lead_over_transfer_pt": 28.054506156240855,
+  "lead_over_offshelf_pt": 19.964950978601248,
+  "seen_to_unseen_pt": {
+   "e11": -2.3802244195683664,
+   "qwen4b": -7.407564849858139,
+   "e12": -3.6056823301397922,
+   "e14a": -0.7877567501713312,
+   "sl4b": -5.591138607404,
+   "sl9b": -4.209646385596111,
+   "sl27b": -4.842765206426325,
+   "jev": -5.235871525529523,
+   "oaidec": -7.778939539020591
+  }
+ },
+ "spend": {
+  "jev": 0.4426714319999999,
+  "oaidec": 0.8173555999999981
+ },
+ "set_sizes": {
+  "seen": {
+   "n": 40,
+   "options": 33.225,
+   "lenient": 4.65,
+   "acceptable": 8.325,
+   "acceptable_share": 0.25382442142367595
+  },
+  "unseen": {
+   "n": 40,
+   "options": 25.85,
+   "lenient": 2.975,
+   "acceptable": 3.875,
+   "acceptable_share": 0.15004569987160438
+  }
+ },
+ "consequence": {
+  "pairs": 9120,
+  "accepted": 1411,
+  "states_with_baseline": 1997,
+  "states_evaluated": 2843,
+  "game_errors": 0
+ },
+ "box": {
+  "host": {
+   "instance_id": "<instance-id>",
+   "instance_type": "g6e.2xlarge",
+   "az": "us-east-1d",
+   "setup_utc": "2026-10-09T01:04:54Z",
+   "gpu": "NVIDIA L40S, 46068 MiB",
+   "mins_left": 404
+  },
+  "model_runs": [
+   {
+    "slug": "e11",
+    "corpus": "alfworld",
+    "served": false,
+    "minutes": 0
+   },
+   {
+    "slug": "e12",
+    "corpus": "alfworld",
+    "served": true,
+    "minutes": 8,
+    "used_h": 0.425
+   },
+   {
+    "slug": "e14a",
+    "corpus": "alfworld",
+    "served": true,
+    "minutes": 5,
+    "used_h": 0.511
+   },
+   {
+    "slug": "qwen4b",
+    "corpus": "alfworld",
+    "served": true,
+    "minutes": 7,
+    "used_h": 0.635
+   },
+   {
+    "slug": "sl4b",
+    "corpus": "alfworld",
+    "served": true,
+    "minutes": 13,
+    "used_h": 0.862
+   },
+   {
+    "slug": "e11",
+    "corpus": "alfworld",
+    "served": true,
+    "minutes": 7,
+    "used_h": 1.055
+   },
+   {
+    "slug": "sl9b",
+    "corpus": "alfworld",
+    "served": true,
+    "minutes": 8,
+    "used_h": 1.25
+   },
+   {
+    "slug": "sl27b",
+    "corpus": "alfworld",
+    "served": true,
+    "minutes": 70,
+    "used_h": 2.42
+   },
+   {
+    "slug": "e22",
+    "corpus": "tau2",
+    "served": true,
+    "minutes": 4,
+    "used_h": 2.527
+   },
+   {
+    "slug": "e12",
+    "corpus": "tau2",
+    "served": true,
+    "minutes": 7,
+    "used_h": 2.657
+   },
+   {
+    "slug": "e14a",
+    "corpus": "tau2",
+    "served": true,
+    "minutes": 3,
+    "used_h": 2.717
+   },
+   {
+    "slug": "qwen4b",
+    "corpus": "tau2",
+    "served": true,
+    "minutes": 7,
+    "used_h": 2.835
+   },
+   {
+    "slug": "sl4b",
+    "corpus": "tau2",
+    "served": true,
+    "minutes": 26,
+    "used_h": 3.282
+   },
+   {
+    "slug": "sl9b",
+    "corpus": "tau2",
+    "served": true,
+    "minutes": 39,
+    "used_h": 3.94
+   },
+   {
+    "slug": "sl27b",
+    "corpus": "tau2",
+    "served": true,
+    "minutes": 165,
+    "used_h": 6.696
+   }
+  ],
+  "host_hours": [
+   {
+    "final_utc": "2026-10-09T00:23:37Z",
+    "used_h": 0.864
+   },
+   {
+    "final_utc": "2026-10-09T00:42:28Z",
+    "used_h": 1.057
+   },
+   {
+    "final_utc": "2026-10-09T02:23:31Z",
+    "used_h": 2.422
+   },
+   {
+    "final_utc": "2026-10-09T06:40:05Z",
+    "used_h": 6.698
+   }
+  ],
+  "ckpt_sha256": [
+   "e11 adapter_model.safetensors 53c5893b60c262d6ac2356ad9fd537ee0e722085abb5a7e14d2cf2ae7cc6b659 ok",
+   "e11 adapter_config.json 06d8e3d54909591eaa3e9a09a9b83bc5dedeebf4ac9e88deeb8e39abb349fa1d ok",
+   "e11 calibration.json d089d0e76e08cc68dd9743d0fd36fcbf04044c16afe3ae76ddacf4cc1515b382 ok",
+   "e12 adapter_model.safetensors 5c9542d5eb264c726488f2efa8896de4202df66b00c500e26f5a2801b544fa5e ok",
+   "e14a joint_head.safetensors a7ce7a7e78d50305a34fa900a69a9b6544cc8e6b3bfe7aa4caf9cb8c60a1c200 ok",
+   "e14a unsloth_decision_config.json a9f94cadfa2bacf5702883936c48da8c157e681b30bd80cabb963c9dce998ed4 ok",
+   "e22 joint_head.safetensors fbc4278c64c64f063220926ba36f09cbc7326a1e63719a28732de4cbeeafcd1f ok",
+   "e22 unsloth_decision_config.json a196c06a3ef955a4fb3585dc9963a7d43b6a604610e962304a079baca7a9d42e ok"
+  ]
+ }
+}

@@ -1,0 +1,170 @@
+# E2c (RQ1/RQ2, reviewer control) -- "Is the fast decider better than cheap NON-LEARNED alternatives at the
+# SAME invocation rate / cost?"  Same harness, same decision points and modes as E2a/E2b; only the System-1
+# backend changes (every baseline is an ordinary DecisionBackend, see docs/BASELINES.md).
+#   object level  tool_select assist k=3 / replace: Jev vs Gemini stand-in vs dense embedding vs BM25 vs TF-IDF
+#                 vs rule (heuristic) / prior ("most recently useful tool") / uniform-random
+#   meta level    reflection / stop / routing triggers: Jev vs matched-rate random (r = 0.1 / 0.3 / 0.5, and the
+#                 tau-matched U(0,1) score) vs deterministic rules vs the System-2 model deciding for itself
+# Matched-rate protocol (docs/BASELINES.md): after the Jev arms ran, read their per-opportunity trigger rates
+#   python -c "from jevharness.decision.controls import trigger_rates as t; print(t('runs/e2c_jevgym_baselines/jev_reflect_trigger.jsonl'))"
+# and add an arm bound to {type: rate, rate: <that rate>} (e.g. -o 's1_backends.rate_m={type: rate, rate: 0.23}').
+# Hard distractors (lexical baselines should suffer most): rerun with -o suite.distractor_style=near name=e2c_near.
+# Default s1 = Jev (needs openrouter.ai reachable). Non-Jev pipeline check (Gemini stand-in as default s1):
+#   jevbench run configs/experiments/baselines_jevgym.yaml --max-tasks 5 -o \
+#     's1={"type":"llm_generative","llm":{"provider":"gemini","model":"gemini-3.5-flash-lite"},"reasoning_effort":"minimal"}' \
+#     'arms=[{name: llm_only}, {name: bm25_ts_assist_k3, s1: bm25, tool_select: {mode: assist, k: 3}}, ...]' 'sweeps=[]'
+# 2026-10-01 (docs/META_GOLD_SPEC.md §5.3, amendment A4; dev evidence results/dev_round2/E2_DEV_NOTES.md):
+#   + C5 on Flash-Lite (A1): jev / matched-rate pair at n = 500, rate grid / heuristic / s2self controls at n = 200
+#   + stop guard on Flash-Lite with acceptance-rate-matched and heuristic controls; ratem_route; the memory-write H2
+#     pair (memory_read held fixed at `always`); C3 at k = 5; the optional H3 answer-copy ablation
+# Tasks: the suite holds 500 tasks (evaluation seeds 200000..200499 (A6.13; 100000..100499 is retired: exposed by an n = 50 pilot resume), amendment A6.4); every arm runs the first `n_tasks` (default 200, the C5 pair 500).
+# Matched-rate controls (`ratem*` backends) are PLACEHOLDERS (`placeholder: true`): the runner SKIPS their arms (with a
+# message) until each rate is set from THIS run's System-1 arm -- ONE ARM's file, never the run directory (a directory
+# pools every arm: in the dev run 0.173 pooled vs 0.076 for the Jev Flash-Lite arm). Per distinct opportunity (a stop-
+# guard resubmission of a rejected answer is a retry, not a new proposal):
+#   python -c "from jevharness.decision.controls import trigger_rates as t; \
+#     print(t('runs/e2c_jevgym_baselines/jev_reflect_trigger_s2lite.jsonl')['reflection/trigger']['rate'])"
+#   (likewise jev_stop_guard_s2lite.jsonl 'stop/guard' = ACCEPTANCE rate; jev_route_tau0.5.jsonl 'routing/trigger';
+#    jev_memw.jsonl 'memory_write/trigger'; or t('runs/e2c_jevgym_baselines', by_arm=True) for every arm)
+# then run again with the whole backend replaced (this drops the placeholder flag):
+#   -o 's1_backends.ratem_lite={type: rate, rate: <r>, seed: 0}' -o 's1_backends.ratem_stop_lite={type: rate, ...}' ...
+# Every episode logs its System-1 spec (meta.s1), and a resume refuses an arm whose spec changed: placeholder episodes
+# can never be mixed with matched ones. Report the realised rate (the VoI readout applies the realised-rate correction).
+# Analysis (the measurement arms run in the E2b experiment, runs/e2b_jevgym_meta_control):
+#   python -m jevharness.bench.scorecard runs/e2c_jevgym_baselines --baseline llm_only \
+#     --pair jev_reflect_trigger_s2lite:ratem_reflect_trigger_s2lite (C5) --pair jev_ts_assist_k3:bm25_ts_assist_k3 (C3) \
+#     --pair jev_route_tau0.5:ratem_route --pair jev_memw:ratem_memw --pair jev_stop_guard_s2lite:ratem_stop_guard_s2lite \
+#     --measure-arm meta_shadow_s2lite --measure-arm meta_shadow --measure-run runs/e2b_jevgym_meta_control \
+#     [--replay runs/e2b_jevgym_meta_control/replay/meta_shadow_s2lite__heuristic.jsonl ...] --task-value 0.1 1 10
+#   python -m jevharness.bench.meta_gold h2 runs/e2c_jevgym_baselines --measure meta_shadow_s2lite --measure meta_shadow \
+#     --measure-run runs/e2b_jevgym_meta_control --pair ... --replay ...
+#   recall@k of the assist arms is in the score card's "Tool-selection recall@k" table (assist keeps max(2, k)
+#   tournament survivors per chunk and logs the full ranking, so k = 5 is a genuine top-5 for the stand-in too).
+# cf.fired_steps is on for EVERY Flash-Lite reflection-trigger arm (System-1 and controls alike), so their live
+# consistency-check rows are built the same way (never H2 inputs; the H2 regressors come from meta_shadow_s2lite).
+name: e2c_jevgym_baselines
+# Same calibrated JevGym v2 suite as E2a / E2b so every control pairs with its System-1 arm on identical tasks.
+suite: {name: jevgym, n: 500, seed0: 200000, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}   # evaluation seeds 200000..200499 (A6.13; 100000..100499 is retired: exposed by an n = 50 pilot resume) (PREREGISTRATION A6.4)
+n_tasks: 200
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+small_llm: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+llms:
+  lite2: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}
+s1_cache: cache/s1.sqlite
+s1_backends:
+  # learned / model-based System-1 alternatives
+  lite: {type: llm_generative, llm: {provider: gemini, model: gemini-3.5-flash-lite}, reasoning_effort: minimal}
+  embed: {type: embedding, provider: gemini, model: gemini-embedding-001}
+  s2self: {type: s2_self, llm: {provider: gemini, model: gemini-3.5-flash}, reasoning_effort: minimal}
+  # free, non-learned baselines (cost 0, sub-ms)
+  bm25: {type: bm25}
+  bm25_task: {type: bm25, query_mode: task_obs}           # classic tool-retrieval query: instruction + latest obs
+  tfidf: {type: tfidf}
+  heuristic: {type: heuristic}
+  prior_recent: {type: prior, rule: recent}               # "always call the most recently useful tool"
+  # matched-rate random controls (Choice: uniform-random; Noul: yes w.p. r; guard: accept w.p. r)
+  rate10: {type: rate, rate: 0.1, seed: 0}
+  rate30: {type: rate, rate: 0.3, seed: 0}
+  rate50: {type: rate, rate: 0.5, seed: 0}
+  randscore: {type: rate, rate: null, seed: 0}             # p_yes ~ U(0,1): fires iff u >= tau (rate = 1 - tau)
+  # System-2-as-its-own-decider on Flash-Lite. While the stand-in is the System-1 this IS the jev_* backend (same
+  # model): run the s2self_*_s2lite arm only once Jev is reachable, otherwise it is a duplicate (cf. the dev round)
+  s2self_lite: {type: s2_self, llm: {provider: gemini, model: gemini-3.5-flash-lite}, reasoning_effort: minimal}
+  # matched-rate controls -- PLACEHOLDERS: their arms are skipped until replaced from this run's System-1 arms (header)
+  # A6.16 (i): the C5 control's rate is FIXED before the main runs from the retired-seed n = 50 pilot's live arm
+  # (runs/pilot_jev_n50_split/e2b_jevgym_meta_control_new/jev_reflect_trigger_s2lite_e2b.jsonl, seeds 100000-100049,
+  # retired; 47 reflection firings over 330 opportunities = 0.1424; results/pilot_jev/JEV_PILOT_NOTES.md), never from
+  # the evaluation run; locked by scripts/prereg_check.py (C5_CONTROL_RATE). Both arms' realised rates are reported.
+  ratem_lite: {type: rate, rate: 0.1424, seed: 0}                        # reflection/trigger rate of jev_reflect_trigger_s2lite (A6.16 (i))
+  ratem_stop_lite: {type: rate, rate: 0.5, seed: 0, placeholder: true}    # stop/guard ACCEPTANCE rate of jev_stop_guard_s2lite
+  ratem_route: {type: rate, rate: 0.066, seed: 0, placeholder: true}      # routing/trigger (large-model) rate of jev_route_tau0.5
+  ratem_memw: {type: rate, rate: 0.5, seed: 0, placeholder: true}         # memory_write/trigger store rate of jev_memw
+workers: 8
+arms:
+  # ---------------- references
+  - {name: llm_only}
+  - {name: reflect_always, reflection: {mode: always}}
+  # ---------------- tool selection, assist k=3 (S1 prunes to top-3 + finish; the LLM decides)
+  - {name: jev_ts_assist_k3, tool_select: {mode: assist, k: 3}}
+  - {name: lite_ts_assist_k3, s1: lite, tool_select: {mode: assist, k: 3}}
+  - {name: embed_ts_assist_k3, s1: embed, tool_select: {mode: assist, k: 3}}
+  - {name: bm25_ts_assist_k3, s1: bm25, n_tasks: 500, tool_select: {mode: assist, k: 3}}   # C3 control at 500 (A6.15); its Jev pair is E2a's jev_ts_assist_k3 (500, same frozen task list)
+  - {name: bm25task_ts_assist_k3, s1: bm25_task, tool_select: {mode: assist, k: 3}}
+  - {name: tfidf_ts_assist_k3, s1: tfidf, tool_select: {mode: assist, k: 3}}
+  - {name: heuristic_ts_assist_k3, s1: heuristic, tool_select: {mode: assist, k: 3}}
+  - {name: random_ts_assist_k3, s1: rate50, tool_select: {mode: assist, k: 3}}
+  - {name: s2self_ts_assist_k3, s1: s2self, tool_select: {mode: assist, k: 3}}
+  # ---------------- tool selection, replace (S1 picks the tool; the LLM fills the arguments)
+  - {name: jev_ts_replace, tool_select: {mode: replace}}
+  - {name: lite_ts_replace, s1: lite, tool_select: {mode: replace}}
+  - {name: embed_ts_replace, s1: embed, tool_select: {mode: replace}}
+  - {name: bm25_ts_replace, s1: bm25, tool_select: {mode: replace}}
+  - {name: tfidf_ts_replace, s1: tfidf, tool_select: {mode: replace}}
+  - {name: heuristic_ts_replace, s1: heuristic, tool_select: {mode: replace}}
+  - {name: prior_recent_ts_replace, s1: prior_recent, tool_select: {mode: replace}}
+  - {name: random_ts_replace, s1: rate50, tool_select: {mode: replace}}
+  # ---------------- reflection trigger (fire -> one extra System-2 reflection call)
+  - {name: jev_reflect_trigger, reflection: {mode: trigger, tau: 0.5}}
+  - {name: rate10_reflect_trigger, s1: rate10, reflection: {mode: trigger, tau: 0.5}}
+  - {name: rate30_reflect_trigger, s1: rate30, reflection: {mode: trigger, tau: 0.5}}
+  - {name: rate50_reflect_trigger, s1: rate50, reflection: {mode: trigger, tau: 0.5}}
+  - {name: heuristic_reflect_trigger, s1: heuristic, reflection: {mode: trigger, tau: 0.5}}
+  - {name: s2self_reflect_trigger, s1: s2self, reflection: {mode: trigger, tau: 0.5}}
+  # ---------------- stop: early-stop trigger and finish verifier (guard)
+  - {name: jev_stop_trigger, stop: {mode: trigger, tau: 0.9}}
+  - {name: rate10_stop_trigger, s1: rate10, stop: {mode: trigger, tau: 0.9}}
+  - {name: heuristic_stop_trigger, s1: heuristic, stop: {mode: trigger, tau: 0.9}}
+  - {name: jev_stop_guard, stop: {mode: guard, tau: 0.5}}
+  - {name: rate50_stop_guard, s1: rate50, stop: {mode: guard, tau: 0.5}}      # accepts a finish w.p. 0.5
+  - {name: heuristic_stop_guard, s1: heuristic, stop: {mode: guard, tau: 0.5}}
+  # ---------------- routing (fire -> strong model gemini-3.5-flash, else flash-lite)
+  - {name: jev_route_tau0.5, routing: {mode: trigger, tau: 0.5}}
+  - {name: lite_route, s1: lite, routing: {mode: trigger, tau: 0.5}}
+  - {name: rate10_route, s1: rate10, routing: {mode: trigger, tau: 0.5}}
+  - {name: rate30_route, s1: rate30, routing: {mode: trigger, tau: 0.5}}
+  - {name: rate50_route, s1: rate50, routing: {mode: trigger, tau: 0.5}}
+  - {name: heuristic_route, s1: heuristic, routing: {mode: trigger, tau: 0.5}}
+  - {name: s2self_route, s1: s2self, routing: {mode: trigger, tau: 0.5}}
+  # ---------------- C3 at k = 5 (recall@k against the acceptable tool set is reported for every assist arm)
+  - {name: jev_ts_assist_k5, tool_select: {mode: assist, k: 5}}
+  - {name: bm25_ts_assist_k5, s1: bm25, tool_select: {mode: assist, k: 5}}
+  - {name: tfidf_ts_assist_k5, s1: tfidf, tool_select: {mode: assist, k: 5}}
+  # ---------------- Flash-Lite System-2 (A1): reference + C5 / C6 / memory System-1 arms (run before their controls)
+  - {name: llm_only_s2lite, llm: lite2, n_tasks: 500}
+  # C5 primary pair (n = 500); counterfactual a0 at the fired steps (post-episode, never changes the episode)
+  - {name: jev_reflect_trigger_s2lite, llm: lite2, n_tasks: 500, reflection: {mode: trigger, tau: 0.5},
+     measure: {cf: {fired_steps: true}}}
+  - {name: jev_stop_guard_s2lite, llm: lite2, stop: {mode: guard, tau: 0.5}}
+  # memory-write H2 pair: the read mode is held fixed (`always`), so only the write gate differs
+  - {name: jev_memw, memory_write: {mode: trigger, tau: 0.5}, memory_read: {mode: always}}
+  - {name: heuristic_memw, s1: heuristic, memory_write: {mode: trigger, tau: 0.5}, memory_read: {mode: always}}
+  # C5 controls on Flash-Lite
+  - {name: rate10_reflect_trigger_s2lite, llm: lite2, s1: rate10, reflection: {mode: trigger, tau: 0.5},
+     measure: {cf: {fired_steps: true}}}
+  - {name: rate30_reflect_trigger_s2lite, llm: lite2, s1: rate30, reflection: {mode: trigger, tau: 0.5},
+     measure: {cf: {fired_steps: true}}}
+  - {name: rate50_reflect_trigger_s2lite, llm: lite2, s1: rate50, reflection: {mode: trigger, tau: 0.5},
+     measure: {cf: {fired_steps: true}}}
+  - {name: heuristic_reflect_trigger_s2lite, llm: lite2, s1: heuristic, reflection: {mode: trigger, tau: 0.5},
+     measure: {cf: {fired_steps: true}}}
+  - {name: s2self_reflect_trigger_s2lite, llm: lite2, s1: s2self_lite, reflection: {mode: trigger, tau: 0.5},
+     measure: {cf: {fired_steps: true}}}
+  - {name: heuristic_stop_guard_s2lite, llm: lite2, s1: heuristic, stop: {mode: guard, tau: 0.5}}
+  # ---------------- optional H3 ablation: finish.answer treated as a copy parameter (System-1 picks it from the state)
+  - {name: jev_ts_params_replace_answercopy, tool_select: {mode: replace},
+     tool_params: {mode: replace, extra: {answer_as_copy: true}}}
+  # ---------------- matched-rate controls LAST (their rates come from the System-1 arms above; see the header)
+  - {name: ratem_reflect_trigger_s2lite, llm: lite2, s1: ratem_lite, n_tasks: 500, reflection: {mode: trigger, tau: 0.5},
+     measure: {cf: {fired_steps: true}}}
+  - {name: ratem_stop_guard_s2lite, llm: lite2, s1: ratem_stop_lite, stop: {mode: guard, tau: 0.5}}
+  - {name: ratem_route, s1: ratem_route, routing: {mode: trigger, tau: 0.5}}
+  - {name: ratem_memw, s1: ratem_memw, memory_write: {mode: trigger, tau: 0.5}, memory_read: {mode: always}}
+sweeps:
+  # tau-matched pair: the same thresholds for Jev and for the U(0,1) score (rates 0.8 / 0.6 / 0.4 / 0.2)
+  - base: {name: jev_route, routing: {mode: trigger}}
+    set: routing.tau
+    values: [0.2, 0.4, 0.6, 0.8]
+  - base: {name: randscore_route, s1: randscore, routing: {mode: trigger}}
+    set: routing.tau
+    values: [0.2, 0.4, 0.6, 0.8]

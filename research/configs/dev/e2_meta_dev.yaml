@@ -1,0 +1,46 @@
+# E2 META DEV (live smoke of the measurement arms; docs/META_GOLD_SPEC.md §12 "Live smoke") -- NOT a paper run.
+# 5 tasks of each measurement arm of configs/experiments/jevgym_meta_control.yaml (identical arm definitions) plus
+# the LLM-only references, to check the cross-model counterfactual calls (Gemini thought signatures: a Flash call on
+# a Flash-Lite history and the reverse), probe counts and costs (about $1), then the replay and the meta_gold analysis
+# end to end. The default System-1 is replaced on the command line by the Gemini stand-in:
+#   jevbench run configs/dev/e2_meta_dev.yaml --out runs/dev --max-tasks 5 -o workers=4 \
+#     's1={type: llm_generative, llm: {provider: gemini, model: gemini-3.5-flash-lite}, reasoning_effort: minimal}' \
+#     name=e2_meta_dev
+#   python -m jevharness.bench.scorecard runs/dev/e2_meta_dev --baseline llm_only
+#   python -m jevharness.bench.meta_gold audit runs/dev/e2_meta_dev --arm meta_shadow --arm meta_shadow_s2lite
+#   python -m jevharness.bench.meta_gold replay runs/dev/e2_meta_dev --arm meta_shadow_s2lite --s1 '{type: heuristic}'
+name: e2_meta_dev
+suite: {name: jevgym, n: 500, families: v2, distractor_style: near, n_distractors: 60, noise_lines: 20, strict: true}
+llm: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+small_llm: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+llms:
+  small_only: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+  flash: {provider: gemini, model: gemini-3.5-flash, temperature: 0, reasoning_effort: minimal}
+  lite: {provider: gemini, model: gemini-3.5-flash-lite, temperature: 0, reasoning_effort: minimal}
+s1: {type: jev, provider: openrouter}
+s1_cache: cache/s1.sqlite
+workers: 4
+arms:
+  - {name: llm_only}
+  - {name: llm_only_s2lite, llm: small_only}
+  - name: meta_shadow
+    reflection: {mode: shadow, extra: {wordings: [v2, v1]}}
+    stop: {mode: shadow, extra: {augment_trigger: true}}
+    memory_write: {mode: shadow}
+    measure:
+      seed: 0
+      probes: {stop: [forced_premature, transplant, T5, T6], tool_select: [natural, transplant, T1, T2, T3, T4],
+               rho_edit: 0.5, rho_t5: 0.25, rho_transplant: 0.25, transplant_llm: lite, transplant_temperature: 0.0,
+               tau_ref: 0.5}
+  - name: meta_shadow_s2lite
+    llm: small_only
+    reflection: {mode: shadow, extra: {wordings: [v2, v1]}}
+    routing: {mode: shadow}
+    stop: {mode: shadow, extra: {augment_trigger: true}}
+    memory_write: {mode: shadow}
+    measure:
+      seed: 0
+      cf: {reflection: true, large_llm: flash, stop_reject: true, placebo: true, sample_negatives: 0.2}
+      probes: {stop: [forced_premature, transplant, T5, T6], tool_select: [natural, transplant, T1, T2, T3, T4],
+               rho_edit: 0.5, rho_t5: 0.25, rho_transplant: 0.25, transplant_llm: lite, transplant_temperature: 1.0,
+               tau_ref: 0.5}

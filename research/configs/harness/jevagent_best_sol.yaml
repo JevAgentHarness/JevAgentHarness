@@ -1,0 +1,34 @@
+# Derived profile for the second System-2 family, WRITTEN BY scripts/render_profile_x.py (docs/PREREG_A7_STAGE2.md A7.12 (e)); do not edit by hand.
+kind: jevagent_profile
+version: 1
+name: jevagent_best_gpt-6.1-sol
+status: selected
+description: Derived from the committed best-practice profile for System-2 X (A7.12
+  (e)).
+system2:
+  gpt-6.1-sol:
+    decision_points:
+      tool_select:
+        mode: cascade
+        tau: 0.99
+        always_defer: true
+      tool_params:
+        mode: cascade
+        tau: 0.57
+      reflection:
+        mode: trigger
+        tau: 0.5
+    harness: {}
+    notes:
+    - 'tool_select: X''s fit accepts no level -> always defer'
+    - 'tool_params: tau 0.57 (X''s fit)'
+derived_from:
+  profile:
+    path: configs/harness/jevagent_best.yaml
+    sha256: 85289f656c5610a645ea88ad33dd3ffc547f95687d5587eb3abfea14720ad347
+  fit_tool_select:
+    path: results/calibration/tauhat_jev_shadow_cal_sol_tool_select.json
+    sha256: 2f933e486b40e6470363140841391ed65d8da3e419e34433aaae0e20a9dae907
+  fit_tool_params:
+    path: results/calibration/tauhat_jev_shadow_cal_sol_tool_params.json
+    sha256: bd6e872f8192dcf21006147cf1cf15705bbd299ee614a7b2266d190fc01d8931

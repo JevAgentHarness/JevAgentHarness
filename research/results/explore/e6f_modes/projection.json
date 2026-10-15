@@ -1,0 +1,94 @@
+{
+ "safety": 1.5,
+ "caps": {
+  "gemini": 60.0,
+  "jev": 2.0
+ },
+ "settings": {
+  "jevgym": {
+   "per_episode": {
+    "llm_only": {
+     "n": 2,
+     "errors": 0,
+     "gemini": 0.0465729,
+     "jev": 0.0,
+     "wall_s": 83.76154544000019
+    },
+    "ts_trigger": {
+     "n": 2,
+     "errors": 0,
+     "gemini": 0.051200175,
+     "jev": 0.000356454,
+     "wall_s": 112.38046411700043
+    },
+    "ts_verify_all": {
+     "n": 2,
+     "errors": 0,
+     "gemini": 0.082362225,
+     "jev": 0.0,
+     "wall_s": 148.8640356309993
+    },
+    "tp_trigger": {
+     "n": 2,
+     "errors": 0,
+     "gemini": 0.04273732500000001,
+     "jev": 0.00035626500000000003,
+     "wall_s": 86.04195119600035
+    },
+    "tp_verify_all": {
+     "n": 2,
+     "errors": 0,
+     "gemini": 0.06064875,
+     "jev": 0.0,
+     "wall_s": 342.07133185700013
+    }
+   },
+   "per_task_gemini": 0.28352137499999996,
+   "per_task_jev": 0.0007127190000000001
+  },
+  "alfworld": {
+   "per_episode": {
+    "llm_only": {
+     "n": 2,
+     "errors": 0,
+     "gemini": 0.00700425,
+     "jev": 0.0,
+     "wall_s": 115.16692173299953
+    },
+    "jev_action_trigger": {
+     "n": 2,
+     "errors": 0,
+     "gemini": 0.015327750000000001,
+     "jev": 0.00017018399999999998,
+     "wall_s": 174.7293374855003
+    },
+    "action_verify_all": {
+     "n": 2,
+     "errors": 0,
+     "gemini": 0.0168705,
+     "jev": 0.0,
+     "wall_s": 193.5452472990005
+    }
+   },
+   "per_task_gemini": 0.0392025,
+   "per_task_jev": 0.00017018399999999998
+  }
+ },
+ "spent_so_far": {
+  "gemini": 0.64544775,
+  "jev": 0.0017658060000000002,
+  "total": 0.647213556
+ },
+ "missing": [],
+ "projected_200_140": {
+  "gemini": 93.93438524999999,
+  "jev": 0.251320146,
+  "fits": false
+ },
+ "projected_100_140": {
+  "gemini": 51.406178999999995,
+  "jev": 0.14441229600000002,
+  "fits": true
+ },
+ "decision": "run JevGym 100 tasks and ALFWorld 140 games"
+}

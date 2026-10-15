@@ -1,0 +1,1614 @@
+{
+ "registered": "docs/PREREG_A7_STAGE2.md A7.1",
+ "margin": 0.03,
+ "alpha": 0.05,
+ "tie": 0.02,
+ "candidates": [
+  {
+   "system2": "gemini-3.5-flash",
+   "group": "tool",
+   "arm": "jev_ts_cascade_tauhat",
+   "run": "E2a",
+   "config": "jevgym_tool_select.yaml",
+   "reference": "llm_only",
+   "authority_rank": 4.0,
+   "qualifies": true,
+   "setting": {
+    "tool_select": {
+     "mode": "cascade",
+     "tau": 1.0
+    },
+    "tool_params": {
+     "mode": "cascade",
+     "tau": 0.99
+    }
+   },
+   "n_expected": 500,
+   "n_pairs": 500,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 500,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 500,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 500,
+    "wins": 0,
+    "losses": 0,
+    "diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "p_decisive": 0.00010024314737847021,
+    "rule": "bb_ordered",
+    "ni_95": true,
+    "success_ref": 0.998,
+    "success_arm": 0.998,
+    "mde": null
+   },
+   "p_ni": 0.00010024314737847021,
+   "noninferior": true,
+   "p_cheaper": 5.447570932429587e-53,
+   "cheaper": true,
+   "cost_arm": 0.036408737304,
+   "cost_ref": 0.042426612899999994,
+   "savings": 0.14184199927022678,
+   "savings_ci": [
+    0.12839296410063078,
+    0.15702436122418856
+   ],
+   "latency_saving_s": -1.0442750850140727,
+   "llm_calls_avoided": 1.094,
+   "coverage": {
+    "tool_coverage": 0.27183173588924386,
+    "arg_coverage": 0.20816864295125165,
+    "arg_coverage_s1_calls": 0.677384780278671,
+    "llm_free_steps": 0.14563365282215124
+   },
+   "delegation_class": "non-negligible",
+   "delegating": true,
+   "fate": "qualifies",
+   "selected": true
+  },
+  {
+   "system2": "gemini-3.5-flash",
+   "group": "tool",
+   "arm": "jev_ts_assist_k5",
+   "run": "E2a",
+   "config": "jevgym_tool_select.yaml",
+   "reference": "llm_only",
+   "authority_rank": 2.0,
+   "qualifies": false,
+   "setting": {
+    "tool_select": {
+     "mode": "assist",
+     "k": 5
+    }
+   },
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 20,
+    "diff": -0.1,
+    "ci95": [
+     -0.145,
+     -0.06
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.9,
+    "mde": 0.025372709360857847
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 6.202264612031386e-81,
+   "cheaper": true,
+   "cost_arm": 0.02221390242,
+   "cost_ref": 0.042941570250000005,
+   "savings": 0.48269468743984745,
+   "savings_ci": [
+    0.46209458915668794,
+    0.5012588549152066
+   ],
+   "latency_saving_s": -0.16452057978011908,
+   "llm_calls_avoided": -0.865,
+   "coverage": {
+    "s1_decisions_executed": 1674
+   },
+   "delegating": true,
+   "fate": "not qualified: not non-inferior"
+  },
+  {
+   "system2": "gemini-3.5-flash",
+   "group": "tool",
+   "arm": "jev_ts_assist_k3",
+   "run": "E2a",
+   "config": "jevgym_tool_select.yaml",
+   "reference": "llm_only",
+   "authority_rank": 2.5,
+   "qualifies": false,
+   "setting": {
+    "tool_select": {
+     "mode": "assist",
+     "k": 3
+    }
+   },
+   "n_expected": 500,
+   "n_pairs": 500,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 500,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 500,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 500,
+    "wins": 1,
+    "losses": 40,
+    "diff": -0.078,
+    "ci95": [
+     -0.102,
+     -0.054
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 0.998,
+    "success_arm": 0.92,
+    "mde": 0.0017263027553708241
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 3.589493546982985e-250,
+   "cheaper": true,
+   "cost_arm": 0.019631143199999996,
+   "cost_ref": 0.042426612899999994,
+   "savings": 0.5372917643397359,
+   "savings_ci": [
+    0.5286066236881402,
+    0.5465560688456275
+   ],
+   "latency_saving_s": -1.3642737251360995,
+   "llm_calls_avoided": -0.592,
+   "coverage": {
+    "s1_decisions_executed": 4052
+   },
+   "delegating": true,
+   "fate": "not qualified: not non-inferior"
+  },
+  {
+   "system2": "gemini-3.5-flash",
+   "group": "tool",
+   "arm": "jev_ts_guard",
+   "run": "E2a",
+   "config": "jevgym_tool_select.yaml",
+   "reference": "llm_only",
+   "authority_rank": 1.0,
+   "qualifies": false,
+   "setting": {
+    "tool_select": {
+     "mode": "guard",
+     "tau": 0.5
+    }
+   },
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 0,
+    "diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "p_decisive": 0.002363326299121377,
+    "rule": "bb_ordered",
+    "ni_95": true,
+    "success_ref": 1.0,
+    "success_arm": 1.0,
+    "mde": null
+   },
+   "p_ni": 0.002363326299121377,
+   "noninferior": true,
+   "p_cheaper": 0.6386327940693651,
+   "cheaper": false,
+   "cost_arm": 0.04302840585,
+   "cost_ref": 0.042941570250000005,
+   "savings": -0.0020221803602999966,
+   "savings_ci": [
+    -0.013591433103785012,
+    0.00864911611893808
+   ],
+   "latency_saving_s": -1.6672204072948729,
+   "llm_calls_avoided": -0.155,
+   "coverage": {
+    "s1_decisions_executed": 1501
+   },
+   "delegating": true,
+   "fate": "not qualified: not cheaper"
+  },
+  {
+   "system2": "gemini-3.5-flash",
+   "group": "tool",
+   "arm": "jev_ts_replace",
+   "run": "E2a",
+   "config": "jevgym_tool_select.yaml",
+   "reference": "llm_only",
+   "authority_rank": 5.0,
+   "qualifies": false,
+   "setting": {
+    "tool_select": {
+     "mode": "replace"
+    }
+   },
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 38,
+    "diff": -0.19,
+    "ci95": [
+     -0.245,
+     -0.135
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.81,
+    "mde": 0.04637088199473648
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 1.4996949730944394e-162,
+   "cheaper": true,
+   "cost_arm": 0.0141549369,
+   "cost_ref": 0.042941570250000005,
+   "savings": 0.6703675059483881,
+   "savings_ci": [
+    0.651273773334314,
+    0.6911240103544929
+   ],
+   "latency_saving_s": 0.9668979158900675,
+   "llm_calls_avoided": 0.64,
+   "coverage": {
+    "tool_coverage": 1.0,
+    "arg_coverage": 0.0,
+    "arg_coverage_s1_calls": null,
+    "llm_free_steps": 0.0
+   },
+   "delegation_class": "non-negligible",
+   "delegating": true,
+   "fate": "not qualified: not non-inferior"
+  },
+  {
+   "system2": "gemini-3.5-flash",
+   "group": "tool",
+   "arm": "jev_ts_params_replace",
+   "run": "E2a",
+   "config": "jevgym_tool_select.yaml",
+   "reference": "llm_only",
+   "authority_rank": 6.0,
+   "qualifies": false,
+   "setting": {
+    "tool_select": {
+     "mode": "replace"
+    },
+    "tool_params": {
+     "mode": "replace"
+    }
+   },
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 40,
+    "diff": -0.2,
+    "ci95": [
+     -0.255125,
+     -0.14987500000000067
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 1.0,
+    "success_arm": 0.8,
+    "mde": 0.04835603473284368
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 1.6993984779420766e-100,
+   "cheaper": true,
+   "cost_arm": 0.0050928946800000005,
+   "cost_ref": 0.042941570250000005,
+   "savings": 0.881399430660084,
+   "savings_ci": [
+    0.8559788546376241,
+    0.8998863772721026
+   ],
+   "latency_saving_s": 2.5652212857851198,
+   "llm_calls_avoided": 5.705,
+   "coverage": {
+    "tool_coverage": 1.0,
+    "arg_coverage": 0.8571428571428571,
+    "arg_coverage_s1_calls": 0.8571428571428571,
+    "llm_free_steps": 0.762532981530343
+   },
+   "delegation_class": "non-negligible",
+   "delegating": true,
+   "fate": "not qualified: not non-inferior"
+  },
+  {
+   "system2": "gemini-3.5-flash",
+   "group": "stop",
+   "arm": "jev_stop_guard",
+   "run": "E2b",
+   "config": "jevgym_meta_control.yaml",
+   "reference": "llm_only",
+   "authority_rank": 1.0,
+   "qualifies": false,
+   "setting": {
+    "stop": {
+     "mode": "guard",
+     "tau": 0.5
+    }
+   },
+   "n_expected": 500,
+   "n_pairs": 500,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 500,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 500,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 500,
+    "wins": 0,
+    "losses": 3,
+    "diff": -0.006,
+    "ci95": [
+     -0.014,
+     0.0
+    ],
+    "p_decisive": 0.0002821190265498436,
+    "rule": "bb_ordered",
+    "ni_95": true,
+    "success_ref": 0.998,
+    "success_arm": 0.992,
+    "mde": -0.02195081201748701
+   },
+   "p_ni": 0.0002821190265498436,
+   "noninferior": true,
+   "p_cheaper": 0.9999983375610706,
+   "cheaper": false,
+   "cost_arm": 0.04333417782,
+   "cost_ref": 0.040817852099999996,
+   "savings": -0.06164767596872167,
+   "savings_ci": [
+    -0.09053904793416398,
+    -0.03975459718877826
+   ],
+   "latency_saving_s": 4.920462842191913,
+   "llm_calls_avoided": -0.202,
+   "coverage": {
+    "s1_decisions_executed": 600
+   },
+   "delegating": true,
+   "fate": "not qualified: not cheaper"
+  },
+  {
+   "system2": "gemini-3.5-flash",
+   "group": "stop",
+   "arm": "jev_stop_trigger",
+   "run": "E2b",
+   "config": "jevgym_meta_control.yaml",
+   "reference": "llm_only",
+   "authority_rank": 3.0,
+   "qualifies": false,
+   "setting": {
+    "stop": {
+     "mode": "trigger",
+     "tau": 0.9
+    }
+   },
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 0,
+    "diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "p_decisive": 0.002363326299121377,
+    "rule": "bb_ordered",
+    "ni_95": true,
+    "success_ref": 1.0,
+    "success_arm": 1.0,
+    "mde": null
+   },
+   "p_ni": 0.002363326299121377,
+   "noninferior": true,
+   "p_cheaper": 0.6120480226080007,
+   "cheaper": false,
+   "cost_arm": 0.04064636664,
+   "cost_ref": 0.040608665999999995,
+   "savings": -0.0009283890290807673,
+   "savings_ci": [
+    -0.0069787305885781244,
+    0.005637127906977735
+   ],
+   "latency_saving_s": 3.107641373564787,
+   "llm_calls_avoided": 0.0,
+   "coverage": {
+    "s1_decisions_executed": 1301
+   },
+   "delegating": true,
+   "fate": "not qualified: not cheaper"
+  },
+  {
+   "system2": "gemini-3.5-flash",
+   "group": "reflection",
+   "arm": "jev_reflect_trigger",
+   "run": "E2b",
+   "config": "jevgym_meta_control.yaml",
+   "reference": "llm_only",
+   "authority_rank": 3.0,
+   "qualifies": true,
+   "setting": {
+    "reflection": {
+     "mode": "trigger",
+     "tau": 0.5
+    }
+   },
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 0,
+    "diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "p_decisive": 0.002363326299121377,
+    "rule": "bb_ordered",
+    "ni_95": true,
+    "success_ref": 1.0,
+    "success_arm": 1.0,
+    "mde": null
+   },
+   "p_ni": 0.002363326299121377,
+   "noninferior": true,
+   "p_cheaper": 0.0237790152089782,
+   "cheaper": true,
+   "cost_arm": 0.040253438849999996,
+   "cost_ref": 0.040608665999999995,
+   "savings": 0.008747570038375563,
+   "savings_ci": [
+    0.00048397068199531056,
+    0.017711924550746733
+   ],
+   "latency_saving_s": 2.1244739721150383,
+   "llm_calls_avoided": -0.92,
+   "coverage": {
+    "s1_decisions_executed": 1304
+   },
+   "delegating": true,
+   "fate": "qualifies",
+   "selected": true
+  },
+  {
+   "system2": "gemini-3.5-flash",
+   "group": "routing",
+   "arm": "jev_route_tau0.4",
+   "run": "E2b",
+   "config": "jevgym_meta_control.yaml",
+   "reference": "llm_only",
+   "authority_rank": 3.0,
+   "qualifies": false,
+   "setting": {
+    "routing": {
+     "mode": "trigger",
+     "tau": 0.4
+    }
+   },
+   "n_expected": 500,
+   "n_pairs": 500,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 500,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 500,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 500,
+    "wins": 1,
+    "losses": 93,
+    "diff": -0.184,
+    "ci95": [
+     -0.22,
+     -0.14995000000000028
+    ],
+    "p_decisive": 1.0,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 0.998,
+    "success_arm": 0.814,
+    "mde": 0.018123837570100245
+   },
+   "p_ni": 1.0,
+   "noninferior": false,
+   "p_cheaper": 4.0357761993176156e-224,
+   "cheaper": true,
+   "cost_arm": 0.013360254248,
+   "cost_ref": 0.040817852099999996,
+   "savings": 0.6726860047591774,
+   "savings_ci": [
+    0.664832569033228,
+    0.6800266807134551
+   ],
+   "latency_saving_s": 4.6476632200740156,
+   "llm_calls_avoided": -0.05,
+   "coverage": {
+    "s1_decisions_executed": 3784
+   },
+   "delegating": true,
+   "fate": "not qualified: not non-inferior"
+  },
+  {
+   "system2": "gemini-3.5-flash",
+   "group": "memory",
+   "arm": "jev_mem",
+   "run": "E2b",
+   "config": "jevgym_meta_control.yaml",
+   "reference": "llm_only",
+   "authority_rank": 3.0,
+   "qualifies": false,
+   "setting": {
+    "memory_write": {
+     "mode": "trigger",
+     "tau": 0.5
+    },
+    "memory_read": {
+     "mode": "assist",
+     "k": 3
+    }
+   },
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 0,
+    "losses": 0,
+    "diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "p_decisive": 0.002363326299121377,
+    "rule": "bb_ordered",
+    "ni_95": true,
+    "success_ref": 1.0,
+    "success_arm": 1.0,
+    "mde": null
+   },
+   "p_ni": 0.002363326299121377,
+   "noninferior": true,
+   "p_cheaper": 0.9999999918289627,
+   "cheaper": false,
+   "cost_arm": 0.04255068237000001,
+   "cost_ref": 0.040608665999999995,
+   "savings": -0.04782270784270559,
+   "savings_ci": [
+    -0.06232137048697274,
+    -0.03228951215001871
+   ],
+   "latency_saving_s": 0.7321138798150968,
+   "llm_calls_avoided": 0.0,
+   "coverage": {
+    "s1_decisions_executed": 2002
+   },
+   "delegating": true,
+   "fate": "not qualified: not cheaper"
+  },
+  {
+   "system2": "gemini-3.5-flash",
+   "group": "action",
+   "arm": "jev_action_assist_k3",
+   "run": "E6",
+   "config": "alfworld_action_only.yaml",
+   "reference": "llm_react",
+   "authority_rank": 2.5,
+   "qualifies": false,
+   "setting": {
+    "action": {
+     "mode": "assist",
+     "k": 3
+    }
+   },
+   "fate": "run directory runs/e6_alfworld_action_only missing"
+  },
+  {
+   "system2": "gemini-3.5-flash",
+   "group": "action",
+   "arm": "jev_action_replace",
+   "run": "E6",
+   "config": "alfworld_action_only.yaml",
+   "reference": "llm_react",
+   "authority_rank": 5.0,
+   "qualifies": false,
+   "setting": {
+    "action": {
+     "mode": "replace"
+    }
+   },
+   "fate": "run directory runs/e6_alfworld_action_only missing"
+  },
+  {
+   "system2": "gemini-3.5-flash-lite",
+   "group": "tool",
+   "arm": "jev_ts_cascade_tau0.9_s2lite",
+   "run": "E2a",
+   "config": "jevgym_tool_select.yaml",
+   "reference": "llm_only_s2lite",
+   "authority_rank": 4.0,
+   "qualifies": false,
+   "setting": {
+    "tool_select": {
+     "mode": "cascade",
+     "tau": 0.99,
+     "always_defer": true
+    },
+    "tool_params": {
+     "mode": "cascade",
+     "tau": 0.13
+    }
+   },
+   "n_expected": 500,
+   "n_pairs": 500,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 500,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 500,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 500,
+    "wins": 17,
+    "losses": 12,
+    "diff": 0.01,
+    "ci95": [
+     -0.01,
+     0.032
+    ],
+    "p_decisive": 0.00041151291107290787,
+    "rule": "bb_ordered",
+    "ni_95": true,
+    "success_ref": 0.802,
+    "success_arm": 0.812,
+    "mde": -0.0033587138671066614
+   },
+   "p_ni": 0.00041151291107290787,
+   "noninferior": true,
+   "p_cheaper": 0.20832186641919592,
+   "cheaper": false,
+   "cost_arm": 0.009777361679999999,
+   "cost_ref": 0.00979711952,
+   "savings": 0.002016698883755219,
+   "savings_ci": [
+    -0.0025931233830082,
+    0.007307680625466422
+   ],
+   "latency_saving_s": -0.6242245588339251,
+   "llm_calls_avoided": 0.012,
+   "coverage": {
+    "tool_coverage": 0.0,
+    "arg_coverage": 0.0,
+    "arg_coverage_s1_calls": null,
+    "llm_free_steps": 0.0
+   },
+   "delegation_class": "zero",
+   "delegating": false,
+   "fate": "not qualified: not delegating, not cheaper"
+  },
+  {
+   "system2": "gemini-3.5-flash-lite",
+   "group": "tool",
+   "arm": "jev_ts_assist_k3_s2lite",
+   "run": "E2a",
+   "config": "jevgym_tool_select.yaml",
+   "reference": "llm_only_s2lite",
+   "authority_rank": 2.5,
+   "qualifies": false,
+   "setting": {
+    "tool_select": {
+     "mode": "assist",
+     "k": 3
+    }
+   },
+   "n_expected": 500,
+   "n_pairs": 500,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 500,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 500,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 500,
+    "wins": 43,
+    "losses": 60,
+    "diff": -0.034,
+    "ci95": [
+     -0.072,
+     0.006
+    ],
+    "p_decisive": 0.5905344994885369,
+    "rule": "bb_ordered",
+    "ni_95": false,
+    "success_ref": 0.802,
+    "success_arm": 0.768,
+    "mde": 0.02037968526059398
+   },
+   "p_ni": 0.5905344994885369,
+   "noninferior": false,
+   "p_cheaper": 0.0,
+   "cheaper": true,
+   "cost_arm": 0.0047042429719999996,
+   "cost_ref": 0.00979711952,
+   "savings": 0.5198340734338618,
+   "savings_ci": [
+    0.5124513392994244,
+    0.5275107167040919
+   ],
+   "latency_saving_s": -3.5616906793058822,
+   "llm_calls_avoided": -0.464,
+   "coverage": {
+    "s1_decisions_executed": 4021
+   },
+   "delegating": true,
+   "fate": "not qualified: not non-inferior"
+  },
+  {
+   "system2": "gemini-3.5-flash-lite",
+   "group": "tool",
+   "arm": "jev_ts_guard_s2lite",
+   "run": "E2a",
+   "config": "jevgym_tool_select.yaml",
+   "reference": "llm_only_s2lite",
+   "authority_rank": 1.0,
+   "qualifies": false,
+   "setting": {
+    "tool_select": {
+     "mode": "guard",
+     "tau": 0.5
+    }
+   },
+   "n_expected": 200,
+   "n_pairs": 200,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 200,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 200,
+    "wins": 15,
+    "losses": 6,
+    "diff": 0.045,
+    "ci95": [
+     0.0,
+     0.09
+    ],
+    "p_decisive": 0.001058939439074962,
+    "rule": "bb_ordered",
+    "ni_95": true,
+    "success_ref": 0.82,
+    "success_arm": 0.865,
+    "mde": 0.026744632443063073
+   },
+   "p_ni": 0.001058939439074962,
+   "noninferior": true,
+   "p_cheaper": 1.0,
+   "cheaper": false,
+   "cost_arm": 0.01042260121,
+   "cost_ref": 0.009765709599999998,
+   "savings": -0.06726511814359104,
+   "savings_ci": [
+    -0.08146944285330071,
+    -0.05565321897218272
+   ],
+   "latency_saving_s": -2.8691826703098275,
+   "llm_calls_avoided": -0.25,
+   "coverage": {
+    "s1_decisions_executed": 1514
+   },
+   "delegating": true,
+   "fate": "not qualified: not cheaper"
+  },
+  {
+   "system2": "gemini-3.5-flash-lite",
+   "group": "stop",
+   "arm": "jev_stop_guard_s2lite",
+   "run": "E2b",
+   "config": "jevgym_meta_control.yaml",
+   "reference": "llm_only_s2lite",
+   "authority_rank": 1.0,
+   "qualifies": false,
+   "setting": {
+    "stop": {
+     "mode": "guard",
+     "tau": 0.5
+    }
+   },
+   "n_expected": 500,
+   "n_pairs": 500,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 500,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 500,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 500,
+    "wins": 23,
+    "losses": 15,
+    "diff": 0.016,
+    "ci95": [
+     -0.008,
+     0.04
+    ],
+    "p_decisive": 0.0003340971500440929,
+    "rule": "bb_ordered",
+    "ni_95": true,
+    "success_ref": 0.804,
+    "success_arm": 0.82,
+    "mde": 0.0005348700432027139
+   },
+   "p_ni": 0.0003340971500440929,
+   "noninferior": true,
+   "p_cheaper": 0.9999999999999997,
+   "cheaper": false,
+   "cost_arm": 0.012950495044000001,
+   "cost_ref": 0.009803186279999999,
+   "savings": -0.3210495724661475,
+   "savings_ci": [
+    -0.3964526278437006,
+    -0.25291229551268074
+   ],
+   "latency_saving_s": -2.155297358211974,
+   "llm_calls_avoided": -2.33,
+   "coverage": {
+    "s1_decisions_executed": 1639
+   },
+   "delegating": true,
+   "fate": "not qualified: not cheaper"
+  },
+  {
+   "system2": "gemini-3.5-flash-lite",
+   "group": "reflection",
+   "arm": "jev_reflect_trigger_s2lite",
+   "run": "E2c",
+   "config": "baselines_jevgym.yaml",
+   "reference": "llm_only_s2lite",
+   "authority_rank": 3.0,
+   "qualifies": false,
+   "setting": {
+    "reflection": {
+     "mode": "trigger",
+     "tau": 0.5
+    }
+   },
+   "n_expected": 500,
+   "n_pairs": 500,
+   "n_dropped": 0,
+   "status_arm": {
+    "ok": 500,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "status_ref": {
+    "ok": 500,
+    "errored": 0,
+    "retry_pending": 0,
+    "missing": 0,
+    "incomplete": 0
+   },
+   "complete": true,
+   "ni": {
+    "n": 500,
+    "wins": 39,
+    "losses": 30,
+    "diff": 0.018,
+    "ci95": [
+     -0.016,
+     0.048049999999999725
+    ],
+    "p_decisive": 0.0024127561037745743,
+    "rule": "bb_ordered",
+    "ni_95": true,
+    "success_ref": 0.812,
+    "success_arm": 0.83,
+    "mde": 0.011212798634656362
+   },
+   "p_ni": 0.0024127561037745743,
+   "noninferior": true,
+   "p_cheaper": 0.9085225332534218,
+   "cheaper": false,
+   "cost_arm": 0.009914041536000002,
+   "cost_ref": 0.009731122039999998,
+   "savings": -0.01879736943469701,
+   "savings_ci": [
+    -0.0507061249107746,
+    -0.0005112237585955272
+   ],
+   "latency_saving_s": -2.455610840680055,
+   "llm_calls_avoided": -1.034,
+   "coverage": {
+    "s1_decisions_executed": 3310
+   },
+   "delegating": true,
+   "fate": "not qualified: not cheaper"
+  }
+ ],
+ "system2": {
+  "gemini-3.5-flash": {
+   "groups": {
+    "tool": {
+     "arm": "jev_ts_cascade_tauhat",
+     "reason": "the only qualifying candidate within 2 pt of the best saving (A7.1 (e) 2)",
+     "candidates": [
+      "jev_ts_cascade_tauhat",
+      "jev_ts_assist_k5",
+      "jev_ts_assist_k3",
+      "jev_ts_guard",
+      "jev_ts_replace",
+      "jev_ts_params_replace"
+     ]
+    },
+    "stop": {
+     "arm": null,
+     "reason": "no qualifying candidate: the group stays with the LLM (A7.1 (e) 1)",
+     "candidates": [
+      "jev_stop_guard",
+      "jev_stop_trigger"
+     ]
+    },
+    "reflection": {
+     "arm": "jev_reflect_trigger",
+     "reason": "the only qualifying candidate within 2 pt of the best saving (A7.1 (e) 2)",
+     "candidates": [
+      "jev_reflect_trigger"
+     ]
+    },
+    "routing": {
+     "arm": null,
+     "reason": "no qualifying candidate: the group stays with the LLM (A7.1 (e) 1)",
+     "candidates": [
+      "jev_route_tau0.4"
+     ]
+    },
+    "memory": {
+     "arm": null,
+     "reason": "no qualifying candidate: the group stays with the LLM (A7.1 (e) 1)",
+     "candidates": [
+      "jev_mem"
+     ]
+    },
+    "action": {
+     "arm": null,
+     "reason": "no qualifying candidate: the group stays with the LLM (A7.1 (e) 1)",
+     "candidates": [
+      "jev_action_assist_k3",
+      "jev_action_replace"
+     ]
+    }
+   },
+   "decision_points": {
+    "tool_select": {
+     "mode": "cascade",
+     "tau": 1.0
+    },
+    "tool_params": {
+     "mode": "cascade",
+     "tau": 0.99
+    },
+    "reflection": {
+     "mode": "trigger",
+     "tau": 0.5
+    }
+   },
+   "best_single_original": "jev_ts_cascade_tauhat",
+   "best_single": "jev_ts_cascade_tauhat",
+   "best_single_group": "tool",
+   "active_jevgym_groups": [
+    "reflection",
+    "tool"
+   ]
+  },
+  "gemini-3.5-flash-lite": {
+   "groups": {
+    "tool": {
+     "arm": null,
+     "reason": "no qualifying candidate: the group stays with the LLM (A7.1 (e) 1)",
+     "candidates": [
+      "jev_ts_cascade_tau0.9_s2lite",
+      "jev_ts_assist_k3_s2lite",
+      "jev_ts_guard_s2lite"
+     ]
+    },
+    "stop": {
+     "arm": null,
+     "reason": "no qualifying candidate: the group stays with the LLM (A7.1 (e) 1)",
+     "candidates": [
+      "jev_stop_guard_s2lite"
+     ]
+    },
+    "reflection": {
+     "arm": null,
+     "reason": "no qualifying candidate: the group stays with the LLM (A7.1 (e) 1)",
+     "candidates": [
+      "jev_reflect_trigger_s2lite"
+     ]
+    },
+    "routing": {
+     "arm": null,
+     "reason": "no qualifying candidate: the group stays with the LLM (A7.1 (e) 1)",
+     "candidates": []
+    },
+    "memory": {
+     "arm": null,
+     "reason": "no qualifying candidate: the group stays with the LLM (A7.1 (e) 1)",
+     "candidates": []
+    },
+    "action": {
+     "arm": null,
+     "reason": "no qualifying candidate: the group stays with the LLM (A7.1 (e) 1)",
+     "candidates": []
+    }
+   },
+   "decision_points": {},
+   "best_single_original": null,
+   "best_single": null,
+   "best_single_group": null,
+   "active_jevgym_groups": []
+  }
+ },
+ "meta": {
+  "generated": "2026-10-03T06:28:20+00:00",
+  "git": "cdd78765ae7c361bc91e7b46c769e25c2fe923f4",
+  "rule": "docs/PREREG_A7_STAGE2.md A7.1",
+  "runs": {
+   "E2a": "runs/e2a_jevgym_tool_decisions",
+   "E2b": "runs/e2b_jevgym_meta_control",
+   "E2c": "runs/e2c_jevgym_baselines",
+   "E6": "runs/e6_alfworld_action_only"
+  },
+  "marks": []
+ },
+ "flags": [],
+ "provenance": {
+  "E2a": {
+   "dir": "runs/e2a_jevgym_tool_decisions",
+   "arms": {
+    "jev_ts_cascade_tauhat": {
+     "path": "runs/e2a_jevgym_tool_decisions/jev_ts_cascade_tauhat.jsonl",
+     "sha256": "752dd92afc9e01a5d0c5693be17f40b2a65cb59ab80f97007d1b323b0dbd7909",
+     "n_records": 500,
+     "n_episodes": 500,
+     "partial_lines": 0,
+     "s2_model": "gemini-3.5-flash"
+    },
+    "llm_only": {
+     "path": "runs/e2a_jevgym_tool_decisions/llm_only.jsonl",
+     "sha256": "14d2c35fc9f1d2849482a11acc6d4574637b1b41643b8d3e06977a2376209a22",
+     "n_records": 500,
+     "n_episodes": 500,
+     "partial_lines": 0,
+     "s2_model": "gemini-3.5-flash"
+    },
+    "jev_ts_assist_k5": {
+     "path": "runs/e2a_jevgym_tool_decisions/jev_ts_assist_k5.jsonl",
+     "sha256": "d71dbfaacd5bc8b7f7e4fd0c5320ca687391be6b7329bcb05366dfa322d70e82",
+     "n_records": 200,
+     "n_episodes": 200,
+     "partial_lines": 0,
+     "s2_model": "gemini-3.5-flash"
+    },
+    "jev_ts_assist_k3": {
+     "path": "runs/e2a_jevgym_tool_decisions/jev_ts_assist_k3.jsonl",
+     "sha256": "9065c8675fedc24253051aa115f82779ba18b868af206d85f315ea93f54269fd",
+     "n_records": 500,
+     "n_episodes": 500,
+     "partial_lines": 0,
+     "s2_model": "gemini-3.5-flash"
+    },
+    "jev_ts_guard": {
+     "path": "runs/e2a_jevgym_tool_decisions/jev_ts_guard.jsonl",
+     "sha256": "ac9567ef11cc6465c710505c72d137e8c6cdee060182eb8cbcbad99d28539448",
+     "n_records": 200,
+     "n_episodes": 200,
+     "partial_lines": 0,
+     "s2_model": "gemini-3.5-flash"
+    },
+    "jev_ts_replace": {
+     "path": "runs/e2a_jevgym_tool_decisions/jev_ts_replace.jsonl",
+     "sha256": "13a3743485e57a0d2c03ae8122e4fb7454d29d14271eb4ae0a5c2b51b6df8982",
+     "n_records": 200,
+     "n_episodes": 200,
+     "partial_lines": 0,
+     "s2_model": "gemini-3.5-flash"
+    },
+    "jev_ts_params_replace": {
+     "path": "runs/e2a_jevgym_tool_decisions/jev_ts_params_replace.jsonl",
+     "sha256": "d245d3b529bdc6be31593d4adc47ae04fb50d76eca773fb6cbf951aec93949e0",
+     "n_records": 200,
+     "n_episodes": 200,
+     "partial_lines": 0,
+     "s2_model": "gemini-3.5-flash"
+    },
+    "jev_ts_cascade_tau0.9_s2lite": {
+     "path": "runs/e2a_jevgym_tool_decisions/jev_ts_cascade_tau0.9_s2lite.jsonl",
+     "sha256": "37a604be802b30208fe1fb3f590f36e3260434ea5aef60131b573c7d6e63f436",
+     "n_records": 500,
+     "n_episodes": 500,
+     "partial_lines": 0,
+     "s2_model": "gemini-3.5-flash-lite"
+    },
+    "llm_only_s2lite": {
+     "path": "runs/e2a_jevgym_tool_decisions/llm_only_s2lite.jsonl",
+     "sha256": "1f98ab49eebdc9de268b1e4bbb8de6d18565e4509451968656c920301d7fe7c3",
+     "n_records": 500,
+     "n_episodes": 500,
+     "partial_lines": 0,
+     "s2_model": "gemini-3.5-flash-lite"
+    },
+    "jev_ts_assist_k3_s2lite": {
+     "path": "runs/e2a_jevgym_tool_decisions/jev_ts_assist_k3_s2lite.jsonl",
+     "sha256": "d98f2bf7390be4594674a164deeef93a870be139c3e18a7d3782c071740fa1de",
+     "n_records": 500,
+     "n_episodes": 500,
+     "partial_lines": 0,
+     "s2_model": "gemini-3.5-flash-lite"
+    },
+    "jev_ts_guard_s2lite": {
+     "path": "runs/e2a_jevgym_tool_decisions/jev_ts_guard_s2lite.jsonl",
+     "sha256": "19cfdc1183cf21d51bda524f063897604fa60d7a2f4e7f8c4b0fcc03bd8e4af1",
+     "n_records": 200,
+     "n_episodes": 200,
+     "partial_lines": 0,
+     "s2_model": "gemini-3.5-flash-lite"
+    }
+   }
+  },
+  "E2b": {
+   "dir": "runs/e2b_jevgym_meta_control",
+   "arms": {
+    "jev_stop_guard": {
+     "path": "runs/e2b_jevgym_meta_control/jev_stop_guard.jsonl",
+     "sha256": "ae755cc7cfffa9b4c018d69ee8518147370b035fe4a170d7a2cab319908d6d96",
+     "n_records": 500,
+     "n_episodes": 500,
+     "partial_lines": 0,
+     "s2_model": "gemini-3.5-flash"
+    },
+    "llm_only": {
+     "path": "runs/e2b_jevgym_meta_control/llm_only.jsonl",
+     "sha256": "632ab45cc7ad833c11bd6ab21663bc2fba70e97da4661f766396823919b4dd20",
+     "n_records": 500,
+     "n_episodes": 500,
+     "partial_lines": 0,
+     "s2_model": "gemini-3.5-flash"
+    },
+    "jev_stop_trigger": {
+     "path": "runs/e2b_jevgym_meta_control/jev_stop_trigger.jsonl",
+     "sha256": "67028e3f764b2e14acb2fb205fb671ed853e92eefbf7d0d13a02ff6725a273fa",
+     "n_records": 200,
+     "n_episodes": 200,
+     "partial_lines": 0,
+     "s2_model": "gemini-3.5-flash"
+    },
+    "jev_reflect_trigger": {
+     "path": "runs/e2b_jevgym_meta_control/jev_reflect_trigger.jsonl",
+     "sha256": "b5fb53077f54977b5f0810f35263ac31acc53ca4b21d7b3b2f5e529cadfb2aa6",
+     "n_records": 200,
+     "n_episodes": 200,
+     "partial_lines": 0,
+     "s2_model": "gemini-3.5-flash"
+    },
+    "jev_route_tau0.4": {
+     "path": "runs/e2b_jevgym_meta_control/jev_route_tau0.4.jsonl",
+     "sha256": "3e63174d0ed6a92de7a4bc2c4a9f55c59d8629058128fde53032cd9144f8920b",
+     "n_records": 500,
+     "n_episodes": 500,
+     "partial_lines": 0,
+     "s2_model": "gemini-3.5-flash"
+    },
+    "jev_mem": {
+     "path": "runs/e2b_jevgym_meta_control/jev_mem.jsonl",
+     "sha256": "cb49d6cf5b22b315ac71aa16f4b0d0063a57b56a7b7dcfa705c3c7efb582ba49",
+     "n_records": 200,
+     "n_episodes": 200,
+     "partial_lines": 0,
+     "s2_model": "gemini-3.5-flash"
+    },
+    "jev_stop_guard_s2lite": {
+     "path": "runs/e2b_jevgym_meta_control/jev_stop_guard_s2lite.jsonl",
+     "sha256": "d9e853e54ef99435529482a8f472dde506a70adfc2f3677181958b7d1b9ced24",
+     "n_records": 500,
+     "n_episodes": 500,
+     "partial_lines": 0,
+     "s2_model": "gemini-3.5-flash-lite"
+    },
+    "llm_only_s2lite": {
+     "path": "runs/e2b_jevgym_meta_control/llm_only_s2lite.jsonl",
+     "sha256": "3b7e8b91a70d1e05d252de5eb891954ecba77df0bae52a58d12fa30024a4a8dc",
+     "n_records": 500,
+     "n_episodes": 500,
+     "partial_lines": 0,
+     "s2_model": "gemini-3.5-flash-lite"
+    }
+   }
+  },
+  "E2c": {
+   "dir": "runs/e2c_jevgym_baselines",
+   "arms": {
+    "jev_reflect_trigger_s2lite": {
+     "path": "runs/e2c_jevgym_baselines/jev_reflect_trigger_s2lite.jsonl",
+     "sha256": "044c0d35a44050e14d5445c16336100c2aca3b31fc353d6ca97ddf6324156b5e",
+     "n_records": 500,
+     "n_episodes": 500,
+     "partial_lines": 0,
+     "s2_model": "gemini-3.5-flash-lite"
+    },
+    "llm_only_s2lite": {
+     "path": "runs/e2c_jevgym_baselines/llm_only_s2lite.jsonl",
+     "sha256": "f4113dbe470de9be51ba36a5108729f1ea37e3b6525490b62fbcba0b49f0ec44",
+     "n_records": 500,
+     "n_episodes": 500,
+     "partial_lines": 0,
+     "s2_model": "gemini-3.5-flash-lite"
+    }
+   }
+  }
+ },
+ "profile": {
+  "kind": "jevagent_profile",
+  "version": 1,
+  "name": "jevagent_best",
+  "status": "selected",
+  "description": "Selected per decision-point group from the Stage-1 main-run results by the rule of docs/PREREG_A7_STAGE2.md A7.1 (scripts/select_profile.py); see results/stage2/profile_selection.json for every candidate's statistics.",
+  "selection": {
+   "generated": "2026-10-03T06:28:20+00:00",
+   "git": "cdd78765ae7c361bc91e7b46c769e25c2fe923f4",
+   "rule": "docs/PREREG_A7_STAGE2.md A7.1",
+   "runs": {
+    "E2a": "runs/e2a_jevgym_tool_decisions",
+    "E2b": "runs/e2b_jevgym_meta_control",
+    "E2c": "runs/e2c_jevgym_baselines",
+    "E6": "runs/e6_alfworld_action_only"
+   },
+   "errors": 0
+  },
+  "system2": {
+   "gemini-3.5-flash": {
+    "decision_points": {
+     "tool_select": {
+      "mode": "cascade",
+      "tau": 1.0
+     },
+     "tool_params": {
+      "mode": "cascade",
+      "tau": 0.99
+     },
+     "reflection": {
+      "mode": "trigger",
+      "tau": 0.5
+     }
+    },
+    "groups": {
+     "tool": "jev_ts_cascade_tauhat",
+     "stop": null,
+     "reflection": "jev_reflect_trigger",
+     "routing": null,
+     "memory": null,
+     "action": null
+    },
+    "best_single": {
+     "group": "tool",
+     "arm": "jev_ts_cascade_tauhat",
+     "decision_points": {
+      "tool_select": {
+       "mode": "cascade",
+       "tau": 1.0
+      },
+      "tool_params": {
+       "mode": "cascade",
+       "tau": 0.99
+      }
+     },
+     "stage1": {
+      "savings": 0.14184199927022678,
+      "p_ni": 0.00010024314737847021,
+      "p_cheaper": 5.447570932429587e-53,
+      "n_pairs": 500
+     },
+     "original_candidate": {
+      "arm": "jev_ts_cascade_tauhat",
+      "decision_points": {
+       "tool_select": {
+        "mode": "cascade",
+        "tau": 1.0
+       },
+       "tool_params": {
+        "mode": "cascade",
+        "tau": 0.99
+       }
+      },
+      "stage1": {
+       "savings": 0.14184199927022678,
+       "p_ni": 0.00010024314737847021,
+       "p_cheaper": 5.447570932429587e-53,
+       "n_pairs": 500
+      }
+     }
+    },
+    "logo": {
+     "reflection": "configuration-identical to best_single (the profile without reflection is tool alone): its first 200 tasks are reused (A7.11 (c))",
+     "tool": null
+    },
+    "backends": {
+     "jevagent_rl": {
+      "tool_select": {
+       "calibration": "pending"
+      },
+      "tool_params": {
+       "calibration": "pending"
+      }
+     },
+     "startlux_4b": {
+      "tool_select": {
+       "calibration": "pending"
+      },
+      "tool_params": {
+       "calibration": "pending"
+      }
+     }
+    },
+    "alfworld": {
+     "decision_points": {
+      "reflection": {
+       "mode": "trigger",
+       "tau": 0.5
+      }
+     }
+    }
+   },
+   "gemini-3.5-flash-lite": {
+    "decision_points": {},
+    "groups": {
+     "tool": null,
+     "stop": null,
+     "reflection": null,
+     "routing": null,
+     "memory": null,
+     "action": null
+    },
+    "skip": "not tested (no decision point qualified in Stage 1; the best-practice profile is LLM-only) -- A7.1 (g) 5",
+    "best_single": {
+     "skip": "no qualifying candidate (A7.1 (g) 5)"
+    },
+    "alfworld": {
+     "skip": "the profile's ALFWorld rendering delegates no decision point (A7.1 (i)); S2-L3b is not run"
+    }
+   }
+  }
+ }
+}

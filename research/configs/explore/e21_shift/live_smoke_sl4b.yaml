@@ -1,0 +1,38 @@
+# Exploratory row E21, addendum "E21 addendum: shift live rows for every model" (docs/PREREG_A7_STAGE2.md, Deviations
+# 2026-10-09; descriptive, outside every Holm table). Smoke of the sl4b live row on 2 development tasks (seeds 339018-339019, never reported).
+# As E21 (e): the Stage-2 block with `shift: true`, Flash on the direct Gemini API (temperature 0, minimal reasoning),
+# REPLACE at the tool choice, the model served as for its E21 L2 replay (backends.yaml), a new System-1 cache.
+# On the E21 GPU host (scripts/aws/e21_shift.sh stage l_sl4b); the Gemini key from SSM into the live process only.
+name: e21_live_smoke_sl4b
+suite:
+  name: jevgym
+  shift: true
+  n: 2
+  seed0: 339018
+  families: v2
+  distractor_style: near
+  n_distractors: 60
+  noise_lines: 20
+  strict: true
+n_tasks: 2
+llm:
+  provider: gemini
+  model: gemini-3.5-flash
+  temperature: 0
+  reasoning_effort: minimal
+s1_cache: cache/s1_e21_live_smoke_sl4b.sqlite
+s1_backends:
+  sl4b:
+    type: jev
+    name: startlux-4b
+    base_url: http://127.0.0.1:8090
+    model: StartLux-Decision-4B
+    api_key: ''
+    price_model: StartLux-Decision-4B
+    timeout: 60.0
+workers: 2
+arms:
+- name: sl4b_ts_replace_f
+  s1: sl4b
+  tool_select:
+    mode: replace

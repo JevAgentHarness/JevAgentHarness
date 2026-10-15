@@ -1,0 +1,28 @@
+{
+ "registered": "PREREG_A7_STAGE2 Deviations 2026-10-08 'E21' (d) 3 / (d) 5",
+ "variant": "nosurf",
+ "backend": {
+  "backend": "intern_decision",
+  "model": "internlm/Intern-Decision-4B",
+  "dtype": "bfloat16",
+  "device": "cuda",
+  "max_length": 8192,
+  "temperature": 1.99241824,
+  "batch": false,
+  "batched_questions": true,
+  "max_questions_per_request": 16,
+  "max_options": 62,
+  "truncate_state": true,
+  "state_json": true,
+  "shared_weights": false,
+  "cached": true
+ },
+ "cache": "cache/s1_e21_intern_nosurf.sqlite",
+ "workers": 1,
+ "order": "sorted question hash, sharded over workers",
+ "batching": "one question per request (the harness tournament for Choices wider than the backend's max_options)",
+ "retries": 2,
+ "n_questions": 1093,
+ "resumed_with": 0,
+ "written": "2026-10-08T20:55:32+00:00"
+}

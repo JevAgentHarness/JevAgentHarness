@@ -1,0 +1,78 @@
+{
+ "registered": "PREREG_A7_STAGE2 Deviations 2026-10-08 'E17 and E18' (c) 3",
+ "features": [
+  "1",
+  "log10(1 - p1) clipped at -15",
+  "1[tool choice]",
+  "ln(n options)"
+ ],
+ "rule": "defer iff P(d=1|x) > k_dp; served confidence = 1 - P, tau = 1 - k",
+ "k": {
+  "tool_select": 0.0058322,
+  "tool_params": 0.0034651068524096384
+ },
+ "fit": {
+  "weights": [
+   3.398634737148808,
+   1.2891355874699166,
+   0.3289306209858388,
+   -1.0769827061634323
+  ],
+  "lambda": 1.0,
+  "iterations": 9,
+  "loss": 54.872634923642494,
+  "log_loss_mean": 0.0217723832412569,
+  "n": 2453,
+  "positives": 15,
+  "p_mean": 0.0061149612719203035,
+  "p_positives_mean": 0.2907129905189626
+ },
+ "weights": [
+  3.398634737148808,
+  1.2891355874699166,
+  0.3289306209858388,
+  -1.0769827061634323
+ ],
+ "by_dp": {
+  "tool_select": {
+   "n": 1125,
+   "positives": 3,
+   "k": 0.0058322,
+   "llm_right": 1125,
+   "ref_right": 1122,
+   "deferred_in_sample": 3,
+   "coverage_in_sample": 0.9973333333333333,
+   "p_quantiles": {
+    "0.05": 0.002015252965410386,
+    "0.5": 0.002015252965476572,
+    "0.95": 0.0021127101817873524,
+    "0.99": 0.0023186684739430544
+   },
+   "positives_deferred": 2
+  },
+  "tool_params": {
+   "n": 1328,
+   "positives": 12,
+   "k": 0.0034651068524096384,
+   "llm_right": 1244,
+   "ref_right": 1313,
+   "deferred_in_sample": 645,
+   "coverage_in_sample": 0.5143072289156627,
+   "p_quantiles": {
+    "0.05": 0.0016748774303546223,
+    "0.5": 0.0033103660253844,
+    "0.95": 0.006164976634312454,
+    "0.99": 0.11425667416878543
+   },
+   "positives_deferred": 11
+  }
+ },
+ "sources": {
+  "shadow_arm": "runs/e2a_jevgym_shadow_cal_rl/rl_shadow_cal.jsonl",
+  "shadow_arm_sha256": "3dcb4b8fb863766eeead37f052c6647337d859262f9f36e739bc6b9802a6c198",
+  "ref_answers": "results/explore/e14_small/records/cal/answers_e14a.jsonl.gz",
+  "ref_answers_sha256": "6f9f191b723a2712a3fc5fe56206467cf13b05939abeb763b9bc0bfeeab38b4e",
+  "fitted_utc": "2026-10-08T05:23:59+00:00",
+  "label": "exploratory (E17, E18), descriptive; PREREG_A7_STAGE2 Deviations 2026-10-08 'E17 and E18: read-out ablation and a deferral-aware objective'; outside every Holm table"
+ }
+}

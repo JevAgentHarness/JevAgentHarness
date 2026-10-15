@@ -1,0 +1,7 @@
+step E2a_intern (resumed)
+reason the 600-min budget guard of gpu_round4_main.sh stopped the box in pass 1 (about 2026-10-03T03:11Z)
+resumed 2026-10-03T04:19:15Z
+commit  (unchanged checkout; no bundle pulled)
+plan sha256 9a2182aa2a975e85
+cut final lines dropped: none
+runs resume by task id; passes 1-3 follow as registered

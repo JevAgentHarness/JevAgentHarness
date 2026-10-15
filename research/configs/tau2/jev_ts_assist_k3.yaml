@@ -1,0 +1,5 @@
+# tau2 arm: Jev prunes the tool list to its top-3 (the LLM still decides, and can always reply in text).
+name: jev_ts_assist_k3
+tool_select: {mode: assist, k: 3}
+s1: {type: jev, provider: openrouter}   # A6.20: the same pinned Jev endpoint as E2 (configs/experiments)
+s1_cache: cache/s1_tau2.sqlite

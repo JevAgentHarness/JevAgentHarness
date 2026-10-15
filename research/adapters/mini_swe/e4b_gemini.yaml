@@ -1,0 +1,29 @@
+# Overlay for swebench_jev.yaml: exploratory row E4b (docs/PREREG_A7_STAGE2.md, Deviations 2026-10-05) -- per-step
+# routing on mini-SWE-agent 2.4.6 where BOTH paths are the same model, so the prompt cache survives a switch:
+#
+#   deep path (System 2): gemini/gemini-3.8-flash, thinkingLevel high
+#   fast path:            gemini/gemini-3.8-flash, thinkingLevel low   (the model rejects "minimal": HTTP 400,
+#                                                                      "Thinking level MINIMAL is not supported")
+#
+# Direct Gemini API through litellm (GEMINI_API_KEY), as in H5; litellm 1.82.6 prices gemini-3.8-flash itself
+# ($0.75 / $3.75 per M input / output, = Google's pricing page on 2026-10-05, intro price through 2026-12-31), so
+# agent.cost_limit binds on the real spend. Verified 2026-10-05 23:46 UTC with one tiny call per level: high -> 1,011
+# reasoning tokens, low -> 281 on the same prompt; tool calls work at both levels. Caps: 250 steps (H5) and $1.50 per
+# instance = H5's $3 scaled by the input-price ratio to H5's Gemini 3.5 Flash (0.75 / 1.50 x $3), as in E4.
+# List AFTER the base config and s1_jev_openrouter.yaml; scripts/explore_e4_swe.py --exp e4b builds every arm.
+agent:
+  cost_limit: 1.50
+
+model:
+  model_name: "gemini/gemini-3.8-flash"
+  model_kwargs:
+    thinkingConfig: {thinkingLevel: high}
+
+jev:
+  cheap_model:                      # routing target: the SAME model, thinking low
+    model_name: "gemini/gemini-3.8-flash"
+    model_kwargs:
+      thinkingConfig: {thinkingLevel: low}
+  arms:
+    llm_only: {}
+    jevagent: {routing: {mode: trigger, tau: 0.5, extra: {first_n_strong: 0}}}

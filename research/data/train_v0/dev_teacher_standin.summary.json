@@ -1,0 +1,56 @@
+{
+ "n_in": 210,
+ "n_valid": 210,
+ "teachers": {
+  "lite": {
+   "spec": {
+    "type": "llm_generative",
+    "llm": {
+     "provider": "gemini",
+     "model": "gemini-3.5-flash-lite"
+    },
+    "reasoning_effort": "minimal"
+   },
+   "answered": 210,
+   "with_gold": 210,
+   "acc": 0.919047619047619,
+   "nll": 1.0706951712813644,
+   "ece": 0.08307485928575264,
+   "skipped": {},
+   "ledger": {
+    "calls": 62,
+    "calls_fresh": 62,
+    "input_tokens": 129364,
+    "output_tokens": 37176,
+    "cost_usd": 0.13174920000000004,
+    "cost_usd_fresh": 0.13174920000000004,
+    "latency_ms_sum": 113399.47329700002,
+    "unpriced_models": []
+   }
+  }
+ },
+ "n_out": 210,
+ "outcomes": {
+  "kept": 210
+ },
+ "config": {
+  "alpha": 0.3,
+  "min_agree": 1,
+  "min_conf": 0.0,
+  "pool": "mean",
+  "temperature": 1.0,
+  "gold_filter": "keep",
+  "on_disagree": "gold",
+  "weights": {},
+  "mc_beta": null
+ },
+ "target_metrics": {
+  "answered": 210,
+  "with_gold": 0,
+  "acc": null,
+  "nll": null,
+  "ece": null
+ },
+ "cost_usd_fresh": 0.13174920000000004,
+ "wall_s": 15.954161358999954
+}
