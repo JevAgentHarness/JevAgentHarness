@@ -12,10 +12,11 @@ the strong one. Same results, a fraction of the bill.**
 ![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)
 ![Status: alpha](https://img.shields.io/badge/status-alpha-orange)
 [![Paper](https://img.shields.io/badge/paper-PDF-b31b1b)](paper/JevAgentHarness.pdf)
+[![Hugging Face](https://img.shields.io/badge/Hugging%20Face-models%20%26%20data-FFD21E?logo=huggingface&logoColor=black)](https://huggingface.co/JevAgentHarness)
 
 [Results](#results) · [Quickstart](#quickstart) · [Harnesses](#connect-your-harness) · [How it works](#how-routing-works) ·
-[Decision points](#decision-points-and-modes) · [Reproduce](bench/README.md) · [Paper (PDF)](paper/JevAgentHarness.pdf) ·
-[Citation](#citation)
+[Decision points](#decision-points-and-modes) · [Reproduce](bench/README.md) · [Models and data](#models-and-data) ·
+[Paper (PDF)](paper/JevAgentHarness.pdf) · [Citation](#citation)
 
 </div>
 
@@ -386,6 +387,25 @@ DecisionGym), the harness with fitted thresholds, the registered Stage-1 and Sta
 AgentDecision-4B and -0.8B, and the appendix experiments, with their configurations, registrations and result
 summaries. [`research/README.md`](research/README.md) maps each section, table and figure of the paper to the commands
 that produce it, with the keys, hardware and cost each one needs.
+
+## Models and data
+
+The paper's decision models and datasets are on Hugging Face under
+[JevAgentHarness](https://huggingface.co/JevAgentHarness).
+
+| Name | What it is | Licence |
+|---|---|---|
+| [AgentDecision-4B](https://huggingface.co/JevAgentHarness/AgentDecision-4B) | The paper's decision model. A LoRA adapter on Qwen3-4B, trained on agent states and public tool-use data. | CC BY-NC 4.0 |
+| [AgentDecision-4B-v1](https://huggingface.co/JevAgentHarness/AgentDecision-4B-v1) | The checkpoint frozen before the registered Stage-2 tests (SFT and GRPO, no public data). | CC BY-NC 4.0 |
+| [AgentDecision-0.8B](https://huggingface.co/JevAgentHarness/AgentDecision-0.8B) | The same recipe on StartLux-Decision-0.8B. Its base is non-commercial. | CC BY-NC 4.0 |
+| [AgentDecisionBench](https://huggingface.co/datasets/JevAgentHarness/AgentDecisionBench) | The benchmark: step-level questions with answer keys, every model's answers, the task lists and the paper's numbers. | CC BY 4.0 |
+| [AgentDecision-train](https://huggingface.co/datasets/JevAgentHarness/AgentDecision-train) | The training data: agent states with Jev's soft labels and gold labels. | CC BY-NC 4.0 |
+| [coding-agent-decisions](https://huggingface.co/datasets/JevAgentHarness/coding-agent-decisions) | The proxy's logs on Terminal-Bench 2.0: the decision model's input, p(hard), route, cost and outcome per step. | CC BY-NC 4.0 |
+
+The models answer in the Jev wire format. Serve one with the research code (`jevharness.training.serve_jev`) and set
+`router.decision` to `{type: jev, provider: local, base_url: "http://127.0.0.1:8090", model: agentdecision-4b}`.
+They were trained on DecisionGym's customer-service states, not on coding agents. Run them with `--preset shadow` and
+fit the thresholds with `jah fit` before you rely on them. Each model card has the details.
 
 ## Citation
 

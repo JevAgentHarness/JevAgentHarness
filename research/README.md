@@ -8,6 +8,14 @@ registered Stage-1 and Stage-2 studies, the training of AgentDecision-4B and -0.
 The routing proxy in the top level of this repository (`jah`, see [../README.md](../README.md)) is a separate,
 smaller package. You do not need this folder to use it.
 
+The trained models and the data are on Hugging Face under [JevAgentHarness](https://huggingface.co/JevAgentHarness):
+the models [AgentDecision-4B](https://huggingface.co/JevAgentHarness/AgentDecision-4B) (`e12`),
+[AgentDecision-4B-v1](https://huggingface.co/JevAgentHarness/AgentDecision-4B-v1) (`rl`, the frozen JevAgentRL-4B) and
+[AgentDecision-0.8B](https://huggingface.co/JevAgentHarness/AgentDecision-0.8B) (`e28`), and the datasets
+[AgentDecisionBench](https://huggingface.co/datasets/JevAgentHarness/AgentDecisionBench),
+[AgentDecision-train](https://huggingface.co/datasets/JevAgentHarness/AgentDecision-train) and
+[coding-agent-decisions](https://huggingface.co/datasets/JevAgentHarness/coding-agent-decisions).
+
 ## Names in the paper and in the code
 
 The code keeps the names it had while the study ran. The paper uses newer names.
@@ -49,7 +57,8 @@ research/
 ```
 
 Not included: raw run records and trajectories (`runs/`, several GB), the training data (`data/train_v0`,
-`data/train_v1`: only their manifests are here; `scripts/train/make_data_v*.sh` rebuilds them), model weights,
+`data/train_v1`: only their manifests are here; they are on Hugging Face as AgentDecision-train, and
+`scripts/train/make_data_v*.sh` rebuilds them), model weights (on Hugging Face, see above),
 decision caches, third-party benchmark code and data, and our internal notes. Steps that read raw records are marked
 "needs `runs/`" below.
 
@@ -113,7 +122,9 @@ Nothing below is redistributed here. The loaders fetch pinned versions, or the d
 | Intern-Decision-4B, OpenJev, JevK5 and other baselines | Hugging Face or hosted APIs; specs in `scripts/explore_e15_baselines.py` (`spec --slug ...`) |
 | Jev | commercial API (TypeSafe), also on OpenRouter as `typesafe/jev-1.13` |
 
-Our trained checkpoints (AgentDecision-4B, -0.8B) are not in this folder. Their sha256 records are in
+Our trained checkpoints are on Hugging Face: AgentDecision-4B, AgentDecision-4B-v1 and AgentDecision-0.8B (links
+above). Each repository has the LoRA adapter, the tokenizer, `calibration.json` (for `serve_jev --calibration`) and
+`thresholds.json` (the fitted thresholds with Gemini 3.5 Flash). Their sha256 records are in
 `results/gpu_round5/FREEZE_RECORD.json` and the experiments' summaries.
 
 ## The main tools
