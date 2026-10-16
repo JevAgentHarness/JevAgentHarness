@@ -11,13 +11,14 @@ the strong one. Same results, a fraction of the bill.**
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)
 ![Status: alpha](https://img.shields.io/badge/status-alpha-orange)
-[![Paper](https://img.shields.io/badge/paper-PDF-b31b1b)](paper/JevAgentHarness.pdf)
+[![arXiv](https://img.shields.io/badge/arXiv-2610.21412-b31b1b.svg)](https://arxiv.org/abs/2610.21412)
+[![HF Paper](https://img.shields.io/badge/%F0%9F%A4%97%20Paper-2610.21412-FFD21E)](https://huggingface.co/papers/2610.21412)
 [![Project page](https://img.shields.io/badge/project-page-7C5CFF)](https://jevagentharness.github.io/)
 [![Hugging Face](https://img.shields.io/badge/Hugging%20Face-models%20%26%20data-FFD21E?logo=huggingface&logoColor=black)](https://huggingface.co/JevAgentHarness)
 
 [Project page](https://jevagentharness.github.io/) · [Results](#results) · [Quickstart](#quickstart) · [Harnesses](#connect-your-harness) · [How it works](#how-routing-works) ·
 [Decision points](#decision-points-and-modes) · [Reproduce](bench/README.md) · [Models and data](#models-and-data) ·
-[Paper (PDF)](paper/JevAgentHarness.pdf) · [Citation](#citation)
+[Paper (arXiv)](https://arxiv.org/abs/2610.21412) · [Citation](#citation)
 
 </div>
 
@@ -410,14 +411,18 @@ fit the thresholds with `jah fit` before you rely on them. Each model card has t
 
 ## Citation
 
-The paper is in [`paper/JevAgentHarness.pdf`](paper/JevAgentHarness.pdf). If you use JevAgentHarness, please cite:
+The paper is on [arXiv](https://arxiv.org/abs/2610.21412) ([PDF](https://arxiv.org/pdf/2610.21412), [Hugging Face paper page](https://huggingface.co/papers/2610.21412); a copy is in
+[`paper/JevAgentHarness.pdf`](paper/JevAgentHarness.pdf)). If you use JevAgentHarness, please cite:
 
 ```bibtex
-@article{zhu2026jevagentharness,
-  title   = {JevAgentHarness: Benchmarking, Deploying and Training Decision Models That Share Control with LLMs},
-  author  = {Zhu, Kunlun and Feng, Tao and Han, Xu and Wang, Heng and Yang, Ling and Tang, Xiangru and You, Jiaxuan and Ji, Heng},
-  journal = {arXiv preprint},
-  year    = {2026}
+@misc{zhu2026jevagentharnessbenchmarkingdeployingtraining,
+      title={JevAgentHarness: Benchmarking, Deploying and Training Decision Models That Share Control with LLMs},
+      author={Kunlun Zhu and Tao Feng and Xu Han and Heng Wang and Ling Yang and Xiangru Tang and Jiaxuan You and Heng Ji},
+      year={2026},
+      eprint={2610.21412},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2610.21412},
 }
 ```
 
